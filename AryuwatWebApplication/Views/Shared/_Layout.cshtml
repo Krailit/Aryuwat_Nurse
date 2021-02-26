@@ -1,0 +1,76 @@
+﻿@{
+    ViewBag.Title = "Aryuwat";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/cssHome")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="~/Content/coreui/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Content/coreui/vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+
+</head>
+<body style="font-size: 20px;" class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden hm-sidebar-fixed">
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding: 60px,0,60px,0">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="container">
+                    <div class="row">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active" style="padding-left:50px; padding-right: 50px">
+                                <a class="nav-link" href="#" style="font-size:30px;font-weight:600">Aryuwat <span class="sr-only">(current)</span></a>
+                            </li>
+
+                            <form class="form-inline my-2 my-lg-0" style=" padding-right: 70px">
+                                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="font-size:15px;border-radius: 20px;background-color:rgba(198, 194, 194, 0.50);padding-right: 120px">
+                            </form>
+                        </ul>
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" disable>@HttpContext.Current.Request.Cookies["OPD"]["Username"]</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Content("~/Signin/Index")">Logout</a>
+                            </li>
+                            @*<li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="@Url.Content("~/Signin/Index")" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Sign out
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </li>*@
+                            @*<li class="nav-item">
+                                    <i class="fa fa-seach"></i>
+                                </li>*@
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="app-body hm-app-body">
+            <main class="main hm-main">
+                <div class="container-fluid">
+                    @RenderBody()
+                </div>
+            </main>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>

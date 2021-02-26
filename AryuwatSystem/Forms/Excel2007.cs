@@ -1,0 +1,32 @@
+﻿System.Reflection.AmbiguousMatchException: Ambiguous match found.
+   at System.Windows.Forms.Control.MarshaledInvoke(Control caller, Delegate method, Object[] args, Boolean synchronous)
+   at System.Windows.Forms.Control.Invoke(Delegate method, Object[] args)
+   at ns22.Class269.Class272.Resolve(IAssemblyReference assemblyReference, String localPath)
+   at ns37.Class486.Class487.Resolve(IAssemblyReference assemblyReference, String localPath)
+   at ns2.Class604.Load(IAssemblyReference assemblyReference, String localPath)
+   at Reflector.CodeModel.Memory.AssemblyReference.Resolve()
+   at ns40.Class620.smethod_3(ITypeReference typeReference)
+   at ns11.Class679.Resolve()
+   at ns27.Class131.vmethod_94(IMethodInvokeExpression value)
+   at ns29.Class92.vmethod_55(IExpression value)
+   at ns29.Class92.vmethod_33(IAssignExpression value)
+   at ns29.Class92.vmethod_55(IExpression value)
+   at ns29.Class92.vmethod_34(IExpressionStatement value)
+   at ns29.Class92.vmethod_26(IStatement value)
+   at ns29.Class92.vmethod_51(ILabeledStatement value)
+   at ns29.Class92.vmethod_26(IStatement value)
+   at ns29.Class92.method_10(IStatementCollection value)
+   at ns29.Class92.vmethod_27(IBlockStatement value)
+   at ns29.Class92.vmethod_26(IStatement value)
+   at ns29.Class92.vmethod_7(IMethodDeclaration value)
+   at ns40.Class100.vmethod_7(IMethodDeclaration value)
+   at ns33.Class191.vmethod_7(IMethodDeclaration value)
+   at ns37.Class187.vmethod_7(IMethodDeclaration value)
+   at ns29.Class92.vmethod_142(IMethodDeclarationCollection methods)
+   at ns37.Class187.vmethod_5(ITypeDeclaration value)
+   at ns37.Class188.TranslateTypeDeclaration(ITypeDeclaration value, Boolean memberDeclarationList, Boolean methodDeclarationBody)
+   at ns37.Class486.method_4(ITypeDeclaration typeDeclaration, String sourceFile, ILanguageWriterConfiguration languageWriterConfiguration)
+namespace DermasterSystem.Forms
+{
+}
+

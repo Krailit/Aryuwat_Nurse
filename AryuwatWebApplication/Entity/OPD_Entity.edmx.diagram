@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4de143a728b14c09aa260a84efd0091b" Name="Diagram1">
+        <EntityTypeShape EntityType="OPD_SystemModel.CommissionRate" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.CourseDuration" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.CreditCard" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.FileOPD" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.Master_Room" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.MedicalOrder" Width="1.5" PointX="4.75" PointY="5.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.MedicalSupply" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.MedicalSuppliesStock" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.MemberTran" Width="1.5" PointX="6.75" PointY="7.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.Menu" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.PayInCome" Width="1.5" PointX="8.75" PointY="3.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.PersonnelsCom_bak" Width="1.5" PointX="8.75" PointY="6.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.PersonnelType" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.Prefixbak" Width="1.5" PointX="10.75" PointY="3.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.Promotion" Width="1.5" PointX="10.75" PointY="6.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.Room" Width="1.5" PointX="6.75" PointY="10.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.Room_Detail" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.RoomBookDoctor" Width="1.5" PointX="12.75" PointY="4.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.SupplieTran" Width="1.5" PointX="12.75" PointY="8.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.tblMessage" Width="1.5" PointX="8.75" PointY="12.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.User" Width="1.5" PointX="2.75" PointY="13.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.ActionLog" Width="1.5" PointX="14.75" PointY="0.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.AestheticCenter" Width="1.5" PointX="14.75" PointY="4.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.AgencyDetail" Width="1.5" PointX="4.75" PointY="14.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.AgencyEmpTran" Width="1.5" PointX="14.75" PointY="8.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.AgencyMember" Width="1.5" PointX="14.75" PointY="12.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.AgencyType" Width="1.5" PointX="6.75" PointY="15.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.Barter" Width="1.5" PointX="8.75" PointY="15.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.BodyCenter" Width="1.5" PointX="16.75" PointY="0.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.BOMMaterial" Width="1.5" PointX="16.75" PointY="4.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.Booking" Width="1.5" PointX="16.75" PointY="8.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.BookingDoctor" Width="1.5" PointX="16.75" PointY="16.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.Branch" Width="1.5" PointX="0.75" PointY="17.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.CashCreditCardSOT" Width="1.5" PointX="18.75" PointY="0.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.Conf" Width="1.5" PointX="18.75" PointY="5.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.ContactCustomer" Width="1.5" PointX="18.75" PointY="8.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.CosmeticSurgery" Width="1.5" PointX="10.75" PointY="18.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.Country" Width="1.5" PointX="12.75" PointY="18.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.CustomerConnect" Width="1.5" PointX="18.75" PointY="14.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.CustomerProvider" Width="1.5" PointX="2.75" PointY="19.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.CustomerProvider_bak" Width="1.5" PointX="4.75" PointY="19.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.Customer" Width="1.5" PointX="6.75" PointY="19.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.District" Width="1.5" PointX="18.75" PointY="19.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.ExtraMoney" Width="1.5" PointX="20.75" PointY="0.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.GiftVoucher" Width="1.5" PointX="20.75" PointY="3.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.HairCenter" Width="1.5" PointX="20.75" PointY="8.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.HowYouhear" Width="1.5" PointX="20.75" PointY="12.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.InvoiceTran" Width="1.5" PointX="20.75" PointY="17.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.JobsAlert" Width="1.5" PointX="12.75" PointY="21.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.MedicalOrder_18_03_2019" Width="1.5" PointX="14.75" PointY="21.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.MedicalOrderDoc" Width="1.5" PointX="20.75" PointY="21.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.MedicalOrderFileScanCustomer" Width="1.5" PointX="22.75" PointY="0.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.MedicalOrderFileScanDoctor" Width="1.5" PointX="0.75" PointY="22.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.MedicalOrderMove" Width="1.5" PointX="2.75" PointY="22.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.MedicalOrderMoveTran" Width="1.5" PointX="22.75" PointY="4.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.MedicalOrderUseTran" Width="1.5" PointX="22.75" PointY="7.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.MedicalSection" Width="1.5" PointX="8.75" PointY="22.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.MedicalSetting" Width="1.5" PointX="22.75" PointY="14.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.MedicalStatu" Width="1.5" PointX="16.75" PointY="22.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.MedicalStuff" Width="1.5" PointX="22.75" PointY="17.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.MedicalSuppliesStock_Edit" Width="1.5" PointX="22.75" PointY="22.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.MedicalSuppliesStock_org" Width="1.5" PointX="24.75" PointY="0.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.MemberCard" Width="1.5" PointX="24.75" PointY="7.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.MemberCardsTran" Width="1.5" PointX="24.75" PointY="10.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.PALabel" Width="1.5" PointX="24.75" PointY="13.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.PayByItem" Width="1.5" PointX="24.75" PointY="18.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.Personnel" Width="1.5" PointX="18.75" PointY="24.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.Prefix" Width="1.5" PointX="24.75" PointY="22.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.PrintConf" Width="1.5" PointX="24.75" PointY="25.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.PromotionSupplie" Width="1.5" PointX="26.75" PointY="0.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.PromotionTran" Width="1.5" PointX="26.75" PointY="3.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.Province" Width="1.5" PointX="8.75" PointY="26.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.ReceiptTran" Width="1.5" PointX="26.75" PointY="10.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.Refund" Width="1.5" PointX="10.75" PointY="26.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.RefundMoneyType" Width="1.5" PointX="26.75" PointY="14.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.RefundTran" Width="1.5" PointX="26.75" PointY="17.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.RefundType" Width="1.5" PointX="26.75" PointY="20.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.RefVNTran" Width="1.5" PointX="26.75" PointY="23.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.ServiceRequest" Width="1.5" PointX="0.75" PointY="27.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.SOClose" Width="1.5" PointX="2.75" PointY="27.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.State" Width="1.5" PointX="28.75" PointY="0.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.States_bk" Width="1.5" PointX="28.75" PointY="3.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.StockREQ" Width="1.5" PointX="28.75" PointY="6.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.StockREQTran" Width="1.5" PointX="28.75" PointY="12.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.StockSPQ" Width="1.5" PointX="12.75" PointY="28.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.StockSPQTran" Width="1.5" PointX="14.75" PointY="28.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.StockSuppliesTran" Width="1.5" PointX="28.75" PointY="16.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.StockWH" Width="1.5" PointX="28.75" PointY="22.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.StuffCommission" Width="1.5" PointX="24.75" PointY="28.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.Subdistrict" Width="1.5" PointX="28.75" PointY="25.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.SubListItem" Width="1.5" PointX="26.75" PointY="28.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.SumOfTreatment" Width="1.5" PointX="28.75" PointY="28.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.SupplieTransRenewal" Width="1.5" PointX="20.75" PointY="29.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.SurgeryFee" Width="1.5" PointX="30.75" PointY="0.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.TaxTran" Width="1.5" PointX="30.75" PointY="6.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.Unit" Width="1.5" PointX="30.75" PointY="10.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.UserGroup" Width="1.5" PointX="30.75" PointY="13.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.UserLicence" Width="1.5" PointX="30.75" PointY="16.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.VoucherProduct" Width="1.5" PointX="30.75" PointY="19.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.V_Administrative" Width="1.5" PointX="30.75" PointY="22.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.View_Customer" Width="1.5" PointX="30.75" PointY="26.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.vProductToSOMO" Width="1.5" PointX="2.75" PointY="31.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

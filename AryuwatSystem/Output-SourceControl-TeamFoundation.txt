@@ -1,0 +1,8 @@
+﻿FrmPersonnelSetting.designer.cs, FrmPersonnelSetting.resx, FrmPersonnelSetting.cs have been automatically checked out for editing.
+The item C:\Clinic\SourceCode2\DermasterSystem\DermaSystem.csproj.vspscc could not be found in your workspace, or you do not have permission to access it.
+DermaSystem.csproj have been automatically checked out for editing.
+MenuBar.designer.cs, MenuBar.resx, MenuBar.cs have been automatically checked out for editing.
+FrmMain.cs has been automatically checked out for editing.
+Personnel.cs has been automatically checked out for editing.
+Changeset 212 successfully checked in.
+The item C:\Clinic\SourceCode2\DermasterSystem\DermaSystem.csproj.vspscc could not be found in your workspace, or you do not have permission to access it.

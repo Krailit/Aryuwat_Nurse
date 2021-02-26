@@ -1,0 +1,136 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Aryuwat Signin</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    <style>
+        .login-container {
+            margin-top: 5%;
+            margin-bottom: 5%;
+        }
+
+        .login-form-1 {
+            padding: 5%;
+            box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+        }
+
+            .login-form-1 h3 {
+                text-align: center;
+                color: #333;
+            }
+
+        .login-form-2 {
+            padding: 5%;
+            background: #0062cc;
+            box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+        }
+
+            .login-form-2 h3 {
+                text-align: center;
+                color: #fff;
+            }
+
+        .login-container form {
+            padding: 10%;
+        }
+
+        .btnSubmit {
+            width: 50%;
+            border-radius: 1rem;
+            padding: 1.5%;
+            border: none;
+            cursor: pointer;
+        }
+
+        .login-form-1 .btnSubmit {
+            font-weight: 600;
+            color: #fff;
+            background-color: #0062cc;
+        }
+
+        .login-form-2 .btnSubmit {
+            font-weight: 600;
+            color: #0062cc;
+            background-color: #fff;
+        }
+
+        .login-form-2 .ForgetPwd {
+            color: #fff;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .login-form-1 .ForgetPwd {
+            color: #0062cc;
+            font-weight: 600;
+            text-decoration: none;
+        }
+    </style>
+    <div id="app">
+        <div class="container login-container">
+            <div class="row justify-content-md-center">
+                <div class="col-md-6 login-form-1">
+                    <h3>Welcome to Aryuwat</h3>
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Username" v-model="user"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" placeholder="Password" v-model="pass" />
+                        </div>
+                        <div class="form-group" style="text-align:right">
+                            <a href="#" class="ForgetPwd">Forget Password?</a>
+                        </div>
+                        <div class="form-group">
+                            <input type="button" class="btn btn-info text-center" style="width: 100%; background-color:#0f4a6e;" v-on:click="Login()" value="Login"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/vue.js"></script>
+    <script src="~/Scripts/axios.js"></script>
+    <script>
+        Vue.prototype.$http = axios;
+        var app = new Vue({
+            el: "#app",
+            data: {
+                user: '',
+                pass: '',
+            },
+            mounted: function () {
+
+            },
+            methods: {
+                Login: function () {
+                    var tempdata = {
+                        user: this.user,
+                        pass: this.pass
+                    };
+                    this.$http.post('@Url.Action("Login", "Signin")', {
+                        tempdata: JSON.stringify(tempdata)
+                    }).then(function (response) {
+                        if (response.data.status == 200) {
+                             window.location.href = '@Url.Content("~/Home/Index")';
+                        }
+                        else {
+                            alert('Error ! Please check your username or password')
+                        }
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+</html>

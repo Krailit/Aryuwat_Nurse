@@ -1,0 +1,85 @@
+﻿@using AryuwatWebApplication.Models
+@{
+    ViewBag.Title = "Patient Detail";
+}
+
+<div id="app" style="font-size:34px">
+    <div class="container" style="background-color:#f3f3f3;margin-top: -20px;padding-top: 10px; padding-bottom: 30px">
+        <div class="row">
+            <div class="col-lg-1">
+                <a href="@Url.Content("~/Home/Index")"><i class="fa fa-angle-left"></i></a>
+            </div>
+            <div class="col-lg-11">
+                <u style="font-size:30px; font-weight:600">{{tmpCustomer.Tname + ' ' + tmpCustomer.TsurName}}</u>
+            </div>
+            <div class="col-lg-1">
+            </div>
+            <div class="col-lg-11">
+                <p style="font-size:20px;">CN : {{tmpCustomer.CN}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="background-color:#e6e6e6;">
+        <div class="row color-text" style="margin-top: 5rem;margin-bottom: 5rem;margin-left: 10px;margin-right: 10px;">
+            <div class="col-lg-6">
+                <div class="card" style="margin:20px;height:200px;background-color:white;border-top: 90px solid #C8C8C8;border-radius:10px">
+                    <div class="card-body" style="padding-top:20px">
+                        <h1>A1</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card" style="margin:20px;height:200px;background-color:white;border-top: 90px solid #C8C8C8;border-radius:10px">
+                    <div class="card-body" style="padding-top:20px">
+                        <h1>A2</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card" style="margin:20px;height:200px;background-color:white;border-top: 90px solid #C8C8C8;border-radius:10px;cursor:pointer" v-on:click="AttachfilePatient()">
+                    <div class="card-body" style="padding-top:20px">
+                        <h1>A3 ไฟล์แนบผู้ป่วย</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card" style="margin:20px;height:200px;background-color:white;border-top: 90px solid #C8C8C8;border-radius:10px">
+                    <div class="card-body" style="padding-top:20px">
+                        <h1>A4</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card" style="margin:20px;height:200px;background-color:white;border-top: 90px solid #C8C8C8;border-radius:10px">
+                    <div class="card-body" style="padding-top:20px">
+                        <h1>A5</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/vue.js"></script>
+<script src="~/Scripts/axios.js"></script>
+<script>
+            Vue.prototype.$http = axios;
+            const app = new Vue({
+                el: "#app",
+                data: {
+                    tmpCustomer : @Html.Raw(Json.Encode(@Model)),
+                },
+                mounted: function () {
+                    var that = this;
+                    if (that.tmpCustomer.CN == null) {
+                        window.location.href = '@Url.Content("~/Home/Index")';
+                    }
+                },
+                watch: {
+                },
+                methods: {
+                    AttachfilePatient: function () {
+                        window.location.href = '@Url.Content("~/Home/Attachfile")?customerCN=' + this.tmpCustomer.CN;
+                    },
+                }
+            });
+</script>

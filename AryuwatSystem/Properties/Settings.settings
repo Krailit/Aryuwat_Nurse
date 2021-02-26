@@ -1,0 +1,57 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="DermasterSystem.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="TextBoxBlackColor" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">255, 224, 192</Value>
+    </Setting>
+    <Setting Name="StrVat" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">7</Value>
+    </Setting>
+    <Setting Name="FtpUserName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">anonymous</Value>
+    </Setting>
+    <Setting Name="FtpPassword" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">anonymous@anonymous.net</Value>
+    </Setting>
+    <Setting Name="FtpServer" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">localhost</Value>
+    </Setting>
+    <Setting Name="LocalFilePath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\TempPictures\ClientPictures</Value>
+    </Setting>
+    <Setting Name="FormatDateToFrom" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">d MMM yyyy</Value>
+    </Setting>
+    <Setting Name="AppointStopColor" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">247, 207, 94</Value>
+    </Setting>
+    <Setting Name="AppointColor" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">230, 184, 184</Value>
+    </Setting>
+    <Setting Name="ColorBlackFromQueue" Type="System.String" Scope="User">
+      <Value Profile="(Default)">224, 225, 227</Value>
+    </Setting>
+    <Setting Name="ColorGridHard" Type="System.String" Scope="User">
+      <Value Profile="(Default)">195, 190, 150</Value>
+    </Setting>
+    <Setting Name="colorback" Type="System.String" Scope="User">
+      <Value Profile="(Default)">252, 248, 175</Value>
+    </Setting>
+    <Setting Name="colorbackHearder" Type="System.String" Scope="User">
+      <Value Profile="(Default)">207, 194, 93</Value>
+    </Setting>
+    <Setting Name="PassImagePathServer" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">pSC0BHYlBqDoOgLFZUU89w==</Value>
+    </Setting>
+    <Setting Name="UserImagePathServer" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/w5y67OSOONVPTN26ySf1g==</Value>
+    </Setting>
+    <Setting Name="ImagePathServer" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">pFnEbMjX8Z5pB3dLdfO2ODJOq/r2gb5e</Value>
+    </Setting>
+    <Setting Name="BeforAfterPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">z:\</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

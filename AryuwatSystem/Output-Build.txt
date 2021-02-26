@@ -1,0 +1,538 @@
+﻿BuildVersionIncrement: BuildEvents_OnBuildBegin scope: vsBuildScopeSolution action vsBuildActionBuild
+BuildVersionIncrement: Checking solution item 'DermaSystem'...
+BuildVersionIncrement: Checking project 'DermaSystem'...
+BuildVersionIncrement: File (C:\Clinic\SourceCode2\DermasterSystem\bin\Debug\DermasterSystem.exe) date is read from file
+BuildVersionIncrement:  Project's 'DermaSystem' date is 4/7/2014 11:12:52 AM
+BuildVersionIncrement:  Item's 'App.config' date is 4/6/2014 1:27:18 AM
+BuildVersionIncrement:  Item's 'AForge.Video.DirectShow.dll' date is 9/27/2013 9:37:02 AM
+BuildVersionIncrement:  Item's 'AForge.Video.dll' date is 9/27/2013 9:37:02 AM
+BuildVersionIncrement:  Item's 'BusinessObjectBase.cs' date is 9/24/2013 10:03:15 AM
+BuildVersionIncrement:  Item's 'ciloci.FormulaEngine.dll' date is 11/11/2013 7:20:37 PM
+BuildVersionIncrement:  Item's 'DataObject.cs' date is 9/24/2013 10:03:15 AM
+BuildVersionIncrement:  Item's 'GlacialList.dll' date is 10/16/2013 10:03:43 AM
+BuildVersionIncrement:  Item's 'grammatica-1.5.alpha2.dll' date is 11/11/2013 7:20:37 PM
+BuildVersionIncrement:  Item's 'SqlHelper.cs' date is 3/22/2014 3:21:38 PM
+BuildVersionIncrement:  Item's 'System.Windows.Forms.Calendar.dll' date is 2/16/2014 5:06:52 PM
+BuildVersionIncrement:  Item's 'AestheticCenter.cs' date is 9/24/2013 10:03:15 AM
+BuildVersionIncrement:  Item's 'Agency.cs' date is 4/4/2014 11:11:46 PM
+BuildVersionIncrement:  Item's 'BodyCenter.cs' date is 9/24/2013 10:03:15 AM
+BuildVersionIncrement:  Item's 'BookingRoom.cs' date is 2/28/2014 2:24:18 AM
+BuildVersionIncrement:  Item's 'Branch.cs' date is 3/22/2014 12:12:10 PM
+BuildVersionIncrement:  Item's 'ContactCustomer.cs' date is 9/24/2013 10:03:15 AM
+BuildVersionIncrement:  Item's 'CosmeticSurgery.cs' date is 9/24/2013 10:03:15 AM
+BuildVersionIncrement:  Item's 'Customer.cs' date is 3/22/2014 3:21:38 PM
+BuildVersionIncrement:  Item's 'District.cs' date is 9/24/2013 10:03:15 AM
+BuildVersionIncrement:  Item's 'HowYouhear.cs' date is 9/24/2013 10:03:15 AM
+BuildVersionIncrement:  Item's 'MedicalOrder.cs' date is 3/3/2014 11:41:08 PM
+BuildVersionIncrement:  Item's 'MedicalStuff.cs' date is 3/20/2014 12:45:40 AM
+BuildVersionIncrement:  Item's 'MedicalSupplies.cs' date is 1/11/2014 10:00:34 AM
+BuildVersionIncrement:  Item's 'MedicalSuppliesSilicone.cs' date is 12/19/2013 1:06:54 AM
+BuildVersionIncrement:  Item's 'MedicalUseTrans.cs' date is 3/4/2014 12:06:38 AM
+BuildVersionIncrement:  Item's 'Menu.cs' date is 3/31/2014 9:40:06 PM
+BuildVersionIncrement:  Item's 'MenuPermission.cs' date is 4/1/2014 12:33:48 AM
+BuildVersionIncrement:  Item's 'Personnel.cs' date is 3/20/2014 11:10:49 PM
+BuildVersionIncrement:  Item's 'PostCode.cs' date is 9/24/2013 10:03:15 AM
+BuildVersionIncrement:  Item's 'Prefix.cs' date is 9/24/2013 10:03:15 AM
+BuildVersionIncrement:  Item's 'Province.cs' date is 9/24/2013 10:03:15 AM
+BuildVersionIncrement:  Item's 'StuffCommission.cs' date is 3/11/2014 12:18:43 AM
+BuildVersionIncrement:  Item's 'SubDistrict.cs' date is 11/4/2013 11:32:43 PM
+BuildVersionIncrement:  Item's 'SumOfTreatment.cs' date is 1/7/2014 8:12:08 PM
+BuildVersionIncrement:  Item's 'UserGroup.cs' date is 4/5/2014 3:59:42 PM
+BuildVersionIncrement:  Item's 'BrowseFile.cs' date is 12/17/2013 12:33:41 AM
+BuildVersionIncrement:  Item's 'Class1.cs' date is 10/2/2013 8:30:52 PM
+BuildVersionIncrement:  Item's 'ComboBoxItem.cs' date is 10/2/2013 12:00:30 AM
+BuildVersionIncrement:  Item's 'DateDifference.cs' date is 9/24/2013 10:03:15 AM
+BuildVersionIncrement:  Item's 'EncryptDecrypText.cs' date is 10/2/2013 8:31:22 PM
+BuildVersionIncrement:  Item's 'FtpClient.cs' date is 9/24/2013 10:03:15 AM
+BuildVersionIncrement:  Item's 'Interfaces.cs' date is 9/24/2013 10:03:16 AM
+BuildVersionIncrement:  Item's 'ItemInfo.cs' date is 4/6/2014 11:52:17 PM
+BuildVersionIncrement:  Item's 'NumToThaiWord.cs' date is 3/22/2014 3:56:12 PM
+BuildVersionIncrement:  Item's 'Statics.cs' date is 4/5/2014 3:59:42 PM
+BuildVersionIncrement:  Item's 'StringEnum.cs' date is 9/24/2013 10:03:16 AM
+BuildVersionIncrement:  Item's 'UNCAccessWithCredentials.cs' date is 10/26/2013 2:52:38 PM
+BuildVersionIncrement:  Item's 'Utility.cs' date is 3/31/2014 9:40:02 PM
+BuildVersionIncrement:  Item's 'AestheticCenter.cs' date is 3/22/2014 1:16:48 PM
+BuildVersionIncrement:  Item's 'Agency.cs' date is 4/5/2014 10:33:29 AM
+BuildVersionIncrement:  Item's 'BodyCenter.cs' date is 3/22/2014 1:17:01 PM
+BuildVersionIncrement:  Item's 'BookingRoom.cs' date is 4/7/2014 12:03:29 AM
+BuildVersionIncrement:  Item's 'Branch.cs' date is 3/22/2014 12:12:12 PM
+BuildVersionIncrement:  Item's 'ContactCustomer.cs' date is 3/22/2014 1:16:30 PM
+BuildVersionIncrement:  Item's 'CosmeticSurgeryCenter.cs' date is 3/22/2014 1:17:18 PM
+BuildVersionIncrement:  Item's 'CreditCardSOT.cs' date is 3/22/2014 3:21:38 PM
+BuildVersionIncrement:  Item's 'Customer.cs' date is 3/31/2014 10:15:06 PM
+BuildVersionIncrement:  Item's 'District.cs' date is 9/24/2013 10:03:16 AM
+BuildVersionIncrement:  Item's 'HairCenter.cs' date is 3/22/2014 1:17:36 PM
+BuildVersionIncrement:  Item's 'HowYouhear.cs' date is 3/22/2014 1:17:49 PM
+BuildVersionIncrement:  Item's 'MedicalOrder.cs' date is 3/22/2014 3:20:18 PM
+BuildVersionIncrement:  Item's 'MedicalOrderDoc.cs' date is 12/20/2013 10:34:51 PM
+BuildVersionIncrement:  Item's 'MedicalOrderUseTrans.cs' date is 3/22/2014 3:20:18 PM
+BuildVersionIncrement:  Item's 'MedicalStuff.cs' date is 3/3/2014 11:29:03 PM
+BuildVersionIncrement:  Item's 'MedicalSupplies.cs' date is 4/7/2014 11:10:47 AM
+BuildVersionIncrement:  Item's 'MedicalSuppliesSilicone.cs' date is 12/16/2013 11:59:40 PM
+BuildVersionIncrement:  Item's 'Menu.cs' date is 3/31/2014 9:40:10 PM
+BuildVersionIncrement:  Item's 'MenuPermission.cs' date is 4/1/2014 12:33:51 AM
+BuildVersionIncrement:  Item's 'Personnel.cs' date is 3/20/2014 11:41:08 PM
+BuildVersionIncrement:  Item's 'PostCode.cs' date is 9/24/2013 10:03:16 AM
+BuildVersionIncrement:  Item's 'Prefix.cs' date is 9/24/2013 10:03:16 AM
+BuildVersionIncrement:  Item's 'Province.cs' date is 10/8/2013 9:17:17 PM
+BuildVersionIncrement:  Item's 'SubDistrict.cs' date is 9/24/2013 10:03:16 AM
+BuildVersionIncrement:  Item's 'SumOfTreatment.cs' date is 3/22/2014 3:21:38 PM
+BuildVersionIncrement:  Item's 'SupplieTrans.cs' date is 1/28/2014 11:53:10 PM
+BuildVersionIncrement:  Item's 'SurgeryFee.cs' date is 3/22/2014 3:21:38 PM
+BuildVersionIncrement:  Item's 'UserGroup.cs' date is 4/5/2014 3:59:42 PM
+BuildVersionIncrement:  Item's 'UtilityBackEnd.cs' date is 9/24/2013 10:03:16 AM
+BuildVersionIncrement:  Item's 'DerMasterIcon.ico' date is 10/26/2013 1:59:13 PM
+BuildVersionIncrement:  Item's 'AestheticCenter.cs' date is 3/22/2014 1:14:21 PM
+BuildVersionIncrement:  Item's 'Agency.cs' date is 4/5/2014 7:42:29 AM
+BuildVersionIncrement:  Item's 'BodyCenter.cs' date is 3/22/2014 1:14:34 PM
+BuildVersionIncrement:  Item's 'BookingRoom.cs' date is 2/16/2014 11:23:01 PM
+BuildVersionIncrement:  Item's 'Branch.cs' date is 3/22/2014 12:12:12 PM
+BuildVersionIncrement:  Item's 'ContactCustomer.cs' date is 3/22/2014 1:16:30 PM
+BuildVersionIncrement:  Item's 'CosmeticSurgery.cs' date is 3/22/2014 1:14:49 PM
+BuildVersionIncrement:  Item's 'CreditCardSOT.cs' date is 3/22/2014 3:21:38 PM
+BuildVersionIncrement:  Item's 'Customer.cs' date is 3/22/2014 3:21:38 PM
+BuildVersionIncrement:  Item's 'HairCenter.cs' date is 3/22/2014 1:15:12 PM
+BuildVersionIncrement:  Item's 'HowYouhear.cs' date is 3/22/2014 1:15:27 PM
+BuildVersionIncrement:  Item's 'MedicalOrder.cs' date is 3/22/2014 3:20:18 PM
+BuildVersionIncrement:  Item's 'MedicalOrderDoc.cs' date is 12/10/2013 10:17:49 PM
+BuildVersionIncrement:  Item's 'MedicalOrderUseTrans.cs' date is 2/20/2014 12:15:16 AM
+BuildVersionIncrement:  Item's 'MedicalStuff.cs' date is 3/6/2014 2:19:38 AM
+BuildVersionIncrement:  Item's 'MedicalSupplies.cs' date is 4/7/2014 11:06:04 AM
+BuildVersionIncrement:  Item's 'MenuPermission.cs' date is 4/1/2014 12:33:49 AM
+BuildVersionIncrement:  Item's 'Personnel.cs' date is 3/20/2014 11:39:43 PM
+BuildVersionIncrement:  Item's 'SumOfTreatment.cs' date is 3/22/2014 3:21:38 PM
+BuildVersionIncrement:  Item's 'SupplieTrans.cs' date is 1/28/2014 11:53:23 PM
+BuildVersionIncrement:  Item's 'SurgeryFee.cs' date is 3/22/2014 3:21:38 PM
+BuildVersionIncrement:  Item's 'UserGroup.cs' date is 3/31/2014 9:40:10 PM
+BuildVersionIncrement:  Item's 'FrmAgencySetting.cs' date is 4/5/2014 10:22:16 AM
+BuildVersionIncrement:  Item's 'FrmBookingRoom.cs' date is 4/7/2014 1:12:14 AM
+BuildVersionIncrement:  Item's 'FrmCommissionCheck.cs' date is 3/22/2014 3:21:38 PM
+BuildVersionIncrement:  Item's 'FrmCustomerList.cs' date is 3/22/2014 3:21:38 PM
+BuildVersionIncrement:  Item's 'FrmCustomerSetting.cs' date is 3/31/2014 10:54:18 PM
+BuildVersionIncrement:  Item's 'FrmLogin.cs' date is 4/1/2014 8:29:39 PM
+BuildVersionIncrement:  Item's 'FrmMain.cs' date is 4/5/2014 3:59:42 PM
+BuildVersionIncrement:  Item's 'FrmMedicalOrderList.cs' date is 2/22/2014 10:51:17 PM
+BuildVersionIncrement:  Item's 'FrmMedicalOrderSetting.cs' date is 3/25/2014 5:03:47 PM
+BuildVersionIncrement:  Item's 'FrmMedicalSupplies.cs' date is 4/7/2014 10:28:12 AM
+BuildVersionIncrement:  Item's 'FrmMedicalUseList.cs' date is 3/22/2014 3:56:12 PM
+BuildVersionIncrement:  Item's 'FrmPersonnelList.cs' date is 3/20/2014 11:26:50 PM
+BuildVersionIncrement:  Item's 'FrmPersonnelSetting.cs' date is 3/20/2014 11:43:31 PM
+BuildVersionIncrement:  Item's 'FrmPreviewRpt.cs' date is 3/22/2014 12:12:03 PM
+BuildVersionIncrement:  Item's 'FrmSetPermission.cs' date is 4/5/2014 10:38:50 AM
+BuildVersionIncrement:  Item's 'FrmSumOfTreatment.cs' date is 4/6/2014 8:38:23 AM
+BuildVersionIncrement:  Item's 'FrmSurgicalFee.cs' date is 3/22/2014 3:56:13 PM
+BuildVersionIncrement:  Item's 'FrmSurgicalFeeList.cs' date is 4/1/2014 12:33:50 AM
+BuildVersionIncrement:  Item's 'FrmSurgicalFeeMain.cs' date is 3/22/2014 11:15:58 AM
+BuildVersionIncrement:  Item's 'FrmUserGroupList.cs' date is 4/5/2014 3:59:49 PM
+BuildVersionIncrement:  Item's 'FrmWebCapture.cs' date is 9/27/2013 11:38:48 AM
+BuildVersionIncrement:  Item's 'popBaseAdministrative.cs' date is 10/26/2013 2:10:40 AM
+BuildVersionIncrement:  Item's 'PopBookingAdd.cs' date is 4/7/2014 12:05:01 AM
+BuildVersionIncrement:  Item's 'PopCustSearch.cs' date is 3/22/2014 4:05:39 PM
+BuildVersionIncrement:  Item's 'PopEditOrUpdateSOT.cs' date is 12/14/2013 12:53:45 PM
+BuildVersionIncrement:  Item's 'PopEmpSearch.cs' date is 3/9/2014 5:24:20 PM
+BuildVersionIncrement:  Item's 'PopHairStaff.cs' date is 3/6/2014 2:20:29 AM
+BuildVersionIncrement:  Item's 'PopImport.cs' date is 10/23/2013 11:20:13 AM
+BuildVersionIncrement:  Item's 'PopMedicalUsed.cs' date is 3/22/2014 3:56:11 PM
+BuildVersionIncrement:  Item's 'popPersonnelType.cs' date is 10/20/2013 12:44:55 PM
+BuildVersionIncrement:  Item's 'popPreviewImage.cs' date is 10/19/2013 10:22:55 PM
+BuildVersionIncrement:  Item's 'PopSurgery.cs' date is 10/25/2013 11:09:54 PM
+BuildVersionIncrement:  Item's 'PopTypeCashier.cs' date is 11/5/2013 8:39:19 PM
+BuildVersionIncrement:  Item's 'PopTypeCustomer.cs' date is 4/4/2014 11:13:18 PM
+BuildVersionIncrement:  Item's 'PopUserGroup.cs' date is 10/23/2013 4:19:11 PM
+BuildVersionIncrement:  Item's 'PopUserGroupSetting.cs' date is 4/5/2014 3:59:50 PM
+BuildVersionIncrement:  Item's 'UcSurgicalFee.cs' date is 3/22/2014 3:56:13 PM
+BuildVersionIncrement:  Item's 'BG.jpg' date is 9/24/2013 10:03:18 AM
+BuildVersionIncrement:  Item's 'BG.png' date is 9/24/2013 10:03:18 AM
+BuildVersionIncrement:  Item's 'BG2.jpg' date is 9/24/2013 10:03:18 AM
+BuildVersionIncrement:  Item's 'BG2.png' date is 9/24/2013 10:03:18 AM
+BuildVersionIncrement:  Item's 'Bookmarks Blackssss_Red.png' date is 9/24/2013 10:03:18 AM
+BuildVersionIncrement:  Item's 'calendar_year_256.png' date is 9/24/2013 10:03:18 AM
+BuildVersionIncrement:  Item's 'calendar_year_256_Red.png' date is 9/24/2013 10:03:18 AM
+BuildVersionIncrement:  Item's 'Camera-Android-R.png' date is 9/27/2013 9:37:01 AM
+BuildVersionIncrement:  Item's 'Capture.ico' date is 9/27/2013 9:37:01 AM
+BuildVersionIncrement:  Item's 'chief_of_staff_add_128.png' date is 1/29/2014 11:16:11 PM
+BuildVersionIncrement:  Item's 'clock_256ssss.png' date is 9/24/2013 10:03:18 AM
+BuildVersionIncrement:  Item's 'ColorTool.gif' date is 9/24/2013 10:03:18 AM
+BuildVersionIncrement:  Item's 'delete_256ssss.png' date is 9/24/2013 10:03:18 AM
+BuildVersionIncrement:  Item's 'delete_256ssss_Black.png' date is 9/24/2013 10:03:18 AM
+BuildVersionIncrement:  Item's 'dermaster.png' date is 9/24/2013 10:03:18 AM
+BuildVersionIncrement:  Item's 'DOCTOR_WRITE_128.PNG' date is 10/14/2013 11:09:56 PM
+BuildVersionIncrement:  Item's 'document_up_256.png' date is 11/19/2013 9:59:54 PM
+BuildVersionIncrement:  Item's 'document_write_256.png' date is 9/24/2013 10:03:18 AM
+BuildVersionIncrement:  Item's 'document_write_256_Red.png' date is 9/24/2013 10:03:18 AM
+BuildVersionIncrement:  Item's 'emergency_128 (2)ssss.png' date is 9/24/2013 10:03:18 AM
+BuildVersionIncrement:  Item's 'examine_256.png' date is 9/24/2013 10:03:18 AM
+BuildVersionIncrement:  Item's 'FIFA World Cup 040sss.png' date is 9/24/2013 10:03:18 AM
+BuildVersionIncrement:  Item's 'FIFA World Cup 040sss_24.png' date is 9/24/2013 10:03:18 AM
+BuildVersionIncrement:  Item's 'FIFA World Cup 040sss_Red.png' date is 9/24/2013 10:03:18 AM
+BuildVersionIncrement:  Item's 'FIFA World Cup 054sssss.png' date is 9/24/2013 10:03:18 AM
+BuildVersionIncrement:  Item's 'FIFA World Cup 054sssss_Red.png' date is 9/24/2013 10:03:18 AM
+BuildVersionIncrement:  Item's 'FIFA World Cup 097ssss.png' date is 9/24/2013 10:03:18 AM
+BuildVersionIncrement:  Item's 'FIFA World Cup 097ssss_Red.png' date is 9/24/2013 10:03:18 AM
+BuildVersionIncrement:  Item's 'filter_data_128 (2)Oldssss_Black.png' date is 9/24/2013 10:03:18 AM
+BuildVersionIncrement:  Item's 'filter_data_128 (2)ssss.png' date is 9/24/2013 10:03:18 AM
+BuildVersionIncrement:  Item's 'filter_data_128 (2)ssss_Black.png' date is 9/24/2013 10:03:18 AM
+BuildVersionIncrement:  Item's 'Find.ico' date is 9/24/2013 10:03:18 AM
+BuildVersionIncrement:  Item's 'folder_zoom_256ssss.png' date is 9/24/2013 10:03:18 AM
+BuildVersionIncrement:  Item's 'folder_zoom_256ssss_30.png' date is 9/24/2013 10:03:18 AM
+BuildVersionIncrement:  Item's 'folder_zoom_256ssss_30_Black.png' date is 9/24/2013 10:03:18 AM
+BuildVersionIncrement:  Item's 'folder_zoom_256ssss_40.png' date is 9/24/2013 10:03:19 AM
+BuildVersionIncrement:  Item's 'folder_zoom_256ssss_40_Red.png' date is 9/24/2013 10:03:19 AM
+BuildVersionIncrement:  Item's 'folder_zoom_256ssss_Black.png' date is 9/24/2013 10:03:19 AM
+BuildVersionIncrement:  Item's 'folder_zoom_256ssss_Red.png' date is 9/24/2013 10:03:19 AM
+BuildVersionIncrement:  Item's 'forward_256ssss.png' date is 9/24/2013 10:03:19 AM
+BuildVersionIncrement:  Item's 'forward_256ssss_Black.png' date is 9/24/2013 10:03:19 AM
+BuildVersionIncrement:  Item's 'forward_256ssss_Up.png' date is 9/24/2013 10:03:19 AM
+BuildVersionIncrement:  Item's 'forward_256ssss_UpBlack.png' date is 9/24/2013 10:03:19 AM
+BuildVersionIncrement:  Item's 'general_surgery_256.png' date is 10/16/2013 10:03:43 AM
+BuildVersionIncrement:  Item's 'groomingssss.png' date is 9/24/2013 10:03:19 AM
+BuildVersionIncrement:  Item's 'groomingssss_40.png' date is 9/24/2013 10:03:19 AM
+BuildVersionIncrement:  Item's 'groomingssss_40Black.png' date is 9/24/2013 10:03:19 AM
+BuildVersionIncrement:  Item's 'groomingssss_Red.png' date is 9/24/2013 10:03:19 AM
+BuildVersionIncrement:  Item's 'GutsHomepage_05.gif' date is 9/24/2013 10:03:19 AM
+BuildVersionIncrement:  Item's 'hairpin_bend_refresh_256.png' date is 10/25/2013 11:09:54 PM
+BuildVersionIncrement:  Item's 'hdd unmountssss.png' date is 9/24/2013 10:03:19 AM
+BuildVersionIncrement:  Item's 'hdd unmountssss_24.png' date is 9/24/2013 10:03:19 AM
+BuildVersionIncrement:  Item's 'hdd unmountssss_40.png' date is 9/24/2013 10:03:19 AM
+BuildVersionIncrement:  Item's 'hdd unmountssss_40Black.png' date is 9/24/2013 10:03:19 AM
+BuildVersionIncrement:  Item's 'hdd unmountssss_50.png' date is 9/24/2013 10:03:19 AM
+BuildVersionIncrement:  Item's 'hdd unmountssss_50Black.png' date is 9/24/2013 10:03:19 AM
+BuildVersionIncrement:  Item's 'hdd unmountssss_Red.png' date is 9/24/2013 10:03:19 AM
+BuildVersionIncrement:  Item's 'hdd unmountssss_Red1.png' date is 9/24/2013 10:03:19 AM
+BuildVersionIncrement:  Item's 'hdd_unmountssss_50Black.png' date is 9/24/2013 10:03:19 AM
+BuildVersionIncrement:  Item's 'history_256ss.png' date is 9/24/2013 10:03:19 AM
+BuildVersionIncrement:  Item's 'history_256ss_Red.png' date is 9/24/2013 10:03:19 AM
+BuildVersionIncrement:  Item's 'hospital_bed_zoom_128ssss.png' date is 9/24/2013 10:03:19 AM
+BuildVersionIncrement:  Item's 'hospital_bed_zoom_128ssss_40.png' date is 9/24/2013 10:03:19 AM
+BuildVersionIncrement:  Item's 'hospital_bed_zoom_128ssss_Black.png' date is 9/24/2013 10:03:19 AM
+BuildVersionIncrement:  Item's 'hospital_bed_zoom_128ssss_Red.png' date is 9/24/2013 10:03:19 AM
+BuildVersionIncrement:  Item's 'inbox_256 copyss.png' date is 9/24/2013 10:03:19 AM
+BuildVersionIncrement:  Item's 'inbox_256 copyss_Red.png' date is 9/24/2013 10:03:19 AM
+BuildVersionIncrement:  Item's 'inventory_256.png' date is 9/24/2013 10:03:19 AM
+BuildVersionIncrement:  Item's 'inventory_256_Red.png' date is 9/24/2013 10:03:19 AM
+BuildVersionIncrement:  Item's 'keys_ok_256.png' date is 9/24/2013 10:03:19 AM
+BuildVersionIncrement:  Item's 'keys_ok_256_Black.png' date is 9/24/2013 10:03:20 AM
+BuildVersionIncrement:  Item's 'Left.png' date is 9/24/2013 10:03:20 AM
+BuildVersionIncrement:  Item's 'LeftOver.png' date is 9/24/2013 10:03:20 AM
+BuildVersionIncrement:  Item's 'line_chart_128ssss_24.png' date is 9/24/2013 10:03:20 AM
+BuildVersionIncrement:  Item's 'logo_dermaster_01.png' date is 10/9/2013 10:35:46 PM
+BuildVersionIncrement:  Item's 'loupe_256ssss.png' date is 9/24/2013 10:03:20 AM
+BuildVersionIncrement:  Item's 'loupe_256ssss_Black.png' date is 9/24/2013 10:03:20 AM
+BuildVersionIncrement:  Item's 'mail_write_256ssss.png' date is 9/24/2013 10:03:20 AM
+BuildVersionIncrement:  Item's 'mail_write_256ssss_Red.png' date is 9/24/2013 10:03:20 AM
+BuildVersionIncrement:  Item's 'Maximizebox.gif' date is 9/30/2013 11:53:35 PM
+BuildVersionIncrement:  Item's 'Maximizebox_Drak.gif' date is 9/30/2013 11:53:38 PM
+BuildVersionIncrement:  Item's 'Mearg.jpg' date is 1/23/2014 12:10:09 AM
+BuildVersionIncrement:  Item's 'medical_history_128.png' date is 9/24/2013 10:03:20 AM
+BuildVersionIncrement:  Item's 'medical_history_128_Red.png' date is 9/24/2013 10:03:20 AM
+BuildVersionIncrement:  Item's 'MergN.png' date is 1/23/2014 12:24:14 AM
+BuildVersionIncrement:  Item's 'MergO.png' date is 1/23/2014 12:24:33 AM
+BuildVersionIncrement:  Item's 'Minimizebox.gif' date is 9/30/2013 11:53:41 PM
+BuildVersionIncrement:  Item's 'Minimizebox_Drak.gif' date is 9/30/2013 11:53:43 PM
+BuildVersionIncrement:  Item's 'Minimumsize.gif' date is 9/24/2013 10:03:20 AM
+BuildVersionIncrement:  Item's 'Minimumsize_Drak.gif' date is 9/24/2013 10:03:20 AM
+BuildVersionIncrement:  Item's 'NormalStat.gif' date is 9/30/2013 11:53:44 PM
+BuildVersionIncrement:  Item's 'NormalStat_Drak.gif' date is 9/30/2013 11:53:46 PM
+BuildVersionIncrement:  Item's 'ok_256.png' date is 9/24/2013 10:03:20 AM
+BuildVersionIncrement:  Item's 'ok_256_Black.png' date is 9/24/2013 10:03:20 AM
+BuildVersionIncrement:  Item's 'payment_256.png' date is 9/24/2013 10:03:20 AM
+BuildVersionIncrement:  Item's 'payment_256_Red.png' date is 9/24/2013 10:03:20 AM
+BuildVersionIncrement:  Item's 'pharmacy_256.png' date is 10/14/2013 11:09:56 PM
+BuildVersionIncrement:  Item's 'Stethoscope Blackssss.png' date is 9/24/2013 10:03:20 AM
+BuildVersionIncrement:  Item's 'Stethoscope Blackssss_Red.png' date is 9/24/2013 10:03:20 AM
+BuildVersionIncrement:  Item's 'TaskBarM.png' date is 9/27/2013 4:44:31 PM
+BuildVersionIncrement:  Item's 'TaskBarM1.png' date is 9/27/2013 5:02:22 PM
+BuildVersionIncrement:  Item's 'Tastbar.gif' date is 9/24/2013 10:03:20 AM
+BuildVersionIncrement:  Item's 'Tastbar1.gif' date is 9/24/2013 10:03:20 AM
+BuildVersionIncrement:  Item's 'TastbarM.gif' date is 9/27/2013 5:25:53 PM
+BuildVersionIncrement:  Item's 'TN_psd1084_Red.png' date is 9/24/2013 10:03:20 AM
+BuildVersionIncrement:  Item's 'treatment_256.png' date is 10/14/2013 11:09:55 PM
+BuildVersionIncrement:  Item's 'x_256.png' date is 9/24/2013 10:03:20 AM
+BuildVersionIncrement:  Item's 'x_256_Black.png' date is 9/24/2013 10:03:20 AM
+BuildVersionIncrement:  Item's 'DsCustomer.xsd' date is 3/22/2014 3:21:34 PM
+BuildVersionIncrement:  Item's 'Program.cs' date is 3/6/2014 10:40:40 PM
+BuildVersionIncrement:  Item's 'AssemblyInfo.cs' date is 9/24/2013 10:03:20 AM
+BuildVersionIncrement:  Item's 'licenses.licx' date is 10/12/2013 12:08:33 AM
+BuildVersionIncrement:  Item's 'Resources.resx' date is 3/6/2014 12:08:59 AM
+BuildVersionIncrement:  Item's 'Settings.settings' date is 9/24/2013 11:35:40 PM
+BuildVersionIncrement:  Item's 'RevenueDistributionByMonth.rpt' date is 3/1/2014 1:15:53 PM
+BuildVersionIncrement:  Item's 'RptAestheticSummary.rpt' date is 3/1/2014 1:15:52 PM
+BuildVersionIncrement:  Item's 'RptCustomerDetail.rpt' date is 2/27/2014 12:10:39 AM
+BuildVersionIncrement:  Item's 'RptPaymentByGroup.rpt' date is 3/1/2014 1:16:46 PM
+BuildVersionIncrement:  Item's 'RptPaymentMarketing.rpt' date is 3/1/2014 1:16:22 PM
+BuildVersionIncrement:  Item's 'RptPaymentMarketingHear.rpt' date is 3/1/2014 1:16:25 PM
+BuildVersionIncrement:  Item's 'RptPaymentMarketingList.rpt' date is 3/1/2014 1:16:31 PM
+BuildVersionIncrement:  Item's 'RptPaymentSumByDept.rpt' date is 3/1/2014 1:16:21 PM
+BuildVersionIncrement:  Item's 'RptPaymentSummary.rpt' date is 4/1/2014 8:29:39 PM
+BuildVersionIncrement:  Item's 'RptReceive.rpt' date is 3/9/2014 5:20:43 PM
+BuildVersionIncrement:  Item's 'RptRevenueByDept.rpt' date is 3/1/2014 1:16:13 PM
+BuildVersionIncrement:  Item's 'RptRevenueDistGroup.rpt' date is 3/1/2014 1:16:01 PM
+BuildVersionIncrement:  Item's 'RptSalesVolumeByDept.rpt' date is 3/1/2014 1:15:52 PM
+BuildVersionIncrement:  Item's 'RptSalesVolumeByMonth.rpt' date is 3/1/2014 1:15:54 PM
+BuildVersionIncrement:  Item's 'RptSummaryBodyByMonth.rpt' date is 3/1/2014 1:15:54 PM
+BuildVersionIncrement:  Item's 'RptSummaryBodyFaceByMonth.rpt' date is 3/1/2014 1:15:53 PM
+BuildVersionIncrement:  Item's 'RptSummaryFaceByMonth.rpt' date is 3/1/2014 1:15:55 PM
+BuildVersionIncrement:  Item's 'RptSummaryTherapist.rpt' date is 2/27/2014 12:10:40 AM
+BuildVersionIncrement:  Item's '1leftarrow.png' date is 9/24/2013 10:03:21 AM
+BuildVersionIncrement:  Item's '1rightarrow.png' date is 9/24/2013 10:03:21 AM
+BuildVersionIncrement:  Item's '2leftarrow.png' date is 9/24/2013 10:03:21 AM
+BuildVersionIncrement:  Item's '2rightarrow.png' date is 9/24/2013 10:03:21 AM
+BuildVersionIncrement:  Item's 'add_256ssss.png' date is 9/24/2013 10:03:21 AM
+BuildVersionIncrement:  Item's 'add_256ssss_black.png' date is 9/24/2013 10:03:21 AM
+BuildVersionIncrement:  Item's 'add_256ssss_black1.png' date is 9/24/2013 10:03:21 AM
+BuildVersionIncrement:  Item's 'add_256ssss1.png' date is 9/24/2013 10:03:21 AM
+BuildVersionIncrement:  Item's 'add_icon.png' date is 3/5/2014 1:08:22 AM
+BuildVersionIncrement:  Item's 'add_iconB.png' date is 3/5/2014 1:08:23 AM
+BuildVersionIncrement:  Item's 'administrator_lock_256 copy.png' date is 9/24/2013 10:03:21 AM
+BuildVersionIncrement:  Item's 'administrator_lock_256.png' date is 9/24/2013 10:03:21 AM
+BuildVersionIncrement:  Item's 'ajax-loading.gif' date is 9/24/2013 10:03:21 AM
+BuildVersionIncrement:  Item's 'appointment_scheduler_256ssss.png' date is 9/24/2013 10:03:21 AM
+BuildVersionIncrement:  Item's 'appointment_scheduler_256ssss_black.png' date is 9/24/2013 10:03:21 AM
+BuildVersionIncrement:  Item's 'appointment_scheduler_256ssss_red.png' date is 9/24/2013 10:03:21 AM
+BuildVersionIncrement:  Item's 'BG.jpg' date is 9/24/2013 10:03:21 AM
+BuildVersionIncrement:  Item's 'BG.png' date is 9/24/2013 10:03:21 AM
+BuildVersionIncrement:  Item's 'BG2.jpg' date is 9/24/2013 10:03:21 AM
+BuildVersionIncrement:  Item's 'bg2.png' date is 9/24/2013 10:03:21 AM
+BuildVersionIncrement:  Item's 'bg21.png' date is 9/24/2013 10:03:21 AM
+BuildVersionIncrement:  Item's 'blackboard_write_128ssss.png' date is 9/24/2013 10:03:21 AM
+BuildVersionIncrement:  Item's 'blackboard_write_128ssss_red.png' date is 9/24/2013 10:03:21 AM
+BuildVersionIncrement:  Item's 'blueline.bmp' date is 9/24/2013 10:03:21 AM
+BuildVersionIncrement:  Item's 'bookmarks blackssss.png' date is 9/24/2013 10:03:21 AM
+BuildVersionIncrement:  Item's 'bookmarks blackssss_red.png' date is 9/24/2013 10:03:21 AM
+BuildVersionIncrement:  Item's 'calendar_year_256.png' date is 9/24/2013 10:03:21 AM
+BuildVersionIncrement:  Item's 'calendar_year_256_Red.png' date is 9/24/2013 10:03:21 AM
+BuildVersionIncrement:  Item's 'Camera-Android-R.png' date is 9/27/2013 9:37:01 AM
+BuildVersionIncrement:  Item's 'clock_256ssss.png' date is 9/24/2013 10:03:21 AM
+BuildVersionIncrement:  Item's 'ColorTool.gif' date is 9/24/2013 10:03:21 AM
+BuildVersionIncrement:  Item's 'customers_next_256.png' date is 9/24/2013 11:57:19 PM
+BuildVersionIncrement:  Item's 'customers_relations_fav_256.png' date is 9/24/2013 11:57:19 PM
+BuildVersionIncrement:  Item's 'delete_256ssss.png' date is 9/24/2013 10:03:21 AM
+BuildVersionIncrement:  Item's 'delete_256ssss_black.png' date is 9/24/2013 10:03:21 AM
+BuildVersionIncrement:  Item's 'demo.png' date is 9/27/2013 9:37:01 AM
+BuildVersionIncrement:  Item's 'demoOver.png' date is 9/27/2013 9:37:01 AM
+BuildVersionIncrement:  Item's 'dermaster.png' date is 9/24/2013 10:03:21 AM
+BuildVersionIncrement:  Item's 'DerMasterIcon.ico' date is 10/26/2013 1:59:12 PM
+BuildVersionIncrement:  Item's 'DerMasterLogo1.png' date is 10/9/2013 10:35:46 PM
+BuildVersionIncrement:  Item's 'document_add_256.png' date is 11/19/2013 9:59:54 PM
+BuildVersionIncrement:  Item's 'document_write_256.png' date is 9/24/2013 10:03:21 AM
+BuildVersionIncrement:  Item's 'document_write_256_Red.png' date is 9/24/2013 10:03:21 AM
+BuildVersionIncrement:  Item's 'Draft.png' date is 9/27/2013 9:37:01 AM
+BuildVersionIncrement:  Item's 'DraftOver.png' date is 9/27/2013 9:37:01 AM
+BuildVersionIncrement:  Item's 'emergency_128 (2)ssss.png' date is 9/24/2013 10:03:21 AM
+BuildVersionIncrement:  Item's 'EMP color.png' date is 3/6/2014 12:08:57 AM
+BuildVersionIncrement:  Item's 'EMP colorB.png' date is 3/6/2014 12:08:58 AM
+BuildVersionIncrement:  Item's 'examine_256.png' date is 9/24/2013 10:03:22 AM
+BuildVersionIncrement:  Item's 'fifa world cup 040sss.png' date is 9/24/2013 10:03:22 AM
+BuildVersionIncrement:  Item's 'fifa world cup 040sss_24.png' date is 9/24/2013 10:03:22 AM
+BuildVersionIncrement:  Item's 'fifa world cup 040sss_red.png' date is 9/24/2013 10:03:22 AM
+BuildVersionIncrement:  Item's 'fifa world cup 054sssss.png' date is 9/24/2013 10:03:22 AM
+BuildVersionIncrement:  Item's 'fifa world cup 054sssss_red.png' date is 9/24/2013 10:03:22 AM
+BuildVersionIncrement:  Item's 'fifa world cup 097ssss.png' date is 9/24/2013 10:03:22 AM
+BuildVersionIncrement:  Item's 'fifa world cup 097ssss_red.png' date is 9/24/2013 10:03:22 AM
+BuildVersionIncrement:  Item's 'filter_data_128 (2)oldssss_black.png' date is 9/24/2013 10:03:22 AM
+BuildVersionIncrement:  Item's 'filter_data_128 (2)ssss.png' date is 9/24/2013 10:03:22 AM
+BuildVersionIncrement:  Item's 'filter_data_128 (2)ssss_black.png' date is 9/24/2013 10:03:22 AM
+BuildVersionIncrement:  Item's 'folder_zoom_256ssss.png' date is 9/24/2013 10:03:22 AM
+BuildVersionIncrement:  Item's 'folder_zoom_256ssss_30.png' date is 9/24/2013 10:03:22 AM
+BuildVersionIncrement:  Item's 'folder_zoom_256ssss_30_black.png' date is 9/24/2013 10:03:22 AM
+BuildVersionIncrement:  Item's 'folder_zoom_256ssss_40.png' date is 9/24/2013 10:03:22 AM
+BuildVersionIncrement:  Item's 'folder_zoom_256ssss_40_red.png' date is 9/24/2013 10:03:22 AM
+BuildVersionIncrement:  Item's 'folder_zoom_256ssss_black.png' date is 9/24/2013 10:03:22 AM
+BuildVersionIncrement:  Item's 'folder_zoom_256ssss_red.png' date is 9/24/2013 10:03:22 AM
+BuildVersionIncrement:  Item's 'forward_256ssss.png' date is 9/24/2013 10:03:22 AM
+BuildVersionIncrement:  Item's 'forward_256ssss_black.png' date is 9/24/2013 10:03:22 AM
+BuildVersionIncrement:  Item's 'forward_256ssss_up.png' date is 9/24/2013 10:03:22 AM
+BuildVersionIncrement:  Item's 'forward_256ssss_upblack.png' date is 9/24/2013 10:03:22 AM
+BuildVersionIncrement:  Item's 'groomingssss.png' date is 9/24/2013 10:03:22 AM
+BuildVersionIncrement:  Item's 'groomingssss_40.png' date is 9/24/2013 10:03:23 AM
+BuildVersionIncrement:  Item's 'groomingssss_40black.png' date is 9/24/2013 10:03:23 AM
+BuildVersionIncrement:  Item's 'groomingssss_red.png' date is 9/24/2013 10:03:23 AM
+BuildVersionIncrement:  Item's 'gutshomepage_05.gif' date is 9/24/2013 10:03:23 AM
+BuildVersionIncrement:  Item's 'hdd unmountssss.png' date is 9/24/2013 10:03:23 AM
+BuildVersionIncrement:  Item's 'hdd unmountssss_24.png' date is 9/24/2013 10:03:23 AM
+BuildVersionIncrement:  Item's 'hdd unmountssss_40.png' date is 9/24/2013 10:03:23 AM
+BuildVersionIncrement:  Item's 'hdd unmountssss_40black.png' date is 9/24/2013 10:03:23 AM
+BuildVersionIncrement:  Item's 'hdd unmountssss_50.png' date is 9/24/2013 10:03:23 AM
+BuildVersionIncrement:  Item's 'hdd unmountssss_50black.png' date is 9/24/2013 10:03:23 AM
+BuildVersionIncrement:  Item's 'hdd unmountssss_red.png' date is 9/24/2013 10:03:23 AM
+BuildVersionIncrement:  Item's 'hdd unmountssss_red1.png' date is 9/24/2013 10:03:23 AM
+BuildVersionIncrement:  Item's 'hdd_unmountssss_50black.png' date is 9/24/2013 10:03:23 AM
+BuildVersionIncrement:  Item's 'history_256ss.png' date is 9/24/2013 10:03:23 AM
+BuildVersionIncrement:  Item's 'history_256ss_red.png' date is 9/24/2013 10:03:23 AM
+BuildVersionIncrement:  Item's 'hospital_bed_zoom_128ssss.png' date is 9/24/2013 10:03:23 AM
+BuildVersionIncrement:  Item's 'hospital_bed_zoom_128ssss_40.png' date is 9/24/2013 10:03:23 AM
+BuildVersionIncrement:  Item's 'hospital_bed_zoom_128ssss_black.png' date is 9/24/2013 10:03:23 AM
+BuildVersionIncrement:  Item's 'hospital_bed_zoom_128ssss_red.png' date is 9/24/2013 10:03:23 AM
+BuildVersionIncrement:  Item's 'imagenopic.jpg' date is 9/29/2013 3:14:53 PM
+BuildVersionIncrement:  Item's 'Import.jpg' date is 10/23/2013 10:39:02 AM
+BuildVersionIncrement:  Item's 'Import1.png' date is 10/23/2013 10:45:26 AM
+BuildVersionIncrement:  Item's 'Import2.png' date is 10/23/2013 10:45:25 AM
+BuildVersionIncrement:  Item's 'inbox_256 copyss.png' date is 9/24/2013 10:03:23 AM
+BuildVersionIncrement:  Item's 'inbox_256 copyss_red.png' date is 9/24/2013 10:03:23 AM
+BuildVersionIncrement:  Item's 'inventory_256.png' date is 9/24/2013 10:03:23 AM
+BuildVersionIncrement:  Item's 'inventory_256_Red.png' date is 9/24/2013 10:03:23 AM
+BuildVersionIncrement:  Item's 'keys_ok_256.png' date is 9/24/2013 10:03:23 AM
+BuildVersionIncrement:  Item's 'keys_ok_256_black.png' date is 9/24/2013 10:03:23 AM
+BuildVersionIncrement:  Item's 'left.png' date is 9/24/2013 10:03:23 AM
+BuildVersionIncrement:  Item's 'leftover.png' date is 9/24/2013 10:03:23 AM
+BuildVersionIncrement:  Item's 'line_chart_128ssss_24.png' date is 9/24/2013 10:03:23 AM
+BuildVersionIncrement:  Item's 'loginbg.jpg' date is 9/24/2013 10:03:23 AM
+BuildVersionIncrement:  Item's 'logo_dermaster_01.gif' date is 10/9/2013 10:35:46 PM
+BuildVersionIncrement:  Item's 'logo_dermaster_01.png' date is 10/9/2013 10:35:46 PM
+BuildVersionIncrement:  Item's 'loupe_256ssss.png' date is 9/24/2013 10:03:23 AM
+BuildVersionIncrement:  Item's 'loupe_256ssss_black.png' date is 9/24/2013 10:03:24 AM
+BuildVersionIncrement:  Item's 'mail_write_256ssss.png' date is 9/24/2013 10:03:24 AM
+BuildVersionIncrement:  Item's 'mail_write_256ssss_red.png' date is 9/24/2013 10:03:24 AM
+BuildVersionIncrement:  Item's 'maximizebox.gif' date is 9/30/2013 11:53:47 PM
+BuildVersionIncrement:  Item's 'maximizebox_drak.gif' date is 9/30/2013 11:53:50 PM
+BuildVersionIncrement:  Item's 'medical_history_128.png' date is 9/24/2013 10:03:24 AM
+BuildVersionIncrement:  Item's 'medical_history_128_Red.png' date is 9/24/2013 10:03:24 AM
+BuildVersionIncrement:  Item's 'microscope_256 (2)sss.png' date is 9/24/2013 10:03:24 AM
+BuildVersionIncrement:  Item's 'microscope_256 (2)sss_red.png' date is 9/24/2013 10:03:24 AM
+BuildVersionIncrement:  Item's 'Minimizebox.gif' date is 9/30/2013 11:53:09 PM
+BuildVersionIncrement:  Item's 'Minimizebox_Drak.gif' date is 9/30/2013 11:53:09 PM
+BuildVersionIncrement:  Item's 'minimumsize.gif' date is 9/24/2013 10:03:24 AM
+BuildVersionIncrement:  Item's 'minimumsize_drak.gif' date is 9/24/2013 10:03:24 AM
+BuildVersionIncrement:  Item's 'more_256.png' date is 9/24/2013 10:03:24 AM
+BuildVersionIncrement:  Item's 'more_256_black.png' date is 9/24/2013 10:03:24 AM
+BuildVersionIncrement:  Item's 'normalstat.gif' date is 9/30/2013 11:53:53 PM
+BuildVersionIncrement:  Item's 'normalstat_drak.gif' date is 9/30/2013 11:53:58 PM
+BuildVersionIncrement:  Item's 'ok_256.png' date is 9/24/2013 10:03:24 AM
+BuildVersionIncrement:  Item's 'ok_256_Black.png' date is 9/24/2013 10:03:24 AM
+BuildVersionIncrement:  Item's 'our_customers_star_256.png' date is 9/24/2013 11:57:20 PM
+BuildVersionIncrement:  Item's 'p2.gif' date is 9/27/2013 3:03:26 PM
+BuildVersionIncrement:  Item's 'patient_information_128ssss.png' date is 9/24/2013 10:03:24 AM
+BuildVersionIncrement:  Item's 'patient_information_128ssss_black.png' date is 9/24/2013 10:03:24 AM
+BuildVersionIncrement:  Item's 'patient_information_128ssssss.png' date is 9/24/2013 10:03:24 AM
+BuildVersionIncrement:  Item's 'patient_information_128ssssss_black.png' date is 9/24/2013 10:03:24 AM
+BuildVersionIncrement:  Item's 'payment_256.png' date is 9/24/2013 10:03:24 AM
+BuildVersionIncrement:  Item's 'payment_256_Red.png' date is 9/24/2013 10:03:24 AM
+BuildVersionIncrement:  Item's 'pills_256 (2)ssss.png' date is 9/24/2013 10:03:24 AM
+BuildVersionIncrement:  Item's 'pills_256 (2)ssss_black.png' date is 9/24/2013 10:03:24 AM
+BuildVersionIncrement:  Item's 'pills_256__2_ssss_black.png' date is 9/24/2013 10:03:24 AM
+BuildVersionIncrement:  Item's 'pug_256ssss.png' date is 9/24/2013 10:03:24 AM
+BuildVersionIncrement:  Item's 'pug_256ssss_black.png' date is 9/24/2013 10:03:24 AM
+BuildVersionIncrement:  Item's 'reload_256ssss.png' date is 9/24/2013 10:03:25 AM
+BuildVersionIncrement:  Item's 'reload_256ssss_30.png' date is 9/24/2013 10:03:25 AM
+BuildVersionIncrement:  Item's 'reload_256ssss_30_black.png' date is 9/24/2013 10:03:25 AM
+BuildVersionIncrement:  Item's 'reload_256ssss_red.png' date is 9/24/2013 10:03:25 AM
+BuildVersionIncrement:  Item's 'reminders_and_recalls_128 (2)ss.png' date is 9/24/2013 10:03:25 AM
+BuildVersionIncrement:  Item's 'reminders_and_recalls_128 (2)ss_black.png' date is 9/24/2013 10:03:25 AM
+BuildVersionIncrement:  Item's 'reminders_and_recalls_128 (2)ss_red.png' date is 9/24/2013 10:03:25 AM
+BuildVersionIncrement:  Item's 'remove_icon.png' date is 3/5/2014 1:08:24 AM
+BuildVersionIncrement:  Item's 'remove_iconB.png' date is 3/5/2014 1:08:24 AM
+BuildVersionIncrement:  Item's 'report_256ssss.png' date is 9/24/2013 10:03:25 AM
+BuildVersionIncrement:  Item's 'report_256ssss_red.png' date is 9/24/2013 10:03:25 AM
+BuildVersionIncrement:  Item's 'report_256swssss.png' date is 9/24/2013 10:03:25 AM
+BuildVersionIncrement:  Item's 'report_256swssss_red.png' date is 9/24/2013 10:03:25 AM
+BuildVersionIncrement:  Item's 'report_zoom_256ssss26.png' date is 9/24/2013 10:03:25 AM
+BuildVersionIncrement:  Item's 'report_zoom_256ssss26_black.png' date is 9/24/2013 10:03:25 AM
+BuildVersionIncrement:  Item's 'rigth.png' date is 9/24/2013 10:03:25 AM
+BuildVersionIncrement:  Item's 'rigthover.png' date is 9/24/2013 10:03:25 AM
+BuildVersionIncrement:  Item's 'scientific_calculator_128 (2)ssss.png' date is 9/24/2013 10:03:25 AM
+BuildVersionIncrement:  Item's 'scientific_calculator_128 (2)ssss_red.png' date is 9/24/2013 10:03:25 AM
+BuildVersionIncrement:  Item's 'search.png' date is 9/24/2013 10:03:25 AM
+BuildVersionIncrement:  Item's 'search_black.png' date is 9/24/2013 10:03:25 AM
+BuildVersionIncrement:  Item's 'separate.png' date is 9/24/2013 10:03:25 AM
+BuildVersionIncrement:  Item's 'shutdown42.png' date is 9/24/2013 10:03:25 AM
+BuildVersionIncrement:  Item's 'shutdown42_black.png' date is 9/24/2013 10:03:25 AM
+BuildVersionIncrement:  Item's 'stethoscope blackssss.png' date is 9/24/2013 10:03:25 AM
+BuildVersionIncrement:  Item's 'stethoscope blackssss_red.png' date is 9/24/2013 10:03:25 AM
+BuildVersionIncrement:  Item's 'Tastbar.gif' date is 9/24/2013 10:03:25 AM
+BuildVersionIncrement:  Item's 'tastbar.png' date is 9/27/2013 3:13:38 PM
+BuildVersionIncrement:  Item's 'tastbar02.png' date is 9/27/2013 3:59:28 PM
+BuildVersionIncrement:  Item's 'Tastbar1.gif' date is 9/26/2013 10:33:44 AM
+BuildVersionIncrement:  Item's 'taxes_256ssss.png' date is 9/24/2013 10:03:25 AM
+BuildVersionIncrement:  Item's 'taxes_256ssss_red.png' date is 9/24/2013 10:03:25 AM
+BuildVersionIncrement:  Item's 'text_bubble_256ssss.png' date is 9/24/2013 10:03:25 AM
+BuildVersionIncrement:  Item's 'text_bubble_256ssss_black.png' date is 9/24/2013 10:03:25 AM
+BuildVersionIncrement:  Item's 'TN_psd1084_Red.png' date is 9/24/2013 10:03:25 AM
+BuildVersionIncrement:  Item's 'user_id_256ssss.png' date is 9/24/2013 10:03:26 AM
+BuildVersionIncrement:  Item's 'user_id_256ssss_black.png' date is 9/24/2013 10:03:26 AM
+BuildVersionIncrement:  Item's 'webcam_256.png' date is 9/24/2013 10:03:26 AM
+BuildVersionIncrement:  Item's 'webcam_256_black.png' date is 9/24/2013 10:03:26 AM
+BuildVersionIncrement:  Item's 'whiteboard_128ssss.png' date is 9/24/2013 10:03:26 AM
+BuildVersionIncrement:  Item's 'whiteboard_128ssss_red.png' date is 9/24/2013 10:03:26 AM
+BuildVersionIncrement:  Item's 'x_256.png' date is 9/24/2013 10:03:26 AM
+BuildVersionIncrement:  Item's 'x_256_black.png' date is 9/24/2013 10:03:26 AM
+BuildVersionIncrement:  Item's 'ButtonAdd.cs' date is 10/18/2013 8:48:37 PM
+BuildVersionIncrement:  Item's 'ButtonCamera.cs' date is 9/24/2013 10:03:26 AM
+BuildVersionIncrement:  Item's 'ButtonCancel.cs' date is 10/20/2013 12:28:19 PM
+BuildVersionIncrement:  Item's 'ButtonDelete.cs' date is 10/18/2013 8:48:36 PM
+BuildVersionIncrement:  Item's 'ButtonFind.cs' date is 9/27/2013 9:36:47 AM
+BuildVersionIncrement:  Item's 'ButtonLeft.cs' date is 3/5/2014 1:08:46 AM
+BuildVersionIncrement:  Item's 'ButtonMerg.cs' date is 1/23/2014 12:41:47 AM
+BuildVersionIncrement:  Item's 'ButtonRefresh.cs' date is 9/27/2013 9:36:47 AM
+BuildVersionIncrement:  Item's 'ButtonRigth.cs' date is 3/5/2014 1:09:39 AM
+BuildVersionIncrement:  Item's 'ButtonSave.cs' date is 10/20/2013 12:18:41 PM
+BuildVersionIncrement:  Item's 'CollapsibleSplitter.cs' date is 10/12/2013 12:08:39 AM
+BuildVersionIncrement:  Item's 'DatagridviewCheckboxHeader.cs' date is 10/25/2013 11:09:54 PM
+BuildVersionIncrement:  Item's 'MenuBar.cs' date is 3/6/2014 12:30:00 AM
+BuildVersionIncrement:  Item's 'NavigatoBar.cs' date is 9/27/2013 3:42:21 PM
+BuildVersionIncrement:  Item's 'TextboxFormatDouble.cs' date is 9/24/2013 10:03:26 AM
+BuildVersionIncrement:  Item's 'TextboxFormatInteger.cs' date is 9/24/2013 10:03:26 AM
+BuildVersionIncrement:  Item's 'AppException.cs' date is 9/24/2013 10:03:26 AM
+BuildVersionIncrement:  Item's 'BrokenRule.cs' date is 9/24/2013 10:03:26 AM
+BuildVersionIncrement:  Item's 'BrokenRulesList.cs' date is 9/24/2013 10:03:26 AM
+BuildVersionIncrement:  Item's 'ValidateRuleBase.cs' date is 9/24/2013 10:03:26 AM
+BuildVersionIncrement:  Item's 'ValidateRuleNotNull.cs' date is 9/24/2013 10:03:26 AM
+BuildVersionIncrement:  Item's 'ValidateRuleRegexMatching.cs' date is 9/24/2013 10:03:26 AM
+BuildVersionIncrement:  Item's 'ValidateRuleStringMaxLength.cs' date is 9/24/2013 10:03:26 AM
+BuildVersionIncrement:  Item's 'ValidateRuleStringRequired.cs' date is 9/24/2013 10:03:26 AM
+BuildVersionIncrement:  Item's 'ValidationRules.cs' date is 9/24/2013 10:03:27 AM
+BuildVersionIncrement:  File 'vssver2.scc' was not found
+BuildVersionIncrement: Project 'DermaSystem' is not modified
+BuildVersionIncrement: Checking project 'System.Windows.Forms.Calendar'...
+BuildVersionIncrement: File (C:\Clinic\SourceCode2\System.Windows.Forms.Calendar\bin\Debug\System.Windows.Forms.Calendar.dll) date is read from file
+BuildVersionIncrement:  Project's 'System.Windows.Forms.Calendar' date is 4/7/2014 12:11:27 AM
+BuildVersionIncrement:  Item's 'Calendar.cs' date is 4/6/2014 11:15:31 PM
+BuildVersionIncrement:  Item's 'CalendarColorTable.cs' date is 2/15/2014 4:08:04 PM
+BuildVersionIncrement:  Item's 'CalendarDay.cs' date is 2/16/2014 11:36:38 PM
+BuildVersionIncrement:  Item's 'CalendarDayEventArgs.cs' date is 8/18/2009 7:47:34 PM
+BuildVersionIncrement:  Item's 'CalendarDaysMode.cs' date is 8/18/2009 7:47:34 PM
+BuildVersionIncrement:  Item's 'CalendarDayTop.cs' date is 8/18/2009 7:47:34 PM
+BuildVersionIncrement:  Item's 'CalendarHighlightRange.cs' date is 8/18/2009 7:47:34 PM
+BuildVersionIncrement:  Item's 'CalendarItem.cs' date is 4/7/2014 12:11:25 AM
+BuildVersionIncrement:  Item's 'CalendarItemCancelEventArgs.cs' date is 8/18/2009 7:47:34 PM
+BuildVersionIncrement:  Item's 'CalendarItemCollection.cs' date is 8/18/2009 7:47:34 PM
+BuildVersionIncrement:  Item's 'CalendarItemEventArgs.cs' date is 8/18/2009 7:47:34 PM
+BuildVersionIncrement:  Item's 'CalendarItemImageAlign.cs' date is 8/25/2009 7:44:14 PM
+BuildVersionIncrement:  Item's 'CalendarLoadEventArgs.cs' date is 8/18/2009 7:47:34 PM
+BuildVersionIncrement:  Item's 'CalendarProfessionalRenderer.cs' date is 2/15/2014 4:38:21 PM
+BuildVersionIncrement:  Item's 'CalendarRenderer.cs' date is 2/17/2014 12:00:29 AM
+BuildVersionIncrement:  Item's 'CalendarRendererBoxEventArgs.cs' date is 8/18/2009 7:47:34 PM
+BuildVersionIncrement:  Item's 'CalendarRendererDayEventArgs.cs' date is 8/18/2009 7:47:34 PM
+BuildVersionIncrement:  Item's 'CalendarRendererEventArgs.cs' date is 8/18/2009 7:47:34 PM
+BuildVersionIncrement:  Item's 'CalendarRendererItemBoundsEventArgs.cs' date is 8/18/2009 7:47:34 PM
+BuildVersionIncrement:  Item's 'CalendarRendererItemEventArgs.cs' date is 8/18/2009 7:47:34 PM
+BuildVersionIncrement:  Item's 'CalendarRendererTimeUnitEventArgs.cs' date is 8/18/2009 7:47:34 PM
+BuildVersionIncrement:  Item's 'CalendarSelectableElement.cs' date is 2/16/2014 9:36:18 PM
+BuildVersionIncrement:  Item's 'CalendarSystemRenderer.cs' date is 2/15/2014 4:31:10 PM
+BuildVersionIncrement:  Item's 'CalendarTextBox.cs' date is 8/18/2009 7:47:34 PM
+BuildVersionIncrement:  Item's 'CalendarTimeScale.cs' date is 8/21/2009 8:40:40 PM
+BuildVersionIncrement:  Item's 'CalendarTimeScaleUnit.cs' date is 8/21/2009 8:42:12 PM
+BuildVersionIncrement:  Item's 'CalendarWeek.cs' date is 8/18/2009 7:47:34 PM
+BuildVersionIncrement:  Item's 'BookingRoom.cs' date is 2/16/2014 11:36:12 PM
+BuildVersionIncrement:  Item's 'ICalendarSelectableElement.cs' date is 8/26/2009 1:54:06 PM
+BuildVersionIncrement:  Item's 'ISelectableElement.cs' date is 8/26/2009 1:53:40 PM
+BuildVersionIncrement:  Item's 'MonthView.cs' date is 2/15/2014 10:48:09 AM
+BuildVersionIncrement:  Item's 'MonthViewBoxEventArgs.cs' date is 8/26/2009 8:06:58 PM
+BuildVersionIncrement:  Item's 'MonthViewDay.cs' date is 8/26/2009 10:20:52 PM
+BuildVersionIncrement:  Item's 'MonthViewMontEventArgs.cs' date is 8/26/2009 7:27:14 PM
+BuildVersionIncrement:  Item's 'MonthViewMonth.cs' date is 2/15/2014 10:37:26 AM
+BuildVersionIncrement:  Item's 'AssemblyInfo.cs' date is 6/16/2009 6:30:10 PM
+BuildVersionIncrement: Project 'System.Windows.Forms.Calendar' is not modified
+BuildVersionIncrement: Solution/Folder 'DermaSystem' is not modified
+------ Build started: Project: System.Windows.Forms.Calendar, Configuration: Debug Any CPU ------
+  System.Windows.Forms.Calendar -> C:\Clinic\SourceCode2\System.Windows.Forms.Calendar\bin\Debug\System.Windows.Forms.Calendar.dll
+------ Build started: Project: DermaSystem, Configuration: Debug x86 ------
+  DermaSystem -> C:\Clinic\SourceCode2\DermasterSystem\bin\Debug\DermasterSystem.exe
+========== Build: 2 succeeded or up-to-date, 0 failed, 0 skipped ==========
+BuildVersionIncrement: BuildEvents_OnBuildDone scope: vsBuildScopeSolution action vsBuildActionBuild
+BuildVersionIncrement: Checking solution item 'DermaSystem'...
+BuildVersionIncrement:  Cached result for 'DermaSystem' is False
+BuildVersionIncrement: Items checked
+BuildVersionIncrement:  Item: Project:DermaSystem -> False
+BuildVersionIncrement:  Item: Project:System.Windows.Forms.Calendar -> False
+BuildVersionIncrement:  Item: Solution:DermaSystem -> False
+BuildVersionIncrement: Clearing date and solution cache

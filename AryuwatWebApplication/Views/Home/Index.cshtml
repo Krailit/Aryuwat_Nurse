@@ -1,0 +1,95 @@
+﻿@using AryuwatWebApplication.Models
+@{
+    ViewBag.Title = "Patient list";
+}
+<style>
+    .rowHover {
+        background-color: white;
+    }
+    .rowHover:hover {
+        background-color: gainsboro;
+    }
+</style>
+<div id="app" style="font-size:34px">
+    @*<div class="container" style="background-color:#f3f3f3;margin-top: -20px;padding-top: 10px; padding-bottom: 30px">
+            <div class="row">
+                <div class="col-lg-1">
+                    <a href="@Url.Content("~/Signin/Index")"><i class="fa fa-angle-left"></i></a>
+                </div>
+                <div class="col-lg-11">
+                    <u style="font-size:30px; font-weight:600">Darlene Rebertson</u>
+                </div>
+                <div class="col-lg-1">
+                </div>
+                <div class="col-lg-11">
+                    <p style="font-size:20px;">ID : 1234567890124</p>
+                </div>
+            </div>
+        </div>*@
+    <div class="container" style="background-color:#e6e6e6;">
+    <div class="row color-text" style="margin-top: 5rem;margin-bottom: 5rem;margin-left: 10px;margin-right: 10px; background-color: white;border-radius:10px">
+        <div class="col-lg-12">
+            <table style="width:100%">
+                <thead style="font-weight:600;border-bottom: 3px solid black;">
+                    <tr>
+                        <td style="width:25%;text-align:center;">Name</td>
+                        <td style="width:15%;text-align:center;">CN</td>
+                        <td style="width:15%;text-align:center;">Gender</td>
+                        <td style="width:15%;text-align:center;">Mobile</td>
+                    </tr>
+                </thead>
+                <tbody style="font-size: 24px; font-weight: 300;text-align:center;height: 60px;">
+                    <tr :key="index" v-for="(items, index) in tempCustomer" v-if="tempCustomer.length > 0" class="rowHover" style="border-bottom: 1px solid #cbc3c3;height: 60px;cursor:pointer;" v-on:click="sendCNtoTemp(items.CN)">
+                        <td class="text-left">
+                            {{ items.PrefixCode + items.Tname + ' ' + items.TsurName }} 
+                        </td>
+                        <td class="text-center">
+                            {{ items.CN }}
+                        </td>
+                        <td class="text-center">
+                            {{ (items.Gender == 'W' ? 'Female' : 'Male') }}
+                        </td>
+                        <td class="text-center">
+                            {{ items.Mobile1 }}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+<script src="~/Scripts/vue.js"></script>
+<script src="~/Scripts/axios.js"></script>
+<script>
+            Vue.prototype.$http = axios;
+            const app = new Vue({
+                el: "#app",
+                data: {
+                    tempCustomer: [],
+                    active: false,
+                    bgtblcolor: "white",
+                },
+                mounted: function () {
+                    this.onHandleClickAddTraining();
+                },
+                watch: {
+
+                },
+                methods: {
+                    onHandleClickAddTraining:function(data){
+                        var vm=this;
+                        vm.$http.get('@Url.Action("TableCustomer", "Home")')
+                            .then(function (response) {
+                                if (response.data.ContentEncoding == 200) {
+                                    vm.tempCustomer = response.data.data;
+                                }
+                        });
+                    },
+                    sendCNtoTemp:function(CN){
+                        var that=this;
+                        window.location.replace('@Url.Action("PatientDetail", "Home")?customerCN=' + CN)
+                    },
+                }
+            });
+</script>
