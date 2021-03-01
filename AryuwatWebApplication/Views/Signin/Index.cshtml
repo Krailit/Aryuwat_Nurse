@@ -122,6 +122,7 @@
                         tempdata: JSON.stringify(tempdata)
                     }).then(function (response) {
                         if (response.data.status == 200) {
+                            //alert(response.data.data.Value)
                              window.location.href = '@Url.Content("~/Home/Index")';
                         }
                         else {
