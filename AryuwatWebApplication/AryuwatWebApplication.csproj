@@ -313,6 +313,9 @@
     <Compile Include="Entity\PALabel.cs">
       <DependentUpon>OPD_Entity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\PatientChange.cs">
+      <DependentUpon>OPD_Entity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\PayByItem.cs">
       <DependentUpon>OPD_Entity.tt</DependentUpon>
     </Compile>
@@ -1684,6 +1687,8 @@
     <Content Include="Views\Signin\Index.cshtml" />
     <Content Include="Scripts\moment.min.js.map" />
     <Content Include="Scripts\moment-with-locales.min.js.map" />
+    <Content Include="Views\Home\MedicalExpire.cshtml" />
+    <Content Include="Views\Home\PatientData.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

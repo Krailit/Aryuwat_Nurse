@@ -111,6 +111,36 @@ namespace AryuwatWebApplication.Controllers
             }
         }
 
+        [HttpPost, ActionName("GetPatientChange")]
+        public JsonResult GetPatientChange(int? customer_id)
+        {
+            try
+            {
+                string username = HttpContext.Request.Cookies.Get("OPD")["Username"];
+
+                using (var context = new OPD_SystemEntities())
+                {
+                    if (customer_id != 0)
+                    {
+                        var result = context.PatientChanges.Where(x => x.FK_Customer_ID == customer_id && x.Is_Active == true).ToList();
+                        if (result.Count > 0)
+                        {
+                            var onelastchange = result.Where(x => x.Type == 1).OrderByDescending(x => x.ID).FirstOrDefault().DateChange;
+                            var onenextchange = result.Where(x => x.Type == 1).OrderByDescending(x => x.ID).FirstOrDefault().NextDateChange;
+                            var twolastchange = result.Where(x => x.Type == 2).OrderByDescending(x => x.ID).FirstOrDefault().DateChange;
+                            var twonextchange = result.Where(x => x.Type == 2).OrderByDescending(x => x.ID).FirstOrDefault().NextDateChange;
+                            return Json(new { ContentEncoding = 200, data = result, onelastchange = onelastchange, onenextchange = onenextchange, twolastchange = twolastchange, twonextchange = twonextchange });
+                        }
+                    }
+                    return Json(new { ContentEncoding = 400 });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(null);
+            }
+        }
+
         public ActionResult PatientDetail(string customerCN)
         {
             var result = new Customer();
@@ -138,6 +168,58 @@ namespace AryuwatWebApplication.Controllers
         }
 
         public ActionResult Attachfile(string customerCN)
+        {
+            var result = new Customer();
+            try
+            {
+                if (!String.IsNullOrEmpty(customerCN))
+                {
+                    using (var context = new OPD_SystemEntities())
+                    {
+
+                        result = context.Customers.Where(x => x.CN == customerCN).FirstOrDefault();
+
+                        return View(result);
+                    }
+                }
+                else
+                {
+                    return View(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                return View(result);
+            }
+        }
+
+        public ActionResult PatientData(string customerCN)
+        {
+            var result = new Customer();
+            try
+            {
+                if (!String.IsNullOrEmpty(customerCN))
+                {
+                    using (var context = new OPD_SystemEntities())
+                    {
+
+                        result = context.Customers.Where(x => x.CN == customerCN).FirstOrDefault();
+
+                        return View(result);
+                    }
+                }
+                else
+                {
+                    return View(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                return View(result);
+            }
+        }
+
+        public ActionResult MedicalExpire(string customerCN)
         {
             var result = new Customer();
             try

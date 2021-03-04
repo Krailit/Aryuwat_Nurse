@@ -121,40 +121,6 @@ warning 6002: The table/view 'OPD_System.dbo.AgencyType' does not have a primary
           <Property Name="SaleRate" Type="decimal" Precision="10" Scale="2" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'OPD_System.dbo.AuditCheckList' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="AuditCheckList">
-          <Property Name="Course no#" Type="nvarchar" MaxLength="255" />
-          <Property Name="MO" Type="nvarchar" MaxLength="255" />
-          <Property Name="SONo" Type="nvarchar" MaxLength="255" />
-          <Property Name="SaleDate" Type="nvarchar" MaxLength="255" />
-          <Property Name="SaleMonth" Type="nvarchar" MaxLength="255" />
-          <Property Name="CN" Type="nvarchar" MaxLength="255" />
-          <Property Name="CustomerName" Type="nvarchar" MaxLength="255" />
-          <Property Name="CustomerType" Type="nvarchar" MaxLength="255" />
-          <Property Name="SalePrice" Type="float" />
-          <Property Name="Amt" Type="float" />
-          <Property Name="Amt use" Type="float" />
-          <Property Name="Amt1" Type="float" />
-          <Property Name="SurgicalTyp" Type="nvarchar" MaxLength="255" />
-          <Property Name="ตามบัตรคอร์ส" Type="float" />
-          <Property Name="Adjustment" Type="float" />
-          <Property Name="After adjust" Type="float" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'OPD_System.dbo.AutoBookDoctorProfile' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="AutoBookDoctorProfile">
-          <Property Name="DrID" Type="varchar" MaxLength="20" />
-          <Property Name="RoomID" Type="varchar" MaxLength="20" />
-          <Property Name="TimeStart" Type="datetime" />
-          <Property Name="TimeEnd" Type="datetime" />
-          <Property Name="Note" Type="varchar" MaxLength="250" />
-          <Property Name="BranchID" Type="varchar" MaxLength="20" />
-          <Property Name="ENSave" Type="varchar" MaxLength="20" />
-          <Property Name="DateSave" Type="datetime" />
-          <Property Name="DayFullName" Type="varchar" MaxLength="50" />
-          <Property Name="CustName" Type="varchar" MaxLength="150" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
 warning 6002: The table/view 'OPD_System.dbo.Barter' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Barter">
           <Key>
@@ -271,12 +237,6 @@ warning 6002: The table/view 'OPD_System.dbo.Branch' does not have a primary key
           <Property Name="AddressTextCode" Type="varchar" MaxLength="1000" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'OPD_System.dbo.buddhism_geo' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="buddhism_geo">
-          <Property Name="bgeo_id" Type="int" />
-          <Property Name="bgeo_name" Type="nvarchar" MaxLength="255" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
 warning 6002: The table/view 'OPD_System.dbo.CashCreditCardSOT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="CashCreditCardSOT">
           <Key>
@@ -299,48 +259,6 @@ warning 6002: The table/view 'OPD_System.dbo.CashCreditCardSOT' does not have a 
           <Property Name="SO" Type="varchar" MaxLength="50" />
           <Property Name="RCNo" Type="varchar" MaxLength="50" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'OPD_System.dbo.CheckCourse' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="CheckCourse">
-          <Property Name="Sts" Type="nvarchar" MaxLength="255" />
-          <Property Name="MORef" Type="float" />
-          <Property Name="รายการ" Type="nvarchar" MaxLength="255" />
-          <Property Name="ทั้งหมด" Type="float" />
-          <Property Name="ใช้ไป" Type="float" />
-          <Property Name="คงเหลือ" Type="float" />
-          <Property Name="ใช้ครั้งแรก" Type="nvarchar" MaxLength="255" />
-          <Property Name="ใช้ล่าสุด" Type="nvarchar" MaxLength="255" />
-          <Property Name="หมดอายุ" Type="nvarchar" MaxLength="255" />
-          <Property Name="ต่ออายุ" Type="nvarchar" MaxLength="255" />
-          <Property Name="สาขาที่ซื้อ" Type="nvarchar" MaxLength="255" />
-          <Property Name="SO" Type="nvarchar" MaxLength="255" />
-          <Property Name="MO" Type="nvarchar" MaxLength="255" />
-          <Property Name="ListOrder" Type="float" />
-          <Property Name="MS_Code" Type="nvarchar" MaxLength="255" />
-          <Property Name="Tab" Type="nvarchar" MaxLength="255" />
-          <Property Name="CN" Type="nvarchar" MaxLength="255" />
-          <Property Name="ชื่อผู้ซื้อ" Type="nvarchar" MaxLength="255" />
-          <Property Name="PriceAfterDis" Type="float" />
-          <Property Name="Canceled" Type="nvarchar" MaxLength="255" />
-          <Property Name="F21" Type="nvarchar" MaxLength="255" />
-          <Property Name="F22" Type="nvarchar" MaxLength="255" />
-          <Property Name="F23" Type="nvarchar" MaxLength="255" />
-          <Property Name="F24" Type="nvarchar" MaxLength="255" />
-          <Property Name="F25" Type="nvarchar" MaxLength="255" />
-          <Property Name="F26" Type="nvarchar" MaxLength="255" />
-          <Property Name="F27" Type="nvarchar" MaxLength="255" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'OPD_System.dbo.CommissionFee' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="CommissionFee">
-          <Property Name="SOno" Type="varchar" MaxLength="20" />
-          <Property Name="MS_Code" Type="varchar" MaxLength="50" />
-          <Property Name="ListOrder" Type="varchar" MaxLength="5" />
-          <Property Name="EN_COMS" Type="varchar" MaxLength="50" />
-          <Property Name="Com_Bath" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="Com_Date" Type="datetime" />
-          <Property Name="PayByItem" Type="decimal" Precision="10" Scale="2" />
-        </EntityType>-->
         <EntityType Name="CommissionRate">
           <Key>
             <PropertyRef Name="ID" />
@@ -386,14 +304,6 @@ warning 6002: The table/view 'OPD_System.dbo.ContactCustomer' does not have a pr
           <Property Name="RelationFlag" Type="char" MaxLength="1" />
           <Property Name="RelationOther" Type="nvarchar" MaxLength="200" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'OPD_System.dbo.ContactFrom' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="ContactFrom">
-          <Property Name="CFCode" Type="varchar" MaxLength="20" />
-          <Property Name="CFText" Type="varchar" MaxLength="50" />
-          <Property Name="ShowOrder" Type="smallint" />
-          <Property Name="GroupS" Type="varchar" MaxLength="20" />
-        </EntityType>-->
         <!--Errors Found During Generation:
 warning 6002: The table/view 'OPD_System.dbo.CosmeticSurgery' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="CosmeticSurgery">
@@ -488,12 +398,11 @@ warning 6002: The table/view 'OPD_System.dbo.CustomerProvider_bak' does not have
           <Property Name="ORD" Type="int" />
           <Property Name="ShowWith" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'OPD_System.dbo.Customers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Customers">
           <Key>
-            <PropertyRef Name="CN" />
+            <PropertyRef Name="ID" />
           </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CN" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="Dateregister" Type="datetime" />
           <Property Name="PrefixCode" Type="varchar" MaxLength="50" />
@@ -553,12 +462,6 @@ warning 6002: The table/view 'OPD_System.dbo.Customers' does not have a primary 
           <Property Name="BranchAuth" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'OPD_System.dbo.Department' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="Department">
-          <Property Name="DeptCode" Type="varchar" MaxLength="4" />
-          <Property Name="DeptName" Type="varchar" MaxLength="50" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
 warning 6002: The table/view 'OPD_System.dbo.Districts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Districts">
           <Key>
@@ -570,25 +473,6 @@ warning 6002: The table/view 'OPD_System.dbo.Districts' does not have a primary 
           <Property Name="District_NAME" Type="nvarchar" MaxLength="255" />
           <Property Name="PROVINCE_CODE" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'OPD_System.dbo.Districts_bak' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="Districts_bak">
-          <Property Name="District_ID" Type="int" />
-          <Property Name="District_CODE" Type="nvarchar" MaxLength="12" />
-          <Property Name="District_NAME" Type="nvarchar" MaxLength="255" />
-          <Property Name="GEO_ID" Type="int" />
-          <Property Name="PROVINCE_ID" Type="int" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'OPD_System.dbo.DrugMaster' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="DrugMaster">
-          <Property Name="1" Type="nvarchar" MaxLength="255" />
-          <Property Name="2" Type="nvarchar" MaxLength="255" />
-          <Property Name="3" Type="float" />
-          <Property Name="4" Type="nvarchar" MaxLength="255" />
-          <Property Name="5" Type="float" />
-          <Property Name="6" Type="nvarchar" MaxLength="255" />
-        </EntityType>-->
         <!--Errors Found During Generation:
 warning 6002: The table/view 'OPD_System.dbo.ExtraMoney' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="ExtraMoney">
@@ -611,25 +495,6 @@ warning 6002: The table/view 'OPD_System.dbo.ExtraMoney' does not have a primary
           <Property Name="ENSave" Type="varchar" MaxLength="20" />
           <Property Name="DateSave" Type="datetime" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'OPD_System.dbo.FreeTrans' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="FreeTrans">
-          <Property Name="SONo" Type="varchar" MaxLength="50" />
-          <Property Name="VN" Type="varchar" MaxLength="50" />
-          <Property Name="MS_Code" Type="varchar" MaxLength="100" />
-          <Property Name="ListOrder" Type="varchar" MaxLength="3" />
-          <Property Name="FreeType" Type="varchar" MaxLength="3" />
-          <Property Name="GiftCodeOther" Type="varchar" MaxLength="100" />
-          <Property Name="Approve" Type="varchar" MaxLength="20" />
-          <Property Name="Remark" Type="varchar" MaxLength="150" />
-          <Property Name="Approve2" Type="varchar" MaxLength="20" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'OPD_System.dbo.geography' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="geography">
-          <Property Name="GEO_ID" Type="int" />
-          <Property Name="GEO_NAME" Type="nvarchar" MaxLength="255" />
-        </EntityType>-->
         <!--Errors Found During Generation:
 warning 6002: The table/view 'OPD_System.dbo.GiftVoucher' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="GiftVoucher">
@@ -694,58 +559,6 @@ warning 6002: The table/view 'OPD_System.dbo.HowYouhear' does not have a primary
           <Property Name="Agency" Type="char" MaxLength="1" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'OPD_System.dbo.HowYouhearSO' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="HowYouhearSO">
-          <Property Name="CN" Type="varchar" MaxLength="20" />
-          <Property Name="Newspaper" Type="char" MaxLength="1" />
-          <Property Name="Magazine" Type="char" MaxLength="1" />
-          <Property Name="Internet" Type="char" MaxLength="1" />
-          <Property Name="Friend" Type="char" MaxLength="1" />
-          <Property Name="Travelthrough" Type="char" MaxLength="1" />
-          <Property Name="HowYouhearOther" Type="varchar" MaxLength="150" />
-          <Property Name="Facebook" Type="char" MaxLength="1" />
-          <Property Name="Instagram" Type="char" MaxLength="1" />
-          <Property Name="Sms" Type="char" MaxLength="1" />
-          <Property Name="LineAt" Type="char" MaxLength="1" />
-          <Property Name="Line" Type="char" MaxLength="1" />
-          <Property Name="Taxi" Type="char" MaxLength="1" />
-          <Property Name="Agency" Type="varchar" MaxLength="20" />
-          <Property Name="TV" Type="char" MaxLength="1" />
-          <Property Name="CallIn" Type="char" MaxLength="1" />
-          <Property Name="SOno" Type="varchar" MaxLength="20" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'OPD_System.dbo.ImpCheckCourse' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="ImpCheckCourse">
-          <Property Name="Sts" Type="nvarchar" MaxLength="255" />
-          <Property Name="MORef" Type="float" />
-          <Property Name="รายการ" Type="nvarchar" MaxLength="255" />
-          <Property Name="ทั้งหมด" Type="float" />
-          <Property Name="ใช้ไป" Type="float" />
-          <Property Name="คงเหลือ" Type="float" />
-          <Property Name="ใช้ครั้งแรก" Type="nvarchar" MaxLength="255" />
-          <Property Name="ใช้ล่าสุด" Type="nvarchar" MaxLength="255" />
-          <Property Name="หมดอายุ" Type="nvarchar" MaxLength="255" />
-          <Property Name="ต่ออายุ" Type="nvarchar" MaxLength="255" />
-          <Property Name="สาขาที่ซื้อ" Type="nvarchar" MaxLength="255" />
-          <Property Name="SO" Type="nvarchar" MaxLength="255" />
-          <Property Name="MO" Type="nvarchar" MaxLength="255" />
-          <Property Name="ListOrder" Type="float" />
-          <Property Name="MS_Code" Type="nvarchar" MaxLength="255" />
-          <Property Name="Tab" Type="nvarchar" MaxLength="255" />
-          <Property Name="CN" Type="nvarchar" MaxLength="255" />
-          <Property Name="ชื่อผู้ซื้อ" Type="nvarchar" MaxLength="255" />
-          <Property Name="PriceAfterDis" Type="float" />
-          <Property Name="Canceled" Type="nvarchar" MaxLength="255" />
-          <Property Name="F21" Type="nvarchar" MaxLength="255" />
-          <Property Name="F22" Type="nvarchar" MaxLength="255" />
-          <Property Name="F23" Type="nvarchar" MaxLength="255" />
-          <Property Name="F24" Type="nvarchar" MaxLength="255" />
-          <Property Name="F25" Type="nvarchar" MaxLength="255" />
-          <Property Name="F26" Type="nvarchar" MaxLength="255" />
-          <Property Name="F27" Type="nvarchar" MaxLength="255" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
 warning 6002: The table/view 'OPD_System.dbo.InvoiceTrans' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="InvoiceTrans">
           <Key>
@@ -760,29 +573,6 @@ warning 6002: The table/view 'OPD_System.dbo.InvoiceTrans' does not have a prima
           <Property Name="Vat" Type="varchar" MaxLength="1" />
           <Property Name="BranchId" Type="varchar" MaxLength="20" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'OPD_System.dbo.JobCostRate$' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="JobCostRate$">
-          <Property Name="ID" Type="float" />
-          <Property Name="Position_Type" Type="nvarchar" MaxLength="255" />
-          <Property Name="Position_ID" Type="nvarchar" MaxLength="255" />
-          <Property Name="Position_Name" Type="nvarchar" MaxLength="255" />
-          <Property Name="Com_Bath1Hr" Type="float" />
-          <Property Name="Com_Bath2Hr" Type="float" />
-          <Property Name="Com_Bath3Hr" Type="float" />
-          <Property Name="Com_Bath4Hr" Type="float" />
-          <Property Name="Com_Bath5Hr" Type="float" />
-          <Property Name="Com_Percen1Hr" Type="nvarchar" MaxLength="255" />
-          <Property Name="Com_Percen2Hr" Type="nvarchar" MaxLength="255" />
-          <Property Name="Com_Percen3Hr" Type="nvarchar" MaxLength="255" />
-          <Property Name="Remark" Type="nvarchar" MaxLength="255" />
-          <Property Name="OrderShow" Type="float" />
-          <Property Name="MedicalStuff" Type="nvarchar" MaxLength="255" />
-          <Property Name="FormulaCNA" Type="nvarchar" MaxLength="255" />
-          <Property Name="FormulaCNT" Type="nvarchar" MaxLength="255" />
-          <Property Name="DisableIF" Type="nvarchar" MaxLength="255" />
-          <Property Name="Checkbox" Type="nvarchar" MaxLength="255" />
-        </EntityType>-->
         <!--Errors Found During Generation:
 warning 6002: The table/view 'OPD_System.dbo.JobsAlert' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="JobsAlert">
@@ -802,16 +592,6 @@ warning 6002: The table/view 'OPD_System.dbo.JobsAlert' does not have a primary 
           <Property Name="CloseBy" Type="varchar" MaxLength="50" />
           <Property Name="CompleteDate" Type="datetime" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'OPD_System.dbo.MA_Imp' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="MA_Imp">
-          <Property Name="รหัสสินค้า" Type="varchar" MaxLength="20" />
-          <Property Name="ชื่อสินค้า" Type="varchar" MaxLength="255" />
-          <Property Name="หน่วยบรรจุ" Type="varchar" MaxLength="255" />
-          <Property Name="จำนวนเบิก" Type="varchar" MaxLength="255" />
-          <Property Name="หน่วยนับ" Type="varchar" MaxLength="255" />
-          <Property Name="UnitCode" Type="varchar" MaxLength="20" />
-        </EntityType>-->
         <EntityType Name="Master_Room">
           <Key>
             <PropertyRef Name="ID" />
@@ -829,22 +609,6 @@ warning 6013: The table/view 'OPD_System.dbo.MA_Imp' does not have a primary key
           <Property Name="Update_By" Type="varchar" MaxLength="50" />
           <Property Name="Update_Date" Type="datetime" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'OPD_System.dbo.MedicalCourseCard' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="MedicalCourseCard">
-          <Property Name="CourseCardID" Type="varchar" MaxLength="20" />
-          <Property Name="SOno" Type="varchar" MaxLength="20" />
-          <Property Name="VN" Type="varchar" MaxLength="50" />
-          <Property Name="MS_Code" Type="varchar" MaxLength="50" />
-          <Property Name="ListOrder" Type="varchar" MaxLength="3" />
-          <Property Name="CreateBy" Type="varchar" MaxLength="200" />
-          <Property Name="CreateDate" Type="datetime" />
-          <Property Name="BranchId" Type="varchar" MaxLength="20" />
-          <Property Name="PrintCard" Type="char" MaxLength="1" />
-          <Property Name="DateUpdate" Type="datetime" />
-          <Property Name="ExpireDate" Type="datetime" />
-          <Property Name="ExpireDatePrint" Type="nchar" MaxLength="10" />
-        </EntityType>-->
         <EntityType Name="MedicalOrder">
           <Key>
             <PropertyRef Name="ID" />
@@ -1245,12 +1009,6 @@ warning 6002: The table/view 'OPD_System.dbo.MemberCardsTran' does not have a pr
           <Property Name="ScanBy" Type="varchar" MaxLength="50" />
           <Property Name="ScanDate" Type="datetime" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'OPD_System.dbo.MemberGroup' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="MemberGroup">
-          <Property Name="CN_Main" Type="varchar" MaxLength="20" />
-          <Property Name="CN_Sub" Type="varchar" MaxLength="20" />
-        </EntityType>-->
         <EntityType Name="MemberTrans">
           <Key>
             <PropertyRef Name="VN" />
@@ -1274,30 +1032,6 @@ warning 6013: The table/view 'OPD_System.dbo.MemberGroup' does not have a primar
           <Property Name="FlagDisplay" Type="nvarchar" MaxLength="1" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'OPD_System.dbo.MenuPermission' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="MenuPermission">
-          <Property Name="MenuId" Type="nvarchar" MaxLength="50" />
-          <Property Name="GroupId" Type="int" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'OPD_System.dbo.MobileAlert' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="MobileAlert">
-          <Property Name="Mobile" Type="varchar" MaxLength="20" />
-          <Property Name="Sended" Type="varchar" MaxLength="2" />
-          <Property Name="Result" Type="varchar" MaxLength="2" />
-          <Property Name="CN" Type="varchar" MaxLength="20" />
-          <Property Name="MS_Code" Type="varchar" MaxLength="20" />
-          <Property Name="DateAlert" Type="datetime" />
-          <Property Name="UseTransId" Type="varchar" MaxLength="20" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'OPD_System.dbo.MoConfig' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="MoConfig">
-          <Property Name="Key" Type="varchar" MaxLength="100" />
-          <Property Name="values" Type="varchar" MaxLength="50" />
-          <Property Name="Code" Type="varchar" MaxLength="20" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
 warning 6002: The table/view 'OPD_System.dbo.PALabel' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="PALabel">
           <Key>
@@ -1318,6 +1052,22 @@ warning 6002: The table/view 'OPD_System.dbo.PALabel' does not have a primary ke
           <Property Name="eat" Type="char" MaxLength="1" />
           <Property Name="coat" Type="char" MaxLength="1" />
           <Property Name="coatArea" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PatientChange">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FK_Customer_ID" Type="int" />
+          <Property Name="Count" Type="int" />
+          <Property Name="Type" Type="int" />
+          <Property Name="DateChange" Type="datetime" />
+          <Property Name="NextDateChange" Type="datetime" />
+          <Property Name="Is_Active" Type="bit" />
+          <Property Name="Create_By" Type="varchar(max)" />
+          <Property Name="Create_Date" Type="datetime" />
+          <Property Name="Update_By" Type="varchar(max)" />
+          <Property Name="Update_Date" Type="datetime" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'OPD_System.dbo.PayByItem' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1447,89 +1197,6 @@ warning 6002: The table/view 'OPD_System.dbo.PrintConf' does not have a primary 
           <Property Name="frmStatic" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="ReportName" Type="varchar" MaxLength="50" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'OPD_System.dbo.Product$' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="Product$">
-          <Property Name="ID" Type="float" />
-          <Property Name="MS_Code" Type="nvarchar" MaxLength="255" />
-          <Property Name="MS_Section" Type="nvarchar" MaxLength="255" />
-          <Property Name="MS_Name" Type="nvarchar" MaxLength="255" />
-          <Property Name="MS_Detail" Type="nvarchar" MaxLength="255" />
-          <Property Name="MS_CLPrice" Type="float" />
-          <Property Name="MS_CAPrice" Type="float" />
-          <Property Name="MS_CMPrice" Type="float" />
-          <Property Name="MS_Unit" Type="nvarchar" MaxLength="255" />
-          <Property Name="MS_CourseDuration" Type="nvarchar" MaxLength="255" />
-          <Property Name="MS_Order" Type="nvarchar" MaxLength="255" />
-          <Property Name="MS_Type" Type="nvarchar" MaxLength="255" />
-          <Property Name="MS_Instock" Type="nvarchar" MaxLength="255" />
-          <Property Name="MS_Number_C" Type="float" />
-          <Property Name="MS_Code_Ref" Type="nvarchar" MaxLength="255" />
-          <Property Name="FeeRate" Type="float" />
-          <Property Name="FeeRate2" Type="float" />
-          <Property Name="MaxDiscount" Type="nvarchar" MaxLength="255" />
-          <Property Name="Vat" Type="nvarchar" MaxLength="255" />
-          <Property Name="BranchID" Type="nvarchar" MaxLength="255" />
-          <Property Name="OperationID" Type="nvarchar" MaxLength="255" />
-          <Property Name="PurchaseID" Type="nvarchar" MaxLength="255" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'OPD_System.dbo.ProductMapping' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="ProductMapping">
-          <Property Name="รหัสสินค้าเก่า" Type="nvarchar" MaxLength="255" />
-          <Property Name="รหัสสินค้าใหม่" Type="nvarchar" MaxLength="255" />
-          <Property Name="ชื่อสินค้า" Type="nvarchar" MaxLength="255" />
-          <Property Name="ชื่อสินค้า1" Type="nvarchar" MaxLength="255" />
-          <Property Name="กินP_ทาC" Type="nvarchar" MaxLength="255" />
-          <Property Name="VAT_NONVAT" Type="nvarchar" MaxLength="255" />
-          <Property Name="หน่วย_นับ" Type="nvarchar" MaxLength="255" />
-          <Property Name="ราคาต่อหน่วย" Type="float" />
-          <Property Name="ราคาขายTH" Type="float" />
-          <Property Name="ราคาขายAG" Type="float" />
-          <Property Name="UnitCode" Type="nchar" MaxLength="10" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'OPD_System.dbo.ProductMapping2' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="ProductMapping2">
-          <Property Name="รหัสสินค้าเก่า" Type="nvarchar" MaxLength="255" />
-          <Property Name="รหัสสินค้าใหม่" Type="nvarchar" MaxLength="255" />
-          <Property Name="ชื่อสินค้า" Type="nvarchar" MaxLength="255" />
-          <Property Name="ชื่อสินค้า1" Type="nvarchar" MaxLength="255" />
-          <Property Name="กินP_ทาC" Type="nvarchar" MaxLength="255" />
-          <Property Name="VAT_NONVAT" Type="nvarchar" MaxLength="255" />
-          <Property Name="หน่วย_นับ" Type="nvarchar" MaxLength="255" />
-          <Property Name="ราคาต่อหน่วย" Type="float" />
-          <Property Name="ราคาขายTH" Type="float" />
-          <Property Name="ราคาขายAG" Type="float" />
-          <Property Name="F11" Type="nvarchar" MaxLength="255" />
-          <Property Name="F12" Type="nvarchar" MaxLength="255" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'OPD_System.dbo.ProductTemp' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="ProductTemp">
-          <Property Name="ID" Type="nvarchar" MaxLength="255" />
-          <Property Name="MS_Code" Type="nvarchar" MaxLength="255" />
-          <Property Name="MS_Section" Type="nvarchar" MaxLength="255" />
-          <Property Name="MS_Name" Type="nvarchar" MaxLength="255" />
-          <Property Name="MS_Detail" Type="nvarchar" MaxLength="255" />
-          <Property Name="MS_CLPrice" Type="float" />
-          <Property Name="MS_CAPrice" Type="float" />
-          <Property Name="MS_CMPrice" Type="float" />
-          <Property Name="MS_Unit" Type="nvarchar" MaxLength="255" />
-          <Property Name="MS_CourseDuration" Type="nvarchar" MaxLength="255" />
-          <Property Name="MS_Order" Type="nvarchar" MaxLength="255" />
-          <Property Name="MS_Type" Type="nvarchar" MaxLength="255" />
-          <Property Name="MS_Instock" Type="nvarchar" MaxLength="255" />
-          <Property Name="MS_Number_C" Type="float" />
-          <Property Name="MS_Code_Ref" Type="nvarchar" MaxLength="255" />
-          <Property Name="FeeRate" Type="float" />
-          <Property Name="FeeRate2" Type="float" />
-          <Property Name="MaxDiscount" Type="nvarchar" MaxLength="255" />
-          <Property Name="Vat" Type="nvarchar" MaxLength="255" />
-          <Property Name="BranchID" Type="nvarchar" MaxLength="255" />
-          <Property Name="OperationID" Type="nvarchar" MaxLength="255" />
-          <Property Name="PurchaseID" Type="nvarchar" MaxLength="255" />
-        </EntityType>-->
         <EntityType Name="Promotion">
           <Key>
             <PropertyRef Name="ID" />
@@ -1610,16 +1277,6 @@ warning 6002: The table/view 'OPD_System.dbo.Provinces' does not have a primary 
           <Property Name="Country_ID" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'OPD_System.dbo.RA_Imp' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="RA_Imp">
-          <Property Name="รหัสสินค้า" Type="varchar" MaxLength="20" />
-          <Property Name="ชื่อสินค้า" Type="varchar" MaxLength="255" />
-          <Property Name="หน่วยบรรจุ" Type="varchar" MaxLength="255" />
-          <Property Name="จำนวนเบิก" Type="varchar" MaxLength="255" />
-          <Property Name="หน่วยนับ" Type="varchar" MaxLength="255" />
-          <Property Name="UnitCode" Type="varchar" MaxLength="20" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
 warning 6002: The table/view 'OPD_System.dbo.ReceiptTrans' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="ReceiptTrans">
           <Key>
@@ -1690,19 +1347,6 @@ warning 6002: The table/view 'OPD_System.dbo.RefundType' does not have a primary
           <Property Name="Active" Type="nchar" MaxLength="10" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'OPD_System.dbo.RefVN' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="RefVN">
-          <Property Name="RefVN" Type="varchar" MaxLength="20" />
-          <Property Name="CN" Type="varchar" MaxLength="20" />
-          <Property Name="DateRefVN" Type="datetime" />
-          <Property Name="EN_COMS1" Type="varchar" MaxLength="20" />
-          <Property Name="EN_COMS2" Type="varchar" MaxLength="20" />
-          <Property Name="DR_COM" Type="varchar" MaxLength="20" />
-          <Property Name="EN" Type="varchar" MaxLength="20" />
-          <Property Name="BranchId" Type="varchar" MaxLength="10" />
-          <Property Name="Remark" Type="varchar" MaxLength="200" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
 warning 6002: The table/view 'OPD_System.dbo.RefVNTrans' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="RefVNTrans">
           <Key>
@@ -1722,19 +1366,6 @@ warning 6002: The table/view 'OPD_System.dbo.RefVNTrans' does not have a primary
           <Property Name="MOType" Type="nchar" MaxLength="10" />
           <Property Name="FreeType" Type="nchar" MaxLength="10" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'OPD_System.dbo.ReportName' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="ReportName">
-          <Property Name="Rpt_Code" Type="varchar" MaxLength="20" />
-          <Property Name="Rpt_Name" Type="varchar" MaxLength="100" />
-          <Property Name="Rpt_Department" Type="varchar" MaxLength="100" />
-          <Property Name="Rpt_Detail" Type="varchar" MaxLength="100" />
-          <Property Name="ShowOrder" Type="int" />
-          <Property Name="DateRang" Type="char" MaxLength="1" />
-          <Property Name="QueryType" Type="varchar" MaxLength="100" />
-          <Property Name="SProcedure" Type="varchar" MaxLength="100" />
-          <Property Name="ActiveReport" Type="char" MaxLength="1" />
-        </EntityType>-->
         <EntityType Name="Room">
           <Key>
             <PropertyRef Name="RoomID" />
@@ -1778,20 +1409,6 @@ warning 6013: The table/view 'OPD_System.dbo.ReportName' does not have a primary
           <Property Name="AddDate" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'OPD_System.dbo.SaleCommission' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="SaleCommission">
-          <Property Name="VN" Type="varchar" MaxLength="50" />
-          <Property Name="SOT_Code" Type="varchar" MaxLength="50" />
-          <Property Name="EN_COMS" Type="varchar" MaxLength="50" />
-          <Property Name="Com_Bath" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="Com_Date" Type="datetime" />
-          <Property Name="EN_Save" Type="varchar" MaxLength="50" />
-          <Property Name="EN_COMS2" Type="varchar" MaxLength="50" />
-          <Property Name="SO" Type="varchar" MaxLength="20" />
-          <Property Name="Com_Bath2" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="PriceAfterDis" Type="decimal" Precision="10" Scale="2" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
 warning 6002: The table/view 'OPD_System.dbo.ServiceRequest' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="ServiceRequest">
           <Key>
@@ -1814,14 +1431,6 @@ warning 6002: The table/view 'OPD_System.dbo.ServiceRequest' does not have a pri
           <Property Name="Note" Type="varchar" MaxLength="200" />
           <Property Name="Pro_Code" Type="varchar" MaxLength="20" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'OPD_System.dbo.SmsConfig' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="SmsConfig">
-          <Property Name="SmsID" Type="varchar" MaxLength="4" />
-          <Property Name="MS_Code" Type="varchar" MaxLength="200" />
-          <Property Name="SmsText" Type="varchar" MaxLength="300" />
-          <Property Name="Period" Type="int" />
-        </EntityType>-->
         <!--Errors Found During Generation:
 warning 6002: The table/view 'OPD_System.dbo.SOClose' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="SOClose">
@@ -1860,26 +1469,6 @@ warning 6002: The table/view 'OPD_System.dbo.States_bk' does not have a primary 
           <Property Name="States_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Country_id" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'OPD_System.dbo.StockCutDetail' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="StockCutDetail">
-          <Property Name="CutByID" Type="varchar" MaxLength="20" />
-          <Property Name="Cut_Detail" Type="varchar" MaxLength="150" />
-          <Property Name="Remark" Type="varchar" MaxLength="200" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'OPD_System.dbo.StockGetDetail' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="StockGetDetail">
-          <Property Name="GetByID" Type="varchar" MaxLength="20" />
-          <Property Name="Get_Detail" Type="varchar" MaxLength="150" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'OPD_System.dbo.StockLocation' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="StockLocation">
-          <Property Name="LocationID" Type="varchar" MaxLength="20" />
-          <Property Name="Location_Detail" Type="varchar" MaxLength="150" />
-          <Property Name="ShowOrder" Type="smallint" />
-        </EntityType>-->
         <!--Errors Found During Generation:
 warning 6002: The table/view 'OPD_System.dbo.StockREQ' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="StockREQ">
@@ -2033,16 +1622,6 @@ warning 6002: The table/view 'OPD_System.dbo.Subdistricts' does not have a prima
           <Property Name="DISTRICT_CODE" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'OPD_System.dbo.SubDistricts_bak' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="SubDistricts_bak">
-          <Property Name="SUBDISTRICT_ID" Type="int" />
-          <Property Name="SUBDISTRICT_CODE" Type="nvarchar" MaxLength="18" />
-          <Property Name="SUBDISTRICT_NAME" Type="nvarchar" MaxLength="255" />
-          <Property Name="DISTRICT_ID" Type="int" />
-          <Property Name="PROVINCE_ID" Type="int" />
-          <Property Name="GEO_ID" Type="int" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
 warning 6002: The table/view 'OPD_System.dbo.SubListItem' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="SubListItem">
           <Key>
@@ -2075,6 +1654,8 @@ warning 6002: The table/view 'OPD_System.dbo.SumOfTreatment' does not have a pri
           <Property Name="SOT_Code" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="CN" Type="varchar" MaxLength="50" />
           <Property Name="VN" Type="varchar" MaxLength="50" />
+          <Property Name="SO" Type="varchar" MaxLength="50" />
+          <Property Name="SORefAccount" Type="varchar" MaxLength="20" />
           <Property Name="DateSave" Type="datetime" />
           <Property Name="DateUpdate" Type="datetime" />
           <Property Name="SalePrice" Type="decimal" Precision="18" Scale="4" />
@@ -2088,10 +1669,8 @@ warning 6002: The table/view 'OPD_System.dbo.SumOfTreatment' does not have a pri
           <Property Name="EN_Save" Type="varchar" MaxLength="50" />
           <Property Name="updateDate" Type="datetime" />
           <Property Name="ReceiptNo" Type="varchar" MaxLength="50" />
-          <Property Name="SO" Type="varchar" MaxLength="50" />
           <Property Name="InvNo" Type="varchar" MaxLength="50" />
           <Property Name="BillTo" Type="varchar" MaxLength="300" />
-          <Property Name="SORefAccount" Type="varchar" MaxLength="20" />
           <Property Name="SOClose" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="SupplieTrans">
@@ -2198,20 +1777,6 @@ warning 6002: The table/view 'OPD_System.dbo.TaxTrans' does not have a primary k
           <Property Name="TaxBath" Type="decimal" Precision="18" Scale="2" />
           <Property Name="BranchId" Type="varchar" MaxLength="20" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'OPD_System.dbo.TBLCMPConfig' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TBLCMPConfig">
-          <Property Name="OfficeName" Type="varchar" MaxLength="80" />
-          <Property Name="AddressI" Type="varchar" MaxLength="100" />
-          <Property Name="AddressII" Type="varchar" MaxLength="100" />
-          <Property Name="AddressIII" Type="varchar" MaxLength="100" />
-          <Property Name="Phone" Type="varchar" MaxLength="30" />
-          <Property Name="Fax" Type="varchar" MaxLength="30" />
-          <Property Name="TaxID" Type="varchar" MaxLength="13" />
-          <Property Name="Email" Type="nvarchar" MaxLength="60" />
-          <Property Name="Website" Type="nvarchar" MaxLength="60" />
-          <Property Name="VatValue" Type="int" />
-        </EntityType>-->
         <EntityType Name="tblMessage">
           <Key>
             <PropertyRef Name="Id" />
@@ -2221,34 +1786,6 @@ warning 6013: The table/view 'OPD_System.dbo.TBLCMPConfig' does not have a prima
           <Property Name="ReceivedDatetime" Type="datetime" />
           <Property Name="Status" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'OPD_System.dbo.temples' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="temples">
-          <Property Name="t_id" Type="int" />
-          <Property Name="t_name" Type="nvarchar" MaxLength="150" />
-          <Property Name="t_sect" Type="nvarchar" MaxLength="255" />
-          <Property Name="t_num" Type="nvarchar" MaxLength="150" />
-          <Property Name="t_moo" Type="nvarchar" MaxLength="150" />
-          <Property Name="t_soi" Type="nvarchar" MaxLength="150" />
-          <Property Name="t_road" Type="nvarchar" MaxLength="150" />
-          <Property Name="district" Type="nvarchar" MaxLength="255" />
-          <Property Name="amphur" Type="nvarchar" MaxLength="255" />
-          <Property Name="province" Type="nvarchar" MaxLength="255" />
-          <Property Name="geography" Type="nvarchar" MaxLength="255" />
-          <Property Name="budd_geo" Type="nvarchar" MaxLength="30" />
-          <Property Name="zipcode" Type="nvarchar" MaxLength="150" />
-          <Property Name="t_phone1" Type="nvarchar" MaxLength="150" />
-          <Property Name="t_phone2" Type="nvarchar" MaxLength="150" />
-          <Property Name="fax" Type="nvarchar" MaxLength="150" />
-          <Property Name="website" Type="nvarchar" MaxLength="150" />
-          <Property Name="email" Type="nvarchar" MaxLength="150" />
-          <Property Name="googleMap" Type="nvarchar" MaxLength="255" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'OPD_System.dbo.tmp' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="tmp">
-          <Property Name="output" Type="varchar" MaxLength="255" />
-        </EntityType>-->
         <!--Errors Found During Generation:
 warning 6002: The table/view 'OPD_System.dbo.Unit' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Unit">
@@ -2306,24 +1843,6 @@ warning 6002: The table/view 'OPD_System.dbo.VoucherProduct' does not have a pri
           <Property Name="MS_Text" Type="varchar" MaxLength="100" />
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'OPD_System.dbo.xxx' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="xxx">
-          <Property Name="ID" Type="varchar" MaxLength="50" />
-          <Property Name="Section_Code" Type="varchar" MaxLength="50" />
-          <Property Name="Section_Name" Type="varchar" MaxLength="50" />
-          <Property Name="DoctorFee" Type="varchar" MaxLength="50" />
-          <Property Name="SurgicalFeeTyp" Type="varchar" MaxLength="50" />
-          <Property Name="MedicalTab" Type="varchar" MaxLength="50" />
-          <Property Name="SurgicalFeeNewTab" Type="varchar" MaxLength="50" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'OPD_System.dbo.zipcodes' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="zipcodes">
-          <Property Name="id" Type="int" />
-          <Property Name="Subdistrict_code" Type="nvarchar" MaxLength="18" />
-          <Property Name="zipcode" Type="nvarchar" MaxLength="15" />
-        </EntityType>-->
         <!--Errors Found During Generation:
 warning 6002: The table/view 'OPD_System.dbo.V_Administrative' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="V_Administrative">
@@ -2384,19 +1903,6 @@ warning 6002: The table/view 'OPD_System.dbo.View_Customer' does not have a prim
           <Property Name="Passwords" Type="varchar" MaxLength="50" />
           <Property Name="UserGroup" Type="varchar" MaxLength="50" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'OPD_System.dbo.viewCmpConfig' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="viewCmpConfig">
-          <Property Name="OfficeName" Type="varchar" MaxLength="80" />
-          <Property Name="AddressI" Type="varchar" MaxLength="100" />
-          <Property Name="AddressII" Type="varchar" MaxLength="100" />
-          <Property Name="AddressIII" Type="varchar" MaxLength="100" />
-          <Property Name="VatValue" Type="int" />
-          <Property Name="dbYear" Type="varchar" MaxLength="4" />
-          <Property Name="dbmonth" Type="varchar" MaxLength="3" />
-          <Property Name="dbdate" Type="varchar" MaxLength="3" />
-          <Property Name="dbTimes" Type="varchar" MaxLength="8000" />
-        </EntityType>-->
         <!--Errors Found During Generation:
 warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vProductToSOMO">
@@ -3576,6 +3082,7 @@ warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a pri
           <EntitySet Name="CommissionRate" EntityType="Self.CommissionRate" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CourseDuration" EntityType="Self.CourseDuration" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CreditCard" EntityType="Self.CreditCard" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FileOPD" EntityType="Self.FileOPD" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Master_Room" EntityType="Self.Master_Room" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MedicalOrder" EntityType="Self.MedicalOrder" Schema="dbo" store:Type="Tables" />
@@ -3583,6 +3090,7 @@ warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a pri
           <EntitySet Name="MedicalSuppliesStock" EntityType="Self.MedicalSuppliesStock" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MemberTrans" EntityType="Self.MemberTrans" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PatientChange" EntityType="Self.PatientChange" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PayInCome" EntityType="Self.PayInCome" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PersonnelsCom_bak" EntityType="Self.PersonnelsCom_bak" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PersonnelType" EntityType="Self.PersonnelType" Schema="dbo" store:Type="Tables" />
@@ -3868,67 +3376,6 @@ warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a pri
     [CustomerProvider_bak].[ORD] AS [ORD], 
     [CustomerProvider_bak].[ShowWith] AS [ShowWith]
     FROM [dbo].[CustomerProvider_bak] AS [CustomerProvider_bak]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Customers" EntityType="Self.Customers" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Customers].[CN] AS [CN], 
-    [Customers].[Dateregister] AS [Dateregister], 
-    [Customers].[PrefixCode] AS [PrefixCode], 
-    [Customers].[Tname] AS [Tname], 
-    [Customers].[TsurName] AS [TsurName], 
-    [Customers].[Tnickname] AS [Tnickname], 
-    [Customers].[FirstName] AS [FirstName], 
-    [Customers].[MiddleName] AS [MiddleName], 
-    [Customers].[Surname] AS [Surname], 
-    [Customers].[NickName] AS [NickName], 
-    [Customers].[DateBirth] AS [DateBirth], 
-    [Customers].[DateBirthOther] AS [DateBirthOther], 
-    [Customers].[Age] AS [Age], 
-    [Customers].[Gender] AS [Gender], 
-    [Customers].[Height] AS [Height], 
-    [Customers].[Weights] AS [Weights], 
-    [Customers].[Nationality] AS [Nationality], 
-    [Customers].[Race] AS [Race], 
-    [Customers].[Mobile1] AS [Mobile1], 
-    [Customers].[Mobile2] AS [Mobile2], 
-    [Customers].[Tel1] AS [Tel1], 
-    [Customers].[Tel2] AS [Tel2], 
-    [Customers].[E_mail] AS [E_mail], 
-    [Customers].[AddressId] AS [AddressId], 
-    [Customers].[Building] AS [Building], 
-    [Customers].[Soi] AS [Soi], 
-    [Customers].[Road] AS [Road], 
-    [Customers].[Sub_districtCode] AS [Sub_districtCode], 
-    [Customers].[DistrictCode] AS [DistrictCode], 
-    [Customers].[ProvinceCode] AS [ProvinceCode], 
-    [Customers].[Postcode] AS [Postcode], 
-    [Customers].[PassportNo] AS [PassportNo], 
-    [Customers].[IdCard] AS [IdCard], 
-    [Customers].[VipFlag] AS [VipFlag], 
-    [Customers].[Remark] AS [Remark], 
-    [Customers].[AllergyHistory] AS [AllergyHistory], 
-    [Customers].[UnderlyingDisease] AS [UnderlyingDisease], 
-    [Customers].[WhereGotTreatment] AS [WhereGotTreatment], 
-    [Customers].[CreateBy] AS [CreateBy], 
-    [Customers].[CreateDate] AS [CreateDate], 
-    [Customers].[UpdateBy] AS [UpdateBy], 
-    [Customers].[UpdateDate] AS [UpdateDate], 
-    [Customers].[Image] AS [Image], 
-    [Customers].[CustomerType] AS [CustomerType], 
-    [Customers].[CN_old] AS [CN_old], 
-    [Customers].[BranchID] AS [BranchID], 
-    [Customers].[AgenMemID] AS [AgenMemID], 
-    [Customers].[BloodPressure] AS [BloodPressure], 
-    [Customers].[ProviderTypID] AS [ProviderTypID], 
-    [Customers].[Credit_Bath] AS [Credit_Bath], 
-    [Customers].[Credit_Day] AS [Credit_Day], 
-    [Customers].[Country_ID] AS [Country_ID], 
-    [Customers].[SaleConsult] AS [SaleConsult], 
-    [Customers].[MainOfficeCust] AS [MainOfficeCust], 
-    [Customers].[BranchCust] AS [BranchCust], 
-    [Customers].[Celeb] AS [Celeb], 
-    [Customers].[BranchAuth] AS [BranchAuth]
-    FROM [dbo].[Customers] AS [Customers]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Districts" EntityType="Self.Districts" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -4674,6 +4121,8 @@ warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a pri
     [SumOfTreatment].[SOT_Code] AS [SOT_Code], 
     [SumOfTreatment].[CN] AS [CN], 
     [SumOfTreatment].[VN] AS [VN], 
+    [SumOfTreatment].[SO] AS [SO], 
+    [SumOfTreatment].[SORefAccount] AS [SORefAccount], 
     [SumOfTreatment].[DateSave] AS [DateSave], 
     [SumOfTreatment].[DateUpdate] AS [DateUpdate], 
     [SumOfTreatment].[SalePrice] AS [SalePrice], 
@@ -4687,10 +4136,8 @@ warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a pri
     [SumOfTreatment].[EN_Save] AS [EN_Save], 
     [SumOfTreatment].[updateDate] AS [updateDate], 
     [SumOfTreatment].[ReceiptNo] AS [ReceiptNo], 
-    [SumOfTreatment].[SO] AS [SO], 
     [SumOfTreatment].[InvNo] AS [InvNo], 
     [SumOfTreatment].[BillTo] AS [BillTo], 
-    [SumOfTreatment].[SORefAccount] AS [SORefAccount], 
     [SumOfTreatment].[SOClose] AS [SOClose]
     FROM [dbo].[SumOfTreatment] AS [SumOfTreatment]</DefiningQuery>
           </EntitySet>
@@ -6019,7 +5466,6 @@ warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a pri
           <EntitySet Name="CustomerConnects" EntityType="OPD_SystemModel.CustomerConnect" />
           <EntitySet Name="CustomerProviders" EntityType="OPD_SystemModel.CustomerProvider" />
           <EntitySet Name="CustomerProvider_bak" EntityType="OPD_SystemModel.CustomerProvider_bak" />
-          <EntitySet Name="Customers" EntityType="OPD_SystemModel.Customer" />
           <EntitySet Name="Districts" EntityType="OPD_SystemModel.District" />
           <EntitySet Name="ExtraMoneys" EntityType="OPD_SystemModel.ExtraMoney" />
           <EntitySet Name="GiftVouchers" EntityType="OPD_SystemModel.GiftVoucher" />
@@ -6080,6 +5526,8 @@ warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a pri
           <EntitySet Name="V_Administrative" EntityType="OPD_SystemModel.V_Administrative" />
           <EntitySet Name="View_Customer" EntityType="OPD_SystemModel.View_Customer" />
           <EntitySet Name="vProductToSOMOes" EntityType="OPD_SystemModel.vProductToSOMO" />
+          <EntitySet Name="PatientChanges" EntityType="OPD_SystemModel.PatientChange" />
+          <EntitySet Name="Customers" EntityType="OPD_SystemModel.Customer" />
         </EntityContainer>
         <ComplexType Name="sp_Account_Result">
           <Property Type="String" Name="RefundID" Nullable="false" MaxLength="2" />
@@ -6991,68 +6439,6 @@ warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a pri
           <Property Name="ProviderTypName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="ORD" Type="Int32" />
           <Property Name="ShowWith" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="Customer">
-          <Key>
-            <PropertyRef Name="CN" />
-          </Key>
-          <Property Name="CN" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Dateregister" Type="DateTime" Precision="3" />
-          <Property Name="PrefixCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Tname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="TsurName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Tnickname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="MiddleName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Surname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="NickName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="DateBirth" Type="DateTime" Precision="3" />
-          <Property Name="DateBirthOther" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="Age" Type="Int32" />
-          <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="Height" Type="Int32" />
-          <Property Name="Weights" Type="Int32" />
-          <Property Name="Nationality" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Race" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Mobile1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Mobile2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Tel1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Tel2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="E_mail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="AddressId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Building" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Soi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Road" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Sub_districtCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="DistrictCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="ProvinceCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="Postcode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="PassportNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="IdCard" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="VipFlag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="AllergyHistory" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="UnderlyingDisease" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="WhereGotTreatment" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="CreateBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="CreateDate" Type="DateTime" Precision="3" />
-          <Property Name="UpdateBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
-          <Property Name="Image" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="CustomerType" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
-          <Property Name="CN_old" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="BranchID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="AgenMemID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="BloodPressure" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="ProviderTypID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Credit_Bath" Type="Int32" />
-          <Property Name="Credit_Day" Type="Int32" />
-          <Property Name="Country_ID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="SaleConsult" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="MainOfficeCust" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="BranchCust" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Celeb" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="BranchAuth" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="District">
           <Key>
@@ -8045,6 +7431,85 @@ warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a pri
           <Property Name="SONo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="MS_Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="MS_Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PatientChange">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FK_Customer_ID" Type="Int32" />
+          <Property Name="Count" Type="Int32" />
+          <Property Name="Type" Type="Int32" />
+          <Property Name="DateChange" Type="DateTime" Precision="3" />
+          <Property Name="NextDateChange" Type="DateTime" Precision="3" />
+          <Property Name="Is_Active" Type="Boolean" />
+          <Property Name="Create_By" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Create_Date" Type="DateTime" Precision="3" />
+          <Property Name="Update_By" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Update_Date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CN" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Dateregister" Type="DateTime" Precision="3" />
+          <Property Name="PrefixCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TsurName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Tnickname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MiddleName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Surname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NickName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DateBirth" Type="DateTime" Precision="3" />
+          <Property Name="DateBirthOther" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Height" Type="Int32" />
+          <Property Name="Weights" Type="Int32" />
+          <Property Name="Nationality" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Race" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Tel1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Tel2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="E_mail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AddressId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Building" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Soi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Road" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Sub_districtCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="DistrictCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ProvinceCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Postcode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PassportNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="IdCard" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="VipFlag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="AllergyHistory" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="UnderlyingDisease" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="WhereGotTreatment" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CreateBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="Image" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerType" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="CN_old" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BranchID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="AgenMemID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="BloodPressure" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderTypID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Credit_Bath" Type="Int32" />
+          <Property Name="Credit_Day" Type="Int32" />
+          <Property Name="Country_ID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SaleConsult" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MainOfficeCust" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BranchCust" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Celeb" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="BranchAuth" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -9105,69 +8570,6 @@ warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a pri
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Customers">
-            <EntityTypeMapping TypeName="OPD_SystemModel.Customer">
-              <MappingFragment StoreEntitySet="Customers">
-                <ScalarProperty Name="BranchAuth" ColumnName="BranchAuth" />
-                <ScalarProperty Name="Celeb" ColumnName="Celeb" />
-                <ScalarProperty Name="BranchCust" ColumnName="BranchCust" />
-                <ScalarProperty Name="MainOfficeCust" ColumnName="MainOfficeCust" />
-                <ScalarProperty Name="SaleConsult" ColumnName="SaleConsult" />
-                <ScalarProperty Name="Country_ID" ColumnName="Country_ID" />
-                <ScalarProperty Name="Credit_Day" ColumnName="Credit_Day" />
-                <ScalarProperty Name="Credit_Bath" ColumnName="Credit_Bath" />
-                <ScalarProperty Name="ProviderTypID" ColumnName="ProviderTypID" />
-                <ScalarProperty Name="BloodPressure" ColumnName="BloodPressure" />
-                <ScalarProperty Name="AgenMemID" ColumnName="AgenMemID" />
-                <ScalarProperty Name="BranchID" ColumnName="BranchID" />
-                <ScalarProperty Name="CN_old" ColumnName="CN_old" />
-                <ScalarProperty Name="CustomerType" ColumnName="CustomerType" />
-                <ScalarProperty Name="Image" ColumnName="Image" />
-                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
-                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
-                <ScalarProperty Name="WhereGotTreatment" ColumnName="WhereGotTreatment" />
-                <ScalarProperty Name="UnderlyingDisease" ColumnName="UnderlyingDisease" />
-                <ScalarProperty Name="AllergyHistory" ColumnName="AllergyHistory" />
-                <ScalarProperty Name="Remark" ColumnName="Remark" />
-                <ScalarProperty Name="VipFlag" ColumnName="VipFlag" />
-                <ScalarProperty Name="IdCard" ColumnName="IdCard" />
-                <ScalarProperty Name="PassportNo" ColumnName="PassportNo" />
-                <ScalarProperty Name="Postcode" ColumnName="Postcode" />
-                <ScalarProperty Name="ProvinceCode" ColumnName="ProvinceCode" />
-                <ScalarProperty Name="DistrictCode" ColumnName="DistrictCode" />
-                <ScalarProperty Name="Sub_districtCode" ColumnName="Sub_districtCode" />
-                <ScalarProperty Name="Road" ColumnName="Road" />
-                <ScalarProperty Name="Soi" ColumnName="Soi" />
-                <ScalarProperty Name="Building" ColumnName="Building" />
-                <ScalarProperty Name="AddressId" ColumnName="AddressId" />
-                <ScalarProperty Name="E_mail" ColumnName="E_mail" />
-                <ScalarProperty Name="Tel2" ColumnName="Tel2" />
-                <ScalarProperty Name="Tel1" ColumnName="Tel1" />
-                <ScalarProperty Name="Mobile2" ColumnName="Mobile2" />
-                <ScalarProperty Name="Mobile1" ColumnName="Mobile1" />
-                <ScalarProperty Name="Race" ColumnName="Race" />
-                <ScalarProperty Name="Nationality" ColumnName="Nationality" />
-                <ScalarProperty Name="Weights" ColumnName="Weights" />
-                <ScalarProperty Name="Height" ColumnName="Height" />
-                <ScalarProperty Name="Gender" ColumnName="Gender" />
-                <ScalarProperty Name="Age" ColumnName="Age" />
-                <ScalarProperty Name="DateBirthOther" ColumnName="DateBirthOther" />
-                <ScalarProperty Name="DateBirth" ColumnName="DateBirth" />
-                <ScalarProperty Name="NickName" ColumnName="NickName" />
-                <ScalarProperty Name="Surname" ColumnName="Surname" />
-                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="Tnickname" ColumnName="Tnickname" />
-                <ScalarProperty Name="TsurName" ColumnName="TsurName" />
-                <ScalarProperty Name="Tname" ColumnName="Tname" />
-                <ScalarProperty Name="PrefixCode" ColumnName="PrefixCode" />
-                <ScalarProperty Name="Dateregister" ColumnName="Dateregister" />
-                <ScalarProperty Name="CN" ColumnName="CN" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Districts">
             <EntityTypeMapping TypeName="OPD_SystemModel.District">
               <MappingFragment StoreEntitySet="Districts">
@@ -10190,6 +9592,87 @@ warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a pri
                 <ScalarProperty Name="MS_Name" ColumnName="MS_Name" />
                 <ScalarProperty Name="MS_Code" ColumnName="MS_Code" />
                 <ScalarProperty Name="SONo" ColumnName="SONo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PatientChanges">
+            <EntityTypeMapping TypeName="OPD_SystemModel.PatientChange">
+              <MappingFragment StoreEntitySet="PatientChange">
+                <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+                <ScalarProperty Name="Update_By" ColumnName="Update_By" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+                <ScalarProperty Name="Create_By" ColumnName="Create_By" />
+                <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+                <ScalarProperty Name="NextDateChange" ColumnName="NextDateChange" />
+                <ScalarProperty Name="DateChange" ColumnName="DateChange" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="FK_Customer_ID" ColumnName="FK_Customer_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="OPD_SystemModel.Customer">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="BranchAuth" ColumnName="BranchAuth" />
+                <ScalarProperty Name="Celeb" ColumnName="Celeb" />
+                <ScalarProperty Name="BranchCust" ColumnName="BranchCust" />
+                <ScalarProperty Name="MainOfficeCust" ColumnName="MainOfficeCust" />
+                <ScalarProperty Name="SaleConsult" ColumnName="SaleConsult" />
+                <ScalarProperty Name="Country_ID" ColumnName="Country_ID" />
+                <ScalarProperty Name="Credit_Day" ColumnName="Credit_Day" />
+                <ScalarProperty Name="Credit_Bath" ColumnName="Credit_Bath" />
+                <ScalarProperty Name="ProviderTypID" ColumnName="ProviderTypID" />
+                <ScalarProperty Name="BloodPressure" ColumnName="BloodPressure" />
+                <ScalarProperty Name="AgenMemID" ColumnName="AgenMemID" />
+                <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+                <ScalarProperty Name="CN_old" ColumnName="CN_old" />
+                <ScalarProperty Name="CustomerType" ColumnName="CustomerType" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="WhereGotTreatment" ColumnName="WhereGotTreatment" />
+                <ScalarProperty Name="UnderlyingDisease" ColumnName="UnderlyingDisease" />
+                <ScalarProperty Name="AllergyHistory" ColumnName="AllergyHistory" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="VipFlag" ColumnName="VipFlag" />
+                <ScalarProperty Name="IdCard" ColumnName="IdCard" />
+                <ScalarProperty Name="PassportNo" ColumnName="PassportNo" />
+                <ScalarProperty Name="Postcode" ColumnName="Postcode" />
+                <ScalarProperty Name="ProvinceCode" ColumnName="ProvinceCode" />
+                <ScalarProperty Name="DistrictCode" ColumnName="DistrictCode" />
+                <ScalarProperty Name="Sub_districtCode" ColumnName="Sub_districtCode" />
+                <ScalarProperty Name="Road" ColumnName="Road" />
+                <ScalarProperty Name="Soi" ColumnName="Soi" />
+                <ScalarProperty Name="Building" ColumnName="Building" />
+                <ScalarProperty Name="AddressId" ColumnName="AddressId" />
+                <ScalarProperty Name="E_mail" ColumnName="E_mail" />
+                <ScalarProperty Name="Tel2" ColumnName="Tel2" />
+                <ScalarProperty Name="Tel1" ColumnName="Tel1" />
+                <ScalarProperty Name="Mobile2" ColumnName="Mobile2" />
+                <ScalarProperty Name="Mobile1" ColumnName="Mobile1" />
+                <ScalarProperty Name="Race" ColumnName="Race" />
+                <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+                <ScalarProperty Name="Weights" ColumnName="Weights" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="DateBirthOther" ColumnName="DateBirthOther" />
+                <ScalarProperty Name="DateBirth" ColumnName="DateBirth" />
+                <ScalarProperty Name="NickName" ColumnName="NickName" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Tnickname" ColumnName="Tnickname" />
+                <ScalarProperty Name="TsurName" ColumnName="TsurName" />
+                <ScalarProperty Name="Tname" ColumnName="Tname" />
+                <ScalarProperty Name="PrefixCode" ColumnName="PrefixCode" />
+                <ScalarProperty Name="Dateregister" ColumnName="Dateregister" />
+                <ScalarProperty Name="CN" ColumnName="CN" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

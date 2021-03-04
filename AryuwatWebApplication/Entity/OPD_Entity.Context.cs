@@ -68,7 +68,6 @@ namespace AryuwatWebApplication.Entity
         public virtual DbSet<CustomerConnect> CustomerConnects { get; set; }
         public virtual DbSet<CustomerProvider> CustomerProviders { get; set; }
         public virtual DbSet<CustomerProvider_bak> CustomerProvider_bak { get; set; }
-        public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<District> Districts { get; set; }
         public virtual DbSet<ExtraMoney> ExtraMoneys { get; set; }
         public virtual DbSet<GiftVoucher> GiftVouchers { get; set; }
@@ -129,6 +128,8 @@ namespace AryuwatWebApplication.Entity
         public virtual DbSet<V_Administrative> V_Administrative { get; set; }
         public virtual DbSet<View_Customer> View_Customer { get; set; }
         public virtual DbSet<vProductToSOMO> vProductToSOMOes { get; set; }
+        public virtual DbSet<PatientChange> PatientChanges { get; set; }
+        public virtual DbSet<Customer> Customers { get; set; }
     
         [DbFunction("OPD_SystemEntities", "SplitString")]
         public virtual IQueryable<SplitString_Result> SplitString(string str, string separator)

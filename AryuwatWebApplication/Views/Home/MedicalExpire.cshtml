@@ -1,0 +1,149 @@
+﻿@using AryuwatWebApplication.Models
+@{
+    ViewBag.Title = "Attach File Patient";
+}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<div id="app" style="font-size:30px">
+    <div class="container" style="background-color:#f3f3f3;margin-top: -20px;padding-top: 10px; padding-bottom: 30px">
+        <div class="row">
+            <div class="col-lg-1">
+                <a v-on:click="BackCustomer()"><i class="fa fa-angle-left"></i></a>
+            </div>
+            <div class="col-lg-11">
+                <u style="font-size:30px; font-weight:600">{{tmpCustomer.Tname + ' ' + tmpCustomer.TsurName}}</u>
+            </div>
+            <div class="col-lg-1">
+            </div>
+            <div class="col-lg-11">
+                <p style="font-size:20px;">CN : {{tmpCustomer.CN}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="background-color:#e6e6e6;">
+        <div class="row color-text" style="margin-top: 20px;margin-bottom: 10px;">
+            <div class="col-lg-11">
+                <p style="font-size:28px">แจ้งเตือนวันหมดอายุเวชภัณฑ์</p>
+            </div>
+        </div>
+        <div class="row color-text" style="margin-bottom: 5rem;margin-left: 10px;margin-right: 10px;background-color:white;border-radius:20px">
+            <table class="table hb-table hb-table-dashboard" style="font-size:22px;width:100%">
+                <thead>
+                    <tr style="font-weight:500">
+                        <td class="text-left align-middle" style="width:40%;padding-left:50px;">รายการ</td>
+                        <td class="text-left align-middle" style="width:20%;">Lated change</td>
+                        <td class="text-left align-middle" style="width:20%;">Next change</td>
+                        <td class="text-center align-middle" style="width:20%;">Update</td>
+                    </tr>
+                </thead>
+                <tbody style="font-weight:400;font-size:18px">
+                    <tr>
+                        <td class="text-left align-middle" style="width:40%;padding-left:50px;">ท่ออาหาร เปลี่ยนทุกๆ 1 เดือน</td>
+                        <td class="text-left align-middle" style="width:20%;">{{ LastChange }}</td>
+                        <td class="text-left align-middle" style="width:20%;">{{ NextChange }}</td>
+                        <td class="text-center align-middle" style="width:20%;"><input class="btn btn-info" style="width: 150px;font-size:16px;border-radius:10px;background-color:#0073fa" value="Update" /></td>
+                    </tr>
+                    <tr>
+                        <td class="text-left align-middle" style="width:40%;padding-left:50px;">ท่อปัสสวะ เปลี่ยนทุกๆ 1 เดือน</td>
+                        <td class="text-left align-middle" style="width:20%;">{{ LastChange }}</td>
+                        <td class="text-left align-middle" style="width:20%;">{{ NextChange }}</td>
+                        <td class="text-center align-middle" style="width:20%;"><input class="btn btn-info" style="width: 150px;font-size:16px;border-radius:10px;background-color:#0073fa" value="Update" /></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row color-text" style="margin-top: 20px;margin-bottom: 10px;">
+            <div class="col-lg-11">
+                <p style="font-size:28px">ประวัติการเปลี่ยนเวชภัณฑ์</p>
+            </div>
+        </div>
+        <div class="row color-text" style="margin-bottom: 5rem;margin-left: 10px;margin-right: 10px;background-color:white;border-radius:20px">
+            <table class="table hb-table hb-table-dashboard" style="font-size:22px;width:100%">
+                <thead>
+                    <tr style="font-weight:500">
+                        <td class="text-left align-middle" style="width:40%;padding-left:50px;border: 1px solid #ddd;">ครั้งที่</td>
+                        <td class="text-center align-middle" style="width:30%;border: 1px solid #ddd;">ท่ออาหาร</td>
+                        <td class="text-center align-middle" style="width:30%;border: 1px solid #ddd;">ท่อปัสสวะ</td>
+                    </tr>
+                </thead>
+                <tbody style="font-weight:400;font-size:18px">
+                    <tr>
+                        <td class="text-left align-middle" style="width:40%;padding-left:50px;border: 1px solid #ddd;">5</td>
+                        <td class="text-center align-middle" style="width:30%;border: 1px solid #ddd;"></td>
+                        <td class="text-center align-middle" style="width:30%;border: 1px solid #ddd;"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width: 500px;">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <img :src=fileURL style="max-width:100%" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/vue.js"></script>
+<script src="~/Scripts/axios.js"></script>
+<script src="~/Scripts/moment.js"></script>
+<script>
+
+    Vue.prototype.$http = axios;
+    const app = new Vue({
+        el: "#app",
+        data: {
+            tmpCustomer : @Html.Raw(Json.Encode(@Model)),
+            dataPatientChange: [],
+            oneLastChange: '',
+            oneNextChange: '',
+            twoLastChange: '',
+            twoNextChange: '',
+        },
+        mounted: function () {
+            var that = this;
+            if (that.tmpCustomer.CN == null) {
+                window.location.href = '@Url.Content("~/Home/Index")';
+            }
+            that.GetPatientChange();
+        },
+        watch: {
+        },
+        methods: {
+            BackCustomer:function(){
+                var that=this;
+                window.location.replace('@Url.Action("PatientDetail", "Home")?customerCN=' + that.tmpCustomer.CN)
+            },
+            callfile: function () {
+                document.getElementById('FormulaAttachFile').click();
+            },
+            popupImage:function(filename){
+                var that = this;
+                that.fileURL = 'https://aryuwat.onnli.co/AttachFile_Aryuwat/' + filename;
+            },
+            parseJsonDate: function (jsonDateString){
+                return moment(jsonDateString).format("MMM DD, YYYY").toUpperCase();
+            },
+            GetPatientChange:function(){
+                var that=this;
+                that.$http.post('@Url.Action("GetPatientChange", "Home")' + that.tmpCustomer.ID)
+                    .then(function (response) {
+                        if (response.data.ContentEncoding == 200) {
+                            that.dataPatientChange = response.data.data;
+                            that.oneLastChange = that.parseJsonDate(response.data.onelastchange);
+                            that.oneNextChange = that.parseJsonDate(response.data.onenextchange);
+                            that.twoLastChange = that.parseJsonDate(response.data.twolastchange);
+                            that.twoNextChange = that.parseJsonDate(response.data.twonextchange);
+                        }
+                });
+            },
+        }
+    });
+</script>
