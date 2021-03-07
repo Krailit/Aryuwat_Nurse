@@ -10,7 +10,7 @@
     <div class="container" style="background-color:#f3f3f3;margin-top: -20px;padding-top: 10px; padding-bottom: 30px">
         <div class="row">
             <div class="col-lg-1">
-                <a v-on:click="BackCustomer()"><i class="fa fa-angle-left"></i></a>
+                <a v-on:click="BackCustomer()"><i class="fa fa-angle-left" style="cursor:pointer"></i></a>
             </div>
             <div class="col-lg-11">
                 <u style="font-size:30px; font-weight:600">{{tmpCustomer.Tname + ' ' + tmpCustomer.TsurName}}</u>
@@ -41,15 +41,19 @@
                 <tbody style="font-weight:400;font-size:18px">
                     <tr>
                         <td class="text-left align-middle" style="width:40%;padding-left:50px;">ท่ออาหาร เปลี่ยนทุกๆ 1 เดือน</td>
-                        <td class="text-left align-middle" style="width:20%;">{{ LastChange }}</td>
-                        <td class="text-left align-middle" style="width:20%;">{{ NextChange }}</td>
-                        <td class="text-center align-middle" style="width:20%;"><input class="btn btn-info" style="width: 150px;font-size:16px;border-radius:10px;background-color:#0073fa" value="Update" /></td>
+                        <td class="text-left align-middle" style="width:20%;">{{ oneLastChange }}</td>
+                        <td class="text-left align-middle" style="width:20%;">{{ oneNextChange }}</td>
+                        <td class="text-center align-middle" style="width:20%;">
+                            <input class="btn btn-info" style="width: 150px;font-size:16px;border-radius:10px;background-color:#0073fa" value="Update" v-on:click="UpdateMedical(1,oneLastChange)"/>
+                        </td>
                     </tr>
                     <tr>
                         <td class="text-left align-middle" style="width:40%;padding-left:50px;">ท่อปัสสวะ เปลี่ยนทุกๆ 1 เดือน</td>
-                        <td class="text-left align-middle" style="width:20%;">{{ LastChange }}</td>
-                        <td class="text-left align-middle" style="width:20%;">{{ NextChange }}</td>
-                        <td class="text-center align-middle" style="width:20%;"><input class="btn btn-info" style="width: 150px;font-size:16px;border-radius:10px;background-color:#0073fa" value="Update" /></td>
+                        <td class="text-left align-middle" style="width:20%;">{{ twoLastChange }}</td>
+                        <td class="text-left align-middle" style="width:20%;">{{ twoNextChange }}</td>
+                        <td class="text-center align-middle" style="width:20%;">
+                            <input class="btn btn-info" style="width: 150px;font-size:16px;border-radius:10px;background-color:#0073fa" value="Update" v-on:click="UpdateMedical(2,twoLastChange)"/>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -69,25 +73,19 @@
                     </tr>
                 </thead>
                 <tbody style="font-weight:400;font-size:18px">
-                    <tr>
-                        <td class="text-left align-middle" style="width:40%;padding-left:50px;border: 1px solid #ddd;">5</td>
-                        <td class="text-center align-middle" style="width:30%;border: 1px solid #ddd;"></td>
-                        <td class="text-center align-middle" style="width:30%;border: 1px solid #ddd;"></td>
+                    <tr :key="index" v-for="(items, index) in dataPatientChange" v-if="dataPatientChange.length > 0" class="rowHover" style="border-bottom: 1px solid #cbc3c3;height: 60px;cursor:pointer;">
+                        <td class="text-left align-middle" style="width:40%;padding-left:50px;border: 1px solid #ddd;">
+                            {{items.dataCount}}
+                        </td>
+                        <td class="text-center align-middle" style="width:30%;border: 1px solid #ddd;">
+                            {{ items.oneNextChange == null ? '' : parseJsonDate(items.oneNextChange)}}
+                        </td>
+                        <td class="text-center align-middle" style="width:20%;">
+                            {{ items.twoNextChange == null ? '' : parseJsonDate(items.twoNextChange)}}
+                        </td>
                     </tr>
                 </tbody>
             </table>
-        </div>
-    </div>
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog" style="width: 500px;">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <img :src=fileURL style="max-width:100%" />
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn" data-dismiss="modal">Close</button>
-                </div>
-            </div>
         </div>
     </div>
 </div>
@@ -102,10 +100,10 @@
         data: {
             tmpCustomer : @Html.Raw(Json.Encode(@Model)),
             dataPatientChange: [],
-            oneLastChange: '',
-            oneNextChange: '',
-            twoLastChange: '',
-            twoNextChange: '',
+            oneLastChange: null,
+            oneNextChange: null,
+            twoLastChange: null,
+            twoNextChange: null,
         },
         mounted: function () {
             var that = this;
@@ -115,33 +113,88 @@
             that.GetPatientChange();
         },
         watch: {
+            oneLastChange: function (val) {
+                var that = this;
+                if (val == '') {
+                    that.oneLastChange = that.parseJsonDate(Date.now());
+                }
+            },
+            oneNextChange: function (val) {
+                var that = this;
+                var dt = new Date(Date.now());
+                dt.setMonth(dt.getMonth() + 1);
+                if (val == '') {
+                    that.oneNextChange = that.parseJsonDate(dt);
+                }
+            },
+            twoLastChange: function (val) {
+                var that = this;
+                if (val == '') {
+                    that.twoLastChange = that.parseJsonDate(Date.now());
+                }
+            },
+            twoNextChange: function (val) {
+                var that = this;
+                var dt = new Date(Date.now());
+                dt.setMonth(dt.getMonth() + 1);
+                if (val == '') {
+                    that.twoNextChange = that.parseJsonDate(dt);
+                }
+            },
+
+
         },
         methods: {
             BackCustomer:function(){
                 var that=this;
                 window.location.replace('@Url.Action("PatientDetail", "Home")?customerCN=' + that.tmpCustomer.CN)
             },
+            UpdateMedical:function(type){
+                var that = this;
+                var conf = confirm("ยืนยันการบันทึก [ใช่หรือไม่]");
+                if (conf === true) {
+                    //alert('Test : ' + type + ';val : ' + val);
+                    that.$http.post('@Url.Action("UpdateMedical", "Home")', {
+                        type: type,
+                        tmpCustomerID: that.tmpCustomer.ID
+                    }).then(function (response) {
+                        if (response.data.ContentEncoding == 200) {
+                            alert('Update Medical Success');
+                            console.log(response.data.data);
+                            location.reload();
+                        }
+                    });
+                }
+
+            },
             callfile: function () {
                 document.getElementById('FormulaAttachFile').click();
             },
             popupImage:function(filename){
                 var that = this;
-                that.fileURL = 'https://aryuwat.onnli.co/AttachFile_Aryuwat/' + filename;
+                //that.fileURL = 'https://aryuwat.onnli.co/AttachFile_Aryuwat/' + filename;
             },
             parseJsonDate: function (jsonDateString){
-                return moment(jsonDateString).format("MMM DD, YYYY").toUpperCase();
+                return moment(jsonDateString).format("MMM DD, YYYY / hh:mm").toUpperCase();
             },
             GetPatientChange:function(){
                 var that=this;
-                that.$http.post('@Url.Action("GetPatientChange", "Home")' + that.tmpCustomer.ID)
-                    .then(function (response) {
-                        if (response.data.ContentEncoding == 200) {
-                            that.dataPatientChange = response.data.data;
-                            that.oneLastChange = that.parseJsonDate(response.data.onelastchange);
-                            that.oneNextChange = that.parseJsonDate(response.data.onenextchange);
-                            that.twoLastChange = that.parseJsonDate(response.data.twolastchange);
-                            that.twoNextChange = that.parseJsonDate(response.data.twonextchange);
-                        }
+                that.$http.post('@Url.Action("GetPatientChange", "Home")', {
+                    tmpCustomerID: that.tmpCustomer.ID
+                }).then(function (response) {
+                    if (response.data.ContentEncoding == 200) {
+                        that.dataPatientChange = response.data.data;
+                        that.oneLastChange = response.data.onelastchange == null ? '' : that.parseJsonDate(response.data.onelastchange);
+                        that.oneNextChange = response.data.onenextchange == null ? '' : that.parseJsonDate(response.data.onenextchange);
+                        that.twoLastChange = response.data.twolastchange == null ? '' : that.parseJsonDate(response.data.twolastchange);
+                        that.twoNextChange = response.data.twonextchange == null ? '' : that.parseJsonDate(response.data.twonextchange);
+                    }
+                    else if (response.data.ContentEncoding == 201) {
+                        that.oneLastChange = '';
+                        that.oneNextChange = '';
+                        that.twoLastChange = '';
+                        that.twoNextChange = '';
+                    }
                 });
             },
         }

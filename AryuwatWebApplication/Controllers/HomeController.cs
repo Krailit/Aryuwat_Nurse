@@ -1,8 +1,10 @@
 ﻿using AryuwatWebApplication.Entity;
 using AryuwatWebApplication.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -112,7 +114,63 @@ namespace AryuwatWebApplication.Controllers
         }
 
         [HttpPost, ActionName("GetPatientChange")]
-        public JsonResult GetPatientChange(int? customer_id)
+        public JsonResult GetPatientChange(int? tmpCustomerID)
+        {
+            try
+            {
+                using (var context = new OPD_SystemEntities())
+                {
+                    if (tmpCustomerID != 0)
+                    {
+                        string query = @"SELECT distinct pt.[Count] as dataCount,
+                                        (select top 1 NextDateChange FROM[OPD_System].[dbo].[PatientChange] where Type = 1  and [Count] = pt.[Count] and FK_Customer_ID = " + tmpCustomerID + @") as oneNextChange,
+	                                    (select top 1 NextDateChange FROM[OPD_System].[dbo].[PatientChange] where Type = 2  and [Count] = pt.[Count] and FK_Customer_ID = " + tmpCustomerID + @") as twoNextChange
+                                        FROM[OPD_System].[dbo].[PatientChange] pt  where FK_Customer_ID = " + tmpCustomerID + @"
+	                                    order by [Count] desc";
+                        var resultquery = context.Database.SqlQuery<MedicalExpireModel>(query).ToList();
+                        var result = context.PatientChanges.Where(x => x.FK_Customer_ID == tmpCustomerID && x.Is_Active == true).ToList();
+                        if (result.Count > 0)
+                        {
+                            var onelastchange = result.Where(x => x.Type == 1).OrderByDescending(x => x.ID).FirstOrDefault().DateChange;
+                            var onenextchange = result.Where(x => x.Type == 1).OrderByDescending(x => x.ID).FirstOrDefault().NextDateChange;
+                            var twolastchange = result.Where(x => x.Type == 2).OrderByDescending(x => x.ID).FirstOrDefault()?.DateChange;
+                            var twonextchange = result.Where(x => x.Type == 2).OrderByDescending(x => x.ID).FirstOrDefault()?.NextDateChange;
+                            return Json(new { ContentEncoding = 200, data = resultquery, onelastchange = onelastchange, onenextchange = onenextchange, twolastchange = twolastchange, twonextchange = twonextchange });
+                        }
+                        return Json(new { ContentEncoding = 201, data = result });
+                    }
+                    return Json(new { ContentEncoding = 400 });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(null);
+            }
+        }
+
+        [HttpPost, ActionName("GetPatientData")]
+        public JsonResult GetPatientData(int? tmpCustomerID)
+        {
+            try
+            {
+                using (var context = new OPD_SystemEntities())
+                {
+                    if (tmpCustomerID != 0)
+                    {
+                        var result = context.PatientDatas.Where(x => x.FK_Customer_ID == tmpCustomerID && x.Is_Active == true).ToList();
+                        return Json(new { ContentEncoding = 200, data = result });
+                    }
+                    return Json(new { ContentEncoding = 400 });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(null);
+            }
+        }
+
+        [HttpPost, ActionName("UpdateMedical")]
+        public JsonResult UpdateMedical(int? type, int? tmpCustomerID)
         {
             try
             {
@@ -120,19 +178,70 @@ namespace AryuwatWebApplication.Controllers
 
                 using (var context = new OPD_SystemEntities())
                 {
-                    if (customer_id != 0)
+                    var chkdata = context.PatientChanges.Where(x => x.FK_Customer_ID == tmpCustomerID && x.Type == type && x.Is_Active == true).OrderByDescending(x => x.ID).FirstOrDefault()?.Count;
+                    PatientChange PC = new PatientChange();
+                    PC.DateChange = DateTime.Now;
+                    PC.NextDateChange = DateTime.Now.AddMonths(1);
+                    PC.Type = type;
+                    PC.Count = chkdata == null ? 1 : chkdata + 1;
+                    PC.FK_Customer_ID = tmpCustomerID;
+                    PC.Is_Active = true;
+                    PC.Create_By = username;
+                    PC.Create_Date = DateTime.Now;
+                    context.PatientChanges.Add(PC);
+                    context.SaveChanges();
+                    return Json(new { ContentEncoding = 200 , data = PC });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(null);
+            }
+        }
+
+        [HttpPost, ActionName("UpdateDataPatient")]
+        public JsonResult UpdateDataPatient(string tmpData, int? tmpCustomerID)
+        {
+            CultureInfo cultureinfo = new CultureInfo("en-US");
+            try
+            {
+                string username = HttpContext.Request.Cookies.Get("OPD")["Username"];
+                dynamic jsonData = JsonConvert.DeserializeObject(tmpData);
+                string pDate = Convert.ToString(jsonData["Date"]);
+                string pTime = Convert.ToString(jsonData["Time"]);
+                string pT = Convert.ToString(jsonData["T"]);
+                string pR = Convert.ToString(jsonData["R"]);
+                string pBP = Convert.ToString(jsonData["BP"]);
+                string pO2 = Convert.ToString(jsonData["O2"]);
+                string pPulseSBP = Convert.ToString(jsonData["PulseSBP"]);
+                string pPulseDBP = Convert.ToString(jsonData["PulseDBP"]);
+                using (var context = new OPD_SystemEntities())
+                {
+                    DateTime dateparse = DateTime.ParseExact(pDate, "MMM dd, yyyy", cultureinfo);
+                    var chkdata = context.PatientDatas.Where(x => x.FK_Customer_ID == tmpCustomerID && x.Date == dateparse && x.Time == pTime && x.Is_Active == true).ToList();
+                    foreach(var items in chkdata)
                     {
-                        var result = context.PatientChanges.Where(x => x.FK_Customer_ID == customer_id && x.Is_Active == true).ToList();
-                        if (result.Count > 0)
-                        {
-                            var onelastchange = result.Where(x => x.Type == 1).OrderByDescending(x => x.ID).FirstOrDefault().DateChange;
-                            var onenextchange = result.Where(x => x.Type == 1).OrderByDescending(x => x.ID).FirstOrDefault().NextDateChange;
-                            var twolastchange = result.Where(x => x.Type == 2).OrderByDescending(x => x.ID).FirstOrDefault().DateChange;
-                            var twonextchange = result.Where(x => x.Type == 2).OrderByDescending(x => x.ID).FirstOrDefault().NextDateChange;
-                            return Json(new { ContentEncoding = 200, data = result, onelastchange = onelastchange, onenextchange = onenextchange, twolastchange = twolastchange, twonextchange = twonextchange });
-                        }
+                        items.Is_Active = false;
+                        items.Update_By = username;
+                        items.Update_Date = DateTime.Now;
+                        context.SaveChanges();
                     }
-                    return Json(new { ContentEncoding = 400 });
+                    PatientData PD = new PatientData();
+                    PD.FK_Customer_ID = tmpCustomerID;
+                    PD.Date = dateparse;//Convert.ToDateTime(pDate);
+                    PD.Time = pTime;
+                    PD.T = pT;
+                    PD.R = pR;
+                    PD.BP = pBP;
+                    PD.O2 = pO2;
+                    PD.PulseDBP = pPulseDBP;
+                    PD.PulseSBP = pPulseSBP;
+                    PD.Is_Active = true;
+                    PD.Create_By = username;
+                    PD.Create_Date = DateTime.Now;
+                    context.PatientDatas.Add(PD);
+                    context.SaveChanges();
+                    return Json(new { ContentEncoding = 200 , data = PD });
                 }
             }
             catch (Exception ex)

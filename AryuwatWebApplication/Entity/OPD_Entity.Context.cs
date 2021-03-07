@@ -130,6 +130,7 @@ namespace AryuwatWebApplication.Entity
         public virtual DbSet<vProductToSOMO> vProductToSOMOes { get; set; }
         public virtual DbSet<PatientChange> PatientChanges { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<PatientData> PatientDatas { get; set; }
     
         [DbFunction("OPD_SystemEntities", "SplitString")]
         public virtual IQueryable<SplitString_Result> SplitString(string str, string separator)

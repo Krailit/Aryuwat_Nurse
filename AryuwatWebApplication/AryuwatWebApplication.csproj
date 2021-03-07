@@ -316,6 +316,9 @@
     <Compile Include="Entity\PatientChange.cs">
       <DependentUpon>OPD_Entity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\PatientData.cs">
+      <DependentUpon>OPD_Entity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\PayByItem.cs">
       <DependentUpon>OPD_Entity.tt</DependentUpon>
     </Compile>
@@ -525,6 +528,7 @@
     </Compile>
     <Compile Include="Models\AllowJsonGetAttribute.cs" />
     <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\MedicalExpireModel.cs" />
     <Compile Include="Models\OPD_Class.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

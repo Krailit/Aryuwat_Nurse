@@ -5,178 +5,318 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <div id="app" style="font-size:30px">
-    <div class="container" style="background-color:#f3f3f3;margin-top: -20px;padding-top: 10px; padding-bottom: 30px">
-        <div class="row">
-            <div class="col-lg-1">
-                <a v-on:click="BackCustomer()"><i class="fa fa-angle-left"></i></a>
-            </div>
-            <div class="col-lg-11">
-                <u style="font-size:30px; font-weight:600">{{tmpCustomer.Tname + ' ' + tmpCustomer.TsurName}}</u>
-            </div>
-            <div class="col-lg-1">
-            </div>
-            <div class="col-lg-11">
-                <p style="font-size:20px;">CN : {{tmpCustomer.CN}}</p>
-            </div>
-        </div>
-    </div>
-    <div class="container" style="background-color:#e6e6e6;">
-        <div class="row color-text" style="margin-top: 20px;margin-bottom: 10px;">
-            @*<div class="col-lg-1" style="text-align:right">
-                    <a href="@Url.Content("~/Home/PatientDetail")"><i class="fa fa-angle-left"></i></a>
-                </div>*@
-            <div class="col-lg-11">
-                <p style="font-size:30px">ไฟล์แนบผู้ป่วย</p>
-            </div>
-        </div>
-        <div class="row color-text" style="margin-bottom: 5rem;margin-left: 10px;margin-right: 10px;background-color:white;border-radius:20px">
-            <table class="table hb-table hb-table-dashboard" style="font-size:22px;width:100%">
-                <thead>
-                    <tr>
-                        <th class="text-right align-middle" colspan="4">
-                            {{AttachFileName}}
-                            <input class="btn btn-info" style="width: 150px;font-size:16px;border-radius:10px;background-color:#808080;" value="Upload file" v-on:click="callfile()" v-if="AttachFileName == ''"/>
-                            <input id="FormulaAttachFile"
-                                   accept=".gif, .jpg, .png"
-                                   type="file"
-                                   ref="ApplicantRegister"
-                                   style="display:none"
-                                   v-on:change="onFileFormulaChange($event)">
-                            <input class="btn btn-success" style="width: 150px;font-size:16px;border-radius:10px;" value="Upload or Select" v-on:click="uploadfile()" v-if="AttachFileName != ''"/>
-                        </th>
-                    <th class="text-left align-middle"><i class="fa fa-share-alt"></i></th>
-                    </tr>
-                    <tr style="font-weight:500">
-                        @*<td class="text-center align-middle" style="width:5%;"><input type="checkbox" style="transform: scale(1.5);" /></td>*@
-                        <td class="text-center align-middle" style="width:50%;padding-left:50px;" colspan="2">Name</td>
-                        <td class="text-center align-middle" style="width:28%;">Detail</td>
-                        <td class="text-center align-middle" style="width:20%;">Last Modified</td>
-                        <td class="text-center align-middle" style="width:2%;"></td>
-                    </tr>
-                </thead>
-                <tbody style="font-weight:400;font-size:18px">
-                    <tr :key="index" v-for="(items, index) in Attachfile" v-if="Attachfile.length > 0" class="rowHover" style="border-bottom: 1px solid #cbc3c3;height: 60px;cursor:pointer;"
-                        v-on:click="popupImage(items.FileName)" data-toggle="modal" data-target="#myModal">
-                        @*<td class="text-center align-middle" style="width:5%;">
-                                <input type="checkbox" style="transform: scale(1.5);" />
-                            </td>*@
-                        <td class="text-left align-middle" style="width:50%;padding-left:50px;" colspan="2">
-                            <p>
-                                <i class="fa fa-image"></i>
-                                {{items.FileName}}
-                            </p>
-                        </td>
-                        <td class="text-center align-middle" style="width:28%;">
-                            {{items.Detail}}
-                        </td>
-                        <td class="text-center align-middle" style="width:20%;">
-                            {{parseJsonDate(items.DateSave)}}
-                        </td>
-                        <td class="text-center align-middle" style="width:2%;"></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog" style="width: 500px;">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <img :src=fileURL style="max-width:100%" />
+    <div>
+        <div class="container" style="background-color:#f3f3f3;margin-top: -20px;padding-top: 10px; padding-bottom: 30px">
+            <div class="row">
+                <div class="col-lg-1">
+                    <a v-on:click="BackCustomer()"><i class="fa fa-angle-left" style="cursor:pointer"></i></a>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn" data-dismiss="modal">Close</button>
+                <div class="col-lg-11">
+                    <u style="font-size:30px; font-weight:600">{{tmpCustomer.Tname + ' ' + tmpCustomer.TsurName}}</u>
+                </div>
+                <div class="col-lg-1">
+                </div>
+                <div class="col-lg-11">
+                    <p style="font-size:20px;">CN : {{tmpCustomer.CN}}</p>
                 </div>
             </div>
+        </div>
+        <div class="container" style="background-color:#e6e6e6;">
+            <div class="row color-text" style="margin-top: 20px;margin-bottom: 10px;">
+                <div class="col-lg-11">
+                    <p style="font-size:30px">ตรวจวัดข้อมูลผู้ป่วย</p>
+                </div>
+            </div>
+            <div class="chart-container" style="position: relative;margin-bottom: 5rem; margin-left: 10px; margin-right: 10px; background-color: white; border-radius: 20px">
+                <canvas id="myChart" height="150"></canvas>
+            </div>
+            <div class="row color-text" style="margin-bottom: 5rem;margin-left: 10px;margin-right: 10px;background-color:white;border-radius:20px">
+                <table class="table hb-table hb-table-dashboard" style="font-size:22px;width:100%;margin-left: 1%;margin-right: 1%;">
+                    <thead style="font-weight:500;border-bottom:2px solid #000000">
+                        <tr>
+                            <td class="text-center align-middle" style="border-right: 1px solid #ddd;">Date</td>
+                            <td class="text-center align-middle" style="border-right: 1px solid #ddd;">Time</td>
+                            <td class="text-center align-middle" style="border-right: 1px solid #ddd;">T</td>
+                            <td class="text-center align-middle" style="border-right: 1px solid #ddd;">P</td>
+                            <td class="text-center align-middle" style="border-right: 1px solid #ddd;">R</td>
+                            <td class="text-center align-middle" style="border-right: 1px solid #ddd;">BP</td>
+                            <td class="text-center align-middle" style="">O2</td>
+                        </tr>
+                    </thead>
+                    <tbody style="font-weight:400;font-size:18px">
+                        <tr :key="index" v-for="(items, index) in PatientData" v-if="PatientData.length > 0" data-toggle="modal" data-target="#myModal" style="cursor: pointer;" v-on:click="openPopup(items)" class="rowHover">
+                            <td class="text-center align-middle" style="border-bottom: 1px solid #ddd;border-right: 1px solid #ddd;">
+                                {{ items.Date }}
+                            </td>
+                            <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
+                                {{ items.Time }}
+                            </td>
+                            <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
+                                {{ items.T }}
+                            </td>
+                            <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
+                                {{ items.PulseSBP == null || items.PulseSBP == '' || items.PulseDBP == null || items.PulseDBP == '' ? '' : items.PulseSBP + ' / ' + items.PulseDBP }}
+                            </td>
+                            <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
+                                {{ items.R }}
+                            </td>
+                            <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
+                                {{ items.BP }}
+                            </td>
+                            <td class="text-center align-middle" style="border-bottom: 1px solid #ddd;">
+                                {{ items.O2 }}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true" style="font-size: 18px">
+                <div class="modal-dialog modal-dialog-scrollable" style="width: 1000px;" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="exampleModalScrollableTitle">เพิ่ม / แก้ไข ข้อมูล</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container-fluid">
+                                <div class="row" style="padding: 10px">
+                                    <div class="col-6" style="padding-bottom: 20px">
+                                        <h4 class="modal-title" id="exampleModalScrollableTitle">วันที่ : <u style="padding-left: 10%">{{ popPatientData.Date }} </u></h4>
+                                    </div>
+                                    <div class="col-6">
+                                        <h4 class="modal-title" id="exampleModalScrollableTitle"> เวลา : <u style="padding-left: 10%">{{ popPatientData.Time }} </u></h4>
+                                    </div>
+                                    <div class="col-3">
+                                        <p style="text-align:right">T :</p>
+                                    </div>
+                                    <div class="col-9">
+                                        <input type="number" v-model="popPatientData.T" style="font-size: 16px;width: 5ch" />
+                                    </div>
+                                    <div class="col-3">
+                                        <p style="text-align:right">P (SBP) :</p>
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="number" v-model="popPatientData.PulseSBP" style="font-size: 16px;width: 5ch" />
+                                    </div>
+                                    <div class="col-3">
+                                        <p style="text-align:right">P (DBP) :</p>
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="number" v-model="popPatientData.PulseDBP" style="font-size: 16px;width: 5ch" />
+                                    </div>
+                                    <div class="col-3">
+                                        <p style="text-align:right">R :</p>
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="number" v-model="popPatientData.R" style="font-size: 16px;width: 5ch" />
+                                    </div>
+                                    <div class="col-3">
+                                        <p style="text-align:right">BP :</p>
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="number" v-model="popPatientData.BP" style="font-size: 16px;width: 5ch" />
+                                    </div>
+                                    <div class="col-3">
+                                        <p style="text-align:right">O2 :</p>
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="number" v-model="popPatientData.O2" style="font-size: 16px;width: 5ch" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" v-on:click="SaveDataPatient()">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="fade"
+         :class="{'modal-backdrop show' : showLoad1}"
+         :style="{'cursor' : (showLoad1 ? 'wait': ''),'z-index' : (showLoad1 ? '9999': '')}">
+        <div v-if="showLoad1" style="color:white;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%)">
+            <i class="fa fa-plus fa-spin fa-3x fa-fw"></i><br />
+            <span>Loading...</span>
         </div>
     </div>
 </div>
+
+
 <script src="~/Scripts/vue.js"></script>
 <script src="~/Scripts/axios.js"></script>
 <script src="~/Scripts/moment.js"></script>
 <script>
-
     Vue.prototype.$http = axios;
     const app = new Vue({
         el: "#app",
         data: {
             tmpCustomer : @Html.Raw(Json.Encode(@Model)),
-            Attachfile: [],
+            PatientData: [],
+            popPatientData: [],
+            //popPulseSBP: '',
+            //popPulseDBP: '',
             fileURL: '',
+            showLoad1: false,
             File: "",
             AttachFileName: "",
         },
         mounted: function () {
             var that = this;
+            that.showLoad1 = true;
             if (that.tmpCustomer.CN == null) {
                 window.location.href = '@Url.Content("~/Home/Index")';
             }
-            that.GetAttachfile();
+            that.PatientData.push(
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '06:00',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '10:00',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '14:00',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '18:00',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '22:00',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                }
+            );
+            that.GetPatientData();
+            that.showLoad1 = false;
         },
         watch: {
         },
         methods: {
+            openPopup: function (val) {
+                var that = this;
+                that.popPatientData = val;
+                //that.popPulseSBP = that.popPatientData.P == null ? '' : that.popPatientData.P.split('/')[0].trim();
+                //that.popPulseDBP = that.popPatientData.P == null ? '' : that.popPatientData.P.split('/')[1].trim();
+            },
             BackCustomer:function(){
                 var that=this;
                 window.location.replace('@Url.Action("PatientDetail", "Home")?customerCN=' + that.tmpCustomer.CN)
             },
-            callfile: function () {
-                document.getElementById('FormulaAttachFile').click();
+            parseJsonDate: function (jsonDateString){
+                return moment(jsonDateString).format("MMM DD, YYYY").toUpperCase();
             },
-            onFileFormulaChange: function (event) {
-                var files = event.target.files || event.dataTransfer.files;
-                if (files.length === 0) { return; }
-                // console.log(files[0]);
-                // maximum: 10M
-                if (files[0].size / 1024 / 1024 > 1) {
-                    // แจ้งเตือน
-                    alert("ขนาดไฟล์เกิน 1MB กรุณาตรวจสอบข้อมูลอีกครั้ง !!");
-                    // เคลียร์ข้อมูล
-                    $("#FormulaAttachFile").val("");
-                    this.File = "";
-                    // ส่งกลับข้อมูล
-                    return true;
-                }
-                this.File = files[0];
-                this.AttachFileName = this.File.name;
+            GetPatientData:function(){
+                var that=this;
+                that.$http.post('@Url.Action("GetPatientData", "Home")', {
+                    tmpCustomerID: that.tmpCustomer.ID
+                }).then(function (response) {
+                    if (response.data.ContentEncoding == 200) {
+
+                        for (var i = 0; i < response.data.data.length; i++)
+                        {
+                            for (var a = 0; a < that.PatientData.length; a++) {
+                                if (that.PatientData[a].Date == that.parseJsonDate(response.data.data[i].Date) && that.PatientData[a].Time == response.data.data[i].Time)
+                                {
+                                    that.PatientData[a].T = response.data.data[i].T;
+                                    that.PatientData[a].PulseSBP = response.data.data[i].PulseSBP;
+                                    that.PatientData[a].PulseDBP = response.data.data[i].PulseDBP;
+                                    that.PatientData[a].R = response.data.data[i].R;
+                                    that.PatientData[a].BP = response.data.data[i].BP;
+                                    that.PatientData[a].O2 = response.data.data[i].O2;
+                                }
+                            }
+                        }
+                    }
+                });
             },
-            uploadfile: function () {
+            SaveDataPatient:function(){
                 var that = this;
-                var conf = confirm("คุณต้องการอัพโหลดไฟล์นี้ [ใช่หรือไม่]");
+                var conf = confirm("ยืนยันการบันทึก [ใช่หรือไม่]");
                 if (conf === true) {
-                    var formData = new FormData();
-                    formData.append("CN", that.tmpCustomer.CN);
-                    formData.append("AttachFileData", that.File);
-                    that.$http.post('@Url.Action("UploadFile", "Home")',formData).then(function(response)
-                    {
+                    that.$http.post('@Url.Action("UpdateDataPatient", "Home")', {
+                        tmpData: JSON.stringify(that.popPatientData),
+                        tmpCustomerID: that.tmpCustomer.ID
+                    }).then(function (response) {
                         if (response.data.ContentEncoding == 200) {
-                            alert('Upload success !');
+                            alert('Update Patient Data Success');
+                            console.log(response.data.data);
                             location.reload();
                         }
                     });
                 }
-                else {
-                    document.getElementById('FormulaAttachFile').click();
-                }
-            },
-            popupImage:function(filename){
-                var that = this;
-                that.fileURL = 'https://aryuwat.onnli.co/AttachFile_Aryuwat/' + filename;
-            },
-            parseJsonDate: function (jsonDateString){
-                return moment(jsonDateString).format("MMM DD, YYYY").toUpperCase();
-            },
-            GetAttachfile:function(){
-                var that=this;
-                that.$http.get('@Url.Action("GetAttachfile", "Home")?customerCN=' + that.tmpCustomer.CN)
-                    .then(function (response) {
-                        if (response.data.ContentEncoding == 200) {
-                            that.Attachfile = response.data.data;
-                        }
-                });
             },
         }
     });
+
+    var ctx = document.getElementById('myChart').getContext('2d');
+    const cfg = {
+        type: 'line',
+
+        data: {
+            //labels: ['Feb 1, 2021', 'Feb 2, 2021', 'Feb 3, 2021', 'Feb 4, 2021', 'Feb 5, 2021', 'Feb 6, 2021', 'Feb 7, 2021'],
+            labels: ['2', '6', '10', '14', '18', '22'],
+            datasets: [
+                {
+                    label: 'Pulse(SBP)',
+                    backgroundColor: 'transparent',
+                    borderColor: '#000',
+                    data: [100, 80, 100, null, 100, 95, 120]
+                },
+                {
+                    label: 'Pulse(DBP)',
+                    backgroundColor: 'transparent',
+                    borderColor: '#000',
+                    data: [60, 40, 67, 46, 65, 50, 45]
+                }
+            ]
+        },
+
+        options: {
+            elements: {
+                line: {
+                    tension: 0
+                }
+            }
+        }
+    };
+    var chart = new Chart(ctx, cfg);
 </script>
