@@ -3,6 +3,7 @@ using AryuwatWebApplication.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Objects;
 using System.Data.SqlClient;
 using System.Globalization;
 using System.IO;
@@ -39,6 +40,16 @@ namespace AryuwatWebApplication.Controllers
             return sqls;
         }
 
+        public class TempPatientData
+        {
+            public string Patient_Name { get; set; }
+            public string CN { get; set; }
+            public string Room { get; set; }
+            public DateTime? Start { get; set; }
+            public DateTime? End { get; set; }
+            public DateTime? Meeting { get; set; }
+        }
+
         [AllowJsonGet]
         [HttpGet, ActionName("TableCustomer")]
         public async Task<JsonResult> TableCustomer()
@@ -47,10 +58,57 @@ namespace AryuwatWebApplication.Controllers
             {
                 using (var context = new OPD_SystemEntities())
                 {
+                    string query = @"SELECT 
+	                                    cus.PrefixCode + cus.Tname + ' ' + cus.TsurName Patient_Name,
+	                                    cus.CN,
+	                                    MR.Room_Name Room,
+                                        RD.Start_Date Start,
+                                        case 
+		                                    when RD.Start_Date is not null
+		                                    then DATEADD(DAY,RD.Qty_Date , RD.Start_Date) 
+		                                    else null 
+	                                    end [End]
+                                    FROM [OPD_System].[dbo].[Customers] cus
+                                    --(select top 1 ID as MOID from [OPD_System].[dbo].MedicalOrder where CN = cus.CN order by ID desc)
+                                    Outer Apply
+	                                    (
+		                                    SELECT TOP 1 *
+		                                    FROM [OPD_System].[dbo].MedicalOrder MO
+		                                    WHERE MO.CN = cus.CN
+		                                    ORDER BY MO.ID DESC
+	                                    ) MO
+                                    --Left Join [OPD_System].[dbo].MedicalOrder MO on cus.CN = MO.CN
+                                    Outer Apply
+	                                    (
+		                                    SELECT TOP 1 *
+		                                    FROM [OPD_System].[dbo].Room_Detail RD
+		                                    WHERE RD.FK_MO_ID = MO.ID
+		                                    ORDER BY RD.ID DESC
+	                                    ) RD
+                                    --Left Join [OPD_System].[dbo].Room_Detail RD on MO.ID = RD.FK_MO_ID and RD.Is_Active = 1
+                                    Left Join [OPD_System].[dbo].Master_Room MR on RD.FK_Room_ID = MR.ID and MR.Is_Active = 1";
 
-                    var result = context.Customers.ToList();
+                    var resultquery = context.Database.SqlQuery<TempPatientData>(query).ToList();
+                    //var result = (from cus in context.Customers
+                    //              join med in context.MedicalOrders.Where(x => x.Room_Status == true) on cus.CN equals med.CN into med2
+                    //              from med3 in med2
+                    //              join rd in context.Room_Detail.Where(x => x.Is_Active == true) on med3.ID equals rd.FK_MO_ID into rd2
+                    //              from rd3 in rd2
+                    //              join mr in context.Master_Room.Where(x => x.Is_Active == true) on rd3.FK_Room_ID equals mr.ID into mr2
+                    //              from mr3 in mr2
+                    //              select new TempPatientData
+                    //              {
+                    //                  Patient_Name = (cus.PrefixCode ?? "") + (cus.Tname ?? "") + " " + (cus.TsurName ?? ""),
+                    //                  CN = cus.CN ?? "",
+                    //                  Room = mr3.Room_Name ?? "",
+                    //                  Start = rd3.Start_Date,
+                    //                  End = EntityFunctions.AddDays(rd3.Start_Date, (Int32?)(rd3.Qty_Date)),
+                    //                  //End = rd3.Start_Date != null ? rd3.Start_Date.Value.AddDays(0/*Convert.ToDouble(rd3.Qty_Date)*/) : DateTime.Now,
+                    //                  //End = Convert.ToDateTime(rd3.Start_Date).AddDays(Convert.ToDouble(rd3 == null ? 0 : rd3.Qty_Date)),
+                    //                  //Meeting = null
+                    //              }).ToList();
 
-                    return Json(new { ContentEncoding = 200, data = result });
+                    return Json(new { ContentEncoding = 200, data = resultquery });
                 }
             }
             catch (Exception ex)

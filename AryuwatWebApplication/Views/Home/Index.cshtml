@@ -10,7 +10,7 @@
         background-color: gainsboro;
     }
 </style>
-<div id="app" style="font-size:34px">
+<div id="app" style="font-size:18px">
     @*<div class="container" style="background-color:#f3f3f3;margin-top: -20px;padding-top: 10px; padding-bottom: 30px">
             <div class="row">
                 <div class="col-lg-1">
@@ -30,27 +30,35 @@
     <div class="row color-text" style="margin-top: 5rem;margin-bottom: 5rem;margin-left: 10px;margin-right: 10px; background-color: white;border-radius:10px">
         <div class="col-lg-12">
             <table style="width:100%">
-                <thead style="font-weight:600;border-bottom: 3px solid black;">
+                <thead style="font-weight:600;border-bottom: 3px solid black;font-size:24px;">
                     <tr>
-                        <td style="width:25%;text-align:center;">Name</td>
-                        <td style="width:15%;text-align:center;">CN</td>
-                        <td style="width:15%;text-align:center;">Gender</td>
-                        <td style="width:15%;text-align:center;">Mobile</td>
+                        <td style="width:30%;text-align:center;">Name</td>
+                        <td style="width:14%;text-align:center;">CN</td>
+                        <td style="width:14%;text-align:center;">Room</td>
+                        <td style="width:14%;text-align:center;">Start</td>
+                        <td style="width:14%;text-align:center;">End</td>
+                        <td style="width:14%;text-align:center;">Meeting</td>
                     </tr>
                 </thead>
-                <tbody style="font-size: 24px; font-weight: 300;text-align:center;height: 60px;">
+                <tbody style="font-weight: 300;text-align:center;height: 60px;">
                     <tr :key="index" v-for="(items, index) in tempCustomer" v-if="tempCustomer.length > 0" class="rowHover" style="border-bottom: 1px solid #cbc3c3;height: 60px;cursor:pointer;" v-on:click="sendCNtoTemp(items.CN)">
                         <td class="text-left">
-                            {{ items.PrefixCode + items.Tname + ' ' + items.TsurName }} 
+                            {{ items.Patient_Name }}
                         </td>
                         <td class="text-center">
                             {{ items.CN }}
                         </td>
                         <td class="text-center">
-                            {{ (items.Gender == 'W' ? 'Female' : 'Male') }}
+                            {{ items.Room }}
                         </td>
                         <td class="text-center">
-                            {{ items.Mobile1 }}
+                            {{ items.Start == null ? '-' : parseJsonDate(items.Start) }}
+                        </td>
+                        <td class="text-center">
+                            {{ items.End == null ? '-' : parseJsonDate(items.End) }}
+                        </td>
+                        <td class="text-center">
+                            {{ items.Meeting }}
                         </td>
                     </tr>
                 </tbody>
@@ -61,6 +69,7 @@
 </div>
 <script src="~/Scripts/vue.js"></script>
 <script src="~/Scripts/axios.js"></script>
+<script src="~/Scripts/moment.js"></script>
 <script>
             Vue.prototype.$http = axios;
             const app = new Vue({
@@ -85,6 +94,9 @@
                                     vm.tempCustomer = response.data.data;
                                 }
                         });
+                    },
+                    parseJsonDate: function (jsonDateString) {
+                        return moment(jsonDateString).format("MMM DD, YYYY").toUpperCase();
                     },
                     sendCNtoTemp:function(CN){
                         var that=this;

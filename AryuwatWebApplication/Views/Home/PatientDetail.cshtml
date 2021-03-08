@@ -3,19 +3,19 @@
     ViewBag.Title = "Patient Detail";
 }
 
-<div id="app" style="font-size:34px">
+<div id="app" style="font-size:18px">
     <div class="container" style="background-color:#f3f3f3;margin-top: -20px;padding-top: 10px; padding-bottom: 30px">
         <div class="row">
             <div class="col-lg-1">
                 <a href="@Url.Content("~/Home/Index")"><i class="fa fa-angle-left"></i></a>
             </div>
             <div class="col-lg-11">
-                <u style="font-size:30px; font-weight:600">{{tmpCustomer.Tname + ' ' + tmpCustomer.TsurName}}</u>
+                <u style="font-size:24px; font-weight:600">{{tmpCustomer.Tname + ' ' + tmpCustomer.TsurName}}</u>
             </div>
             <div class="col-lg-1">
             </div>
             <div class="col-lg-11">
-                <p style="font-size:20px;">CN : {{tmpCustomer.CN}}</p>
+                <p style="font-size:18px;">CN : {{tmpCustomer.CN}}</p>
             </div>
         </div>
     </div>
@@ -24,35 +24,35 @@
             <div class="col-lg-6">
                 <div class="card" style="margin:20px;height:200px;background-color:white;cursor:pointer;border-top: 90px solid #C8C8C8;border-radius:10px" v-on:click="PatientData()"> 
                     <div class="card-body" style="padding-top:20px">
-                        <h1><b>ตรวจวัดข้อมูลผู้ป่วย</b></h1>
+                        <h2><b>ตรวจวัดข้อมูลผู้ป่วย</b></h2>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="card" style="margin:20px;height:200px;background-color:white;cursor:pointer;border-top: 90px solid #C8C8C8;border-radius:10px" v-on:click="MedicalExpire()">
                     <div class="card-body" style="padding-top:20px">
-                        <h1><b>วันหมดอายุเวชภัณฑ์</b></h1>
+                        <h2><b>วันหมดอายุเวชภัณฑ์</b></h2>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="card" style="margin:20px;height:200px;background-color:white;border-top: 90px solid #C8C8C8;border-radius:10px;cursor:pointer" v-on:click="AttachfilePatient()">
                     <div class="card-body" style="padding-top:20px">
-                        <h1><b>ภาพแนบผู้ป่วย</b></h1>
+                        <h2><b>ภาพแนบผู้ป่วย</b></h2>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="card" style="margin:20px;height:200px;background-color:white;border-top: 90px solid #C8C8C8;border-radius:10px">
                     <div class="card-body" style="padding-top:20px">
-                        <h1>A4</h1>
+                        <h2>A4</h2>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="card" style="margin:20px;height:200px;background-color:white;border-top: 90px solid #C8C8C8;border-radius:10px">
                     <div class="card-body" style="padding-top:20px">
-                        <h1>A5</h1>
+                        <h2>A5</h2>
                     </div>
                 </div>
             </div>
