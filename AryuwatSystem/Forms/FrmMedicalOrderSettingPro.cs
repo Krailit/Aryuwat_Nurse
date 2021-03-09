@@ -2357,7 +2357,9 @@ namespace AryuwatSystem.Forms
                     info.Tabwhere = "1=1";
                 }
                 //info.MS_Section = "PMC";
+                
                 info.Tab = "PHARMACY";
+                
                 dtPHARMACY = new Business.MedicalSupplies().SelectMedicalSuppliesBySection(info).Tables[0];
 
                 foreach (DataRowView item in dtPHARMACY.DefaultView)
@@ -4901,7 +4903,7 @@ namespace AryuwatSystem.Forms
                             using (var context = new EntitiesOPD_System())
                             {
                                 var getRoomMO = context.MedicalOrders.Where(x => x.Room_Status == true).Take(1).OrderByDescending(x => x.ID).FirstOrDefault();
-                                int maxid = getRoomMO != null ? Convert.ToInt32(getRoomMO.SONo.Substring(12, 4).ToString()) : 0; 
+                                int maxid = getRoomMO != null ? Convert.ToInt32(getRoomMO.SONo.Substring(12, 4).ToString()) : 0;
                                 var strCheck = moso + MoSubType + "-" + ((DateTime.Now.Year + 543).ToString().Substring(2, 2) + (DateTime.Now.Month).ToString("0#") + (maxid + 1).ToString("000#")).ToString();
                                 this.idMax = strCheck;
                             }
@@ -4958,11 +4960,11 @@ namespace AryuwatSystem.Forms
                     DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeInformation, "กรุณาระบุ \"เลขที่ใบยา.\"");
                     return;
                 }
-                if (HowYouhearInfo == null || !HaveHowYouHear())
-                {
-                    SHowHowdidyouHear();
-                    if (!HaveHowYouHear()) return;
-                }
+                //if (HowYouhearInfo == null || !HaveHowYouHear())
+                //{
+                //    SHowHowdidyouHear();
+                //    if (!HaveHowYouHear()) return;
+                //}
 
 
                 SaveMedical();
@@ -5277,7 +5279,7 @@ namespace AryuwatSystem.Forms
                     //dicFreeTrans.SelectMany(d => d.Value).ToList(); //dicFreeTrans.ToList(listFreeTrans);
                     info.SupplieTransProInfo = listSuppleTransPro.ToArray();
                     info.MedicalOrderDocInfo = listMedicalOrderDoc.ToArray();
-                    info.HowYouhearInfo = HowYouhearInfo;
+                    //info.HowYouhearInfo = HowYouhearInfo;
 
                     //info.MedicalOrderUseTransesInfo = MedicalOrderUseTranss.ToArray();
                     info.VN = this.txtMO.Text.Trim();

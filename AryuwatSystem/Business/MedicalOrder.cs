@@ -125,7 +125,7 @@ namespace AryuwatSystem.Business
                 var intSup = Data.SupplieTrans.InsertSupplieTrans(info.SupplieTransInfo, trn, info);
                 var intFree = Data.SupplieTrans.InsertFreeTrans(info, trn);
                 var intSupPro = Data.SupplieTrans.InsertSupplieTransPro(info.SupplieTransProInfo, trn, info);
-                var intHow=Data.HowYouhear.InsertHowYouhear(info.HowYouhearInfo, trn);
+                //var intHow=Data.HowYouhear.InsertHowYouhear(info.HowYouhearInfo, trn);
               
 
                 //if (string.IsNullOrEmpty(vnTmp))
