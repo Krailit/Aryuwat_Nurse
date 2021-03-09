@@ -52,13 +52,14 @@ namespace AryuwatWebApplication.Controllers
 
         [AllowJsonGet]
         [HttpGet, ActionName("TableCustomer")]
-        public async Task<JsonResult> TableCustomer()
+        public async Task<JsonResult> TableCustomer(string searchtxt)
         {
             try
             {
                 using (var context = new OPD_SystemEntities())
                 {
-                    string query = @"SELECT 
+                    string query = @"SELECT * from (					
+                                    select
 	                                    cus.PrefixCode + cus.Tname + ' ' + cus.TsurName Patient_Name,
 	                                    cus.CN,
 	                                    MR.Room_Name Room,
@@ -86,7 +87,8 @@ namespace AryuwatWebApplication.Controllers
 		                                    ORDER BY RD.ID DESC
 	                                    ) RD
                                     --Left Join [OPD_System].[dbo].Room_Detail RD on MO.ID = RD.FK_MO_ID and RD.Is_Active = 1
-                                    Left Join [OPD_System].[dbo].Master_Room MR on RD.FK_Room_ID = MR.ID and MR.Is_Active = 1";
+                                    Left Join [OPD_System].[dbo].Master_Room MR on RD.FK_Room_ID = MR.ID and MR.Is_Active = 1) a
+									WHERE Patient_Name like '%" + searchtxt + "%'";
 
                     var resultquery = context.Database.SqlQuery<TempPatientData>(query).ToList();
                     //var result = (from cus in context.Customers

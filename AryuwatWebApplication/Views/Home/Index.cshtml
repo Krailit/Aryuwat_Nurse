@@ -26,46 +26,54 @@
                 </div>
             </div>
         </div>*@
-    <div class="container" style="background-color:#e6e6e6;">
-    <div class="row color-text" style="margin-top: 5rem;margin-bottom: 5rem;margin-left: 10px;margin-right: 10px; background-color: white;border-radius:10px">
-        <div class="col-lg-12">
-            <table style="width:100%">
-                <thead style="font-weight:600;border-bottom: 3px solid black;font-size:24px;">
-                    <tr>
-                        <td style="width:30%;text-align:center;">Name</td>
-                        <td style="width:14%;text-align:center;">CN</td>
-                        <td style="width:14%;text-align:center;">Room</td>
-                        <td style="width:14%;text-align:center;">Start</td>
-                        <td style="width:14%;text-align:center;">End</td>
-                        <td style="width:14%;text-align:center;">Meeting</td>
-                    </tr>
-                </thead>
-                <tbody style="font-weight: 300;text-align:center;height: 60px;">
-                    <tr :key="index" v-for="(items, index) in tempCustomer" v-if="tempCustomer.length > 0" class="rowHover" style="border-bottom: 1px solid #cbc3c3;height: 60px;cursor:pointer;" v-on:click="sendCNtoTemp(items.CN)">
-                        <td class="text-left">
-                            {{ items.Patient_Name }}
-                        </td>
-                        <td class="text-center">
-                            {{ items.CN }}
-                        </td>
-                        <td class="text-center">
-                            {{ items.Room }}
-                        </td>
-                        <td class="text-center">
-                            {{ items.Start == null ? '-' : parseJsonDate(items.Start) }}
-                        </td>
-                        <td class="text-center">
-                            {{ items.End == null ? '-' : parseJsonDate(items.End) }}
-                        </td>
-                        <td class="text-center">
-                            {{ items.Meeting }}
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+    <div class="container" style="background-color:#e6e6e6;padding-top:30px;margin-bottom:-20px;padding-right:20px">
+        <div class="row float-right">
+            <div class="col-lg-6">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="font-size:15px;border-radius: 20px;background-color:rgba(172, 202, 249, 0.50);width: 400px" v-model="searchtxt">
+            </div>
         </div>
     </div>
-</div>
+
+    <div class="container" style="background-color:#e6e6e6;">
+        <div class="row color-text" style="margin-top: 5rem;margin-bottom: 5rem;margin-left: 10px;margin-right: 10px; background-color: white;border-radius:10px">
+            <div class="col-lg-12">
+                <table style="width:100%">
+                    <thead style="font-weight:600;border-bottom: 3px solid black;font-size:24px;">
+                        <tr>
+                            <td style="width:30%;text-align:center;">Name</td>
+                            <td style="width:14%;text-align:center;">CN</td>
+                            <td style="width:14%;text-align:center;">Room</td>
+                            <td style="width:14%;text-align:center;">Start</td>
+                            <td style="width:14%;text-align:center;">End</td>
+                            <td style="width:14%;text-align:center;">Meeting</td>
+                        </tr>
+                    </thead>
+                    <tbody style="font-weight: 300;text-align:center;height: 60px;">
+                        <tr :key="index" v-for="(items, index) in tempCustomer" v-if="tempCustomer.length > 0" class="rowHover" style="border-bottom: 1px solid #cbc3c3;height: 60px;cursor:pointer;" v-on:click="sendCNtoTemp(items.CN)">
+                            <td class="text-left">
+                                {{ items.Patient_Name }}
+                            </td>
+                            <td class="text-center">
+                                {{ items.CN }}
+                            </td>
+                            <td class="text-center">
+                                {{ items.Room }}
+                            </td>
+                            <td class="text-center">
+                                {{ items.Start == null ? '-' : parseJsonDate(items.Start) }}
+                            </td>
+                            <td class="text-center">
+                                {{ items.End == null ? '-' : parseJsonDate(items.End) }}
+                            </td>
+                            <td class="text-center">
+                                {{ items.Meeting }}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
 <script src="~/Scripts/vue.js"></script>
 <script src="~/Scripts/axios.js"></script>
@@ -76,19 +84,26 @@
                 el: "#app",
                 data: {
                     tempCustomer: [],
-                    active: false,
-                    bgtblcolor: "white",
+                    searchtxt: '',
                 },
                 mounted: function () {
-                    this.onHandleClickAddTraining();
+                    this.GetDataTableCustomer();
                 },
                 watch: {
-
+                    searchtxt: function (val) {
+                        var vm = this;
+                        vm.$http.get('@Url.Action("TableCustomer", "Home")?searchtxt=' + vm.searchtxt)
+                            .then(function (response) {
+                                if (response.data.ContentEncoding == 200) {
+                                    vm.tempCustomer = response.data.data;
+                                }
+                        });
+                    },
                 },
                 methods: {
-                    onHandleClickAddTraining:function(data){
-                        var vm=this;
-                        vm.$http.get('@Url.Action("TableCustomer", "Home")')
+                    GetDataTableCustomer:function(data){
+                        var vm = this;
+                        vm.$http.get('@Url.Action("TableCustomer", "Home")?searchtxt=' + vm.searchtxt)
                             .then(function (response) {
                                 if (response.data.ContentEncoding == 200) {
                                     vm.tempCustomer = response.data.data;
