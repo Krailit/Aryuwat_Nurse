@@ -25,67 +25,90 @@
     <div class="container" style="background-color:#e6e6e6;">
         <div class="row color-text" style="margin-top: 20px;margin-bottom: 10px;">
             <div class="col-lg-11">
-                <p style="font-size:28px">แจ้งเตือนวันหมดอายุเวชภัณฑ์</p>
+                <p style="font-size:28px">แจ้งเตือน Remark และแจ้งเตือนการกินยา</p>
             </div>
         </div>
         <div class="row color-text" style="margin-bottom: 5rem;margin-left: 10px;margin-right: 10px;background-color:white;border-radius:20px">
+            <div class="col-lg-12 text-right" style="padding-bottom:5px;">
+                <input class="btn btn-success" style="width: 150px;font-size:16px;border-radius:10px;" value="Add" data-toggle="modal" data-target="#RemarkModal" />
+            </div>
             <table class="table hb-table hb-table-dashboard" style="font-size:22px;width:100%">
                 <thead>
-                    <tr style="font-weight:500">
+                    <tr style="font-weight:500;border-top:1px solid #ddd">
                         <td class="text-left align-middle" style="width:40%;padding-left:50px;">รายการ</td>
-                        <td class="text-left align-middle" style="width:20%;">Lated change</td>
-                        <td class="text-left align-middle" style="width:20%;">Next change</td>
+                        <td class="text-left align-middle" style="width:20%;">รายละเอียด</td>
+                        <td class="text-left align-middle" style="width:20%;">สถานะแจ้งเตือน</td>
                         <td class="text-center align-middle" style="width:20%;">Update</td>
                     </tr>
                 </thead>
                 <tbody style="font-weight:400;font-size:18px">
                     <tr>
-                        <td class="text-left align-middle" style="width:40%;padding-left:50px;">ท่ออาหาร เปลี่ยนทุกๆ 1 เดือน</td>
-                        <td class="text-left align-middle" style="width:20%;">{{ oneLastChange }}</td>
-                        <td class="text-left align-middle" style="width:20%;">{{ oneNextChange }}</td>
+                        <td class="text-left align-middle" style="width:40%;padding-left:50px;">แจ้งเตือน Remark</td>
+                        <td class="text-left align-middle" style="width:20%;">ญาติอารมร้อน</td>
+                        <td class="text-left align-middle" style="width:20%;">ปิด</td>
                         <td class="text-center align-middle" style="width:20%;">
-                            <input class="btn btn-info" style="width: 150px;font-size:16px;border-radius:10px;background-color:#0073fa" value="Update" v-on:click="UpdateMedical(1,oneLastChange)"/>
+                            <input class="btn btn-info" style="width: 150px;font-size:16px;border-radius:10px;background-color:#0073fa" value="Update" data-toggle="modal" data-target="#RemarkModal" @*v-on:click="UpdateMedical(1,oneLastChange)"*@ />
                         </td>
                     </tr>
                     <tr>
-                        <td class="text-left align-middle" style="width:40%;padding-left:50px;">ท่อปัสสวะ เปลี่ยนทุกๆ 1 เดือน</td>
-                        <td class="text-left align-middle" style="width:20%;">{{ twoLastChange }}</td>
-                        <td class="text-left align-middle" style="width:20%;">{{ twoNextChange }}</td>
+                        <td class="text-left align-middle" style="width:40%;padding-left:50px;">ท่อปัสสวะ เปลี่ยนทุกๆ 15 วัน</td>
+                        <td class="text-left align-middle" style="width:20%;">Feb 5, 2021</td>
+                        <td class="text-left align-middle" style="width:20%;">เปิด</td>
                         <td class="text-center align-middle" style="width:20%;">
-                            <input class="btn btn-info" style="width: 150px;font-size:16px;border-radius:10px;background-color:#0073fa" value="Update" v-on:click="UpdateMedical(2,twoLastChange)"/>
+                            <input class="btn btn-info" style="width: 150px;font-size:16px;border-radius:10px;background-color:#0073fa" value="Update" data-toggle="modal" data-target="#RemarkModal" @*v-on:click="UpdateMedical(1,oneLastChange)"*@ />
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <div class="row color-text" style="margin-top: 20px;margin-bottom: 10px;">
-            <div class="col-lg-11">
-                <p style="font-size:28px">ประวัติการเปลี่ยนเวชภัณฑ์</p>
+    </div>
+    <div class="modal fade" id="RemarkModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true" style="font-size: 18px">
+        <div class="modal-dialog modal-dialog-scrollable" style="width: 1000px;" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalScrollableTitle">เพิ่ม / แก้ไข การแจ้งเตือน</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row" style="padding: 10px;">
+                            <div class="col-lg-10">
+                                <label> รายการ </label>
+                            </div>
+                            <div class="col-lg-12">
+                                <input type="text" v-model="modaldata[0].modelTopic" />
+                            </div>
+                            <div class="col-lg-12" style="padding-top:20px">
+                                <label> รายละเอียด </label>
+                            </div>
+                            <div class="col-lg-12">
+                                <textarea v-model="modaldata[0].modelDescription"></textarea>
+                            </div>
+                            <div class="col-lg-12" style="padding-top:20px">
+                                <label> วันทีแจ้งเตือน </label>
+                            </div>
+                            <div class="col-lg-12">
+                                <input type="date" v-model="modaldata[0].modelDate"/>
+                            </div>
+                            <div class="col-lg-12" style="padding-top:20px">
+                                <label> ระยะเวลา (วัน) </label>
+                            </div>
+                            <div class="col-lg-12">
+                                <input type="number" v-model="modaldata[0].modelDay"/>
+                            </div>
+                            <div class="col-lg-12" style="padding-top:20px">
+                                <input type="checkbox" id="chkActive" v-model="modaldata[0].modelActive" />
+                                <label for="chkActive"> เปิดใช้งาน</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" v-on:click="UpdateAlert()">Save changes</button>
+                </div>
             </div>
-        </div>
-        <div class="row color-text" style="margin-bottom: 5rem;margin-left: 10px;margin-right: 10px;background-color:white;border-radius:20px">
-            <table class="table hb-table hb-table-dashboard" style="font-size:22px;width:100%">
-                <thead>
-                    <tr style="font-weight:500">
-                        <td class="text-left align-middle" style="width:40%;padding-left:50px;border: 1px solid #ddd;">ครั้งที่</td>
-                        <td class="text-center align-middle" style="width:30%;border: 1px solid #ddd;">ท่ออาหาร</td>
-                        <td class="text-center align-middle" style="width:30%;border: 1px solid #ddd;">ท่อปัสสวะ</td>
-                    </tr>
-                </thead>
-                <tbody style="font-weight:400;font-size:18px">
-                    <tr :key="index" v-for="(items, index) in dataPatientChange" v-if="dataPatientChange.length > 0" class="rowHover" style="border-bottom: 1px solid #cbc3c3;height: 60px;cursor:pointer;">
-                        <td class="text-left align-middle" style="width:40%;padding-left:50px;border: 1px solid #ddd;">
-                            {{items.dataCount}}
-                        </td>
-                        <td class="text-center align-middle" style="width:30%;border: 1px solid #ddd;">
-                            {{ items.oneNextChange == null ? '' : parseJsonDate(items.oneNextChange)}}
-                        </td>
-                        <td class="text-center align-middle" style="width:20%;">
-                            {{ items.twoNextChange == null ? '' : parseJsonDate(items.twoNextChange)}}
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
     </div>
 </div>
@@ -100,72 +123,66 @@
         data: {
             tmpCustomer : @Html.Raw(Json.Encode(@Model)),
             dataPatientChange: [],
-            oneLastChange: null,
-            oneNextChange: null,
-            twoLastChange: null,
-            twoNextChange: null,
+            modaldata: [{
+                modelID: 0,
+                modelTopic: '',
+                modelDescription: '',
+                modelDate: null,
+                modelDay: 0,
+                modelActive: true,
+            }],
+            flagupdate: false,
         },
         mounted: function () {
             var that = this;
             if (that.tmpCustomer.CN == null) {
                 window.location.href = '@Url.Content("~/Home/Index")';
             }
-            that.GetPatientChange();
+            that.modaldata[0].modelDate = that.parseDate(Date.now());
+            //that.GetPatientChange();
         },
         watch: {
-            oneLastChange: function (val) {
-                var that = this;
-                if (val == '') {
-                    that.oneLastChange = that.parseJsonDate(Date.now());
-                }
-            },
-            oneNextChange: function (val) {
-                var that = this;
-                var dt = new Date(Date.now());
-                dt.setMonth(dt.getMonth() + 1);
-                if (val == '') {
-                    that.oneNextChange = that.parseJsonDate(dt);
-                }
-            },
-            twoLastChange: function (val) {
-                var that = this;
-                if (val == '') {
-                    that.twoLastChange = that.parseJsonDate(Date.now());
-                }
-            },
-            twoNextChange: function (val) {
-                var that = this;
-                var dt = new Date(Date.now());
-                dt.setMonth(dt.getMonth() + 1);
-                if (val == '') {
-                    that.twoNextChange = that.parseJsonDate(dt);
-                }
-            },
-
-
+            //twoNextChange: function (val) {
+            //    var that = this;
+            //    var dt = new Date(Date.now());
+            //    dt.setMonth(dt.getMonth() + 1);
+            //    if (val == '') {
+            //        that.twoNextChange = that.parseJsonDate(dt);
+            //    }
+            //},
         },
         methods: {
             BackCustomer:function(){
                 var that=this;
                 window.location.replace('@Url.Action("PatientDetail", "Home")?customerCN=' + that.tmpCustomer.CN)
             },
-            UpdateMedical:function(type){
+            UpdateAlert:function(){
                 var that = this;
                 var conf = confirm("ยืนยันการบันทึก [ใช่หรือไม่]");
                 if (conf === true) {
-                    //alert('Test : ' + type + ';val : ' + val);
-                    that.$http.post('@Url.Action("UpdateMedical", "Home")', {
-                        type: type,
-                        tmpCustomerID: that.tmpCustomer.ID
-                    }).then(function (response) {
-                        if (response.data.ContentEncoding == 200) {
-                            alert('Update Medical Success');
-                            console.log(response.data.data);
-                            location.reload();
-                        }
-                    });
+                    if (!that.flagupdate) {
+                        that.$http.post('@Url.Action("AddAlert", "Home")', {
+                            tmpData: JSON.stringify(that.modaldata),
+                            tmpCustomerID: that.tmpCustomer.ID
+                        }).then(function (response) {
+                            if (response.data.ContentEncoding == 200) {
+                                alert('Add Data Success');
+                                location.reload();
+                            }
+                        });
+                    }
+                    else {
+                        that.$http.post('@Url.Action("UpdateAlert", "Home")', {
+                            tmpData: JSON.stringify(that.modaldata),
+                            tmpCustomerID: that.tmpCustomer.ID
+                        }).then(function (response) {
+                            if (response.data.ContentEncoding == 200) {
+                                alert('Update Data Success');
+                                location.reload();
+                            }
+                        });
+                    }
                 }
-
             },
             callfile: function () {
                 document.getElementById('FormulaAttachFile').click();
@@ -173,6 +190,9 @@
             popupImage:function(filename){
                 var that = this;
                 //that.fileURL = 'https://aryuwat.onnli.co/AttachFile_Aryuwat/' + filename;
+            },
+            parseDate: function (jsonDateString){
+                return moment(jsonDateString).format("YYYY-MM-DD").toUpperCase();
             },
             parseJsonDate: function (jsonDateString){
                 return moment(jsonDateString).format("MMM DD, YYYY / hh:mm").toUpperCase();

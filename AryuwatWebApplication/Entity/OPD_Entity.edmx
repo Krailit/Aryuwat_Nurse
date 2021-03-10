@@ -120,6 +120,23 @@ warning 6002: The table/view 'OPD_System.dbo.AgencyType' does not have a primary
           <Property Name="MemberRate" Type="decimal" Precision="10" Scale="2" />
           <Property Name="SaleRate" Type="decimal" Precision="10" Scale="2" />
         </EntityType>
+        <EntityType Name="Alert_Detail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FK_Customer_ID" Type="int" />
+          <Property Name="Topic" Type="varchar(max)" />
+          <Property Name="Description" Type="varchar(max)" />
+          <Property Name="Alert_Date" Type="date" />
+          <Property Name="Period" Type="int" />
+          <Property Name="Publish" Type="bit" />
+          <Property Name="Is_Active" Type="bit" />
+          <Property Name="Create_By" Type="varchar" MaxLength="50" />
+          <Property Name="Create_Date" Type="datetime" />
+          <Property Name="Update_By" Type="varchar" MaxLength="50" />
+          <Property Name="Update_Date" Type="datetime" />
+        </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'OPD_System.dbo.Barter' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Barter">
@@ -883,6 +900,7 @@ warning 6002: The table/view 'OPD_System.dbo.MedicalStuff' does not have a prima
           <Property Name="Active" Type="char" MaxLength="1" />
           <Property Name="MS_Cost" Type="decimal" Precision="10" Scale="2" />
           <Property Name="BOM" Type="char" MaxLength="1" />
+          <Property Name="Type_Doctor" Type="bit" />
         </EntityType>
         <EntityType Name="MedicalSuppliesStock">
           <Key>
@@ -2517,6 +2535,7 @@ warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a pri
           <Parameter Name="PurchaseID" Type="nvarchar" Mode="In" />
           <Parameter Name="Active" Type="varchar" Mode="In" />
           <Parameter Name="BOM" Type="varchar" Mode="In" />
+          <Parameter Name="Type_Doctor" Type="bit" Mode="In" />
           <Parameter Name="SellToCN" Type="varchar" Mode="In" />
           <Parameter Name="MS_Discount" Type="decimal" Mode="In" />
           <Parameter Name="Receive_Cost" Type="decimal" Mode="In" />
@@ -3099,6 +3118,7 @@ warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a pri
           <Parameter Name="pSearchChar" Type="char" Mode="In" />
         </Function>
         <EntityContainer Name="OPD_SystemModelStoreContainer">
+          <EntitySet Name="Alert_Detail" EntityType="Self.Alert_Detail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CommissionRate" EntityType="Self.CommissionRate" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CourseDuration" EntityType="Self.CourseDuration" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CreditCard" EntityType="Self.CreditCard" Schema="dbo" store:Type="Tables" />
@@ -4887,6 +4907,7 @@ warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a pri
             <Parameter Name="PurchaseID" Mode="In" Type="String" />
             <Parameter Name="Active" Mode="In" Type="String" />
             <Parameter Name="BOM" Mode="In" Type="String" />
+            <Parameter Name="Type_Doctor" Mode="In" Type="Boolean" />
             <Parameter Name="SellToCN" Mode="In" Type="String" />
             <Parameter Name="MS_Discount" Mode="In" Type="Decimal" />
             <Parameter Name="Receive_Cost" Mode="In" Type="Decimal" />
@@ -5550,6 +5571,7 @@ warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a pri
           <EntitySet Name="PatientChanges" EntityType="OPD_SystemModel.PatientChange" />
           <EntitySet Name="Customers" EntityType="OPD_SystemModel.Customer" />
           <EntitySet Name="PatientDatas" EntityType="OPD_SystemModel.PatientData" />
+          <EntitySet Name="Alert_Detail" EntityType="OPD_SystemModel.Alert_Detail" />
         </EntityContainer>
         <ComplexType Name="sp_Account_Result">
           <Property Type="String" Name="RefundID" Nullable="false" MaxLength="2" />
@@ -5923,6 +5945,7 @@ warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a pri
           <Property Name="Active" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Name="MS_Cost" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="BOM" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Type_Doctor" Type="Boolean" />
         </EntityType>
         <EntityType Name="MedicalSuppliesStock">
           <Key>
@@ -7553,6 +7576,23 @@ warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a pri
           <Property Name="Update_By" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Update_Date" Type="DateTime" Precision="3" />
         </EntityType>
+        <EntityType Name="Alert_Detail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FK_Customer_ID" Type="Int32" />
+          <Property Name="Topic" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Alert_Date" Type="DateTime" Precision="0" />
+          <Property Name="Period" Type="Int32" />
+          <Property Name="Publish" Type="Boolean" />
+          <Property Name="Is_Active" Type="Boolean" />
+          <Property Name="Create_By" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Create_Date" Type="DateTime" Precision="3" />
+          <Property Name="Update_By" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Update_Date" Type="DateTime" Precision="3" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -8027,6 +8067,7 @@ warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a pri
           <EntitySetMapping Name="MedicalSupplies">
             <EntityTypeMapping TypeName="OPD_SystemModel.MedicalSupply">
               <MappingFragment StoreEntitySet="MedicalSupplies">
+                <ScalarProperty Name="Type_Doctor" ColumnName="Type_Doctor" />
                 <ScalarProperty Name="BOM" ColumnName="BOM" />
                 <ScalarProperty Name="MS_Cost" ColumnName="MS_Cost" />
                 <ScalarProperty Name="Active" ColumnName="Active" />
@@ -9734,6 +9775,24 @@ warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a pri
                 <ScalarProperty Name="T" ColumnName="T" />
                 <ScalarProperty Name="Time" ColumnName="Time" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="FK_Customer_ID" ColumnName="FK_Customer_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Alert_Detail">
+            <EntityTypeMapping TypeName="OPD_SystemModel.Alert_Detail">
+              <MappingFragment StoreEntitySet="Alert_Detail">
+                <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+                <ScalarProperty Name="Update_By" ColumnName="Update_By" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+                <ScalarProperty Name="Create_By" ColumnName="Create_By" />
+                <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+                <ScalarProperty Name="Publish" ColumnName="Publish" />
+                <ScalarProperty Name="Period" ColumnName="Period" />
+                <ScalarProperty Name="Alert_Date" ColumnName="Alert_Date" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Topic" ColumnName="Topic" />
                 <ScalarProperty Name="FK_Customer_ID" ColumnName="FK_Customer_ID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>

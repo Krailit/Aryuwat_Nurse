@@ -76,7 +76,7 @@ namespace AryuwatWebApplication.Controllers
 	                                    (
 		                                    SELECT TOP 1 *
 		                                    FROM [OPD_System].[dbo].MedicalOrder MO
-		                                    WHERE MO.CN = cus.CN
+		                                    WHERE MO.CN = cus.CN and Room_Status = 1
 		                                    ORDER BY MO.ID DESC
 	                                    ) MO
                                     --Left Join [OPD_System].[dbo].MedicalOrder MO on cus.CN = MO.CN
@@ -287,6 +287,81 @@ namespace AryuwatWebApplication.Controllers
                     context.PatientChanges.Add(PC);
                     context.SaveChanges();
                     return Json(new { ContentEncoding = 200 , data = PC });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(null);
+            }
+        }
+
+        [HttpPost, ActionName("AddAlert")]
+        public JsonResult AddAlert(string tmpData, int? tmpCustomerID)
+        {
+            try
+            {
+                string username = HttpContext.Request.Cookies.Get("OPD")["Username"];
+                dynamic jsonData = JsonConvert.DeserializeObject(tmpData);
+                var modelTopic = Convert.ToString(jsonData[0]["modelTopic"]);
+                var modelDescription = Convert.ToString(jsonData[0]["modelDescription"]);
+                var modelDate = Convert.ToDateTime(jsonData[0]["modelDate"]);
+                var modelDay = Convert.ToInt32(jsonData[0]["modelDay"]);
+                var modelActive = Convert.ToBoolean(jsonData[0]["modelActive"]);
+
+                using (var context = new OPD_SystemEntities())
+                {
+                    Alert_Detail AD = new Alert_Detail();
+                    AD.Alert_Date = modelDate;
+                    AD.Topic = modelTopic;
+                    AD.Description = modelDescription;
+                    AD.Period = modelDay;
+                    AD.Publish = modelActive;
+                    AD.FK_Customer_ID = tmpCustomerID;
+                    AD.Is_Active = true;
+                    AD.Create_By = username;
+                    AD.Create_Date = DateTime.Now;
+                    context.Alert_Detail.Add(AD);
+                    context.SaveChanges();
+                    return Json(new { ContentEncoding = 200 , data = AD });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(null);
+            }
+        }
+
+        [HttpPost, ActionName("UpdateAlert")]
+        public JsonResult UpdateAlert(string tmpData, int? tmpCustomerID)
+        {
+            try
+            {
+                string username = HttpContext.Request.Cookies.Get("OPD")["Username"];
+                dynamic jsonData = JsonConvert.DeserializeObject(tmpData);
+                int modelID = Convert.ToInt32(jsonData[0]["modelID"]);
+                var modelTopic = Convert.ToString(jsonData[0]["modelTopic"]);
+                var modelDescription = Convert.ToString(jsonData[0]["modelDescription"]);
+                var modelDate = Convert.ToDateTime(jsonData[0]["modelDate"]);
+                var modelDay = Convert.ToInt32(jsonData[0]["modelDay"]);
+                var modelActive = Convert.ToBoolean(jsonData[0]["modelActive"]);
+
+                using (var context = new OPD_SystemEntities())
+                {
+                    var chkdata = context.Alert_Detail.Where(x => x.FK_Customer_ID == tmpCustomerID && x.ID == modelID && x.Is_Active == true).OrderByDescending(x => x.ID).FirstOrDefault();
+                    if (chkdata != null)
+                    {
+                        chkdata.Alert_Date = modelDate;
+                        chkdata.Topic = modelTopic;
+                        chkdata.Description = modelDescription;
+                        chkdata.Period = modelDay;
+                        chkdata.Publish = modelActive;
+                        chkdata.FK_Customer_ID = tmpCustomerID;
+                        chkdata.Update_By = username;
+                        chkdata.Update_Date = DateTime.Now;
+                        context.SaveChanges();
+                        return Json(new { ContentEncoding = 200, data = chkdata });
+                    }
+                        return Json(new { ContentEncoding = 400 });
                 }
             }
             catch (Exception ex)

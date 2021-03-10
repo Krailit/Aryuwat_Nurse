@@ -157,6 +157,9 @@
     <Compile Include="Entity\AgencyType.cs">
       <DependentUpon>OPD_Entity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\Alert_Detail.cs">
+      <DependentUpon>OPD_Entity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\Barter.cs">
       <DependentUpon>OPD_Entity.tt</DependentUpon>
     </Compile>
