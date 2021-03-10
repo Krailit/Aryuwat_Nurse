@@ -1,6 +1,7 @@
 ﻿using AryuwatWebApplication.Entity;
 using AryuwatWebApplication.Models;
 using Newtonsoft.Json;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Core.Objects;
@@ -163,6 +164,41 @@ namespace AryuwatWebApplication.Controllers
                         fopd.DateSave = DateTime.Now;
                         context.FileOPDs.Add(fopd);
                         context.SaveChanges();
+                    }
+                    return Json(new { ContentEncoding = 200 });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(null);
+            }
+        }
+
+        [HttpPost, ActionName("sendnoti")]
+        public JsonResult sendnoti(string txt)
+        {
+            try
+            {
+                string username = HttpContext.Request.Cookies.Get("OPD")["Username"];
+
+                using (var context = new OPD_SystemEntities())
+                {
+                    var client = new RestClient("https://notify-api.line.me/api/notify");
+                    // client.Authenticator = new HttpBasicAuthenticator(username, password);
+                    var request = new RestRequest(Method.POST);
+                    //request.AddParameter("thing1", "Hello");
+                    //request.AddParameter("thing2", "world");
+                    //////////////////////////////////test boom
+                    request.AddHeader("Authorization", "Bearer ytajCKG64rOMxlYbnik35JZYEFr43gkMUD6LwRbro4I");
+                    //////////////////////////////////test pro
+                    //request.AddHeader("Authorization", "Bearer RCyOsUgoxlR92IkfBbgNQPMQOmS7CB7MPgBVyhB5jgL");
+                    request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
+                    request.AddParameter("application/x-www-form-urlencoded", $"message={txt}", ParameterType.RequestBody);
+
+                    var response = client.Execute(request);
+                    if (response.StatusCode != HttpStatusCode.OK)
+                    {
+                        return Json(new { ContentEncoding = 400 });
                     }
                     return Json(new { ContentEncoding = 200 });
                 }
@@ -389,6 +425,31 @@ namespace AryuwatWebApplication.Controllers
         }
 
         public ActionResult MedicalExpire(string customerCN)
+        {
+            var result = new Customer();
+            try
+            {
+                if (!String.IsNullOrEmpty(customerCN))
+                {
+                    using (var context = new OPD_SystemEntities())
+                    {
+
+                        result = context.Customers.Where(x => x.CN == customerCN).FirstOrDefault();
+
+                        return View(result);
+                    }
+                }
+                else
+                {
+                    return View(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                return View(result);
+            }
+        }
+        public ActionResult Remark(string customerCN)
         {
             var result = new Customer();
             try

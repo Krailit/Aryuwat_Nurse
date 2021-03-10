@@ -19,10 +19,12 @@
             </div>
         </div>
     </div>
+    <input style="width:200px" v-model="txttest"/>
+    <button v-on:click="TestLine()" style="width:200px">Test</button>
     <div class="container" style="background-color:#e6e6e6;">
         <div class="row color-text" style="margin-top: 5rem;margin-bottom: 5rem;margin-left: 10px;margin-right: 10px;">
             <div class="col-lg-6">
-                <div class="card" style="margin:20px;height:200px;background-color:white;cursor:pointer;border-top: 90px solid #C8C8C8;border-radius:10px" v-on:click="PatientData()"> 
+                <div class="card" style="margin:20px;height:200px;background-color:white;cursor:pointer;border-top: 90px solid #C8C8C8;border-radius:10px" v-on:click="PatientData()">
                     <div class="card-body" style="padding-top:20px">
                         <h2><b>ตรวจวัดข้อมูลผู้ป่วย</b></h2>
                     </div>
@@ -43,16 +45,16 @@
                 </div>
             </div>
             <div class="col-lg-6">
-                <div class="card" style="margin:20px;height:200px;background-color:white;border-top: 90px solid #C8C8C8;border-radius:10px">
+                <div class="card" style="margin:20px;height:200px;background-color:white;border-top: 90px solid #C8C8C8;border-radius:10px;cursor:pointer" v-on:click="Remark()">
                     <div class="card-body" style="padding-top:20px">
-                        <h2>A4</h2>
+                        <h2><b>แจ้งเตือน Remark และแจ้งเตือนการกินยา</b></h2>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6">
-                <div class="card" style="margin:20px;height:200px;background-color:white;border-top: 90px solid #C8C8C8;border-radius:10px">
+                <div class="card" style="margin:20px;height:200px;background-color:white;border-top: 90px solid #C8C8C8;border-radius:10px;cursor:pointer" v-on:click="Meeting()">
                     <div class="card-body" style="padding-top:20px">
-                        <h2>A5</h2>
+                        <h2><b>Meeting ผู้ป่วย</b></h2>
                     </div>
                 </div>
             </div>
@@ -67,6 +69,7 @@
                 el: "#app",
                 data: {
                     tmpCustomer : @Html.Raw(Json.Encode(@Model)),
+                    txttest : '',
                 },
                 mounted: function () {
                     var that = this;
@@ -77,8 +80,41 @@
                 watch: {
                 },
                 methods: {
+                    TestLine: async function () {
+                        var that = this;
+                        var formData = new FormData();
+                        formData.append("txt", that.txttest);
+                        that.$http.post('@Url.Action("sendnoti", "Home")',formData).then(function(response)
+                        {
+                            if (response.data.ContentEncoding == 200) {
+                            }
+                        });
+                        //var that = this;
+                        //const params = new URLSearchParams()
+                        //params.append('message', 'testทดสอบเด้อเด้อ')
+                        //await that.$http.post('https://notify-api.line.me/api/notify', {
+                        //    headers: {
+                        //        "Content-Type": "application/x-www-form-urlencoded",
+                        //        "Authorization": "Bearer ytajCKG64rOMxlYbnik35JZYEFr43gkMUD6LwRbro4I",
+                        //        "Access-Control-Allow-Origin": "*",
+                        //        //"Access-Control-Allow-Methods": "DELETE, POST, GET, OPTIONS",
+                        //        //"Access-Control-Allow-Headers": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With",
+                        //    }
+                        //}, params).then(function (response) {
+                        //    if (response.data.status == 200) {
+                        //        alert('Success');
+                        //        location.reload();
+                        //    }
+                        //});
+                    },
                     AttachfilePatient: function () {
                         window.location.href = '@Url.Content("~/Home/Attachfile")?customerCN=' + this.tmpCustomer.CN;
+                    },
+                    Remark: function () {
+                        window.location.href = '@Url.Content("~/Home/Remark")?customerCN=' + this.tmpCustomer.CN;
+                    },
+                    Meeting: function () {
+                        window.location.href = '@Url.Content("~/Home/Meeting")?customerCN=' + this.tmpCustomer.CN;
                     },
                     MedicalExpire: function () {
                         window.location.href = '@Url.Content("~/Home/MedicalExpire")?customerCN=' + this.tmpCustomer.CN;
