@@ -46,7 +46,6 @@
         <EntityTypeShape EntityType="OPD_SystemModel.CustomerConnect" Width="1.5" PointX="18.75" PointY="14.75" />
         <EntityTypeShape EntityType="OPD_SystemModel.CustomerProvider" Width="1.5" PointX="2.75" PointY="19.75" />
         <EntityTypeShape EntityType="OPD_SystemModel.CustomerProvider_bak" Width="1.5" PointX="4.75" PointY="19.75" />
-        <EntityTypeShape EntityType="OPD_SystemModel.Customer" Width="1.5" PointX="6.75" PointY="19.75" />
         <EntityTypeShape EntityType="OPD_SystemModel.District" Width="1.5" PointX="18.75" PointY="19.75" />
         <EntityTypeShape EntityType="OPD_SystemModel.ExtraMoney" Width="1.5" PointX="20.75" PointY="0.75" />
         <EntityTypeShape EntityType="OPD_SystemModel.GiftVoucher" Width="1.5" PointX="20.75" PointY="3.75" />
@@ -107,6 +106,10 @@
         <EntityTypeShape EntityType="OPD_SystemModel.V_Administrative" Width="1.5" PointX="30.75" PointY="22.75" />
         <EntityTypeShape EntityType="OPD_SystemModel.View_Customer" Width="1.5" PointX="30.75" PointY="26.75" />
         <EntityTypeShape EntityType="OPD_SystemModel.vProductToSOMO" Width="1.5" PointX="2.75" PointY="31.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.PatientChange" Width="1.5" PointX="9.375" PointY="31.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.Customer" Width="1.5" PointX="5.375" PointY="22.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.PatientData" Width="1.5" PointX="15.375" PointY="32.75" />
+        <EntityTypeShape EntityType="OPD_SystemModel.Alert_Detail" Width="1.5" PointX="33.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

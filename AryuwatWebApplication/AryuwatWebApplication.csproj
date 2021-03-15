@@ -53,6 +53,9 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="RestSharp, Version=104.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.104.4.0\lib\net4\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -152,6 +155,9 @@
       <DependentUpon>OPD_Entity.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\AgencyType.cs">
+      <DependentUpon>OPD_Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Alert_Detail.cs">
       <DependentUpon>OPD_Entity.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Barter.cs">
@@ -311,6 +317,12 @@
       <DependentUpon>OPD_Entity.edmx</DependentUpon>
     </Compile>
     <Compile Include="Entity\PALabel.cs">
+      <DependentUpon>OPD_Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\PatientChange.cs">
+      <DependentUpon>OPD_Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\PatientData.cs">
       <DependentUpon>OPD_Entity.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\PayByItem.cs">
@@ -522,6 +534,7 @@
     </Compile>
     <Compile Include="Models\AllowJsonGetAttribute.cs" />
     <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\MedicalExpireModel.cs" />
     <Compile Include="Models\OPD_Class.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -1684,6 +1697,9 @@
     <Content Include="Views\Signin\Index.cshtml" />
     <Content Include="Scripts\moment.min.js.map" />
     <Content Include="Scripts\moment-with-locales.min.js.map" />
+    <Content Include="Views\Home\MedicalExpire.cshtml" />
+    <Content Include="Views\Home\PatientData.cshtml" />
+    <Content Include="Views\Home\Remark.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

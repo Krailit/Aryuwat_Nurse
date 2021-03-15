@@ -145,7 +145,7 @@
             // 
             this.btnAddPromotion.Image = global::AryuwatSystem.Properties.Resources.add_icon;
             this.btnAddPromotion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddPromotion.Location = new System.Drawing.Point(28, 57);
+            this.btnAddPromotion.Location = new System.Drawing.Point(28, 35);
             this.btnAddPromotion.Name = "btnAddPromotion";
             this.btnAddPromotion.Size = new System.Drawing.Size(165, 33);
             this.btnAddPromotion.TabIndex = 10;
@@ -163,6 +163,7 @@
             this.btnAddMemberPackage.TabIndex = 9;
             this.btnAddMemberPackage.Text = "Member Package";
             this.btnAddMemberPackage.UseVisualStyleBackColor = true;
+            this.btnAddMemberPackage.Visible = false;
             this.btnAddMemberPackage.Click += new System.EventHandler(this.btnAddMemberPackage_Click);
             // 
             // buttonFind1

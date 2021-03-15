@@ -1,0 +1,222 @@
+﻿@using AryuwatWebApplication.Models
+@{
+    ViewBag.Title = "Attach File Patient";
+}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<div id="app" style="font-size:30px">
+    <div class="container" style="background-color:#f3f3f3;margin-top: -20px;padding-top: 10px; padding-bottom: 30px">
+        <div class="row">
+            <div class="col-lg-1">
+                <a v-on:click="BackCustomer()"><i class="fa fa-angle-left" style="cursor:pointer"></i></a>
+            </div>
+            <div class="col-lg-11">
+                <u style="font-size:30px; font-weight:600">{{tmpCustomer.Tname + ' ' + tmpCustomer.TsurName}}</u>
+            </div>
+            <div class="col-lg-1">
+            </div>
+            <div class="col-lg-11">
+                <p style="font-size:20px;">CN : {{tmpCustomer.CN}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="background-color:#e6e6e6;">
+        <div class="row color-text" style="margin-top: 20px;margin-bottom: 10px;">
+            <div class="col-lg-11">
+                <p style="font-size:28px">แจ้งเตือน Remark และแจ้งเตือนการกินยา</p>
+            </div>
+        </div>
+        <div class="row color-text" style="margin-bottom: 5rem;margin-left: 10px;margin-right: 10px;background-color:white;border-radius:20px">
+            <div class="col-lg-12 text-right" style="padding-bottom:5px;">
+                <input class="btn btn-success" style="width: 150px;font-size:16px;border-radius:10px;" value="Add" data-toggle="modal" data-target="#RemarkModal" />
+            </div>
+            <table class="table hb-table hb-table-dashboard" style="font-size:22px;width:100%">
+                <thead>
+                    <tr style="font-weight:500;border-top:1px solid #ddd">
+                        <td class="text-left align-middle" style="width:40%;padding-left:50px;">รายการ</td>
+                        <td class="text-left align-middle" style="width:20%;">รายละเอียด</td>
+                        <td class="text-left align-middle" style="width:20%;">สถานะแจ้งเตือน</td>
+                        <td class="text-center align-middle" style="width:20%;">Update</td>
+                    </tr>
+                </thead>
+                <tbody style="font-weight:400;font-size:18px">
+                    <tr>
+                        <td class="text-left align-middle" style="width:40%;padding-left:50px;">แจ้งเตือน Remark</td>
+                        <td class="text-left align-middle" style="width:20%;">ญาติอารมร้อน</td>
+                        <td class="text-left align-middle" style="width:20%;">ปิด</td>
+                        <td class="text-center align-middle" style="width:20%;">
+                            <input class="btn btn-info" style="width: 150px;font-size:16px;border-radius:10px;background-color:#0073fa" value="Update" data-toggle="modal" data-target="#RemarkModal" @*v-on:click="UpdateMedical(1,oneLastChange)"*@ />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-left align-middle" style="width:40%;padding-left:50px;">ท่อปัสสวะ เปลี่ยนทุกๆ 15 วัน</td>
+                        <td class="text-left align-middle" style="width:20%;">Feb 5, 2021</td>
+                        <td class="text-left align-middle" style="width:20%;">เปิด</td>
+                        <td class="text-center align-middle" style="width:20%;">
+                            <input class="btn btn-info" style="width: 150px;font-size:16px;border-radius:10px;background-color:#0073fa" value="Update" data-toggle="modal" data-target="#RemarkModal" @*v-on:click="UpdateMedical(1,oneLastChange)"*@ />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="modal fade" id="RemarkModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true" style="font-size: 18px">
+        <div class="modal-dialog modal-dialog-scrollable" style="width: 1000px;" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalScrollableTitle">เพิ่ม / แก้ไข การแจ้งเตือน</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row" style="padding: 10px;">
+                            <div class="col-lg-10">
+                                <label> รายการ </label>
+                            </div>
+                            <div class="col-lg-12">
+                                <input type="text" v-model="modaldata[0].modelTopic" />
+                            </div>
+                            <div class="col-lg-12" style="padding-top:20px">
+                                <label> รายละเอียด </label>
+                            </div>
+                            <div class="col-lg-12">
+                                <textarea v-model="modaldata[0].modelDescription"></textarea>
+                            </div>
+                            <div class="col-lg-12" style="padding-top:20px">
+                                <label> วันทีแจ้งเตือน </label>
+                            </div>
+                            <div class="col-lg-12">
+                                <input type="date" v-model="modaldata[0].modelDate"/>
+                            </div>
+                            <div class="col-lg-12" style="padding-top:20px">
+                                <label> ระยะเวลา (วัน) </label>
+                            </div>
+                            <div class="col-lg-12">
+                                <input type="number" v-model="modaldata[0].modelDay"/>
+                            </div>
+                            <div class="col-lg-12" style="padding-top:20px">
+                                <input type="checkbox" id="chkActive" v-model="modaldata[0].modelActive" />
+                                <label for="chkActive"> เปิดใช้งาน</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" v-on:click="UpdateAlert()">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/vue.js"></script>
+<script src="~/Scripts/axios.js"></script>
+<script src="~/Scripts/moment.js"></script>
+<script>
+
+    Vue.prototype.$http = axios;
+    const app = new Vue({
+        el: "#app",
+        data: {
+            tmpCustomer : @Html.Raw(Json.Encode(@Model)),
+            dataPatientChange: [],
+            modaldata: [{
+                modelID: 0,
+                modelTopic: '',
+                modelDescription: '',
+                modelDate: null,
+                modelDay: 0,
+                modelActive: true,
+            }],
+            flagupdate: false,
+        },
+        mounted: function () {
+            var that = this;
+            if (that.tmpCustomer.CN == null) {
+                window.location.href = '@Url.Content("~/Home/Index")';
+            }
+            that.modaldata[0].modelDate = that.parseDate(Date.now());
+            //that.GetPatientChange();
+        },
+        watch: {
+            //twoNextChange: function (val) {
+            //    var that = this;
+            //    var dt = new Date(Date.now());
+            //    dt.setMonth(dt.getMonth() + 1);
+            //    if (val == '') {
+            //        that.twoNextChange = that.parseJsonDate(dt);
+            //    }
+            //},
+        },
+        methods: {
+            BackCustomer:function(){
+                var that=this;
+                window.location.replace('@Url.Action("PatientDetail", "Home")?customerCN=' + that.tmpCustomer.CN)
+            },
+            UpdateAlert:function(){
+                var that = this;
+                var conf = confirm("ยืนยันการบันทึก [ใช่หรือไม่]");
+                if (conf === true) {
+                    if (!that.flagupdate) {
+                        that.$http.post('@Url.Action("AddAlert", "Home")', {
+                            tmpData: JSON.stringify(that.modaldata),
+                            tmpCustomerID: that.tmpCustomer.ID
+                        }).then(function (response) {
+                            if (response.data.ContentEncoding == 200) {
+                                alert('Add Data Success');
+                                location.reload();
+                            }
+                        });
+                    }
+                    else {
+                        that.$http.post('@Url.Action("UpdateAlert", "Home")', {
+                            tmpData: JSON.stringify(that.modaldata),
+                            tmpCustomerID: that.tmpCustomer.ID
+                        }).then(function (response) {
+                            if (response.data.ContentEncoding == 200) {
+                                alert('Update Data Success');
+                                location.reload();
+                            }
+                        });
+                    }
+                }
+            },
+            callfile: function () {
+                document.getElementById('FormulaAttachFile').click();
+            },
+            popupImage:function(filename){
+                var that = this;
+                //that.fileURL = 'https://aryuwat.onnli.co/AttachFile_Aryuwat/' + filename;
+            },
+            parseDate: function (jsonDateString){
+                return moment(jsonDateString).format("YYYY-MM-DD").toUpperCase();
+            },
+            parseJsonDate: function (jsonDateString){
+                return moment(jsonDateString).format("MMM DD, YYYY / hh:mm").toUpperCase();
+            },
+            GetPatientChange:function(){
+                var that=this;
+                that.$http.post('@Url.Action("GetPatientChange", "Home")', {
+                    tmpCustomerID: that.tmpCustomer.ID
+                }).then(function (response) {
+                    if (response.data.ContentEncoding == 200) {
+                        that.dataPatientChange = response.data.data;
+                        that.oneLastChange = response.data.onelastchange == null ? '' : that.parseJsonDate(response.data.onelastchange);
+                        that.oneNextChange = response.data.onenextchange == null ? '' : that.parseJsonDate(response.data.onenextchange);
+                        that.twoLastChange = response.data.twolastchange == null ? '' : that.parseJsonDate(response.data.twolastchange);
+                        that.twoNextChange = response.data.twonextchange == null ? '' : that.parseJsonDate(response.data.twonextchange);
+                    }
+                    else if (response.data.ContentEncoding == 201) {
+                        that.oneLastChange = '';
+                        that.oneNextChange = '';
+                        that.twoLastChange = '';
+                        that.twoNextChange = '';
+                    }
+                });
+            },
+        }
+    });
+</script>

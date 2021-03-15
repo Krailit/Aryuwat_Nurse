@@ -1,0 +1,378 @@
+﻿@using AryuwatWebApplication.Models
+@{
+    ViewBag.Title = "Attach File Patient";
+}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<div id="app" style="font-size:30px">
+    <div>
+        <div class="container" style="background-color:#f3f3f3;margin-top: -20px;padding-top: 10px; padding-bottom: 30px">
+            <div class="row">
+                <div class="col-lg-1">
+                    <a v-on:click="BackCustomer()"><i class="fa fa-angle-left" style="cursor:pointer"></i></a>
+                </div>
+                <div class="col-lg-11">
+                    <u style="font-size:30px; font-weight:600">{{tmpCustomer.Tname + ' ' + tmpCustomer.TsurName}}</u>
+                </div>
+                <div class="col-lg-1">
+                </div>
+                <div class="col-lg-11">
+                    <p style="font-size:20px;">CN : {{tmpCustomer.CN}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="container" style="background-color:#e6e6e6;">
+            <div class="row color-text" style="margin-top: 20px;margin-bottom: 10px;">
+                <div class="col-lg-11">
+                    <p style="font-size:30px">ตรวจวัดข้อมูลผู้ป่วย</p>
+                </div>
+            </div>
+            <div class="chart-container" style="position: relative;margin-bottom: 5rem; margin-left: 10px; margin-right: 10px; background-color: white; border-radius: 20px">
+                <canvas id="myChart" height="100"></canvas>
+                <canvas id="myChart2" height="100"></canvas>
+            </div>
+            <div class="row color-text" style="margin-bottom: 5rem;margin-left: 10px;margin-right: 10px;background-color:white;border-radius:20px">
+                <table class="table hb-table hb-table-dashboard" style="font-size:22px;width:100%;margin-left: 1%;margin-right: 1%;">
+                    <thead style="font-weight:500;border-bottom:2px solid #000000">
+                        <tr>
+                            <td class="text-center align-middle" style="border-right: 1px solid #ddd;">Date</td>
+                            <td class="text-center align-middle" style="border-right: 1px solid #ddd;">Time</td>
+                            <td class="text-center align-middle" style="border-right: 1px solid #ddd;">T</td>
+                            <td class="text-center align-middle" style="border-right: 1px solid #ddd;">P</td>
+                            <td class="text-center align-middle" style="border-right: 1px solid #ddd;">R</td>
+                            <td class="text-center align-middle" style="border-right: 1px solid #ddd;">BP</td>
+                            <td class="text-center align-middle" style="">O2</td>
+                        </tr>
+                    </thead>
+                    <tbody style="font-weight:400;font-size:18px">
+                        <tr :key="index" v-for="(items, index) in PatientData" v-if="PatientData.length > 0" data-toggle="modal" data-target="#myModal" style="cursor: pointer;" v-on:click="openPopup(items)" class="rowHover">
+                            <td class="text-center align-middle" style="border-bottom: 1px solid #ddd;border-right: 1px solid #ddd;">
+                                {{ items.Date }}
+                            </td>
+                            <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
+                                {{ items.Time }}
+                            </td>
+                            <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
+                                {{ items.T }}
+                            </td>
+                            <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
+                                {{ items.PulseSBP == null || items.PulseSBP == '' || items.PulseDBP == null || items.PulseDBP == '' ? '' : items.PulseSBP + ' / ' + items.PulseDBP }}
+                            </td>
+                            <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
+                                {{ items.R }}
+                            </td>
+                            <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
+                                {{ items.BP }}
+                            </td>
+                            <td class="text-center align-middle" style="border-bottom: 1px solid #ddd;">
+                                {{ items.O2 }}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true" style="font-size: 18px">
+                <div class="modal-dialog modal-dialog-scrollable" style="width: 1000px;" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="exampleModalScrollableTitle">เพิ่ม / แก้ไข ข้อมูล</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container-fluid">
+                                <div class="row" style="padding: 10px">
+                                    <div class="col-6" style="padding-bottom: 20px">
+                                        <h4 class="modal-title" id="exampleModalScrollableTitle">วันที่ : <u style="padding-left: 10%">{{ popPatientData.Date }} </u></h4>
+                                    </div>
+                                    <div class="col-6">
+                                        <h4 class="modal-title" id="exampleModalScrollableTitle"> เวลา : <u style="padding-left: 10%">{{ popPatientData.Time }} </u></h4>
+                                    </div>
+                                    <div class="col-3">
+                                        <p style="text-align:right">T :</p>
+                                    </div>
+                                    <div class="col-9">
+                                        <input type="number" v-model="popPatientData.T" style="font-size: 16px;width: 5ch" />
+                                    </div>
+                                    <div class="col-3">
+                                        <p style="text-align:right">P (SBP) :</p>
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="number" v-model="popPatientData.PulseSBP" style="font-size: 16px;width: 5ch" />
+                                    </div>
+                                    <div class="col-3">
+                                        <p style="text-align:right">P (DBP) :</p>
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="number" v-model="popPatientData.PulseDBP" style="font-size: 16px;width: 5ch" />
+                                    </div>
+                                    <div class="col-3">
+                                        <p style="text-align:right">R :</p>
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="number" v-model="popPatientData.R" style="font-size: 16px;width: 5ch" />
+                                    </div>
+                                    <div class="col-3">
+                                        <p style="text-align:right">BP :</p>
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="number" v-model="popPatientData.BP" style="font-size: 16px;width: 5ch" />
+                                    </div>
+                                    <div class="col-3">
+                                        <p style="text-align:right">O2 :</p>
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="number" v-model="popPatientData.O2" style="font-size: 16px;width: 5ch" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" v-on:click="SaveDataPatient()">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="fade"
+         :class="{'modal-backdrop show' : showLoad1}"
+         :style="{'cursor' : (showLoad1 ? 'wait': ''),'z-index' : (showLoad1 ? '9999': '')}">
+        <div v-if="showLoad1" style="color:white;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%)">
+            <i class="fa fa-plus fa-spin fa-3x fa-fw"></i><br />
+            <span>Loading...</span>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/Scripts/vue.js"></script>
+<script src="~/Scripts/axios.js"></script>
+<script src="~/Scripts/moment.js"></script>
+<script>
+    var lblChartData = [];
+    var dataPSinChartData = [];
+    var dataPDinChartData = [];
+    Vue.prototype.$http = axios;
+    const app = new Vue({
+        el: "#app",
+        data: {
+            tmpCustomer : @Html.Raw(Json.Encode(@Model)),
+            PatientData: [],
+            popPatientData: [],
+            //popPulseSBP: '',
+            //popPulseDBP: '',
+            fileURL: '',
+            showLoad1: false,
+            File: "",
+            AttachFileName: "",
+        },
+        mounted: function () {
+            var that = this;
+            that.showLoad1 = true;
+            if (that.tmpCustomer.CN == null) {
+                window.location.href = '@Url.Content("~/Home/Index")';
+            }
+            that.PatientData.push(
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '02:00',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '06:00',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '10:00',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '14:00',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '18:00',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '22:00',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                }
+            );
+            that.GetPatientData();
+            that.showLoad1 = false;
+        },
+        watch: {
+        },
+        methods: {
+            openPopup: function (val) {
+                var that = this;
+                that.popPatientData = val;
+                //that.popPulseSBP = that.popPatientData.P == null ? '' : that.popPatientData.P.split('/')[0].trim();
+                //that.popPulseDBP = that.popPatientData.P == null ? '' : that.popPatientData.P.split('/')[1].trim();
+            },
+            BackCustomer:function(){
+                var that=this;
+                window.location.replace('@Url.Action("PatientDetail", "Home")?customerCN=' + that.tmpCustomer.CN)
+            },
+            parseJsonDate: function (jsonDateString){
+                return moment(jsonDateString).format("MMM DD, YYYY").toUpperCase();
+            },
+            GetPatientData:function(){
+                var that=this;
+                that.$http.post('@Url.Action("GetPatientData", "Home")', {
+                    tmpCustomerID: that.tmpCustomer.ID
+                }).then(function (response) {
+
+                    if (response.data.ContentEncoding == 200) {
+
+                        for (var i = 0; i < response.data.data.length; i++)
+                        {
+                            for (var a = 0; a < that.PatientData.length; a++) {
+                                lblChartData.push(that.PatientData[a].Time);
+                                if (that.PatientData[a].Date == that.parseJsonDate(response.data.data[i].Date) && that.PatientData[a].Time == response.data.data[i].Time)
+                                {
+                                    dataPSinChartData.push(response.data.data[i].PulseSBP);
+                                    dataPDinChartData.push(response.data.data[i].PulseDBP);
+                                    that.PatientData[a].T = response.data.data[i].T;
+                                    that.PatientData[a].PulseSBP = response.data.data[i].PulseSBP;
+                                    that.PatientData[a].PulseDBP = response.data.data[i].PulseDBP;
+                                    that.PatientData[a].R = response.data.data[i].R;
+                                    that.PatientData[a].BP = response.data.data[i].BP;
+                                    that.PatientData[a].O2 = response.data.data[i].O2;
+                                }
+                            }
+                        }
+                        chart.update();
+                    }
+                });
+            },
+            SaveDataPatient:function(){
+                var that = this;
+                var conf = confirm("ยืนยันการบันทึก [ใช่หรือไม่]");
+                if (conf === true) {
+                    that.$http.post('@Url.Action("UpdateDataPatient", "Home")', {
+                        tmpData: JSON.stringify(that.popPatientData),
+                        tmpCustomerID: that.tmpCustomer.ID
+                    }).then(function (response) {
+                        if (response.data.ContentEncoding == 200) {
+                            alert('Update Patient Data Success');
+                            console.log(response.data.data);
+                            location.reload();
+                        }
+                    });
+                }
+            },
+        }
+    });
+
+    var ctx = document.getElementById('myChart').getContext('2d');
+    const cfg = {
+        type: 'line',
+
+        data: {
+            //labels: ['Feb 1, 2021', 'Feb 2, 2021', 'Feb 3, 2021', 'Feb 4, 2021', 'Feb 5, 2021', 'Feb 6, 2021', 'Feb 7, 2021'],
+            labels: ['02:00','06:00', '10:00','14:00','18:00','22:00'],
+            datasets: [
+                {
+                    label: 'Pulse(SBP)',
+                    backgroundColor: 'transparent',
+                    borderColor: 'red',
+                    data: /*dataPSinChartData,*/[100, 80, 100, null, 100, 95, 120]
+                },
+                {
+                    label: 'Pulse(DBP)',
+                    backgroundColor: 'transparent',
+                    borderColor: 'red',
+                    data: /*dataPDinChartData,*/[60, 50, 40, 40, 50, 60, 70]
+                },
+                //{
+                //    label: 'Pulse(SBP) ' + moment(Date.now() - 1).format("MMM DD, YYYY").toUpperCase(),
+                //    backgroundColor: 'transparent',
+                //    borderColor: 'yellow',
+                //    data: /*dataPSinChartData,*/[99, 79, 99, 100, 99, 94, 119]
+                //},
+                //{
+                //    label: 'Pulse(DBP) ' + moment(Date.now() - 1).format("MMM DD, YYYY").toUpperCase(),
+                //    backgroundColor: 'transparent',
+                //    borderColor: 'yellow',
+                //    data: /*dataPDinChartData,*/[59, 49, 39, 39, 49, 59, 69]
+                //}
+            ]
+        },
+
+        options: {
+            title: {
+                display: true,
+                text: 'Pulse'
+            },
+            elements: {
+                line: {
+                    tension: 0
+                }
+            }
+        }
+    };
+    var chart = new Chart(ctx, cfg);
+    var ctx2 = document.getElementById('myChart2').getContext('2d');
+    
+    const cfg2 = {
+        type: 'line',
+        data: {
+            datasets: [{
+                data: [10, 20, 30, 40, 50, 60]
+            }],
+            labels: ['January', 'February', 'March', 'April', 'May', 'June']
+        },
+        options: {
+            scales: {
+                xAxes: [{
+                    ticks: {
+                        min: 'March'
+                    }
+                }]
+            }
+        }
+    };
+    var chart2 = new Chart(ctx2, cfg2);
+</script>

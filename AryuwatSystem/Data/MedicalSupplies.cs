@@ -7,6 +7,7 @@ using System.Data;
 using AryuwatSystem.Baselibary;
 using AryuwatSystem.DerClass;
 using Newtonsoft.Json;
+using Entity;
 
 namespace AryuwatSystem.Data
 {
@@ -172,6 +173,7 @@ namespace AryuwatSystem.Data
                                                 new SqlParameter("@LocationID",info.LocationID),
                                                 new SqlParameter("@Active",info.Active),
                                                 new SqlParameter("@BOM",info.BOM),
+                                                new SqlParameter("@Type_Doctor",info.Type_Doctor),
                                                 new SqlParameter("@ExpireDate",info.ExpireDate == null ? Convert.ToDateTime(null) : Convert.ToDateTime(info.ExpireDate)),
                                                 new SqlParameter("@MS_SubUnit",info.MS_SubUnit),
                                                 new SqlParameter("@AnountPerMainUnit",info.AnountPerMainUnit)
@@ -251,7 +253,7 @@ namespace AryuwatSystem.Data
             try
             {
                SqlParameter[] msSqlParameter = {
-                                                 new SqlParameter("@QueryType","SELECTTAB"),
+                                                 new SqlParameter("@QueryType", Userinfo.PersonnelType == "1" ? "SELECTTABDC" : "SELECTTAB"),
                                                new SqlParameter("@Tab",info.Tab),
                                                 new SqlParameter("@Tabwhere",info.Tabwhere)
                                             };

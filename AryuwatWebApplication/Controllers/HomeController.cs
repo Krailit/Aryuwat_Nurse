@@ -1,8 +1,12 @@
 ﻿using AryuwatWebApplication.Entity;
 using AryuwatWebApplication.Models;
+using Newtonsoft.Json;
+using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Objects;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -37,18 +41,77 @@ namespace AryuwatWebApplication.Controllers
             return sqls;
         }
 
+        public class TempPatientData
+        {
+            public string Patient_Name { get; set; }
+            public string CN { get; set; }
+            public string Room { get; set; }
+            public DateTime? Start { get; set; }
+            public DateTime? End { get; set; }
+            public DateTime? Meeting { get; set; }
+        }
+
         [AllowJsonGet]
         [HttpGet, ActionName("TableCustomer")]
-        public async Task<JsonResult> TableCustomer()
+        public async Task<JsonResult> TableCustomer(string searchtxt)
         {
             try
             {
                 using (var context = new OPD_SystemEntities())
                 {
+                    string query = @"SELECT * from (					
+                                    select
+	                                    cus.PrefixCode + cus.Tname + ' ' + cus.TsurName Patient_Name,
+	                                    cus.CN,
+	                                    MR.Room_Name Room,
+                                        RD.Start_Date Start,
+                                        case 
+		                                    when RD.Start_Date is not null
+		                                    then DATEADD(DAY,RD.Qty_Date , RD.Start_Date) 
+		                                    else null 
+	                                    end [End]
+                                    FROM [OPD_System].[dbo].[Customers] cus
+                                    --(select top 1 ID as MOID from [OPD_System].[dbo].MedicalOrder where CN = cus.CN order by ID desc)
+                                    Outer Apply
+	                                    (
+		                                    SELECT TOP 1 *
+		                                    FROM [OPD_System].[dbo].MedicalOrder MO
+		                                    WHERE MO.CN = cus.CN and Room_Status = 1
+		                                    ORDER BY MO.ID DESC
+	                                    ) MO
+                                    --Left Join [OPD_System].[dbo].MedicalOrder MO on cus.CN = MO.CN
+                                    Outer Apply
+	                                    (
+		                                    SELECT TOP 1 *
+		                                    FROM [OPD_System].[dbo].Room_Detail RD
+		                                    WHERE RD.FK_MO_ID = MO.ID
+		                                    ORDER BY RD.ID DESC
+	                                    ) RD
+                                    --Left Join [OPD_System].[dbo].Room_Detail RD on MO.ID = RD.FK_MO_ID and RD.Is_Active = 1
+                                    Left Join [OPD_System].[dbo].Master_Room MR on RD.FK_Room_ID = MR.ID and MR.Is_Active = 1) a
+									WHERE Patient_Name like '%" + searchtxt + "%'";
 
-                    var result = context.Customers.ToList();
+                    var resultquery = context.Database.SqlQuery<TempPatientData>(query).ToList();
+                    //var result = (from cus in context.Customers
+                    //              join med in context.MedicalOrders.Where(x => x.Room_Status == true) on cus.CN equals med.CN into med2
+                    //              from med3 in med2
+                    //              join rd in context.Room_Detail.Where(x => x.Is_Active == true) on med3.ID equals rd.FK_MO_ID into rd2
+                    //              from rd3 in rd2
+                    //              join mr in context.Master_Room.Where(x => x.Is_Active == true) on rd3.FK_Room_ID equals mr.ID into mr2
+                    //              from mr3 in mr2
+                    //              select new TempPatientData
+                    //              {
+                    //                  Patient_Name = (cus.PrefixCode ?? "") + (cus.Tname ?? "") + " " + (cus.TsurName ?? ""),
+                    //                  CN = cus.CN ?? "",
+                    //                  Room = mr3.Room_Name ?? "",
+                    //                  Start = rd3.Start_Date,
+                    //                  End = EntityFunctions.AddDays(rd3.Start_Date, (Int32?)(rd3.Qty_Date)),
+                    //                  //End = rd3.Start_Date != null ? rd3.Start_Date.Value.AddDays(0/*Convert.ToDouble(rd3.Qty_Date)*/) : DateTime.Now,
+                    //                  //End = Convert.ToDateTime(rd3.Start_Date).AddDays(Convert.ToDouble(rd3 == null ? 0 : rd3.Qty_Date)),
+                    //                  //Meeting = null
+                    //              }).ToList();
 
-                    return Json(new { ContentEncoding = 200, data = result });
+                    return Json(new { ContentEncoding = 200, data = resultquery });
                 }
             }
             catch (Exception ex)
@@ -111,6 +174,253 @@ namespace AryuwatWebApplication.Controllers
             }
         }
 
+        [HttpPost, ActionName("sendnoti")]
+        public JsonResult sendnoti(string txt)
+        {
+            try
+            {
+                string username = HttpContext.Request.Cookies.Get("OPD")["Username"];
+
+                using (var context = new OPD_SystemEntities())
+                {
+                    var client = new RestClient("https://notify-api.line.me/api/notify");
+                    // client.Authenticator = new HttpBasicAuthenticator(username, password);
+                    var request = new RestRequest(Method.POST);
+                    //request.AddParameter("thing1", "Hello");
+                    //request.AddParameter("thing2", "world");
+                    //////////////////////////////////test boom
+                    request.AddHeader("Authorization", "Bearer ytajCKG64rOMxlYbnik35JZYEFr43gkMUD6LwRbro4I");
+                    //////////////////////////////////test pro
+                    //request.AddHeader("Authorization", "Bearer RCyOsUgoxlR92IkfBbgNQPMQOmS7CB7MPgBVyhB5jgL");
+                    request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
+                    request.AddParameter("application/x-www-form-urlencoded", $"message={txt}", ParameterType.RequestBody);
+
+                    var response = client.Execute(request);
+                    if (response.StatusCode != HttpStatusCode.OK)
+                    {
+                        return Json(new { ContentEncoding = 400 });
+                    }
+                    return Json(new { ContentEncoding = 200 });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(null);
+            }
+        }
+
+        [HttpPost, ActionName("GetPatientChange")]
+        public JsonResult GetPatientChange(int? tmpCustomerID)
+        {
+            try
+            {
+                using (var context = new OPD_SystemEntities())
+                {
+                    if (tmpCustomerID != 0)
+                    {
+                        string query = @"SELECT distinct pt.[Count] as dataCount,
+                                        (select top 1 NextDateChange FROM[OPD_System].[dbo].[PatientChange] where Type = 1  and [Count] = pt.[Count] and FK_Customer_ID = " + tmpCustomerID + @") as oneNextChange,
+	                                    (select top 1 NextDateChange FROM[OPD_System].[dbo].[PatientChange] where Type = 2  and [Count] = pt.[Count] and FK_Customer_ID = " + tmpCustomerID + @") as twoNextChange
+                                        FROM[OPD_System].[dbo].[PatientChange] pt  where FK_Customer_ID = " + tmpCustomerID + @"
+	                                    order by [Count] desc";
+                        var resultquery = context.Database.SqlQuery<MedicalExpireModel>(query).ToList();
+                        var result = context.PatientChanges.Where(x => x.FK_Customer_ID == tmpCustomerID && x.Is_Active == true).ToList();
+                        if (result.Count > 0)
+                        {
+                            var onelastchange = result.Where(x => x.Type == 1).OrderByDescending(x => x.ID).FirstOrDefault().DateChange;
+                            var onenextchange = result.Where(x => x.Type == 1).OrderByDescending(x => x.ID).FirstOrDefault().NextDateChange;
+                            var twolastchange = result.Where(x => x.Type == 2).OrderByDescending(x => x.ID).FirstOrDefault()?.DateChange;
+                            var twonextchange = result.Where(x => x.Type == 2).OrderByDescending(x => x.ID).FirstOrDefault()?.NextDateChange;
+                            return Json(new { ContentEncoding = 200, data = resultquery, onelastchange = onelastchange, onenextchange = onenextchange, twolastchange = twolastchange, twonextchange = twonextchange });
+                        }
+                        return Json(new { ContentEncoding = 201, data = result });
+                    }
+                    return Json(new { ContentEncoding = 400 });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(null);
+            }
+        }
+
+        [HttpPost, ActionName("GetPatientData")]
+        public JsonResult GetPatientData(int? tmpCustomerID)
+        {
+            try
+            {
+                using (var context = new OPD_SystemEntities())
+                {
+                    if (tmpCustomerID != 0)
+                    {
+                        var result = context.PatientDatas.Where(x => x.FK_Customer_ID == tmpCustomerID && x.Is_Active == true).ToList();
+                        return Json(new { ContentEncoding = 200, data = result });
+                    }
+                    return Json(new { ContentEncoding = 400 });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(null);
+            }
+        }
+
+        [HttpPost, ActionName("UpdateMedical")]
+        public JsonResult UpdateMedical(int? type, int? tmpCustomerID)
+        {
+            try
+            {
+                string username = HttpContext.Request.Cookies.Get("OPD")["Username"];
+
+                using (var context = new OPD_SystemEntities())
+                {
+                    var chkdata = context.PatientChanges.Where(x => x.FK_Customer_ID == tmpCustomerID && x.Type == type && x.Is_Active == true).OrderByDescending(x => x.ID).FirstOrDefault()?.Count;
+                    PatientChange PC = new PatientChange();
+                    PC.DateChange = DateTime.Now;
+                    PC.NextDateChange = DateTime.Now.AddMonths(1);
+                    PC.Type = type;
+                    PC.Count = chkdata == null ? 1 : chkdata + 1;
+                    PC.FK_Customer_ID = tmpCustomerID;
+                    PC.Is_Active = true;
+                    PC.Create_By = username;
+                    PC.Create_Date = DateTime.Now;
+                    context.PatientChanges.Add(PC);
+                    context.SaveChanges();
+                    return Json(new { ContentEncoding = 200 , data = PC });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(null);
+            }
+        }
+
+        [HttpPost, ActionName("AddAlert")]
+        public JsonResult AddAlert(string tmpData, int? tmpCustomerID)
+        {
+            try
+            {
+                string username = HttpContext.Request.Cookies.Get("OPD")["Username"];
+                dynamic jsonData = JsonConvert.DeserializeObject(tmpData);
+                var modelTopic = Convert.ToString(jsonData[0]["modelTopic"]);
+                var modelDescription = Convert.ToString(jsonData[0]["modelDescription"]);
+                var modelDate = Convert.ToDateTime(jsonData[0]["modelDate"]);
+                var modelDay = Convert.ToInt32(jsonData[0]["modelDay"]);
+                var modelActive = Convert.ToBoolean(jsonData[0]["modelActive"]);
+
+                using (var context = new OPD_SystemEntities())
+                {
+                    Alert_Detail AD = new Alert_Detail();
+                    AD.Alert_Date = modelDate;
+                    AD.Topic = modelTopic;
+                    AD.Description = modelDescription;
+                    AD.Period = modelDay;
+                    AD.Publish = modelActive;
+                    AD.FK_Customer_ID = tmpCustomerID;
+                    AD.Is_Active = true;
+                    AD.Create_By = username;
+                    AD.Create_Date = DateTime.Now;
+                    context.Alert_Detail.Add(AD);
+                    context.SaveChanges();
+                    return Json(new { ContentEncoding = 200 , data = AD });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(null);
+            }
+        }
+
+        [HttpPost, ActionName("UpdateAlert")]
+        public JsonResult UpdateAlert(string tmpData, int? tmpCustomerID)
+        {
+            try
+            {
+                string username = HttpContext.Request.Cookies.Get("OPD")["Username"];
+                dynamic jsonData = JsonConvert.DeserializeObject(tmpData);
+                int modelID = Convert.ToInt32(jsonData[0]["modelID"]);
+                var modelTopic = Convert.ToString(jsonData[0]["modelTopic"]);
+                var modelDescription = Convert.ToString(jsonData[0]["modelDescription"]);
+                var modelDate = Convert.ToDateTime(jsonData[0]["modelDate"]);
+                var modelDay = Convert.ToInt32(jsonData[0]["modelDay"]);
+                var modelActive = Convert.ToBoolean(jsonData[0]["modelActive"]);
+
+                using (var context = new OPD_SystemEntities())
+                {
+                    var chkdata = context.Alert_Detail.Where(x => x.FK_Customer_ID == tmpCustomerID && x.ID == modelID && x.Is_Active == true).OrderByDescending(x => x.ID).FirstOrDefault();
+                    if (chkdata != null)
+                    {
+                        chkdata.Alert_Date = modelDate;
+                        chkdata.Topic = modelTopic;
+                        chkdata.Description = modelDescription;
+                        chkdata.Period = modelDay;
+                        chkdata.Publish = modelActive;
+                        chkdata.FK_Customer_ID = tmpCustomerID;
+                        chkdata.Update_By = username;
+                        chkdata.Update_Date = DateTime.Now;
+                        context.SaveChanges();
+                        return Json(new { ContentEncoding = 200, data = chkdata });
+                    }
+                        return Json(new { ContentEncoding = 400 });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(null);
+            }
+        }
+
+        [HttpPost, ActionName("UpdateDataPatient")]
+        public JsonResult UpdateDataPatient(string tmpData, int? tmpCustomerID)
+        {
+            CultureInfo cultureinfo = new CultureInfo("en-US");
+            try
+            {
+                string username = HttpContext.Request.Cookies.Get("OPD")["Username"];
+                dynamic jsonData = JsonConvert.DeserializeObject(tmpData);
+                string pDate = Convert.ToString(jsonData["Date"]);
+                string pTime = Convert.ToString(jsonData["Time"]);
+                string pT = Convert.ToString(jsonData["T"]);
+                string pR = Convert.ToString(jsonData["R"]);
+                string pBP = Convert.ToString(jsonData["BP"]);
+                string pO2 = Convert.ToString(jsonData["O2"]);
+                string pPulseSBP = Convert.ToString(jsonData["PulseSBP"]);
+                string pPulseDBP = Convert.ToString(jsonData["PulseDBP"]);
+                using (var context = new OPD_SystemEntities())
+                {
+                    DateTime dateparse = DateTime.ParseExact(pDate, "MMM dd, yyyy", cultureinfo);
+                    var chkdata = context.PatientDatas.Where(x => x.FK_Customer_ID == tmpCustomerID && x.Date == dateparse && x.Time == pTime && x.Is_Active == true).ToList();
+                    foreach(var items in chkdata)
+                    {
+                        items.Is_Active = false;
+                        items.Update_By = username;
+                        items.Update_Date = DateTime.Now;
+                        context.SaveChanges();
+                    }
+                    PatientData PD = new PatientData();
+                    PD.FK_Customer_ID = tmpCustomerID;
+                    PD.Date = dateparse;//Convert.ToDateTime(pDate);
+                    PD.Time = pTime;
+                    PD.T = pT;
+                    PD.R = pR;
+                    PD.BP = pBP;
+                    PD.O2 = pO2;
+                    PD.PulseDBP = pPulseDBP;
+                    PD.PulseSBP = pPulseSBP;
+                    PD.Is_Active = true;
+                    PD.Create_By = username;
+                    PD.Create_Date = DateTime.Now;
+                    context.PatientDatas.Add(PD);
+                    context.SaveChanges();
+                    return Json(new { ContentEncoding = 200 , data = PD });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(null);
+            }
+        }
+
         public ActionResult PatientDetail(string customerCN)
         {
             var result = new Customer();
@@ -138,6 +448,83 @@ namespace AryuwatWebApplication.Controllers
         }
 
         public ActionResult Attachfile(string customerCN)
+        {
+            var result = new Customer();
+            try
+            {
+                if (!String.IsNullOrEmpty(customerCN))
+                {
+                    using (var context = new OPD_SystemEntities())
+                    {
+
+                        result = context.Customers.Where(x => x.CN == customerCN).FirstOrDefault();
+
+                        return View(result);
+                    }
+                }
+                else
+                {
+                    return View(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                return View(result);
+            }
+        }
+
+        public ActionResult PatientData(string customerCN)
+        {
+            var result = new Customer();
+            try
+            {
+                if (!String.IsNullOrEmpty(customerCN))
+                {
+                    using (var context = new OPD_SystemEntities())
+                    {
+
+                        result = context.Customers.Where(x => x.CN == customerCN).FirstOrDefault();
+
+                        return View(result);
+                    }
+                }
+                else
+                {
+                    return View(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                return View(result);
+            }
+        }
+
+        public ActionResult MedicalExpire(string customerCN)
+        {
+            var result = new Customer();
+            try
+            {
+                if (!String.IsNullOrEmpty(customerCN))
+                {
+                    using (var context = new OPD_SystemEntities())
+                    {
+
+                        result = context.Customers.Where(x => x.CN == customerCN).FirstOrDefault();
+
+                        return View(result);
+                    }
+                }
+                else
+                {
+                    return View(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                return View(result);
+            }
+        }
+        public ActionResult Remark(string customerCN)
         {
             var result = new Customer();
             try

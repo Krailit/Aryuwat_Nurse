@@ -14,6 +14,7 @@ namespace AryuwatWebApplication.Entity
     
     public partial class Customer
     {
+        public int ID { get; set; }
         public string CN { get; set; }
         public Nullable<System.DateTime> Dateregister { get; set; }
         public string PrefixCode { get; set; }

@@ -99,6 +99,7 @@
             this.sellStockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.chkTypeDoctor = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picImport)).BeginInit();
@@ -121,6 +122,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.chkTypeDoctor);
             this.groupBox2.Controls.Add(this.checkBoxCOMS);
             this.groupBox2.Controls.Add(this.buttonGenBar1);
             this.groupBox2.Controls.Add(this.checkBoxBOM);
@@ -866,6 +868,17 @@
             this.viewHistoryToolStripMenuItem.Text = "View History";
             this.viewHistoryToolStripMenuItem.Click += new System.EventHandler(this.viewHistoryToolStripMenuItem_Click);
             // 
+            // chkTypeDoctor
+            // 
+            this.chkTypeDoctor.AutoSize = true;
+            this.chkTypeDoctor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.chkTypeDoctor.Location = new System.Drawing.Point(331, 162);
+            this.chkTypeDoctor.Name = "chkTypeDoctor";
+            this.chkTypeDoctor.Size = new System.Drawing.Size(122, 24);
+            this.chkTypeDoctor.TabIndex = 49;
+            this.chkTypeDoctor.Text = "Only Doctor";
+            this.chkTypeDoctor.UseVisualStyleBackColor = true;
+            // 
             // FrmMedicalSupplies
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -963,5 +976,6 @@
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.CheckBox checkBoxCOMS;
+        private System.Windows.Forms.CheckBox chkTypeDoctor;
     }
 }

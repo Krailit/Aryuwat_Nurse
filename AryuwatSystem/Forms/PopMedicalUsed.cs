@@ -166,7 +166,7 @@ namespace AryuwatSystem.Forms
             //lbCO.Text = GetCOnumber();// string.Format("CO{0}-{1}-{2}-{3}-{4}", "001", VN, MS_Code, AmountTotal, AmountUsed);
             //BindCboBranch();
                 cboBranch.setBranchValue("");
-
+            txtRefMO.Text = VN;
             BindData();
             if (!Userinfo.IsAdmin.Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_EDIT.Contains(Userinfo.EN)  && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN) && dateTimePickerCreate.Value.Date < DateTime.Now.Date)
             {
