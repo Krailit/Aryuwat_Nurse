@@ -244,6 +244,27 @@ namespace AryuwatWebApplication.Controllers
             }
         }
 
+        [HttpPost, ActionName("GetDataRemark")]
+        public JsonResult GetDataRemark(int? tmpCustomerID)
+        {
+            try
+            {
+                using (var context = new OPD_SystemEntities())
+                {
+                    if (tmpCustomerID != 0)
+                    {
+                        var result = context.Alert_Detail.Where(x => x.FK_Customer_ID == tmpCustomerID && x.Is_Active == true).ToList();
+                        return Json(new { ContentEncoding = 200, data = result });
+                    }
+                    return Json(new { ContentEncoding = 400 });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(null);
+            }
+        }
+
         [HttpPost, ActionName("GetPatientData")]
         public JsonResult GetPatientData(int? tmpCustomerID)
         {
@@ -305,8 +326,7 @@ namespace AryuwatWebApplication.Controllers
                 var modelTopic = Convert.ToString(jsonData[0]["modelTopic"]);
                 var modelDescription = Convert.ToString(jsonData[0]["modelDescription"]);
                 var modelDate = Convert.ToDateTime(jsonData[0]["modelDate"]);
-                var modelDay = Convert.ToInt32(jsonData[0]["modelDay"]);
-                var modelActive = Convert.ToBoolean(jsonData[0]["modelActive"]);
+                var modelPulish = Convert.ToBoolean(jsonData[0]["modelPulish"]);
 
                 using (var context = new OPD_SystemEntities())
                 {
@@ -314,8 +334,7 @@ namespace AryuwatWebApplication.Controllers
                     AD.Alert_Date = modelDate;
                     AD.Topic = modelTopic;
                     AD.Description = modelDescription;
-                    AD.Period = modelDay;
-                    AD.Publish = modelActive;
+                    AD.Publish = modelPulish;
                     AD.FK_Customer_ID = tmpCustomerID;
                     AD.Is_Active = true;
                     AD.Create_By = username;
@@ -342,8 +361,7 @@ namespace AryuwatWebApplication.Controllers
                 var modelTopic = Convert.ToString(jsonData[0]["modelTopic"]);
                 var modelDescription = Convert.ToString(jsonData[0]["modelDescription"]);
                 var modelDate = Convert.ToDateTime(jsonData[0]["modelDate"]);
-                var modelDay = Convert.ToInt32(jsonData[0]["modelDay"]);
-                var modelActive = Convert.ToBoolean(jsonData[0]["modelActive"]);
+                var modelActive = Convert.ToBoolean(jsonData[0]["modelPulish"]);
 
                 using (var context = new OPD_SystemEntities())
                 {
@@ -353,7 +371,6 @@ namespace AryuwatWebApplication.Controllers
                         chkdata.Alert_Date = modelDate;
                         chkdata.Topic = modelTopic;
                         chkdata.Description = modelDescription;
-                        chkdata.Period = modelDay;
                         chkdata.Publish = modelActive;
                         chkdata.FK_Customer_ID = tmpCustomerID;
                         chkdata.Update_By = username;
@@ -524,6 +541,7 @@ namespace AryuwatWebApplication.Controllers
                 return View(result);
             }
         }
+
         public ActionResult Remark(string customerCN)
         {
             var result = new Customer();
