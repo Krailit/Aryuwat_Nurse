@@ -567,5 +567,30 @@ namespace AryuwatWebApplication.Controllers
                 return View(result);
             }
         }
+        public ActionResult Test(string customerCN)
+        {
+            var result = new Customer();
+            try
+            {
+                if (!String.IsNullOrEmpty(customerCN))
+                {
+                    using (var context = new OPD_SystemEntities())
+                    {
+
+                        result = context.Customers.Where(x => x.CN == customerCN).FirstOrDefault();
+
+                        return View(result);
+                    }
+                }
+                else
+                {
+                    return View(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                return View(result);
+            }
+        }
     }
 }
