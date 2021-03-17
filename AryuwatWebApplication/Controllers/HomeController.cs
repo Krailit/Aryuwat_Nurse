@@ -490,17 +490,39 @@ namespace AryuwatWebApplication.Controllers
             }
         }
 
+        public partial class ChartShow
+        {
+            public List<object> chart { get; set; }
+            public List<object> chart2 { get; set; }
+            public Customer data { get; set; }
+        }
         public ActionResult PatientData(string customerCN)
         {
-            var result = new Customer();
+            var result = new ChartShow();
             try
             {
                 if (!String.IsNullOrEmpty(customerCN))
                 {
+                    List<object> test = new List<object>();
+                    test.Add(new List<object> { Convert.ToDateTime("2564/2/17 22:00:00") , 140 });
+                    test.Add(new List<object> { Convert.ToDateTime("2564/2/17 18:00:00") , 161 });
+                    test.Add(new List<object> { Convert.ToDateTime("2564/2/17 14:00:00") , 120 });
+                    test.Add(new List<object> { Convert.ToDateTime("2564/2/17 10:00:00") , 111 });
+                    test.Add(new List<object> { Convert.ToDateTime("2564/2/17 6:00:00") , 140 });
+                    test.Add(new List<object> { Convert.ToDateTime("2564/2/17 2:00:00") , 161 });
+                    List<object> test2 = new List<object>();
+                    test2.Add(new List<object> { Convert.ToDateTime("2564/2/17 22:00:00"), 85 });
+                    test2.Add(new List<object> { Convert.ToDateTime("2564/2/17 18:00:00"), 79 });
+                    test2.Add(new List<object> { Convert.ToDateTime("2564/2/17 14:00:00"), 84 });
+                    test2.Add(new List<object> { Convert.ToDateTime("2564/2/17 10:00:00"), 79 });
+                    test2.Add(new List<object> { Convert.ToDateTime("2564/2/17 6:00:00"), 85 });
+                    test2.Add(new List<object> { Convert.ToDateTime("2564/2/17 2:00:00"), 79 });
+                    //[Date.UTC(2021, 2, 17, 22, 0, 0), 161], [Date.UTC(2021, 2, 17, 18, 0, 0), 140]
                     using (var context = new OPD_SystemEntities())
                     {
-
-                        result = context.Customers.Where(x => x.CN == customerCN).FirstOrDefault();
+                        result.chart = test;
+                        result.chart2 = test2;
+                        result.data = context.Customers.Where(x => x.CN == customerCN).FirstOrDefault();
 
                         return View(result);
                     }
