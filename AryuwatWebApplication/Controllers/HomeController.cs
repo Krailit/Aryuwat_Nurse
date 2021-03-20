@@ -496,6 +496,7 @@ namespace AryuwatWebApplication.Controllers
             public List<object> chart2 { get; set; }
             public Customer data { get; set; }
         }
+
         public ActionResult PatientData(string customerCN)
         {
             var result = new ChartShow();
@@ -503,26 +504,233 @@ namespace AryuwatWebApplication.Controllers
             {
                 if (!String.IsNullOrEmpty(customerCN))
                 {
-                    List<object> test = new List<object>();
-                    test.Add(new List<object> { Convert.ToDateTime("2564/2/17 22:00:00") , 140 });
-                    test.Add(new List<object> { Convert.ToDateTime("2564/2/17 18:00:00") , 161 });
-                    test.Add(new List<object> { Convert.ToDateTime("2564/2/17 14:00:00") , 120 });
-                    test.Add(new List<object> { Convert.ToDateTime("2564/2/17 10:00:00") , 111 });
-                    test.Add(new List<object> { Convert.ToDateTime("2564/2/17 6:00:00") , 140 });
-                    test.Add(new List<object> { Convert.ToDateTime("2564/2/17 2:00:00") , 161 });
-                    List<object> test2 = new List<object>();
-                    test2.Add(new List<object> { Convert.ToDateTime("2564/2/17 22:00:00"), 85 });
-                    test2.Add(new List<object> { Convert.ToDateTime("2564/2/17 18:00:00"), 79 });
-                    test2.Add(new List<object> { Convert.ToDateTime("2564/2/17 14:00:00"), 84 });
-                    test2.Add(new List<object> { Convert.ToDateTime("2564/2/17 10:00:00"), 79 });
-                    test2.Add(new List<object> { Convert.ToDateTime("2564/2/17 6:00:00"), 85 });
-                    test2.Add(new List<object> { Convert.ToDateTime("2564/2/17 2:00:00"), 79 });
-                    //[Date.UTC(2021, 2, 17, 22, 0, 0), 161], [Date.UTC(2021, 2, 17, 18, 0, 0), 140]
                     using (var context = new OPD_SystemEntities())
                     {
-                        result.chart = test;
-                        result.chart2 = test2;
                         result.data = context.Customers.Where(x => x.CN == customerCN).FirstOrDefault();
+
+                        List<object> TempPulseSBP = new List<object>();
+                        var date8dayago = DateTime.Now.AddDays(-8);
+                        var date7dayago = DateTime.Now.AddDays(-7);
+                        var date6dayago = DateTime.Now.AddDays(-6);
+                        var date5dayago = DateTime.Now.AddDays(-5);
+                        var date4dayago = DateTime.Now.AddDays(-4);
+                        var date3dayago = DateTime.Now.AddDays(-3);
+                        var date2dayago = DateTime.Now.AddDays(-2);
+                        var date1dayago = DateTime.Now.AddDays(-1);
+                        var FetchData = context.PatientDatas.Where(x => x.Date >= date8dayago && x.Date <= DateTime.Now && x.FK_Customer_ID == result.data.ID && x.Is_Active == true).ToList();
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(2)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "02:00").FirstOrDefault()?.PulseSBP) });
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(6)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "06:00").FirstOrDefault()?.PulseSBP) });
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(10)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "10:00").FirstOrDefault()?.PulseSBP) });
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(14)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "14:00").FirstOrDefault()?.PulseSBP) });
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(18)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "18:00").FirstOrDefault()?.PulseSBP) });
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(22)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "22:00").FirstOrDefault()?.PulseSBP) });
+
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(2)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "02:00").FirstOrDefault()?.PulseSBP) });
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(6)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "06:00").FirstOrDefault()?.PulseSBP) });
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(10)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "10:00").FirstOrDefault()?.PulseSBP) });
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(14)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "14:00").FirstOrDefault()?.PulseSBP) });
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(18)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "18:00").FirstOrDefault()?.PulseSBP) });
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(22)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "22:00").FirstOrDefault()?.PulseSBP) });
+
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(2)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "02:00").FirstOrDefault()?.PulseSBP) });
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(6)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "06:00").FirstOrDefault()?.PulseSBP) });
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(10)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "10:00").FirstOrDefault()?.PulseSBP) });
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(14)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "14:00").FirstOrDefault()?.PulseSBP) });
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(18)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "18:00").FirstOrDefault()?.PulseSBP) });
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(22)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "22:00").FirstOrDefault()?.PulseSBP) });
+
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(2)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "02:00").FirstOrDefault()?.PulseSBP) });
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(6)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "06:00").FirstOrDefault()?.PulseSBP) });
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(10)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "10:00").FirstOrDefault()?.PulseSBP) });
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(14)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "14:00").FirstOrDefault()?.PulseSBP) });
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(18)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "18:00").FirstOrDefault()?.PulseSBP) });
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(22)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "22:00").FirstOrDefault()?.PulseSBP) });
+
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(2)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "02:00").FirstOrDefault()?.PulseSBP) });
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(6)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "06:00").FirstOrDefault()?.PulseSBP) });
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(10)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "10:00").FirstOrDefault()?.PulseSBP) });
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(14)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "14:00").FirstOrDefault()?.PulseSBP) });
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(18)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "18:00").FirstOrDefault()?.PulseSBP) });
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(22)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "22:00").FirstOrDefault()?.PulseSBP) });
+
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(2)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "02:00").FirstOrDefault()?.PulseSBP) });
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(6)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "06:00").FirstOrDefault()?.PulseSBP) });
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(10)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "10:00").FirstOrDefault()?.PulseSBP) });
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(14)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "14:00").FirstOrDefault()?.PulseSBP) });
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(18)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "18:00").FirstOrDefault()?.PulseSBP) });
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(22)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "22:00").FirstOrDefault()?.PulseSBP) });
+
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(2)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "02:00").FirstOrDefault()?.PulseSBP) });
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(6)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "06:00").FirstOrDefault()?.PulseSBP) });
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(10)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "10:00").FirstOrDefault()?.PulseSBP) });
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(14)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "14:00").FirstOrDefault()?.PulseSBP) });
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(18)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "18:00").FirstOrDefault()?.PulseSBP) });
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(22)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "22:00").FirstOrDefault()?.PulseSBP) });
+
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(2)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "02:00").FirstOrDefault()?.PulseSBP) });
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(6)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "06:00").FirstOrDefault()?.PulseSBP) });
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(10)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "10:00").FirstOrDefault()?.PulseSBP) });
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(14)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "14:00").FirstOrDefault()?.PulseSBP) });
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(18)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "18:00").FirstOrDefault()?.PulseSBP) });
+                        TempPulseSBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(22)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "22:00").FirstOrDefault()?.PulseSBP) });
+                        //TempPulseSBP.Add(new List<object> { Convert.ToDateTime("2564/2/17 22:00:00"), 140 });
+
+                        List<object> TempPulseDBP = new List<object>();
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(2)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "02:00").FirstOrDefault()?.PulseDBP) });
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(6)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "06:00").FirstOrDefault()?.PulseDBP) });
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(10)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "10:00").FirstOrDefault()?.PulseDBP) });
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(14)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "14:00").FirstOrDefault()?.PulseDBP) });
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(18)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "18:00").FirstOrDefault()?.PulseDBP) });
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(22)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "22:00").FirstOrDefault()?.PulseDBP) });
+
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(2)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "02:00").FirstOrDefault()?.PulseDBP) });
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(6)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "06:00").FirstOrDefault()?.PulseDBP) });
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(10)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "10:00").FirstOrDefault()?.PulseDBP) });
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(14)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "14:00").FirstOrDefault()?.PulseDBP) });
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(18)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "18:00").FirstOrDefault()?.PulseDBP) });
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(22)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "22:00").FirstOrDefault()?.PulseDBP) });
+
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(2)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "02:00").FirstOrDefault()?.PulseDBP) });
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(6)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "06:00").FirstOrDefault()?.PulseDBP) });
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(10)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "10:00").FirstOrDefault()?.PulseDBP) });
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(14)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "14:00").FirstOrDefault()?.PulseDBP) });
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(18)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "18:00").FirstOrDefault()?.PulseDBP) });
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(22)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "22:00").FirstOrDefault()?.PulseDBP) });
+
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(2)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "02:00").FirstOrDefault()?.PulseDBP) });
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(6)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "06:00").FirstOrDefault()?.PulseDBP) });
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(10)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "10:00").FirstOrDefault()?.PulseDBP) });
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(14)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "14:00").FirstOrDefault()?.PulseDBP) });
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(18)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "18:00").FirstOrDefault()?.PulseDBP) });
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(22)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "22:00").FirstOrDefault()?.PulseDBP) });
+
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(2)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "02:00").FirstOrDefault()?.PulseDBP) });
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(6)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "06:00").FirstOrDefault()?.PulseDBP) });
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(10)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "10:00").FirstOrDefault()?.PulseDBP) });
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(14)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "14:00").FirstOrDefault()?.PulseDBP) });
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(18)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "18:00").FirstOrDefault()?.PulseDBP) });
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(22)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "22:00").FirstOrDefault()?.PulseDBP) });
+
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(2)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "02:00").FirstOrDefault()?.PulseDBP) });
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(6)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "06:00").FirstOrDefault()?.PulseDBP) });
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(10)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "10:00").FirstOrDefault()?.PulseDBP) });
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(14)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "14:00").FirstOrDefault()?.PulseDBP) });
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(18)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "18:00").FirstOrDefault()?.PulseDBP) });
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(22)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "22:00").FirstOrDefault()?.PulseDBP) });
+
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(2)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "02:00").FirstOrDefault()?.PulseDBP) });
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(6)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "06:00").FirstOrDefault()?.PulseDBP) });
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(10)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "10:00").FirstOrDefault()?.PulseDBP) });
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(14)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "14:00").FirstOrDefault()?.PulseDBP) });
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(18)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "18:00").FirstOrDefault()?.PulseDBP) });
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(22)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "22:00").FirstOrDefault()?.PulseDBP) });
+
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(2)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "02:00").FirstOrDefault()?.PulseDBP) });
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(6)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "06:00").FirstOrDefault()?.PulseDBP) });
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(10)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "10:00").FirstOrDefault()?.PulseDBP) });
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(14)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "14:00").FirstOrDefault()?.PulseDBP) });
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(18)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "18:00").FirstOrDefault()?.PulseDBP) });
+                        TempPulseDBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(22)),
+                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "22:00").FirstOrDefault()?.PulseDBP) });
+                        //TempPulseDBP.Add(new List<object> { Convert.ToDateTime("2564/2/17 22:00:00"), 85 });
+
+                        result.chart = TempPulseSBP;
+                        result.chart2 = TempPulseDBP;
 
                         return View(result);
                     }

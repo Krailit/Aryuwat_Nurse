@@ -149,8 +149,6 @@
         </div>
     </div>
 </div>
-
-
 <script src="~/Scripts/vue.js"></script>
 <script src="~/Scripts/axios.js"></script>
 <script src="~/Scripts/moment.js"></script>
@@ -298,7 +296,7 @@
         methods: {
             asyncCall: async function () {
                 for (var temp in tempchart) {
-                    console.log(temp, tempchart[temp]);
+                    //console.log(temp, tempchart[temp]);
                     var datenum = parseInt(tempchart[temp][0].split('(')[1].split(')')[0]);
                     var d = new Date(datenum);
                     await this.datatemp.push([Date.UTC(d.getFullYear(), d.getMonth() + 1, d.getDate(), d.getHours(), d.getMinutes()), tempchart[temp][1]]);
@@ -306,7 +304,7 @@
             },
             asyncCall2: async function () {
                 for (var temp in tempchart2) {
-                    console.log(temp, tempchart2[temp]);
+                    //console.log(temp, tempchart2[temp]);
                     var datenum = parseInt(tempchart2[temp][0].split('(')[1].split(')')[0]);
                     var d = new Date(datenum);
                     await this.datatemp2.push([Date.UTC(d.getFullYear(), d.getMonth() + 1, d.getDate(), d.getHours(), d.getMinutes()), tempchart2[temp][1]]);
