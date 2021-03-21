@@ -418,7 +418,7 @@ namespace AryuwatWebApplication.Controllers
                 var modelDescription = Convert.ToString(jsonData[0]["modelDescription"]);
                 var modelDate = Convert.ToDateTime(jsonData[0]["modelDate"]);
                 var modelActive = Convert.ToBoolean(jsonData[0]["modelPulish"]);
-                var modelType = Convert.ToBoolean(jsonData[0]["modelType"]);
+                var modelType = Convert.ToInt32(jsonData[0]["modelType"]);
 
                 using (var context = new OPD_SystemEntities())
                 {
