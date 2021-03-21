@@ -2,12 +2,17 @@
 @{
     ViewBag.Title = "Patient list";
 }
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <style>
     .rowHover {
         background-color: white;
     }
+
     .rowHover:hover {
         background-color: gainsboro;
+    }
+    .swal2-popup {
+        font-size: 20px;
     }
 </style>
 <div id="app" style="font-size:18px">
@@ -86,9 +91,10 @@
                     tempCustomer: [],
                     searchtxt: '',
                 },
-                mounted: function () {
+                mounted: async function () {
                     this.GetDataTableCustomer();
-                    this.SendAlertMeeting();
+                    await this.AlertMeeting();
+                    await this.SendAlertMeeting();
                 },
                 watch: {
                     searchtxt: function (val) {
@@ -111,12 +117,32 @@
                                 }
                         });
                     },
-                    SendAlertMeeting:function(data){
+                    SendAlertMeeting: async function(data){
                         var vm = this;
-                        vm.$http.post('@Url.Action("sendnoti", "Home")')
+                        await vm.$http.post('@Url.Action("sendnoti", "Home")')
                         .then(function (response) {
                             if (response.data.ContentEncoding == 200) {
                                 console.log('sendline');
+                            }
+                        });
+                    },
+                    AlertMeeting:async function(data){
+                        var that = this;
+                        await that.$http.post('@Url.Action("CheckRemark", "Home")').then(function(response)
+                        {
+                            if (response.data.ContentEncoding == 200) {
+                                if (response.data != "") {
+                                    var msgRemark = "<p style='color:red'>";
+                                    msgRemark += '<b>Tomorrow Meeting :</b><br>';
+                                    msgRemark += response.data.data;
+                                    msgRemark += "</p>";
+                                    Swal.fire({
+                                        html: msgRemark,
+                                        icon: 'warning',
+                                        confirmButtonText: 'Close',
+                                        allowOutsideClick: false
+                                    })
+                                }
                             }
                         });
                     },

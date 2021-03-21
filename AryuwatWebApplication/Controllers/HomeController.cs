@@ -576,7 +576,45 @@ namespace AryuwatWebApplication.Controllers
 
 
         [HttpPost, ActionName("CheckRemark")]
-        public JsonResult CheckRemark(int? tmpCustomerID)
+        public JsonResult CheckRemark()
+        {
+            try
+            {
+                AlertRemark alertRemark = new AlertRemark();
+                string username = HttpContext.Request.Cookies.Get("OPD")["Username"];
+                using (var context = new OPD_SystemEntities())
+                {
+                    string patientName = "";
+                    var datetomorrow = DateTime.Now.AddDays(1);
+                    var TempData = (from AD in context.Alert_Detail.Where(x => x.Is_Active == true && x.Alert_Type == 2 && x.Publish == true && x.Alert_Date == datetomorrow.Date)
+                                    join CUS in context.Customers.Where(x => x.Is_Active == true) on AD.ID equals CUS.ID
+                                    select new
+                                    {
+                                        PatientName = CUS.PrefixCode + CUS.Tname + " " + CUS.TsurName
+                                    }).ToList();
+                    foreach (var items in TempData)
+                    {
+                        patientName += items.PatientName + ", ";
+                    }
+                    if(!String.IsNullOrEmpty(patientName))
+                    {
+                        patientName = patientName.Substring(0, patientName.Length - 2);
+                        return Json(new { ContentEncoding = 200 , data = patientName});
+                    }
+                    else
+                    {
+                        return Json(new { ContentEncoding = 400 });
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(null);
+            }
+        }
+
+        [HttpPost, ActionName("CheckMeeting")]
+        public JsonResult CheckMeeting(int? tmpCustomerID)
         {
             try
             {
