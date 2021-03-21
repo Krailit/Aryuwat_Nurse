@@ -203,7 +203,7 @@ namespace AryuwatWebApplication.Controllers
                     request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
                     var datetomorrow = DateTime.Now.AddDays(1);
                     var TempData = (from AD in context.Alert_Detail.Where(x => x.Is_Active == true && x.Alert_Type == 2 && x.Publish == true && x.Alert_Date == datetomorrow.Date)
-                                    join CUS in context.Customers.Where(x => x.Is_Active == true) on AD.ID equals CUS.ID
+                                    join CUS in context.Customers.Where(x => x.Is_Active == true) on AD.FK_Customer_ID equals CUS.ID
                                     select new
                                     {
                                        ID = AD.ID,
@@ -587,7 +587,7 @@ namespace AryuwatWebApplication.Controllers
                     string patientName = "";
                     var datetomorrow = DateTime.Now.AddDays(1);
                     var TempData = (from AD in context.Alert_Detail.Where(x => x.Is_Active == true && x.Alert_Type == 2 && x.Publish == true && x.Alert_Date == datetomorrow.Date)
-                                    join CUS in context.Customers.Where(x => x.Is_Active == true) on AD.ID equals CUS.ID
+                                    join CUS in context.Customers.Where(x => x.Is_Active == true) on AD.FK_Customer_ID equals CUS.ID
                                     select new
                                     {
                                         PatientName = CUS.PrefixCode + CUS.Tname + " " + CUS.TsurName
