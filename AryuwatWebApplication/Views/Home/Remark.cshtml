@@ -46,7 +46,7 @@
                 <tbody style="font-weight:400;font-size:18px">
                     <tr :key="index" v-for="(items, index) in dataRemark" v-if="dataRemark.length > 0" class="rowHover" style="border-bottom: 1px solid #cbc3c3;height: 60px;">
                         <td class="text-left align-middle" style="width:15%;">
-                            {{items.Type == 1 ? 'แจ้งเตือนทั่วไป' : 'แจ้งเตือนการกินยา' }}
+                            {{items.Remark_Type == 1 ? 'แจ้งเตือนทั่วไป' : 'แจ้งเตือนการกินยา' }}
                         </td>
                         <td class="text-left align-middle" style="width:40%;padding-left:50px;">
                             <p>
@@ -98,6 +98,13 @@
                 <div class="modal-body">
                     <div class="container-fluid">
                         <div class="row" style="padding: 10px;">
+                            <div class="col-lg-1/">
+                                <label> ประเภทการแจ้งเตือน </label>
+                                <input type="radio" id="one" value="1" v-model="modaldata[0].modelType" />
+                                <label for="one">ทั่วไป</label>
+                                <input type="radio" id="two" value="2" v-model="modaldata[0].modelType" />
+                                <label for="two">การกินยา</label>
+                            </div>
                             <div class="col-lg-10">
                                 <label> รายการ </label>
                             </div>
@@ -114,7 +121,7 @@
                                 <label> วันทีแจ้งเตือน </label>
                             </div>
                             <div class="col-lg-12">
-                                <input type="date" v-model="modaldata[0].modelDate"/>
+                                <input type="date" v-model="modaldata[0].modelDate" />
                             </div>
                             <div class="col-lg-12" style="padding-top:20px">
                                 <input type="checkbox" id="chkActive" v-model="modaldata[0].modelPulish" />
@@ -214,7 +221,7 @@
                 that.modaldata[0].modelDescription = val.Description;
                 that.modaldata[0].modelDate = that.parseDate(val.Alert_Date);
                 that.modaldata[0].modelPulish = val.Publish;
-                that.modaldata[0].modelType = val.Type;
+                that.modaldata[0].modelType = val.Remark_Type;
             },
             GetDataRemark:function(){
                 var that=this;
