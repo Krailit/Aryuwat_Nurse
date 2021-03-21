@@ -197,10 +197,6 @@ namespace AryuwatWebApplication.Controllers
                 using (var context = new OPD_SystemEntities())
                 {
                     string lineToken = ConfigurationManager.AppSettings["LineToken"];
-                    var client = new RestClient("https://notify-api.line.me/api/notify");
-                    var request = new RestRequest(Method.POST);
-                    request.AddHeader("Authorization", "Bearer " + Convert.ToString(lineToken).Trim());
-                    request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
                     var datetomorrow = DateTime.Now.AddDays(1);
                     var TempData = (from AD in context.Alert_Detail.Where(x => x.Is_Active == true && x.Alert_Type == 2 && x.Publish == true && x.Alert_Date == datetomorrow.Date)
                                     join CUS in context.Customers.Where(x => x.Is_Active == true) on AD.FK_Customer_ID equals CUS.ID
@@ -213,6 +209,10 @@ namespace AryuwatWebApplication.Controllers
                                     }).ToList(); 
                     foreach(var items in TempData)
                     {
+                        var client = new RestClient("https://notify-api.line.me/api/notify");
+                        var request = new RestRequest(Method.POST);
+                        request.AddHeader("Authorization", "Bearer " + Convert.ToString(lineToken).Trim());
+                        request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
                         msg = "\r\n*Meeting*";
                         msg += "\r\nPatientName : ";
                         msg += items.PatientName + "\r\nMeeting Date : " + Convert.ToDateTime(items.Date).ToString("dd/MM/yyyy") + "\r\nDescription :\r\n" + items.Description;
