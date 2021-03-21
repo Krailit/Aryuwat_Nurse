@@ -2,7 +2,12 @@
 @{
     ViewBag.Title = "Patient Detail";
 }
-
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<style>
+    .swal2-popup {
+        font-size: 20px;
+    }
+</style>
 <div id="app" style="font-size:18px">
     <div class="container" style="background-color:#f3f3f3;margin-top: -20px;padding-top: 10px; padding-bottom: 30px">
         <div class="row">
@@ -19,8 +24,6 @@
             </div>
         </div>
     </div>
-    <input style="width:200px" v-model="txttest"/>
-    <button v-on:click="TestLine()" style="width:200px">Test</button>
     <div class="container" style="background-color:#e6e6e6;">
         <div class="row color-text" style="margin-top: 5rem;margin-bottom: 5rem;margin-left: 10px;margin-right: 10px;">
             <div class="col-lg-6">
@@ -64,64 +67,95 @@
 <script src="~/Scripts/vue.js"></script>
 <script src="~/Scripts/axios.js"></script>
 <script>
-            Vue.prototype.$http = axios;
-            const app = new Vue({
-                el: "#app",
-                data: {
-                    tmpCustomer : @Html.Raw(Json.Encode(@Model)),
-                    txttest : '',
-                },
-                mounted: function () {
-                    var that = this;
-                    if (that.tmpCustomer.CN == null) {
-                        window.location.href = '@Url.Content("~/Home/Index")';
-                    }
-                },
-                watch: {
-                },
-                methods: {
-                    TestLine: async function () {
-                        var that = this;
-                        var formData = new FormData();
-                        formData.append("txt", that.txttest);
-                        that.$http.post('@Url.Action("sendnoti", "Home")',formData).then(function(response)
-                        {
-                            if (response.data.ContentEncoding == 200) {
+    Vue.prototype.$http = axios;
+    const app = new Vue({
+        el: "#app",
+        data: {
+            tmpCustomer : @Html.Raw(Json.Encode(@Model)),
+            txttest : '',
+        },
+        mounted: function () {
+            var that = this;
+            if (that.tmpCustomer.CN == null) {
+                window.location.href = '@Url.Content("~/Home/Index")';
+            }
+            that.CheckRemark();
+        },
+        watch: {
+        },
+        methods: {
+            CheckRemark: async function () {
+                var that = this;
+                that.$http.post('@Url.Action("CheckRemark", "Home")', {
+                    tmpCustomerID: that.tmpCustomer.ID
+                }).then(function(response)
+                {
+                    if (response.data.ContentEncoding == 200) {
+                        var msgRemark = "<p style='color:red'>";
+                        var msgRemark1 = "";
+                        var msgRemark2 = "";
+                        var msgTODO = "<p style='color:blue'>";
+                        var msgMED = "<p style='color:green'>";
+                        var chkType1 = false;
+                        var chkType2 = false;
+                        response.data.data.RemarkData.forEach(async function (rm) {
+                            if (rm.Remark_Type == 1) {
+                                chkType1 = true;
+                                msgRemark1 += '<br>' + rm.Topic + ' : ' + rm.Description + '<br>';
+                            }
+                            if (rm.Remark_Type == 2) {
+                                chkType2 = true;
+                                msgRemark2 += '<br>' + rm.Topic + ' : ' + rm.Description + '<br>';
+
                             }
                         });
-                        //var that = this;
-                        //const params = new URLSearchParams()
-                        //params.append('message', 'testทดสอบเด้อเด้อ')
-                        //await that.$http.post('https://notify-api.line.me/api/notify', {
-                        //    headers: {
-                        //        "Content-Type": "application/x-www-form-urlencoded",
-                        //        "Authorization": "Bearer ytajCKG64rOMxlYbnik35JZYEFr43gkMUD6LwRbro4I",
-                        //        "Access-Control-Allow-Origin": "*",
-                        //        //"Access-Control-Allow-Methods": "DELETE, POST, GET, OPTIONS",
-                        //        //"Access-Control-Allow-Headers": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With",
-                        //    }
-                        //}, params).then(function (response) {
-                        //    if (response.data.status == 200) {
-                        //        alert('Success');
-                        //        location.reload();
-                        //    }
-                        //});
-                    },
-                    AttachfilePatient: function () {
-                        window.location.href = '@Url.Content("~/Home/Attachfile")?customerCN=' + this.tmpCustomer.CN;
-                    },
-                    Remark: function () {
-                        window.location.href = '@Url.Content("~/Home/Remark")?customerCN=' + this.tmpCustomer.CN;
-                    },
-                    Meeting: function () {
-                        window.location.href = '@Url.Content("~/Home/Meeting")?customerCN=' + this.tmpCustomer.CN;
-                    },
-                    MedicalExpire: function () {
-                        window.location.href = '@Url.Content("~/Home/MedicalExpire")?customerCN=' + this.tmpCustomer.CN;
-                    },
-                    PatientData: function () {
-                        window.location.href = '@Url.Content("~/Home/PatientData")?customerCN=' + this.tmpCustomer.CN;
-                    },
-                }
-            });
+                        if (chkType1) {
+                            msgRemark += '<b>Remark :</b><br>' + msgRemark1;
+                        }
+                        if (chkType2) {
+                            msgMED += '<b>MED :</b><br>' + msgRemark2;
+                        }
+
+                        if (response.data.data.PatientChangeData.length > 0) {
+                            msgTODO += '<b>TODO :</b><br>';
+                        }
+                        response.data.data.PatientChangeData.forEach(async function (pc) {
+                            if (pc.Type == 1) {
+                                msgTODO += '<br>เปลี่ยนท่ออาหาร<br>';
+                            }
+                            if (pc.Type == 2) {
+                                msgTODO += '<br>เปลี่ยนท่อปัสสวะ<br>';
+                            }
+                        });
+                        msgRemark += "</p>";
+                        msgTODO += "</p>";
+                        msgMED += "</p>";
+                        Swal.fire({
+                            html: msgRemark + '<br>' +
+                                  msgTODO + '<br>' +
+                                  msgMED,
+                            icon: 'warning',
+                            confirmButtonText: 'Close',
+                            allowOutsideClick: false
+                        })
+                    }
+                });
+            },
+            AttachfilePatient: function () {
+                window.location.href = '@Url.Content("~/Home/Attachfile")?customerCN=' + this.tmpCustomer.CN;
+            },
+            Remark: function () {
+                window.location.href = '@Url.Content("~/Home/Remark")?customerCN=' + this.tmpCustomer.CN;
+            },
+            Meeting: function () {
+                window.location.href = '@Url.Content("~/Home/Meeting")?customerCN=' + this.tmpCustomer.CN;
+            },
+            MedicalExpire: function () {
+                window.location.href = '@Url.Content("~/Home/MedicalExpire")?customerCN=' + this.tmpCustomer.CN;
+            },
+            PatientData: function () {
+                window.location.href = '@Url.Content("~/Home/PatientData")?customerCN=' + this.tmpCustomer.CN;
+            },
+        }
+    });
 </script>

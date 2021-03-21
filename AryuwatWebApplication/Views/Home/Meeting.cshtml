@@ -1,6 +1,6 @@
 ﻿@using AryuwatWebApplication.Models
 @{
-    ViewBag.Title = "Remark Patient";
+    ViewBag.Title = "Patient Meeting";
 }
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -25,7 +25,7 @@
     <div class="container" style="background-color:#e6e6e6;">
         <div class="row color-text" style="margin-top: 20px;margin-bottom: 10px;">
             <div class="col-lg-11">
-                <p style="font-size:28px">แจ้งเตือน Remark และแจ้งเตือนการกินยา</p>
+                <p style="font-size:28px">แจ้งเตือน Meeting</p>
             </div>
         </div>
         <div class="row color-text" style="margin-bottom: 5rem;margin-left: 10px;margin-right: 10px;background-color:white;border-radius:20px">
@@ -35,9 +35,8 @@
             <table class="table hb-table hb-table-dashboard" style="font-size:22px;width:100%">
                 <thead>
                     <tr style="font-weight:500;border-top:1px solid #ddd">
-                        <td class="text-center align-middle" style="width:15%;padding-left:50px;">ประเภทการแจ้งเตือน</td>
-                        <td class="text-center align-middle" style="width:20%;padding-left:50px;">รายการ</td>
-                        <td class="text-center align-middle" style="width:20%;">รายละเอียด</td>
+                        <td class="text-center align-middle" style="width:40%;padding-left:50px;">รายการ</td>
+                        <td class="text-center align-middle" style="width:15%;">รายละเอียด</td>
                         <td class="text-center align-middle" style="width:15%;">วันที่แจ้งเตือน</td>
                         <td class="text-center align-middle" style="width:15%;">สถานะแจ้งเตือน</td>
                         <td class="text-center align-middle" style="width:15%;">Update</td>
@@ -45,9 +44,6 @@
                 </thead>
                 <tbody style="font-weight:400;font-size:18px">
                     <tr :key="index" v-for="(items, index) in dataRemark" v-if="dataRemark.length > 0" class="rowHover" style="border-bottom: 1px solid #cbc3c3;height: 60px;">
-                        <td class="text-left align-middle" style="width:15%;">
-                            {{items.Type == 1 ? 'แจ้งเตือนทั่วไป' : 'แจ้งเตือนการกินยา' }}
-                        </td>
                         <td class="text-left align-middle" style="width:40%;padding-left:50px;">
                             <p>
                                 {{items.Topic}}
@@ -63,7 +59,7 @@
                             {{items.Publish == true ? 'เปิด' : 'ปิด' }}
                         </td>
                         <td class="text-center align-middle" style="width:15%;">
-                            <input class="btn btn-info" style="width: 150px;font-size:16px;border-radius:10px;background-color:#0073fa" value="Update" data-toggle="modal" data-target="#RemarkModal" v-on:click="UpdateRemark(items)" />
+                            <input class="btn btn-info" style="width: 150px;font-size:16px;border-radius:10px;background-color:#0073fa" value="Update" data-toggle="modal" data-target="#RemarkModal" v-on:click="UpdateRemark(items)"/>
                         </td>
                     </tr>
                     <!--<tr>
@@ -147,7 +143,6 @@
                 modelDescription: '',
                 modelDate: null,
                 modelPulish: true,
-                modelType: 0,
             }],
             flagupdate: false,
         },
@@ -171,7 +166,7 @@
                 var conf = confirm("ยืนยันการบันทึก [ใช่หรือไม่]");
                 if (conf === true) {
                     if (!that.flagupdate) {
-                        that.$http.post('@Url.Action("AddAlert", "Home")', {
+                        that.$http.post('@Url.Action("AddMeetingAlert", "Home")', {
                             tmpData: JSON.stringify(that.modaldata),
                             tmpCustomerID: that.tmpCustomer.ID
                         }).then(function (response) {
@@ -182,7 +177,7 @@
                         });
                     }
                     else {
-                        that.$http.post('@Url.Action("UpdateAlert", "Home")', {
+                        that.$http.post('@Url.Action("UpdateMeetingAlert", "Home")', {
                             tmpData: JSON.stringify(that.modaldata),
                             tmpCustomerID: that.tmpCustomer.ID
                         }).then(function (response) {
@@ -205,7 +200,6 @@
                     modelDescription: '',
                     modelDate: null,
                     modelPulish: true,
-                    modelType: 0,
                 }];
 
                 that.flagupdate = true;
@@ -214,11 +208,10 @@
                 that.modaldata[0].modelDescription = val.Description;
                 that.modaldata[0].modelDate = that.parseDate(val.Alert_Date);
                 that.modaldata[0].modelPulish = val.Publish;
-                that.modaldata[0].modelType = val.Type;
             },
             GetDataRemark:function(){
                 var that=this;
-                that.$http.post('@Url.Action("GetDataRemark", "Home")', {
+                that.$http.post('@Url.Action("GetDataMeeting", "Home")', {
                     tmpCustomerID: that.tmpCustomer.ID
                 }).then(function (response) {
                     if (response.data.ContentEncoding == 200) {

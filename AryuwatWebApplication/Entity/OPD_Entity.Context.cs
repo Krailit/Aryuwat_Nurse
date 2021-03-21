@@ -128,9 +128,9 @@ namespace AryuwatWebApplication.Entity
         public virtual DbSet<V_Administrative> V_Administrative { get; set; }
         public virtual DbSet<View_Customer> View_Customer { get; set; }
         public virtual DbSet<vProductToSOMO> vProductToSOMOes { get; set; }
-        public virtual DbSet<PatientChange> PatientChanges { get; set; }
-        public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<PatientData> PatientDatas { get; set; }
+        public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<PatientChange> PatientChanges { get; set; }
         public virtual DbSet<Alert_Detail> Alert_Detail { get; set; }
     
         [DbFunction("OPD_SystemEntities", "SplitString")]

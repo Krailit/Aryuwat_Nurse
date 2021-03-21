@@ -20,6 +20,7 @@ namespace AryuwatWebApplication.Entity
         public Nullable<int> Type { get; set; }
         public Nullable<System.DateTime> DateChange { get; set; }
         public Nullable<System.DateTime> NextDateChange { get; set; }
+        public Nullable<bool> Publish { get; set; }
         public Nullable<bool> Is_Active { get; set; }
         public string Create_By { get; set; }
         public Nullable<System.DateTime> Create_Date { get; set; }

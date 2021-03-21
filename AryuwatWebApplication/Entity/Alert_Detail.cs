@@ -16,6 +16,8 @@ namespace AryuwatWebApplication.Entity
     {
         public int ID { get; set; }
         public Nullable<int> FK_Customer_ID { get; set; }
+        public Nullable<int> Remark_Type { get; set; }
+        public Nullable<int> Alert_Type { get; set; }
         public string Topic { get; set; }
         public string Description { get; set; }
         public Nullable<System.DateTime> Alert_Date { get; set; }
