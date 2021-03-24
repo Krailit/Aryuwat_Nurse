@@ -103,6 +103,7 @@ namespace Entity
           public string Interest { get; set; }
           public DateTime? DateConnect { get; set; }
           public DateTime? DateBooking { get; set; }
+          public bool? Is_Active { get; set; }
             public decimal CloseBal { get; set; }
      
                  

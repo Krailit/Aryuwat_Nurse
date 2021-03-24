@@ -105,9 +105,8 @@ namespace AryuwatSystem.Data
                                                    new SqlParameter("@MainOfficeCust", info.MainOfficeCust),
                                                    new SqlParameter("@BranchCust", info.BranchCust),
                                                    new SqlParameter("@BranchAuth", info.BranchAuth),
-                                                   new SqlParameter("@BranchID", info.BranchId)
-                                                   
-
+                                                   new SqlParameter("@BranchID", info.BranchId),
+                                                   new SqlParameter("@Active", info.Is_Active)
                                                };
                 int intStatus =
                     SqlHelper.ExecuteNonQuery(trn, CommandType.StoredProcedure, "sp_customer", msSqlParameter);
@@ -316,7 +315,8 @@ namespace AryuwatSystem.Data
                                                new SqlParameter("@Country_ID",info.Country),
                                                new SqlParameter("@SaleConsult", info.SaleConsult),
                                                new SqlParameter("@MainOfficeCust", info.MainOfficeCust),
-                                               new SqlParameter("@BranchCust", info.BranchCust)
+                                               new SqlParameter("@BranchCust", info.BranchCust),
+                                               new SqlParameter("@Active", info.Is_Active)
                                            };
             int intStatus =
                 SqlHelper.ExecuteNonQuery(trn, CommandType.StoredProcedure, "sp_customer", msSqlParameter);

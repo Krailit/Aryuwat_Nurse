@@ -917,6 +917,7 @@ namespace AryuwatSystem.Forms
             info.IdCard = cardId;
             info.PassportNo = txtPassportNo.Text.Trim();
             info.VipFlag = chkVip.Checked ? "Y" : "N";
+            info.Is_Active = chkActive.Checked ? true : false;
             info.Celeb =checkBoxceleb.Checked ? "Y" : "N";
             info.Remark = txtRemark.Text.Trim();
             info.AllergyHistory = txtAllergyHist.Text.Trim();
@@ -1775,6 +1776,7 @@ namespace AryuwatSystem.Forms
                 {
                     chkVip.Checked = dtCust.Rows[0]["VipFlag"] + ""=="Y";
                 }
+                chkActive.Checked = Convert.ToBoolean(dtCust.Rows[0]["Is_Active"]) == true;
                 checkBoxceleb.Checked = dtCust.Rows[0]["Celeb"] + "" == "Y";
                 txtRemark.Text = dtCust.Rows[0]["Remark"] + "";
                 txtAllergyHist.Text = dtCust.Rows[0]["AllergyHistory"] + "";
