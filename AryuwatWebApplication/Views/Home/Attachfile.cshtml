@@ -2,82 +2,97 @@
 @{
     ViewBag.Title = "Attach File Patient";
 }
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-<div id="app" style="font-size:30px">
-    <div class="container" style="background-color:#f3f3f3;margin-top: -20px;padding-top: 10px; padding-bottom: 30px">
-        <div class="row">
-            <div class="col-lg-1">
-                <a v-on:click="BackCustomer()"><i class="fa fa-angle-left"></i></a>
-            </div>
-            <div class="col-lg-11">
-                <u style="font-size:30px; font-weight:600">{{tmpCustomer.Tname + ' ' + tmpCustomer.TsurName}}</u>
-            </div>
-            <div class="col-lg-1">
-            </div>
-            <div class="col-lg-11">
-                <p style="font-size:20px;">CN : {{tmpCustomer.CN}}</p>
+<div id="app" class="container-fluid">
+    <header class="page-header page-header-dark bg-gradient-primary-to-secondary pb-10" style="background-color:#ffe480">
+        <div class="container">
+            <div class="page-header-content pt-4">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-auto mt-4">
+                        <div class="row">
+                            <div class="col-lg-1" style="padding-top: 9px;">
+                                <a v-on:click="BackCustomer()" style="color:black;font-size:30px;"><i class="fa fa-angle-double-left"></i></a>
+                            </div>
+                            <div class="col-lg-6">
+                                <h1 class="page-header-title">
+                                    {{tmpCustomer.Patient_Name}}
+                                </h1>
+                            </div>
+                            <div class="col-lg-5">
+                                <h1 class="page-header-title">
+                                    {{'Room : ' + (tmpCustomer.Room == null ? '-' : tmpCustomer.Room)}}
+                                </h1>
+                            </div>
+                            <div class="col-lg-1">
+                            </div>
+                            <div class="col-lg-11">
+                                <div class="page-header-subtitle">CN : {{tmpCustomer.CN}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container" style="background-color:#e6e6e6;">
-        <div class="row color-text" style="margin-top: 20px;margin-bottom: 10px;">
-            @*<div class="col-lg-1" style="text-align:right">
-                    <a href="@Url.Content("~/Home/PatientDetail")"><i class="fa fa-angle-left"></i></a>
-                </div>*@
-            <div class="col-lg-11">
-                <p style="font-size:30px">ไฟล์แนบผู้ป่วย</p>
+    </header>
+    <div class="container mt-n10">
+        <div class="card mb-4">
+            <div class="card-header">Patient File</div>
+            <div class="card-body">
+                <div class="datatable">
+                    <table class="table table-bordered table-hover" id="dataTable" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th class="text-right align-middle" colspan="6">
+                                    {{AttachFileName}}
+                                    <button class="btn btn-indigo btn-sm" v-on:click="callfile()" v-if="AttachFileName == ''"><i class="fa fa-upload"></i>&nbsp; Upload file</button>
+                                    <input id="FormulaAttachFile"
+                                           accept=".gif, .jpg, .png"
+                                           type="file"
+                                           ref="ApplicantRegister"
+                                           style="display:none"
+                                           v-on:change="onFileFormulaChange($event)">
+                                    <button class="btn btn-success btn-sm" v-on:click="uploadfile()" v-if="AttachFileName != ''">&nbsp; Upload or Select</button>
+                                </th>
+                            </tr>
+                        </thead>
+                        <thead>
+                            <tr>
+                                <th class="text-center align-middle" style="padding-left:50px;" colspan="2">Name</th>
+                                <th class="text-center align-middle" style="">Detail</th>
+                                <th class="text-center align-middle" style="">Last Modified</th>
+                                <th class="text-center align-middle" style="">Preview</th>
+                                <th class="text-center align-middle" style="">Manage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr :key="index" v-for="(items, index) in Attachfile" v-if="Attachfile.length > 0" class="rowHover">
+                                <td class="text-left align-middle" style="padding-left:50px;" colspan="2">
+                                    <p>
+                                        <i class="fa fa-image"></i>
+                                        {{items.FileName}}
+                                    </p>
+                                </td>
+                                <td class="text-center align-middle" style="">
+                                    {{items.Detail}}
+                                </td>
+                                <td class="text-center align-middle" style="">
+                                    {{parseJsonDate(items.DateSave)}}
+                                </td>
+                                <td class="text-center align-middle" style="">
+                                    <button class="btn btn-datatable btn-icon btn-transparent mr-2" v-on:click="popupImage(items.FileName)" data-toggle="modal" data-target="#myModal"><i class="fa fa-search"></i></button>
+                                </td>
+                                <td class="text-center align-middle" style="">
+                                    <button class="btn btn-datatable btn-icon btn-transparent mr-2" v-on:click="deleteImage(items.Id)"><i class="fa fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr v-if="Attachfile.length == 0">
+                                <td class="text-left" colspan="6">
+                                    No data available in table
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
-        <div class="row color-text" style="margin-bottom: 5rem;margin-left: 10px;margin-right: 10px;background-color:white;border-radius:20px">
-            <table class="table hb-table hb-table-dashboard" style="font-size:22px;width:100%">
-                <thead>
-                    <tr>
-                        <th class="text-right align-middle" colspan="4">
-                            {{AttachFileName}}
-                            <input class="btn btn-info" style="width: 150px;font-size:16px;border-radius:10px;background-color:#808080;" value="Upload file" v-on:click="callfile()" v-if="AttachFileName == ''"/>
-                            <input id="FormulaAttachFile"
-                                   accept=".gif, .jpg, .png"
-                                   type="file"
-                                   ref="ApplicantRegister"
-                                   style="display:none"
-                                   v-on:change="onFileFormulaChange($event)">
-                            <input class="btn btn-success" style="width: 150px;font-size:16px;border-radius:10px;" value="Upload or Select" v-on:click="uploadfile()" v-if="AttachFileName != ''"/>
-                        </th>
-                    <th class="text-left align-middle"><i class="fa fa-share-alt"></i></th>
-                    </tr>
-                    <tr style="font-weight:500">
-                        @*<td class="text-center align-middle" style="width:5%;"><input type="checkbox" style="transform: scale(1.5);" /></td>*@
-                        <td class="text-center align-middle" style="width:50%;padding-left:50px;" colspan="2">Name</td>
-                        <td class="text-center align-middle" style="width:28%;">Detail</td>
-                        <td class="text-center align-middle" style="width:20%;">Last Modified</td>
-                        <td class="text-center align-middle" style="width:2%;"></td>
-                    </tr>
-                </thead>
-                <tbody style="font-weight:400;font-size:18px">
-                    <tr :key="index" v-for="(items, index) in Attachfile" v-if="Attachfile.length > 0" class="rowHover" style="border-bottom: 1px solid #cbc3c3;height: 60px;cursor:pointer;"
-                        v-on:click="popupImage(items.FileName)" data-toggle="modal" data-target="#myModal">
-                        @*<td class="text-center align-middle" style="width:5%;">
-                                <input type="checkbox" style="transform: scale(1.5);" />
-                            </td>*@
-                        <td class="text-left align-middle" style="width:50%;padding-left:50px;" colspan="2">
-                            <p>
-                                <i class="fa fa-image"></i>
-                                {{items.FileName}}
-                            </p>
-                        </td>
-                        <td class="text-center align-middle" style="width:28%;">
-                            {{items.Detail}}
-                        </td>
-                        <td class="text-center align-middle" style="width:20%;">
-                            {{parseJsonDate(items.DateSave)}}
-                        </td>
-                        <td class="text-center align-middle" style="width:2%;"></td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
     </div>
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -90,6 +105,15 @@
                     <button type="button" class="btn" data-dismiss="modal">Close</button>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="fade"
+         :class="{'modal-backdrop show' : showload}"
+         :style="{'cursor' : (showload ? 'wait': ''),'z-index' : (showload ? '9999': '')}">
+        <div v-if="showload" style="color:white;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%)">
+            <i class="fa fa-plus fa-spin fa-3x fa-fw"></i><br />
+            <span>Loading...</span>
         </div>
     </div>
 </div>
@@ -107,6 +131,7 @@
             fileURL: '',
             File: "",
             AttachFileName: "",
+            showload: false,
         },
         mounted: function () {
             var that = this;
@@ -146,6 +171,7 @@
                 var that = this;
                 var conf = confirm("คุณต้องการอัพโหลดไฟล์นี้ [ใช่หรือไม่]");
                 if (conf === true) {
+                    that.showload = true;
                     var formData = new FormData();
                     formData.append("CN", that.tmpCustomer.CN);
                     formData.append("AttachFileData", that.File);
@@ -155,6 +181,12 @@
                             alert('Upload success !');
                             location.reload();
                         }
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    })
+                    .finally(function () {
+                        that.showload = false;
                     });
                 }
                 else {
@@ -165,17 +197,43 @@
                 var that = this;
                 that.fileURL = 'https://aryuwat.onnli.co/AttachFile_Aryuwat/' + filename;
             },
+            deleteImage:function(val){
+                var that = this;
+                var conf = confirm("คุณต้องการอัพโหลดไฟล์นี้ [ใช่หรือไม่]");
+                if (conf === true) {
+                    that.showload = true;
+                    that.$http.get('@Url.Action("DeleteAttachfile", "Home")?AttachId=' + val)
+                        .then(function (response) {
+                            if (response.data.ContentEncoding == 200) {
+                                location.reload();
+                            }
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        })
+                        .finally(function () {
+                            that.showload = false;
+                        });
+                }
+            },
             parseJsonDate: function (jsonDateString){
                 return moment(jsonDateString).format("MMM DD, YYYY").toUpperCase();
             },
             GetAttachfile:function(){
-                var that=this;
+                var that = this;
+                that.showload = true;
                 that.$http.get('@Url.Action("GetAttachfile", "Home")?customerCN=' + that.tmpCustomer.CN)
                     .then(function (response) {
                         if (response.data.ContentEncoding == 200) {
                             that.Attachfile = response.data.data;
                         }
-                });
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    })
+                    .finally(function () {
+                        that.showload = false;
+                    });
             },
         }
     });

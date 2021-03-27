@@ -2,88 +2,85 @@
 @{
     ViewBag.Title = "Remark Patient";
 }
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-<div id="app" style="font-size:30px">
-    <div class="container" style="background-color:#f3f3f3;margin-top: -20px;padding-top: 10px; padding-bottom: 30px">
-        <div class="row">
-            <div class="col-lg-1">
-                <a v-on:click="BackCustomer()"><i class="fa fa-angle-left" style="cursor:pointer"></i></a>
-            </div>
-            <div class="col-lg-11">
-                <u style="font-size:30px; font-weight:600">{{tmpCustomer.Tname + ' ' + tmpCustomer.TsurName}}</u>
-            </div>
-            <div class="col-lg-1">
-            </div>
-            <div class="col-lg-11">
-                <p style="font-size:20px;">CN : {{tmpCustomer.CN}}</p>
+<div id="app" class="container-fluid">
+    <header class="page-header page-header-dark bg-gradient-primary-to-secondary pb-10" style="background-color:#ffe480">
+        <div class="container">
+            <div class="page-header-content pt-4">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-auto mt-4">
+                        <div class="row">
+                            <div class="col-lg-1" style="padding-top: 9px;">
+                                <a v-on:click="BackCustomer()" style="color:black;font-size:30px;"><i class="fa fa-angle-double-left"></i></a>
+                            </div>
+                            <div class="col-lg-6">
+                                <h1 class="page-header-title">
+                                    {{tmpCustomer.Patient_Name}}
+                                </h1>
+                            </div>
+                            <div class="col-lg-5">
+                                <h1 class="page-header-title">
+                                    {{'Room : ' + (tmpCustomer.Room == null ? '-' : tmpCustomer.Room)}}
+                                </h1>
+                            </div>
+                            <div class="col-lg-1">
+                            </div>
+                            <div class="col-lg-11">
+                                <div class="page-header-subtitle">CN : {{tmpCustomer.CN}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container" style="background-color:#e6e6e6;">
-        <div class="row color-text" style="margin-top: 20px;margin-bottom: 10px;">
-            <div class="col-lg-11">
-                <p style="font-size:28px">แจ้งเตือน Remark และแจ้งเตือนการกินยา</p>
+    </header>
+    <div class="container mt-n10">
+        <div class="card mb-4">
+            <div class="card-header">Remark</div>
+            <div class="card-body">
+                <div class="datatable">
+                    <table class="table table-bordered table-hover" id="dataTable" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th class="text-center align-middle" style="padding-left:50px;">ประเภทการแจ้งเตือน</th>
+                                <th class="text-center align-middle" style="">รายการ</th>
+                                <th class="text-center align-middle" style="">รายละเอียด</th>
+                                <th class="text-center align-middle" style="">วันที่แจ้งเตือน</th>
+                                <th class="text-center align-middle" style="">สถานะแจ้งเตือน</th>
+                                <th class="text-center align-middle" style="">Update</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr :key="index" v-for="(items, index) in dataRemark" v-if="dataRemark.length > 0" class="rowHover">
+                                <td class="text-left align-middle">
+                                    {{items.Remark_Type == 1 ? 'แจ้งเตือนทั่วไป' : 'แจ้งเตือนการกินยา' }}
+                                </td>
+                                <td class="text-left align-middle" style="width:40%;padding-left:50px;">
+                                    <p>
+                                        {{items.Topic}}
+                                    </p>
+                                </td>
+                                <td class="text-left align-middle">
+                                    {{items.Description}}
+                                </td>
+                                <td class="text-center align-middle">
+                                    {{parseDate(items.Alert_Date)}}
+                                </td>
+                                <td class="text-center align-middle">
+                                    {{items.Publish == true ? 'เปิด' : 'ปิด' }}
+                                </td>
+                                <td class="text-center align-middle">
+                                    <button class="btn btn-outline-success btn-sm" type="button" data-toggle="modal" data-target="#RemarkModal" v-on:click="UpdateRemark(items)">Update</button>
+                                </td>
+                            </tr>
+                            <tr v-if="dataRemark.length == 0">
+                                <td class="text-left" colspan="5">
+                                    No data available in table
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
-        <div class="row color-text" style="margin-bottom: 5rem;margin-left: 10px;margin-right: 10px;background-color:white;border-radius:20px">
-            <div class="col-lg-12 text-right" style="padding-bottom:5px;">
-                <input class="btn btn-success" style="width: 150px;font-size:16px;border-radius:10px;" value="Add" data-toggle="modal" data-target="#RemarkModal" />
-            </div>
-            <table class="table hb-table hb-table-dashboard" style="font-size:22px;width:100%">
-                <thead>
-                    <tr style="font-weight:500;border-top:1px solid #ddd">
-                        <td class="text-center align-middle" style="width:15%;padding-left:50px;">ประเภทการแจ้งเตือน</td>
-                        <td class="text-center align-middle" style="width:20%;padding-left:50px;">รายการ</td>
-                        <td class="text-center align-middle" style="width:20%;">รายละเอียด</td>
-                        <td class="text-center align-middle" style="width:15%;">วันที่แจ้งเตือน</td>
-                        <td class="text-center align-middle" style="width:15%;">สถานะแจ้งเตือน</td>
-                        <td class="text-center align-middle" style="width:15%;">Update</td>
-                    </tr>
-                </thead>
-                <tbody style="font-weight:400;font-size:18px">
-                    <tr :key="index" v-for="(items, index) in dataRemark" v-if="dataRemark.length > 0" class="rowHover" style="border-bottom: 1px solid #cbc3c3;height: 60px;">
-                        <td class="text-left align-middle" style="width:15%;">
-                            {{items.Remark_Type == 1 ? 'แจ้งเตือนทั่วไป' : 'แจ้งเตือนการกินยา' }}
-                        </td>
-                        <td class="text-left align-middle" style="width:40%;padding-left:50px;">
-                            <p>
-                                {{items.Topic}}
-                            </p>
-                        </td>
-                        <td class="text-left align-middle" style="width:15%;">
-                            {{items.Description}}
-                        </td>
-                        <td class="text-center align-middle" style="width:15%;">
-                            {{parseDate(items.Alert_Date)}}
-                        </td>
-                        <td class="text-center align-middle" style="width:15%;">
-                            {{items.Publish == true ? 'เปิด' : 'ปิด' }}
-                        </td>
-                        <td class="text-center align-middle" style="width:15%;">
-                            <input class="btn btn-info" style="width: 150px;font-size:16px;border-radius:10px;background-color:#0073fa" value="Update" data-toggle="modal" data-target="#RemarkModal" v-on:click="UpdateRemark(items)" />
-                        </td>
-                    </tr>
-                    <!--<tr>
-                        <td class="text-left align-middle" style="width:40%;padding-left:50px;">แจ้งเตือน Remark</td>
-                        <td class="text-left align-middle" style="width:20%;">ญาติอารมร้อน</td>
-                        <td class="text-left align-middle" style="width:20%;">ปิด</td>
-                        <td class="text-center align-middle" style="width:20%;">
-                            <input class="btn btn-info" style="width: 150px;font-size:16px;border-radius:10px;background-color:#0073fa" value="Update" data-toggle="modal" data-target="#RemarkModal"--> @*v-on:click="UpdateMedical(1,oneLastChange)"*@ <!--/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-left align-middle" style="width:40%;padding-left:50px;">ท่อปัสสวะ เปลี่ยนทุกๆ 15 วัน</td>
-                        <td class="text-left align-middle" style="width:20%;">Feb 5, 2021</td>
-                        <td class="text-left align-middle" style="width:20%;">เปิด</td>
-                        <td class="text-center align-middle" style="width:20%;">
-                            <input class="btn btn-info" style="width: 150px;font-size:16px;border-radius:10px;background-color:#0073fa" value="Update" data-toggle="modal" data-target="#RemarkModal"--> @*v-on:click="UpdateMedical(1,oneLastChange)"*@ <!--/>
-                        </td>
-                    </tr>-->
-                </tbody>
-            </table>
         </div>
     </div>
     <div class="modal fade" id="RemarkModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true" style="font-size: 18px">
@@ -136,6 +133,14 @@
             </div>
         </div>
     </div>
+    <div class="fade"
+         :class="{'modal-backdrop show' : showload}"
+         :style="{'cursor' : (showload ? 'wait': ''),'z-index' : (showload ? '9999': '')}">
+        <div v-if="showload" style="color:white;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%)">
+            <i class="fa fa-plus fa-spin fa-3x fa-fw"></i><br />
+            <span>Loading...</span>
+        </div>
+    </div>
 </div>
 <script src="~/Scripts/vue.js"></script>
 <script src="~/Scripts/axios.js"></script>
@@ -156,6 +161,7 @@
                 modelPulish: true,
                 modelType: 0,
             }],
+            showload: false,
             flagupdate: false,
         },
         mounted: function () {
@@ -177,6 +183,7 @@
                 var that = this;
                 var conf = confirm("ยืนยันการบันทึก [ใช่หรือไม่]");
                 if (conf === true) {
+                    that.showload = true;
                     if (!that.flagupdate) {
                         that.$http.post('@Url.Action("AddAlert", "Home")', {
                             tmpData: JSON.stringify(that.modaldata),
@@ -186,6 +193,12 @@
                                 alert('Add Data Success');
                                 location.reload();
                             }
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        })
+                        .finally(function () {
+                            that.showload = false;
                         });
                     }
                     else {
@@ -197,6 +210,12 @@
                                 alert('Update Data Success');
                                 location.reload();
                             }
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        })
+                        .finally(function () {
+                            that.showload = false;
                         });
                     }
                 }
@@ -224,13 +243,20 @@
                 that.modaldata[0].modelType = val.Remark_Type;
             },
             GetDataRemark:function(){
-                var that=this;
+                var that = this;
+                that.showload = true;
                 that.$http.post('@Url.Action("GetDataRemark", "Home")', {
                     tmpCustomerID: that.tmpCustomer.ID
                 }).then(function (response) {
                     if (response.data.ContentEncoding == 200) {
                         that.dataRemark = response.data.data;
                     }
+                })
+                .catch(function (error) {
+                    console.log(error);
+                })
+                .finally(function () {
+                    that.showload = false;
                 });
             },
         }

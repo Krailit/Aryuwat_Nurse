@@ -2,148 +2,169 @@
 @{
     ViewBag.Title = "Patient Data";
 }
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="http://code.highcharts.com/highcharts.js"></script>
 <script src="http://code.highcharts.com/modules/exporting.js"></script>
 <script src="http://code.highcharts.com/themes/grid.js"></script>
-<div id="app" style="font-size:30px">
-    <div>
-        <div class="container" style="background-color:#f3f3f3;margin-top: -20px;padding-top: 10px; padding-bottom: 30px">
-            <div class="row">
-                <div class="col-lg-1">
-                    <a v-on:click="BackCustomer()"><i class="fa fa-angle-left" style="cursor:pointer"></i></a>
-                </div>
-                <div class="col-lg-11">
-                    <u style="font-size:30px; font-weight:600">{{tmpCustomer.Tname + ' ' + tmpCustomer.TsurName}}</u>
-                </div>
-                <div class="col-lg-1">
-                </div>
-                <div class="col-lg-11">
-                    <p style="font-size:20px;">CN : {{tmpCustomer.CN}}</p>
-                </div>
-            </div>
-        </div>
-        <div class="container" style="background-color:#e6e6e6;">
-            <div class="row color-text" style="margin-top: 20px;margin-bottom: 10px;">
-                <div class="col-lg-11">
-                    <p style="font-size:30px">ตรวจวัดข้อมูลผู้ป่วย</p>
-                </div>
-            </div>
-            <div id="content" class="row color-text" style="margin-bottom: 5rem;margin-left: 10px;margin-right: 10px;background-color:white;border-radius:20px">
-                <div id="chart" style="width: 1000px; height: 400px; margin: 0 auto"></div>
-            </div>
-            <div class="row color-text" style="margin-bottom: 5rem;margin-left: 10px;margin-right: 10px;background-color:white;border-radius:20px">
-                <table class="table hb-table hb-table-dashboard" style="font-size:22px;width:100%;margin-left: 1%;margin-right: 1%;">
-                    <thead style="font-weight:500;border-bottom:2px solid #000000">
-                        <tr>
-                            <td class="text-center align-middle" style="border-right: 1px solid #ddd;">Date</td>
-                            <td class="text-center align-middle" style="border-right: 1px solid #ddd;">Time</td>
-                            <td class="text-center align-middle" style="border-right: 1px solid #ddd;">T</td>
-                            <td class="text-center align-middle" style="border-right: 1px solid #ddd;">P</td>
-                            <td class="text-center align-middle" style="border-right: 1px solid #ddd;">R</td>
-                            <td class="text-center align-middle" style="border-right: 1px solid #ddd;">BP</td>
-                            <td class="text-center align-middle" style="">O2</td>
-                        </tr>
-                    </thead>
-                    <tbody style="font-weight:400;font-size:18px">
-                        <tr :key="index" v-for="(items, index) in PatientData" v-if="PatientData.length > 0" data-toggle="modal" data-target="#myModal" style="cursor: pointer;" v-on:click="openPopup(items)" class="rowHover">
-                            <td class="text-center align-middle" style="border-bottom: 1px solid #ddd;border-right: 1px solid #ddd;">
-                                {{ items.Date }}
-                            </td>
-                            <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
-                                {{ items.Time }}
-                            </td>
-                            <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
-                                {{ items.T }}
-                            </td>
-                            <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
-                                {{ items.PulseSBP == null || items.PulseSBP == '' || items.PulseDBP == null || items.PulseDBP == '' ? '' : items.PulseSBP + ' / ' + items.PulseDBP }}
-                            </td>
-                            <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
-                                {{ items.R }}
-                            </td>
-                            <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
-                                {{ items.BP }}
-                            </td>
-                            <td class="text-center align-middle" style="border-bottom: 1px solid #ddd;">
-                                {{ items.O2 }}
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true" style="font-size: 18px">
-                <div class="modal-dialog modal-dialog-scrollable" style="width: 1000px;" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title" id="exampleModalScrollableTitle">เพิ่ม / แก้ไข ข้อมูล</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="container-fluid">
-                                <div class="row" style="padding: 10px">
-                                    <div class="col-6" style="padding-bottom: 20px">
-                                        <h4 class="modal-title" id="exampleModalScrollableTitle">วันที่ : <u style="padding-left: 10%">{{ popPatientData.Date }} </u></h4>
-                                    </div>
-                                    <div class="col-6">
-                                        <h4 class="modal-title" id="exampleModalScrollableTitle"> เวลา : <u style="padding-left: 10%">{{ popPatientData.Time }} </u></h4>
-                                    </div>
-                                    <div class="col-3">
-                                        <p style="text-align:right">T :</p>
-                                    </div>
-                                    <div class="col-9">
-                                        <input type="number" v-model="popPatientData.T" style="font-size: 16px;width: 5ch" />
-                                    </div>
-                                    <div class="col-3">
-                                        <p style="text-align:right">P (SBP) :</p>
-                                    </div>
-                                    <div class="col-3">
-                                        <input type="number" v-model="popPatientData.PulseSBP" style="font-size: 16px;width: 5ch" />
-                                    </div>
-                                    <div class="col-3">
-                                        <p style="text-align:right">P (DBP) :</p>
-                                    </div>
-                                    <div class="col-3">
-                                        <input type="number" v-model="popPatientData.PulseDBP" style="font-size: 16px;width: 5ch" />
-                                    </div>
-                                    <div class="col-3">
-                                        <p style="text-align:right">R :</p>
-                                    </div>
-                                    <div class="col-3">
-                                        <input type="number" v-model="popPatientData.R" style="font-size: 16px;width: 5ch" />
-                                    </div>
-                                    <div class="col-3">
-                                        <p style="text-align:right">BP :</p>
-                                    </div>
-                                    <div class="col-3">
-                                        <input type="number" v-model="popPatientData.BP" style="font-size: 16px;width: 5ch" />
-                                    </div>
-                                    <div class="col-3">
-                                        <p style="text-align:right">O2 :</p>
-                                    </div>
-                                    <div class="col-3">
-                                        <input type="number" v-model="popPatientData.O2" style="font-size: 16px;width: 5ch" />
-                                    </div>
-                                </div>
+<div id="app" class="container-fluid">
+    <header class="page-header page-header-dark bg-gradient-primary-to-secondary pb-10" style="background-color:#ffe480">
+        <div class="container">
+            <div class="page-header-content pt-4">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-auto mt-4">
+                        <div class="row">
+                            <div class="col-lg-1" style="padding-top: 9px;">
+                                <a v-on:click="BackCustomer()" style="color:black;font-size:30px;"><i class="fa fa-angle-double-left"></i></a>
                             </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" v-on:click="SaveDataPatient()">Save changes</button>
+                            <div class="col-lg-6">
+                                <h1 class="page-header-title">
+                                    {{tmpCustomer.Patient_Name}}
+                                </h1>
+                            </div>
+                            <div class="col-lg-5">
+                                <h1 class="page-header-title">
+                                    {{'Room : ' + (tmpCustomer.Room == null ? '-' : tmpCustomer.Room)}}
+                                </h1>
+                            </div>
+                            <div class="col-lg-1">
+                            </div>
+                            <div class="col-lg-11">
+                                <div class="page-header-subtitle">CN : {{tmpCustomer.CN}}</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
+        </div>
+    </header>
+    <div class="container mt-n10">
+        <div class="card mb-4">
+            <div class="card-header">ตรวจวัดข้อมูลผู้ป่วย</div>
+            <div class="card-body">
+                <div class="datatable">
+                    <div id="chart" style="width: 1000px; height: 400px; margin: 0 auto"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="card mb-4">
+            <div class="card-header">ตรวจวัดข้อมูลผู้ป่วย</div>
+            <div class="card-body">
+                <div class="datatable">
+                    <table class="table table-bordered table-hover" id="dataTable" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th class="text-center align-middle">Date</th>
+                                <th class="text-center align-middle">Time</th>
+                                <th class="text-center align-middle">T</th>
+                                <th class="text-center align-middle">BP</th>
+                                <th class="text-center align-middle">R</th>
+                                <th class="text-center align-middle">P</th>
+                                <th class="text-center align-middle">O2</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr :key="index" v-for="(items, index) in PatientData" v-if="PatientData.length > 0" data-toggle="modal" data-target="#myModal" style="cursor: pointer;" v-on:click="openPopup(items)" class="rowHover">
+                                <td class="text-center align-middle" style="border-bottom: 1px solid #ddd;border-right: 1px solid #ddd;">
+                                    {{ items.Date }}
+                                </td>
+                                <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
+                                    {{ items.Time }}
+                                </td>
+                                <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
+                                    {{ items.T }}
+                                </td>
+                                <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
+                                    {{ items.PulseSBP == null || items.PulseSBP == '' || items.PulseDBP == null || items.PulseDBP == '' ? '' : items.PulseSBP + ' / ' + items.PulseDBP }}
+                                </td>
+                                <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
+                                    {{ items.R }}
+                                </td>
+                                <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
+                                    {{ items.BP }}
+                                </td>
+                                <td class="text-center align-middle" style="border-bottom: 1px solid #ddd;">
+                                    {{ items.O2 }}
+                                </td>
+                            </tr>
+                            <tr v-if="PatientData.length == 0">
+                                <td class="text-left" colspan="6">
+                                    No data available in table
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true" style="font-size: 18px">
+        <div class="modal-dialog modal-dialog-scrollable" style="width: 1000px;" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalScrollableTitle">เพิ่ม / แก้ไข ข้อมูล</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row" style="padding: 10px">
+                            <div class="col-6" style="padding-bottom: 20px">
+                                <h4 class="modal-title" id="exampleModalScrollableTitle"> วันที่ : <u style="padding-left: 10%">{{ popPatientData.Date }} </u></h4>
+                            </div>
+                            <div class="col-6">
+                                <h4 class="modal-title" id="exampleModalScrollableTitle"> เวลา : <u style="padding-left: 10%">{{ popPatientData.Time }} </u></h4>
+                            </div>
+                            <div class="col-3">
+                                <p style="text-align:right">T :</p>
+                            </div>
+                            <div class="col-9">
+                                <input type="number" v-model="popPatientData.T" style="font-size: 16px;width: 5ch" />
+                            </div>
+                            <div class="col-3">
+                                <p style="text-align:right">P (SBP) :</p>
+                            </div>
+                            <div class="col-3">
+                                <input type="number" v-model="popPatientData.PulseSBP" style="font-size: 16px;width: 5ch" />
+                            </div>
+                            <div class="col-3">
+                                <p style="text-align:right">P (DBP) :</p>
+                            </div>
+                            <div class="col-3">
+                                <input type="number" v-model="popPatientData.PulseDBP" style="font-size: 16px;width: 5ch" />
+                            </div>
+                            <div class="col-3">
+                                <p style="text-align:right">R :</p>
+                            </div>
+                            <div class="col-3">
+                                <input type="number" v-model="popPatientData.R" style="font-size: 16px;width: 5ch" />
+                            </div>
+                            <div class="col-3">
+                                <p style="text-align:right">BP :</p>
+                            </div>
+                            <div class="col-3">
+                                <input type="number" v-model="popPatientData.BP" style="font-size: 16px;width: 5ch" />
+                            </div>
+                            <div class="col-3">
+                                <p style="text-align:right">O2 :</p>
+                            </div>
+                            <div class="col-3">
+                                <input type="number" v-model="popPatientData.O2" style="font-size: 16px;width: 5ch" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" v-on:click="SaveDataPatient()">Save changes</button>
+                </div>
+            </div>
         </div>
     </div>
     <div class="fade"
-         :class="{'modal-backdrop show' : showLoad1}"
-         :style="{'cursor' : (showLoad1 ? 'wait': ''),'z-index' : (showLoad1 ? '9999': '')}">
-        <div v-if="showLoad1" style="color:white;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%)">
+         :class="{'modal-backdrop show' : showLoad}"
+         :style="{'cursor' : (showLoad ? 'wait': ''),'z-index' : (showLoad ? '9999': '')}">
+        <div v-if="showLoad" style="color:white;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%)">
             <i class="fa fa-plus fa-spin fa-3x fa-fw"></i><br />
             <span>Loading...</span>
         </div>
@@ -153,7 +174,6 @@
 <script src="~/Scripts/axios.js"></script>
 <script src="~/Scripts/moment.js"></script>
 <script>
-
     var tempchart = @Html.Raw(Json.Encode(@Model.chart));
     var tempchart2 = @Html.Raw(Json.Encode(@Model.chart2));
     var lblChartData = [];
@@ -169,12 +189,13 @@
             PatientData: [],
             popPatientData: [],
             fileURL: '',
-            showLoad1: false,
+            showLoad: false,
             File: "",
             AttachFileName: "",
         },
         mounted: async function () {
             var that = this;
+            that.showLoad = true;
             await that.asyncCall();
             await that.asyncCall2();
 
@@ -222,14 +243,123 @@
                 ]
             });
 
-            that.showLoad1 = true;
             if (that.tmpCustomer.CN == null) {
                 window.location.href = '@Url.Content("~/Home/Index")';
             }
             that.PatientData.push(
                 {
                     Date: that.parseJsonDate(Date.now()),
+                    Time: '00:00',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '00:30',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '01:00',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '01:30',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
                     Time: '02:00',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '02:30',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '03:00',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '03:30',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '04:00',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '04:30',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '05:00',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '05:30',
                     T: '',
                     PulseSBP: '',
                     PulseDBP: '',
@@ -249,7 +379,147 @@
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
+                    Time: '06:30',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '07:00',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '07:30',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '08:00',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '08:30',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '09:00',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '09:30',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
                     Time: '10:00',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '10:30',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '11:00',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '11:30',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '12:00',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '12:30',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '13:00',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '13:30',
                     T: '',
                     PulseSBP: '',
                     PulseDBP: '',
@@ -269,7 +539,147 @@
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
+                    Time: '14:40',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '15:00',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '15:30',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '16:00',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '16:30',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '17:00',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '17:30',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
                     Time: '18:00',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '18:30',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '19:00',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '19:30',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '20:00',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '20:30',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '21:00',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '21:30',
                     T: '',
                     PulseSBP: '',
                     PulseDBP: '',
@@ -286,10 +696,41 @@
                     R: '',
                     BP: '',
                     O2: '',
-                }
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '22:30',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '23:00',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                {
+                    Date: that.parseJsonDate(Date.now()),
+                    Time: '23:30',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '',
+                },
+                
             );
-            that.GetPatientData();
-            that.showLoad1 = false;
+            await that.GetPatientData();
+            that.showLoad = false;
         },
         watch: {
         },
@@ -299,7 +740,7 @@
                     //console.log(temp, tempchart[temp]);
                     var datenum = parseInt(tempchart[temp][0].split('(')[1].split(')')[0]);
                     var d = new Date(datenum);
-                    await this.datatemp.push([Date.UTC(d.getFullYear(), d.getMonth() + 1, d.getDate(), d.getHours(), d.getMinutes()), tempchart[temp][1]]);
+                    await this.datatemp.push([Date.UTC(d.getFullYear(), d.getMonth(), d.getDate(), d.getHours(), d.getMinutes()), tempchart[temp][1]]);
                 }
             },
             asyncCall2: async function () {
@@ -307,7 +748,7 @@
                     //console.log(temp, tempchart2[temp]);
                     var datenum = parseInt(tempchart2[temp][0].split('(')[1].split(')')[0]);
                     var d = new Date(datenum);
-                    await this.datatemp2.push([Date.UTC(d.getFullYear(), d.getMonth() + 1, d.getDate(), d.getHours(), d.getMinutes()), tempchart2[temp][1]]);
+                    await this.datatemp2.push([Date.UTC(d.getFullYear(), d.getMonth(), d.getDate(), d.getHours(), d.getMinutes()), tempchart2[temp][1]]);
                 }
             },
             openPopup: function (val) {

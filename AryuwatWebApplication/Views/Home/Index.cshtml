@@ -2,81 +2,88 @@
 @{
     ViewBag.Title = "Patient list";
 }
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <style>
     .rowHover {
         background-color: white;
     }
-
     .rowHover:hover {
         background-color: gainsboro;
     }
-    .swal2-popup {
-        font-size: 20px;
-    }
 </style>
-<div id="app" style="font-size:18px">
-    @*<div class="container" style="background-color:#f3f3f3;margin-top: -20px;padding-top: 10px; padding-bottom: 30px">
-            <div class="row">
-                <div class="col-lg-1">
-                    <a href="@Url.Content("~/Signin/Index")"><i class="fa fa-angle-left"></i></a>
-                </div>
-                <div class="col-lg-11">
-                    <u style="font-size:30px; font-weight:600">Darlene Rebertson</u>
-                </div>
-                <div class="col-lg-1">
-                </div>
-                <div class="col-lg-11">
-                    <p style="font-size:20px;">ID : 1234567890124</p>
+<div id="app">
+    <header class="page-header page-header-dark bg-gradient-primary-to-secondary pb-10" style="background-color:#ffe480">
+        <div class="container">
+            <div class="page-header-content pt-4">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-auto mt-4">
+                        <h1 class="page-header-title">
+                            <div class="page-header-icon"><i data-feather="users"></i></div>
+                            Patient
+                        </h1>
+                        <div class="page-header-subtitle">Patient data list</div>
+                    </div>
                 </div>
             </div>
-        </div>*@
-    <div class="container" style="background-color:#e6e6e6;padding-top:30px;margin-bottom:-20px;padding-right:20px">
-        <div class="row float-right">
-            <div class="col-lg-6">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="font-size:15px;border-radius: 20px;background-color:rgba(172, 202, 249, 0.50);width: 400px" v-model="searchtxt">
+        </div>
+    </header>
+    <div class="container mt-n10">
+        <div class="card mb-4">
+            <div class="card-header">Patient list</div>
+            <div class="card-body">
+                <div class="datatable">
+                    <table class="table table-bordered table-hover" id="dataTable" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>CN</th>
+                                <th>Room</th>
+                                <th>Start date</th>
+                                <th>End date</th>
+                                <th>Meeting</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-if="tempCustomer.length > 0" :key="index" v-for="(items, index) in tempCustomer">
+                                <td class="text-left">
+                                    {{ items.Patient_Name }}
+                                </td>
+                                <td class="text-center">
+                                    {{ items.CN }}
+                                </td>
+                                <td class="text-center">
+                                    {{ items.Room == null ? '-' : items.Room}}
+                                </td>
+                                <td class="text-center">
+                                    {{ items.Start == null ? '-' : parseJsonDate(items.Start) }}
+                                </td>
+                                <td class="text-center">
+                                    {{ items.End == null ? '-' : parseJsonDate(items.End) }}
+                                </td>
+                                <td class="text-center">
+                                    {{ items.Meeting == null ? '-' : parseJsonDate(items.Meeting) }}
+                                </td>
+                                <td>
+                                    <button class="btn btn-datatable btn-icon btn-transparent-dark mr-2" v-on:click="sendCNtoTemp(items.CN)"><i class="fa fa-edit"></i></button>
+                                </td>
+                            </tr>
+                            <tr v-if="tempCustomer.length == 0">
+                                <td class="text-left" colspan="7">
+                                    No data available in table
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-
-    <div class="container" style="background-color:#e6e6e6;">
-        <div class="row color-text" style="margin-top: 5rem;margin-bottom: 5rem;margin-left: 10px;margin-right: 10px; background-color: white;border-radius:10px">
-            <div class="col-lg-12">
-                <table style="width:100%">
-                    <thead style="font-weight:600;border-bottom: 3px solid black;font-size:24px;">
-                        <tr>
-                            <td style="width:30%;text-align:center;">Name</td>
-                            <td style="width:14%;text-align:center;">CN</td>
-                            <td style="width:14%;text-align:center;">Room</td>
-                            <td style="width:14%;text-align:center;">Start</td>
-                            <td style="width:14%;text-align:center;">End</td>
-                            <td style="width:14%;text-align:center;">Meeting</td>
-                        </tr>
-                    </thead>
-                    <tbody style="font-weight: 300;text-align:center;height: 60px;">
-                        <tr :key="index" v-for="(items, index) in tempCustomer" v-if="tempCustomer.length > 0" class="rowHover" style="border-bottom: 1px solid #cbc3c3;height: 60px;cursor:pointer;" v-on:click="sendCNtoTemp(items.CN)">
-                            <td class="text-left">
-                                {{ items.Patient_Name }}
-                            </td>
-                            <td class="text-center">
-                                {{ items.CN }}
-                            </td>
-                            <td class="text-center">
-                                {{ items.Room == null ? '-' : items.Room}}
-                            </td>
-                            <td class="text-center">
-                                {{ items.Start == null ? '-' : parseJsonDate(items.Start) }}
-                            </td>
-                            <td class="text-center">
-                                {{ items.End == null ? '-' : parseJsonDate(items.End) }}
-                            </td>
-                            <td class="text-center">
-                                {{ items.Meeting == null ? '-' : parseJsonDate(items.Meeting) }}
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+    <div class="fade"
+         :class="{'modal-backdrop show' : showload}"
+         :style="{'cursor' : (showload ? 'wait': ''),'z-index' : (showload ? '9999': '')}">
+        <div v-if="showload" style="color:white;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%)">
+            <i class="fa fa-plus fa-spin fa-3x fa-fw"></i><br />
+            <span>Loading...</span>
         </div>
     </div>
 </div>
@@ -88,6 +95,7 @@
             const app = new Vue({
                 el: "#app",
                 data: {
+                showload: false,
                     tempCustomer: [],
                     searchtxt: '',
                 },
@@ -110,12 +118,19 @@
                 methods: {
                     GetDataTableCustomer:function(data){
                         var vm = this;
+                        vm.showload = true;
                         vm.$http.get('@Url.Action("TableCustomer", "Home")?searchtxt=' + vm.searchtxt)
                             .then(function (response) {
                                 if (response.data.ContentEncoding == 200) {
                                     vm.tempCustomer = response.data.data;
                                 }
-                        });
+                            })
+                            .catch(function (error) {
+                                console.log(error);
+                            })
+                            .finally(function () {
+                                vm.showload = false;
+                            });
                     },
                     SendAlertMeeting: async function(data){
                         var vm = this;
@@ -128,7 +143,7 @@
                     },
                     AlertMeeting:async function(data){
                         var that = this;
-                        await that.$http.post('@Url.Action("CheckRemark", "Home")').then(function(response)
+                        await that.$http.post('@Url.Action("CheckMeeting", "Home")').then(function(response)
                         {
                             if (response.data.ContentEncoding == 200) {
                                 if (response.data != "") {

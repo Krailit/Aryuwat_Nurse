@@ -2,186 +2,32 @@
 @{
     ViewBag.Title = "Test";
 }
-<script src="http://code.highcharts.com/highcharts.js"></script>
-<script src="http://code.highcharts.com/modules/exporting.js"></script>
-<script src="http://code.highcharts.com/themes/grid.js"></script>
 <div id="app" style="font-size:30px">
-    <div id="content">
-        <div id="container_BP" style="width: 1000px; height: 400px; margin: 0 auto"></div>
+    <div id="layoutError">
+        <div id="layoutError_content">
+            <main>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-6">
+                            <div class="text-center mt-4">
+                                <img class="img-fluid p-4" src="~/Content/assets/img/freepik/400-error-bad-request-pana.svg" alt="" />
+                                <p class="lead">Your client has issued a malformed or illegal request.</p>
+                                <a class="text-arrow-icon" href="index.html">
+                                    <i class="ml-0 mr-1" data-feather="arrow-left"></i>
+                                    Return to Dashboard
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
     </div>
 </div>
 <script src="~/Scripts/vue.js"></script>
 <script src="~/Scripts/axios.js"></script>
 <script src="~/Scripts/moment.js"></script>
 <script>
-    $(function () {
-        var chart;
-        $(document).ready(function () {
-
-            var container_BP = new Highcharts.Chart({
-                chart: {
-                    renderTo: 'container_BP',
-                    type: 'line'
-                },
-                title: {
-                    text: 'Blood Pressure'
-                },
-                //subtitle: {
-                //    text: 'Measured using Philips BP Monitor'
-                //},
-                xAxis: {
-                    type: 'datetime',
-                    //dateTimeLabelFormats: { // don't display the dummy year
-                    //    hour: '%H:%M',
-                    //    month: '%e. %b',
-                    //    year: '%b'
-                    //}
-                },
-                yAxis: [{
-                    title: {
-                        text: 'Blood Pressure (mmHg)'
-                    },
-                    //lineWidth: 1,
-                    //minorTickWidth: 1,
-                    //minorTickLength: 3
-
-
-                }, {
-                    title: {
-                        text: 'Heart Rate (b/m)'
-                    },
-                    opposite: true
-                }],
-                tooltip: {
-                    formatter: function () {
-                        var s = '<b>' + Highcharts.dateFormat('%b-%e', this.x) + ' ' + Highcharts.dateFormat('%H:%M', this.points[0].point.x) + '</b><br/>';
-                        s += 'Blood Pressure: ' + this.points[0].point.y + '/' + this.points[1].point.y + ' mmHg' + '<br/>';
-                        return s;
-                    },
-                    crosshairs: true,
-                    shared: true
-                },
-
-                plotOptions: {
-                    //series: {
-                    //    animation: false,
-                    //    marker: {
-                    //        radius: 3
-                    //    },
-                    //    fillopacity: 0.1
-                    //}
-                },
-
-                series: [{
-                    name: 'Pulse (Systolic)',
-                    color: '#006376',
-                    // Systolic BP
-                    data: [
-                        [Date.UTC(2021, 2, 17, 2, 0, 0), 140],
-                        [Date.UTC(2021, 2, 17, 6, 0, 0), 161],
-                        [Date.UTC(2021, 2, 17, 10, 0, 0), 120],
-                        [Date.UTC(2021, 2, 17, 14, 0, 0), 111],
-                        [Date.UTC(2021, 2, 17, 18, 0, 0), 140],
-                        [Date.UTC(2021, 2, 17, 22, 0, 0), 161],
-                        //[Date.UTC(2021, 2, 16, 2, 0, 0), 140],
-                        //[Date.UTC(2021, 2, 16, 6, 0, 0), 161],
-                        //[Date.UTC(2021, 2, 16, 10, 0, 0), 120],
-                        //[Date.UTC(2021, 2, 16, 14, 0, 0), 111],
-                        //[Date.UTC(2021, 2, 16, 18, 0, 0), 140],
-                        //[Date.UTC(2021, 2, 16, 22, 0, 0), 161],
-                        //[Date.UTC(2021, 2, 15, 2, 0, 0), 140],
-                        //[Date.UTC(2021, 2, 15, 6, 0, 0), 161],
-                        //[Date.UTC(2021, 2, 15, 10, 0, 0), 120],
-                        //[Date.UTC(2021, 2, 15, 14, 0, 0), 111],
-                        //[Date.UTC(2021, 2, 15, 18, 0, 0), 140],
-                        //[Date.UTC(2021, 2, 15, 22, 0, 0), 161],
-                        //[Date.UTC(2021, 2, 14, 2, 0, 0), 140],
-                        //[Date.UTC(2021, 2, 14, 6, 0, 0), 161],
-                        //[Date.UTC(2021, 2, 14, 10, 0, 0), 120],
-                        //[Date.UTC(2021, 2, 14, 14, 0, 0), 111],
-                        //[Date.UTC(2021, 2, 14, 18, 0, 0), 140],
-                        //[Date.UTC(2021, 2, 14, 22, 0, 0), 161],
-                        //[Date.UTC(2021, 2, 13, 2, 0, 0), 140],
-                        //[Date.UTC(2021, 2, 13, 6, 0, 0), 161],
-                        //[Date.UTC(2021, 2, 13, 10, 0, 0), 120],
-                        //[Date.UTC(2021, 2, 13, 14, 0, 0), 111],
-                        //[Date.UTC(2021, 2, 13, 18, 0, 0), 140],
-                        //[Date.UTC(2021, 2, 13, 22, 0, 0), 161],
-                        //[Date.UTC(2021, 2, 12, 2, 0, 0), 140],
-                        //[Date.UTC(2021, 2, 12, 6, 0, 0), 161],
-                        //[Date.UTC(2021, 2, 12, 10, 0, 0), 120],
-                        //[Date.UTC(2021, 2, 12, 14, 0, 0), 111],
-                        //[Date.UTC(2021, 2, 12, 18, 0, 0), 140],
-                        //[Date.UTC(2021, 2, 12, 22, 0, 0), 161],
-                        //[Date.UTC(2021, 2, 11, 2, 0, 0), 140],
-                        //[Date.UTC(2021, 2, 11, 6, 0, 0), 161],
-                        //[Date.UTC(2021, 2, 11, 10, 0, 0), 120],
-                        //[Date.UTC(2021, 2, 11, 14, 0, 0), 111],
-                        //[Date.UTC(2021, 2, 11, 18, 0, 0), 140],
-                        //[Date.UTC(2021, 2, 11, 22, 0, 0), 161],
-                        //[Date.UTC(2021, 2, 10, 2, 0, 0), 140],
-                        //[Date.UTC(2021, 2, 10, 6, 0, 0), 161],
-                        //[Date.UTC(2021, 2, 10, 10, 0, 0), 120],
-                        //[Date.UTC(2021, 2, 10, 14, 0, 0), 111],
-                        //[Date.UTC(2021, 2, 10, 18, 0, 0), 140],
-                        //[Date.UTC(2021, 2, 10, 22, 0, 0), 161],
-                    ]                   
-                }, {                    
-                    data: [             
-                        [Date.UTC(2021, 2, 17, 2, 0, 0), 85],
-                        [Date.UTC(2021, 2, 17, 6, 0, 0), 79],
-                        [Date.UTC(2021, 2, 17, 10, 0, 0), 84],
-                        [Date.UTC(2021, 2, 17, 14, 0, 0), 79],
-                        [Date.UTC(2021, 2, 17, 18, 0, 0), 85],
-                        [Date.UTC(2021, 2, 17, 22, 0, 0), 79],
-                        //[Date.UTC(2021, 2, 16, 2, 0, 0), 85],
-                        //[Date.UTC(2021, 2, 16, 6, 0, 0), 79],
-                        //[Date.UTC(2021, 2, 16, 10, 0, 0), 84],
-                        //[Date.UTC(2021, 2, 16, 14, 0, 0), 79],
-                        //[Date.UTC(2021, 2, 16, 18, 0, 0), 85],
-                        //[Date.UTC(2021, 2, 16, 22, 0, 0), 79],
-                        //[Date.UTC(2021, 2, 15, 2, 0, 0), 85],
-                        //[Date.UTC(2021, 2, 15, 6, 0, 0), 79],
-                        //[Date.UTC(2021, 2, 15, 10, 0, 0), 84],
-                        //[Date.UTC(2021, 2, 15, 14, 0, 0), 79],
-                        //[Date.UTC(2021, 2, 15, 18, 0, 0), 85],
-                        //[Date.UTC(2021, 2, 15, 22, 0, 0), 79],
-                        //[Date.UTC(2021, 2, 14, 2, 0, 0), 85],
-                        //[Date.UTC(2021, 2, 14, 6, 0, 0), 79],
-                        //[Date.UTC(2021, 2, 14, 10, 0, 0), 84],
-                        //[Date.UTC(2021, 2, 14, 14, 0, 0), 79],
-                        //[Date.UTC(2021, 2, 14, 18, 0, 0), 85],
-                        //[Date.UTC(2021, 2, 14, 22, 0, 0), 79],
-                        //[Date.UTC(2021, 2, 13, 2, 0, 0), 85],
-                        //[Date.UTC(2021, 2, 13, 6, 0, 0), 79],
-                        //[Date.UTC(2021, 2, 13, 10, 0, 0), 84],
-                        //[Date.UTC(2021, 2, 13, 14, 0, 0), 79],
-                        //[Date.UTC(2021, 2, 13, 18, 0, 0), 85],
-                        //[Date.UTC(2021, 2, 13, 22, 0, 0), 79],
-                        //[Date.UTC(2021, 2, 12, 2, 0, 0), 85],
-                        //[Date.UTC(2021, 2, 12, 6, 0, 0), 79],
-                        //[Date.UTC(2021, 2, 12, 10, 0, 0), 84],
-                        //[Date.UTC(2021, 2, 12, 14, 0, 0), 79],
-                        //[Date.UTC(2021, 2, 12, 18, 0, 0), 85],
-                        //[Date.UTC(2021, 2, 12, 22, 0, 0), 79],
-                        //[Date.UTC(2021, 2, 11, 2, 0, 0), 85],
-                        //[Date.UTC(2021, 2, 11, 6, 0, 0), 79],
-                        //[Date.UTC(2021, 2, 11, 10, 0, 0), 84],
-                        //[Date.UTC(2021, 2, 11, 14, 0, 0), 79],
-                        //[Date.UTC(2021, 2, 11, 18, 0, 0), 85],
-                        //[Date.UTC(2021, 2, 11, 22, 0, 0), 79],
-                        //[Date.UTC(2021, 2, 10, 2, 0, 0), 85],
-                        //[Date.UTC(2021, 2, 10, 6, 0, 0), 79],
-                        //[Date.UTC(2021, 2, 10, 10, 0, 0), 84],
-                        //[Date.UTC(2021, 2, 10, 14, 0, 0), 79],
-                        //[Date.UTC(2021, 2, 10, 18, 0, 0), 85],
-                        //[Date.UTC(2021, 2, 10, 22, 0, 0), 79],
-                    ],
-                    name: 'Pulse (Diastolic)'
-                }]
-            });
-        });
-    });
     Vue.prototype.$http = axios;
     const app = new Vue({
         el: "#app",

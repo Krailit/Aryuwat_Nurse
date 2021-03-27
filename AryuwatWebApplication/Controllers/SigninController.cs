@@ -41,6 +41,7 @@ namespace AryuwatWebApplication.Controllers
                         Response.Cookies["OPD"]["ID"] = chkLogin.ID.ToString();
                         Response.Cookies["OPD"]["TName"] = chkLogin.TName == null ? null : Base64Encode(chkLogin.TName.ToString());
                         Response.Cookies["OPD"]["Username"] = chkLogin.Username == null ? null : Base64Encode(chkLogin.Username.ToString());
+                        Response.Cookies["OPD"]["E_mail"] = chkLogin.E_mail == null ? null : chkLogin.E_mail.ToString();
                         Response.Cookies["OPD"]["IdCard"] = chkLogin.IdCard == null ? null : chkLogin.IdCard.ToString();
                         Response.Cookies["OPD"]["PersonnelType"] = chkLogin.PersonnelType == null ? null : Base64Encode(chkLogin.PersonnelType.ToString());
                         Response.Cookies["OPD"]["UserGroup"] = chkLogin.UserGroup == null ? null : Base64Encode(chkLogin.UserGroup.ToString());
