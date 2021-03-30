@@ -1712,6 +1712,7 @@
     <Content Include="Content\assets\fonts\metropolis\Metropolis-SemiBoldItalic.otf" />
     <Content Include="Content\assets\fonts\metropolis\Metropolis-Thin.otf" />
     <Content Include="Content\assets\fonts\metropolis\Metropolis-ThinItalic.otf" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\es6-promise.auto.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

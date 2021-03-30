@@ -60,7 +60,7 @@
                                 <th class="text-center align-middle" style="">Detail</th>
                                 <th class="text-center align-middle" style="">Last Modified</th>
                                 <th class="text-center align-middle" style="">Preview</th>
-                                <th class="text-center align-middle" style="">Manage</th>
+                                <th class="text-center align-middle" style="" v-if="@HttpContext.Current.Request.Cookies["OPD"]["UserGroup"] != 3">Manage</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -80,7 +80,7 @@
                                 <td class="text-center align-middle" style="">
                                     <button class="btn btn-datatable btn-icon btn-transparent mr-2" v-on:click="popupImage(items.FileName)" data-toggle="modal" data-target="#myModal"><i class="fa fa-search"></i></button>
                                 </td>
-                                <td class="text-center align-middle" style="">
+                                <td class="text-center align-middle" style="" v-if="@HttpContext.Current.Request.Cookies["OPD"]["UserGroup"] != 3">
                                     <button class="btn btn-datatable btn-icon btn-transparent mr-2" v-on:click="deleteImage(items.Id)"><i class="fa fa-trash"></i></button>
                                 </td>
                             </tr>
