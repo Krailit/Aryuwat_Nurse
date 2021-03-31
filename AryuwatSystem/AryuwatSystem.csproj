@@ -121,9 +121,23 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Baselibary\ClosedXML.dll</HintPath>
     </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Design, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\CrystalDecisions.CrystalReports.Design.dll</HintPath>
+    </Reference>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.TemplateEngine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\CrystalDecisions.CrystalReports.TemplateEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Enterprise.Viewing.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\CrystalDecisions.Enterprise.Viewing.ReportSource.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.ReportAppServer.ClientDoc, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -191,6 +205,14 @@
     <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\CrystalDecisions.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.VSDesigner, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\CrystalDecisions.VSDesigner.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Web, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\CrystalDecisions.Web.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -1730,6 +1752,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Reports\RptSOFInvNoVatDiscountClinic.cs">
+      <DependentUpon>RptSOFInvNoVatDiscountClinic.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\RptSOFTaxVatClinic.cs">
+      <DependentUpon>RptSOFTaxVatClinic.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Reports\rtpLabelHairF.cs">
       <DependentUpon>rtpLabelHairF.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -3052,6 +3088,16 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RptSOFInvNoVatDiscountClinic.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptSOFInvNoVatDiscountClinic.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RptSOFTaxVatClinic.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptSOFTaxVatClinic.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\rtpLabelHairF.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rtpLabelHairF.cs</LastGenOutput>
@@ -3630,6 +3676,8 @@
     </None>
     <None Include="Baselibary\browalia.ttc" />
     <Content Include="aryuwat_logo_R2B_icon.ico" />
+    <Content Include="Calendar.NET.dll" />
+    <Content Include="Calendar.NET.pdb" />
     <Content Include="Clients.AutoUpdate.cdf-ms">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -3738,10 +3786,33 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="RDNIDLib.DLD" />
     <None Include="Resources\Signature.png" />
     <None Include="Resources\Import_resize.png" />
     <Content Include="Baselibary\Cyotek.Windows.Forms.ImageBox.dll" />
     <Content Include="Clients.AutoUpdate.exe" />
+    <Content Include="CrystalDecisions.CrystalReports.Design.dll" />
+    <Content Include="CrystalDecisions.CrystalReports.Engine.dll" />
+    <Content Include="CrystalDecisions.CrystalReports.TemplateEngine.dll" />
+    <Content Include="CrystalDecisions.Data.AdoDotNetInterop.dll" />
+    <Content Include="CrystalDecisions.Enterprise.Viewing.ReportSource.dll" />
+    <Content Include="CrystalDecisions.ReportAppServer.ClientDoc.dll" />
+    <Content Include="CrystalDecisions.ReportAppServer.CommLayer.dll" />
+    <Content Include="CrystalDecisions.ReportAppServer.CommonControls.dll" />
+    <Content Include="CrystalDecisions.ReportAppServer.CommonObjectModel.dll" />
+    <Content Include="CrystalDecisions.ReportAppServer.Controllers.dll" />
+    <Content Include="CrystalDecisions.ReportAppServer.CubeDefModel.dll" />
+    <Content Include="CrystalDecisions.ReportAppServer.DataDefModel.dll" />
+    <Content Include="CrystalDecisions.ReportAppServer.DataSetConversion.dll" />
+    <Content Include="CrystalDecisions.ReportAppServer.ObjectFactory.dll" />
+    <Content Include="CrystalDecisions.ReportAppServer.Prompting.dll" />
+    <Content Include="CrystalDecisions.ReportAppServer.ReportDefModel.dll" />
+    <Content Include="CrystalDecisions.ReportAppServer.XmlSerialize.dll" />
+    <Content Include="CrystalDecisions.ReportSource.dll" />
+    <Content Include="CrystalDecisions.Shared.dll" />
+    <Content Include="CrystalDecisions.VSDesigner.dll" />
+    <Content Include="CrystalDecisions.Web.dll" />
+    <Content Include="CrystalDecisions.Windows.Forms.dll" />
     <Content Include="Lib\ICSharpCode.SharpZipLib.dll" />
     <Content Include="Lib\Ionic.Zip.dll" />
     <None Include="Resources\Alecive-Flatwoken-Apps-Rotate-Right.png" />
@@ -3766,6 +3837,8 @@
       <DependentUpon>OPDEntities.edmx</DependentUpon>
       <LastGenOutput>OPDEntities.cs</LastGenOutput>
     </Content>
+    <Content Include="RDNIDlibD.dll" />
+    <Content Include="RDNIDlibD64.dll" />
     <Content Include="Resources\cursor.png" />
     <None Include="Resources\delete-big.png" />
     <None Include="Resources\delete-big1.png" />

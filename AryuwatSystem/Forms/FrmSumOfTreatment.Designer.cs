@@ -30,56 +30,56 @@ namespace AryuwatSystem.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle148 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle156 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle157 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle149 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle150 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle151 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle152 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle153 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle154 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle155 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle158 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle159 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle160 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle161 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle162 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSumOfTreatment));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle163 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle164 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle165 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle166 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle167 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle168 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle169 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle170 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle171 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle172 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle173 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle174 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle175 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle176 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle177 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle178 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle179 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle180 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle181 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle182 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle183 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle184 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle185 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle186 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle187 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle188 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle189 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle190 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle191 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle192 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle193 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle194 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle195 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle196 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -267,6 +267,8 @@ namespace AryuwatSystem.Forms
             this.dataGridViewTextBoxColumn39 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn40 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn41 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnPrintInvClinic = new System.Windows.Forms.Button();
+            this.buttonTaxClinic = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -298,7 +300,7 @@ namespace AryuwatSystem.Forms
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1250, 662);
+            this.panel2.Size = new System.Drawing.Size(1250, 747);
             this.panel2.TabIndex = 1;
             // 
             // panel4
@@ -309,7 +311,7 @@ namespace AryuwatSystem.Forms
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(996, 662);
+            this.panel4.Size = new System.Drawing.Size(996, 747);
             this.panel4.TabIndex = 290;
             // 
             // panel1
@@ -322,7 +324,7 @@ namespace AryuwatSystem.Forms
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(996, 331);
+            this.panel1.Size = new System.Drawing.Size(996, 416);
             this.panel1.TabIndex = 284;
             // 
             // lbPersenBath
@@ -342,14 +344,14 @@ namespace AryuwatSystem.Forms
             this.dgvData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvData.BackgroundColor = System.Drawing.Color.White;
             this.dgvData.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle148.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle148.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle148.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            dataGridViewCellStyle148.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle148.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle148.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle148.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle148;
             this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MS_Code,
             this.Detail,
@@ -375,29 +377,29 @@ namespace AryuwatSystem.Forms
             this.MS_UnitStk,
             this.Dept,
             this.REQNo});
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvData.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle156.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle156.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle156.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            dataGridViewCellStyle156.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle156.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle156.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle156.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvData.DefaultCellStyle = dataGridViewCellStyle156;
             this.dgvData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvData.Location = new System.Drawing.Point(0, 81);
             this.dgvData.MultiSelect = false;
             this.dgvData.Name = "dgvData";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle157.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle157.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle157.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            dataGridViewCellStyle157.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle157.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle157.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle157.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.RowHeadersDefaultCellStyle = dataGridViewCellStyle157;
             this.dgvData.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvData.Size = new System.Drawing.Size(994, 248);
+            this.dgvData.Size = new System.Drawing.Size(994, 333);
             this.dgvData.TabIndex = 0;
             this.dgvData.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellDoubleClick);
             this.dgvData.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellEndEdit);
@@ -422,8 +424,8 @@ namespace AryuwatSystem.Forms
             // 
             // price
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
-            this.price.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle149.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
+            this.price.DefaultCellStyle = dataGridViewCellStyle149;
             this.price.HeaderText = "ราคา";
             this.price.Name = "price";
             this.price.ReadOnly = true;
@@ -431,8 +433,8 @@ namespace AryuwatSystem.Forms
             // 
             // amountnumber
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
-            this.amountnumber.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle150.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
+            this.amountnumber.DefaultCellStyle = dataGridViewCellStyle150;
             this.amountnumber.HeaderText = "จำนวน";
             this.amountnumber.Name = "amountnumber";
             this.amountnumber.ReadOnly = true;
@@ -447,8 +449,8 @@ namespace AryuwatSystem.Forms
             // 
             // FreeAmount
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
-            this.FreeAmount.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle151.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
+            this.FreeAmount.DefaultCellStyle = dataGridViewCellStyle151;
             this.FreeAmount.HeaderText = "จำนวนแถม";
             this.FreeAmount.Name = "FreeAmount";
             this.FreeAmount.ReadOnly = true;
@@ -456,19 +458,19 @@ namespace AryuwatSystem.Forms
             // 
             // DisBath
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.DisBath.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle152.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
+            dataGridViewCellStyle152.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.DisBath.DefaultCellStyle = dataGridViewCellStyle152;
             this.DisBath.HeaderText = "ส่วนลด(บาท)";
             this.DisBath.Name = "DisBath";
             // 
             // discount
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.PaleGreen;
-            dataGridViewCellStyle6.Format = "N0";
-            dataGridViewCellStyle6.NullValue = null;
-            this.discount.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle153.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
+            dataGridViewCellStyle153.BackColor = System.Drawing.Color.PaleGreen;
+            dataGridViewCellStyle153.Format = "N0";
+            dataGridViewCellStyle153.NullValue = null;
+            this.discount.DefaultCellStyle = dataGridViewCellStyle153;
             this.discount.HeaderText = "ส่วนลด%";
             this.discount.Name = "discount";
             this.discount.Width = 79;
@@ -482,8 +484,8 @@ namespace AryuwatSystem.Forms
             // 
             // Money
             // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
-            this.Money.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle154.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
+            this.Money.DefaultCellStyle = dataGridViewCellStyle154;
             this.Money.HeaderText = "จำนวนเงินรวม";
             this.Money.Name = "Money";
             this.Money.ReadOnly = true;
@@ -491,8 +493,8 @@ namespace AryuwatSystem.Forms
             // 
             // money_dis
             // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
-            this.money_dis.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle155.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
+            this.money_dis.DefaultCellStyle = dataGridViewCellStyle155;
             this.money_dis.HeaderText = "เงินหลังหักส่วนลด";
             this.money_dis.Name = "money_dis";
             this.money_dis.ReadOnly = true;
@@ -806,7 +808,7 @@ namespace AryuwatSystem.Forms
             // splitter1
             // 
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.splitter1.Location = new System.Drawing.Point(0, 331);
+            this.splitter1.Location = new System.Drawing.Point(0, 416);
             this.splitter1.Name = "splitter1";
             this.splitter1.Size = new System.Drawing.Size(996, 3);
             this.splitter1.TabIndex = 289;
@@ -821,7 +823,7 @@ namespace AryuwatSystem.Forms
             this.panel3.Controls.Add(this.panel5);
             this.panel3.Controls.Add(this.btnRefMedical);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 334);
+            this.panel3.Location = new System.Drawing.Point(0, 419);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(996, 328);
             this.panel3.TabIndex = 288;
@@ -843,14 +845,14 @@ namespace AryuwatSystem.Forms
             this.dataGridViewCreditTransfer.AllowUserToDeleteRows = false;
             this.dataGridViewCreditTransfer.AllowUserToResizeRows = false;
             this.dataGridViewCreditTransfer.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewCreditTransfer.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle158.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle158.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle158.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            dataGridViewCellStyle158.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle158.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle158.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle158.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewCreditTransfer.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle158;
             this.dataGridViewCreditTransfer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCreditTransfer.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Pay_Code,
@@ -908,8 +910,8 @@ namespace AryuwatSystem.Forms
             // 
             // cash
             // 
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
-            this.cash.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle159.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
+            this.cash.DefaultCellStyle = dataGridViewCellStyle159;
             this.cash.HeaderText = "จ่าย";
             this.cash.Name = "cash";
             this.cash.Width = 80;
@@ -922,10 +924,10 @@ namespace AryuwatSystem.Forms
             // 
             // number
             // 
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle13.Format = "{0:0000 0000 0000 0000}";
-            dataGridViewCellStyle13.NullValue = null;
-            this.number.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle160.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle160.Format = "{0:0000 0000 0000 0000}";
+            dataGridViewCellStyle160.NullValue = null;
+            this.number.DefaultCellStyle = dataGridViewCellStyle160;
             this.number.HeaderText = "เลขที่บัตร";
             this.number.Name = "number";
             // 
@@ -1116,27 +1118,27 @@ namespace AryuwatSystem.Forms
             this.dgvReciept.AllowUserToDeleteRows = false;
             this.dgvReciept.AllowUserToResizeRows = false;
             this.dgvReciept.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvReciept.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle161.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle161.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle161.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            dataGridViewCellStyle161.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle161.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle161.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle161.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvReciept.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle161;
             this.dgvReciept.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReciept.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RCNo,
             this.ReceiptDate,
             this.ReceiptBath});
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvReciept.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle162.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle162.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle162.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle162.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle162.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle162.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle162.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvReciept.DefaultCellStyle = dataGridViewCellStyle162;
             this.dgvReciept.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvReciept.Location = new System.Drawing.Point(3, 47);
             this.dgvReciept.Name = "dgvReciept";
@@ -1321,6 +1323,7 @@ namespace AryuwatSystem.Forms
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Controls.Add(this.btnREQStock);
             this.panel6.Controls.Add(this.lbDoctorCom);
+            this.panel6.Controls.Add(this.buttonTaxClinic);
             this.panel6.Controls.Add(this.buttonTax);
             this.panel6.Controls.Add(this.btnBill2);
             this.panel6.Controls.Add(this.label23);
@@ -1339,6 +1342,7 @@ namespace AryuwatSystem.Forms
             this.panel6.Controls.Add(this.checkBoxCommissionEdit);
             this.panel6.Controls.Add(this.comboBoxCommission);
             this.panel6.Controls.Add(this.label2);
+            this.panel6.Controls.Add(this.btnPrintInvClinic);
             this.panel6.Controls.Add(this.btnPrintInv);
             this.panel6.Controls.Add(this.btnCancel);
             this.panel6.Controls.Add(this.txtUnpaid);
@@ -1353,7 +1357,7 @@ namespace AryuwatSystem.Forms
             this.panel6.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel6.Location = new System.Drawing.Point(996, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(254, 662);
+            this.panel6.Size = new System.Drawing.Size(254, 747);
             this.panel6.TabIndex = 289;
             // 
             // btnREQStock
@@ -1362,7 +1366,7 @@ namespace AryuwatSystem.Forms
             this.btnREQStock.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnREQStock.ForeColor = System.Drawing.Color.Black;
             this.btnREQStock.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnREQStock.Location = new System.Drawing.Point(124, 546);
+            this.btnREQStock.Location = new System.Drawing.Point(124, 589);
             this.btnREQStock.Margin = new System.Windows.Forms.Padding(2);
             this.btnREQStock.Name = "btnREQStock";
             this.btnREQStock.Size = new System.Drawing.Size(115, 38);
@@ -1377,7 +1381,7 @@ namespace AryuwatSystem.Forms
             this.lbDoctorCom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbDoctorCom.AutoSize = true;
             this.lbDoctorCom.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.lbDoctorCom.Location = new System.Drawing.Point(25, 537);
+            this.lbDoctorCom.Location = new System.Drawing.Point(25, 580);
             this.lbDoctorCom.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbDoctorCom.Name = "lbDoctorCom";
             this.lbDoctorCom.Size = new System.Drawing.Size(105, 17);
@@ -1394,7 +1398,7 @@ namespace AryuwatSystem.Forms
             this.buttonTax.Location = new System.Drawing.Point(124, 385);
             this.buttonTax.Margin = new System.Windows.Forms.Padding(2);
             this.buttonTax.Name = "buttonTax";
-            this.buttonTax.Size = new System.Drawing.Size(115, 38);
+            this.buttonTax.Size = new System.Drawing.Size(122, 38);
             this.buttonTax.TabIndex = 321;
             this.buttonTax.Text = "ใบกำกับภาษี";
             this.buttonTax.UseVisualStyleBackColor = true;
@@ -1406,7 +1410,7 @@ namespace AryuwatSystem.Forms
             this.btnBill2.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnBill2.ForeColor = System.Drawing.Color.Black;
             this.btnBill2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBill2.Location = new System.Drawing.Point(12, 600);
+            this.btnBill2.Location = new System.Drawing.Point(12, 643);
             this.btnBill2.Margin = new System.Windows.Forms.Padding(2);
             this.btnBill2.Name = "btnBill2";
             this.btnBill2.Size = new System.Drawing.Size(115, 38);
@@ -1448,7 +1452,7 @@ namespace AryuwatSystem.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.label22.Location = new System.Drawing.Point(4, 471);
+            this.label22.Location = new System.Drawing.Point(4, 514);
             this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(36, 17);
@@ -1462,7 +1466,7 @@ namespace AryuwatSystem.Forms
             this.comboBoxCommission2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCommission2.Enabled = false;
             this.comboBoxCommission2.FormattingEnabled = true;
-            this.comboBoxCommission2.Location = new System.Drawing.Point(30, 513);
+            this.comboBoxCommission2.Location = new System.Drawing.Point(30, 556);
             this.comboBoxCommission2.Name = "comboBoxCommission2";
             this.comboBoxCommission2.Size = new System.Drawing.Size(207, 21);
             this.comboBoxCommission2.TabIndex = 315;
@@ -1573,7 +1577,7 @@ namespace AryuwatSystem.Forms
             this.btnCloseStatus.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.btnCloseStatus.ForeColor = System.Drawing.Color.Black;
             this.btnCloseStatus.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCloseStatus.Location = new System.Drawing.Point(5, 425);
+            this.btnCloseStatus.Location = new System.Drawing.Point(5, 469);
             this.btnCloseStatus.Margin = new System.Windows.Forms.Padding(2);
             this.btnCloseStatus.Name = "btnCloseStatus";
             this.btnCloseStatus.Size = new System.Drawing.Size(115, 38);
@@ -1586,7 +1590,7 @@ namespace AryuwatSystem.Forms
             // 
             this.checkBoxCommissionEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBoxCommissionEdit.AutoSize = true;
-            this.checkBoxCommissionEdit.Location = new System.Drawing.Point(12, 503);
+            this.checkBoxCommissionEdit.Location = new System.Drawing.Point(12, 546);
             this.checkBoxCommissionEdit.Name = "checkBoxCommissionEdit";
             this.checkBoxCommissionEdit.Size = new System.Drawing.Size(15, 14);
             this.checkBoxCommissionEdit.TabIndex = 305;
@@ -1600,7 +1604,7 @@ namespace AryuwatSystem.Forms
             this.comboBoxCommission.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCommission.Enabled = false;
             this.comboBoxCommission.FormattingEnabled = true;
-            this.comboBoxCommission.Location = new System.Drawing.Point(30, 489);
+            this.comboBoxCommission.Location = new System.Drawing.Point(30, 532);
             this.comboBoxCommission.Name = "comboBoxCommission";
             this.comboBoxCommission.Size = new System.Drawing.Size(207, 21);
             this.comboBoxCommission.TabIndex = 304;
@@ -1611,7 +1615,7 @@ namespace AryuwatSystem.Forms
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label2.Location = new System.Drawing.Point(4, 567);
+            this.label2.Location = new System.Drawing.Point(4, 610);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 17);
@@ -1644,7 +1648,7 @@ namespace AryuwatSystem.Forms
             this.btnCancel.Location = new System.Drawing.Point(124, 343);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(115, 38);
+            this.btnCancel.Size = new System.Drawing.Size(122, 38);
             this.btnCancel.TabIndex = 297;
             this.btnCancel.Text = "ปิดหน้าต่าง";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -1885,8 +1889,8 @@ namespace AryuwatSystem.Forms
             // 
             // dataGridViewTextBoxColumn2
             // 
-            dataGridViewCellStyle16.Format = "N2";
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle163.Format = "N2";
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle163;
             this.dataGridViewTextBoxColumn2.HeaderText = "ชื่อผู้รับเงิน";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
@@ -1895,9 +1899,9 @@ namespace AryuwatSystem.Forms
             // 
             // dataGridViewTextBoxColumn3
             // 
-            dataGridViewCellStyle17.Format = "{0:0000 0000 0000 0000}";
-            dataGridViewCellStyle17.NullValue = null;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle164.Format = "{0:0000 0000 0000 0000}";
+            dataGridViewCellStyle164.NullValue = null;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle164;
             this.dataGridViewTextBoxColumn3.HeaderText = "จำนวนเงิน";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
@@ -1906,9 +1910,9 @@ namespace AryuwatSystem.Forms
             // 
             // dataGridViewTextBoxColumn4
             // 
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle18.Format = "N2";
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle165.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle165.Format = "N2";
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle165;
             this.dataGridViewTextBoxColumn4.HeaderText = "ค่าใช้จ่ายอื่นๆ";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
@@ -1918,9 +1922,9 @@ namespace AryuwatSystem.Forms
             // 
             // dataGridViewTextBoxColumn5
             // 
-            dataGridViewCellStyle19.Format = "{0:0000 0000 0000 0000}";
-            dataGridViewCellStyle19.NullValue = null;
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle166.Format = "{0:0000 0000 0000 0000}";
+            dataGridViewCellStyle166.NullValue = null;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle166;
             this.dataGridViewTextBoxColumn5.HeaderText = "หมายเหตุ";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
@@ -1929,9 +1933,9 @@ namespace AryuwatSystem.Forms
             // 
             // dataGridViewTextBoxColumn6
             // 
-            dataGridViewCellStyle20.Format = "{0:0000 0000 0000 0000}";
-            dataGridViewCellStyle20.NullValue = null;
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle167.Format = "{0:0000 0000 0000 0000}";
+            dataGridViewCellStyle167.NullValue = null;
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle167;
             this.dataGridViewTextBoxColumn6.HeaderText = "รายการ";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
@@ -1940,9 +1944,9 @@ namespace AryuwatSystem.Forms
             // 
             // dataGridViewTextBoxColumn7
             // 
-            dataGridViewCellStyle21.Format = "{0:0000 0000 0000 0000}";
-            dataGridViewCellStyle21.NullValue = null;
-            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle168.Format = "{0:0000 0000 0000 0000}";
+            dataGridViewCellStyle168.NullValue = null;
+            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle168;
             this.dataGridViewTextBoxColumn7.HeaderText = "จำนวนเงิน";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
@@ -1951,9 +1955,9 @@ namespace AryuwatSystem.Forms
             // 
             // dataGridViewTextBoxColumn8
             // 
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle22.Format = "N2";
-            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle169.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle169.Format = "N2";
+            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle169;
             this.dataGridViewTextBoxColumn8.HeaderText = "ค่าใช้จ่ายอื่นๆ";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
@@ -1962,9 +1966,9 @@ namespace AryuwatSystem.Forms
             // 
             // dataGridViewTextBoxColumn9
             // 
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle23.Format = "N2";
-            this.dataGridViewTextBoxColumn9.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle170.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle170.Format = "N2";
+            this.dataGridViewTextBoxColumn9.DefaultCellStyle = dataGridViewCellStyle170;
             this.dataGridViewTextBoxColumn9.HeaderText = "หมายเหตุ";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
@@ -1973,9 +1977,9 @@ namespace AryuwatSystem.Forms
             // 
             // dataGridViewTextBoxColumn10
             // 
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle24.Format = "N2";
-            this.dataGridViewTextBoxColumn10.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle171.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle171.Format = "N2";
+            this.dataGridViewTextBoxColumn10.DefaultCellStyle = dataGridViewCellStyle171;
             this.dataGridViewTextBoxColumn10.HeaderText = "CD_Code";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
@@ -1984,9 +1988,9 @@ namespace AryuwatSystem.Forms
             // 
             // dataGridViewTextBoxColumn11
             // 
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle25.Format = "N2";
-            this.dataGridViewTextBoxColumn11.DefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle172.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle172.Format = "N2";
+            this.dataGridViewTextBoxColumn11.DefaultCellStyle = dataGridViewCellStyle172;
             this.dataGridViewTextBoxColumn11.HeaderText = "เงินสด/ธนาคาร";
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             this.dataGridViewTextBoxColumn11.ReadOnly = true;
@@ -2035,9 +2039,9 @@ namespace AryuwatSystem.Forms
             // 
             // dataGridViewTextBoxColumn12
             // 
-            dataGridViewCellStyle26.Format = "{0:0000 0000 0000 0000}";
-            dataGridViewCellStyle26.NullValue = null;
-            this.dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle173.Format = "{0:0000 0000 0000 0000}";
+            dataGridViewCellStyle173.NullValue = null;
+            this.dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle173;
             this.dataGridViewTextBoxColumn12.HeaderText = "เลขที่บัญชี";
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             this.dataGridViewTextBoxColumn12.ReadOnly = true;
@@ -2046,9 +2050,9 @@ namespace AryuwatSystem.Forms
             // 
             // dataGridViewTextBoxColumn13
             // 
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle27.Format = "N2";
-            this.dataGridViewTextBoxColumn13.DefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle174.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle174.Format = "N2";
+            this.dataGridViewTextBoxColumn13.DefaultCellStyle = dataGridViewCellStyle174;
             this.dataGridViewTextBoxColumn13.HeaderText = "หมายเหตุ";
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             this.dataGridViewTextBoxColumn13.ReadOnly = true;
@@ -2057,10 +2061,10 @@ namespace AryuwatSystem.Forms
             // 
             // dataGridViewTextBoxColumn14
             // 
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle28.Format = "{0:0000 0000 0000 0000}";
-            dataGridViewCellStyle28.NullValue = null;
-            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle175.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle175.Format = "{0:0000 0000 0000 0000}";
+            dataGridViewCellStyle175.NullValue = null;
+            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle175;
             this.dataGridViewTextBoxColumn14.HeaderText = "จำนวนเงิน";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             this.dataGridViewTextBoxColumn14.ReadOnly = true;
@@ -2069,10 +2073,10 @@ namespace AryuwatSystem.Forms
             // 
             // dataGridViewTextBoxColumn15
             // 
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle29.Format = "N0";
-            dataGridViewCellStyle29.NullValue = null;
-            this.dataGridViewTextBoxColumn15.DefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle176.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle176.Format = "N0";
+            dataGridViewCellStyle176.NullValue = null;
+            this.dataGridViewTextBoxColumn15.DefaultCellStyle = dataGridViewCellStyle176;
             this.dataGridViewTextBoxColumn15.HeaderText = "จำนวน";
             this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
             this.dataGridViewTextBoxColumn15.ReadOnly = true;
@@ -2081,9 +2085,9 @@ namespace AryuwatSystem.Forms
             // 
             // dataGridViewTextBoxColumn16
             // 
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle30.Format = "N2";
-            this.dataGridViewTextBoxColumn16.DefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle177.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle177.Format = "N2";
+            this.dataGridViewTextBoxColumn16.DefaultCellStyle = dataGridViewCellStyle177;
             this.dataGridViewTextBoxColumn16.HeaderText = "จำนวนฟรี";
             this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
             this.dataGridViewTextBoxColumn16.ReadOnly = true;
@@ -2092,8 +2096,8 @@ namespace AryuwatSystem.Forms
             // 
             // dataGridViewTextBoxColumn17
             // 
-            dataGridViewCellStyle31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.dataGridViewTextBoxColumn17.DefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle178.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.dataGridViewTextBoxColumn17.DefaultCellStyle = dataGridViewCellStyle178;
             this.dataGridViewTextBoxColumn17.HeaderText = "จำนวนเงินรวม";
             this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
             this.dataGridViewTextBoxColumn17.ReadOnly = true;
@@ -2102,8 +2106,8 @@ namespace AryuwatSystem.Forms
             // 
             // dataGridViewTextBoxColumn18
             // 
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
-            this.dataGridViewTextBoxColumn18.DefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle179.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
+            this.dataGridViewTextBoxColumn18.DefaultCellStyle = dataGridViewCellStyle179;
             this.dataGridViewTextBoxColumn18.HeaderText = "จำนวนเงินรวม";
             this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
             this.dataGridViewTextBoxColumn18.ReadOnly = true;
@@ -2113,10 +2117,10 @@ namespace AryuwatSystem.Forms
             // 
             // dataGridViewTextBoxColumn19
             // 
-            dataGridViewCellStyle33.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle33.Format = "N0";
-            dataGridViewCellStyle33.NullValue = null;
-            this.dataGridViewTextBoxColumn19.DefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle180.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle180.Format = "N0";
+            dataGridViewCellStyle180.NullValue = null;
+            this.dataGridViewTextBoxColumn19.DefaultCellStyle = dataGridViewCellStyle180;
             this.dataGridViewTextBoxColumn19.HeaderText = "ส่วนลด%";
             this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
             this.dataGridViewTextBoxColumn19.ReadOnly = true;
@@ -2126,10 +2130,10 @@ namespace AryuwatSystem.Forms
             // 
             // dataGridViewTextBoxColumn20
             // 
-            dataGridViewCellStyle34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle34.Format = "N0";
-            dataGridViewCellStyle34.NullValue = null;
-            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle181.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle181.Format = "N0";
+            dataGridViewCellStyle181.NullValue = null;
+            this.dataGridViewTextBoxColumn20.DefaultCellStyle = dataGridViewCellStyle181;
             this.dataGridViewTextBoxColumn20.HeaderText = "จำนวนเงินรวม";
             this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
             this.dataGridViewTextBoxColumn20.ReadOnly = true;
@@ -2139,8 +2143,8 @@ namespace AryuwatSystem.Forms
             // 
             // dataGridViewTextBoxColumn21
             // 
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
-            this.dataGridViewTextBoxColumn21.DefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle182.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
+            this.dataGridViewTextBoxColumn21.DefaultCellStyle = dataGridViewCellStyle182;
             this.dataGridViewTextBoxColumn21.HeaderText = "จำนวนเงินรวม";
             this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
             this.dataGridViewTextBoxColumn21.ReadOnly = true;
@@ -2150,10 +2154,10 @@ namespace AryuwatSystem.Forms
             // 
             // dataGridViewTextBoxColumn22
             // 
-            dataGridViewCellStyle36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle36.Format = "N0";
-            dataGridViewCellStyle36.NullValue = null;
-            this.dataGridViewTextBoxColumn22.DefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle183.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle183.Format = "N0";
+            dataGridViewCellStyle183.NullValue = null;
+            this.dataGridViewTextBoxColumn22.DefaultCellStyle = dataGridViewCellStyle183;
             this.dataGridViewTextBoxColumn22.HeaderText = "ส่วนลด%";
             this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
             this.dataGridViewTextBoxColumn22.ReadOnly = true;
@@ -2162,8 +2166,8 @@ namespace AryuwatSystem.Forms
             // 
             // dataGridViewTextBoxColumn23
             // 
-            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
-            this.dataGridViewTextBoxColumn23.DefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle184.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
+            this.dataGridViewTextBoxColumn23.DefaultCellStyle = dataGridViewCellStyle184;
             this.dataGridViewTextBoxColumn23.HeaderText = "จำนวนเงินรวม";
             this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
             this.dataGridViewTextBoxColumn23.ReadOnly = true;
@@ -2172,8 +2176,8 @@ namespace AryuwatSystem.Forms
             // 
             // dataGridViewTextBoxColumn24
             // 
-            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
-            this.dataGridViewTextBoxColumn24.DefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle185.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
+            this.dataGridViewTextBoxColumn24.DefaultCellStyle = dataGridViewCellStyle185;
             this.dataGridViewTextBoxColumn24.HeaderText = "เงินหลังหักส่วนลด";
             this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
             this.dataGridViewTextBoxColumn24.ReadOnly = true;
@@ -2182,8 +2186,8 @@ namespace AryuwatSystem.Forms
             // 
             // dataGridViewTextBoxColumn25
             // 
-            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
-            this.dataGridViewTextBoxColumn25.DefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle186.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
+            this.dataGridViewTextBoxColumn25.DefaultCellStyle = dataGridViewCellStyle186;
             this.dataGridViewTextBoxColumn25.HeaderText = "Subject";
             this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
             this.dataGridViewTextBoxColumn25.ReadOnly = true;
@@ -2192,8 +2196,8 @@ namespace AryuwatSystem.Forms
             // 
             // dataGridViewTextBoxColumn26
             // 
-            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
-            this.dataGridViewTextBoxColumn26.DefaultCellStyle = dataGridViewCellStyle40;
+            dataGridViewCellStyle187.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
+            this.dataGridViewTextBoxColumn26.DefaultCellStyle = dataGridViewCellStyle187;
             this.dataGridViewTextBoxColumn26.HeaderText = "เงินหลังหักส่วนลด";
             this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
             this.dataGridViewTextBoxColumn26.ReadOnly = true;
@@ -2202,8 +2206,8 @@ namespace AryuwatSystem.Forms
             // 
             // dataGridViewTextBoxColumn27
             // 
-            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
-            this.dataGridViewTextBoxColumn27.DefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle188.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
+            this.dataGridViewTextBoxColumn27.DefaultCellStyle = dataGridViewCellStyle188;
             this.dataGridViewTextBoxColumn27.HeaderText = "เงินหลังหักส่วนลด";
             this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
             this.dataGridViewTextBoxColumn27.ReadOnly = true;
@@ -2212,8 +2216,8 @@ namespace AryuwatSystem.Forms
             // 
             // dataGridViewTextBoxColumn28
             // 
-            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
-            this.dataGridViewTextBoxColumn28.DefaultCellStyle = dataGridViewCellStyle42;
+            dataGridViewCellStyle189.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
+            this.dataGridViewTextBoxColumn28.DefaultCellStyle = dataGridViewCellStyle189;
             this.dataGridViewTextBoxColumn28.HeaderText = "เงินหลังหักส่วนลด";
             this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
             this.dataGridViewTextBoxColumn28.ReadOnly = true;
@@ -2222,8 +2226,8 @@ namespace AryuwatSystem.Forms
             // 
             // dataGridViewTextBoxColumn29
             // 
-            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
-            this.dataGridViewTextBoxColumn29.DefaultCellStyle = dataGridViewCellStyle43;
+            dataGridViewCellStyle190.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
+            this.dataGridViewTextBoxColumn29.DefaultCellStyle = dataGridViewCellStyle190;
             this.dataGridViewTextBoxColumn29.HeaderText = "PayByItem";
             this.dataGridViewTextBoxColumn29.Name = "dataGridViewTextBoxColumn29";
             this.dataGridViewTextBoxColumn29.ReadOnly = true;
@@ -2232,8 +2236,8 @@ namespace AryuwatSystem.Forms
             // 
             // dataGridViewTextBoxColumn30
             // 
-            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
-            this.dataGridViewTextBoxColumn30.DefaultCellStyle = dataGridViewCellStyle44;
+            dataGridViewCellStyle191.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
+            this.dataGridViewTextBoxColumn30.DefaultCellStyle = dataGridViewCellStyle191;
             this.dataGridViewTextBoxColumn30.HeaderText = "จำนวนเงินรวม";
             this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
             this.dataGridViewTextBoxColumn30.ReadOnly = true;
@@ -2242,8 +2246,8 @@ namespace AryuwatSystem.Forms
             // 
             // dataGridViewTextBoxColumn31
             // 
-            dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
-            this.dataGridViewTextBoxColumn31.DefaultCellStyle = dataGridViewCellStyle45;
+            dataGridViewCellStyle192.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
+            this.dataGridViewTextBoxColumn31.DefaultCellStyle = dataGridViewCellStyle192;
             this.dataGridViewTextBoxColumn31.HeaderText = "เงินหลังหักส่วนลด";
             this.dataGridViewTextBoxColumn31.Name = "dataGridViewTextBoxColumn31";
             this.dataGridViewTextBoxColumn31.ReadOnly = true;
@@ -2252,8 +2256,8 @@ namespace AryuwatSystem.Forms
             // 
             // dataGridViewComboBoxColumn1
             // 
-            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
-            this.dataGridViewComboBoxColumn1.DefaultCellStyle = dataGridViewCellStyle46;
+            dataGridViewCellStyle193.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
+            this.dataGridViewComboBoxColumn1.DefaultCellStyle = dataGridViewCellStyle193;
             this.dataGridViewComboBoxColumn1.HeaderText = "จ่าย";
             this.dataGridViewComboBoxColumn1.Name = "dataGridViewComboBoxColumn1";
             this.dataGridViewComboBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -2266,9 +2270,9 @@ namespace AryuwatSystem.Forms
             // 
             // dataGridViewTextBoxColumn32
             // 
-            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle47.Format = "N2";
-            this.dataGridViewTextBoxColumn32.DefaultCellStyle = dataGridViewCellStyle47;
+            dataGridViewCellStyle194.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle194.Format = "N2";
+            this.dataGridViewTextBoxColumn32.DefaultCellStyle = dataGridViewCellStyle194;
             this.dataGridViewTextBoxColumn32.HeaderText = "PayByItem";
             this.dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
             this.dataGridViewTextBoxColumn32.ReadOnly = true;
@@ -2277,9 +2281,9 @@ namespace AryuwatSystem.Forms
             // 
             // dataGridViewTextBoxColumn33
             // 
-            dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle48.Format = "N2";
-            this.dataGridViewTextBoxColumn33.DefaultCellStyle = dataGridViewCellStyle48;
+            dataGridViewCellStyle195.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle195.Format = "N2";
+            this.dataGridViewTextBoxColumn33.DefaultCellStyle = dataGridViewCellStyle195;
             this.dataGridViewTextBoxColumn33.HeaderText = "Vat";
             this.dataGridViewTextBoxColumn33.Name = "dataGridViewTextBoxColumn33";
             this.dataGridViewTextBoxColumn33.ReadOnly = true;
@@ -2288,9 +2292,9 @@ namespace AryuwatSystem.Forms
             // 
             // dataGridViewTextBoxColumn34
             // 
-            dataGridViewCellStyle49.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle49.Format = "N2";
-            this.dataGridViewTextBoxColumn34.DefaultCellStyle = dataGridViewCellStyle49;
+            dataGridViewCellStyle196.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle196.Format = "N2";
+            this.dataGridViewTextBoxColumn34.DefaultCellStyle = dataGridViewCellStyle196;
             this.dataGridViewTextBoxColumn34.HeaderText = "ListOrder";
             this.dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
             this.dataGridViewTextBoxColumn34.ReadOnly = true;
@@ -2337,10 +2341,43 @@ namespace AryuwatSystem.Forms
             this.dataGridViewTextBoxColumn41.Name = "dataGridViewTextBoxColumn41";
             this.dataGridViewTextBoxColumn41.ReadOnly = true;
             // 
+            // btnPrintInvClinic
+            // 
+            this.btnPrintInvClinic.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrintInvClinic.AutoSize = true;
+            this.btnPrintInvClinic.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.btnPrintInvClinic.ForeColor = System.Drawing.Color.Black;
+            this.btnPrintInvClinic.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPrintInvClinic.Location = new System.Drawing.Point(5, 427);
+            this.btnPrintInvClinic.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPrintInvClinic.Name = "btnPrintInvClinic";
+            this.btnPrintInvClinic.Size = new System.Drawing.Size(115, 38);
+            this.btnPrintInvClinic.TabIndex = 300;
+            this.btnPrintInvClinic.Text = "ใบแจ้งหนี้ (คลินิค)";
+            this.btnPrintInvClinic.UseVisualStyleBackColor = true;
+            this.btnPrintInvClinic.Click += new System.EventHandler(this.btnPrintInvClinic_Click);
+            this.btnPrintInvClinic.MouseEnter += new System.EventHandler(this.btnPrintInv_MouseEnter);
+            // 
+            // buttonTaxClinic
+            // 
+            this.buttonTaxClinic.AutoSize = true;
+            this.buttonTaxClinic.Cursor = System.Windows.Forms.Cursors.Default;
+            this.buttonTaxClinic.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.buttonTaxClinic.ForeColor = System.Drawing.Color.Black;
+            this.buttonTaxClinic.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonTaxClinic.Location = new System.Drawing.Point(124, 427);
+            this.buttonTaxClinic.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonTaxClinic.Name = "buttonTaxClinic";
+            this.buttonTaxClinic.Size = new System.Drawing.Size(122, 39);
+            this.buttonTaxClinic.TabIndex = 321;
+            this.buttonTaxClinic.Text = "ใบกำกับภาษี (คลินิค)";
+            this.buttonTaxClinic.UseVisualStyleBackColor = true;
+            this.buttonTaxClinic.Click += new System.EventHandler(this.buttonTaxClinic_Click);
+            // 
             // FrmSumOfTreatment
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1250, 662);
+            this.ClientSize = new System.Drawing.Size(1250, 747);
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -2573,5 +2610,7 @@ namespace AryuwatSystem.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn MS_UnitStk;
         private System.Windows.Forms.DataGridViewTextBoxColumn Dept;
         private System.Windows.Forms.DataGridViewTextBoxColumn REQNo;
+        private System.Windows.Forms.Button buttonTaxClinic;
+        private System.Windows.Forms.Button btnPrintInvClinic;
     }
 }

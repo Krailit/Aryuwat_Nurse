@@ -1413,7 +1413,7 @@ namespace AryuwatSystem.Forms
                 MessageBox.Show(ex.Message);
             }
         }
-        private void PrintBillNoVatINV()
+        private void PrintBillNoVatINV(int type)
         {
             try
             {
@@ -1434,7 +1434,14 @@ namespace AryuwatSystem.Forms
 
                 
                 string strTypeofPay = "";
-                obj.FormName = "RptSOFInvNoVatDiscount";
+                if(type == 1)
+                {
+                    obj.FormName = "RptSOFInvNoVatDiscount";
+                }
+                else
+                {
+                    obj.FormName = "RptSOFInvNoVatDiscountClinic";
+                }
                 if (Convert.ToInt32(dtTmp.Compute("Sum(DiscountBathByItem)", "")) > 0 || (txtIntDiscountBath.Text != "" && txtIntDiscountBath.Text != "0.00"))
                     obj.HasDiscount = true;
 
@@ -1606,10 +1613,16 @@ namespace AryuwatSystem.Forms
         {
             SaveSOF(false);
             BindFrmSumOfTreatment();
-            PrintTaxVat();
+            PrintTaxVat(1);
+        }
+        private void buttonTaxClinic_Click(object sender, EventArgs e)
+        {
+            SaveSOF(false);
+            BindFrmSumOfTreatment();
+            PrintTaxVat(2);
         }
 
-        private void PrintTaxVat()//ใบเสร็จ vat
+        private void PrintTaxVat(int type)//ใบเสร็จ vat
         {
             try
             {
@@ -1625,7 +1638,14 @@ namespace AryuwatSystem.Forms
                     return;
 
                 string strTypeofPay = "";
-                obj.FormName = "RptSOFTaxVat";
+                if (type == 1)
+                {
+                    obj.FormName = "RptSOFTaxVat";
+                }
+                else
+                {
+                    obj.FormName = "RptSOFTaxVatClinic";
+                }
                 double dblCredit = 0.00;
                 double dblCash = 0.00;
                 string strBankName = "";
@@ -1680,8 +1700,6 @@ namespace AryuwatSystem.Forms
             }
         }
    
-   
-    
         private void btnSave_Click(object sender, EventArgs e)
         {
             SaveSOF(true);
@@ -2675,7 +2693,23 @@ namespace AryuwatSystem.Forms
             {
                 SaveSOF(false);
                 BindFrmSumOfTreatment();
-                PrintBillNoVatINV();//ใบแจ้งหนี้ ORG
+                PrintBillNoVatINV(1);//ใบแจ้งหนี้ ORG
+                //PrintBillVatINV();//ใบแจ้งหนี้ ORG
+                //PrintBillNoVatINV("COPY");//ใบแจ้งหนี้ COPY
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+        private void btnPrintInvClinic_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SaveSOF(false);
+                BindFrmSumOfTreatment();
+                PrintBillNoVatINV(2);//ใบแจ้งหนี้ ORG
                 //PrintBillVatINV();//ใบแจ้งหนี้ ORG
                 //PrintBillNoVatINV("COPY");//ใบแจ้งหนี้ COPY
             }
