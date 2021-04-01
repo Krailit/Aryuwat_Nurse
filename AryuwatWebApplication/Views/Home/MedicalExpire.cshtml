@@ -57,7 +57,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="text-left align-middle" style="padding-left:50px;">ท่อปัสสวะ เปลี่ยนทุกๆ 1 เดือน</td>
+                                <td class="text-left align-middle" style="padding-left:50px;">ท่อปัสสวะ เปลี่ยนทุกๆ 15 วัน</td>
                                 <td class="text-left align-middle">{{ twoLastChange }}</td>
                                 <td class="text-left align-middle">{{ twoNextChange }}</td>
                                 <td class="text-center align-middle">
@@ -139,34 +139,19 @@
             that.GetPatientChange();
         },
         watch: {
-            oneLastChange: function (val) {
-                var that = this;
-                if (val == '') {
-                    that.oneLastChange = that.parseJsonDate(Date.now());
-                }
-            },
-            oneNextChange: function (val) {
-                var that = this;
-                var dt = new Date(Date.now());
-                dt.setMonth(dt.getMonth() + 1);
-                if (val == '') {
-                    that.oneNextChange = that.parseJsonDate(dt);
-                }
-            },
-            twoLastChange: function (val) {
-                var that = this;
-                if (val == '') {
-                    that.twoLastChange = that.parseJsonDate(Date.now());
-                }
-            },
-            twoNextChange: function (val) {
-                var that = this;
-                var dt = new Date(Date.now());
-                dt.setMonth(dt.getMonth() + 1);
-                if (val == '') {
-                    that.twoNextChange = that.parseJsonDate(dt);
-                }
-            },
+            //oneLastChange: function (val) {
+            //    var that = this;
+            //    if (val == '') {
+            //        that.oneLastChange = that.parseJsonDate(Date.now());
+            //    }
+            //},
+            //twoLastChange: function (val) {
+            //    var that = this;
+            //    if (val == '') {
+            //        that.twoLastChange = that.parseJsonDate(Date.now());
+            //    }
+            //},
+            
 
 
         },
@@ -208,7 +193,7 @@
                 //that.fileURL = 'https://aryuwat.onnli.co/AttachFile_Aryuwat/' + filename;
             },
             parseJsonDate: function (jsonDateString){
-                return moment(jsonDateString).format("MMM DD, YYYY / HH:MM").toUpperCase();
+                return moment(jsonDateString).format("MMM DD, YYYY / HH:mm").toUpperCase();
             },
             GetPatientChange:function(){
                 var that = this;
@@ -219,9 +204,23 @@
                     if (response.data.ContentEncoding == 200) {
                         that.dataPatientChange = response.data.data;
                         that.oneLastChange = response.data.onelastchange == null ? '' : that.parseJsonDate(response.data.onelastchange);
-                        that.oneNextChange = response.data.onenextchange == null ? '' : that.parseJsonDate(response.data.onenextchange);
+                        if (response.data.onenextchange == null) {
+                            var dt = new Date(Date.now());
+                            dt.setMonth(dt.getMonth() + 1);
+                            that.oneNextChange = that.parseJsonDate(dt);
+                        }
+                        else {
+                            that.oneNextChange = that.parseJsonDate(response.data.onenextchange);
+                        }
                         that.twoLastChange = response.data.twolastchange == null ? '' : that.parseJsonDate(response.data.twolastchange);
-                        that.twoNextChange = response.data.twonextchange == null ? '' : that.parseJsonDate(response.data.twonextchange);
+                        if (response.data.onenextchange == null) {
+                            var dt = new Date(Date.now());
+                            dt.setDate(dt.getDate() + 15);
+                            that.twoNextChange = that.parseJsonDate(dt);
+                        }
+                        else {
+                            that.twoNextChange = that.parseJsonDate(response.data.twoNextChange);
+                        }
                     }
                     else if (response.data.ContentEncoding == 201) {
                         that.oneLastChange = '';

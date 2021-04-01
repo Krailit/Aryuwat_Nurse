@@ -24,6 +24,10 @@ namespace AryuwatWebApplication.Entity
         public string O2 { get; set; }
         public string PulseSBP { get; set; }
         public string PulseDBP { get; set; }
+        public string In_Oral { get; set; }
+        public string In_Parenteral { get; set; }
+        public string Out_Stools { get; set; }
+        public string Out_Urine { get; set; }
         public Nullable<bool> Is_Active { get; set; }
         public string Create_By { get; set; }
         public Nullable<System.DateTime> Create_Date { get; set; }

@@ -1105,6 +1105,10 @@ warning 6002: The table/view 'OPD_System.dbo.PALabel' does not have a primary ke
           <Property Name="O2" Type="varchar" MaxLength="50" />
           <Property Name="PulseSBP" Type="varchar" MaxLength="50" />
           <Property Name="PulseDBP" Type="varchar" MaxLength="50" />
+          <Property Name="In_Oral" Type="varchar" MaxLength="50" />
+          <Property Name="In_Parenteral" Type="varchar" MaxLength="50" />
+          <Property Name="Out_Stools" Type="varchar" MaxLength="50" />
+          <Property Name="Out_Urine" Type="varchar" MaxLength="50" />
           <Property Name="Is_Active" Type="bit" />
           <Property Name="Create_By" Type="varchar(max)" />
           <Property Name="Create_Date" Type="datetime" />
@@ -2240,6 +2244,7 @@ warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a pri
           <Parameter Name="DateBooking" Type="datetime" Mode="In" />
           <Parameter Name="CloseBal" Type="decimal" Mode="In" />
           <Parameter Name="ID" Type="varchar" Mode="In" />
+          <Parameter Name="Active" Type="bit" Mode="In" />
         </Function>
         <Function Name="sp_CustProvider" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="TypeCustomer" Type="varchar" Mode="In" />
@@ -4612,6 +4617,7 @@ warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a pri
             <Parameter Name="DateBooking" Mode="In" Type="DateTime" />
             <Parameter Name="CloseBal" Mode="In" Type="Decimal" />
             <Parameter Name="ID" Mode="In" Type="String" />
+            <Parameter Name="Active" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="sp_CustProvider" ReturnType="Collection(String)">
             <Parameter Name="TypeCustomer" Mode="In" Type="String" />
@@ -5572,10 +5578,10 @@ warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a pri
           <EntitySet Name="V_Administrative" EntityType="OPD_SystemModel.V_Administrative" />
           <EntitySet Name="View_Customer" EntityType="OPD_SystemModel.View_Customer" />
           <EntitySet Name="vProductToSOMOes" EntityType="OPD_SystemModel.vProductToSOMO" />
-          <EntitySet Name="PatientDatas" EntityType="OPD_SystemModel.PatientData" />
           <EntitySet Name="Customers" EntityType="OPD_SystemModel.Customer" />
           <EntitySet Name="PatientChanges" EntityType="OPD_SystemModel.PatientChange" />
           <EntitySet Name="Alert_Detail" EntityType="OPD_SystemModel.Alert_Detail" />
+          <EntitySet Name="PatientDatas" EntityType="OPD_SystemModel.PatientData" />
         </EntityContainer>
         <ComplexType Name="sp_Account_Result">
           <Property Type="String" Name="RefundID" Nullable="false" MaxLength="2" />
@@ -7481,26 +7487,6 @@ warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a pri
           <Property Name="MS_Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="MS_Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="PatientData">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FK_Customer_ID" Type="Int32" />
-          <Property Name="Date" Type="DateTime" Precision="0" />
-          <Property Name="Time" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="T" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="R" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="BP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="O2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="PulseSBP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="PulseDBP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Is_Active" Type="Boolean" />
-          <Property Name="Create_By" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Create_Date" Type="DateTime" Precision="3" />
-          <Property Name="Update_By" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Update_Date" Type="DateTime" Precision="3" />
-        </EntityType>
         <EntityType Name="Customer">
           <Key>
             <PropertyRef Name="ID" />
@@ -7599,6 +7585,30 @@ warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a pri
           <Property Name="Create_By" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Create_Date" Type="DateTime" Precision="3" />
           <Property Name="Update_By" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Update_Date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="PatientData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FK_Customer_ID" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Time" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="T" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="R" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="O2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PulseSBP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PulseDBP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="In_Oral" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="In_Parenteral" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Out_Stools" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Out_Urine" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Is_Active" Type="Boolean" />
+          <Property Name="Create_By" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Create_Date" Type="DateTime" Precision="3" />
+          <Property Name="Update_By" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Update_Date" Type="DateTime" Precision="3" />
         </EntityType>
       </Schema>
@@ -9686,27 +9696,6 @@ warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a pri
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="PatientDatas">
-            <EntityTypeMapping TypeName="OPD_SystemModel.PatientData">
-              <MappingFragment StoreEntitySet="PatientData">
-                <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
-                <ScalarProperty Name="Update_By" ColumnName="Update_By" />
-                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
-                <ScalarProperty Name="Create_By" ColumnName="Create_By" />
-                <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
-                <ScalarProperty Name="PulseDBP" ColumnName="PulseDBP" />
-                <ScalarProperty Name="PulseSBP" ColumnName="PulseSBP" />
-                <ScalarProperty Name="O2" ColumnName="O2" />
-                <ScalarProperty Name="BP" ColumnName="BP" />
-                <ScalarProperty Name="R" ColumnName="R" />
-                <ScalarProperty Name="T" ColumnName="T" />
-                <ScalarProperty Name="Time" ColumnName="Time" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="FK_Customer_ID" ColumnName="FK_Customer_ID" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Customers">
             <EntityTypeMapping TypeName="OPD_SystemModel.Customer">
               <MappingFragment StoreEntitySet="Customers">
@@ -9805,6 +9794,31 @@ warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a pri
                 <ScalarProperty Name="Topic" ColumnName="Topic" />
                 <ScalarProperty Name="Alert_Type" ColumnName="Alert_Type" />
                 <ScalarProperty Name="Remark_Type" ColumnName="Remark_Type" />
+                <ScalarProperty Name="FK_Customer_ID" ColumnName="FK_Customer_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PatientDatas">
+            <EntityTypeMapping TypeName="OPD_SystemModel.PatientData">
+              <MappingFragment StoreEntitySet="PatientData">
+                <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+                <ScalarProperty Name="Update_By" ColumnName="Update_By" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+                <ScalarProperty Name="Create_By" ColumnName="Create_By" />
+                <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+                <ScalarProperty Name="Out_Urine" ColumnName="Out_Urine" />
+                <ScalarProperty Name="Out_Stools" ColumnName="Out_Stools" />
+                <ScalarProperty Name="In_Parenteral" ColumnName="In_Parenteral" />
+                <ScalarProperty Name="In_Oral" ColumnName="In_Oral" />
+                <ScalarProperty Name="PulseDBP" ColumnName="PulseDBP" />
+                <ScalarProperty Name="PulseSBP" ColumnName="PulseSBP" />
+                <ScalarProperty Name="O2" ColumnName="O2" />
+                <ScalarProperty Name="BP" ColumnName="BP" />
+                <ScalarProperty Name="R" ColumnName="R" />
+                <ScalarProperty Name="T" ColumnName="T" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="FK_Customer_ID" ColumnName="FK_Customer_ID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>

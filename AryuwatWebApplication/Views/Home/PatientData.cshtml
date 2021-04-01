@@ -61,6 +61,10 @@
                                 <th class="text-center align-middle">R</th>
                                 <th class="text-center align-middle">P</th>
                                 <th class="text-center align-middle">O2</th>
+                                <th class="text-center align-middle">IN Oral</th>
+                                <th class="text-center align-middle">IN Parenteral</th>
+                                <th class="text-center align-middle">OUT Stools</th>
+                                <th class="text-center align-middle">OUT Urine</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -85,6 +89,18 @@
                                 </td>
                                 <td class="text-center align-middle" style="border-bottom: 1px solid #ddd;">
                                     {{ items.O2 }}
+                                </td>
+                                <td class="text-center align-middle" style="border-bottom: 1px solid #ddd;">
+                                    {{ items.In_Oral }}
+                                </td>
+                                <td class="text-center align-middle" style="border-bottom: 1px solid #ddd;">
+                                    {{ items.In_Parenteral }}
+                                </td>
+                                <td class="text-center align-middle" style="border-bottom: 1px solid #ddd;">
+                                    {{ items.Out_Stools }}
+                                </td>
+                                <td class="text-center align-middle" style="border-bottom: 1px solid #ddd;">
+                                    {{ items.Out_Urine }}
                                 </td>
                             </tr>
                             <tr v-if="PatientData.length == 0">
@@ -123,13 +139,13 @@
                                 <input type="number" v-model="popPatientData.T" style="font-size: 16px;width: 5ch" />
                             </div>
                             <div class="col-3">
-                                <p style="text-align:right">P (SBP) :</p>
+                                <p style="text-align:right">BP (SBP) :</p>
                             </div>
                             <div class="col-3">
                                 <input type="number" v-model="popPatientData.PulseSBP" style="font-size: 16px;width: 5ch" />
                             </div>
                             <div class="col-3">
-                                <p style="text-align:right">P (DBP) :</p>
+                                <p style="text-align:right">BP (DBP) :</p>
                             </div>
                             <div class="col-3">
                                 <input type="number" v-model="popPatientData.PulseDBP" style="font-size: 16px;width: 5ch" />
@@ -141,7 +157,7 @@
                                 <input type="number" v-model="popPatientData.R" style="font-size: 16px;width: 5ch" />
                             </div>
                             <div class="col-3">
-                                <p style="text-align:right">BP :</p>
+                                <p style="text-align:right">Pulse :</p>
                             </div>
                             <div class="col-3">
                                 <input type="number" v-model="popPatientData.BP" style="font-size: 16px;width: 5ch" />
@@ -149,8 +165,32 @@
                             <div class="col-3">
                                 <p style="text-align:right">O2 :</p>
                             </div>
-                            <div class="col-3">
+                            <div class="col-7">
                                 <input type="number" v-model="popPatientData.O2" style="font-size: 16px;width: 5ch" />
+                            </div>
+                            <div class="col-4">
+                                <p style="text-align:right">IN ORAL :</p>
+                            </div>
+                            <div class="col-5">
+                                <input type="number" v-model="popPatientData.In_Oral" style="font-size: 16px;width: 7ch" />
+                            </div>
+                            <div class="col-4">
+                                <p style="text-align:right">IN Parenteral :</p>
+                            </div>
+                            <div class="col-5">
+                                <input type="number" v-model="popPatientData.In_Parenteral" style="font-size: 16px;width: 7ch" />
+                            </div>
+                            <div class="col-4">
+                                <p style="text-align:right">OUT Stools :</p>
+                            </div>
+                            <div class="col-5">
+                                <input type="number" v-model="popPatientData.Out_Stools" style="font-size: 16px;width: 7ch" />
+                            </div>
+                            <div class="col-4">
+                                <p style="text-align:right">OUT Urine :</p>
+                            </div>
+                            <div class="col-5">
+                                <input type="number" v-model="popPatientData.Out_Urine" style="font-size: 16px;width: 7ch" />
                             </div>
                         </div>
                     </div>
@@ -222,22 +262,23 @@
                     opposite: true
                 }],
                 tooltip: {
-                    formatter: function () {
-                        var s = '<b>' + Highcharts.dateFormat('%b-%e', this.x) + ' ' + Highcharts.dateFormat('%H:%M', this.points[0].point.x) + '</b><br/>';
-                        s += 'Blood Pressure: ' + this.points[0].point.y + '/' + this.points[1].point.y + ' mmHg' + '<br/>';
-                        return s;
-                    },
-                    crosshairs: true,
-                    shared: true
+                    //formatter: function () {
+                    //    var s = '<b>' + Highcharts.dateFormat('%b-%e', this.x) + ' ' + Highcharts.dateFormat('%H:%M', this.points[0].point.x) + '</b><br/>';
+                    //    s += 'Data: ' + this.points[0].point.y + '<br/>';
+                    //    return s;
+                    //},
+                    //crosshairs: true,
+                    //shared: true
                 },
                 series: [
                     {
-                        name: 'Pulse (Systolic)',
-                        color: '#006376',
+                        name: 'Temp',
+                        color: '#4286f5',
                         data: that.datatemp
                     },
                     {
-                        name: 'Pulse (Diastolic)',
+                        name: 'Pulse',
+                        color: '#f92222',
                         data: that.datatemp2
                     }
                 ]
@@ -255,7 +296,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -265,7 +306,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -275,7 +316,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -285,7 +326,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -295,7 +336,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -305,7 +346,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -315,7 +356,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -325,7 +366,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -335,7 +376,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -345,7 +386,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -355,7 +396,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -365,7 +406,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -375,7 +416,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -385,7 +426,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -395,7 +436,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -405,7 +446,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -415,7 +456,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -425,7 +466,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -435,7 +476,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -445,7 +486,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -455,7 +496,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -465,7 +506,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -475,7 +516,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -485,7 +526,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -495,7 +536,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -505,7 +546,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -515,7 +556,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -525,7 +566,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -535,7 +576,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -545,7 +586,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -555,7 +596,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -565,7 +606,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -575,7 +616,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -585,7 +626,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -595,7 +636,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -605,7 +646,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -615,7 +656,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -625,7 +666,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -635,7 +676,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -645,7 +686,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -655,7 +696,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -665,7 +706,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -675,7 +716,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -685,7 +726,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -695,7 +736,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -705,7 +746,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -715,7 +756,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 {
                     Date: that.parseJsonDate(Date.now()),
@@ -725,7 +766,7 @@
                     PulseDBP: '',
                     R: '',
                     BP: '',
-                    O2: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
                 
             );
@@ -784,6 +825,10 @@
                                     that.PatientData[a].R = response.data.data[i].R;
                                     that.PatientData[a].BP = response.data.data[i].BP;
                                     that.PatientData[a].O2 = response.data.data[i].O2;
+                                    that.PatientData[a].In_Oral = response.data.data[i].In_Oral;
+                                    that.PatientData[a].In_Parenteral = response.data.data[i].In_Parenteral;
+                                    that.PatientData[a].Out_Stools = response.data.data[i].Out_Stools;
+                                    that.PatientData[a].Out_Urine = response.data.data[i].Out_Urine;
                                 }
                             }
                         }
