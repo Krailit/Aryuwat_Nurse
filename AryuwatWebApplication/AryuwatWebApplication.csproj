@@ -539,6 +539,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Aryuwat_Logo.png" />
     <Content Include="Content\assets\demo\chart-area-demo.js" />
     <Content Include="Content\assets\demo\chart-bar-demo.js" />
     <Content Include="Content\assets\demo\chart-pie-demo.js" />
@@ -1639,6 +1640,7 @@
     <Content Include="Content\coreui\vendor\simple-line-icons\fonts\Simple-Line-Icons.svg" />
     <Content Include="Content\css\styles.css" />
     <Content Include="Content\js\scripts.js" />
+    <Content Include="Content\none-profile.jpg" />
     <Content Include="Entity\OPD_Entity.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>OPD_Entity.Context.cs</LastGenOutput>

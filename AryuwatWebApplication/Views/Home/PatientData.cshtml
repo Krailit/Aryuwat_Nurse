@@ -41,7 +41,9 @@
             <div class="card-header">ตรวจวัดข้อมูลผู้ป่วย</div>
             <div class="card-body">
                 <div class="datatable">
-                    <div id="chart" style="width: 1000px; height: 400px; margin: 0 auto"></div>
+                    <div class="table-responsive">
+                        <div id="chart" style="width: 1000px; height: 400px; margin: 0 auto;"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -51,65 +53,67 @@
             <div class="card-header">ตรวจวัดข้อมูลผู้ป่วย</div>
             <div class="card-body">
                 <div class="datatable">
-                    <table class="table table-bordered table-hover" id="dataTable" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th class="text-center align-middle">Date</th>
-                                <th class="text-center align-middle">Time</th>
-                                <th class="text-center align-middle">T</th>
-                                <th class="text-center align-middle">BP</th>
-                                <th class="text-center align-middle">R</th>
-                                <th class="text-center align-middle">P</th>
-                                <th class="text-center align-middle">O2</th>
-                                <th class="text-center align-middle">IN Oral</th>
-                                <th class="text-center align-middle">IN Parenteral</th>
-                                <th class="text-center align-middle">OUT Stools</th>
-                                <th class="text-center align-middle">OUT Urine</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr :key="index" v-for="(items, index) in PatientData" v-if="PatientData.length > 0" data-toggle="modal" data-target="#myModal" style="cursor: pointer;" v-on:click="openPopup(items)" class="rowHover">
-                                <td class="text-center align-middle" style="border-bottom: 1px solid #ddd;border-right: 1px solid #ddd;">
-                                    {{ items.Date }}
-                                </td>
-                                <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
-                                    {{ items.Time }}
-                                </td>
-                                <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
-                                    {{ items.T }}
-                                </td>
-                                <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
-                                    {{ items.PulseSBP == null || items.PulseSBP == '' || items.PulseDBP == null || items.PulseDBP == '' ? '' : items.PulseSBP + ' / ' + items.PulseDBP }}
-                                </td>
-                                <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
-                                    {{ items.R }}
-                                </td>
-                                <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
-                                    {{ items.BP }}
-                                </td>
-                                <td class="text-center align-middle" style="border-bottom: 1px solid #ddd;">
-                                    {{ items.O2 }}
-                                </td>
-                                <td class="text-center align-middle" style="border-bottom: 1px solid #ddd;">
-                                    {{ items.In_Oral }}
-                                </td>
-                                <td class="text-center align-middle" style="border-bottom: 1px solid #ddd;">
-                                    {{ items.In_Parenteral }}
-                                </td>
-                                <td class="text-center align-middle" style="border-bottom: 1px solid #ddd;">
-                                    {{ items.Out_Stools }}
-                                </td>
-                                <td class="text-center align-middle" style="border-bottom: 1px solid #ddd;">
-                                    {{ items.Out_Urine }}
-                                </td>
-                            </tr>
-                            <tr v-if="PatientData.length == 0">
-                                <td class="text-left" colspan="6">
-                                    No data available in table
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover" id="dataTable" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th class="text-center align-middle">Date</th>
+                                    <th class="text-center align-middle">Time</th>
+                                    <th class="text-center align-middle">T</th>
+                                    <th class="text-center align-middle">BP</th>
+                                    <th class="text-center align-middle">R</th>
+                                    <th class="text-center align-middle">P</th>
+                                    <th class="text-center align-middle">O2</th>
+                                    <th class="text-center align-middle">IN Oral</th>
+                                    <th class="text-center align-middle">IN Parenteral</th>
+                                    <th class="text-center align-middle">OUT Stools</th>
+                                    <th class="text-center align-middle">OUT Urine</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr :key="index" v-for="(items, index) in PatientData" v-if="PatientData.length > 0" data-toggle="modal" data-target="#myModal" style="cursor: pointer;" v-on:click="openPopup(items)" class="rowHover">
+                                    <td class="text-center align-middle" style="border-bottom: 1px solid #ddd;border-right: 1px solid #ddd;">
+                                        {{ items.Date }}
+                                    </td>
+                                    <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
+                                        {{ items.Time }}
+                                    </td>
+                                    <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
+                                        {{ items.T }}
+                                    </td>
+                                    <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
+                                        {{ items.PulseSBP == null || items.PulseSBP == '' || items.PulseDBP == null || items.PulseDBP == '' ? '' : items.PulseSBP + ' / ' + items.PulseDBP }}
+                                    </td>
+                                    <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
+                                        {{ items.R }}
+                                    </td>
+                                    <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
+                                        {{ items.BP }}
+                                    </td>
+                                    <td class="text-center align-middle" style="border-bottom: 1px solid #ddd;">
+                                        {{ items.O2 }}
+                                    </td>
+                                    <td class="text-center align-middle" style="border-bottom: 1px solid #ddd;">
+                                        {{ items.In_Oral }}
+                                    </td>
+                                    <td class="text-center align-middle" style="border-bottom: 1px solid #ddd;">
+                                        {{ items.In_Parenteral }}
+                                    </td>
+                                    <td class="text-center align-middle" style="border-bottom: 1px solid #ddd;">
+                                        {{ items.Out_Stools }}
+                                    </td>
+                                    <td class="text-center align-middle" style="border-bottom: 1px solid #ddd;">
+                                        {{ items.Out_Urine }}
+                                    </td>
+                                </tr>
+                                <tr v-if="PatientData.length == 0">
+                                    <td class="text-left" colspan="6">
+                                        No data available in table
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
@@ -781,7 +785,9 @@
                     //console.log(temp, tempchart[temp]);
                     var datenum = parseInt(tempchart[temp][0].split('(')[1].split(')')[0]);
                     var d = new Date(datenum);
-                    await this.datatemp.push([Date.UTC(d.getFullYear(), d.getMonth(), d.getDate(), d.getHours(), d.getMinutes()), tempchart[temp][1]]);
+                    if (tempchart[temp][1] != 0) {
+                        await this.datatemp.push([Date.UTC(d.getFullYear(), d.getMonth(), d.getDate(), d.getHours(), d.getMinutes()), tempchart[temp][1] == 0 ? null : tempchart[temp][1]]);
+                    }
                 }
             },
             asyncCall2: async function () {
@@ -789,7 +795,9 @@
                     //console.log(temp, tempchart2[temp]);
                     var datenum = parseInt(tempchart2[temp][0].split('(')[1].split(')')[0]);
                     var d = new Date(datenum);
-                    await this.datatemp2.push([Date.UTC(d.getFullYear(), d.getMonth(), d.getDate(), d.getHours(), d.getMinutes()), tempchart2[temp][1]]);
+                    if (tempchart2[temp][1] != 0) {
+                        await this.datatemp2.push([Date.UTC(d.getFullYear(), d.getMonth(), d.getDate(), d.getHours(), d.getMinutes()), tempchart2[temp][1] == 0 ? null : tempchart2[temp][1]]);
+                    }
                 }
             },
             openPopup: function (val) {

@@ -2,6 +2,7 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -33,6 +34,7 @@ namespace AryuwatWebApplication.Controllers
             {
                 try
                 {
+                    string FTPFile = ConfigurationManager.AppSettings["FTPFile"];
                     var JsData = JObject.Parse(tempdata);
                     string txtUser = JsData["user"].ToString(), txtPass = JsData["pass"].ToString();
                     var chkLogin = context.Personnels.Where(x => x.Username == txtUser && x.Passwords == txtPass && x.Active == "Y").FirstOrDefault();
@@ -45,7 +47,7 @@ namespace AryuwatWebApplication.Controllers
                         Response.Cookies["OPD"]["IdCard"] = chkLogin.IdCard == null ? null : chkLogin.IdCard.ToString();
                         Response.Cookies["OPD"]["PersonnelType"] = chkLogin.PersonnelType == null ? null : Base64Encode(chkLogin.PersonnelType.ToString());
                         Response.Cookies["OPD"]["UserGroup"] = chkLogin.UserGroup == null ? null : chkLogin.UserGroup.ToString();
-                        Response.Cookies["OPD"]["ImageFilename"] = chkLogin.ImageFilename == null ? null : Base64Encode(chkLogin.ImageFilename.ToString());
+                        Response.Cookies["OPD"]["ImageFilename"] = chkLogin.ImageFilename == null ? null : Base64Encode(FTPFile + "Customers/" + chkLogin.EN + "/" + chkLogin.ImageFilename.ToString().Trim());
                         Response.Cookies["OPD"].Expires = DateTime.Now.AddMinutes(180);
                         return Json(new { status = 200, data = Response.Cookies["OPD"] });
                     }

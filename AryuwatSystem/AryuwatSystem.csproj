@@ -3902,10 +3902,6 @@
     <Content Include="Der10_icon.ico" />
     <Content Include="DerMasterIcon.ico" />
     <Content Include="ExportEPPlus\EPPlus.dll" />
-    <Content Include="Images\BG.jpg" />
-    <Content Include="Images\BG.png" />
-    <Content Include="Images\BG2.jpg" />
-    <Content Include="Images\BG2.png" />
     <Content Include="Images\Bookmarks Blackssss_Red.png" />
     <Content Include="Images\calendar_year_256.png" />
     <Content Include="Images\calendar_year_256_Red.png" />
@@ -3913,7 +3909,6 @@
     <Content Include="Images\Capture.ico" />
     <None Include="Images\print_printer.png" />
     <None Include="Images\print_printer_resize.png" />
-    <Content Include="Images\logo_dermaster_01_.ico" />
     <None Include="Resources\change.jpg" />
     <None Include="Resources\Business-Survey-icon.png" />
     <None Include="Resources\Business-Survey-icon1.png" />
@@ -3948,7 +3943,6 @@
     <Content Include="Images\ColorTool.gif" />
     <Content Include="Images\delete_256ssss.png" />
     <Content Include="Images\delete_256ssss_Black.png" />
-    <Content Include="Images\dermaster.png" />
     <None Include="Resources\document_add_256.png" />
     <None Include="Resources\DerMasterIcon.ico" />
     <None Include="Resources\Import1.png" />
@@ -4013,7 +4007,6 @@
     <Content Include="Images\Left.png" />
     <Content Include="Images\LeftOver.png" />
     <Content Include="Images\line_chart_128ssss_24.png" />
-    <Content Include="Images\logo_dermaster_01.png" />
     <Content Include="Images\loupe_256ssss.png" />
     <Content Include="Images\loupe_256ssss_Black.png" />
     <Content Include="Images\mail_write_256ssss.png" />

@@ -53,6 +53,7 @@ namespace AryuwatWebApplication.Controllers
             public DateTime? Start { get; set; }
             public DateTime? End { get; set; }
             public DateTime? Meeting { get; set; }
+            public string PATH { get; set; }
         }
 
         public string TableCustomer ()
@@ -289,7 +290,7 @@ namespace AryuwatWebApplication.Controllers
                     {
                         string query = @"SELECT distinct pt.[Count] as dataCount,
                                         (select top 1 DateChange FROM[OPD_System].[dbo].[PatientChange] where Type = 1  and [Count] = pt.[Count] and FK_Customer_ID = " + tmpCustomerID + @") as oneNextChange,
-	                                    (select top 1 NextDateChange FROM[OPD_System].[dbo].[PatientChange] where Type = 2  and [Count] = pt.[Count] and FK_Customer_ID = " + tmpCustomerID + @") as twoNextChange
+	                                    (select top 1 DateChange FROM[OPD_System].[dbo].[PatientChange] where Type = 2  and [Count] = pt.[Count] and FK_Customer_ID = " + tmpCustomerID + @") as twoNextChange
                                         FROM[OPD_System].[dbo].[PatientChange] pt  where FK_Customer_ID = " + tmpCustomerID + @"
 	                                    order by [Count] desc";
                         var resultquery = context.Database.SqlQuery<MedicalExpireModel>(query).ToList();
@@ -745,10 +746,13 @@ namespace AryuwatWebApplication.Controllers
                     using (var context = new OPD_SystemEntities())
                     {
 
+                        string FTPFile = ConfigurationManager.AppSettings["FTPFile"];
                         string query = TableCustomer();
                         query += "and CN = '" + customerCN + "'";
 
                         result = context.Database.SqlQuery<TempPatientData>(query).FirstOrDefault();
+
+                        result.PATH = FTPFile;
 
                         return View(result);
                     }
