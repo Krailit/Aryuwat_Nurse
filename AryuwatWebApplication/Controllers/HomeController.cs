@@ -8,6 +8,8 @@ using System.Configuration;
 using System.Data.Entity;
 using System.Data.Entity.Core.Objects;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -16,6 +18,7 @@ using System.Runtime.Remoting.Messaging;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 
 namespace AryuwatWebApplication.Controllers
 {
@@ -191,6 +194,40 @@ namespace AryuwatWebApplication.Controllers
             }
         }
 
+        public void ResizeStream(int imageSize, Stream filePath, string outputPath)
+        {
+            var image = System.Drawing.Image.FromStream(filePath);
+
+            int thumbnailSize = imageSize;
+            int newWidth, newHeight;
+
+            if (image.Width > image.Height)
+            {
+                newWidth = thumbnailSize;
+                newHeight = image.Height * thumbnailSize / image.Width;
+            }
+            else
+            {
+                newWidth = image.Width * thumbnailSize / image.Height;
+                newHeight = thumbnailSize;
+            }
+
+            var thumbnailBitmap = new Bitmap(newWidth, newHeight);
+
+            var thumbnailGraph = Graphics.FromImage(thumbnailBitmap);
+            thumbnailGraph.CompositingQuality = CompositingQuality.HighQuality;
+            thumbnailGraph.SmoothingMode = SmoothingMode.HighQuality;
+            thumbnailGraph.InterpolationMode = InterpolationMode.HighQualityBicubic;
+
+            var imageRectangle = new Rectangle(0, 0, newWidth, newHeight);
+            thumbnailGraph.DrawImage(image, imageRectangle);
+
+            thumbnailBitmap.Save(outputPath, image.RawFormat);
+            thumbnailGraph.Dispose();
+            thumbnailBitmap.Dispose();
+            image.Dispose();
+        }
+
         [HttpPost, ActionName("UploadFile")]
         public JsonResult UploadFile(string CN, HttpPostedFileBase AttachFileData)
         {
@@ -202,10 +239,13 @@ namespace AryuwatWebApplication.Controllers
                 {
                     if (AttachFileData != null && AttachFileData.ContentLength > 0)
                     {
+                        int ScaleIMG = Convert.ToInt32(ConfigurationManager.AppSettings["ScaleIMG"]);
+                        var hpf = AttachFileData as HttpPostedFileBase;
                         var fileName = Path.GetFileName(AttachFileData.FileName);
                         var newFileName = "OPD_" + CN + "_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + "." + AttachFileData.FileName.Split('.').ElementAt(1);
-                        var path = Path.Combine(Server.MapPath("~/AttachFile_Aryuwat"), newFileName);
-                        AttachFileData.SaveAs(path);
+                        ResizeStream(ScaleIMG, hpf.InputStream, Path.Combine(Server.MapPath("~/AttachFile_Aryuwat"), newFileName));
+                        //var path = Path.Combine(Server.MapPath("~/AttachFile_Aryuwat"), newFileName);
+                        //AttachFileData.SaveAs(path);
                         FileOPD fopd = new FileOPD();
                         fopd.FileName = newFileName;
                         fopd.Detail = AttachFileData.FileName;

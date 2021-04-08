@@ -155,15 +155,15 @@
                 if (files.length === 0) { return; }
                 // console.log(files[0]);
                 // maximum: 10M
-                if (files[0].size / 1024 / 1024 > 1) {
-                    // แจ้งเตือน
-                    alert("ขนาดไฟล์เกิน 1MB กรุณาตรวจสอบข้อมูลอีกครั้ง !!");
-                    // เคลียร์ข้อมูล
-                    $("#FormulaAttachFile").val("");
-                    this.File = "";
-                    // ส่งกลับข้อมูล
-                    return true;
-                }
+                //if (files[0].size / 1024 / 1024 > 1) {
+                //    // แจ้งเตือน
+                //    alert("ขนาดไฟล์เกิน 1MB กรุณาตรวจสอบข้อมูลอีกครั้ง !!");
+                //    // เคลียร์ข้อมูล
+                //    $("#FormulaAttachFile").val("");
+                //    this.File = "";
+                //    // ส่งกลับข้อมูล
+                //    return true;
+                //}
                 this.File = files[0];
                 this.AttachFileName = this.File.name;
             },
