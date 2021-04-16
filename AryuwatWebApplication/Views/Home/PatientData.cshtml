@@ -254,18 +254,38 @@
                     type: 'datetime',
                 },
                 yAxis: [{
-                    title: {
-                        text: 'Temperature (&#8451;)'
+                    gridLineWidth: 0,
+                    labels: {
+                        format: '{value}°C',
+                        style: {
+                            color: "#4286f5"
+                        }
                     },
-
-
+                    title: {
+                        text: 'Temperature (&#8451;)',
+                        style: {
+                            color: "#4286f5"
+                        }
+                    },
+                    opposite: false
                 }, {
-                    title: {
-                        text: 'Heart Rate (b/m)'
+                    gridLineWidth: 0,
+                    labels: {
+                        format: '{value}',
+                        style: {
+                            color: "#f92222"
+                        }
                     },
-                    opposite: true
+                    title: {
+                        text: 'Pulse',
+                        style: {
+                            color: "#f92222"
+                        }
+                    },
+                    opposite: false
                 }],
                 tooltip: {
+                    shared: true
                     //formatter: function () {
                     //    var s = '<b>' + Highcharts.dateFormat('%b-%e', this.x) + ' ' + Highcharts.dateFormat('%H:%M', this.points[0].point.x) + '</b><br/>';
                     //    s += 'Data: ' + this.points[0].point.y + '<br/>';
@@ -277,12 +297,22 @@
                 series: [
                     {
                         name: 'Temp',
+                        type: 'spline',
                         color: '#4286f5',
-                        data: that.datatemp
+                        yAxis: 0,
+                        data: that.datatemp,
+                        marker: {
+                            enabled: false
+                        },
+                        dashStyle: 'shortdot',
+                        tooltip: {
+                            valueSuffix: ' °C'
+                        }
                     },
                     {
                         name: 'Pulse',
                         color: '#f92222',
+                        yAxis: 1,
                         data: that.datatemp2
                     }
                 ]
