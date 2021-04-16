@@ -116,12 +116,12 @@ namespace AryuwatSystem.Forms
             this.label4 = new System.Windows.Forms.Label();
             this.panelName = new System.Windows.Forms.Panel();
             this.lblEndDate = new System.Windows.Forms.Label();
-            this.lblStartDate = new System.Windows.Forms.Label();
-            this.dateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePickerCreate = new System.Windows.Forms.DateTimePicker();
             this.comboBoxByDr = new System.Windows.Forms.ComboBox();
+            this.lblStartDate = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.dateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
             this.labelKey1 = new System.Windows.Forms.Label();
+            this.dateTimePickerCreate = new System.Windows.Forms.DateTimePicker();
             this.checkBoxOld = new System.Windows.Forms.CheckBox();
             this.labelCN = new System.Windows.Forms.Label();
             this.radioRoom = new System.Windows.Forms.RadioButton();
@@ -149,6 +149,8 @@ namespace AryuwatSystem.Forms
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtNote = new System.Windows.Forms.TextBox();
             this.btnAddFile = new AryuwatSystem.UserControls.ButtonAdd();
             this.buttonAddDown = new AryuwatSystem.UserControls.ButtonRigth();
             this.buttonDeleteUp = new AryuwatSystem.UserControls.ButtonLeft();
@@ -203,7 +205,7 @@ namespace AryuwatSystem.Forms
             this.FrmMedicalOrderSettingPro_Fill_Panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FrmMedicalOrderSettingPro_Fill_Panel.Location = new System.Drawing.Point(0, 0);
             this.FrmMedicalOrderSettingPro_Fill_Panel.Name = "FrmMedicalOrderSettingPro_Fill_Panel";
-            this.FrmMedicalOrderSettingPro_Fill_Panel.Size = new System.Drawing.Size(1347, 599);
+            this.FrmMedicalOrderSettingPro_Fill_Panel.Size = new System.Drawing.Size(1585, 599);
             this.FrmMedicalOrderSettingPro_Fill_Panel.TabIndex = 0;
             // 
             // panelList
@@ -213,7 +215,7 @@ namespace AryuwatSystem.Forms
             this.panelList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelList.Location = new System.Drawing.Point(0, 0);
             this.panelList.Name = "panelList";
-            this.panelList.Size = new System.Drawing.Size(1347, 599);
+            this.panelList.Size = new System.Drawing.Size(1585, 599);
             this.panelList.TabIndex = 4;
             // 
             // panelProductList
@@ -227,7 +229,7 @@ namespace AryuwatSystem.Forms
             this.panelProductList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelProductList.Location = new System.Drawing.Point(0, 96);
             this.panelProductList.Name = "panelProductList";
-            this.panelProductList.Size = new System.Drawing.Size(1347, 503);
+            this.panelProductList.Size = new System.Drawing.Size(1585, 503);
             this.panelProductList.TabIndex = 1;
             // 
             // splitter1
@@ -235,7 +237,7 @@ namespace AryuwatSystem.Forms
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.splitter1.Location = new System.Drawing.Point(0, 88);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(1347, 3);
+            this.splitter1.Size = new System.Drawing.Size(1585, 3);
             this.splitter1.TabIndex = 3068;
             this.splitter1.TabStop = false;
             // 
@@ -273,7 +275,7 @@ namespace AryuwatSystem.Forms
             this.tabControl.Location = new System.Drawing.Point(0, 0);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1347, 91);
+            this.tabControl.Size = new System.Drawing.Size(1585, 91);
             this.tabControl.TabIndex = 0;
             this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl_SelectedIndexChanged);
             // 
@@ -282,7 +284,7 @@ namespace AryuwatSystem.Forms
             this.tabAesthetic.Controls.Add(this.panel10);
             this.tabAesthetic.Location = new System.Drawing.Point(4, 25);
             this.tabAesthetic.Name = "tabAesthetic";
-            this.tabAesthetic.Size = new System.Drawing.Size(1339, 62);
+            this.tabAesthetic.Size = new System.Drawing.Size(1577, 62);
             this.tabAesthetic.TabIndex = 5;
             this.tabAesthetic.Text = "AESTHETIC";
             this.tabAesthetic.UseVisualStyleBackColor = true;
@@ -295,7 +297,7 @@ namespace AryuwatSystem.Forms
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(0, 0);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(1339, 62);
+            this.panel10.Size = new System.Drawing.Size(1577, 62);
             this.panel10.TabIndex = 151;
             // 
             // txtFindAes
@@ -331,7 +333,7 @@ namespace AryuwatSystem.Forms
             this.dgvAestheticList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dgvAestheticList.RowTemplate.ReadOnly = true;
             this.dgvAestheticList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAestheticList.Size = new System.Drawing.Size(1322, 26);
+            this.dgvAestheticList.Size = new System.Drawing.Size(1560, 26);
             this.dgvAestheticList.TabIndex = 148;
             this.dgvAestheticList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAestheticList_CellContentClick);
             this.dgvAestheticList.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvAestheticList_CellFormatting);
@@ -342,7 +344,7 @@ namespace AryuwatSystem.Forms
             this.tabSurgery.Controls.Add(this.panel9);
             this.tabSurgery.Location = new System.Drawing.Point(4, 25);
             this.tabSurgery.Name = "tabSurgery";
-            this.tabSurgery.Size = new System.Drawing.Size(1268, 62);
+            this.tabSurgery.Size = new System.Drawing.Size(1577, 62);
             this.tabSurgery.TabIndex = 3;
             this.tabSurgery.Text = "SURGERY";
             this.tabSurgery.UseVisualStyleBackColor = true;
@@ -355,7 +357,7 @@ namespace AryuwatSystem.Forms
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(0, 0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1268, 65);
+            this.panel9.Size = new System.Drawing.Size(1577, 65);
             this.panel9.TabIndex = 151;
             // 
             // dgvSurgeryList
@@ -372,7 +374,7 @@ namespace AryuwatSystem.Forms
             this.dgvSurgeryList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dgvSurgeryList.RowTemplate.ReadOnly = true;
             this.dgvSurgeryList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSurgeryList.Size = new System.Drawing.Size(1251, 35);
+            this.dgvSurgeryList.Size = new System.Drawing.Size(1560, 35);
             this.dgvSurgeryList.TabIndex = 148;
             this.dgvSurgeryList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSurgeryList_CellContentClick);
             this.dgvSurgeryList.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvSurgeryList_RowPostPaint);
@@ -403,7 +405,7 @@ namespace AryuwatSystem.Forms
             this.tabWellness_Antiaging.Location = new System.Drawing.Point(4, 25);
             this.tabWellness_Antiaging.Margin = new System.Windows.Forms.Padding(0);
             this.tabWellness_Antiaging.Name = "tabWellness_Antiaging";
-            this.tabWellness_Antiaging.Size = new System.Drawing.Size(1268, 62);
+            this.tabWellness_Antiaging.Size = new System.Drawing.Size(1577, 62);
             this.tabWellness_Antiaging.TabIndex = 8;
             this.tabWellness_Antiaging.Text = "Wellness & AntiAging";
             this.tabWellness_Antiaging.UseVisualStyleBackColor = true;
@@ -417,7 +419,7 @@ namespace AryuwatSystem.Forms
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1268, 65);
+            this.panel3.Size = new System.Drawing.Size(1577, 65);
             this.panel3.TabIndex = 151;
             // 
             // dgvWellness_AntiagingList
@@ -434,7 +436,7 @@ namespace AryuwatSystem.Forms
             this.dgvWellness_AntiagingList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dgvWellness_AntiagingList.RowTemplate.ReadOnly = true;
             this.dgvWellness_AntiagingList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvWellness_AntiagingList.Size = new System.Drawing.Size(1251, 35);
+            this.dgvWellness_AntiagingList.Size = new System.Drawing.Size(1560, 35);
             this.dgvWellness_AntiagingList.TabIndex = 148;
             this.dgvWellness_AntiagingList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWellness_AntiagingList_CellContentClick);
             this.dgvWellness_AntiagingList.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvWellness_AntiagingList_RowPostPaint);
@@ -462,7 +464,7 @@ namespace AryuwatSystem.Forms
             this.tabPromotion.Controls.Add(this.panel2);
             this.tabPromotion.Location = new System.Drawing.Point(4, 25);
             this.tabPromotion.Name = "tabPromotion";
-            this.tabPromotion.Size = new System.Drawing.Size(1268, 62);
+            this.tabPromotion.Size = new System.Drawing.Size(1577, 62);
             this.tabPromotion.TabIndex = 9;
             this.tabPromotion.Text = "Promotion";
             this.tabPromotion.UseVisualStyleBackColor = true;
@@ -475,7 +477,7 @@ namespace AryuwatSystem.Forms
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1268, 65);
+            this.panel2.Size = new System.Drawing.Size(1577, 65);
             this.panel2.TabIndex = 153;
             // 
             // txtFindPro
@@ -511,7 +513,7 @@ namespace AryuwatSystem.Forms
             this.dgvPromotionList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dgvPromotionList.RowTemplate.ReadOnly = true;
             this.dgvPromotionList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPromotionList.Size = new System.Drawing.Size(1251, 35);
+            this.dgvPromotionList.Size = new System.Drawing.Size(1560, 35);
             this.dgvPromotionList.TabIndex = 148;
             this.dgvPromotionList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPromotionList_CellContentClick);
             this.dgvPromotionList.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvPromotionList_RowPostPaint);
@@ -521,7 +523,7 @@ namespace AryuwatSystem.Forms
             this.tabPharmacy.Controls.Add(this.panel6);
             this.tabPharmacy.Location = new System.Drawing.Point(4, 25);
             this.tabPharmacy.Name = "tabPharmacy";
-            this.tabPharmacy.Size = new System.Drawing.Size(1268, 62);
+            this.tabPharmacy.Size = new System.Drawing.Size(1577, 62);
             this.tabPharmacy.TabIndex = 2;
             this.tabPharmacy.Text = "Pharmacy & Product";
             this.tabPharmacy.UseVisualStyleBackColor = true;
@@ -534,7 +536,7 @@ namespace AryuwatSystem.Forms
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1268, 65);
+            this.panel6.Size = new System.Drawing.Size(1577, 65);
             this.panel6.TabIndex = 151;
             // 
             // dgvPharmacyList
@@ -551,7 +553,7 @@ namespace AryuwatSystem.Forms
             this.dgvPharmacyList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dgvPharmacyList.RowTemplate.ReadOnly = true;
             this.dgvPharmacyList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPharmacyList.Size = new System.Drawing.Size(1251, 35);
+            this.dgvPharmacyList.Size = new System.Drawing.Size(1560, 35);
             this.dgvPharmacyList.TabIndex = 148;
             this.dgvPharmacyList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPharmacyList_CellContentClick);
             this.dgvPharmacyList.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvPharmacyList_RowPostPaint);
@@ -581,7 +583,7 @@ namespace AryuwatSystem.Forms
             this.tabAttachFile.Controls.Add(this.panel8);
             this.tabAttachFile.Location = new System.Drawing.Point(4, 25);
             this.tabAttachFile.Name = "tabAttachFile";
-            this.tabAttachFile.Size = new System.Drawing.Size(1268, 62);
+            this.tabAttachFile.Size = new System.Drawing.Size(1577, 62);
             this.tabAttachFile.TabIndex = 7;
             this.tabAttachFile.Text = "ATTACH FILE";
             this.tabAttachFile.UseVisualStyleBackColor = true;
@@ -600,7 +602,7 @@ namespace AryuwatSystem.Forms
             this.dgvFile.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dgvFile.RowTemplate.ReadOnly = true;
             this.dgvFile.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFile.Size = new System.Drawing.Size(1268, 35);
+            this.dgvFile.Size = new System.Drawing.Size(1577, 35);
             this.dgvFile.TabIndex = 289;
             this.dgvFile.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFile_CellContentClick);
             // 
@@ -614,7 +616,7 @@ namespace AryuwatSystem.Forms
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1268, 30);
+            this.panel8.Size = new System.Drawing.Size(1577, 30);
             this.panel8.TabIndex = 290;
             // 
             // txtFilePath
@@ -656,7 +658,7 @@ namespace AryuwatSystem.Forms
             this.tabRoom.Controls.Add(this.panel5);
             this.tabRoom.Location = new System.Drawing.Point(4, 25);
             this.tabRoom.Name = "tabRoom";
-            this.tabRoom.Size = new System.Drawing.Size(1268, 62);
+            this.tabRoom.Size = new System.Drawing.Size(1577, 62);
             this.tabRoom.TabIndex = 10;
             this.tabRoom.Text = "Room";
             this.tabRoom.UseVisualStyleBackColor = true;
@@ -669,7 +671,7 @@ namespace AryuwatSystem.Forms
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1268, 65);
+            this.panel5.Size = new System.Drawing.Size(1577, 65);
             this.panel5.TabIndex = 154;
             // 
             // txtSearchRoom
@@ -705,7 +707,7 @@ namespace AryuwatSystem.Forms
             this.gvRoom.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.gvRoom.RowTemplate.ReadOnly = true;
             this.gvRoom.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gvRoom.Size = new System.Drawing.Size(1251, 35);
+            this.gvRoom.Size = new System.Drawing.Size(1560, 35);
             this.gvRoom.TabIndex = 148;
             this.gvRoom.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvRoomList_CellContentClick);
             // 
@@ -716,7 +718,7 @@ namespace AryuwatSystem.Forms
             this.panelGridSelect.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelGridSelect.Location = new System.Drawing.Point(0, 91);
             this.panelGridSelect.Name = "panelGridSelect";
-            this.panelGridSelect.Size = new System.Drawing.Size(1347, 291);
+            this.panelGridSelect.Size = new System.Drawing.Size(1585, 291);
             this.panelGridSelect.TabIndex = 5;
             // 
             // groupBox1
@@ -725,7 +727,7 @@ namespace AryuwatSystem.Forms
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 28);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1347, 263);
+            this.groupBox1.Size = new System.Drawing.Size(1585, 263);
             this.groupBox1.TabIndex = 151;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "รายการที่เลือก";
@@ -744,7 +746,7 @@ namespace AryuwatSystem.Forms
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dataGridViewSelectList);
-            this.splitContainer1.Size = new System.Drawing.Size(1341, 241);
+            this.splitContainer1.Size = new System.Drawing.Size(1579, 241);
             this.splitContainer1.SplitterDistance = 108;
             this.splitContainer1.TabIndex = 153;
             // 
@@ -762,7 +764,7 @@ namespace AryuwatSystem.Forms
             this.dataGridViewSelectListPro.Name = "dataGridViewSelectListPro";
             this.dataGridViewSelectListPro.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridViewSelectListPro.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewSelectListPro.Size = new System.Drawing.Size(1341, 108);
+            this.dataGridViewSelectListPro.Size = new System.Drawing.Size(1579, 108);
             this.dataGridViewSelectListPro.TabIndex = 152;
             this.dataGridViewSelectListPro.Visible = false;
             this.dataGridViewSelectListPro.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSelectListPro_CellContentClick);
@@ -784,7 +786,7 @@ namespace AryuwatSystem.Forms
             this.dataGridViewSelectList.Name = "dataGridViewSelectList";
             this.dataGridViewSelectList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridViewSelectList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewSelectList.Size = new System.Drawing.Size(1341, 129);
+            this.dataGridViewSelectList.Size = new System.Drawing.Size(1579, 129);
             this.dataGridViewSelectList.TabIndex = 150;
             this.dataGridViewSelectList.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridViewSelectList_CellBeginEdit);
             this.dataGridViewSelectList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSelectList_CellClick);
@@ -807,7 +809,7 @@ namespace AryuwatSystem.Forms
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1347, 28);
+            this.panel4.Size = new System.Drawing.Size(1585, 28);
             this.panel4.TabIndex = 4;
             // 
             // lbProCredit
@@ -865,7 +867,7 @@ namespace AryuwatSystem.Forms
             this.panel1.Location = new System.Drawing.Point(0, 382);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1347, 121);
+            this.panel1.Size = new System.Drawing.Size(1585, 121);
             this.panel1.TabIndex = 151;
             // 
             // pictureBoxPstock
@@ -1067,7 +1069,7 @@ namespace AryuwatSystem.Forms
             this.btnCancel.Font = new System.Drawing.Font("Tahoma", 14F);
             this.btnCancel.ForeColor = System.Drawing.Color.DimGray;
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(1236, 10);
+            this.btnCancel.Location = new System.Drawing.Point(1474, 10);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(106, 55);
@@ -1082,7 +1084,7 @@ namespace AryuwatSystem.Forms
             this.btnSave.Font = new System.Drawing.Font("Tahoma", 14F);
             this.btnSave.ForeColor = System.Drawing.Color.DimGray;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(1105, 10);
+            this.btnSave.Location = new System.Drawing.Point(1343, 10);
             this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(115, 55);
@@ -1166,6 +1168,8 @@ namespace AryuwatSystem.Forms
             // 
             // panelName
             // 
+            this.panelName.Controls.Add(this.txtNote);
+            this.panelName.Controls.Add(this.label2);
             this.panelName.Controls.Add(this.lblEndDate);
             this.panelName.Controls.Add(this.comboBoxByDr);
             this.panelName.Controls.Add(this.lblStartDate);
@@ -1200,7 +1204,7 @@ namespace AryuwatSystem.Forms
             this.panelName.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelName.Location = new System.Drawing.Point(0, 0);
             this.panelName.Name = "panelName";
-            this.panelName.Size = new System.Drawing.Size(1347, 96);
+            this.panelName.Size = new System.Drawing.Size(1585, 96);
             this.panelName.TabIndex = 145;
             this.panelName.Paint += new System.Windows.Forms.PaintEventHandler(this.panel8_Paint);
             // 
@@ -1215,6 +1219,15 @@ namespace AryuwatSystem.Forms
             this.lblEndDate.Text = "End Date :";
             this.lblEndDate.Visible = false;
             // 
+            // comboBoxByDr
+            // 
+            this.comboBoxByDr.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxByDr.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.comboBoxByDr.Location = new System.Drawing.Point(847, 70);
+            this.comboBoxByDr.Name = "comboBoxByDr";
+            this.comboBoxByDr.Size = new System.Drawing.Size(207, 24);
+            this.comboBoxByDr.TabIndex = 319;
+            // 
             // lblStartDate
             // 
             this.lblStartDate.AutoSize = true;
@@ -1226,35 +1239,6 @@ namespace AryuwatSystem.Forms
             this.lblStartDate.Text = "Start Date :";
             this.lblStartDate.Visible = false;
             // 
-            // dateTimePickerEnd
-            // 
-            this.dateTimePickerEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerEnd.Location = new System.Drawing.Point(656, 69);
-            this.dateTimePickerEnd.Name = "dateTimePickerEnd";
-            this.dateTimePickerEnd.ShowUpDown = true;
-            this.dateTimePickerEnd.Size = new System.Drawing.Size(99, 23);
-            this.dateTimePickerEnd.TabIndex = 320;
-            this.dateTimePickerEnd.Visible = false;
-            // 
-            // dateTimePickerCreate
-            // 
-            this.dateTimePickerCreate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerCreate.Location = new System.Drawing.Point(469, 69);
-            this.dateTimePickerCreate.Name = "dateTimePickerCreate";
-            this.dateTimePickerCreate.ShowUpDown = true;
-            this.dateTimePickerCreate.Size = new System.Drawing.Size(99, 23);
-            this.dateTimePickerCreate.TabIndex = 320;
-            this.dateTimePickerCreate.Visible = false;
-            // 
-            // comboBoxByDr
-            // 
-            this.comboBoxByDr.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBoxByDr.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.comboBoxByDr.Location = new System.Drawing.Point(847, 70);
-            this.comboBoxByDr.Name = "comboBoxByDr";
-            this.comboBoxByDr.Size = new System.Drawing.Size(207, 24);
-            this.comboBoxByDr.TabIndex = 319;
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -1265,14 +1249,34 @@ namespace AryuwatSystem.Forms
             this.label10.TabIndex = 318;
             this.label10.Text = "ชื่อแพทย์/Dr.";
             // 
+            // dateTimePickerEnd
+            // 
+            this.dateTimePickerEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerEnd.Location = new System.Drawing.Point(656, 69);
+            this.dateTimePickerEnd.Name = "dateTimePickerEnd";
+            this.dateTimePickerEnd.ShowUpDown = true;
+            this.dateTimePickerEnd.Size = new System.Drawing.Size(99, 23);
+            this.dateTimePickerEnd.TabIndex = 320;
+            this.dateTimePickerEnd.Visible = false;
+            // 
             // labelKey1
             // 
-            this.labelKey1.Location = new System.Drawing.Point(1056, 69);
+            this.labelKey1.Location = new System.Drawing.Point(1060, 70);
             this.labelKey1.Name = "labelKey1";
             this.labelKey1.Size = new System.Drawing.Size(279, 22);
             this.labelKey1.TabIndex = 149;
             this.labelKey1.Text = "label5";
             this.labelKey1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // dateTimePickerCreate
+            // 
+            this.dateTimePickerCreate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerCreate.Location = new System.Drawing.Point(469, 69);
+            this.dateTimePickerCreate.Name = "dateTimePickerCreate";
+            this.dateTimePickerCreate.ShowUpDown = true;
+            this.dateTimePickerCreate.Size = new System.Drawing.Size(99, 23);
+            this.dateTimePickerCreate.TabIndex = 320;
+            this.dateTimePickerCreate.Visible = false;
             // 
             // checkBoxOld
             // 
@@ -1570,6 +1574,27 @@ namespace AryuwatSystem.Forms
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(1340, 8);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(45, 22);
+            this.label2.TabIndex = 322;
+            this.label2.Text = "Note:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtNote
+            // 
+            this.txtNote.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtNote.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtNote.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.txtNote.Location = new System.Drawing.Point(1391, 8);
+            this.txtNote.Multiline = true;
+            this.txtNote.Name = "txtNote";
+            this.txtNote.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtNote.Size = new System.Drawing.Size(181, 79);
+            this.txtNote.TabIndex = 3069;
+            // 
             // btnAddFile
             // 
             this.btnAddFile.BackColor = System.Drawing.Color.Transparent;
@@ -1642,7 +1667,7 @@ namespace AryuwatSystem.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1347, 599);
+            this.ClientSize = new System.Drawing.Size(1585, 599);
             this.Controls.Add(this.FrmMedicalOrderSettingPro_Fill_Panel);
             this.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1828,5 +1853,7 @@ namespace AryuwatSystem.Forms
         private Label lblStartDate;
         private DateTimePicker dateTimePickerEnd;
         private DateTimePicker dateTimePickerCreate;
+        private TextBox txtNote;
+        private Label label2;
     }
 }

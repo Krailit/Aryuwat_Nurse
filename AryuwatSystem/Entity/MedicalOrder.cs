@@ -14,6 +14,7 @@ namespace Entity
         public string SONo { get; set; }
         public string EN_COMS1 { get; set; }
         public string EN_COMS2 { get; set; }
+        public string Notes { get; set; }
 
         public decimal PriceTotalRef { get; set; }
 

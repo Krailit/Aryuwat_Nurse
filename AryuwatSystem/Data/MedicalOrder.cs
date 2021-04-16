@@ -83,11 +83,8 @@ namespace AryuwatSystem.Data
                 new SqlParameter("@SORef", info.SORef) ,
                 new SqlParameter("@OldKey", info.OldKey) ,
                 new SqlParameter("@BranchId", info.BranchId),
-                new SqlParameter("@ProCreditRemain", info.ProCreditRemain)
-                
-                
-                
-                
+                new SqlParameter("@ProCreditRemain", info.ProCreditRemain),
+                new SqlParameter("@Notes", info.Notes)
             };
             return new int?(SqlHelper.ExecuteNonQuery(trn, CommandType.StoredProcedure, "sp_MedicalOrder", commandParameters));
         }

@@ -883,8 +883,7 @@ namespace AryuwatSystem.Forms
                 txtSONo.Text = dtMed.Rows[0]["SONo"] + "";
                 txtSoRef.Text = dtMed.Rows[0]["SORef"] + "";
                 txtSORefAccount.Text = dtMed.Rows[0]["SORefAccount"] + "";
-
-                txtSORefAccount.Text = dtMed.Rows[0]["SORefAccount"] + "";
+                txtNote.Text = dtMed.Rows[0]["Notes"] + "";
                 txtBalanceRef.Text = dtMed.Rows[0]["PriceCreditRef"] + "" == "" ? "" : Convert.ToDouble(dtMed.Rows[0]["PriceCreditRef"] + "").ToString("###,###,###.##"); ;
                 comboBoxCommission1.SelectedValue = dtMed.Rows[0]["EN_COMS1"] + "";
                 comboBoxCommission2.SelectedValue = dtMed.Rows[0]["EN_COMS2"] + "";
@@ -5304,6 +5303,7 @@ namespace AryuwatSystem.Forms
                     info.dicMembersTran = dicMemberTran;
                     info.SORef = this.txtSoRef.Text;
                     info.SORefAccount = txtSORefAccount.Text;
+                    info.Notes = txtNote.Text;
 
                     //if (string.IsNullOrEmpty(vn))
                     //{
