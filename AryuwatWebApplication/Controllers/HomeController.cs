@@ -631,9 +631,9 @@ namespace AryuwatWebApplication.Controllers
                     PD.FK_Customer_ID = tmpCustomerID;
                     PD.Date = dateparse;//Convert.ToDateTime(pDate);
                     PD.Time = pTime;
-                    PD.T = pT;
+                    PD.T = String.IsNullOrEmpty(pT) ? null : pT;
                     PD.R = pR;
-                    PD.BP = pBP;
+                    PD.BP = String.IsNullOrEmpty(pBP) ? null : pBP;
                     PD.O2 = pO2;
                     PD.PulseDBP = pPulseDBP;
                     PD.PulseSBP = pPulseSBP;

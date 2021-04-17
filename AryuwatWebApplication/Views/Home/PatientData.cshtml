@@ -255,6 +255,12 @@
                 },
                 yAxis: [{
                     gridLineWidth: 0,
+                    min: 35,
+                    max: 41,
+                    floor: 35,
+                    ceiling: 41,
+                    softMax: 41,
+                    softMin: 35,
                     labels: {
                         format: '{value}°C',
                         style: {
@@ -270,6 +276,12 @@
                     opposite: false
                 }, {
                     gridLineWidth: 0,
+                    min: 45,
+                    max: 120,
+                    floor: 45,
+                    ceiling: 120,
+                    softMin: 45,
+                    softMax: 120,
                     labels: {
                         format: '{value}',
                         style: {
@@ -802,7 +814,7 @@
                     BP: '',
                     O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
                 },
-                
+
             );
             await that.GetPatientData();
             that.showLoad = false;
