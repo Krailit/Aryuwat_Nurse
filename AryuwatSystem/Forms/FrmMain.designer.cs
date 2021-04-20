@@ -130,6 +130,7 @@
             this.label11.Size = new System.Drawing.Size(37, 13);
             this.label11.TabIndex = 18;
             this.label11.Text = "PRINT";
+            this.label11.Visible = false;
             // 
             // label10
             // 
@@ -198,6 +199,7 @@
             this.btnPrint.TabIndex = 14;
             this.btnPrint.TabStop = false;
             this.toolTipToolBox.SetToolTip(this.btnPrint, "Print");
+            this.btnPrint.Visible = false;
             this.btnPrint.Click += new System.EventHandler(this.BtnPrint_Click);
             // 
             // btnEdit

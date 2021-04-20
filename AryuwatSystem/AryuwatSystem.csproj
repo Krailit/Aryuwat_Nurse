@@ -3677,7 +3677,6 @@
     <None Include="Baselibary\browalia.ttc" />
     <Content Include="aryuwat_logo_R2B_icon.ico" />
     <Content Include="Calendar.NET.dll" />
-    <Content Include="Calendar.NET.pdb" />
     <Content Include="Clients.AutoUpdate.cdf-ms">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
