@@ -181,7 +181,7 @@ namespace AryuwatSystem.Forms
             try
             {
                 if (ENSave + "" == "") return true;
-                if (!Userinfo.IsAdmin.Contains(Userinfo.EN) && Userinfo.EN != ENSave && !Userinfo.IS_ADMIN_BOOKING.Contains(Userinfo.EN))
+                if (!(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) && Userinfo.EN != ENSave && !Userinfo.IS_ADMIN_BOOKING.Contains(Userinfo.EN))
                 {
                     DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeInformation, "Is not Admin or Owner");
                     return false;

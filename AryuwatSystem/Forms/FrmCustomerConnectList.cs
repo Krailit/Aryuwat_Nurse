@@ -482,7 +482,7 @@ namespace AryuwatSystem.Forms
 
                     if (txtID.Text=="") return;
 
-                    if (!Userinfo.IsAdmin.Contains(Userinfo.EN))
+                    if (!(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN))
                     {
                         DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeInformation, "Is not admin");
                         return;
@@ -609,7 +609,7 @@ namespace AryuwatSystem.Forms
                 //lbConsult.Text = dgvData.Rows[ind].Cells["Consult"].Value + "";
                 comboBoxCommission1.SelectedValue = dgvData.Rows[ind].Cells["EN_Consult"].Value + "";
                 buttonDelete21.Visible = dgvData.Rows[ind].Cells["EN_Save"].Value + "" == Userinfo.EN;
-                buttonDelete21.Visible = Userinfo.IsAdmin.Contains(Userinfo.EN);
+                buttonDelete21.Visible = (Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN);
 
                 cboBranch.SelectedValue = dgvData.Rows[ind].Cells["BookBranchId"].Value + "";
                

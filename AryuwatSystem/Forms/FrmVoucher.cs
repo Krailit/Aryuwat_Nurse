@@ -487,7 +487,7 @@ namespace AryuwatSystem.Forms
                     if (e.RowIndex < 0) return;
                     string id = dataGridViewREQItem.Rows[e.RowIndex].Cells["REQNo"].Value + "";
                     //DataSet dsSurgeryFee = new Business.MedicalOrderUseTrans().SelectSavedJobCostById("SELECTSAVEDJOBCOSTForEdit", VN, MS_Code, ListOrder, id);
-                    //if (dsSurgeryFee.Tables[0].Rows.Count > 0 && !Userinfo.IsAdmin.Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN))
+                    //if (dsSurgeryFee.Tables[0].Rows.Count > 0 && !(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN))
                     //{
                     //    DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeError, "ไม่สามารถแก้ไขข้อมูลได้เนื่องจาก ได้บันทึกค่ามือและค่าแพทย์ไปแล้ว" + Environment.NewLine + "กรุณาติดต่อผู้ดูแลระบบ");
                     //    return;

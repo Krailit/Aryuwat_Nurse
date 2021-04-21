@@ -2470,7 +2470,7 @@ namespace AryuwatSystem.Forms
             //    {
 
             //        DataSet dsSurgeryFee = new Business.MedicalOrderUseTrans().SELECTSAVEDJOBCOST_COM(item.VN, item.SONo, item.MS_Code, item.ListOrder);
-            //        if (dsSurgeryFee.Tables.Count > 0 && dsSurgeryFee.Tables[0].Rows.Count > 0 && !Userinfo.IsAdmin.Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN))
+            //        if (dsSurgeryFee.Tables.Count > 0 && dsSurgeryFee.Tables[0].Rows.Count > 0 && !(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN))
             //        {
 
             //            dataGridViewSelectList.Rows[e.RowIndex].ReadOnly = true;
@@ -3306,7 +3306,7 @@ namespace AryuwatSystem.Forms
         foreach (Entity.SupplieTrans item in listSup)
         {
             DataSet dsSurgeryFee = new Business.MedicalOrderUseTrans().SelectSavedJobCostById("SELECTSAVEDJOBCOSTForDelMO", item.VN, item.MS_Code, item.ListOrder, "");
-            if (dsSurgeryFee.Tables.Count > 0 && dsSurgeryFee.Tables[0].Rows.Count>0 && !Userinfo.IsAdmin.Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN))
+            if (dsSurgeryFee.Tables.Count > 0 && dsSurgeryFee.Tables[0].Rows.Count>0 && !(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN))
             {
                 DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeError, "ไม่สามารถแก้ไขข้อมูลได้เนื่องจาก ได้บันทึกค่ามือและค่าแพทย์ไปแล้ว" + Environment.NewLine + "กรุณาติดต่อผู้ดูแลระบบ");
                 return;
@@ -3539,11 +3539,11 @@ namespace AryuwatSystem.Forms
                     Price50Per = SPPrice < 0 ? ((dblAmount * dbPricePerU) - Price50Per) : Price50Per;
 
                     bool Free = dataGridViewSelectList.Rows[RowIndex].Cells["Free"].Value + "" != "";
-                    //if (pritotal < Price50Per && Free == false && txtMO.Text.Length < 5 && !Userinfo.IsAdmin.Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_DISCOUNT.Contains(Userinfo.EN))
+                    //if (pritotal < Price50Per && Free == false && txtMO.Text.Length < 5 && !(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_DISCOUNT.Contains(Userinfo.EN))
                     if (pritotal < Price50Per && Free == false && txtMO.Text.Length < 5)
                     {
                       
-                        if (!Userinfo.IsAdmin.Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_DISCOUNT.Contains(Userinfo.EN))
+                        if (!(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_DISCOUNT.Contains(Userinfo.EN))
                         {
                             dataGridViewSelectList.Rows[RowIndex].Cells["PriceTotal"].Value = (dblAmount * dbPricePerU).ToString("###,###,###,###.##"); //ราคารวม
                             dataGridViewSelectList.Rows[RowIndex].Cells["SpecialPrice"].Value = "0";
@@ -4535,7 +4535,7 @@ namespace AryuwatSystem.Forms
                 dataGridViewSelectList.BeginEdit(true);
                 if (e.ColumnIndex == dataGridViewSelectList.Columns["ExpireDate"].Index)
                 {
-                    if (IsExpireDate(dataGridViewSelectList.Rows[e.RowIndex].Cells["ExpireDate"].Value + "") && !Userinfo.IsAdmin.Contains(Userinfo.EN))
+                    if (IsExpireDate(dataGridViewSelectList.Rows[e.RowIndex].Cells["ExpireDate"].Value + "") && !(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN))
                     {
                         MessageBox.Show("This Item Expired", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
@@ -5562,7 +5562,7 @@ namespace AryuwatSystem.Forms
 
                     //================For SO อย่างเดียว ไม่่เกี่ยว MO ======================================================
                     DataSet dsSurgeryFee = new Business.MedicalOrderUseTrans().SELECTSAVEDJOBCOST_COM(txtMO.Text, txtSONo.Text, "", "");
-                    if (dsSurgeryFee.Tables.Count > 0 && dsSurgeryFee.Tables[0].Rows.Count > 0 && !Userinfo.IsAdmin.Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN))
+                    if (dsSurgeryFee.Tables.Count > 0 && dsSurgeryFee.Tables[0].Rows.Count > 0 && !(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN))
                     {
                         DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeError, "ไม่สามารถแก้ไขข้อมูลได้เนื่องจาก ได้บันทึกค่ามือและค่าแพทย์ไปแล้ว" + Environment.NewLine + "กรุณาติดต่อผู้ดูแลระบบ");
                         btnSave.Enabled = false;
@@ -6418,7 +6418,7 @@ namespace AryuwatSystem.Forms
             //    {
 
             //        DataSet dsSurgeryFee = new Business.MedicalOrderUseTrans().SELECTSAVEDJOBCOST_COM(item.VN, item.SONo, item.MS_Code, item.ListOrder);
-            //        if (dsSurgeryFee.Tables.Count > 0 && dsSurgeryFee.Tables[0].Rows.Count > 0 && !Userinfo.IsAdmin.Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN))
+            //        if (dsSurgeryFee.Tables.Count > 0 && dsSurgeryFee.Tables[0].Rows.Count > 0 && !(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN))
             //        {
 
             //            dataGridViewSelectList.Rows[e.RowIndex].ReadOnly = true;
@@ -6539,7 +6539,7 @@ namespace AryuwatSystem.Forms
                 {
 
                     DataSet dsSurgeryFee = new Business.MedicalOrderUseTrans().SELECTSAVEDJOBCOST_COM(item.VN, item.SONo, item.MS_Code, item.ListOrder);
-                    if (dsSurgeryFee.Tables.Count > 0 && dsSurgeryFee.Tables[0].Rows.Count > 0 && !Userinfo.IsAdmin.Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN))
+                    if (dsSurgeryFee.Tables.Count > 0 && dsSurgeryFee.Tables[0].Rows.Count > 0 && !(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN))
                     {
 
                         dataGridViewSelectList.Rows[e.RowIndex].ReadOnly = true;
@@ -6673,7 +6673,7 @@ namespace AryuwatSystem.Forms
                     {
 
                         DataSet dsSurgeryFee = new Business.MedicalOrderUseTrans().SELECTSAVEDJOBCOST_COM(item.VN, item.SONo, item.MS_Code, item.ListOrder);
-                        if (dsSurgeryFee.Tables.Count > 0 && dsSurgeryFee.Tables[0].Rows.Count > 0 && !Userinfo.IsAdmin.Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN))
+                        if (dsSurgeryFee.Tables.Count > 0 && dsSurgeryFee.Tables[0].Rows.Count > 0 && !(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN))
                         {
                             DataGridViewCheckBoxCell ch1 = new DataGridViewCheckBoxCell();
                             ch1 = (DataGridViewCheckBoxCell)dataGridViewSelectList.Rows[e.RowIndex].Cells[e.ColumnIndex];

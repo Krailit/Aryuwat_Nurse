@@ -167,7 +167,7 @@ namespace AryuwatSystem.Forms
             BindTxtPostCode(null);
             dtpBirtDate.Checked = false;
 
-            if (Userinfo.IsAdmin.Contains(Userinfo.EN))
+            if ((Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN))
                 panelGroupAdmin.Visible = true;
             else 
                 panelGroupAdmin.Visible = false;

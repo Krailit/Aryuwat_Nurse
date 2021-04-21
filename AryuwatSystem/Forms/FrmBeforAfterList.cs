@@ -151,7 +151,7 @@ namespace AryuwatSystem.Forms
                     //double used =Convert.ToDouble(dgvData.Rows[e.RowIndex].Cells["AmountOfUse"].Value + "");
                     //menuSurgical.Visible = MedStatus_Code != "0";
                     //menuSurgical.Visible = used > 0;
-                    if (Convert.ToDecimal(dgvData.Rows[e.RowIndex].Cells["Balance"].Value + "") <= 0 && !Userinfo.IsAdmin.Contains(Userinfo.EN)) 
+                    if (Convert.ToDecimal(dgvData.Rows[e.RowIndex].Cells["Balance"].Value + "") <= 0 && !(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN)) 
                         return;
                     else
                     contextMenuStrip1.Show(MousePosition);
@@ -538,9 +538,9 @@ namespace AryuwatSystem.Forms
 
                 if (e.ColumnIndex != dgvData.Columns["Select"].Index) return;//&& e.ColumnIndex != dgvData.Columns["btnUserCourse"].Index 
 
-                if (Convert.ToDecimal(dgvData.Rows[e.RowIndex].Cells["Balance"].Value + "") <= 0 && !Userinfo.IsAdmin.Contains(Userinfo.EN)) return;
+                if (Convert.ToDecimal(dgvData.Rows[e.RowIndex].Cells["Balance"].Value + "") <= 0 && !(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN)) return;
 
-                if (IsExpireDate(dgvData.Rows[e.RowIndex].Cells["ExpireDate"].Value + "") && !Userinfo.IsAdmin.Contains(Userinfo.EN))
+                if (IsExpireDate(dgvData.Rows[e.RowIndex].Cells["ExpireDate"].Value + "") && !(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN))
                 {
                     MessageBox.Show("This Item Expired", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;

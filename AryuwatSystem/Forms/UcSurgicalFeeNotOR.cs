@@ -1447,7 +1447,7 @@ namespace AryuwatSystem.Forms
               
                 BindUcSurgicalFee(TypeCashier,0);
                 FirstLoad = false;
-                if (!Userinfo.IsAdmin.Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN))
+                if (!(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN))
                     dgvData.Columns["Money"].Visible = false;
                     
             }

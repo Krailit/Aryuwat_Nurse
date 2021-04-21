@@ -108,7 +108,7 @@ namespace AryuwatSystem.Forms
         {
             try 
 	        {
-                btnReOpen.Visible = Userinfo.IsAdmin.Contains(Userinfo.EN);
+                btnReOpen.Visible = (Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN);
 
                 dtpDateSave.Value = DateTime.Now;
                 GetRefundType();

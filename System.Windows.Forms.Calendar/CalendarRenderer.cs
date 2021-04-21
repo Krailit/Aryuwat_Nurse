@@ -1425,7 +1425,7 @@ namespace System.Windows.Forms.Calendar
                 for (int i = 0; i < e.Calendar.Days.Length; i++)
                 {
                     CalendarDay day = e.Calendar.Days[i];
-                    day.RoomName = e.Calendar.Rooms[i].RoomName;
+                    day.RoomName = e.Calendar.Rooms[i]?.RoomName;
 
                     e.Tag = day;
 

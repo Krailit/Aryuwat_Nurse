@@ -486,14 +486,14 @@ namespace AryuwatSystem.Forms
                 if (e.ColumnIndex < 0 || e.RowIndex < 0) return;
                 if (e.ColumnIndex == dataGridViewSelectList.Columns["UsedC"].Index)//ตัดคอร์ส
                 {
-                    //if (IsExpireDate(dataGridViewSelectList.Rows[e.RowIndex].Cells["ExpireDate"].Value + "") && !Userinfo.IsAdmin.Contains(Userinfo.EN))
+                    //if (IsExpireDate(dataGridViewSelectList.Rows[e.RowIndex].Cells["ExpireDate"].Value + "") && !(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN))
                     //{
                     //    MessageBox.Show("This Item Expired", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     //    return;
                     //}
 
                     //DataGridViewCheckBoxCell chkCom = dataGridViewSelectList.Rows[e.RowIndex].Cells["chkCanceled"] as DataGridViewCheckBoxCell;
-                    //if (Convert.ToBoolean(chkCom.Value) && !Userinfo.IsAdmin.Contains(Userinfo.EN))
+                    //if (Convert.ToBoolean(chkCom.Value) && !(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN))
                     //{
                     //    MessageBox.Show("This Item Closed", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     //    return;

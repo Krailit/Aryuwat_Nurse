@@ -127,7 +127,7 @@ namespace AryuwatSystem.Forms
             BindReciept();
             //DateTime dt1 = DateTime.ParseExact(date1, "dd-MM-yyyy", null);
             //DateTime dt2 = DateTime.ParseExact(date2, "dd-MM-yyyy", null);
-            if (!Userinfo.IsAdmin.Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN) && !(dtpDateSave.Value.Date < DateTime.Now.Date) && checkmoney==false)
+            if (!(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN) && !(dtpDateSave.Value.Date < DateTime.Now.Date) && checkmoney==false)
                     {
                         DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeError, "จะไม่สามารถแก้ไขข้อมูลได้เนื่องจาก เกินกำหนดเวลา หรือตัดคอร์สไปแล้ว");
                         DisableButton(false);
@@ -2231,10 +2231,10 @@ namespace AryuwatSystem.Forms
                     }
 
 
-                    //if (disBath > Price50Per && !Userinfo.IsAdmin.Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_DISCOUNT.Contains(Userinfo.EN))
+                    //if (disBath > Price50Per && !(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_DISCOUNT.Contains(Userinfo.EN))
                     if (disBath > Price50Per)
                     {
-                        if (!Userinfo.IsAdmin.Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_DISCOUNT.Contains(Userinfo.EN))
+                        if (!(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_DISCOUNT.Contains(Userinfo.EN))
                         {
                             dgvData.Rows[e.RowIndex].Cells["Money"].Value = price.ToString("###,###,###,###.##"); //ราคารวม
                             dgvData.Rows[e.RowIndex].Cells["money_dis"].Value = price.ToString("###,###,###,###.##"); //ราคารวม
@@ -2741,7 +2741,7 @@ namespace AryuwatSystem.Forms
                 //        Maxdate = Convert.ToDateTime(row.Cells["PayCashDate"].Value + "");
                 //    }
                 //}
-                if (!Userinfo.IsAdmin.Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_DISCOUNT.Contains(Userinfo.EN)  && Maxdate.AddDays(3) <= DateTime.Now.Date)//ใช้วันที่จ่าย ล่าสุด + 3 วัน
+                if (!(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_DISCOUNT.Contains(Userinfo.EN)  && Maxdate.AddDays(3) <= DateTime.Now.Date)//ใช้วันที่จ่าย ล่าสุด + 3 วัน
                 {
                     string alert = string.Format("ไม่สามารถปริ้นใบเสร็จย้อนหลังเกิน 3 วัน{0}กรุณาติดต่อผู้ดูแลระบบ", Environment.NewLine);
                     popAlert pa = new popAlert();
@@ -2829,7 +2829,7 @@ namespace AryuwatSystem.Forms
                 int rowIndex = e.RowIndex;
                 if (rowIndex < 0) return;
                 popPayByItem p = new popPayByItem();
-                if (!Userinfo.IsAdmin.Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN) && dtpDateSave.Value.Date < DateTime.Now.Date && checkmoney==false)
+                if (!(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN) && dtpDateSave.Value.Date < DateTime.Now.Date && checkmoney==false)
                 {
                     p.DisableSave = true;
                 }
@@ -2896,7 +2896,7 @@ namespace AryuwatSystem.Forms
             try
             {
                 popPayByItem p = new popPayByItem();
-                if (!Userinfo.IsAdmin.Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN) && dtpDateSave.Value < DateTime.Now.Date)
+                if (!(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN) && dtpDateSave.Value < DateTime.Now.Date)
                 {
                     p.DisableSave = true;
                 }
@@ -3371,7 +3371,7 @@ namespace AryuwatSystem.Forms
                     return;
                 }
 
-                if (!Userinfo.IsAdmin.Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_DISCOUNT.Contains(Userinfo.EN) && ReceiptDate.AddDays(3) <= DateTime.Now.Date)//ใช้วันที่จ่าย ล่าสุด + 3 วัน
+                if (!(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_DISCOUNT.Contains(Userinfo.EN) && ReceiptDate.AddDays(3) <= DateTime.Now.Date)//ใช้วันที่จ่าย ล่าสุด + 3 วัน
                 {
                     string alert = string.Format("ไม่สามารถปริ้นใบเสร็จย้อนหลังเกิน 3 วัน{0}กรุณาติดต่อผู้ดูแลระบบ", Environment.NewLine);
                     popAlert pa = new popAlert();

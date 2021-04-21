@@ -195,14 +195,26 @@ namespace AryuwatSystem.Forms
 
                 var strPrefix = "";
                 if (string.IsNullOrEmpty(cn))
-                    strPrefix=   new Business.Customer().GetCnNumber("CN" + typeCustomer, cboBranch.SelectedValue + "");
+                    strPrefix = new Business.Customer().GetCnNumber("CN" + typeCustomer, cboBranch.SelectedValue + "");
                 else
                     strPrefix = cn;
-
-                txtCnBranch.Text = strPrefix.Substring(0, 3);
-                txtCnPrefix.Text = strPrefix.Substring(3, 3);
-                cnPrefix = txtCnPrefix.Text;
-                txtCN.Text = strPrefix.Substring(6, strPrefix.Length - 6);
+                //EK-CNT64040001
+                if (!String.IsNullOrEmpty(strPrefix))
+                { 
+                    txtCnBranch.Text = strPrefix.Substring(0, 3); //EK-
+                    txtCnPrefix.Text = strPrefix.Substring(3, 3); //CNT
+                    cnPrefix = txtCnPrefix.Text; //CNT
+                    txtCN.Text = strPrefix.Substring(6, strPrefix.Length - 6); //64040001
+                }
+                else
+                {
+                    txtCnBranch.Text = cboBranch.SelectedValue + "-"; //EK-
+                    txtCnPrefix.Text = "CN" + typeCustomer; //CNT
+                    cnPrefix = txtCnPrefix.Text; //CNT
+                    //format date
+                    int year = DateTime.Now.Year > 2500 ? DateTime.Now.Year : DateTime.Now.Year + 543;
+                    txtCN.Text = year.ToString().Substring(2,2) + DateTime.Now.Month.ToString("D2") + 1.ToString("D4"); //64040001
+                }
             }
             catch (Exception ex)
             {

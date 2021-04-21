@@ -991,7 +991,7 @@ namespace AryuwatSystem.Forms
                         
                     }
                 }
-                if (Approved == false && Userinfo.EN != EN_Req && !Userinfo.IsAdmin.Contains(Userinfo.EN)) //approve=N  และ ไม่ใช่เข้าของ ไม่ใช่ admin ReadOnly=true  ไม้ต้อง save
+                if (Approved == false && Userinfo.EN != EN_Req && !(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN)) //approve=N  และ ไม่ใช่เข้าของ ไม่ใช่ admin ReadOnly=true  ไม้ต้อง save
                 {
                     ReadOnlyx = false;
                 }
@@ -1101,7 +1101,7 @@ namespace AryuwatSystem.Forms
                    
                     //string id = dataGridViewREQItem.Rows[e.RowIndex].Cells["REQNo"].Value + "";
                     //DataSet dsSurgeryFee = new Business.MedicalOrderUseTrans().SelectSavedJobCostById("SELECTSAVEDJOBCOSTForEdit", VN, MS_Code, ListOrder, id);
-                    //if (dsSurgeryFee.Tables[0].Rows.Count > 0 && !Userinfo.IsAdmin.Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN))
+                    //if (dsSurgeryFee.Tables[0].Rows.Count > 0 && !(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN))
                     //{
                     //    DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeError, "ไม่สามารถแก้ไขข้อมูลได้เนื่องจาก ได้บันทึกค่ามือและค่าแพทย์ไปแล้ว" + Environment.NewLine + "กรุณาติดต่อผู้ดูแลระบบ");
                     //    return;

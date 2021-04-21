@@ -106,7 +106,7 @@ namespace AryuwatSystem.Forms
         {
             InitialControls();
             BindDataCustomer(1);
-            if (!Userinfo.IsAdmin.Contains(Userinfo.EN))
+            if (!(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN))
             {
                 menuDel.Visible = false;
             }
@@ -427,7 +427,7 @@ namespace AryuwatSystem.Forms
             //{
             if (dgvData.CurrentRow.Index == -1) return;
 
-            if (!Userinfo.IsAdmin.Contains(Userinfo.EN))
+            if (!(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN))
             {
                 //Utility.PopMsg(Utility.EnuMsgType.MsgTypeInformation, "ไม่สามารถลบรายการนี้ได้เนื่องจาก มีการใช้หรือชำระเงินไปแล้ว\"Cannot delete.\"");
                 DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeInformation, "Is not admin");

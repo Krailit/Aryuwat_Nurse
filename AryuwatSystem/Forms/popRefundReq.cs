@@ -304,7 +304,7 @@ namespace AryuwatSystem.Forms
         {
             try
             {
-                if (Userinfo.IsAdmin.Contains(Userinfo.EN) || Entity.Userinfo.RFD_APPROVED.Contains(Userinfo.EN))
+                if ((Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) || Entity.Userinfo.RFD_APPROVED.Contains(Userinfo.EN))
                 {
                     checkBoxApproved.Enabled = true;
                     btnDel.Visible = true;

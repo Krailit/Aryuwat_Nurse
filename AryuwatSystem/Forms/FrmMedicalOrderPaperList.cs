@@ -500,7 +500,7 @@ private readonly bool tabletEnabled;
             try
             {
 
-            //    if (!Userinfo.IsAdmin.Contains(Userinfo.EN)  && dgvData.Rows[rowIndex].Cells["MedStatus_Code"].Value + ""=="99")
+            //    if (!(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN)  && dgvData.Rows[rowIndex].Cells["MedStatus_Code"].Value + ""=="99")
             //    {
             //        //Utility.PopMsg(Utility.EnuMsgType.MsgTypeInformation, "ไม่สามารถลบรายการนี้ได้เนื่องจาก มีการใช้หรือชำระเงินไปแล้ว\"Cannot delete.\"");
             //        DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeInformation, "Is not admin");
@@ -583,7 +583,7 @@ private readonly bool tabletEnabled;
          
             if (dgvData.CurrentRow.Index == -1) return;
             //if (dgvData.CurrentRow.Cells["MedStatus_Code"].Value + "" != "0" && dgvData.CurrentRow.Cells["MedStatus_Code"].Value + "" != "6")
-            if (!Userinfo.IsAdmin.Contains(Userinfo.EN))
+            if (!(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN))
             {
                 //Utility.PopMsg(Utility.EnuMsgType.MsgTypeInformation, "ไม่สามารถลบรายการนี้ได้เนื่องจาก มีการใช้หรือชำระเงินไปแล้ว\"Cannot delete.\"");
                 DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeInformation, "Is not admin");

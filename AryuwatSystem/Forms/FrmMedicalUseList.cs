@@ -101,7 +101,7 @@ namespace AryuwatSystem.Forms
 
         private void FrmMedicalUseList_Load(object sender, System.EventArgs e)
         {
-            if (!Userinfo.IsAdmin.Contains(Userinfo.EN))
+            if (!(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN))
                 btnSaveCheckCourse.Visible = false;
             else btnSaveCheckCourse.Visible = true;
             
@@ -296,7 +296,7 @@ namespace AryuwatSystem.Forms
             }
             dataGridViewSelectList.Columns.Add(colChkFlagUse);
 
-            if (!Userinfo.IsAdmin.Contains(Userinfo.EN))
+            if (!(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN))
                 dataGridViewSelectList.Columns["ChkFlagUse"].Visible = false;
             else dataGridViewSelectList.Columns["ChkFlagUse"].Visible = true;
 
@@ -753,7 +753,7 @@ namespace AryuwatSystem.Forms
                     //    return;
                     if (ProCreditTypeCheckExpire)//03-06-2020 เช็ค expire ใหม่
                     {
-                        if (IsExpireDate(dataGridViewSelectList.Rows[e.RowIndex].Cells["ExpireDateSO"].Value + "") && !Userinfo.IsAdmin.Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN))
+                        if (IsExpireDate(dataGridViewSelectList.Rows[e.RowIndex].Cells["ExpireDateSO"].Value + "") && !(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN))
                         {
                             MessageBox.Show("This Item Expired", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;
@@ -761,7 +761,7 @@ namespace AryuwatSystem.Forms
                     }
                     else
                     {
-                        if (IsExpireDate(dataGridViewSelectList.Rows[e.RowIndex].Cells["ExpireDate"].Value + "") && !Userinfo.IsAdmin.Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN))
+                        if (IsExpireDate(dataGridViewSelectList.Rows[e.RowIndex].Cells["ExpireDate"].Value + "") && !(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN))
                         {
                             MessageBox.Show("This Item Expired", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;
@@ -769,7 +769,7 @@ namespace AryuwatSystem.Forms
                     }
 
                     DataGridViewCheckBoxCell chkCom = dataGridViewSelectList.Rows[e.RowIndex].Cells["chkCanceled"] as DataGridViewCheckBoxCell;
-                    if (Convert.ToBoolean(chkCom.Value) && !Userinfo.IsAdmin.Contains(Userinfo.EN))
+                    if (Convert.ToBoolean(chkCom.Value) && !(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN))
                     {
                         MessageBox.Show("This Item Closed", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
@@ -1146,7 +1146,7 @@ namespace AryuwatSystem.Forms
                 DataTable dtemp = new DataTable();
                 dtemp = dtTmpUsed.Clone();
 
-                if (!Userinfo.IsAdmin.Contains(Userinfo.EN))
+                if (!(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN))
                 {
                     foreach (DataRow item in dtTmpUsed.Rows)
                     {
@@ -1471,7 +1471,7 @@ namespace AryuwatSystem.Forms
                 //    string CO = dgvUsedTrans.Rows[e.RowIndex].Cells["CO"].Value + "";
 
                 //    DataGridViewCheckBoxCell ch1 = (DataGridViewCheckBoxCell)dgvUsedTrans.Rows[e.RowIndex].Cells["Printed"];
-                //    //if (ch1.Value.ToString().ToLower() != "true" && Userinfo.IsAdmin.Contains(Userinfo.EN))
+                //    //if (ch1.Value.ToString().ToLower() != "true" && (Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN))
                 //    //{
                 //    if (e.ColumnIndex == dgvUsedTrans.Columns["PrintList"].Index)
                 //            PrintCourseCardList(CO, e.RowIndex);
@@ -2002,7 +2002,7 @@ namespace AryuwatSystem.Forms
                     string CO = dgvUsedTrans.Rows[e.RowIndex].Cells["Id"].Value + "";
 
                     DataGridViewCheckBoxCell ch1 = (DataGridViewCheckBoxCell)dgvUsedTrans.Rows[e.RowIndex].Cells["Printed"];
-                    //if (ch1.Value.ToString().ToLower() != "true" && Userinfo.IsAdmin.Contains(Userinfo.EN))
+                    //if (ch1.Value.ToString().ToLower() != "true" && (Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN))
                     //{
                     if (e.ColumnIndex == dgvUsedTrans.Columns["PrintList"].Index)
                         PrintCourseCardList(CO, e.RowIndex);

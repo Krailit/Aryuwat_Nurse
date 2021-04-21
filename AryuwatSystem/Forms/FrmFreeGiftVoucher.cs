@@ -431,7 +431,7 @@ namespace AryuwatSystem.Forms
                             ch1.Value = true;
                             break;
                     }
-                    if (IsExpired(dgvData.Rows[dgvData.CurrentRow.Index].Cells["DateEnd"].Value + "") || dgvData.Rows[e.RowIndex].Cells["Gift_Active"].Value + "" == "N" && !Userinfo.IsAdmin.Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_EDIT.Contains(Userinfo.EN))
+                    if (IsExpired(dgvData.Rows[dgvData.CurrentRow.Index].Cells["DateEnd"].Value + "") || dgvData.Rows[e.RowIndex].Cells["Gift_Active"].Value + "" == "N" && !(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_EDIT.Contains(Userinfo.EN))
                     { 
                         ch1.Value = false;
                         MessageBox.Show("Voucher Expired", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);

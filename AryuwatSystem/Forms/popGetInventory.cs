@@ -584,7 +584,7 @@ namespace AryuwatSystem.Forms
 
                 if (e.ColumnIndex == dataGridViewSelectList.Columns["_ExpireDate"].Index)
                 {
-                    //if (IsExpireDate(dataGridViewSelectList.Rows[e.RowIndex].Cells["ExpireDate"].Value + "") && !Userinfo.IsAdmin.Contains(Userinfo.EN))
+                    //if (IsExpireDate(dataGridViewSelectList.Rows[e.RowIndex].Cells["ExpireDate"].Value + "") && !(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN))
                     //{
                     //    MessageBox.Show("This Item Expired", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     //    return;

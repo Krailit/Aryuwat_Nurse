@@ -288,7 +288,7 @@ namespace AryuwatSystem.Forms
                 
                 
 
-                if (!Userinfo.IsAdmin.Contains(Userinfo.EN) && Userinfo.EN != ENSave && !Userinfo.IS_ADMIN_BOOKING.Contains(Userinfo.EN))
+                if (!(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) && Userinfo.EN != ENSave && !Userinfo.IS_ADMIN_BOOKING.Contains(Userinfo.EN))
                 {
                     DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeInformation, "Is not Admin or Owner");
                     return false;
@@ -1516,7 +1516,7 @@ namespace AryuwatSystem.Forms
                 {
 
                     //if (CheckPermission(item.ENSave) == false)
-                        if (!Userinfo.IsAdmin.Contains(Userinfo.EN) && Userinfo.EN != ENSave && !Userinfo.IS_ADMIN_BOOKING.Contains(Userinfo.EN))
+                        if (!(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) && Userinfo.EN != ENSave && !Userinfo.IS_ADMIN_BOOKING.Contains(Userinfo.EN))
                         {
                             //DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeInformation, "Is not Admin or Owner");
                             //calendar1.Invalidate();

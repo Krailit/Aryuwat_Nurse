@@ -49,7 +49,7 @@ namespace AryuwatSystem.Forms
             menuDel.Click += new EventHandler(menuDel_Click);
             FormType = DerUtility.AccessType.Insert;
             this.Closing += new CancelEventHandler(FrmMedicalSupplies_Closing);
-            //if (!Userinfo.IsAdmin.Contains(Userinfo.EN))
+            //if (!(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN))
             //{
             //    btnRefresh.Enabled=false;
             //    buttonSave.Enabled = false;

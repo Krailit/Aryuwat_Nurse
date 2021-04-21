@@ -752,7 +752,7 @@ namespace AryuwatSystem.Forms
             toolTip1.ShowAlways = true;
             //uBranch1.ISSecurity = true;
             uBranch1.setBranchValue(Entity.Userinfo.BranchId);
-            //if(!Userinfo.IsAdmin.Contains(Userinfo.EN))
+            //if(!(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN))
             //    uBranch1.Enabled = false; 
         }
 

@@ -252,7 +252,7 @@ namespace AryuwatSystem.Forms
               {
                   try
                   {
-                      if (!Userinfo.IsAdmin.Contains(Userinfo.EN))
+                      if (!(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN))
                       {
                           label4.Visible = false;
                           txtPriceTotal.Visible = false;
@@ -1551,7 +1551,7 @@ namespace AryuwatSystem.Forms
                 //    ChkPRO.Name = "ChkPRO";
                 //    ChkPRO.HeaderText = "Add_Dis";
                 //    ChkPRO.CellTemplate = new DataGridViewCheckBoxCell();
-                //    ChkPRO.Visible = Userinfo.IsAdmin.Contains(Userinfo.EN) ? true : false;
+                //    ChkPRO.Visible = (Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) ? true : false;
                 //}
                 //dataGridViewSelectList.Columns.Add(ChkPRO);
 
@@ -2301,7 +2301,7 @@ namespace AryuwatSystem.Forms
             //    {
 
             //        DataSet dsSurgeryFee = new Business.MedicalOrderUseTrans().SELECTSAVEDJOBCOST_COM(item.VN, item.SONo, item.MS_Code, item.ListOrder);
-            //        if (dsSurgeryFee.Tables.Count > 0 && dsSurgeryFee.Tables[0].Rows.Count > 0 && !Userinfo.IsAdmin.Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN))
+            //        if (dsSurgeryFee.Tables.Count > 0 && dsSurgeryFee.Tables[0].Rows.Count > 0 && !(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN))
             //        {
 
             //            dataGridViewSelectList.Rows[e.RowIndex].ReadOnly = true;
@@ -3182,7 +3182,7 @@ namespace AryuwatSystem.Forms
         foreach (Entity.SupplieTrans item in listSup)
         {
             DataSet dsSurgeryFee = new Business.MedicalOrderUseTrans().SelectSavedJobCostById("SELECTSAVEDJOBCOSTForDelMO", item.VN, item.MS_Code, item.ListOrder, "");
-            if (dsSurgeryFee.Tables.Count > 0 && dsSurgeryFee.Tables[0].Rows.Count>0 && !Userinfo.IsAdmin.Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN))
+            if (dsSurgeryFee.Tables.Count > 0 && dsSurgeryFee.Tables[0].Rows.Count>0 && !(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN))
             {
                 DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeError, "ไม่สามารถแก้ไขข้อมูลได้เนื่องจาก ได้บันทึกค่ามือและค่าแพทย์ไปแล้ว" + Environment.NewLine + "กรุณาติดต่อผู้ดูแลระบบ");
                 return;
@@ -3563,11 +3563,11 @@ namespace AryuwatSystem.Forms
                     Price50Per = SPPrice < 0 ? ((dblAmount * dbPricePerU) - Price50Per) : Price50Per;
 
                     bool Free = dataGridViewSelectList.Rows[RowIndex].Cells["Free"].Value + "" != "";
-                    //if (pritotal < Price50Per && Free == false && txtMO.Text.Length < 5 && !Userinfo.IsAdmin.Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_DISCOUNT.Contains(Userinfo.EN))
+                    //if (pritotal < Price50Per && Free == false && txtMO.Text.Length < 5 && !(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_DISCOUNT.Contains(Userinfo.EN))
                     if (pritotal < Price50Per && Free == false )
                     {
                       
-                        if (!Userinfo.IsAdmin.Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_DISCOUNT.Contains(Userinfo.EN))
+                        if (!(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_DISCOUNT.Contains(Userinfo.EN))
                         {
                             dataGridViewSelectList.Rows[RowIndex].Cells["PriceTotal"].Value = (dblAmount * dbPricePerU).ToString("###,###,###,###.##"); //ราคารวม
                             dataGridViewSelectList.Rows[RowIndex].Cells["SpecialPrice"].Value = "0";
@@ -4530,7 +4530,7 @@ namespace AryuwatSystem.Forms
                 dataGridViewSelectList.BeginEdit(true);
                 if (e.ColumnIndex == dataGridViewSelectList.Columns["ExpireDate"].Index)
                 {
-                    if (IsExpireDate(dataGridViewSelectList.Rows[e.RowIndex].Cells["ExpireDate"].Value + "") && !Userinfo.IsAdmin.Contains(Userinfo.EN))
+                    if (IsExpireDate(dataGridViewSelectList.Rows[e.RowIndex].Cells["ExpireDate"].Value + "") && !(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN))
                     {
                         MessageBox.Show("This Item Expired", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
@@ -5659,7 +5659,7 @@ namespace AryuwatSystem.Forms
 
                     //================For SO อย่างเดียว ไม่่เกี่ยว MO ======================================================
                     //DataSet dsSurgeryFee = new Business.MedicalOrderUseTrans().SELECTSAVEDJOBCOST_COM(txtMO.Text, txtSONo.Text, "", "");
-                    //if (dsSurgeryFee.Tables.Count > 0 && dsSurgeryFee.Tables[0].Rows.Count > 0 && !Userinfo.IsAdmin.Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN) && dateTimePickerCreate.Value.Date < DateTime.Now.Date && PROCredit!="Y")
+                    //if (dsSurgeryFee.Tables.Count > 0 && dsSurgeryFee.Tables[0].Rows.Count > 0 && !(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN) && dateTimePickerCreate.Value.Date < DateTime.Now.Date && PROCredit!="Y")
                     //{
                     //    //DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeError, "ไม่สามารถแก้ไขข้อมูลได้เนื่องจาก ได้บันทึกค่ามือและค่าแพทย์ไปแล้ว" + Environment.NewLine + "กรุณาติดต่อผู้ดูแลระบบ");
                     //    DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeError, "จะไม่สามารถแก้ไขข้อมูลได้เนื่องจาก เกินกำหนดเวลา หรือตัดคอร์สไปแล้ว");//+ Environment.NewLine + "กรุณาติดต่อผู้ดูแลระบบ");
@@ -6328,7 +6328,7 @@ namespace AryuwatSystem.Forms
             try
             {
                 string ms_code = dataGridViewSelectList.Rows[currentRowIndex].Cells["Code"].Value + "";
-                if (!ms_code.ToLower().Contains("atb") && !ms_code.ToLower().Contains("atf") && !Userinfo.IsAdmin.Contains(Userinfo.EN))
+                if (!ms_code.ToLower().Contains("atb") && !ms_code.ToLower().Contains("atf") && !(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN))
                 {
                     dataGridViewSelectList.Rows[currentRowIndex].Cells["Free"].Value = "";
                     dataGridViewSelectList.Rows[currentRowIndex].Cells["SpecialPrice"].Value = 0;
@@ -6633,7 +6633,7 @@ namespace AryuwatSystem.Forms
             //    {
 
             //        DataSet dsSurgeryFee = new Business.MedicalOrderUseTrans().SELECTSAVEDJOBCOST_COM(item.VN, item.SONo, item.MS_Code, item.ListOrder);
-            //        if (dsSurgeryFee.Tables.Count > 0 && dsSurgeryFee.Tables[0].Rows.Count > 0 && !Userinfo.IsAdmin.Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN))
+            //        if (dsSurgeryFee.Tables.Count > 0 && dsSurgeryFee.Tables[0].Rows.Count > 0 && !(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN))
             //        {
 
             //            dataGridViewSelectList.Rows[e.RowIndex].ReadOnly = true;
@@ -6766,7 +6766,7 @@ namespace AryuwatSystem.Forms
                 {
 
                     DataSet dsSurgeryFee = new Business.MedicalOrderUseTrans().SELECTSAVEDJOBCOST_COM(item.VN, item.SONo, item.MS_Code, item.ListOrder);
-                    if (dsSurgeryFee.Tables.Count > 0 && dsSurgeryFee.Tables[0].Rows.Count > 0 && !Userinfo.IsAdmin.Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN))
+                    if (dsSurgeryFee.Tables.Count > 0 && dsSurgeryFee.Tables[0].Rows.Count > 0 && !(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN))
                     {
 
                         dataGridViewSelectList.Rows[e.RowIndex].ReadOnly = true;
@@ -6877,7 +6877,7 @@ namespace AryuwatSystem.Forms
                         return;
                     else
                     {
-                        if ((!Userinfo.IsAdmin.Contains(Userinfo.EN) || !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN)) && SurgicalFeeNewTab.ToUpper() != "Y" || CN.Contains("CNS") || supplieInfo.MS_Code.Contains("(S)"))// ถ้าธรรมดา ไม่ใช้ติ๊กdataGridViewSelectList.Rows[dataGridViewSelectList.CurrentRow.Index].Cells["Tab"].Value + "".ToUpper() == "PHARMACY"
+                        if ((!(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) || !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN)) && SurgicalFeeNewTab.ToUpper() != "Y" || CN.Contains("CNS") || supplieInfo.MS_Code.Contains("(S)"))// ถ้าธรรมดา ไม่ใช้ติ๊กdataGridViewSelectList.Rows[dataGridViewSelectList.CurrentRow.Index].Cells["Tab"].Value + "".ToUpper() == "PHARMACY"
                         {
                             ch1.Value = "false";
 
@@ -6919,7 +6919,7 @@ namespace AryuwatSystem.Forms
                         return;
                     else
                     {
-                        if (Userinfo.IsAdmin.Contains(Userinfo.EN) || Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN))//ถ้า admin  ปกติ
+                        if ((Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) || Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN))//ถ้า admin  ปกติ
                         {
                             if ((ch1.Value + "").ToLower() == "true")
                                 ch1.Value = "false";
@@ -6957,7 +6957,7 @@ namespace AryuwatSystem.Forms
                 //    {
 
                 //        DataSet dsSurgeryFee = new Business.MedicalOrderUseTrans().SELECTSAVEDJOBCOST_COM(item.VN, item.SONo, item.MS_Code, item.ListOrder);
-                //        if (dsSurgeryFee.Tables.Count > 0 && dsSurgeryFee.Tables[0].Rows.Count > 0 && !Userinfo.IsAdmin.Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN))
+                //        if (dsSurgeryFee.Tables.Count > 0 && dsSurgeryFee.Tables[0].Rows.Count > 0 && !(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN))
                 //        {
                 //            DataGridViewCheckBoxCell ch1 = new DataGridViewCheckBoxCell();
                 //            ch1 = (DataGridViewCheckBoxCell)dataGridViewSelectList.Rows[e.RowIndex].Cells[e.ColumnIndex];

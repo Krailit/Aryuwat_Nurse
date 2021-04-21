@@ -86,7 +86,7 @@ namespace AryuwatSystem.Forms
                 lbDate.Text = CCdate.ToString("dd-MMM-yyyy");
                 if (lbCC.Text.Trim().Length > 2) lbCC.Enabled = true;
                 else lbCC.Enabled = false;
-                if (Userinfo.IsAdmin.Contains(Userinfo.EN))
+                if ((Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN))
                 {
                     buttonEdit.Visible = true;
                     buttonOK.Enabled = true;

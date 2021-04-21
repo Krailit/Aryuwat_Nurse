@@ -156,7 +156,7 @@ namespace AryuwatSystem.Forms
                     //double used =Convert.ToDouble(dgvData.Rows[e.RowIndex].Cells["AmountOfUse"].Value + "");
                     //menuSurgical.Visible = MedStatus_Code != "0";
                     //menuSurgical.Visible = used > 0;
-                    if (Convert.ToDecimal(dgvData.Rows[e.RowIndex].Cells["Balance"].Value + "") <= 0 && !Userinfo.IsAdmin.Contains(Userinfo.EN) && !Userinfo.FIX_VOUCHEROK.Contains(Userinfo.EN) && Userinfo.IS_ADMIN_EDIT.Contains(Userinfo.EN)) 
+                    if (Convert.ToDecimal(dgvData.Rows[e.RowIndex].Cells["Balance"].Value + "") <= 0 && !(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) && !Userinfo.FIX_VOUCHEROK.Contains(Userinfo.EN) && Userinfo.IS_ADMIN_EDIT.Contains(Userinfo.EN)) 
                         return;
                     else
                     contextMenuStrip1.Show(MousePosition);
@@ -462,14 +462,14 @@ namespace AryuwatSystem.Forms
             //firstload = false;
             this.Text += string.Format(" {0}({1})",CustName,CN);
             labelName.Text = string.Format("{0}({1})", CustName, CN); ;
-            if (!Userinfo.IsAdmin.Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_EDIT.Contains(Userinfo.EN)) resetRenewalToolStripMenuItem.Visible = false;
-            btnPrintRenew.Visible = Userinfo.IsAdmin.Contains(Userinfo.EN)||Userinfo.IS_ADMIN_EDIT.Contains(Userinfo.EN) ;
-            label2.Visible = Userinfo.IsAdmin.Contains(Userinfo.EN) || Userinfo.IS_ADMIN_EDIT.Contains(Userinfo.EN);
-            comboBoxPeroid.Visible = Userinfo.IsAdmin.Contains(Userinfo.EN) || Userinfo.IS_ADMIN_EDIT.Contains(Userinfo.EN);
-            dpDateStart.Visible = Userinfo.IsAdmin.Contains(Userinfo.EN) || Userinfo.IS_ADMIN_EDIT.Contains(Userinfo.EN);
-            checkBoxStartdate.Visible = Userinfo.IsAdmin.Contains(Userinfo.EN) || Userinfo.IS_ADMIN_EDIT.Contains(Userinfo.EN);
+            if (!(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_EDIT.Contains(Userinfo.EN)) resetRenewalToolStripMenuItem.Visible = false;
+            btnPrintRenew.Visible = (Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN)||Userinfo.IS_ADMIN_EDIT.Contains(Userinfo.EN) ;
+            label2.Visible = (Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) || Userinfo.IS_ADMIN_EDIT.Contains(Userinfo.EN);
+            comboBoxPeroid.Visible = (Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) || Userinfo.IS_ADMIN_EDIT.Contains(Userinfo.EN);
+            dpDateStart.Visible = (Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) || Userinfo.IS_ADMIN_EDIT.Contains(Userinfo.EN);
+            checkBoxStartdate.Visible = (Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) || Userinfo.IS_ADMIN_EDIT.Contains(Userinfo.EN);
 
-            btnGV.Visible = Userinfo.IsAdmin.Contains(Userinfo.EN) || Userinfo.FIX_VOUCHEROK.Contains(Userinfo.EN) || Userinfo.IS_ADMIN_EDIT.Contains(Userinfo.EN);
+            btnGV.Visible = (Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) || Userinfo.FIX_VOUCHEROK.Contains(Userinfo.EN) || Userinfo.IS_ADMIN_EDIT.Contains(Userinfo.EN);
             
                 
             BindDataUsed();
@@ -648,9 +648,9 @@ namespace AryuwatSystem.Forms
 
                 if (e.ColumnIndex != dgvData.Columns["Select"].Index) return;//&& e.ColumnIndex != dgvData.Columns["btnUserCourse"].Index 
 
-                if (Convert.ToDecimal(dgvData.Rows[e.RowIndex].Cells["Balance"].Value + "") <= 0 && !Userinfo.IsAdmin.Contains(Userinfo.EN) && !Userinfo.FIX_VOUCHEROK.Contains(Userinfo.EN))return;
+                if (Convert.ToDecimal(dgvData.Rows[e.RowIndex].Cells["Balance"].Value + "") <= 0 && !(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) && !Userinfo.FIX_VOUCHEROK.Contains(Userinfo.EN))return;
 
-                //if (IsExpireDate(dgvData.Rows[e.RowIndex].Cells["ExpireDate"].Value + "") && !Userinfo.IsAdmin.Contains(Userinfo.EN))
+                //if (IsExpireDate(dgvData.Rows[e.RowIndex].Cells["ExpireDate"].Value + "") && !(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN))
                 //{
                 //    MessageBox.Show("This Item Expired", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 //    return;
@@ -740,7 +740,7 @@ namespace AryuwatSystem.Forms
                         return;
                     }
 
-                    if (dgvData.Rows[e.RowIndex].Cells["Renewal"].Value + "" != "" && !Userinfo.IsAdmin.Contains(Userinfo.EN) && !Userinfo.FIX_VOUCHEROK.Contains(Userinfo.EN))
+                    if (dgvData.Rows[e.RowIndex].Cells["Renewal"].Value + "" != "" && !(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) && !Userinfo.FIX_VOUCHEROK.Contains(Userinfo.EN))
                         { ch1.Value = false; }
 
 

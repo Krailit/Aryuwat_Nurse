@@ -63,7 +63,7 @@ namespace AryuwatSystem.UserControls
                 //if (valueID != "") cboBranch.Enabled = false;
                 //else cboBranch.Enabled = true;
 
-                if (Userinfo.IsAdmin.Contains(Userinfo.EN)) cboBranch.Enabled = true;
+                if ((Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN)) cboBranch.Enabled = true;
         
             }
             catch (Exception ex)

@@ -198,7 +198,7 @@ namespace AryuwatSystem.Forms
             //        //menuSurgical.Visible = MedStatus_Code != "0";
             //        //menuSurgical.Visible = used > 0;
             //        //if (used == 0 || (MedStatus_Code != "1" && MedStatus_Code!="2"))
-            //        if (!Userinfo.IsAdmin.Contains(Userinfo.EN))
+            //        if (!(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN))
             //        {
             //            menuSurgical.Text = "ไม่สามารถคิดค่ามือได้:เนื่องจาก ค้างชำระ หรือ ยังไม่มีการบันทึกกข้อมูลการใช้";
             //           // menuSurgical.Enabled = false;

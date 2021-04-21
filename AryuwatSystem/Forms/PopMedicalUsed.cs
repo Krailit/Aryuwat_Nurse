@@ -142,7 +142,7 @@ namespace AryuwatSystem.Forms
         {
 
             btnToJob.Visible = Statics.GroupPermission.ToLower().Contains("jobcost");
-            btnToJob.Visible = Userinfo.IsAdmin.Contains(Userinfo.EN) || Userinfo.IS_ADMIN_EDIT.Contains(Userinfo.EN) || Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN);
+            btnToJob.Visible = (Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) || Userinfo.IS_ADMIN_EDIT.Contains(Userinfo.EN) || Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN);
             ToolTip tt = new ToolTip();
             tt.SetToolTip(this.pictureBoxREQ, "Request staff.");
 
@@ -168,7 +168,7 @@ namespace AryuwatSystem.Forms
                 cboBranch.setBranchValue("");
             txtRefMO.Text = VN;
             BindData();
-            if (!Userinfo.IsAdmin.Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_EDIT.Contains(Userinfo.EN)  && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN) && dateTimePickerCreate.Value.Date < DateTime.Now.Date)
+            if (!(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_EDIT.Contains(Userinfo.EN)  && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN) && dateTimePickerCreate.Value.Date < DateTime.Now.Date)
             {
                 btnToJob.Enabled = false;
                 btnSave.Enabled = false;
@@ -449,7 +449,7 @@ namespace AryuwatSystem.Forms
         {
             try 
 	        {
-                if (!Userinfo.IsAdmin.Contains(Userinfo.EN) && dateTimePickerCreate.Value >= DateTime.Now.AddMonths(1).AddDays(10))
+                if (!(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) && dateTimePickerCreate.Value >= DateTime.Now.AddMonths(1).AddDays(10))
                 {
                     DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeError, "ไม่สามารถแก้ไขข้อมูลได้เนื่องจาก เกินกำหนดเวลาการตรวจสอบข้อมูล" + Environment.NewLine + "กรุณาติดต่อผู้ดูแลระบบ");
                     return;
@@ -690,7 +690,7 @@ namespace AryuwatSystem.Forms
                 }
 
                 DataSet dsSurgeryFee = new Business.MedicalOrderUseTrans().SelectSavedJobCostById("SELECTSAVEDJOBCOSTForEdit", VN, MS_Code, ListOrder, id);
-                if (dsSurgeryFee.Tables[0].Rows.Count > 0 && !Userinfo.IsAdmin.Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN))
+                if (dsSurgeryFee.Tables[0].Rows.Count > 0 && !(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN))
                 {
                     DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeError, "ไม่สามารถแก้ไขข้อมูลได้เนื่องจาก ได้บันทึกค่ามือและค่าแพทย์ไปแล้ว" + Environment.NewLine + "กรุณาติดต่อผู้ดูแลระบบ");
                     return;
@@ -765,7 +765,7 @@ namespace AryuwatSystem.Forms
             }
             if (e.ColumnIndex == dgvUsedTrans.Columns["BtnDelete"].Index)
             {
-                if (LastUsed.Date > Convert.ToDateTime(dgvUsedTrans.Rows[e.RowIndex].Cells["DateOfUse"].Value + "") && !Userinfo.IsAdmin.Contains(Userinfo.EN))//ปิดแก้ไข ถ้าเก่ากว่า
+                if (LastUsed.Date > Convert.ToDateTime(dgvUsedTrans.Rows[e.RowIndex].Cells["DateOfUse"].Value + "") && !(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN))//ปิดแก้ไข ถ้าเก่ากว่า
                 {
                     DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeError, "ไม่สามารถลบหรือแก้ไขข้อมูลเก่าได้" + Environment.NewLine + "กรุณาติดต่อผู้ดูแลระบบ");
                     return;
@@ -777,12 +777,12 @@ namespace AryuwatSystem.Forms
                 }
                 string id = dgvUsedTrans.Rows[e.RowIndex].Cells["Id"].Value + "";
                 DataSet dsSurgeryFee = new Business.MedicalOrderUseTrans().SelectSavedJobCostById("SELECTSAVEDJOBCOSTForEdit", VN, MS_Code, ListOrder, id);
-                if (dsSurgeryFee.Tables[0].Rows.Count > 0 && !Userinfo.IsAdmin.Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN))
+                if (dsSurgeryFee.Tables[0].Rows.Count > 0 && !(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN))
                 {
                     DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeError, "ไม่สามารถแก้ไขข้อมูลได้เนื่องจาก ได้บันทึกค่ามือและค่าแพทย์ไปแล้ว" + Environment.NewLine + "กรุณาติดต่อผู้ดูแลระบบ");
                     return;
                 }
-                //if (!Userinfo.IsAdmin.Contains(Userinfo.EN) && dateTimePickerCreate.Value >= DateTime.Now.AddMonths(1).AddDays(10))
+                //if (!(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) && dateTimePickerCreate.Value >= DateTime.Now.AddMonths(1).AddDays(10))
                 //{
                 //    DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeError, "ไม่สามารถแก้ไขข้อมูลได้เนื่องจาก เกินกำหนดเวลาการตรวจสอบข้อมูล" + Environment.NewLine + "กรุณาติดต่อผู้ดูแลระบบ");
                 //    return;
@@ -809,7 +809,7 @@ namespace AryuwatSystem.Forms
                 }
             }
 
-            if (!Userinfo.IsAdmin.Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_EDIT.Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN) && dateTimePickerCreate.Value < DateTime.Now.Date)
+            if (!(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_EDIT.Contains(Userinfo.EN) && !Userinfo.IS_ADMIN_JOBCOST.Contains(Userinfo.EN) && dateTimePickerCreate.Value < DateTime.Now.Date)
             {
                 DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeError, "จะไม่สามารถแก้ไขข้อมูลได้เนื่องจาก เกินกำหนดเวลา หรือได้บันทึกค่ามือและค่าแพทย์ไปแล้ว");//+ Environment.NewLine + "กรุณาติดต่อผู้ดูแลระบบ");
                 btnToJob.Enabled = false;
@@ -937,7 +937,7 @@ namespace AryuwatSystem.Forms
         {
             try
             {
-                if (!Userinfo.IsAdmin.Contains(Userinfo.EN))
+                if (!(Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN))
                 {
                     if (dateTimePickerCreate.Value.Month > DateTime.Now.Month || dateTimePickerCreate.Value.Year > DateTime.Now.Year)//เผื่อจะใส่ย้อนหลัง
                     {

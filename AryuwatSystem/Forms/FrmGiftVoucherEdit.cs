@@ -96,7 +96,7 @@ namespace AryuwatSystem.Forms
         {
             try
             {
-                if (Userinfo.IsAdmin.Contains(Userinfo.EN) || Userinfo.FIX_VOUCHEROK.Contains(Userinfo.EN) || Userinfo.IS_ADMIN_EDIT.Contains(Userinfo.EN))
+                if ((Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN) || Userinfo.FIX_VOUCHEROK.Contains(Userinfo.EN) || Userinfo.IS_ADMIN_EDIT.Contains(Userinfo.EN))
                 {
                     btnSaveNew.Visible = true;
                     txtGiftCode.ReadOnly = false;

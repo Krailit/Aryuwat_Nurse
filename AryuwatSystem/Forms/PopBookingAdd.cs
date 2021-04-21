@@ -162,7 +162,7 @@ namespace AryuwatSystem.Forms
             cboTreadment.Text = Treadment;
             txtDr.Text = DrName;
             txtDr.ReadOnly = txtDr.Text.Length >5;
-            btnDr.Enabled = txtDr.Text.Length < 5 || Userinfo.IsAdmin.Contains(Userinfo.EN);
+            btnDr.Enabled = txtDr.Text.Length < 5 || (Userinfo.IsAdmin ?? "" ).Contains(Userinfo.EN);
             txtMobile.Text = Mobile;
             chkMagazine.Checked = Howmagazine == "Y";
             chkInternet.Checked = Howinternet == "Y";
