@@ -476,6 +476,7 @@ namespace AryuwatSystem.Forms
                 CoPrintList.CellTemplate = new DataGridViewImageCell();
                 CoPrintList.Name = "PrintList";
                 CoPrintList.HeaderText = "PrintList";
+                CoPrintList.Visible = false;
             }
             dgvUsedTrans.Columns.Add(CoPrintList);
 
