@@ -217,6 +217,11 @@ namespace AryuwatSystem.Forms
                           //tabControl.TabPages.Remove(tabWellness_Antiaging);
                         
                       }
+                        tabControl.TabPages.Remove(tabAesthetic);
+                        tabControl.TabPages.Remove(tabSurgery);
+                        tabControl.TabPages.Remove(tabWellness_Antiaging);
+                        tabControl.TabPages.Remove(tabAttachFile);
+
                      
                   }
                   catch (Exception exception)
