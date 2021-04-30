@@ -45,11 +45,11 @@
                                     {{AttachFileName}}
                                     <button class="btn btn-indigo btn-sm" v-on:click="callfile()" v-if="AttachFileName == ''"><i class="fa fa-upload"></i>&nbsp; Upload file</button>
                                     <input id="FormulaAttachFile"
-                                           accept=".gif, .jpg, .png"
+                                           accept="image/*" 
                                            type="file"
                                            ref="ApplicantRegister"
                                            style="display:none"
-                                           v-on:change="onFileFormulaChange($event)">
+                                           v-on:change="onFileFormulaChange($event)" capture>
                                     <button class="btn btn-success btn-sm" v-on:click="uploadfile()" v-if="AttachFileName != ''">&nbsp; Upload or Select</button>
                                 </th>
                             </tr>
@@ -60,7 +60,7 @@
                                 <th class="text-center align-middle" style="">Detail</th>
                                 <th class="text-center align-middle" style="">Last Modified</th>
                                 <th class="text-center align-middle" style="">Preview</th>
-                                <th class="text-center align-middle" style="" v-if="@HttpContext.Current.Request.Cookies["OPD"]["UserGroup"] != 3">Manage</th>
+                                <th class="text-center align-middle" style="" v-if="@HttpContext.Current.Request.Cookies["OPD"]["UserGroup"] != 3 && @HttpContext.Current.Request.Cookies["OPD"]["UserGroup"] != 99">Manage</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -80,7 +80,7 @@
                                 <td class="text-center align-middle" style="">
                                     <button class="btn btn-datatable btn-icon btn-transparent mr-2" v-on:click="popupImage(items.FileName)" data-toggle="modal" data-target="#myModal"><i class="fa fa-search"></i></button>
                                 </td>
-                                <td class="text-center align-middle" style="" v-if="@HttpContext.Current.Request.Cookies["OPD"]["UserGroup"] != 3">
+                                <td class="text-center align-middle" style="" v-if="@HttpContext.Current.Request.Cookies["OPD"]["UserGroup"] != 3 && @HttpContext.Current.Request.Cookies["OPD"]["UserGroup"] != 99">
                                     <button class="btn btn-datatable btn-icon btn-transparent mr-2" v-on:click="deleteImage(items.Id)"><i class="fa fa-trash"></i></button>
                                 </td>
                             </tr>
