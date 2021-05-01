@@ -471,7 +471,7 @@ namespace AryuwatSystem.Forms
 
 
 
-                    DisableTab(tabPromotion);
+                    DisableTab(tabAesthetic);
                     //tabControl.TabPages.Remove(tabPharmacy);
                     //SelectCustomer();
                 }

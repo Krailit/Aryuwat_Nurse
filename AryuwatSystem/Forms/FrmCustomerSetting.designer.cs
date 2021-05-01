@@ -88,6 +88,7 @@
             this.label31 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.tabData = new System.Windows.Forms.TabPage();
+            this.chkActive = new System.Windows.Forms.CheckBox();
             this.txtTel1 = new System.Windows.Forms.MaskedTextBox();
             this.txtMobile1 = new System.Windows.Forms.MaskedTextBox();
             this.txtMobile2 = new System.Windows.Forms.MaskedTextBox();
@@ -110,7 +111,10 @@
             this.txtEN_name = new System.Windows.Forms.TextBox();
             this.btnSale = new System.Windows.Forms.Button();
             this.label114 = new System.Windows.Forms.Label();
+            this.BirthY = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
             this.label113 = new System.Windows.Forms.Label();
+            this.BirthM = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.BirthD = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
             this.txtCountry = new System.Windows.Forms.ComboBox();
             this.label111 = new System.Windows.Forms.Label();
             this.cboBranch = new System.Windows.Forms.ComboBox();
@@ -127,8 +131,14 @@
             this.txtCnPrefix = new System.Windows.Forms.TextBox();
             this.label100 = new System.Windows.Forms.Label();
             this.label101 = new System.Windows.Forms.Label();
+            this.txtTel2_12 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtTel2_11 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtTel2_10 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
             this.label99 = new System.Windows.Forms.Label();
             this.label78 = new System.Windows.Forms.Label();
+            this.txtDay = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtMonth = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtYear = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
             this.dtpDateReg = new System.Windows.Forms.DateTimePicker();
             this.dtpBirtDate = new System.Windows.Forms.DateTimePicker();
             this.txtSubDistrict = new System.Windows.Forms.ComboBox();
@@ -147,6 +157,7 @@
             this.label65 = new System.Windows.Forms.Label();
             this.label51 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
+            this.btnCamera = new AryuwatSystem.UserControls.ButtonCamera();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.picCustImage = new System.Windows.Forms.PictureBox();
             this.label61 = new System.Windows.Forms.Label();
@@ -160,6 +171,63 @@
             this.label25 = new System.Windows.Forms.Label();
             this.label97 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
+            this.txtMobile2_10 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtTel2_9 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtTel1_9 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtMBirth2 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtMBirth1 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtDayBirth2 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtDayBirth1 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtMobile1_10 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtMobile2_9 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtTel2_8 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtTel1_8 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtMobile1_9 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtMobile2_6 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtTel2_5 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtPassCode13 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtPassCode12 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtPassCode11 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtPassCode10 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtPassCode9 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtPassCode5 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtTel1_5 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtMobile1_6 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtMobile2_8 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtTel2_7 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtTel1_7 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtMobile1_8 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtMobile2_5 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtPassCode8 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtPassCode4 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtTel2_4 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtTel1_4 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtMobile1_5 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtMobile2_7 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtTel2_6 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtTel1_6 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtMobile1_7 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtMobile2_4 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtPassCode7 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtPassCode3 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtTel2_3 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtTel1_3 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtMobile1_4 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtPassCode6 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtTel2_2 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtPassCode2 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtMobile2_3 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtTel1_2 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtMobile1_3 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtTel2_1 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtMobile2_2 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtPassCode1 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtTel1_1 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtMobile2_1 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtMobile1_2 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtMobile1_1 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtWeight = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtHeight = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
             this.label82 = new System.Windows.Forms.Label();
             this.txtPostCode = new System.Windows.Forms.MaskedTextBox();
             this.label28 = new System.Windows.Forms.Label();
@@ -219,6 +287,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabCustomer = new System.Windows.Forms.TabControl();
             this.tabContact = new System.Windows.Forms.TabPage();
+            this.txtTelC2_12 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtTelC2_11 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.txtTelC2_10 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
             this.label92 = new System.Windows.Forms.Label();
             this.txtPrefixCont = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -265,98 +336,6 @@
             this.label72 = new System.Windows.Forms.Label();
             this.label73 = new System.Windows.Forms.Label();
             this.label74 = new System.Windows.Forms.Label();
-            this.tabCredit = new System.Windows.Forms.TabPage();
-            this.label108 = new System.Windows.Forms.Label();
-            this.label110 = new System.Windows.Forms.Label();
-            this.label107 = new System.Windows.Forms.Label();
-            this.label109 = new System.Windows.Forms.Label();
-            this.tabMember = new System.Windows.Forms.TabPage();
-            this.dgvMember = new System.Windows.Forms.DataGridView();
-            this.tabFileOPD = new System.Windows.Forms.TabPage();
-            this.dgvFile = new System.Windows.Forms.DataGridView();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.txtFileDetail = new System.Windows.Forms.TextBox();
-            this.label119 = new System.Windows.Forms.Label();
-            this.btnDoc = new System.Windows.Forms.Button();
-            this.txtFilePath = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.odlgImage = new System.Windows.Forms.OpenFileDialog();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.chkActive = new System.Windows.Forms.CheckBox();
-            this.BirthY = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.BirthM = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.BirthD = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtTel2_12 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtTel2_11 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtTel2_10 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtDay = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtMonth = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtYear = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.btnCamera = new AryuwatSystem.UserControls.ButtonCamera();
-            this.txtMobile2_10 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtTel2_9 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtTel1_9 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtMBirth2 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtMBirth1 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtDayBirth2 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtDayBirth1 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtMobile1_10 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtMobile2_9 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtTel2_8 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtTel1_8 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtMobile1_9 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtMobile2_6 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtTel2_5 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtPassCode13 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtPassCode12 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtPassCode11 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtPassCode10 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtPassCode9 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtPassCode5 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtTel1_5 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtMobile1_6 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtMobile2_8 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtTel2_7 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtTel1_7 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtMobile1_8 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtMobile2_5 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtPassCode8 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtPassCode4 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtTel2_4 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtTel1_4 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtMobile1_5 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtMobile2_7 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtTel2_6 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtTel1_6 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtMobile1_7 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtMobile2_4 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtPassCode7 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtPassCode3 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtTel2_3 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtTel1_3 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtMobile1_4 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtPassCode6 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtTel2_2 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtPassCode2 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtMobile2_3 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtTel1_2 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtMobile1_3 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtTel2_1 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtMobile2_2 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtPassCode1 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtTel1_1 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtMobile2_1 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtMobile1_2 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtMobile1_1 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtWeight = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtHeight = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtTelC2_12 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtTelC2_11 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
-            this.txtTelC2_10 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
             this.txtMobileC2_10 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
             this.txtTelC2_9 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
             this.txtTelC1_9 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
@@ -395,11 +374,32 @@
             this.txtMobileC2_1 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
             this.txtMobileC1_2 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
             this.txtMobileC1_1 = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.tabCredit = new System.Windows.Forms.TabPage();
+            this.label108 = new System.Windows.Forms.Label();
+            this.label110 = new System.Windows.Forms.Label();
+            this.label107 = new System.Windows.Forms.Label();
+            this.label109 = new System.Windows.Forms.Label();
             this.txtCredit_day = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
             this.txtCredit_bath = new AryuwatSystem.UserControls.TextboxFormatInteger(this.components);
+            this.tabMember = new System.Windows.Forms.TabPage();
             this.buttonAddDown = new AryuwatSystem.UserControls.ButtonRigth();
+            this.dgvMember = new System.Windows.Forms.DataGridView();
             this.buttonDeleteUp = new AryuwatSystem.UserControls.ButtonLeft();
+            this.tabFileOPD = new System.Windows.Forms.TabPage();
+            this.dgvFile = new System.Windows.Forms.DataGridView();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.txtFileDetail = new System.Windows.Forms.TextBox();
+            this.label119 = new System.Windows.Forms.Label();
+            this.btnDoc = new System.Windows.Forms.Button();
             this.btnAddFile = new AryuwatSystem.UserControls.ButtonAdd();
+            this.txtFilePath = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.odlgImage = new System.Windows.Forms.OpenFileDialog();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.tabInterested.SuspendLayout();
             this.tabData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxReadCard)).BeginInit();
@@ -483,157 +483,171 @@
             this.tabInterested.Name = "tabInterested";
             this.tabInterested.Size = new System.Drawing.Size(1243, 609);
             this.tabInterested.TabIndex = 2;
-            this.tabInterested.Text = "Interested in treatment (มีความสนใจในทรีทเม้นท์)";
+            this.tabInterested.Text = "Medical information (ข้อมูลทางการแพทย์)";
             this.tabInterested.UseVisualStyleBackColor = true;
             this.tabInterested.Click += new System.EventHandler(this.tabInterested_Click);
             // 
             // rdoAgency
             // 
             this.rdoAgency.AutoSize = true;
-            this.rdoAgency.Location = new System.Drawing.Point(634, 505);
+            this.rdoAgency.Location = new System.Drawing.Point(634, 562);
             this.rdoAgency.Name = "rdoAgency";
             this.rdoAgency.Size = new System.Drawing.Size(73, 21);
             this.rdoAgency.TabIndex = 230;
             this.rdoAgency.Text = "Agency";
             this.rdoAgency.UseVisualStyleBackColor = true;
+            this.rdoAgency.Visible = false;
             // 
             // rdoTaxi
             // 
             this.rdoTaxi.AutoSize = true;
-            this.rdoTaxi.Location = new System.Drawing.Point(441, 504);
+            this.rdoTaxi.Location = new System.Drawing.Point(441, 561);
             this.rdoTaxi.Name = "rdoTaxi";
             this.rdoTaxi.Size = new System.Drawing.Size(52, 21);
             this.rdoTaxi.TabIndex = 229;
             this.rdoTaxi.Text = "Taxi";
             this.rdoTaxi.UseVisualStyleBackColor = true;
+            this.rdoTaxi.Visible = false;
             // 
             // rdoFriendss
             // 
             this.rdoFriendss.AutoSize = true;
-            this.rdoFriendss.Location = new System.Drawing.Point(634, 462);
+            this.rdoFriendss.Location = new System.Drawing.Point(634, 519);
             this.rdoFriendss.Name = "rdoFriendss";
             this.rdoFriendss.Size = new System.Drawing.Size(135, 21);
             this.rdoFriendss.TabIndex = 228;
             this.rdoFriendss.Text = "คนแนะนำ (Friend)";
             this.rdoFriendss.UseVisualStyleBackColor = true;
+            this.rdoFriendss.Visible = false;
             // 
             // rdoLine
             // 
             this.rdoLine.AutoSize = true;
-            this.rdoLine.Location = new System.Drawing.Point(251, 505);
+            this.rdoLine.Location = new System.Drawing.Point(251, 562);
             this.rdoLine.Name = "rdoLine";
             this.rdoLine.Size = new System.Drawing.Size(51, 21);
             this.rdoLine.TabIndex = 227;
             this.rdoLine.Text = "Line";
             this.rdoLine.UseVisualStyleBackColor = true;
+            this.rdoLine.Visible = false;
             // 
             // rdoLineAt
             // 
             this.rdoLineAt.AutoSize = true;
-            this.rdoLineAt.Location = new System.Drawing.Point(37, 504);
+            this.rdoLineAt.Location = new System.Drawing.Point(37, 561);
             this.rdoLineAt.Name = "rdoLineAt";
             this.rdoLineAt.Size = new System.Drawing.Size(64, 21);
             this.rdoLineAt.TabIndex = 226;
             this.rdoLineAt.Text = "Line@";
             this.rdoLineAt.UseVisualStyleBackColor = true;
+            this.rdoLineAt.Visible = false;
             // 
             // label112
             // 
             this.label112.AutoSize = true;
             this.label112.ForeColor = System.Drawing.Color.Red;
-            this.label112.Location = new System.Drawing.Point(15, 428);
+            this.label112.Location = new System.Drawing.Point(15, 485);
             this.label112.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label112.Name = "label112";
             this.label112.Size = new System.Drawing.Size(16, 17);
             this.label112.TabIndex = 225;
             this.label112.Text = "*";
+            this.label112.Visible = false;
             // 
             // rdoInternet
             // 
             this.rdoInternet.AutoSize = true;
-            this.rdoInternet.Location = new System.Drawing.Point(441, 462);
+            this.rdoInternet.Location = new System.Drawing.Point(441, 519);
             this.rdoInternet.Name = "rdoInternet";
             this.rdoInternet.Size = new System.Drawing.Size(159, 21);
             this.rdoInternet.TabIndex = 9;
             this.rdoInternet.Text = "อินเทอร์เน็ต (Internet)";
             this.rdoInternet.UseVisualStyleBackColor = true;
+            this.rdoInternet.Visible = false;
             // 
             // rdoMagazine
             // 
             this.rdoMagazine.AutoSize = true;
-            this.rdoMagazine.Location = new System.Drawing.Point(251, 463);
+            this.rdoMagazine.Location = new System.Drawing.Point(251, 520);
             this.rdoMagazine.Name = "rdoMagazine";
             this.rdoMagazine.Size = new System.Drawing.Size(144, 21);
             this.rdoMagazine.TabIndex = 8;
             this.rdoMagazine.Text = "นิตยสาร (Magazine)";
             this.rdoMagazine.UseVisualStyleBackColor = true;
+            this.rdoMagazine.Visible = false;
             // 
             // rdoSms
             // 
             this.rdoSms.AutoSize = true;
-            this.rdoSms.Location = new System.Drawing.Point(634, 483);
+            this.rdoSms.Location = new System.Drawing.Point(634, 540);
             this.rdoSms.Name = "rdoSms";
             this.rdoSms.Size = new System.Drawing.Size(53, 21);
             this.rdoSms.TabIndex = 7;
             this.rdoSms.Text = "Sms";
             this.rdoSms.UseVisualStyleBackColor = true;
+            this.rdoSms.Visible = false;
             // 
             // rdoInstagram
             // 
             this.rdoInstagram.AutoSize = true;
-            this.rdoInstagram.Location = new System.Drawing.Point(441, 483);
+            this.rdoInstagram.Location = new System.Drawing.Point(441, 540);
             this.rdoInstagram.Name = "rdoInstagram";
             this.rdoInstagram.Size = new System.Drawing.Size(89, 21);
             this.rdoInstagram.TabIndex = 7;
             this.rdoInstagram.Text = "Instagram";
             this.rdoInstagram.UseVisualStyleBackColor = true;
+            this.rdoInstagram.Visible = false;
             // 
             // rdoFacebook
             // 
             this.rdoFacebook.AutoSize = true;
-            this.rdoFacebook.Location = new System.Drawing.Point(251, 484);
+            this.rdoFacebook.Location = new System.Drawing.Point(251, 541);
             this.rdoFacebook.Name = "rdoFacebook";
             this.rdoFacebook.Size = new System.Drawing.Size(86, 21);
             this.rdoFacebook.TabIndex = 7;
             this.rdoFacebook.Text = "Facebook";
             this.rdoFacebook.UseVisualStyleBackColor = true;
+            this.rdoFacebook.Visible = false;
             // 
             // rdo_Other
             // 
             this.rdo_Other.AutoSize = true;
-            this.rdo_Other.Location = new System.Drawing.Point(37, 525);
+            this.rdo_Other.Location = new System.Drawing.Point(37, 582);
             this.rdo_Other.Name = "rdo_Other";
             this.rdo_Other.Size = new System.Drawing.Size(100, 21);
             this.rdo_Other.TabIndex = 7;
             this.rdo_Other.Text = "อื่นๆ (Other)";
             this.rdo_Other.UseVisualStyleBackColor = true;
+            this.rdo_Other.Visible = false;
             this.rdo_Other.CheckedChanged += new System.EventHandler(this.rdo_Other_CheckedChanged);
             // 
             // rdoTravel
             // 
             this.rdoTravel.AutoSize = true;
-            this.rdoTravel.Location = new System.Drawing.Point(37, 483);
+            this.rdoTravel.Location = new System.Drawing.Point(37, 540);
             this.rdoTravel.Name = "rdoTravel";
             this.rdoTravel.Size = new System.Drawing.Size(138, 21);
             this.rdoTravel.TabIndex = 7;
             this.rdoTravel.Text = "ขับรถผ่าน(Walk in)";
             this.rdoTravel.UseVisualStyleBackColor = true;
+            this.rdoTravel.Visible = false;
             // 
             // rdoNewspaper
             // 
             this.rdoNewspaper.AutoSize = true;
-            this.rdoNewspaper.Location = new System.Drawing.Point(37, 462);
+            this.rdoNewspaper.Location = new System.Drawing.Point(37, 519);
             this.rdoNewspaper.Name = "rdoNewspaper";
             this.rdoNewspaper.Size = new System.Drawing.Size(178, 21);
             this.rdoNewspaper.TabIndex = 7;
             this.rdoNewspaper.Text = "หนังสือพิมพ์ (Newspaper)";
             this.rdoNewspaper.UseVisualStyleBackColor = true;
+            this.rdoNewspaper.Visible = false;
             // 
             // label98
             // 
             this.label98.AutoSize = true;
             this.label98.ForeColor = System.Drawing.Color.Red;
-            this.label98.Location = new System.Drawing.Point(15, 372);
+            this.label98.Location = new System.Drawing.Point(21, 98);
             this.label98.Name = "label98";
             this.label98.Size = new System.Drawing.Size(16, 17);
             this.label98.TabIndex = 3;
@@ -643,7 +657,7 @@
             // 
             this.label96.AutoSize = true;
             this.label96.ForeColor = System.Drawing.Color.Red;
-            this.label96.Location = new System.Drawing.Point(15, 342);
+            this.label96.Location = new System.Drawing.Point(21, 51);
             this.label96.Name = "label96";
             this.label96.Size = new System.Drawing.Size(16, 17);
             this.label96.TabIndex = 3;
@@ -651,142 +665,157 @@
             // 
             // txtAesOther
             // 
-            this.txtAesOther.Location = new System.Drawing.Point(146, 134);
+            this.txtAesOther.Location = new System.Drawing.Point(141, 293);
             this.txtAesOther.Margin = new System.Windows.Forms.Padding(2);
             this.txtAesOther.Name = "txtAesOther";
             this.txtAesOther.ReadOnly = true;
             this.txtAesOther.Size = new System.Drawing.Size(367, 24);
             this.txtAesOther.TabIndex = 2;
+            this.txtAesOther.Visible = false;
             // 
             // txtLaser
             // 
-            this.txtLaser.Location = new System.Drawing.Point(163, 105);
+            this.txtLaser.Location = new System.Drawing.Point(158, 264);
             this.txtLaser.Margin = new System.Windows.Forms.Padding(2);
             this.txtLaser.Name = "txtLaser";
             this.txtLaser.ReadOnly = true;
             this.txtLaser.Size = new System.Drawing.Size(353, 24);
             this.txtLaser.TabIndex = 2;
+            this.txtLaser.Visible = false;
             // 
             // txtHairOther
             // 
-            this.txtHairOther.Location = new System.Drawing.Point(634, 105);
+            this.txtHairOther.Location = new System.Drawing.Point(648, 265);
             this.txtHairOther.Margin = new System.Windows.Forms.Padding(2);
             this.txtHairOther.Name = "txtHairOther";
             this.txtHairOther.ReadOnly = true;
             this.txtHairOther.Size = new System.Drawing.Size(401, 24);
             this.txtHairOther.TabIndex = 2;
+            this.txtHairOther.Visible = false;
             // 
             // txtHairReform
             // 
-            this.txtHairReform.Location = new System.Drawing.Point(719, 77);
+            this.txtHairReform.Location = new System.Drawing.Point(733, 237);
             this.txtHairReform.Margin = new System.Windows.Forms.Padding(2);
             this.txtHairReform.Name = "txtHairReform";
             this.txtHairReform.ReadOnly = true;
             this.txtHairReform.Size = new System.Drawing.Size(316, 24);
             this.txtHairReform.TabIndex = 2;
+            this.txtHairReform.Visible = false;
             // 
             // txtBodyOther
             // 
-            this.txtBodyOther.Location = new System.Drawing.Point(634, 261);
+            this.txtBodyOther.Location = new System.Drawing.Point(648, 421);
             this.txtBodyOther.Margin = new System.Windows.Forms.Padding(2);
             this.txtBodyOther.Name = "txtBodyOther";
             this.txtBodyOther.ReadOnly = true;
             this.txtBodyOther.Size = new System.Drawing.Size(401, 24);
             this.txtBodyOther.TabIndex = 2;
+            this.txtBodyOther.Visible = false;
             // 
             // txtBodyTreatment
             // 
-            this.txtBodyTreatment.Location = new System.Drawing.Point(745, 233);
+            this.txtBodyTreatment.Location = new System.Drawing.Point(759, 393);
             this.txtBodyTreatment.Margin = new System.Windows.Forms.Padding(2);
             this.txtBodyTreatment.Name = "txtBodyTreatment";
             this.txtBodyTreatment.ReadOnly = true;
             this.txtBodyTreatment.Size = new System.Drawing.Size(289, 24);
             this.txtBodyTreatment.TabIndex = 2;
+            this.txtBodyTreatment.Visible = false;
             // 
             // txtBodyVaser
             // 
-            this.txtBodyVaser.Location = new System.Drawing.Point(823, 204);
+            this.txtBodyVaser.Location = new System.Drawing.Point(837, 364);
             this.txtBodyVaser.Margin = new System.Windows.Forms.Padding(2);
             this.txtBodyVaser.Name = "txtBodyVaser";
             this.txtBodyVaser.ReadOnly = true;
             this.txtBodyVaser.Size = new System.Drawing.Size(211, 24);
             this.txtBodyVaser.TabIndex = 2;
+            this.txtBodyVaser.Visible = false;
             // 
             // txtHairTrans
             // 
-            this.txtHairTrans.Location = new System.Drawing.Point(736, 49);
+            this.txtHairTrans.Location = new System.Drawing.Point(750, 209);
             this.txtHairTrans.Margin = new System.Windows.Forms.Padding(2);
             this.txtHairTrans.Name = "txtHairTrans";
             this.txtHairTrans.ReadOnly = true;
             this.txtHairTrans.Size = new System.Drawing.Size(298, 24);
             this.txtHairTrans.TabIndex = 2;
+            this.txtHairTrans.Visible = false;
             // 
             // txtCosmeticOther
             // 
-            this.txtCosmeticOther.Location = new System.Drawing.Point(146, 293);
+            this.txtCosmeticOther.Location = new System.Drawing.Point(141, 452);
             this.txtCosmeticOther.Margin = new System.Windows.Forms.Padding(2);
             this.txtCosmeticOther.Name = "txtCosmeticOther";
             this.txtCosmeticOther.ReadOnly = true;
             this.txtCosmeticOther.Size = new System.Drawing.Size(369, 24);
             this.txtCosmeticOther.TabIndex = 2;
+            this.txtCosmeticOther.Visible = false;
             // 
             // txtChest
             // 
-            this.txtChest.Location = new System.Drawing.Point(163, 264);
+            this.txtChest.Location = new System.Drawing.Point(158, 423);
             this.txtChest.Margin = new System.Windows.Forms.Padding(2);
             this.txtChest.Name = "txtChest";
             this.txtChest.ReadOnly = true;
             this.txtChest.Size = new System.Drawing.Size(350, 24);
             this.txtChest.TabIndex = 2;
+            this.txtChest.Visible = false;
             // 
             // txtNose
             // 
-            this.txtNose.Location = new System.Drawing.Point(141, 235);
+            this.txtNose.Location = new System.Drawing.Point(136, 394);
             this.txtNose.Margin = new System.Windows.Forms.Padding(2);
             this.txtNose.Name = "txtNose";
             this.txtNose.ReadOnly = true;
             this.txtNose.Size = new System.Drawing.Size(372, 24);
             this.txtNose.TabIndex = 2;
+            this.txtNose.Visible = false;
             // 
             // txtEye
             // 
-            this.txtEye.Location = new System.Drawing.Point(126, 207);
+            this.txtEye.Location = new System.Drawing.Point(121, 366);
             this.txtEye.Margin = new System.Windows.Forms.Padding(2);
             this.txtEye.Name = "txtEye";
             this.txtEye.ReadOnly = true;
             this.txtEye.Size = new System.Drawing.Size(387, 24);
             this.txtEye.TabIndex = 2;
+            this.txtEye.Visible = false;
             // 
             // txtFacialTreatment
             // 
-            this.txtFacialTreatment.Location = new System.Drawing.Point(272, 78);
+            this.txtFacialTreatment.Location = new System.Drawing.Point(267, 237);
             this.txtFacialTreatment.Margin = new System.Windows.Forms.Padding(2);
             this.txtFacialTreatment.Name = "txtFacialTreatment";
             this.txtFacialTreatment.ReadOnly = true;
             this.txtFacialTreatment.Size = new System.Drawing.Size(243, 24);
             this.txtFacialTreatment.TabIndex = 2;
+            this.txtFacialTreatment.Visible = false;
             // 
             // txtFacialDesign
             // 
-            this.txtFacialDesign.Location = new System.Drawing.Point(256, 49);
+            this.txtFacialDesign.Location = new System.Drawing.Point(251, 208);
             this.txtFacialDesign.Margin = new System.Windows.Forms.Padding(2);
             this.txtFacialDesign.Name = "txtFacialDesign";
             this.txtFacialDesign.ReadOnly = true;
             this.txtFacialDesign.Size = new System.Drawing.Size(259, 24);
             this.txtFacialDesign.TabIndex = 2;
+            this.txtFacialDesign.Visible = false;
             // 
             // txtHowDid
             // 
-            this.txtHowDid.Location = new System.Drawing.Point(141, 527);
+            this.txtHowDid.Location = new System.Drawing.Point(141, 584);
             this.txtHowDid.Margin = new System.Windows.Forms.Padding(2);
             this.txtHowDid.Name = "txtHowDid";
             this.txtHowDid.ReadOnly = true;
             this.txtHowDid.Size = new System.Drawing.Size(530, 24);
             this.txtHowDid.TabIndex = 2;
+            this.txtHowDid.Visible = false;
             // 
             // txtWhereDid
             // 
-            this.txtWhereDid.Location = new System.Drawing.Point(422, 396);
+            this.txtWhereDid.Location = new System.Drawing.Point(428, 139);
             this.txtWhereDid.Margin = new System.Windows.Forms.Padding(2);
             this.txtWhereDid.Name = "txtWhereDid";
             this.txtWhereDid.Size = new System.Drawing.Size(468, 24);
@@ -794,7 +823,7 @@
             // 
             // txtUnderlying
             // 
-            this.txtUnderlying.Location = new System.Drawing.Point(272, 367);
+            this.txtUnderlying.Location = new System.Drawing.Point(278, 93);
             this.txtUnderlying.Margin = new System.Windows.Forms.Padding(2);
             this.txtUnderlying.Name = "txtUnderlying";
             this.txtUnderlying.Size = new System.Drawing.Size(619, 24);
@@ -802,7 +831,7 @@
             // 
             // txtAllergyHist
             // 
-            this.txtAllergyHist.Location = new System.Drawing.Point(341, 338);
+            this.txtAllergyHist.Location = new System.Drawing.Point(347, 47);
             this.txtAllergyHist.Margin = new System.Windows.Forms.Padding(2);
             this.txtAllergyHist.Name = "txtAllergyHist";
             this.txtAllergyHist.Size = new System.Drawing.Size(549, 24);
@@ -811,209 +840,225 @@
             // chkAesOther
             // 
             this.chkAesOther.AutoSize = true;
-            this.chkAesOther.Location = new System.Drawing.Point(42, 137);
+            this.chkAesOther.Location = new System.Drawing.Point(37, 296);
             this.chkAesOther.Margin = new System.Windows.Forms.Padding(2);
             this.chkAesOther.Name = "chkAesOther";
             this.chkAesOther.Size = new System.Drawing.Size(100, 21);
             this.chkAesOther.TabIndex = 1;
             this.chkAesOther.Text = "Other (อื่นๆ)";
             this.chkAesOther.UseVisualStyleBackColor = true;
+            this.chkAesOther.Visible = false;
             this.chkAesOther.CheckedChanged += new System.EventHandler(this.chkAesOther_CheckedChanged);
             // 
             // chkBodyOther
             // 
             this.chkBodyOther.AutoSize = true;
-            this.chkBodyOther.Location = new System.Drawing.Point(526, 262);
+            this.chkBodyOther.Location = new System.Drawing.Point(540, 422);
             this.chkBodyOther.Margin = new System.Windows.Forms.Padding(2);
             this.chkBodyOther.Name = "chkBodyOther";
             this.chkBodyOther.Size = new System.Drawing.Size(100, 21);
             this.chkBodyOther.TabIndex = 1;
             this.chkBodyOther.Text = "Other (อื่นๆ)";
             this.chkBodyOther.UseVisualStyleBackColor = true;
+            this.chkBodyOther.Visible = false;
             this.chkBodyOther.CheckedChanged += new System.EventHandler(this.chkBodyOther_CheckedChanged);
             // 
             // chkCosOther
             // 
             this.chkCosOther.AutoSize = true;
-            this.chkCosOther.Location = new System.Drawing.Point(42, 295);
+            this.chkCosOther.Location = new System.Drawing.Point(37, 454);
             this.chkCosOther.Margin = new System.Windows.Forms.Padding(2);
             this.chkCosOther.Name = "chkCosOther";
             this.chkCosOther.Size = new System.Drawing.Size(100, 21);
             this.chkCosOther.TabIndex = 1;
             this.chkCosOther.Text = "Other (อื่นๆ)";
             this.chkCosOther.UseVisualStyleBackColor = true;
+            this.chkCosOther.Visible = false;
             this.chkCosOther.CheckedChanged += new System.EventHandler(this.chkCosOther_CheckedChanged);
             // 
             // chkHairOther
             // 
             this.chkHairOther.AutoSize = true;
-            this.chkHairOther.Location = new System.Drawing.Point(526, 108);
+            this.chkHairOther.Location = new System.Drawing.Point(540, 268);
             this.chkHairOther.Margin = new System.Windows.Forms.Padding(2);
             this.chkHairOther.Name = "chkHairOther";
             this.chkHairOther.Size = new System.Drawing.Size(100, 21);
             this.chkHairOther.TabIndex = 1;
             this.chkHairOther.Text = "Other (อื่นๆ)";
             this.chkHairOther.UseVisualStyleBackColor = true;
+            this.chkHairOther.Visible = false;
             this.chkHairOther.CheckedChanged += new System.EventHandler(this.chkHairOther_CheckedChanged);
             // 
             // chkBodyTreatment
             // 
             this.chkBodyTreatment.AutoSize = true;
-            this.chkBodyTreatment.Location = new System.Drawing.Point(526, 235);
+            this.chkBodyTreatment.Location = new System.Drawing.Point(540, 395);
             this.chkBodyTreatment.Margin = new System.Windows.Forms.Padding(2);
             this.chkBodyTreatment.Name = "chkBodyTreatment";
             this.chkBodyTreatment.Size = new System.Drawing.Size(215, 21);
             this.chkBodyTreatment.TabIndex = 1;
             this.chkBodyTreatment.Text = "Body Treatment (ทรีทเม้นท์ตัว)";
             this.chkBodyTreatment.UseVisualStyleBackColor = true;
+            this.chkBodyTreatment.Visible = false;
             this.chkBodyTreatment.CheckedChanged += new System.EventHandler(this.chkBodyTreatment_CheckedChanged);
             // 
             // chkLaser
             // 
             this.chkLaser.AutoSize = true;
-            this.chkLaser.Location = new System.Drawing.Point(43, 108);
+            this.chkLaser.Location = new System.Drawing.Point(38, 267);
             this.chkLaser.Margin = new System.Windows.Forms.Padding(2);
             this.chkLaser.Name = "chkLaser";
             this.chkLaser.Size = new System.Drawing.Size(116, 21);
             this.chkLaser.TabIndex = 1;
             this.chkLaser.Text = "Laser (เลเซอร์)";
             this.chkLaser.UseVisualStyleBackColor = true;
+            this.chkLaser.Visible = false;
             this.chkLaser.CheckedChanged += new System.EventHandler(this.chkLaser_CheckedChanged);
             // 
             // chkHairReform
             // 
             this.chkHairReform.AutoSize = true;
-            this.chkHairReform.Location = new System.Drawing.Point(527, 81);
+            this.chkHairReform.Location = new System.Drawing.Point(541, 241);
             this.chkHairReform.Margin = new System.Windows.Forms.Padding(2);
             this.chkHairReform.Name = "chkHairReform";
             this.chkHairReform.Size = new System.Drawing.Size(188, 21);
             this.chkHairReform.TabIndex = 1;
             this.chkHairReform.Text = "Hair Reform (ทรีทเม้นท์ผม)";
             this.chkHairReform.UseVisualStyleBackColor = true;
+            this.chkHairReform.Visible = false;
             this.chkHairReform.CheckedChanged += new System.EventHandler(this.chkHairReform_CheckedChanged);
             // 
             // chkBodyVaser
             // 
             this.chkBodyVaser.AutoSize = true;
-            this.chkBodyVaser.Location = new System.Drawing.Point(525, 208);
+            this.chkBodyVaser.Location = new System.Drawing.Point(539, 368);
             this.chkBodyVaser.Margin = new System.Windows.Forms.Padding(2);
             this.chkBodyVaser.Name = "chkBodyVaser";
             this.chkBodyVaser.Size = new System.Drawing.Size(294, 21);
             this.chkBodyVaser.TabIndex = 1;
             this.chkBodyVaser.Text = "Body (ดูดไขมัน) (Vaser/Body Tite/VaserTite)";
             this.chkBodyVaser.UseVisualStyleBackColor = true;
+            this.chkBodyVaser.Visible = false;
             this.chkBodyVaser.CheckedChanged += new System.EventHandler(this.chkBodyVaser_CheckedChanged);
             // 
             // chkChest
             // 
             this.chkChest.AutoSize = true;
-            this.chkChest.Location = new System.Drawing.Point(42, 266);
+            this.chkChest.Location = new System.Drawing.Point(37, 425);
             this.chkChest.Margin = new System.Windows.Forms.Padding(2);
             this.chkChest.Name = "chkChest";
             this.chkChest.Size = new System.Drawing.Size(117, 21);
             this.chkChest.TabIndex = 1;
             this.chkChest.Text = "Chest (หน้าอก)";
             this.chkChest.UseVisualStyleBackColor = true;
+            this.chkChest.Visible = false;
             this.chkChest.CheckedChanged += new System.EventHandler(this.chkChest_CheckedChanged);
             // 
             // chkFacialTreatment
             // 
             this.chkFacialTreatment.AutoSize = true;
-            this.chkFacialTreatment.Location = new System.Drawing.Point(44, 81);
+            this.chkFacialTreatment.Location = new System.Drawing.Point(39, 240);
             this.chkFacialTreatment.Margin = new System.Windows.Forms.Padding(2);
             this.chkFacialTreatment.Name = "chkFacialTreatment";
             this.chkFacialTreatment.Size = new System.Drawing.Size(224, 21);
             this.chkFacialTreatment.TabIndex = 1;
             this.chkFacialTreatment.Text = "Facial Treatment (ทรีทเม้นท์หน้า)";
             this.chkFacialTreatment.UseVisualStyleBackColor = true;
+            this.chkFacialTreatment.Visible = false;
             this.chkFacialTreatment.CheckedChanged += new System.EventHandler(this.chkFacialTreatment_CheckedChanged);
             // 
             // chkNose
             // 
             this.chkNose.AutoSize = true;
-            this.chkNose.Location = new System.Drawing.Point(42, 237);
+            this.chkNose.Location = new System.Drawing.Point(37, 396);
             this.chkNose.Margin = new System.Windows.Forms.Padding(2);
             this.chkNose.Name = "chkNose";
             this.chkNose.Size = new System.Drawing.Size(95, 21);
             this.chkNose.TabIndex = 1;
             this.chkNose.Text = "Nose (จมูก)";
             this.chkNose.UseVisualStyleBackColor = true;
+            this.chkNose.Visible = false;
             this.chkNose.CheckedChanged += new System.EventHandler(this.chkNose_CheckedChanged);
             // 
             // chkHairTrans
             // 
             this.chkHairTrans.AutoSize = true;
-            this.chkHairTrans.Location = new System.Drawing.Point(527, 50);
+            this.chkHairTrans.Location = new System.Drawing.Point(541, 210);
             this.chkHairTrans.Margin = new System.Windows.Forms.Padding(2);
             this.chkHairTrans.Name = "chkHairTrans";
             this.chkHairTrans.Size = new System.Drawing.Size(205, 21);
             this.chkHairTrans.TabIndex = 1;
             this.chkHairTrans.Text = "Hair Transplantation (ปลูกผม)";
             this.chkHairTrans.UseVisualStyleBackColor = true;
+            this.chkHairTrans.Visible = false;
             this.chkHairTrans.CheckedChanged += new System.EventHandler(this.chkHairTrans_CheckedChanged);
             // 
             // chkEye
             // 
             this.chkEye.AutoSize = true;
-            this.chkEye.Location = new System.Drawing.Point(42, 208);
+            this.chkEye.Location = new System.Drawing.Point(37, 367);
             this.chkEye.Margin = new System.Windows.Forms.Padding(2);
             this.chkEye.Name = "chkEye";
             this.chkEye.Size = new System.Drawing.Size(80, 21);
             this.chkEye.TabIndex = 1;
             this.chkEye.Text = "Eye (ตา)";
             this.chkEye.UseVisualStyleBackColor = true;
+            this.chkEye.Visible = false;
             this.chkEye.CheckedChanged += new System.EventHandler(this.chkEye_CheckedChanged);
             // 
             // label36
             // 
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label36.Location = new System.Drawing.Point(35, 428);
+            this.label36.Location = new System.Drawing.Point(35, 485);
             this.label36.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(418, 17);
             this.label36.TabIndex = 0;
             this.label36.Text = "How did you hear about Aryuwat? (รู้จัก Aryuwat จากที่ไหน)";
+            this.label36.Visible = false;
             // 
             // label32
             // 
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label32.Location = new System.Drawing.Point(523, 177);
+            this.label32.Location = new System.Drawing.Point(537, 337);
             this.label32.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(266, 17);
             this.label32.TabIndex = 0;
             this.label32.Text = "Body Center (แผนกรูปร่าางและสัดส่วน)";
+            this.label32.Visible = false;
             // 
             // label35
             // 
             this.label35.AutoSize = true;
             this.label35.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label35.Location = new System.Drawing.Point(35, 401);
+            this.label35.Location = new System.Drawing.Point(41, 144);
             this.label35.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(383, 17);
+            this.label35.Size = new System.Drawing.Size(370, 17);
             this.label35.TabIndex = 0;
-            this.label35.Text = "Where have got the treatment? (เคยรักษาที่ไหนมาก่อน)";
+            this.label35.Text = "Where have you got the cure? (โรงพยาบาลที่รักษาอยู่)";
             // 
             // chkFacialDesign
             // 
             this.chkFacialDesign.AutoSize = true;
-            this.chkFacialDesign.Location = new System.Drawing.Point(44, 50);
+            this.chkFacialDesign.Location = new System.Drawing.Point(39, 209);
             this.chkFacialDesign.Margin = new System.Windows.Forms.Padding(2);
             this.chkFacialDesign.Name = "chkFacialDesign";
             this.chkFacialDesign.Size = new System.Drawing.Size(208, 21);
             this.chkFacialDesign.TabIndex = 1;
             this.chkFacialDesign.Text = "Facial Design (ออกแบบรูปหน้า)";
             this.chkFacialDesign.UseVisualStyleBackColor = true;
+            this.chkFacialDesign.Visible = false;
             this.chkFacialDesign.CheckedChanged += new System.EventHandler(this.chkFacialDesign_CheckedChanged);
             // 
             // label34
             // 
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label34.Location = new System.Drawing.Point(35, 372);
+            this.label34.Location = new System.Drawing.Point(41, 98);
             this.label34.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(233, 17);
@@ -1024,45 +1069,48 @@
             // 
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label30.Location = new System.Drawing.Point(525, 20);
+            this.label30.Location = new System.Drawing.Point(539, 180);
             this.label30.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(161, 17);
             this.label30.TabIndex = 0;
             this.label30.Text = "Hair Center (แผนกผม)";
+            this.label30.Visible = false;
             // 
             // label33
             // 
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label33.Location = new System.Drawing.Point(35, 342);
+            this.label33.Location = new System.Drawing.Point(41, 51);
             this.label33.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(289, 17);
+            this.label33.Size = new System.Drawing.Size(202, 17);
             this.label33.TabIndex = 0;
-            this.label33.Text = "Allergy History (ประวัติแพ้ยา/เครื่องสำอาง)";
+            this.label33.Text = "Allergy History (ประวัติแพ้ยา)";
             // 
             // label31
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label31.Location = new System.Drawing.Point(40, 177);
+            this.label31.Location = new System.Drawing.Point(35, 336);
             this.label31.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(354, 17);
             this.label31.TabIndex = 0;
             this.label31.Text = "Cosmetic Surgery Center (แผนกศัลยกรรมความงาม)";
+            this.label31.Visible = false;
             // 
             // label29
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label29.Location = new System.Drawing.Point(42, 20);
+            this.label29.Location = new System.Drawing.Point(37, 179);
             this.label29.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(317, 17);
             this.label29.TabIndex = 0;
             this.label29.Text = "Aesthetic Center (แผนกผิวพรรณและความงาม)";
+            this.label29.Visible = false;
             // 
             // tabData
             // 
@@ -1270,6 +1318,20 @@
             this.tabData.TabIndex = 0;
             this.tabData.Text = "Customer Detail ทะเบียนข้อมูลลูกค้า";
             this.tabData.UseVisualStyleBackColor = true;
+            // 
+            // chkActive
+            // 
+            this.chkActive.AutoSize = true;
+            this.chkActive.Checked = true;
+            this.chkActive.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkActive.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkActive.ForeColor = System.Drawing.Color.Black;
+            this.chkActive.Location = new System.Drawing.Point(904, 38);
+            this.chkActive.Name = "chkActive";
+            this.chkActive.Size = new System.Drawing.Size(118, 27);
+            this.chkActive.TabIndex = 3104;
+            this.chkActive.Text = "เปิดใช้งาน";
+            this.chkActive.UseVisualStyleBackColor = true;
             // 
             // txtTel1
             // 
@@ -1496,6 +1558,18 @@
             this.label114.TabIndex = 3080;
             this.label114.Text = "/";
             // 
+            // BirthY
+            // 
+            this.BirthY.Location = new System.Drawing.Point(265, 136);
+            this.BirthY.Margin = new System.Windows.Forms.Padding(2);
+            this.BirthY.MaxLength = 4;
+            this.BirthY.Name = "BirthY";
+            this.BirthY.Size = new System.Drawing.Size(35, 24);
+            this.BirthY.TabIndex = 18;
+            this.BirthY.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.BirthY.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BirthY_KeyPress);
+            this.BirthY.KeyUp += new System.Windows.Forms.KeyEventHandler(this.BirthY_KeyUp);
+            // 
             // label113
             // 
             this.label113.AutoSize = true;
@@ -1505,6 +1579,28 @@
             this.label113.Size = new System.Drawing.Size(13, 17);
             this.label113.TabIndex = 16;
             this.label113.Text = "/";
+            // 
+            // BirthM
+            // 
+            this.BirthM.Location = new System.Drawing.Point(232, 136);
+            this.BirthM.Margin = new System.Windows.Forms.Padding(2);
+            this.BirthM.MaxLength = 2;
+            this.BirthM.Name = "BirthM";
+            this.BirthM.Size = new System.Drawing.Size(20, 24);
+            this.BirthM.TabIndex = 17;
+            this.BirthM.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.BirthM.KeyUp += new System.Windows.Forms.KeyEventHandler(this.BirthM_KeyUp);
+            // 
+            // BirthD
+            // 
+            this.BirthD.Location = new System.Drawing.Point(199, 136);
+            this.BirthD.Margin = new System.Windows.Forms.Padding(2);
+            this.BirthD.MaxLength = 2;
+            this.BirthD.Name = "BirthD";
+            this.BirthD.Size = new System.Drawing.Size(20, 24);
+            this.BirthD.TabIndex = 15;
+            this.BirthD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.BirthD.KeyUp += new System.Windows.Forms.KeyEventHandler(this.BirthD_KeyUp);
             // 
             // txtCountry
             // 
@@ -1698,6 +1794,39 @@
             this.label101.TabIndex = 3060;
             this.label101.Text = "(Branch) สาขา :";
             // 
+            // txtTel2_12
+            // 
+            this.txtTel2_12.Location = new System.Drawing.Point(923, 308);
+            this.txtTel2_12.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTel2_12.MaxLength = 1;
+            this.txtTel2_12.Name = "txtTel2_12";
+            this.txtTel2_12.Size = new System.Drawing.Size(16, 24);
+            this.txtTel2_12.TabIndex = 73;
+            this.txtTel2_12.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTel2_12.Visible = false;
+            // 
+            // txtTel2_11
+            // 
+            this.txtTel2_11.Location = new System.Drawing.Point(904, 308);
+            this.txtTel2_11.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTel2_11.MaxLength = 1;
+            this.txtTel2_11.Name = "txtTel2_11";
+            this.txtTel2_11.Size = new System.Drawing.Size(16, 24);
+            this.txtTel2_11.TabIndex = 72;
+            this.txtTel2_11.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTel2_11.Visible = false;
+            // 
+            // txtTel2_10
+            // 
+            this.txtTel2_10.Location = new System.Drawing.Point(884, 308);
+            this.txtTel2_10.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTel2_10.MaxLength = 1;
+            this.txtTel2_10.Name = "txtTel2_10";
+            this.txtTel2_10.Size = new System.Drawing.Size(16, 24);
+            this.txtTel2_10.TabIndex = 71;
+            this.txtTel2_10.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTel2_10.Visible = false;
+            // 
             // label99
             // 
             this.label99.AutoSize = true;
@@ -1717,6 +1846,35 @@
             this.label78.Size = new System.Drawing.Size(92, 17);
             this.label78.TabIndex = 285;
             this.label78.Text = "Month (เดือน)";
+            // 
+            // txtDay
+            // 
+            this.txtDay.Location = new System.Drawing.Point(555, 136);
+            this.txtDay.Name = "txtDay";
+            this.txtDay.ReadOnly = true;
+            this.txtDay.Size = new System.Drawing.Size(36, 24);
+            this.txtDay.TabIndex = 21;
+            this.txtDay.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtMonth
+            // 
+            this.txtMonth.Location = new System.Drawing.Point(422, 136);
+            this.txtMonth.Name = "txtMonth";
+            this.txtMonth.ReadOnly = true;
+            this.txtMonth.Size = new System.Drawing.Size(36, 24);
+            this.txtMonth.TabIndex = 20;
+            this.txtMonth.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtYear
+            // 
+            this.txtYear.Location = new System.Drawing.Point(310, 136);
+            this.txtYear.Name = "txtYear";
+            this.txtYear.Size = new System.Drawing.Size(36, 24);
+            this.txtYear.TabIndex = 19;
+            this.txtYear.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtYear.TextChanged += new System.EventHandler(this.txtYear_TextChanged);
+            this.txtYear.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtYear_KeyUp);
+            this.txtYear.Leave += new System.EventHandler(this.txtYear_Leave);
             // 
             // dtpDateReg
             // 
@@ -1910,6 +2068,15 @@
             this.label41.Text = "-";
             this.label41.Visible = false;
             // 
+            // btnCamera
+            // 
+            this.btnCamera.BackColor = System.Drawing.Color.Transparent;
+            this.btnCamera.Location = new System.Drawing.Point(1129, 206);
+            this.btnCamera.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.btnCamera.Name = "btnCamera";
+            this.btnCamera.Size = new System.Drawing.Size(42, 38);
+            this.btnCamera.TabIndex = 226;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.picCustImage);
@@ -2055,6 +2222,657 @@
             this.label45.Size = new System.Drawing.Size(16, 17);
             this.label45.TabIndex = 224;
             this.label45.Text = "*";
+            // 
+            // txtMobile2_10
+            // 
+            this.txtMobile2_10.Location = new System.Drawing.Point(942, 558);
+            this.txtMobile2_10.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMobile2_10.MaxLength = 1;
+            this.txtMobile2_10.Name = "txtMobile2_10";
+            this.txtMobile2_10.Size = new System.Drawing.Size(16, 24);
+            this.txtMobile2_10.TabIndex = 52;
+            this.txtMobile2_10.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtMobile2_10.Visible = false;
+            // 
+            // txtTel2_9
+            // 
+            this.txtTel2_9.Location = new System.Drawing.Point(865, 308);
+            this.txtTel2_9.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTel2_9.MaxLength = 1;
+            this.txtTel2_9.Name = "txtTel2_9";
+            this.txtTel2_9.Size = new System.Drawing.Size(16, 24);
+            this.txtTel2_9.TabIndex = 70;
+            this.txtTel2_9.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTel2_9.Visible = false;
+            // 
+            // txtTel1_9
+            // 
+            this.txtTel1_9.Location = new System.Drawing.Point(1193, 460);
+            this.txtTel1_9.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTel1_9.MaxLength = 1;
+            this.txtTel1_9.Name = "txtTel1_9";
+            this.txtTel1_9.Size = new System.Drawing.Size(16, 24);
+            this.txtTel1_9.TabIndex = 61;
+            this.txtTel1_9.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTel1_9.Visible = false;
+            // 
+            // txtMBirth2
+            // 
+            this.txtMBirth2.Location = new System.Drawing.Point(269, 165);
+            this.txtMBirth2.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMBirth2.MaxLength = 1;
+            this.txtMBirth2.Name = "txtMBirth2";
+            this.txtMBirth2.Size = new System.Drawing.Size(16, 24);
+            this.txtMBirth2.TabIndex = 25;
+            this.txtMBirth2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtMBirth1
+            // 
+            this.txtMBirth1.Location = new System.Drawing.Point(250, 165);
+            this.txtMBirth1.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMBirth1.MaxLength = 1;
+            this.txtMBirth1.Name = "txtMBirth1";
+            this.txtMBirth1.Size = new System.Drawing.Size(16, 24);
+            this.txtMBirth1.TabIndex = 24;
+            this.txtMBirth1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtDayBirth2
+            // 
+            this.txtDayBirth2.Location = new System.Drawing.Point(218, 165);
+            this.txtDayBirth2.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDayBirth2.MaxLength = 1;
+            this.txtDayBirth2.Name = "txtDayBirth2";
+            this.txtDayBirth2.Size = new System.Drawing.Size(16, 24);
+            this.txtDayBirth2.TabIndex = 23;
+            this.txtDayBirth2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtDayBirth1
+            // 
+            this.txtDayBirth1.Location = new System.Drawing.Point(199, 165);
+            this.txtDayBirth1.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDayBirth1.MaxLength = 1;
+            this.txtDayBirth1.Name = "txtDayBirth1";
+            this.txtDayBirth1.Size = new System.Drawing.Size(16, 24);
+            this.txtDayBirth1.TabIndex = 22;
+            this.txtDayBirth1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtMobile1_10
+            // 
+            this.txtMobile1_10.Location = new System.Drawing.Point(1185, 555);
+            this.txtMobile1_10.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMobile1_10.MaxLength = 1;
+            this.txtMobile1_10.Name = "txtMobile1_10";
+            this.txtMobile1_10.Size = new System.Drawing.Size(16, 24);
+            this.txtMobile1_10.TabIndex = 42;
+            this.txtMobile1_10.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtMobile1_10.Visible = false;
+            // 
+            // txtMobile2_9
+            // 
+            this.txtMobile2_9.Location = new System.Drawing.Point(923, 558);
+            this.txtMobile2_9.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMobile2_9.MaxLength = 1;
+            this.txtMobile2_9.Name = "txtMobile2_9";
+            this.txtMobile2_9.Size = new System.Drawing.Size(16, 24);
+            this.txtMobile2_9.TabIndex = 51;
+            this.txtMobile2_9.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtMobile2_9.Visible = false;
+            this.txtMobile2_9.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMobile2_9_KeyUp);
+            // 
+            // txtTel2_8
+            // 
+            this.txtTel2_8.Location = new System.Drawing.Point(846, 308);
+            this.txtTel2_8.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTel2_8.MaxLength = 1;
+            this.txtTel2_8.Name = "txtTel2_8";
+            this.txtTel2_8.Size = new System.Drawing.Size(16, 24);
+            this.txtTel2_8.TabIndex = 69;
+            this.txtTel2_8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTel2_8.Visible = false;
+            // 
+            // txtTel1_8
+            // 
+            this.txtTel1_8.Location = new System.Drawing.Point(1174, 460);
+            this.txtTel1_8.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTel1_8.MaxLength = 1;
+            this.txtTel1_8.Name = "txtTel1_8";
+            this.txtTel1_8.Size = new System.Drawing.Size(16, 24);
+            this.txtTel1_8.TabIndex = 60;
+            this.txtTel1_8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTel1_8.Visible = false;
+            // 
+            // txtMobile1_9
+            // 
+            this.txtMobile1_9.Location = new System.Drawing.Point(1166, 555);
+            this.txtMobile1_9.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMobile1_9.MaxLength = 1;
+            this.txtMobile1_9.Name = "txtMobile1_9";
+            this.txtMobile1_9.Size = new System.Drawing.Size(16, 24);
+            this.txtMobile1_9.TabIndex = 41;
+            this.txtMobile1_9.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtMobile1_9.Visible = false;
+            this.txtMobile1_9.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMobile1_9_KeyUp);
+            // 
+            // txtMobile2_6
+            // 
+            this.txtMobile2_6.Location = new System.Drawing.Point(849, 558);
+            this.txtMobile2_6.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMobile2_6.MaxLength = 1;
+            this.txtMobile2_6.Name = "txtMobile2_6";
+            this.txtMobile2_6.Size = new System.Drawing.Size(16, 24);
+            this.txtMobile2_6.TabIndex = 48;
+            this.txtMobile2_6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtMobile2_6.Visible = false;
+            this.txtMobile2_6.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMobile2_6_KeyUp);
+            // 
+            // txtTel2_5
+            // 
+            this.txtTel2_5.Location = new System.Drawing.Point(772, 308);
+            this.txtTel2_5.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTel2_5.MaxLength = 1;
+            this.txtTel2_5.Name = "txtTel2_5";
+            this.txtTel2_5.Size = new System.Drawing.Size(16, 24);
+            this.txtTel2_5.TabIndex = 66;
+            this.txtTel2_5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTel2_5.Visible = false;
+            // 
+            // txtPassCode13
+            // 
+            this.txtPassCode13.Location = new System.Drawing.Point(830, 571);
+            this.txtPassCode13.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPassCode13.MaxLength = 1;
+            this.txtPassCode13.Name = "txtPassCode13";
+            this.txtPassCode13.Size = new System.Drawing.Size(10, 24);
+            this.txtPassCode13.TabIndex = 96;
+            this.txtPassCode13.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPassCode13.Visible = false;
+            // 
+            // txtPassCode12
+            // 
+            this.txtPassCode12.Location = new System.Drawing.Point(794, 571);
+            this.txtPassCode12.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPassCode12.MaxLength = 1;
+            this.txtPassCode12.Name = "txtPassCode12";
+            this.txtPassCode12.Size = new System.Drawing.Size(10, 24);
+            this.txtPassCode12.TabIndex = 95;
+            this.txtPassCode12.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPassCode12.Visible = false;
+            this.txtPassCode12.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTel1_5_KeyUp);
+            // 
+            // txtPassCode11
+            // 
+            this.txtPassCode11.Location = new System.Drawing.Point(775, 571);
+            this.txtPassCode11.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPassCode11.MaxLength = 1;
+            this.txtPassCode11.Name = "txtPassCode11";
+            this.txtPassCode11.Size = new System.Drawing.Size(10, 24);
+            this.txtPassCode11.TabIndex = 94;
+            this.txtPassCode11.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPassCode11.Visible = false;
+            this.txtPassCode11.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTel1_5_KeyUp);
+            // 
+            // txtPassCode10
+            // 
+            this.txtPassCode10.Location = new System.Drawing.Point(738, 571);
+            this.txtPassCode10.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPassCode10.MaxLength = 1;
+            this.txtPassCode10.Name = "txtPassCode10";
+            this.txtPassCode10.Size = new System.Drawing.Size(10, 24);
+            this.txtPassCode10.TabIndex = 93;
+            this.txtPassCode10.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPassCode10.Visible = false;
+            this.txtPassCode10.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTel1_5_KeyUp);
+            // 
+            // txtPassCode9
+            // 
+            this.txtPassCode9.Location = new System.Drawing.Point(719, 571);
+            this.txtPassCode9.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPassCode9.MaxLength = 1;
+            this.txtPassCode9.Name = "txtPassCode9";
+            this.txtPassCode9.Size = new System.Drawing.Size(10, 24);
+            this.txtPassCode9.TabIndex = 92;
+            this.txtPassCode9.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPassCode9.Visible = false;
+            this.txtPassCode9.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTel1_5_KeyUp);
+            // 
+            // txtPassCode5
+            // 
+            this.txtPassCode5.Location = new System.Drawing.Point(626, 571);
+            this.txtPassCode5.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPassCode5.MaxLength = 1;
+            this.txtPassCode5.Name = "txtPassCode5";
+            this.txtPassCode5.Size = new System.Drawing.Size(10, 24);
+            this.txtPassCode5.TabIndex = 88;
+            this.txtPassCode5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPassCode5.Visible = false;
+            // 
+            // txtTel1_5
+            // 
+            this.txtTel1_5.Location = new System.Drawing.Point(1100, 460);
+            this.txtTel1_5.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTel1_5.MaxLength = 1;
+            this.txtTel1_5.Name = "txtTel1_5";
+            this.txtTel1_5.Size = new System.Drawing.Size(16, 24);
+            this.txtTel1_5.TabIndex = 57;
+            this.txtTel1_5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTel1_5.Visible = false;
+            this.txtTel1_5.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTel1_5_KeyUp);
+            // 
+            // txtMobile1_6
+            // 
+            this.txtMobile1_6.Location = new System.Drawing.Point(1092, 555);
+            this.txtMobile1_6.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMobile1_6.MaxLength = 1;
+            this.txtMobile1_6.Name = "txtMobile1_6";
+            this.txtMobile1_6.Size = new System.Drawing.Size(16, 24);
+            this.txtMobile1_6.TabIndex = 38;
+            this.txtMobile1_6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtMobile1_6.Visible = false;
+            this.txtMobile1_6.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMobile1_6_KeyUp);
+            // 
+            // txtMobile2_8
+            // 
+            this.txtMobile2_8.Location = new System.Drawing.Point(903, 558);
+            this.txtMobile2_8.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMobile2_8.MaxLength = 1;
+            this.txtMobile2_8.Name = "txtMobile2_8";
+            this.txtMobile2_8.Size = new System.Drawing.Size(16, 24);
+            this.txtMobile2_8.TabIndex = 50;
+            this.txtMobile2_8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtMobile2_8.Visible = false;
+            this.txtMobile2_8.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMobile2_8_KeyUp);
+            // 
+            // txtTel2_7
+            // 
+            this.txtTel2_7.Location = new System.Drawing.Point(826, 308);
+            this.txtTel2_7.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTel2_7.MaxLength = 1;
+            this.txtTel2_7.Name = "txtTel2_7";
+            this.txtTel2_7.Size = new System.Drawing.Size(16, 24);
+            this.txtTel2_7.TabIndex = 68;
+            this.txtTel2_7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTel2_7.Visible = false;
+            // 
+            // txtTel1_7
+            // 
+            this.txtTel1_7.Location = new System.Drawing.Point(1154, 460);
+            this.txtTel1_7.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTel1_7.MaxLength = 1;
+            this.txtTel1_7.Name = "txtTel1_7";
+            this.txtTel1_7.Size = new System.Drawing.Size(16, 24);
+            this.txtTel1_7.TabIndex = 59;
+            this.txtTel1_7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTel1_7.Visible = false;
+            // 
+            // txtMobile1_8
+            // 
+            this.txtMobile1_8.Location = new System.Drawing.Point(1146, 555);
+            this.txtMobile1_8.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMobile1_8.MaxLength = 1;
+            this.txtMobile1_8.Name = "txtMobile1_8";
+            this.txtMobile1_8.Size = new System.Drawing.Size(16, 24);
+            this.txtMobile1_8.TabIndex = 40;
+            this.txtMobile1_8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtMobile1_8.Visible = false;
+            this.txtMobile1_8.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMobile1_8_KeyUp);
+            // 
+            // txtMobile2_5
+            // 
+            this.txtMobile2_5.Location = new System.Drawing.Point(830, 558);
+            this.txtMobile2_5.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMobile2_5.MaxLength = 1;
+            this.txtMobile2_5.Name = "txtMobile2_5";
+            this.txtMobile2_5.Size = new System.Drawing.Size(16, 24);
+            this.txtMobile2_5.TabIndex = 47;
+            this.txtMobile2_5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtMobile2_5.Visible = false;
+            this.txtMobile2_5.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMobile2_5_KeyUp);
+            // 
+            // txtPassCode8
+            // 
+            this.txtPassCode8.Location = new System.Drawing.Point(700, 571);
+            this.txtPassCode8.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPassCode8.MaxLength = 1;
+            this.txtPassCode8.Name = "txtPassCode8";
+            this.txtPassCode8.Size = new System.Drawing.Size(10, 24);
+            this.txtPassCode8.TabIndex = 91;
+            this.txtPassCode8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPassCode8.Visible = false;
+            this.txtPassCode8.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTel1_4_KeyUp);
+            // 
+            // txtPassCode4
+            // 
+            this.txtPassCode4.Location = new System.Drawing.Point(607, 571);
+            this.txtPassCode4.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPassCode4.MaxLength = 1;
+            this.txtPassCode4.Name = "txtPassCode4";
+            this.txtPassCode4.Size = new System.Drawing.Size(10, 24);
+            this.txtPassCode4.TabIndex = 87;
+            this.txtPassCode4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPassCode4.Visible = false;
+            // 
+            // txtTel2_4
+            // 
+            this.txtTel2_4.Location = new System.Drawing.Point(753, 308);
+            this.txtTel2_4.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTel2_4.MaxLength = 1;
+            this.txtTel2_4.Name = "txtTel2_4";
+            this.txtTel2_4.Size = new System.Drawing.Size(16, 24);
+            this.txtTel2_4.TabIndex = 65;
+            this.txtTel2_4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTel2_4.Visible = false;
+            // 
+            // txtTel1_4
+            // 
+            this.txtTel1_4.Location = new System.Drawing.Point(1081, 460);
+            this.txtTel1_4.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTel1_4.MaxLength = 1;
+            this.txtTel1_4.Name = "txtTel1_4";
+            this.txtTel1_4.Size = new System.Drawing.Size(16, 24);
+            this.txtTel1_4.TabIndex = 56;
+            this.txtTel1_4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTel1_4.Visible = false;
+            this.txtTel1_4.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTel1_4_KeyUp);
+            // 
+            // txtMobile1_5
+            // 
+            this.txtMobile1_5.Location = new System.Drawing.Point(1073, 555);
+            this.txtMobile1_5.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMobile1_5.MaxLength = 1;
+            this.txtMobile1_5.Name = "txtMobile1_5";
+            this.txtMobile1_5.Size = new System.Drawing.Size(16, 24);
+            this.txtMobile1_5.TabIndex = 37;
+            this.txtMobile1_5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtMobile1_5.Visible = false;
+            this.txtMobile1_5.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMobile1_5_KeyUp);
+            // 
+            // txtMobile2_7
+            // 
+            this.txtMobile2_7.Location = new System.Drawing.Point(884, 558);
+            this.txtMobile2_7.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMobile2_7.MaxLength = 1;
+            this.txtMobile2_7.Name = "txtMobile2_7";
+            this.txtMobile2_7.Size = new System.Drawing.Size(16, 24);
+            this.txtMobile2_7.TabIndex = 49;
+            this.txtMobile2_7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtMobile2_7.Visible = false;
+            this.txtMobile2_7.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMobile2_7_KeyUp);
+            // 
+            // txtTel2_6
+            // 
+            this.txtTel2_6.Location = new System.Drawing.Point(791, 308);
+            this.txtTel2_6.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTel2_6.MaxLength = 1;
+            this.txtTel2_6.Name = "txtTel2_6";
+            this.txtTel2_6.Size = new System.Drawing.Size(16, 24);
+            this.txtTel2_6.TabIndex = 67;
+            this.txtTel2_6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTel2_6.Visible = false;
+            // 
+            // txtTel1_6
+            // 
+            this.txtTel1_6.Location = new System.Drawing.Point(1135, 460);
+            this.txtTel1_6.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTel1_6.MaxLength = 1;
+            this.txtTel1_6.Name = "txtTel1_6";
+            this.txtTel1_6.Size = new System.Drawing.Size(16, 24);
+            this.txtTel1_6.TabIndex = 58;
+            this.txtTel1_6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTel1_6.Visible = false;
+            // 
+            // txtMobile1_7
+            // 
+            this.txtMobile1_7.Location = new System.Drawing.Point(1127, 555);
+            this.txtMobile1_7.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMobile1_7.MaxLength = 1;
+            this.txtMobile1_7.Name = "txtMobile1_7";
+            this.txtMobile1_7.Size = new System.Drawing.Size(16, 24);
+            this.txtMobile1_7.TabIndex = 39;
+            this.txtMobile1_7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtMobile1_7.Visible = false;
+            this.txtMobile1_7.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMobile1_7_KeyUp);
+            // 
+            // txtMobile2_4
+            // 
+            this.txtMobile2_4.Location = new System.Drawing.Point(810, 558);
+            this.txtMobile2_4.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMobile2_4.MaxLength = 1;
+            this.txtMobile2_4.Name = "txtMobile2_4";
+            this.txtMobile2_4.Size = new System.Drawing.Size(16, 24);
+            this.txtMobile2_4.TabIndex = 46;
+            this.txtMobile2_4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtMobile2_4.Visible = false;
+            this.txtMobile2_4.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMobile2_4_KeyUp);
+            // 
+            // txtPassCode7
+            // 
+            this.txtPassCode7.Location = new System.Drawing.Point(680, 571);
+            this.txtPassCode7.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPassCode7.MaxLength = 1;
+            this.txtPassCode7.Name = "txtPassCode7";
+            this.txtPassCode7.Size = new System.Drawing.Size(10, 24);
+            this.txtPassCode7.TabIndex = 90;
+            this.txtPassCode7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPassCode7.Visible = false;
+            this.txtPassCode7.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTel1_3_KeyUp);
+            // 
+            // txtPassCode3
+            // 
+            this.txtPassCode3.Location = new System.Drawing.Point(587, 571);
+            this.txtPassCode3.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPassCode3.MaxLength = 1;
+            this.txtPassCode3.Name = "txtPassCode3";
+            this.txtPassCode3.Size = new System.Drawing.Size(10, 24);
+            this.txtPassCode3.TabIndex = 86;
+            this.txtPassCode3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPassCode3.Visible = false;
+            // 
+            // txtTel2_3
+            // 
+            this.txtTel2_3.Location = new System.Drawing.Point(733, 308);
+            this.txtTel2_3.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTel2_3.MaxLength = 1;
+            this.txtTel2_3.Name = "txtTel2_3";
+            this.txtTel2_3.Size = new System.Drawing.Size(16, 24);
+            this.txtTel2_3.TabIndex = 64;
+            this.txtTel2_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTel2_3.Visible = false;
+            // 
+            // txtTel1_3
+            // 
+            this.txtTel1_3.Location = new System.Drawing.Point(1061, 460);
+            this.txtTel1_3.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTel1_3.MaxLength = 1;
+            this.txtTel1_3.Name = "txtTel1_3";
+            this.txtTel1_3.Size = new System.Drawing.Size(16, 24);
+            this.txtTel1_3.TabIndex = 55;
+            this.txtTel1_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTel1_3.Visible = false;
+            this.txtTel1_3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTel1_3_KeyUp);
+            // 
+            // txtMobile1_4
+            // 
+            this.txtMobile1_4.Location = new System.Drawing.Point(1053, 555);
+            this.txtMobile1_4.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMobile1_4.MaxLength = 1;
+            this.txtMobile1_4.Name = "txtMobile1_4";
+            this.txtMobile1_4.Size = new System.Drawing.Size(16, 24);
+            this.txtMobile1_4.TabIndex = 36;
+            this.txtMobile1_4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtMobile1_4.Visible = false;
+            this.txtMobile1_4.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMobile1_4_KeyUp);
+            // 
+            // txtPassCode6
+            // 
+            this.txtPassCode6.Location = new System.Drawing.Point(661, 571);
+            this.txtPassCode6.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPassCode6.MaxLength = 1;
+            this.txtPassCode6.Name = "txtPassCode6";
+            this.txtPassCode6.Size = new System.Drawing.Size(10, 24);
+            this.txtPassCode6.TabIndex = 89;
+            this.txtPassCode6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPassCode6.Visible = false;
+            this.txtPassCode6.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTel1_2_KeyUp);
+            // 
+            // txtTel2_2
+            // 
+            this.txtTel2_2.Location = new System.Drawing.Point(698, 308);
+            this.txtTel2_2.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTel2_2.MaxLength = 1;
+            this.txtTel2_2.Name = "txtTel2_2";
+            this.txtTel2_2.Size = new System.Drawing.Size(16, 24);
+            this.txtTel2_2.TabIndex = 63;
+            this.txtTel2_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTel2_2.Visible = false;
+            // 
+            // txtPassCode2
+            // 
+            this.txtPassCode2.Location = new System.Drawing.Point(568, 571);
+            this.txtPassCode2.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPassCode2.MaxLength = 1;
+            this.txtPassCode2.Name = "txtPassCode2";
+            this.txtPassCode2.Size = new System.Drawing.Size(10, 24);
+            this.txtPassCode2.TabIndex = 85;
+            this.txtPassCode2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPassCode2.Visible = false;
+            // 
+            // txtMobile2_3
+            // 
+            this.txtMobile2_3.Location = new System.Drawing.Point(791, 558);
+            this.txtMobile2_3.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMobile2_3.MaxLength = 1;
+            this.txtMobile2_3.Name = "txtMobile2_3";
+            this.txtMobile2_3.Size = new System.Drawing.Size(16, 24);
+            this.txtMobile2_3.TabIndex = 45;
+            this.txtMobile2_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtMobile2_3.Visible = false;
+            this.txtMobile2_3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMobile2_3_KeyUp);
+            // 
+            // txtTel1_2
+            // 
+            this.txtTel1_2.Location = new System.Drawing.Point(1042, 460);
+            this.txtTel1_2.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTel1_2.MaxLength = 1;
+            this.txtTel1_2.Name = "txtTel1_2";
+            this.txtTel1_2.Size = new System.Drawing.Size(16, 24);
+            this.txtTel1_2.TabIndex = 54;
+            this.txtTel1_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTel1_2.Visible = false;
+            this.txtTel1_2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTel1_2_KeyUp);
+            // 
+            // txtMobile1_3
+            // 
+            this.txtMobile1_3.Location = new System.Drawing.Point(1034, 555);
+            this.txtMobile1_3.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMobile1_3.MaxLength = 1;
+            this.txtMobile1_3.Name = "txtMobile1_3";
+            this.txtMobile1_3.Size = new System.Drawing.Size(16, 24);
+            this.txtMobile1_3.TabIndex = 35;
+            this.txtMobile1_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtMobile1_3.Visible = false;
+            this.txtMobile1_3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMobile1_3_KeyUp);
+            // 
+            // txtTel2_1
+            // 
+            this.txtTel2_1.Location = new System.Drawing.Point(680, 308);
+            this.txtTel2_1.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTel2_1.MaxLength = 1;
+            this.txtTel2_1.Name = "txtTel2_1";
+            this.txtTel2_1.Size = new System.Drawing.Size(16, 24);
+            this.txtTel2_1.TabIndex = 62;
+            this.txtTel2_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTel2_1.Visible = false;
+            // 
+            // txtMobile2_2
+            // 
+            this.txtMobile2_2.Location = new System.Drawing.Point(757, 558);
+            this.txtMobile2_2.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMobile2_2.MaxLength = 1;
+            this.txtMobile2_2.Name = "txtMobile2_2";
+            this.txtMobile2_2.Size = new System.Drawing.Size(16, 24);
+            this.txtMobile2_2.TabIndex = 44;
+            this.txtMobile2_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtMobile2_2.Visible = false;
+            this.txtMobile2_2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMobile2_2_KeyUp);
+            // 
+            // txtPassCode1
+            // 
+            this.txtPassCode1.Location = new System.Drawing.Point(535, 571);
+            this.txtPassCode1.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPassCode1.MaxLength = 1;
+            this.txtPassCode1.Name = "txtPassCode1";
+            this.txtPassCode1.Size = new System.Drawing.Size(10, 24);
+            this.txtPassCode1.TabIndex = 84;
+            this.txtPassCode1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPassCode1.Visible = false;
+            // 
+            // txtTel1_1
+            // 
+            this.txtTel1_1.Location = new System.Drawing.Point(1008, 460);
+            this.txtTel1_1.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTel1_1.MaxLength = 1;
+            this.txtTel1_1.Name = "txtTel1_1";
+            this.txtTel1_1.Size = new System.Drawing.Size(16, 24);
+            this.txtTel1_1.TabIndex = 53;
+            this.txtTel1_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTel1_1.Visible = false;
+            this.txtTel1_1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTel1_1_KeyUp);
+            // 
+            // txtMobile2_1
+            // 
+            this.txtMobile2_1.Location = new System.Drawing.Point(738, 558);
+            this.txtMobile2_1.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMobile2_1.MaxLength = 1;
+            this.txtMobile2_1.Name = "txtMobile2_1";
+            this.txtMobile2_1.Size = new System.Drawing.Size(16, 24);
+            this.txtMobile2_1.TabIndex = 43;
+            this.txtMobile2_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtMobile2_1.Visible = false;
+            this.txtMobile2_1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMobile2_1_KeyUp);
+            // 
+            // txtMobile1_2
+            // 
+            this.txtMobile1_2.Location = new System.Drawing.Point(1000, 555);
+            this.txtMobile1_2.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMobile1_2.MaxLength = 1;
+            this.txtMobile1_2.Name = "txtMobile1_2";
+            this.txtMobile1_2.Size = new System.Drawing.Size(16, 24);
+            this.txtMobile1_2.TabIndex = 34;
+            this.txtMobile1_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtMobile1_2.Visible = false;
+            this.txtMobile1_2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMobile1_2_KeyUp);
+            // 
+            // txtMobile1_1
+            // 
+            this.txtMobile1_1.Location = new System.Drawing.Point(981, 555);
+            this.txtMobile1_1.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMobile1_1.MaxLength = 1;
+            this.txtMobile1_1.Name = "txtMobile1_1";
+            this.txtMobile1_1.Size = new System.Drawing.Size(16, 24);
+            this.txtMobile1_1.TabIndex = 33;
+            this.txtMobile1_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtMobile1_1.Visible = false;
+            this.txtMobile1_1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMobile1_1_KeyUp);
+            // 
+            // txtWeight
+            // 
+            this.txtWeight.Location = new System.Drawing.Point(442, 222);
+            this.txtWeight.Margin = new System.Windows.Forms.Padding(2);
+            this.txtWeight.MaxLength = 4;
+            this.txtWeight.Name = "txtWeight";
+            this.txtWeight.Size = new System.Drawing.Size(45, 24);
+            this.txtWeight.TabIndex = 29;
+            this.txtWeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtHeight
+            // 
+            this.txtHeight.Location = new System.Drawing.Point(200, 222);
+            this.txtHeight.Margin = new System.Windows.Forms.Padding(2);
+            this.txtHeight.MaxLength = 4;
+            this.txtHeight.Name = "txtHeight";
+            this.txtHeight.Size = new System.Drawing.Size(45, 24);
+            this.txtHeight.TabIndex = 28;
+            this.txtHeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label82
             // 
@@ -2711,6 +3529,36 @@
             this.tabContact.Text = "Contact Customer บุคคลอื่นที่สามารถติดต่อได้กรณีฉุกเฉิน";
             this.tabContact.UseVisualStyleBackColor = true;
             // 
+            // txtTelC2_12
+            // 
+            this.txtTelC2_12.Location = new System.Drawing.Point(973, 236);
+            this.txtTelC2_12.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTelC2_12.MaxLength = 1;
+            this.txtTelC2_12.Name = "txtTelC2_12";
+            this.txtTelC2_12.Size = new System.Drawing.Size(16, 24);
+            this.txtTelC2_12.TabIndex = 373;
+            this.txtTelC2_12.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtTelC2_11
+            // 
+            this.txtTelC2_11.Location = new System.Drawing.Point(954, 236);
+            this.txtTelC2_11.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTelC2_11.MaxLength = 1;
+            this.txtTelC2_11.Name = "txtTelC2_11";
+            this.txtTelC2_11.Size = new System.Drawing.Size(16, 24);
+            this.txtTelC2_11.TabIndex = 372;
+            this.txtTelC2_11.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtTelC2_10
+            // 
+            this.txtTelC2_10.Location = new System.Drawing.Point(934, 236);
+            this.txtTelC2_10.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTelC2_10.MaxLength = 1;
+            this.txtTelC2_10.Name = "txtTelC2_10";
+            this.txtTelC2_10.Size = new System.Drawing.Size(16, 24);
+            this.txtTelC2_10.TabIndex = 371;
+            this.txtTelC2_10.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // label92
             // 
             this.label92.AutoSize = true;
@@ -3176,1050 +4024,6 @@
             this.label74.TabIndex = 230;
             this.label74.Text = "Title (คำนำหน้าชื่อ) :";
             // 
-            // tabCredit
-            // 
-            this.tabCredit.Controls.Add(this.label108);
-            this.tabCredit.Controls.Add(this.label110);
-            this.tabCredit.Controls.Add(this.label107);
-            this.tabCredit.Controls.Add(this.label109);
-            this.tabCredit.Controls.Add(this.txtCredit_day);
-            this.tabCredit.Controls.Add(this.txtCredit_bath);
-            this.tabCredit.Location = new System.Drawing.Point(4, 25);
-            this.tabCredit.Name = "tabCredit";
-            this.tabCredit.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCredit.Size = new System.Drawing.Size(1243, 609);
-            this.tabCredit.TabIndex = 4;
-            this.tabCredit.Text = "Credit";
-            this.tabCredit.UseVisualStyleBackColor = true;
-            // 
-            // label108
-            // 
-            this.label108.AutoSize = true;
-            this.label108.Location = new System.Drawing.Point(242, 41);
-            this.label108.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label108.Name = "label108";
-            this.label108.Size = new System.Drawing.Size(34, 17);
-            this.label108.TabIndex = 16;
-            this.label108.Text = "บาท";
-            // 
-            // label110
-            // 
-            this.label110.AutoSize = true;
-            this.label110.Location = new System.Drawing.Point(242, 69);
-            this.label110.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label110.Name = "label110";
-            this.label110.Size = new System.Drawing.Size(24, 17);
-            this.label110.TabIndex = 15;
-            this.label110.Text = "วัน";
-            // 
-            // label107
-            // 
-            this.label107.AutoSize = true;
-            this.label107.Location = new System.Drawing.Point(63, 69);
-            this.label107.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label107.Name = "label107";
-            this.label107.Size = new System.Drawing.Size(57, 17);
-            this.label107.TabIndex = 9;
-            this.label107.Text = "จำนวน :";
-            // 
-            // label109
-            // 
-            this.label109.AutoSize = true;
-            this.label109.Location = new System.Drawing.Point(32, 38);
-            this.label109.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label109.Name = "label109";
-            this.label109.Size = new System.Drawing.Size(90, 17);
-            this.label109.TabIndex = 11;
-            this.label109.Text = "วงเงินเครดิต :";
-            // 
-            // tabMember
-            // 
-            this.tabMember.Controls.Add(this.buttonAddDown);
-            this.tabMember.Controls.Add(this.dgvMember);
-            this.tabMember.Controls.Add(this.buttonDeleteUp);
-            this.tabMember.Location = new System.Drawing.Point(4, 25);
-            this.tabMember.Name = "tabMember";
-            this.tabMember.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMember.Size = new System.Drawing.Size(1243, 609);
-            this.tabMember.TabIndex = 5;
-            this.tabMember.Text = "Members";
-            this.tabMember.UseVisualStyleBackColor = true;
-            // 
-            // dgvMember
-            // 
-            this.dgvMember.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvMember.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.dgvMember.BackgroundColor = System.Drawing.Color.White;
-            this.dgvMember.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgvMember.Location = new System.Drawing.Point(6, 40);
-            this.dgvMember.MultiSelect = false;
-            this.dgvMember.Name = "dgvMember";
-            this.dgvMember.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToFirstHeader;
-            this.dgvMember.RowTemplate.ReadOnly = true;
-            this.dgvMember.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMember.Size = new System.Drawing.Size(1231, 250);
-            this.dgvMember.TabIndex = 123;
-            this.dgvMember.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMember_CellContentClick);
-            this.dgvMember.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvMember_RowPostPaint);
-            // 
-            // tabFileOPD
-            // 
-            this.tabFileOPD.Controls.Add(this.dgvFile);
-            this.tabFileOPD.Controls.Add(this.panel4);
-            this.tabFileOPD.Location = new System.Drawing.Point(4, 25);
-            this.tabFileOPD.Name = "tabFileOPD";
-            this.tabFileOPD.Size = new System.Drawing.Size(1243, 609);
-            this.tabFileOPD.TabIndex = 6;
-            this.tabFileOPD.Text = "File OPD";
-            this.tabFileOPD.UseVisualStyleBackColor = true;
-            // 
-            // dgvFile
-            // 
-            this.dgvFile.AllowUserToAddRows = false;
-            this.dgvFile.AllowUserToDeleteRows = false;
-            this.dgvFile.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvFile.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.dgvFile.BackgroundColor = System.Drawing.Color.White;
-            this.dgvFile.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgvFile.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvFile.Location = new System.Drawing.Point(0, 37);
-            this.dgvFile.Name = "dgvFile";
-            this.dgvFile.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            this.dgvFile.RowTemplate.ReadOnly = true;
-            this.dgvFile.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFile.Size = new System.Drawing.Size(1243, 572);
-            this.dgvFile.TabIndex = 295;
-            this.dgvFile.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFile_CellClick);
-            this.dgvFile.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvFile_RowPostPaint);
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.txtFileDetail);
-            this.panel4.Controls.Add(this.label119);
-            this.panel4.Controls.Add(this.btnDoc);
-            this.panel4.Controls.Add(this.btnAddFile);
-            this.panel4.Controls.Add(this.txtFilePath);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1243, 37);
-            this.panel4.TabIndex = 296;
-            // 
-            // txtFileDetail
-            // 
-            this.txtFileDetail.Location = new System.Drawing.Point(751, 7);
-            this.txtFileDetail.Name = "txtFileDetail";
-            this.txtFileDetail.Size = new System.Drawing.Size(283, 24);
-            this.txtFileDetail.TabIndex = 294;
-            // 
-            // label119
-            // 
-            this.label119.AutoSize = true;
-            this.label119.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label119.Location = new System.Drawing.Point(680, 10);
-            this.label119.Name = "label119";
-            this.label119.Size = new System.Drawing.Size(54, 16);
-            this.label119.TabIndex = 290;
-            this.label119.Text = "อธิบาย :";
-            // 
-            // btnDoc
-            // 
-            this.btnDoc.Location = new System.Drawing.Point(628, 6);
-            this.btnDoc.Name = "btnDoc";
-            this.btnDoc.Size = new System.Drawing.Size(34, 26);
-            this.btnDoc.TabIndex = 292;
-            this.btnDoc.Text = "...";
-            this.btnDoc.UseVisualStyleBackColor = true;
-            this.btnDoc.Click += new System.EventHandler(this.btnDoc_Click);
-            // 
-            // txtFilePath
-            // 
-            this.txtFilePath.Location = new System.Drawing.Point(5, 7);
-            this.txtFilePath.Name = "txtFilePath";
-            this.txtFilePath.Size = new System.Drawing.Size(623, 24);
-            this.txtFilePath.TabIndex = 291;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.btnCancel);
-            this.panel1.Controls.Add(this.btnClear);
-            this.panel1.Controls.Add(this.btnSave);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 638);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1251, 44);
-            this.panel1.TabIndex = 1;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancel.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(1116, 7);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(123, 31);
-            this.btnCancel.TabIndex = 269;
-            this.btnCancel.Text = "ยกเลิก(Cancel)";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnClear
-            // 
-            this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClear.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnClear.ForeColor = System.Drawing.Color.DimGray;
-            this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClear.Location = new System.Drawing.Point(26, 7);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(2);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(114, 31);
-            this.btnClear.TabIndex = 268;
-            this.btnClear.Text = "เคลียร์(Clear)";
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSave.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnSave.ForeColor = System.Drawing.Color.Black;
-            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(988, 7);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(124, 31);
-            this.btnSave.TabIndex = 267;
-            this.btnSave.Text = "บันทึก(Save)";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.bntSave_Click);
-            // 
-            // odlgImage
-            // 
-            this.odlgImage.FileName = "openFileDialog1";
-            this.odlgImage.FilterIndex = 0;
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "CustomIcon.png");
-            this.imageList1.Images.SetKeyName(1, "TN_psd1084_Red.png");
-            this.imageList1.Images.SetKeyName(2, "remove_icon.png");
-            this.imageList1.Images.SetKeyName(3, "");
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // chkActive
-            // 
-            this.chkActive.AutoSize = true;
-            this.chkActive.Checked = true;
-            this.chkActive.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkActive.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkActive.ForeColor = System.Drawing.Color.Black;
-            this.chkActive.Location = new System.Drawing.Point(904, 38);
-            this.chkActive.Name = "chkActive";
-            this.chkActive.Size = new System.Drawing.Size(118, 27);
-            this.chkActive.TabIndex = 3104;
-            this.chkActive.Text = "เปิดใช้งาน";
-            this.chkActive.UseVisualStyleBackColor = true;
-            // 
-            // BirthY
-            // 
-            this.BirthY.Location = new System.Drawing.Point(265, 136);
-            this.BirthY.Margin = new System.Windows.Forms.Padding(2);
-            this.BirthY.MaxLength = 4;
-            this.BirthY.Name = "BirthY";
-            this.BirthY.Size = new System.Drawing.Size(35, 24);
-            this.BirthY.TabIndex = 18;
-            this.BirthY.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.BirthY.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BirthY_KeyPress);
-            this.BirthY.KeyUp += new System.Windows.Forms.KeyEventHandler(this.BirthY_KeyUp);
-            // 
-            // BirthM
-            // 
-            this.BirthM.Location = new System.Drawing.Point(232, 136);
-            this.BirthM.Margin = new System.Windows.Forms.Padding(2);
-            this.BirthM.MaxLength = 2;
-            this.BirthM.Name = "BirthM";
-            this.BirthM.Size = new System.Drawing.Size(20, 24);
-            this.BirthM.TabIndex = 17;
-            this.BirthM.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.BirthM.KeyUp += new System.Windows.Forms.KeyEventHandler(this.BirthM_KeyUp);
-            // 
-            // BirthD
-            // 
-            this.BirthD.Location = new System.Drawing.Point(199, 136);
-            this.BirthD.Margin = new System.Windows.Forms.Padding(2);
-            this.BirthD.MaxLength = 2;
-            this.BirthD.Name = "BirthD";
-            this.BirthD.Size = new System.Drawing.Size(20, 24);
-            this.BirthD.TabIndex = 15;
-            this.BirthD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.BirthD.KeyUp += new System.Windows.Forms.KeyEventHandler(this.BirthD_KeyUp);
-            // 
-            // txtTel2_12
-            // 
-            this.txtTel2_12.Location = new System.Drawing.Point(923, 308);
-            this.txtTel2_12.Margin = new System.Windows.Forms.Padding(2);
-            this.txtTel2_12.MaxLength = 1;
-            this.txtTel2_12.Name = "txtTel2_12";
-            this.txtTel2_12.Size = new System.Drawing.Size(16, 24);
-            this.txtTel2_12.TabIndex = 73;
-            this.txtTel2_12.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtTel2_12.Visible = false;
-            // 
-            // txtTel2_11
-            // 
-            this.txtTel2_11.Location = new System.Drawing.Point(904, 308);
-            this.txtTel2_11.Margin = new System.Windows.Forms.Padding(2);
-            this.txtTel2_11.MaxLength = 1;
-            this.txtTel2_11.Name = "txtTel2_11";
-            this.txtTel2_11.Size = new System.Drawing.Size(16, 24);
-            this.txtTel2_11.TabIndex = 72;
-            this.txtTel2_11.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtTel2_11.Visible = false;
-            // 
-            // txtTel2_10
-            // 
-            this.txtTel2_10.Location = new System.Drawing.Point(884, 308);
-            this.txtTel2_10.Margin = new System.Windows.Forms.Padding(2);
-            this.txtTel2_10.MaxLength = 1;
-            this.txtTel2_10.Name = "txtTel2_10";
-            this.txtTel2_10.Size = new System.Drawing.Size(16, 24);
-            this.txtTel2_10.TabIndex = 71;
-            this.txtTel2_10.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtTel2_10.Visible = false;
-            // 
-            // txtDay
-            // 
-            this.txtDay.Location = new System.Drawing.Point(555, 136);
-            this.txtDay.Name = "txtDay";
-            this.txtDay.ReadOnly = true;
-            this.txtDay.Size = new System.Drawing.Size(36, 24);
-            this.txtDay.TabIndex = 21;
-            this.txtDay.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txtMonth
-            // 
-            this.txtMonth.Location = new System.Drawing.Point(422, 136);
-            this.txtMonth.Name = "txtMonth";
-            this.txtMonth.ReadOnly = true;
-            this.txtMonth.Size = new System.Drawing.Size(36, 24);
-            this.txtMonth.TabIndex = 20;
-            this.txtMonth.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txtYear
-            // 
-            this.txtYear.Location = new System.Drawing.Point(310, 136);
-            this.txtYear.Name = "txtYear";
-            this.txtYear.Size = new System.Drawing.Size(36, 24);
-            this.txtYear.TabIndex = 19;
-            this.txtYear.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtYear.TextChanged += new System.EventHandler(this.txtYear_TextChanged);
-            this.txtYear.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtYear_KeyUp);
-            this.txtYear.Leave += new System.EventHandler(this.txtYear_Leave);
-            // 
-            // btnCamera
-            // 
-            this.btnCamera.BackColor = System.Drawing.Color.Transparent;
-            this.btnCamera.Location = new System.Drawing.Point(1129, 206);
-            this.btnCamera.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.btnCamera.Name = "btnCamera";
-            this.btnCamera.Size = new System.Drawing.Size(42, 38);
-            this.btnCamera.TabIndex = 226;
-            // 
-            // txtMobile2_10
-            // 
-            this.txtMobile2_10.Location = new System.Drawing.Point(942, 558);
-            this.txtMobile2_10.Margin = new System.Windows.Forms.Padding(2);
-            this.txtMobile2_10.MaxLength = 1;
-            this.txtMobile2_10.Name = "txtMobile2_10";
-            this.txtMobile2_10.Size = new System.Drawing.Size(16, 24);
-            this.txtMobile2_10.TabIndex = 52;
-            this.txtMobile2_10.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtMobile2_10.Visible = false;
-            // 
-            // txtTel2_9
-            // 
-            this.txtTel2_9.Location = new System.Drawing.Point(865, 308);
-            this.txtTel2_9.Margin = new System.Windows.Forms.Padding(2);
-            this.txtTel2_9.MaxLength = 1;
-            this.txtTel2_9.Name = "txtTel2_9";
-            this.txtTel2_9.Size = new System.Drawing.Size(16, 24);
-            this.txtTel2_9.TabIndex = 70;
-            this.txtTel2_9.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtTel2_9.Visible = false;
-            // 
-            // txtTel1_9
-            // 
-            this.txtTel1_9.Location = new System.Drawing.Point(1193, 460);
-            this.txtTel1_9.Margin = new System.Windows.Forms.Padding(2);
-            this.txtTel1_9.MaxLength = 1;
-            this.txtTel1_9.Name = "txtTel1_9";
-            this.txtTel1_9.Size = new System.Drawing.Size(16, 24);
-            this.txtTel1_9.TabIndex = 61;
-            this.txtTel1_9.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtTel1_9.Visible = false;
-            // 
-            // txtMBirth2
-            // 
-            this.txtMBirth2.Location = new System.Drawing.Point(269, 165);
-            this.txtMBirth2.Margin = new System.Windows.Forms.Padding(2);
-            this.txtMBirth2.MaxLength = 1;
-            this.txtMBirth2.Name = "txtMBirth2";
-            this.txtMBirth2.Size = new System.Drawing.Size(16, 24);
-            this.txtMBirth2.TabIndex = 25;
-            this.txtMBirth2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txtMBirth1
-            // 
-            this.txtMBirth1.Location = new System.Drawing.Point(250, 165);
-            this.txtMBirth1.Margin = new System.Windows.Forms.Padding(2);
-            this.txtMBirth1.MaxLength = 1;
-            this.txtMBirth1.Name = "txtMBirth1";
-            this.txtMBirth1.Size = new System.Drawing.Size(16, 24);
-            this.txtMBirth1.TabIndex = 24;
-            this.txtMBirth1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txtDayBirth2
-            // 
-            this.txtDayBirth2.Location = new System.Drawing.Point(218, 165);
-            this.txtDayBirth2.Margin = new System.Windows.Forms.Padding(2);
-            this.txtDayBirth2.MaxLength = 1;
-            this.txtDayBirth2.Name = "txtDayBirth2";
-            this.txtDayBirth2.Size = new System.Drawing.Size(16, 24);
-            this.txtDayBirth2.TabIndex = 23;
-            this.txtDayBirth2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txtDayBirth1
-            // 
-            this.txtDayBirth1.Location = new System.Drawing.Point(199, 165);
-            this.txtDayBirth1.Margin = new System.Windows.Forms.Padding(2);
-            this.txtDayBirth1.MaxLength = 1;
-            this.txtDayBirth1.Name = "txtDayBirth1";
-            this.txtDayBirth1.Size = new System.Drawing.Size(16, 24);
-            this.txtDayBirth1.TabIndex = 22;
-            this.txtDayBirth1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txtMobile1_10
-            // 
-            this.txtMobile1_10.Location = new System.Drawing.Point(1185, 555);
-            this.txtMobile1_10.Margin = new System.Windows.Forms.Padding(2);
-            this.txtMobile1_10.MaxLength = 1;
-            this.txtMobile1_10.Name = "txtMobile1_10";
-            this.txtMobile1_10.Size = new System.Drawing.Size(16, 24);
-            this.txtMobile1_10.TabIndex = 42;
-            this.txtMobile1_10.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtMobile1_10.Visible = false;
-            // 
-            // txtMobile2_9
-            // 
-            this.txtMobile2_9.Location = new System.Drawing.Point(923, 558);
-            this.txtMobile2_9.Margin = new System.Windows.Forms.Padding(2);
-            this.txtMobile2_9.MaxLength = 1;
-            this.txtMobile2_9.Name = "txtMobile2_9";
-            this.txtMobile2_9.Size = new System.Drawing.Size(16, 24);
-            this.txtMobile2_9.TabIndex = 51;
-            this.txtMobile2_9.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtMobile2_9.Visible = false;
-            this.txtMobile2_9.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMobile2_9_KeyUp);
-            // 
-            // txtTel2_8
-            // 
-            this.txtTel2_8.Location = new System.Drawing.Point(846, 308);
-            this.txtTel2_8.Margin = new System.Windows.Forms.Padding(2);
-            this.txtTel2_8.MaxLength = 1;
-            this.txtTel2_8.Name = "txtTel2_8";
-            this.txtTel2_8.Size = new System.Drawing.Size(16, 24);
-            this.txtTel2_8.TabIndex = 69;
-            this.txtTel2_8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtTel2_8.Visible = false;
-            // 
-            // txtTel1_8
-            // 
-            this.txtTel1_8.Location = new System.Drawing.Point(1174, 460);
-            this.txtTel1_8.Margin = new System.Windows.Forms.Padding(2);
-            this.txtTel1_8.MaxLength = 1;
-            this.txtTel1_8.Name = "txtTel1_8";
-            this.txtTel1_8.Size = new System.Drawing.Size(16, 24);
-            this.txtTel1_8.TabIndex = 60;
-            this.txtTel1_8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtTel1_8.Visible = false;
-            // 
-            // txtMobile1_9
-            // 
-            this.txtMobile1_9.Location = new System.Drawing.Point(1166, 555);
-            this.txtMobile1_9.Margin = new System.Windows.Forms.Padding(2);
-            this.txtMobile1_9.MaxLength = 1;
-            this.txtMobile1_9.Name = "txtMobile1_9";
-            this.txtMobile1_9.Size = new System.Drawing.Size(16, 24);
-            this.txtMobile1_9.TabIndex = 41;
-            this.txtMobile1_9.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtMobile1_9.Visible = false;
-            this.txtMobile1_9.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMobile1_9_KeyUp);
-            // 
-            // txtMobile2_6
-            // 
-            this.txtMobile2_6.Location = new System.Drawing.Point(849, 558);
-            this.txtMobile2_6.Margin = new System.Windows.Forms.Padding(2);
-            this.txtMobile2_6.MaxLength = 1;
-            this.txtMobile2_6.Name = "txtMobile2_6";
-            this.txtMobile2_6.Size = new System.Drawing.Size(16, 24);
-            this.txtMobile2_6.TabIndex = 48;
-            this.txtMobile2_6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtMobile2_6.Visible = false;
-            this.txtMobile2_6.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMobile2_6_KeyUp);
-            // 
-            // txtTel2_5
-            // 
-            this.txtTel2_5.Location = new System.Drawing.Point(772, 308);
-            this.txtTel2_5.Margin = new System.Windows.Forms.Padding(2);
-            this.txtTel2_5.MaxLength = 1;
-            this.txtTel2_5.Name = "txtTel2_5";
-            this.txtTel2_5.Size = new System.Drawing.Size(16, 24);
-            this.txtTel2_5.TabIndex = 66;
-            this.txtTel2_5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtTel2_5.Visible = false;
-            // 
-            // txtPassCode13
-            // 
-            this.txtPassCode13.Location = new System.Drawing.Point(830, 571);
-            this.txtPassCode13.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPassCode13.MaxLength = 1;
-            this.txtPassCode13.Name = "txtPassCode13";
-            this.txtPassCode13.Size = new System.Drawing.Size(10, 24);
-            this.txtPassCode13.TabIndex = 96;
-            this.txtPassCode13.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtPassCode13.Visible = false;
-            // 
-            // txtPassCode12
-            // 
-            this.txtPassCode12.Location = new System.Drawing.Point(794, 571);
-            this.txtPassCode12.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPassCode12.MaxLength = 1;
-            this.txtPassCode12.Name = "txtPassCode12";
-            this.txtPassCode12.Size = new System.Drawing.Size(10, 24);
-            this.txtPassCode12.TabIndex = 95;
-            this.txtPassCode12.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtPassCode12.Visible = false;
-            this.txtPassCode12.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTel1_5_KeyUp);
-            // 
-            // txtPassCode11
-            // 
-            this.txtPassCode11.Location = new System.Drawing.Point(775, 571);
-            this.txtPassCode11.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPassCode11.MaxLength = 1;
-            this.txtPassCode11.Name = "txtPassCode11";
-            this.txtPassCode11.Size = new System.Drawing.Size(10, 24);
-            this.txtPassCode11.TabIndex = 94;
-            this.txtPassCode11.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtPassCode11.Visible = false;
-            this.txtPassCode11.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTel1_5_KeyUp);
-            // 
-            // txtPassCode10
-            // 
-            this.txtPassCode10.Location = new System.Drawing.Point(738, 571);
-            this.txtPassCode10.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPassCode10.MaxLength = 1;
-            this.txtPassCode10.Name = "txtPassCode10";
-            this.txtPassCode10.Size = new System.Drawing.Size(10, 24);
-            this.txtPassCode10.TabIndex = 93;
-            this.txtPassCode10.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtPassCode10.Visible = false;
-            this.txtPassCode10.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTel1_5_KeyUp);
-            // 
-            // txtPassCode9
-            // 
-            this.txtPassCode9.Location = new System.Drawing.Point(719, 571);
-            this.txtPassCode9.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPassCode9.MaxLength = 1;
-            this.txtPassCode9.Name = "txtPassCode9";
-            this.txtPassCode9.Size = new System.Drawing.Size(10, 24);
-            this.txtPassCode9.TabIndex = 92;
-            this.txtPassCode9.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtPassCode9.Visible = false;
-            this.txtPassCode9.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTel1_5_KeyUp);
-            // 
-            // txtPassCode5
-            // 
-            this.txtPassCode5.Location = new System.Drawing.Point(626, 571);
-            this.txtPassCode5.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPassCode5.MaxLength = 1;
-            this.txtPassCode5.Name = "txtPassCode5";
-            this.txtPassCode5.Size = new System.Drawing.Size(10, 24);
-            this.txtPassCode5.TabIndex = 88;
-            this.txtPassCode5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtPassCode5.Visible = false;
-            // 
-            // txtTel1_5
-            // 
-            this.txtTel1_5.Location = new System.Drawing.Point(1100, 460);
-            this.txtTel1_5.Margin = new System.Windows.Forms.Padding(2);
-            this.txtTel1_5.MaxLength = 1;
-            this.txtTel1_5.Name = "txtTel1_5";
-            this.txtTel1_5.Size = new System.Drawing.Size(16, 24);
-            this.txtTel1_5.TabIndex = 57;
-            this.txtTel1_5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtTel1_5.Visible = false;
-            this.txtTel1_5.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTel1_5_KeyUp);
-            // 
-            // txtMobile1_6
-            // 
-            this.txtMobile1_6.Location = new System.Drawing.Point(1092, 555);
-            this.txtMobile1_6.Margin = new System.Windows.Forms.Padding(2);
-            this.txtMobile1_6.MaxLength = 1;
-            this.txtMobile1_6.Name = "txtMobile1_6";
-            this.txtMobile1_6.Size = new System.Drawing.Size(16, 24);
-            this.txtMobile1_6.TabIndex = 38;
-            this.txtMobile1_6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtMobile1_6.Visible = false;
-            this.txtMobile1_6.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMobile1_6_KeyUp);
-            // 
-            // txtMobile2_8
-            // 
-            this.txtMobile2_8.Location = new System.Drawing.Point(903, 558);
-            this.txtMobile2_8.Margin = new System.Windows.Forms.Padding(2);
-            this.txtMobile2_8.MaxLength = 1;
-            this.txtMobile2_8.Name = "txtMobile2_8";
-            this.txtMobile2_8.Size = new System.Drawing.Size(16, 24);
-            this.txtMobile2_8.TabIndex = 50;
-            this.txtMobile2_8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtMobile2_8.Visible = false;
-            this.txtMobile2_8.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMobile2_8_KeyUp);
-            // 
-            // txtTel2_7
-            // 
-            this.txtTel2_7.Location = new System.Drawing.Point(826, 308);
-            this.txtTel2_7.Margin = new System.Windows.Forms.Padding(2);
-            this.txtTel2_7.MaxLength = 1;
-            this.txtTel2_7.Name = "txtTel2_7";
-            this.txtTel2_7.Size = new System.Drawing.Size(16, 24);
-            this.txtTel2_7.TabIndex = 68;
-            this.txtTel2_7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtTel2_7.Visible = false;
-            // 
-            // txtTel1_7
-            // 
-            this.txtTel1_7.Location = new System.Drawing.Point(1154, 460);
-            this.txtTel1_7.Margin = new System.Windows.Forms.Padding(2);
-            this.txtTel1_7.MaxLength = 1;
-            this.txtTel1_7.Name = "txtTel1_7";
-            this.txtTel1_7.Size = new System.Drawing.Size(16, 24);
-            this.txtTel1_7.TabIndex = 59;
-            this.txtTel1_7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtTel1_7.Visible = false;
-            // 
-            // txtMobile1_8
-            // 
-            this.txtMobile1_8.Location = new System.Drawing.Point(1146, 555);
-            this.txtMobile1_8.Margin = new System.Windows.Forms.Padding(2);
-            this.txtMobile1_8.MaxLength = 1;
-            this.txtMobile1_8.Name = "txtMobile1_8";
-            this.txtMobile1_8.Size = new System.Drawing.Size(16, 24);
-            this.txtMobile1_8.TabIndex = 40;
-            this.txtMobile1_8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtMobile1_8.Visible = false;
-            this.txtMobile1_8.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMobile1_8_KeyUp);
-            // 
-            // txtMobile2_5
-            // 
-            this.txtMobile2_5.Location = new System.Drawing.Point(830, 558);
-            this.txtMobile2_5.Margin = new System.Windows.Forms.Padding(2);
-            this.txtMobile2_5.MaxLength = 1;
-            this.txtMobile2_5.Name = "txtMobile2_5";
-            this.txtMobile2_5.Size = new System.Drawing.Size(16, 24);
-            this.txtMobile2_5.TabIndex = 47;
-            this.txtMobile2_5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtMobile2_5.Visible = false;
-            this.txtMobile2_5.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMobile2_5_KeyUp);
-            // 
-            // txtPassCode8
-            // 
-            this.txtPassCode8.Location = new System.Drawing.Point(700, 571);
-            this.txtPassCode8.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPassCode8.MaxLength = 1;
-            this.txtPassCode8.Name = "txtPassCode8";
-            this.txtPassCode8.Size = new System.Drawing.Size(10, 24);
-            this.txtPassCode8.TabIndex = 91;
-            this.txtPassCode8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtPassCode8.Visible = false;
-            this.txtPassCode8.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTel1_4_KeyUp);
-            // 
-            // txtPassCode4
-            // 
-            this.txtPassCode4.Location = new System.Drawing.Point(607, 571);
-            this.txtPassCode4.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPassCode4.MaxLength = 1;
-            this.txtPassCode4.Name = "txtPassCode4";
-            this.txtPassCode4.Size = new System.Drawing.Size(10, 24);
-            this.txtPassCode4.TabIndex = 87;
-            this.txtPassCode4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtPassCode4.Visible = false;
-            // 
-            // txtTel2_4
-            // 
-            this.txtTel2_4.Location = new System.Drawing.Point(753, 308);
-            this.txtTel2_4.Margin = new System.Windows.Forms.Padding(2);
-            this.txtTel2_4.MaxLength = 1;
-            this.txtTel2_4.Name = "txtTel2_4";
-            this.txtTel2_4.Size = new System.Drawing.Size(16, 24);
-            this.txtTel2_4.TabIndex = 65;
-            this.txtTel2_4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtTel2_4.Visible = false;
-            // 
-            // txtTel1_4
-            // 
-            this.txtTel1_4.Location = new System.Drawing.Point(1081, 460);
-            this.txtTel1_4.Margin = new System.Windows.Forms.Padding(2);
-            this.txtTel1_4.MaxLength = 1;
-            this.txtTel1_4.Name = "txtTel1_4";
-            this.txtTel1_4.Size = new System.Drawing.Size(16, 24);
-            this.txtTel1_4.TabIndex = 56;
-            this.txtTel1_4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtTel1_4.Visible = false;
-            this.txtTel1_4.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTel1_4_KeyUp);
-            // 
-            // txtMobile1_5
-            // 
-            this.txtMobile1_5.Location = new System.Drawing.Point(1073, 555);
-            this.txtMobile1_5.Margin = new System.Windows.Forms.Padding(2);
-            this.txtMobile1_5.MaxLength = 1;
-            this.txtMobile1_5.Name = "txtMobile1_5";
-            this.txtMobile1_5.Size = new System.Drawing.Size(16, 24);
-            this.txtMobile1_5.TabIndex = 37;
-            this.txtMobile1_5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtMobile1_5.Visible = false;
-            this.txtMobile1_5.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMobile1_5_KeyUp);
-            // 
-            // txtMobile2_7
-            // 
-            this.txtMobile2_7.Location = new System.Drawing.Point(884, 558);
-            this.txtMobile2_7.Margin = new System.Windows.Forms.Padding(2);
-            this.txtMobile2_7.MaxLength = 1;
-            this.txtMobile2_7.Name = "txtMobile2_7";
-            this.txtMobile2_7.Size = new System.Drawing.Size(16, 24);
-            this.txtMobile2_7.TabIndex = 49;
-            this.txtMobile2_7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtMobile2_7.Visible = false;
-            this.txtMobile2_7.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMobile2_7_KeyUp);
-            // 
-            // txtTel2_6
-            // 
-            this.txtTel2_6.Location = new System.Drawing.Point(791, 308);
-            this.txtTel2_6.Margin = new System.Windows.Forms.Padding(2);
-            this.txtTel2_6.MaxLength = 1;
-            this.txtTel2_6.Name = "txtTel2_6";
-            this.txtTel2_6.Size = new System.Drawing.Size(16, 24);
-            this.txtTel2_6.TabIndex = 67;
-            this.txtTel2_6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtTel2_6.Visible = false;
-            // 
-            // txtTel1_6
-            // 
-            this.txtTel1_6.Location = new System.Drawing.Point(1135, 460);
-            this.txtTel1_6.Margin = new System.Windows.Forms.Padding(2);
-            this.txtTel1_6.MaxLength = 1;
-            this.txtTel1_6.Name = "txtTel1_6";
-            this.txtTel1_6.Size = new System.Drawing.Size(16, 24);
-            this.txtTel1_6.TabIndex = 58;
-            this.txtTel1_6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtTel1_6.Visible = false;
-            // 
-            // txtMobile1_7
-            // 
-            this.txtMobile1_7.Location = new System.Drawing.Point(1127, 555);
-            this.txtMobile1_7.Margin = new System.Windows.Forms.Padding(2);
-            this.txtMobile1_7.MaxLength = 1;
-            this.txtMobile1_7.Name = "txtMobile1_7";
-            this.txtMobile1_7.Size = new System.Drawing.Size(16, 24);
-            this.txtMobile1_7.TabIndex = 39;
-            this.txtMobile1_7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtMobile1_7.Visible = false;
-            this.txtMobile1_7.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMobile1_7_KeyUp);
-            // 
-            // txtMobile2_4
-            // 
-            this.txtMobile2_4.Location = new System.Drawing.Point(810, 558);
-            this.txtMobile2_4.Margin = new System.Windows.Forms.Padding(2);
-            this.txtMobile2_4.MaxLength = 1;
-            this.txtMobile2_4.Name = "txtMobile2_4";
-            this.txtMobile2_4.Size = new System.Drawing.Size(16, 24);
-            this.txtMobile2_4.TabIndex = 46;
-            this.txtMobile2_4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtMobile2_4.Visible = false;
-            this.txtMobile2_4.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMobile2_4_KeyUp);
-            // 
-            // txtPassCode7
-            // 
-            this.txtPassCode7.Location = new System.Drawing.Point(680, 571);
-            this.txtPassCode7.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPassCode7.MaxLength = 1;
-            this.txtPassCode7.Name = "txtPassCode7";
-            this.txtPassCode7.Size = new System.Drawing.Size(10, 24);
-            this.txtPassCode7.TabIndex = 90;
-            this.txtPassCode7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtPassCode7.Visible = false;
-            this.txtPassCode7.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTel1_3_KeyUp);
-            // 
-            // txtPassCode3
-            // 
-            this.txtPassCode3.Location = new System.Drawing.Point(587, 571);
-            this.txtPassCode3.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPassCode3.MaxLength = 1;
-            this.txtPassCode3.Name = "txtPassCode3";
-            this.txtPassCode3.Size = new System.Drawing.Size(10, 24);
-            this.txtPassCode3.TabIndex = 86;
-            this.txtPassCode3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtPassCode3.Visible = false;
-            // 
-            // txtTel2_3
-            // 
-            this.txtTel2_3.Location = new System.Drawing.Point(733, 308);
-            this.txtTel2_3.Margin = new System.Windows.Forms.Padding(2);
-            this.txtTel2_3.MaxLength = 1;
-            this.txtTel2_3.Name = "txtTel2_3";
-            this.txtTel2_3.Size = new System.Drawing.Size(16, 24);
-            this.txtTel2_3.TabIndex = 64;
-            this.txtTel2_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtTel2_3.Visible = false;
-            // 
-            // txtTel1_3
-            // 
-            this.txtTel1_3.Location = new System.Drawing.Point(1061, 460);
-            this.txtTel1_3.Margin = new System.Windows.Forms.Padding(2);
-            this.txtTel1_3.MaxLength = 1;
-            this.txtTel1_3.Name = "txtTel1_3";
-            this.txtTel1_3.Size = new System.Drawing.Size(16, 24);
-            this.txtTel1_3.TabIndex = 55;
-            this.txtTel1_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtTel1_3.Visible = false;
-            this.txtTel1_3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTel1_3_KeyUp);
-            // 
-            // txtMobile1_4
-            // 
-            this.txtMobile1_4.Location = new System.Drawing.Point(1053, 555);
-            this.txtMobile1_4.Margin = new System.Windows.Forms.Padding(2);
-            this.txtMobile1_4.MaxLength = 1;
-            this.txtMobile1_4.Name = "txtMobile1_4";
-            this.txtMobile1_4.Size = new System.Drawing.Size(16, 24);
-            this.txtMobile1_4.TabIndex = 36;
-            this.txtMobile1_4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtMobile1_4.Visible = false;
-            this.txtMobile1_4.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMobile1_4_KeyUp);
-            // 
-            // txtPassCode6
-            // 
-            this.txtPassCode6.Location = new System.Drawing.Point(661, 571);
-            this.txtPassCode6.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPassCode6.MaxLength = 1;
-            this.txtPassCode6.Name = "txtPassCode6";
-            this.txtPassCode6.Size = new System.Drawing.Size(10, 24);
-            this.txtPassCode6.TabIndex = 89;
-            this.txtPassCode6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtPassCode6.Visible = false;
-            this.txtPassCode6.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTel1_2_KeyUp);
-            // 
-            // txtTel2_2
-            // 
-            this.txtTel2_2.Location = new System.Drawing.Point(698, 308);
-            this.txtTel2_2.Margin = new System.Windows.Forms.Padding(2);
-            this.txtTel2_2.MaxLength = 1;
-            this.txtTel2_2.Name = "txtTel2_2";
-            this.txtTel2_2.Size = new System.Drawing.Size(16, 24);
-            this.txtTel2_2.TabIndex = 63;
-            this.txtTel2_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtTel2_2.Visible = false;
-            // 
-            // txtPassCode2
-            // 
-            this.txtPassCode2.Location = new System.Drawing.Point(568, 571);
-            this.txtPassCode2.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPassCode2.MaxLength = 1;
-            this.txtPassCode2.Name = "txtPassCode2";
-            this.txtPassCode2.Size = new System.Drawing.Size(10, 24);
-            this.txtPassCode2.TabIndex = 85;
-            this.txtPassCode2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtPassCode2.Visible = false;
-            // 
-            // txtMobile2_3
-            // 
-            this.txtMobile2_3.Location = new System.Drawing.Point(791, 558);
-            this.txtMobile2_3.Margin = new System.Windows.Forms.Padding(2);
-            this.txtMobile2_3.MaxLength = 1;
-            this.txtMobile2_3.Name = "txtMobile2_3";
-            this.txtMobile2_3.Size = new System.Drawing.Size(16, 24);
-            this.txtMobile2_3.TabIndex = 45;
-            this.txtMobile2_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtMobile2_3.Visible = false;
-            this.txtMobile2_3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMobile2_3_KeyUp);
-            // 
-            // txtTel1_2
-            // 
-            this.txtTel1_2.Location = new System.Drawing.Point(1042, 460);
-            this.txtTel1_2.Margin = new System.Windows.Forms.Padding(2);
-            this.txtTel1_2.MaxLength = 1;
-            this.txtTel1_2.Name = "txtTel1_2";
-            this.txtTel1_2.Size = new System.Drawing.Size(16, 24);
-            this.txtTel1_2.TabIndex = 54;
-            this.txtTel1_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtTel1_2.Visible = false;
-            this.txtTel1_2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTel1_2_KeyUp);
-            // 
-            // txtMobile1_3
-            // 
-            this.txtMobile1_3.Location = new System.Drawing.Point(1034, 555);
-            this.txtMobile1_3.Margin = new System.Windows.Forms.Padding(2);
-            this.txtMobile1_3.MaxLength = 1;
-            this.txtMobile1_3.Name = "txtMobile1_3";
-            this.txtMobile1_3.Size = new System.Drawing.Size(16, 24);
-            this.txtMobile1_3.TabIndex = 35;
-            this.txtMobile1_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtMobile1_3.Visible = false;
-            this.txtMobile1_3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMobile1_3_KeyUp);
-            // 
-            // txtTel2_1
-            // 
-            this.txtTel2_1.Location = new System.Drawing.Point(680, 308);
-            this.txtTel2_1.Margin = new System.Windows.Forms.Padding(2);
-            this.txtTel2_1.MaxLength = 1;
-            this.txtTel2_1.Name = "txtTel2_1";
-            this.txtTel2_1.Size = new System.Drawing.Size(16, 24);
-            this.txtTel2_1.TabIndex = 62;
-            this.txtTel2_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtTel2_1.Visible = false;
-            // 
-            // txtMobile2_2
-            // 
-            this.txtMobile2_2.Location = new System.Drawing.Point(757, 558);
-            this.txtMobile2_2.Margin = new System.Windows.Forms.Padding(2);
-            this.txtMobile2_2.MaxLength = 1;
-            this.txtMobile2_2.Name = "txtMobile2_2";
-            this.txtMobile2_2.Size = new System.Drawing.Size(16, 24);
-            this.txtMobile2_2.TabIndex = 44;
-            this.txtMobile2_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtMobile2_2.Visible = false;
-            this.txtMobile2_2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMobile2_2_KeyUp);
-            // 
-            // txtPassCode1
-            // 
-            this.txtPassCode1.Location = new System.Drawing.Point(535, 571);
-            this.txtPassCode1.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPassCode1.MaxLength = 1;
-            this.txtPassCode1.Name = "txtPassCode1";
-            this.txtPassCode1.Size = new System.Drawing.Size(10, 24);
-            this.txtPassCode1.TabIndex = 84;
-            this.txtPassCode1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtPassCode1.Visible = false;
-            // 
-            // txtTel1_1
-            // 
-            this.txtTel1_1.Location = new System.Drawing.Point(1008, 460);
-            this.txtTel1_1.Margin = new System.Windows.Forms.Padding(2);
-            this.txtTel1_1.MaxLength = 1;
-            this.txtTel1_1.Name = "txtTel1_1";
-            this.txtTel1_1.Size = new System.Drawing.Size(16, 24);
-            this.txtTel1_1.TabIndex = 53;
-            this.txtTel1_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtTel1_1.Visible = false;
-            this.txtTel1_1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTel1_1_KeyUp);
-            // 
-            // txtMobile2_1
-            // 
-            this.txtMobile2_1.Location = new System.Drawing.Point(738, 558);
-            this.txtMobile2_1.Margin = new System.Windows.Forms.Padding(2);
-            this.txtMobile2_1.MaxLength = 1;
-            this.txtMobile2_1.Name = "txtMobile2_1";
-            this.txtMobile2_1.Size = new System.Drawing.Size(16, 24);
-            this.txtMobile2_1.TabIndex = 43;
-            this.txtMobile2_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtMobile2_1.Visible = false;
-            this.txtMobile2_1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMobile2_1_KeyUp);
-            // 
-            // txtMobile1_2
-            // 
-            this.txtMobile1_2.Location = new System.Drawing.Point(1000, 555);
-            this.txtMobile1_2.Margin = new System.Windows.Forms.Padding(2);
-            this.txtMobile1_2.MaxLength = 1;
-            this.txtMobile1_2.Name = "txtMobile1_2";
-            this.txtMobile1_2.Size = new System.Drawing.Size(16, 24);
-            this.txtMobile1_2.TabIndex = 34;
-            this.txtMobile1_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtMobile1_2.Visible = false;
-            this.txtMobile1_2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMobile1_2_KeyUp);
-            // 
-            // txtMobile1_1
-            // 
-            this.txtMobile1_1.Location = new System.Drawing.Point(981, 555);
-            this.txtMobile1_1.Margin = new System.Windows.Forms.Padding(2);
-            this.txtMobile1_1.MaxLength = 1;
-            this.txtMobile1_1.Name = "txtMobile1_1";
-            this.txtMobile1_1.Size = new System.Drawing.Size(16, 24);
-            this.txtMobile1_1.TabIndex = 33;
-            this.txtMobile1_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtMobile1_1.Visible = false;
-            this.txtMobile1_1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMobile1_1_KeyUp);
-            // 
-            // txtWeight
-            // 
-            this.txtWeight.Location = new System.Drawing.Point(442, 222);
-            this.txtWeight.Margin = new System.Windows.Forms.Padding(2);
-            this.txtWeight.MaxLength = 4;
-            this.txtWeight.Name = "txtWeight";
-            this.txtWeight.Size = new System.Drawing.Size(45, 24);
-            this.txtWeight.TabIndex = 29;
-            this.txtWeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txtHeight
-            // 
-            this.txtHeight.Location = new System.Drawing.Point(200, 222);
-            this.txtHeight.Margin = new System.Windows.Forms.Padding(2);
-            this.txtHeight.MaxLength = 4;
-            this.txtHeight.Name = "txtHeight";
-            this.txtHeight.Size = new System.Drawing.Size(45, 24);
-            this.txtHeight.TabIndex = 28;
-            this.txtHeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txtTelC2_12
-            // 
-            this.txtTelC2_12.Location = new System.Drawing.Point(973, 236);
-            this.txtTelC2_12.Margin = new System.Windows.Forms.Padding(2);
-            this.txtTelC2_12.MaxLength = 1;
-            this.txtTelC2_12.Name = "txtTelC2_12";
-            this.txtTelC2_12.Size = new System.Drawing.Size(16, 24);
-            this.txtTelC2_12.TabIndex = 373;
-            this.txtTelC2_12.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txtTelC2_11
-            // 
-            this.txtTelC2_11.Location = new System.Drawing.Point(954, 236);
-            this.txtTelC2_11.Margin = new System.Windows.Forms.Padding(2);
-            this.txtTelC2_11.MaxLength = 1;
-            this.txtTelC2_11.Name = "txtTelC2_11";
-            this.txtTelC2_11.Size = new System.Drawing.Size(16, 24);
-            this.txtTelC2_11.TabIndex = 372;
-            this.txtTelC2_11.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txtTelC2_10
-            // 
-            this.txtTelC2_10.Location = new System.Drawing.Point(934, 236);
-            this.txtTelC2_10.Margin = new System.Windows.Forms.Padding(2);
-            this.txtTelC2_10.MaxLength = 1;
-            this.txtTelC2_10.Name = "txtTelC2_10";
-            this.txtTelC2_10.Size = new System.Drawing.Size(16, 24);
-            this.txtTelC2_10.TabIndex = 371;
-            this.txtTelC2_10.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // txtMobileC2_10
             // 
             this.txtMobileC2_10.Location = new System.Drawing.Point(933, 208);
@@ -4600,6 +4404,62 @@
             this.txtMobileC1_1.TabIndex = 11;
             this.txtMobileC1_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // tabCredit
+            // 
+            this.tabCredit.Controls.Add(this.label108);
+            this.tabCredit.Controls.Add(this.label110);
+            this.tabCredit.Controls.Add(this.label107);
+            this.tabCredit.Controls.Add(this.label109);
+            this.tabCredit.Controls.Add(this.txtCredit_day);
+            this.tabCredit.Controls.Add(this.txtCredit_bath);
+            this.tabCredit.Location = new System.Drawing.Point(4, 25);
+            this.tabCredit.Name = "tabCredit";
+            this.tabCredit.Padding = new System.Windows.Forms.Padding(3);
+            this.tabCredit.Size = new System.Drawing.Size(1243, 609);
+            this.tabCredit.TabIndex = 4;
+            this.tabCredit.Text = "Credit";
+            this.tabCredit.UseVisualStyleBackColor = true;
+            // 
+            // label108
+            // 
+            this.label108.AutoSize = true;
+            this.label108.Location = new System.Drawing.Point(242, 41);
+            this.label108.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label108.Name = "label108";
+            this.label108.Size = new System.Drawing.Size(34, 17);
+            this.label108.TabIndex = 16;
+            this.label108.Text = "บาท";
+            // 
+            // label110
+            // 
+            this.label110.AutoSize = true;
+            this.label110.Location = new System.Drawing.Point(242, 69);
+            this.label110.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label110.Name = "label110";
+            this.label110.Size = new System.Drawing.Size(24, 17);
+            this.label110.TabIndex = 15;
+            this.label110.Text = "วัน";
+            // 
+            // label107
+            // 
+            this.label107.AutoSize = true;
+            this.label107.Location = new System.Drawing.Point(63, 69);
+            this.label107.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label107.Name = "label107";
+            this.label107.Size = new System.Drawing.Size(57, 17);
+            this.label107.TabIndex = 9;
+            this.label107.Text = "จำนวน :";
+            // 
+            // label109
+            // 
+            this.label109.AutoSize = true;
+            this.label109.Location = new System.Drawing.Point(32, 38);
+            this.label109.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label109.Name = "label109";
+            this.label109.Size = new System.Drawing.Size(90, 17);
+            this.label109.TabIndex = 11;
+            this.label109.Text = "วงเงินเครดิต :";
+            // 
             // txtCredit_day
             // 
             this.txtCredit_day.Location = new System.Drawing.Point(122, 62);
@@ -4618,6 +4478,19 @@
             this.txtCredit_bath.TabIndex = 12;
             this.txtCredit_bath.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // tabMember
+            // 
+            this.tabMember.Controls.Add(this.buttonAddDown);
+            this.tabMember.Controls.Add(this.dgvMember);
+            this.tabMember.Controls.Add(this.buttonDeleteUp);
+            this.tabMember.Location = new System.Drawing.Point(4, 25);
+            this.tabMember.Name = "tabMember";
+            this.tabMember.Padding = new System.Windows.Forms.Padding(3);
+            this.tabMember.Size = new System.Drawing.Size(1243, 609);
+            this.tabMember.TabIndex = 5;
+            this.tabMember.Text = "Members";
+            this.tabMember.UseVisualStyleBackColor = true;
+            // 
             // buttonAddDown
             // 
             this.buttonAddDown.Location = new System.Drawing.Point(537, 8);
@@ -4627,6 +4500,25 @@
             this.buttonAddDown.TabIndex = 148;
             this.buttonAddDown.BtnClick += new AryuwatSystem.UserControls.ButtonRigth.ButtonClick(this.buttonAddDown_BtnClick);
             // 
+            // dgvMember
+            // 
+            this.dgvMember.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvMember.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dgvMember.BackgroundColor = System.Drawing.Color.White;
+            this.dgvMember.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvMember.Location = new System.Drawing.Point(6, 40);
+            this.dgvMember.MultiSelect = false;
+            this.dgvMember.Name = "dgvMember";
+            this.dgvMember.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToFirstHeader;
+            this.dgvMember.RowTemplate.ReadOnly = true;
+            this.dgvMember.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvMember.Size = new System.Drawing.Size(1231, 250);
+            this.dgvMember.TabIndex = 123;
+            this.dgvMember.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMember_CellContentClick);
+            this.dgvMember.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvMember_RowPostPaint);
+            // 
             // buttonDeleteUp
             // 
             this.buttonDeleteUp.Location = new System.Drawing.Point(497, 8);
@@ -4635,6 +4527,76 @@
             this.buttonDeleteUp.Size = new System.Drawing.Size(30, 26);
             this.buttonDeleteUp.TabIndex = 149;
             this.buttonDeleteUp.BtnClick += new AryuwatSystem.UserControls.ButtonLeft.ButtonClick(this.buttonDeleteUp_BtnClick);
+            // 
+            // tabFileOPD
+            // 
+            this.tabFileOPD.Controls.Add(this.dgvFile);
+            this.tabFileOPD.Controls.Add(this.panel4);
+            this.tabFileOPD.Location = new System.Drawing.Point(4, 25);
+            this.tabFileOPD.Name = "tabFileOPD";
+            this.tabFileOPD.Size = new System.Drawing.Size(1243, 609);
+            this.tabFileOPD.TabIndex = 6;
+            this.tabFileOPD.Text = "File OPD";
+            this.tabFileOPD.UseVisualStyleBackColor = true;
+            // 
+            // dgvFile
+            // 
+            this.dgvFile.AllowUserToAddRows = false;
+            this.dgvFile.AllowUserToDeleteRows = false;
+            this.dgvFile.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvFile.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dgvFile.BackgroundColor = System.Drawing.Color.White;
+            this.dgvFile.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvFile.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvFile.Location = new System.Drawing.Point(0, 37);
+            this.dgvFile.Name = "dgvFile";
+            this.dgvFile.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            this.dgvFile.RowTemplate.ReadOnly = true;
+            this.dgvFile.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvFile.Size = new System.Drawing.Size(1243, 572);
+            this.dgvFile.TabIndex = 295;
+            this.dgvFile.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFile_CellClick);
+            this.dgvFile.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvFile_RowPostPaint);
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.txtFileDetail);
+            this.panel4.Controls.Add(this.label119);
+            this.panel4.Controls.Add(this.btnDoc);
+            this.panel4.Controls.Add(this.btnAddFile);
+            this.panel4.Controls.Add(this.txtFilePath);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1243, 37);
+            this.panel4.TabIndex = 296;
+            // 
+            // txtFileDetail
+            // 
+            this.txtFileDetail.Location = new System.Drawing.Point(751, 7);
+            this.txtFileDetail.Name = "txtFileDetail";
+            this.txtFileDetail.Size = new System.Drawing.Size(283, 24);
+            this.txtFileDetail.TabIndex = 294;
+            // 
+            // label119
+            // 
+            this.label119.AutoSize = true;
+            this.label119.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label119.Location = new System.Drawing.Point(680, 10);
+            this.label119.Name = "label119";
+            this.label119.Size = new System.Drawing.Size(54, 16);
+            this.label119.TabIndex = 290;
+            this.label119.Text = "อธิบาย :";
+            // 
+            // btnDoc
+            // 
+            this.btnDoc.Location = new System.Drawing.Point(628, 6);
+            this.btnDoc.Name = "btnDoc";
+            this.btnDoc.Size = new System.Drawing.Size(34, 26);
+            this.btnDoc.TabIndex = 292;
+            this.btnDoc.Text = "...";
+            this.btnDoc.UseVisualStyleBackColor = true;
+            this.btnDoc.Click += new System.EventHandler(this.btnDoc_Click);
             // 
             // btnAddFile
             // 
@@ -4646,6 +4608,92 @@
             this.btnAddFile.Size = new System.Drawing.Size(30, 30);
             this.btnAddFile.TabIndex = 293;
             this.btnAddFile.BtnClick += new AryuwatSystem.UserControls.ButtonAdd.ButtonClick(this.btnAddFile_BtnClick);
+            // 
+            // txtFilePath
+            // 
+            this.txtFilePath.Location = new System.Drawing.Point(5, 7);
+            this.txtFilePath.Name = "txtFilePath";
+            this.txtFilePath.Size = new System.Drawing.Size(623, 24);
+            this.txtFilePath.TabIndex = 291;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.btnCancel);
+            this.panel1.Controls.Add(this.btnClear);
+            this.panel1.Controls.Add(this.btnSave);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 638);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1251, 44);
+            this.panel1.TabIndex = 1;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancel.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnCancel.ForeColor = System.Drawing.Color.Black;
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancel.Location = new System.Drawing.Point(1116, 7);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(123, 31);
+            this.btnCancel.TabIndex = 269;
+            this.btnCancel.Text = "ยกเลิก(Cancel)";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClear.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnClear.ForeColor = System.Drawing.Color.DimGray;
+            this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClear.Location = new System.Drawing.Point(26, 7);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(114, 31);
+            this.btnClear.TabIndex = 268;
+            this.btnClear.Text = "เคลียร์(Clear)";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSave.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnSave.ForeColor = System.Drawing.Color.Black;
+            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSave.Location = new System.Drawing.Point(988, 7);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(124, 31);
+            this.btnSave.TabIndex = 267;
+            this.btnSave.Text = "บันทึก(Save)";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.bntSave_Click);
+            // 
+            // odlgImage
+            // 
+            this.odlgImage.FileName = "openFileDialog1";
+            this.odlgImage.FilterIndex = 0;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "CustomIcon.png");
+            this.imageList1.Images.SetKeyName(1, "TN_psd1084_Red.png");
+            this.imageList1.Images.SetKeyName(2, "remove_icon.png");
+            this.imageList1.Images.SetKeyName(3, "");
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // FrmCustomerSetting
             // 

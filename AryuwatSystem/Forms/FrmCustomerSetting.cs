@@ -1421,18 +1421,18 @@ namespace AryuwatSystem.Forms
                 return false;
             }
 
-            if (rdoNewspaper.Checked || rdoTravel.Checked || rdoLineAt.Checked || (rdo_Other.Checked && txtHowDid.Text.Length>0) || rdoMagazine.Checked || rdoFacebook.Checked ||
-                rdoLine.Checked || rdoInternet.Checked || rdoInstagram.Checked || rdoFriendss.Checked || rdoSms.Checked || rdoTaxi.Checked || rdoAgency.Checked)
-            {
+            //if (rdoNewspaper.Checked || rdoTravel.Checked || rdoLineAt.Checked || (rdo_Other.Checked && txtHowDid.Text.Length>0) || rdoMagazine.Checked || rdoFacebook.Checked ||
+            //    rdoLine.Checked || rdoInternet.Checked || rdoInstagram.Checked || rdoFriendss.Checked || rdoSms.Checked || rdoTaxi.Checked || rdoAgency.Checked)
+            //{
               
-            }
-            else
-            {
-                tabCustomer.SelectedTab = tabCustomer.TabPages["tabInterested"];
-                DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeInformation,
-                               "กรุณาระบุ \"How did you hear about Dermaster? (รู้จัก Aryuwat จากที่ไหน) \"ก่อนทำการบันทึกข้อมูล");
-                return false;
-            }
+            //}
+            //else
+            //{
+            //    tabCustomer.SelectedTab = tabCustomer.TabPages["tabInterested"];
+            //    DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeInformation,
+            //                   "กรุณาระบุ \"How did you hear about Dermaster? (รู้จัก Aryuwat จากที่ไหน) \"ก่อนทำการบันทึกข้อมูล");
+            //    return false;
+            //}
             
             return true;
         }

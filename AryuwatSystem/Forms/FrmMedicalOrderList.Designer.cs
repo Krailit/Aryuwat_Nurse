@@ -292,6 +292,7 @@
             this.checkBoxOld.TabIndex = 38;
             this.checkBoxOld.Text = "Old Key";
             this.checkBoxOld.UseVisualStyleBackColor = true;
+            this.checkBoxOld.Visible = false;
             this.checkBoxOld.CheckedChanged += new System.EventHandler(this.checkBoxOld_CheckedChanged);
             // 
             // label6

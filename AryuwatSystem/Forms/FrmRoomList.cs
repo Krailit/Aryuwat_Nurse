@@ -72,14 +72,14 @@ namespace AryuwatSystem.Forms
             try
             {
 
-                if (e.Button == MouseButtons.Right)
-                {
-                    dgvData.ClearSelection();
-                    //dgvData.Rows[OldrowIndex].Selected = false;
-                    dgvData.Rows[e.RowIndex].Selected = true;
-                    OldrowIndex = e.RowIndex;
-                    contextMenuStrip1.Show(MousePosition);
-                }
+                //if (e.Button == MouseButtons.Right)
+                //{
+                //    dgvData.ClearSelection();
+                //    //dgvData.Rows[OldrowIndex].Selected = false;
+                //    dgvData.Rows[e.RowIndex].Selected = true;
+                //    OldrowIndex = e.RowIndex;
+                //    contextMenuStrip1.Show(MousePosition);
+                //}
             }
             catch
             {
