@@ -415,7 +415,7 @@ namespace AryuwatSystem.Forms
             this.dataGridViewMaterial.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewMaterial.Location = new System.Drawing.Point(3, 54);
             this.dataGridViewMaterial.Name = "dataGridViewMaterial";
-            this.dataGridViewMaterial.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            //this.dataGridViewMaterial.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dataGridViewMaterial.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewMaterial.Size = new System.Drawing.Size(1274, 216);
             this.dataGridViewMaterial.TabIndex = 124;

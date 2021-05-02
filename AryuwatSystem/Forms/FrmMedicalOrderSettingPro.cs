@@ -282,7 +282,7 @@ namespace AryuwatSystem.Forms
                 if (dataGridViewSelectListPro.RowCount > 0)
                     dataGridViewSelectListPro.Rows.Clear();
                 // }
-
+                tabControl.TabPages.Remove(tabAesthetic);
 
             }
             catch (Exception)

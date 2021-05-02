@@ -664,7 +664,7 @@
             this.dgvUsedTrans.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvUsedTrans.Location = new System.Drawing.Point(3, 19);
             this.dgvUsedTrans.Name = "dgvUsedTrans";
-            this.dgvUsedTrans.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            //this.dgvUsedTrans.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dgvUsedTrans.RowTemplate.ReadOnly = true;
             this.dgvUsedTrans.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUsedTrans.Size = new System.Drawing.Size(397, 121);

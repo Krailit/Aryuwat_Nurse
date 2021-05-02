@@ -72,7 +72,8 @@ namespace AryuwatSystem.UserControls
             this.giftVoucherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.barterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customerContactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.π¥À¡“¬ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.roomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.NutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.BookingeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bookingDoctorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DoctorScheduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -117,7 +118,6 @@ namespace AryuwatSystem.UserControls
             this.surgicalFeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.refundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.plControlBox = new System.Windows.Forms.Panel();
-            this.roomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmdClose = new System.Windows.Forms.PictureBox();
             this.cmdMaximize = new System.Windows.Forms.PictureBox();
             this.cmdMinimize = new System.Windows.Forms.PictureBox();
@@ -137,7 +137,7 @@ namespace AryuwatSystem.UserControls
             this.mnuItem001,
             this.mnuItem002,
             this.∞“π¢Õ¡≈ToolStripMenuItem,
-            this.π¥À¡“¬ToolStripMenuItem,
+            this.NutToolStripMenuItem,
             this.√“¬ß“πToolStripMenuItem,
             this.°“√‡ßπToolStripMenuItem});
             this.menuStriptSystem.Location = new System.Drawing.Point(0, 0);
@@ -456,7 +456,6 @@ namespace AryuwatSystem.UserControls
             this.medicalOrderToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.medicalOrderToolStripMenuItem.Tag = "Menu3Sub6";
             this.medicalOrderToolStripMenuItem.Text = "Medical Order";
-            this.medicalOrderToolStripMenuItem.Visible = false;
             // 
             // agencyToolStripMenuItem
             // 
@@ -464,6 +463,7 @@ namespace AryuwatSystem.UserControls
             this.agencyToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.agencyToolStripMenuItem.Tag = "Menu3Sub7";
             this.agencyToolStripMenuItem.Text = "Agency";
+            this.agencyToolStripMenuItem.Visible = false;
             // 
             // bOMToolStripMenuItem
             // 
@@ -473,6 +473,7 @@ namespace AryuwatSystem.UserControls
             this.bOMToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.bOMToolStripMenuItem.Tag = "Menu3Sub10";
             this.bOMToolStripMenuItem.Text = "BOM";
+            this.bOMToolStripMenuItem.Visible = false;
             // 
             // bOMSettingToolStripMenuItem
             // 
@@ -487,6 +488,7 @@ namespace AryuwatSystem.UserControls
             this.giftVoucherToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.giftVoucherToolStripMenuItem.Tag = "Menu3Sub11";
             this.giftVoucherToolStripMenuItem.Text = "Gift Voucher";
+            this.giftVoucherToolStripMenuItem.Visible = false;
             // 
             // barterToolStripMenuItem
             // 
@@ -494,6 +496,7 @@ namespace AryuwatSystem.UserControls
             this.barterToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.barterToolStripMenuItem.Tag = "Menu3Sub12";
             this.barterToolStripMenuItem.Text = "Barter";
+            this.barterToolStripMenuItem.Visible = false;
             // 
             // customerContactToolStripMenuItem
             // 
@@ -501,18 +504,27 @@ namespace AryuwatSystem.UserControls
             this.customerContactToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.customerContactToolStripMenuItem.Tag = "Menu3Sub13";
             this.customerContactToolStripMenuItem.Text = "Customer Contact";
+            this.customerContactToolStripMenuItem.Visible = false;
             // 
-            // π¥À¡“¬ToolStripMenuItem
+            // roomToolStripMenuItem
             // 
-            this.π¥À¡“¬ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.roomToolStripMenuItem.Name = "roomToolStripMenuItem";
+            this.roomToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.roomToolStripMenuItem.Tag = "Menu3Sub14";
+            this.roomToolStripMenuItem.Text = "Room";
+            // 
+            // NutToolStripMenuItem
+            // 
+            this.NutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.BookingeToolStripMenuItem,
             this.bookingDoctorToolStripMenuItem,
             this.DoctorScheduleToolStripMenuItem});
-            this.π¥À¡“¬ToolStripMenuItem.Name = "π¥À¡“¬ToolStripMenuItem";
-            this.π¥À¡“¬ToolStripMenuItem.Size = new System.Drawing.Size(73, 22);
-            this.π¥À¡“¬ToolStripMenuItem.Tag = "Menu4";
-            this.π¥À¡“¬ToolStripMenuItem.Text = "π—¥À¡“¬";
-            this.π¥À¡“¬ToolStripMenuItem.ToolTipText = "Appoinment";
+            this.NutToolStripMenuItem.Name = "NutToolStripMenuItem";
+            this.NutToolStripMenuItem.Size = new System.Drawing.Size(73, 22);
+            this.NutToolStripMenuItem.Tag = "Menu4";
+            this.NutToolStripMenuItem.Text = "π—¥À¡“¬";
+            this.NutToolStripMenuItem.ToolTipText = "Appoinment";
+            this.NutToolStripMenuItem.Visible = false;
             // 
             // BookingeToolStripMenuItem
             // 
@@ -572,71 +584,68 @@ namespace AryuwatSystem.UserControls
             // revenueDistributionGroupToolStripMenuItem1
             // 
             this.revenueDistributionGroupToolStripMenuItem1.Name = "revenueDistributionGroupToolStripMenuItem1";
-            this.revenueDistributionGroupToolStripMenuItem1.Size = new System.Drawing.Size(276, 22);
+            this.revenueDistributionGroupToolStripMenuItem1.Size = new System.Drawing.Size(221, 22);
             this.revenueDistributionGroupToolStripMenuItem1.Tag = "Menu5Sub1I1";
             this.revenueDistributionGroupToolStripMenuItem1.Text = "Sale by consult";
             // 
             // revenueDistributionByMonthToolStripMenuItem
             // 
-            //this.revenueDistributionByMonthToolStripMenuItem.Name = "revenueDistributionByMonthToolStripMenuItem";
-            //this.revenueDistributionByMonthToolStripMenuItem.Size = new System.Drawing.Size(276, 22);
-            //this.revenueDistributionByMonthToolStripMenuItem.Tag = "Menu5Sub1I2";
-            //this.revenueDistributionByMonthToolStripMenuItem.Text = "Revenue Distribution By Month";
-            //this.revenueDistributionByMonthToolStripMenuItem.Visible = false;
+            this.revenueDistributionByMonthToolStripMenuItem.Name = "revenueDistributionByMonthToolStripMenuItem";
+            this.revenueDistributionByMonthToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             // 
             // ToolStripMenuItemOutstanding
             // 
             this.ToolStripMenuItemOutstanding.Name = "ToolStripMenuItemOutstanding";
-            this.ToolStripMenuItemOutstanding.Size = new System.Drawing.Size(276, 22);
+            this.ToolStripMenuItemOutstanding.Size = new System.Drawing.Size(221, 22);
             this.ToolStripMenuItemOutstanding.Tag = "Menu5Sub1I3";
             this.ToolStripMenuItemOutstanding.Text = "Pending Course";
             // 
             // aestheticSummaryToolStripMenuItem1
             // 
             this.aestheticSummaryToolStripMenuItem1.Name = "aestheticSummaryToolStripMenuItem1";
-            this.aestheticSummaryToolStripMenuItem1.Size = new System.Drawing.Size(276, 22);
+            this.aestheticSummaryToolStripMenuItem1.Size = new System.Drawing.Size(221, 22);
             this.aestheticSummaryToolStripMenuItem1.Tag = "Menu5Sub1I4";
             this.aestheticSummaryToolStripMenuItem1.Text = "Sale Group";
             // 
             // ¬Õ¥¢“¬¢ÕßConsultantToolStripMenuItem
             // 
             this.¬Õ¥¢“¬¢ÕßConsultantToolStripMenuItem.Name = "¬Õ¥¢“¬¢ÕßConsultantToolStripMenuItem";
-            this.¬Õ¥¢“¬¢ÕßConsultantToolStripMenuItem.Size = new System.Drawing.Size(276, 22);
+            this.¬Õ¥¢“¬¢ÕßConsultantToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.¬Õ¥¢“¬¢ÕßConsultantToolStripMenuItem.Tag = "Menu5Sub1I5";
             this.¬Õ¥¢“¬¢ÕßConsultantToolStripMenuItem.Text = "Sale per month";
             // 
             // salePerMonthByCNToolStripMenuItem
             // 
             this.salePerMonthByCNToolStripMenuItem.Name = "salePerMonthByCNToolStripMenuItem";
-            this.salePerMonthByCNToolStripMenuItem.Size = new System.Drawing.Size(276, 22);
+            this.salePerMonthByCNToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.salePerMonthByCNToolStripMenuItem.Tag = "Menu5Sub1I8";
             this.salePerMonthByCNToolStripMenuItem.Text = "Sale per month By CN";
             // 
             // ConsultantFollow
             // 
             this.ConsultantFollow.Name = "ConsultantFollow";
-            this.ConsultantFollow.Size = new System.Drawing.Size(276, 22);
+            this.ConsultantFollow.Size = new System.Drawing.Size(221, 22);
             this.ConsultantFollow.Tag = "Menu5Sub1I6";
             this.ConsultantFollow.Text = "Consultant Follow";
             // 
             // saleTrackingToolStripMenuItem
             // 
             this.saleTrackingToolStripMenuItem.Name = "saleTrackingToolStripMenuItem";
-            this.saleTrackingToolStripMenuItem.Size = new System.Drawing.Size(276, 22);
+            this.saleTrackingToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.saleTrackingToolStripMenuItem.Tag = "Menu5Sub1I7";
             this.saleTrackingToolStripMenuItem.Text = "Customer Information";
             // 
             // follow√“¬«πToolStripMenuItem
             // 
             this.follow√“¬«πToolStripMenuItem.Name = "follow√“¬«πToolStripMenuItem";
-            this.follow√“¬«πToolStripMenuItem.Size = new System.Drawing.Size(276, 22);
+            this.follow√“¬«πToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.follow√“¬«πToolStripMenuItem.Tag = "Menu5Sub1I9";
             this.follow√“¬«πToolStripMenuItem.Text = "Follow √“¬«—π";
             // 
             // followExpireToolStripMenuItem
             // 
             this.followExpireToolStripMenuItem.Name = "followExpireToolStripMenuItem";
-            this.followExpireToolStripMenuItem.Size = new System.Drawing.Size(276, 22);
+            this.followExpireToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.followExpireToolStripMenuItem.Tag = "Menu5Sub1I10";
             this.followExpireToolStripMenuItem.Text = "Follow Expire";
             // 
@@ -884,13 +893,6 @@ namespace AryuwatSystem.UserControls
             this.plControlBox.Size = new System.Drawing.Size(64, 26);
             this.plControlBox.TabIndex = 1;
             // 
-            // roomToolStripMenuItem
-            // 
-            this.roomToolStripMenuItem.Name = "roomToolStripMenuItem";
-            this.roomToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.roomToolStripMenuItem.Tag = "Menu3Sub14";
-            this.roomToolStripMenuItem.Text = "Room";
-            // 
             // cmdClose
             // 
             this.cmdClose.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -964,7 +966,7 @@ namespace AryuwatSystem.UserControls
         private System.Windows.Forms.ToolStripMenuItem ¢Õ¡≈æπ°ß“πToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemPersonnelType;
         private System.Windows.Forms.ToolStripMenuItem ¢Õ¡≈ π§“‡«™¿≥±ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem π¥À¡“¬ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem NutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem BookingeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem DoctorScheduleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem √“¬ß“πToolStripMenuItem;
