@@ -126,7 +126,7 @@
             this.labelShow.Font = new System.Drawing.Font("TH Sarabun New", 15.75F);
             this.labelShow.Location = new System.Drawing.Point(18, 31);
             this.labelShow.Name = "labelShow";
-            this.labelShow.Size = new System.Drawing.Size(76, 28);
+            this.labelShow.Size = new System.Drawing.Size(84, 28);
             this.labelShow.TabIndex = 3080;
             this.labelShow.Text = "เลือกสาเหตุ";
             this.labelShow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -148,7 +148,7 @@
             this.label1.Font = new System.Drawing.Font("TH Sarabun New", 15.75F);
             this.label1.Location = new System.Drawing.Point(6, 37);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 28);
+            this.label1.Size = new System.Drawing.Size(79, 28);
             this.label1.TabIndex = 3084;
             this.label1.Text = "จำนวนเงิน";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -159,7 +159,7 @@
             this.label2.Font = new System.Drawing.Font("TH Sarabun New", 15.75F);
             this.label2.Location = new System.Drawing.Point(40, 73);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 28);
+            this.label2.Size = new System.Drawing.Size(41, 28);
             this.label2.TabIndex = 3085;
             this.label2.Text = "วันที่";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -170,7 +170,7 @@
             this.label3.Font = new System.Drawing.Font("TH Sarabun New", 15.75F);
             this.label3.Location = new System.Drawing.Point(12, 108);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 28);
+            this.label3.Size = new System.Drawing.Size(71, 28);
             this.label3.TabIndex = 3087;
             this.label3.Text = "หมายเหตุ";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -219,9 +219,9 @@
             // txtPayCustName
             // 
             this.txtPayCustName.Font = new System.Drawing.Font("TH Sarabun New", 16F);
-            this.txtPayCustName.Location = new System.Drawing.Point(58, 3);
+            this.txtPayCustName.Location = new System.Drawing.Point(71, 3);
             this.txtPayCustName.Name = "txtPayCustName";
-            this.txtPayCustName.Size = new System.Drawing.Size(219, 36);
+            this.txtPayCustName.Size = new System.Drawing.Size(206, 36);
             this.txtPayCustName.TabIndex = 3102;
             // 
             // comboBoxBank
@@ -229,9 +229,9 @@
             this.comboBoxBank.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxBank.Font = new System.Drawing.Font("TH Sarabun New", 16F);
             this.comboBoxBank.FormattingEnabled = true;
-            this.comboBoxBank.Location = new System.Drawing.Point(58, 43);
+            this.comboBoxBank.Location = new System.Drawing.Point(71, 43);
             this.comboBoxBank.Name = "comboBoxBank";
-            this.comboBoxBank.Size = new System.Drawing.Size(219, 36);
+            this.comboBoxBank.Size = new System.Drawing.Size(206, 36);
             this.comboBoxBank.TabIndex = 3106;
             // 
             // label5
@@ -240,7 +240,7 @@
             this.label5.Font = new System.Drawing.Font("TH Sarabun New", 15.75F);
             this.label5.Location = new System.Drawing.Point(1, 49);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 28);
+            this.label5.Size = new System.Drawing.Size(64, 28);
             this.label5.TabIndex = 3097;
             this.label5.Text = "ธนาคาร";
             // 
@@ -250,16 +250,16 @@
             this.label6.Font = new System.Drawing.Font("TH Sarabun New", 15.75F);
             this.label6.Location = new System.Drawing.Point(17, 88);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(41, 28);
+            this.label6.Size = new System.Drawing.Size(45, 28);
             this.label6.TabIndex = 3098;
             this.label6.Text = "เลขที่";
             // 
             // txtPayBankNumber
             // 
             this.txtPayBankNumber.Font = new System.Drawing.Font("TH Sarabun New", 16F);
-            this.txtPayBankNumber.Location = new System.Drawing.Point(58, 83);
+            this.txtPayBankNumber.Location = new System.Drawing.Point(71, 83);
             this.txtPayBankNumber.Name = "txtPayBankNumber";
-            this.txtPayBankNumber.Size = new System.Drawing.Size(219, 36);
+            this.txtPayBankNumber.Size = new System.Drawing.Size(206, 36);
             this.txtPayBankNumber.TabIndex = 3099;
             // 
             // label12
@@ -268,7 +268,7 @@
             this.label12.Font = new System.Drawing.Font("TH Sarabun New", 15.75F);
             this.label12.Location = new System.Drawing.Point(30, 11);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(28, 28);
+            this.label12.Size = new System.Drawing.Size(31, 28);
             this.label12.TabIndex = 3103;
             this.label12.Text = "ชื่อ";
             // 
@@ -285,9 +285,9 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("TH Sarabun New", 15.75F);
-            this.label13.Location = new System.Drawing.Point(343, 31);
+            this.label13.Location = new System.Drawing.Point(325, 31);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(93, 28);
+            this.label13.Size = new System.Drawing.Size(105, 28);
             this.label13.TabIndex = 3105;
             this.label13.Text = "ประเภทรับเงิน";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -297,9 +297,9 @@
             this.comboBoxMoneyType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxMoneyType.Font = new System.Drawing.Font("TH Sarabun New", 16F);
             this.comboBoxMoneyType.FormattingEnabled = true;
-            this.comboBoxMoneyType.Location = new System.Drawing.Point(436, 27);
+            this.comboBoxMoneyType.Location = new System.Drawing.Point(449, 27);
             this.comboBoxMoneyType.Name = "comboBoxMoneyType";
-            this.comboBoxMoneyType.Size = new System.Drawing.Size(220, 36);
+            this.comboBoxMoneyType.Size = new System.Drawing.Size(207, 36);
             this.comboBoxMoneyType.TabIndex = 3104;
             this.comboBoxMoneyType.SelectedIndexChanged += new System.EventHandler(this.comboBoxMoneyType_SelectedIndexChanged);
             // 
@@ -331,7 +331,7 @@
             this.label4.Font = new System.Drawing.Font("TH Sarabun New", 15.75F);
             this.label4.Location = new System.Drawing.Point(45, 69);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(62, 28);
+            this.label4.Size = new System.Drawing.Size(68, 28);
             this.label4.TabIndex = 3090;
             this.label4.Text = "เนื่องจาก";
             // 
@@ -358,7 +358,7 @@
             // txtRFD
             // 
             this.txtRFD.Font = new System.Drawing.Font("TH Sarabun New", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRFD.Location = new System.Drawing.Point(107, 25);
+            this.txtRFD.Location = new System.Drawing.Point(117, 25);
             this.txtRFD.Name = "txtRFD";
             this.txtRFD.ReadOnly = true;
             this.txtRFD.Size = new System.Drawing.Size(154, 39);
@@ -378,35 +378,35 @@
             // 
             this.comboBoxByDr.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboBoxByDr.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.comboBoxByDr.Location = new System.Drawing.Point(107, 189);
+            this.comboBoxByDr.Location = new System.Drawing.Point(117, 189);
             this.comboBoxByDr.Name = "comboBoxByDr";
-            this.comboBoxByDr.Size = new System.Drawing.Size(394, 36);
+            this.comboBoxByDr.Size = new System.Drawing.Size(384, 36);
             this.comboBoxByDr.TabIndex = 3106;
             // 
             // txtBuy
             // 
             this.txtBuy.Font = new System.Drawing.Font("TH Sarabun New", 16F);
-            this.txtBuy.Location = new System.Drawing.Point(181, 148);
+            this.txtBuy.Location = new System.Drawing.Point(192, 148);
             this.txtBuy.Name = "txtBuy";
-            this.txtBuy.Size = new System.Drawing.Size(320, 36);
+            this.txtBuy.Size = new System.Drawing.Size(309, 36);
             this.txtBuy.TabIndex = 3104;
             this.txtBuy.Text = "1234567890";
             // 
             // txtConsult
             // 
             this.txtConsult.Font = new System.Drawing.Font("TH Sarabun New", 16F);
-            this.txtConsult.Location = new System.Drawing.Point(107, 108);
+            this.txtConsult.Location = new System.Drawing.Point(117, 108);
             this.txtConsult.Name = "txtConsult";
-            this.txtConsult.Size = new System.Drawing.Size(394, 36);
+            this.txtConsult.Size = new System.Drawing.Size(384, 36);
             this.txtConsult.TabIndex = 3104;
             this.txtConsult.Text = "นายรัตนะ โคตรสมบัติ";
             // 
             // txtCustname
             // 
             this.txtCustname.Font = new System.Drawing.Font("TH Sarabun New", 16F);
-            this.txtCustname.Location = new System.Drawing.Point(107, 68);
+            this.txtCustname.Location = new System.Drawing.Point(117, 68);
             this.txtCustname.Name = "txtCustname";
-            this.txtCustname.Size = new System.Drawing.Size(394, 36);
+            this.txtCustname.Size = new System.Drawing.Size(384, 36);
             this.txtCustname.TabIndex = 3103;
             this.txtCustname.Text = "นายรัตนะ โคตรสมบัติ";
             // 
@@ -416,7 +416,7 @@
             this.label10.Font = new System.Drawing.Font("TH Sarabun New", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label10.Location = new System.Drawing.Point(18, 189);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(85, 28);
+            this.label10.Size = new System.Drawing.Size(96, 28);
             this.label10.TabIndex = 3094;
             this.label10.Text = "แพทย์ผู้รักษา";
             // 
@@ -424,9 +424,9 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("TH Sarabun New", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label9.Location = new System.Drawing.Point(22, 152);
+            this.label9.Location = new System.Drawing.Point(6, 151);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(157, 28);
+            this.label9.Size = new System.Drawing.Size(180, 28);
             this.label9.TabIndex = 3093;
             this.label9.Text = "วันที่ จำนวนเงินที่ซื้อคอร์ส";
             // 
@@ -436,7 +436,7 @@
             this.label8.Font = new System.Drawing.Font("TH Sarabun New", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label8.Location = new System.Drawing.Point(22, 111);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(81, 28);
+            this.label8.Size = new System.Drawing.Size(86, 28);
             this.label8.TabIndex = 3092;
             this.label8.Text = "ชื่อ Consult";
             // 
@@ -446,7 +446,7 @@
             this.label7.Font = new System.Drawing.Font("TH Sarabun New", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label7.Location = new System.Drawing.Point(20, 72);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(83, 28);
+            this.label7.Size = new System.Drawing.Size(91, 28);
             this.label7.TabIndex = 3091;
             this.label7.Text = "ชื่อลูกค้า/CN";
             // 
@@ -515,7 +515,7 @@
             this.labelSO.Font = new System.Drawing.Font("TH Sarabun New", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.labelSO.Location = new System.Drawing.Point(6, 20);
             this.labelSO.Name = "labelSO";
-            this.labelSO.Size = new System.Drawing.Size(103, 28);
+            this.labelSO.Size = new System.Drawing.Size(110, 28);
             this.labelSO.TabIndex = 3107;
             this.labelSO.Text = "SO/MO/RefMo";
             // 

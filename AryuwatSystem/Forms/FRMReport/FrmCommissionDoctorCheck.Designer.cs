@@ -29,61 +29,20 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             PresentationControls.CheckBoxProperties checkBoxProperties1 = new PresentationControls.CheckBoxProperties();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCommissionDoctorCheck));
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.dgvData = new System.Windows.Forms.DataGridView();
-            this.dataGridViewSummary = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioUsedCouseDaily = new System.Windows.Forms.RadioButton();
-            this.btnPrintForm = new System.Windows.Forms.Button();
-            this.radioButtonCover = new System.Windows.Forms.RadioButton();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.btnExport = new System.Windows.Forms.Button();
-            this.radioDayList = new System.Windows.Forms.RadioButton();
-            this.radioCom = new System.Windows.Forms.RadioButton();
-            this.radioFee = new System.Windows.Forms.RadioButton();
-            this.btnPrint = new System.Windows.Forms.Button();
-            this.lblEmployeeName = new System.Windows.Forms.Label();
-            this.lblEN = new System.Windows.Forms.Label();
-            this.btnFindEMP = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtStartdate = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtEnddate = new System.Windows.Forms.TextBox();
-            this.cboPosition = new PresentationControls.CheckBoxComboBox();
-            this.cboSurgicalFeeTyp = new System.Windows.Forms.ComboBox();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.radioFeeTerapist = new System.Windows.Forms.RadioButton();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewCheckBoxColumn3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewCheckBoxColumn4 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.VN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MORef = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SO = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -103,8 +62,49 @@
             this.MBudget = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.GifV = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Subject = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewSummary = new System.Windows.Forms.DataGridView();
             this.ngbMain = new AryuwatSystem.UserControls.NavigatoBar();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioFeeTerapist = new System.Windows.Forms.RadioButton();
+            this.radioUsedCouseDaily = new System.Windows.Forms.RadioButton();
+            this.btnPrintForm = new System.Windows.Forms.Button();
+            this.radioButtonCover = new System.Windows.Forms.RadioButton();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnExport = new System.Windows.Forms.Button();
+            this.radioDayList = new System.Windows.Forms.RadioButton();
+            this.radioCom = new System.Windows.Forms.RadioButton();
+            this.radioFee = new System.Windows.Forms.RadioButton();
             this.uBranch1 = new AryuwatSystem.UserControls.UBranch();
+            this.btnPrint = new System.Windows.Forms.Button();
+            this.lblEmployeeName = new System.Windows.Forms.Label();
+            this.lblEN = new System.Windows.Forms.Label();
+            this.btnFindEMP = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtStartdate = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtEnddate = new System.Windows.Forms.TextBox();
+            this.cboPosition = new PresentationControls.CheckBoxComboBox();
+            this.cboSurgicalFeeTyp = new System.Windows.Forms.ComboBox();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewCheckBoxColumn3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewCheckBoxColumn4 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSummary)).BeginInit();
@@ -179,6 +179,122 @@
             this.dgvData.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvData_CellPainting);
             this.dgvData.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvData_RowPostPaint);
             // 
+            // VN
+            // 
+            this.VN.HeaderText = "MO Main";
+            this.VN.Name = "VN";
+            this.VN.ReadOnly = true;
+            // 
+            // MORef
+            // 
+            this.MORef.HeaderText = "MO Ref.";
+            this.MORef.Name = "MORef";
+            // 
+            // SO
+            // 
+            this.SO.HeaderText = "SO";
+            this.SO.Name = "SO";
+            // 
+            // CN
+            // 
+            this.CN.HeaderText = "CN";
+            this.CN.Name = "CN";
+            // 
+            // CustomerName
+            // 
+            this.CustomerName.HeaderText = "ชื่อ-สกุล(ลูกค้า)";
+            this.CustomerName.Name = "CustomerName";
+            // 
+            // EMName
+            // 
+            this.EMName.HeaderText = "ชื่อ-สกุล(พนักงาน)";
+            this.EMName.Name = "EMName";
+            // 
+            // MS_Name
+            // 
+            this.MS_Name.HeaderText = "Treatment";
+            this.MS_Name.Name = "MS_Name";
+            this.MS_Name.ReadOnly = true;
+            // 
+            // PositionFee
+            // 
+            this.PositionFee.HeaderText = "Position Fee";
+            this.PositionFee.Name = "PositionFee";
+            this.PositionFee.Visible = false;
+            // 
+            // ProcedureDate
+            // 
+            this.ProcedureDate.HeaderText = "วันที่";
+            this.ProcedureDate.Name = "ProcedureDate";
+            this.ProcedureDate.ReadOnly = true;
+            // 
+            // StartTime
+            // 
+            this.StartTime.HeaderText = "เวลาเริ่ม";
+            this.StartTime.Name = "StartTime";
+            this.StartTime.Visible = false;
+            // 
+            // EndTime
+            // 
+            this.EndTime.HeaderText = "เวลาสิ้นสุด";
+            this.EndTime.Name = "EndTime";
+            this.EndTime.Visible = false;
+            // 
+            // PriceAfterDis
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
+            dataGridViewCellStyle2.NullValue = null;
+            this.PriceAfterDis.DefaultCellStyle = dataGridViewCellStyle2;
+            this.PriceAfterDis.HeaderText = "ราคาขายสุทธิ";
+            this.PriceAfterDis.Name = "PriceAfterDis";
+            // 
+            // Column1
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column1.HeaderText = "หัก Agency 18%";
+            this.Column1.Name = "Column1";
+            // 
+            // DoctorPrice
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
+            dataGridViewCellStyle4.NullValue = null;
+            this.DoctorPrice.DefaultCellStyle = dataGridViewCellStyle4;
+            this.DoctorPrice.HeaderText = "ส่วนของแพทย์";
+            this.DoctorPrice.Name = "DoctorPrice";
+            // 
+            // Money
+            // 
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
+            this.Money.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Money.HeaderText = "Com.แพทย์";
+            this.Money.Name = "Money";
+            this.Money.ReadOnly = true;
+            // 
+            // comp
+            // 
+            this.comp.HeaderText = "Comp.";
+            this.comp.Name = "comp";
+            this.comp.ReadOnly = true;
+            // 
+            // MBudget
+            // 
+            this.MBudget.HeaderText = "M.Budget";
+            this.MBudget.Name = "MBudget";
+            this.MBudget.ReadOnly = true;
+            // 
+            // GifV
+            // 
+            this.GifV.HeaderText = "Gift.V";
+            this.GifV.Name = "GifV";
+            this.GifV.ReadOnly = true;
+            // 
+            // Subject
+            // 
+            this.Subject.HeaderText = "Subject";
+            this.Subject.Name = "Subject";
+            this.Subject.ReadOnly = true;
+            // 
             // dataGridViewSummary
             // 
             this.dataGridViewSummary.AllowUserToAddRows = false;
@@ -195,6 +311,25 @@
             this.dataGridViewSummary.TabIndex = 133;
             this.dataGridViewSummary.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSummary_CellClick);
             this.dataGridViewSummary.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewSummary_RowPostPaint);
+            // 
+            // ngbMain
+            // 
+            this.ngbMain.CanMoveFirst = true;
+            this.ngbMain.CanMoveLast = true;
+            this.ngbMain.CanMoveNext = true;
+            this.ngbMain.CanMovePrevious = true;
+            this.ngbMain.CurrentPage = ((long)(0));
+            this.ngbMain.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ngbMain.Enableds = false;
+            this.ngbMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.ngbMain.Location = new System.Drawing.Point(0, 467);
+            this.ngbMain.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.ngbMain.Name = "ngbMain";
+            this.ngbMain.Size = new System.Drawing.Size(1257, 26);
+            this.ngbMain.TabIndex = 130;
+            this.ngbMain.TotalPage = ((long)(0));
+            this.ngbMain.TotalRecord = ((long)(0));
+            this.ngbMain.Visible = false;
             // 
             // groupBox1
             // 
@@ -226,6 +361,18 @@
             this.groupBox1.TabIndex = 53;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ตรวจสอบค่ามือ";
+            // 
+            // radioFeeTerapist
+            // 
+            this.radioFeeTerapist.AutoSize = true;
+            this.radioFeeTerapist.Location = new System.Drawing.Point(638, 60);
+            this.radioFeeTerapist.Name = "radioFeeTerapist";
+            this.radioFeeTerapist.Size = new System.Drawing.Size(223, 24);
+            this.radioFeeTerapist.TabIndex = 3086;
+            this.radioFeeTerapist.Text = "รายงานทำหัตถการ Terapist";
+            this.radioFeeTerapist.UseVisualStyleBackColor = true;
+            this.radioFeeTerapist.Visible = false;
+            this.radioFeeTerapist.Click += new System.EventHandler(this.radioFeeTerapist_Click);
             // 
             // radioUsedCouseDaily
             // 
@@ -318,6 +465,16 @@
             this.radioFee.Text = "ค่ามือ(หมอทำ)";
             this.radioFee.UseVisualStyleBackColor = true;
             this.radioFee.Click += new System.EventHandler(this.radioFee_Click);
+            // 
+            // uBranch1
+            // 
+            this.uBranch1.BranchId = "";
+            this.uBranch1.BranchName = "";
+            this.uBranch1.Location = new System.Drawing.Point(243, 43);
+            this.uBranch1.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
+            this.uBranch1.Name = "uBranch1";
+            this.uBranch1.Size = new System.Drawing.Size(330, 34);
+            this.uBranch1.TabIndex = 3074;
             // 
             // btnPrint
             // 
@@ -436,17 +593,6 @@
             this.cboSurgicalFeeTyp.TabIndex = 49;
             this.cboSurgicalFeeTyp.Visible = false;
             this.cboSurgicalFeeTyp.SelectedIndexChanged += new System.EventHandler(this.cboSurgicalFeeTyp_SelectedIndexChanged);
-            // 
-            // radioFeeTerapist
-            // 
-            this.radioFeeTerapist.AutoSize = true;
-            this.radioFeeTerapist.Location = new System.Drawing.Point(638, 60);
-            this.radioFeeTerapist.Name = "radioFeeTerapist";
-            this.radioFeeTerapist.Size = new System.Drawing.Size(223, 24);
-            this.radioFeeTerapist.TabIndex = 3086;
-            this.radioFeeTerapist.Text = "รายงานทำหัตถการ Terapist";
-            this.radioFeeTerapist.UseVisualStyleBackColor = true;
-            this.radioFeeTerapist.Click += new System.EventHandler(this.radioFeeTerapist_Click);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -592,151 +738,6 @@
             this.dataGridViewCheckBoxColumn4.Name = "dataGridViewCheckBoxColumn4";
             this.dataGridViewCheckBoxColumn4.ReadOnly = true;
             this.dataGridViewCheckBoxColumn4.Width = 49;
-            // 
-            // VN
-            // 
-            this.VN.HeaderText = "MO Main";
-            this.VN.Name = "VN";
-            this.VN.ReadOnly = true;
-            // 
-            // MORef
-            // 
-            this.MORef.HeaderText = "MO Ref.";
-            this.MORef.Name = "MORef";
-            // 
-            // SO
-            // 
-            this.SO.HeaderText = "SO";
-            this.SO.Name = "SO";
-            // 
-            // CN
-            // 
-            this.CN.HeaderText = "CN";
-            this.CN.Name = "CN";
-            // 
-            // CustomerName
-            // 
-            this.CustomerName.HeaderText = "ชื่อ-สกุล(ลูกค้า)";
-            this.CustomerName.Name = "CustomerName";
-            // 
-            // EMName
-            // 
-            this.EMName.HeaderText = "ชื่อ-สกุล(พนักงาน)";
-            this.EMName.Name = "EMName";
-            // 
-            // MS_Name
-            // 
-            this.MS_Name.HeaderText = "Treatment";
-            this.MS_Name.Name = "MS_Name";
-            this.MS_Name.ReadOnly = true;
-            // 
-            // PositionFee
-            // 
-            this.PositionFee.HeaderText = "Position Fee";
-            this.PositionFee.Name = "PositionFee";
-            this.PositionFee.Visible = false;
-            // 
-            // ProcedureDate
-            // 
-            this.ProcedureDate.HeaderText = "วันที่";
-            this.ProcedureDate.Name = "ProcedureDate";
-            this.ProcedureDate.ReadOnly = true;
-            // 
-            // StartTime
-            // 
-            this.StartTime.HeaderText = "เวลาเริ่ม";
-            this.StartTime.Name = "StartTime";
-            this.StartTime.Visible = false;
-            // 
-            // EndTime
-            // 
-            this.EndTime.HeaderText = "เวลาสิ้นสุด";
-            this.EndTime.Name = "EndTime";
-            this.EndTime.Visible = false;
-            // 
-            // PriceAfterDis
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
-            dataGridViewCellStyle2.NullValue = null;
-            this.PriceAfterDis.DefaultCellStyle = dataGridViewCellStyle2;
-            this.PriceAfterDis.HeaderText = "ราคาขายสุทธิ";
-            this.PriceAfterDis.Name = "PriceAfterDis";
-            // 
-            // Column1
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Column1.HeaderText = "หัก Agency 18%";
-            this.Column1.Name = "Column1";
-            // 
-            // DoctorPrice
-            // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
-            dataGridViewCellStyle4.NullValue = null;
-            this.DoctorPrice.DefaultCellStyle = dataGridViewCellStyle4;
-            this.DoctorPrice.HeaderText = "ส่วนของแพทย์";
-            this.DoctorPrice.Name = "DoctorPrice";
-            // 
-            // Money
-            // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
-            this.Money.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Money.HeaderText = "Com.แพทย์";
-            this.Money.Name = "Money";
-            this.Money.ReadOnly = true;
-            // 
-            // comp
-            // 
-            this.comp.HeaderText = "Comp.";
-            this.comp.Name = "comp";
-            this.comp.ReadOnly = true;
-            // 
-            // MBudget
-            // 
-            this.MBudget.HeaderText = "M.Budget";
-            this.MBudget.Name = "MBudget";
-            this.MBudget.ReadOnly = true;
-            // 
-            // GifV
-            // 
-            this.GifV.HeaderText = "Gift.V";
-            this.GifV.Name = "GifV";
-            this.GifV.ReadOnly = true;
-            // 
-            // Subject
-            // 
-            this.Subject.HeaderText = "Subject";
-            this.Subject.Name = "Subject";
-            this.Subject.ReadOnly = true;
-            // 
-            // ngbMain
-            // 
-            this.ngbMain.CanMoveFirst = true;
-            this.ngbMain.CanMoveLast = true;
-            this.ngbMain.CanMoveNext = true;
-            this.ngbMain.CanMovePrevious = true;
-            this.ngbMain.CurrentPage = ((long)(0));
-            this.ngbMain.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ngbMain.Enableds = false;
-            this.ngbMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.ngbMain.Location = new System.Drawing.Point(0, 467);
-            this.ngbMain.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
-            this.ngbMain.Name = "ngbMain";
-            this.ngbMain.Size = new System.Drawing.Size(1257, 26);
-            this.ngbMain.TabIndex = 130;
-            this.ngbMain.TotalPage = ((long)(0));
-            this.ngbMain.TotalRecord = ((long)(0));
-            this.ngbMain.Visible = false;
-            // 
-            // uBranch1
-            // 
-            this.uBranch1.BranchId = "";
-            this.uBranch1.BranchName = "";
-            this.uBranch1.Location = new System.Drawing.Point(243, 43);
-            this.uBranch1.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
-            this.uBranch1.Name = "uBranch1";
-            this.uBranch1.Size = new System.Drawing.Size(330, 34);
-            this.uBranch1.TabIndex = 3074;
             // 
             // FrmCommissionDoctorCheck
             // 
