@@ -604,7 +604,7 @@ namespace AryuwatSystem.Forms
                     //{
                     // }
                     //string aa = Childmenu.GetType();
-                    if (childmenu == null || childmenu.ToString() == "Agency") return;
+                    if (childmenu == null) return;
                     if (childmenu is ToolStripMenuItem)
                     {
                         //if (string.IsNullOrEmpty(((ToolStripMenuItem)childmenu).Tag + "")) return;
@@ -656,6 +656,26 @@ namespace AryuwatSystem.Forms
                             ((ToolStripMenuItem)childmenu).Visible = false;
                         }
                         if (((ToolStripMenuItem)childmenu).Tag + "" == "Menu5Sub5")
+                        {
+                            ((ToolStripMenuItem)childmenu).Visible = false;
+                        }
+                        if (((ToolStripMenuItem)childmenu).Tag + "" == "Menu3Sub7")
+                        {
+                            ((ToolStripMenuItem)childmenu).Visible = false;
+                        }
+                        if (((ToolStripMenuItem)childmenu).Tag + "" == "Menu3Sub10")
+                        {
+                            ((ToolStripMenuItem)childmenu).Visible = false;
+                        }
+                        if (((ToolStripMenuItem)childmenu).Tag + "" == "Menu3Sub11")
+                        {
+                            ((ToolStripMenuItem)childmenu).Visible = false;
+                        }
+                        if (((ToolStripMenuItem)childmenu).Tag + "" == "Menu3Sub12")
+                        {
+                            ((ToolStripMenuItem)childmenu).Visible = false;
+                        }
+                        if (((ToolStripMenuItem)childmenu).Tag + "" == "Menu3Sub13")
                         {
                             ((ToolStripMenuItem)childmenu).Visible = false;
                         }
