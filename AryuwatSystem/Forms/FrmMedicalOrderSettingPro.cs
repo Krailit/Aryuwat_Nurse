@@ -4928,8 +4928,9 @@ namespace AryuwatSystem.Forms
                         {
                             using (var context = new EntitiesOPD_System())
                             {
+
                                 var getRoomMO = context.MedicalOrders.Where(x => x.Room_Status == true).Take(1).OrderByDescending(x => x.ID).FirstOrDefault();
-                                int maxid = getRoomMO != null ? !String.IsNullOrEmpty(getRoomMO.SONo) ? Convert.ToInt32(getRoomMO.SONo.Substring(12, 4).ToString()) : 0 : 0;
+                                int maxid = getRoomMO != null ? Convert.ToInt32(getRoomMO.SONo.Substring(12, 4).ToString()) : 0;
                                 var strCheck = moso + MoSubType + "-" + ((DateTime.Now.Year + 543).ToString().Substring(2, 2) + (DateTime.Now.Month).ToString("0#") + (maxid + 1).ToString("000#")).ToString();
                                 this.idMax = strCheck;
                             }
@@ -6276,8 +6277,9 @@ namespace AryuwatSystem.Forms
                     {
                         using (var context = new EntitiesOPD_System())
                         {
-                            var getRoomMO = context.MedicalOrders.Where(x => x.Room_Status == true).Take(1).OrderByDescending(x => x.ID).FirstOrDefault();
-                            int maxid = getRoomMO != null ? !String.IsNullOrEmpty(getRoomMO.SONo) ? Convert.ToInt32(getRoomMO.SONo.Substring(12, 4).ToString()) : 0 : 0; 
+
+                            var getRoomMO = radioButtonMO.Checked ? context.MedicalOrders.Where(x => x.Room_Status == true && !String.IsNullOrEmpty(x.VN)).Take(1).OrderByDescending(x => x.ID).FirstOrDefault() : context.MedicalOrders.Where(x => x.Room_Status == true && !String.IsNullOrEmpty(x.SONo)).Take(1).OrderByDescending(x => x.ID).FirstOrDefault();
+                            int maxid = radioButtonMO.Checked ? (getRoomMO != null ? Convert.ToInt32(getRoomMO.VN.Substring(12, 4).ToString()) : 0) : (getRoomMO != null ? Convert.ToInt32(getRoomMO.SONo.Substring(12, 4).ToString()) : 0); 
                             var strCheck = moso + MoSubType + "-" + ((DateTime.Now.Year + 543).ToString().Substring(2, 2) + (DateTime.Now.Month).ToString("0#") + (maxid + 1).ToString("000#")).ToString();
                             this.idMax = strCheck;
                         }
