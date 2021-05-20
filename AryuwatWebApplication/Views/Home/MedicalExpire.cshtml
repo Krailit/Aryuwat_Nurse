@@ -49,7 +49,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="text-left align-middle" style="padding-left:50px;">ท่ออาหาร เปลี่ยนทุกๆ 1 เดือน</td>
+                                <td class="text-left align-middle" style="padding-left:50px;">ท่ออาหาร เปลี่ยนทุกๆ 15 วัน</td>
                                 <td class="text-left align-middle">{{ oneLastChange }}</td>
                                 <td class="text-left align-middle">{{ oneNextChange }}</td>
                                 <td class="text-center align-middle">
@@ -206,7 +206,8 @@
                         that.oneLastChange = response.data.onelastchange == null ? '' : that.parseJsonDate(response.data.onelastchange);
                         if (response.data.onenextchange == null) {
                             var dt = new Date(Date.now());
-                            dt.setMonth(dt.getMonth() + 1);
+                            //dt.setMonth(dt.getMonth() + 1);
+                            dt.setMonth(dt.getDate() + 15);
                             that.oneNextChange = that.parseJsonDate(dt);
                         }
                         else {

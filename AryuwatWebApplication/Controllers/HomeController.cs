@@ -429,7 +429,8 @@ namespace AryuwatWebApplication.Controllers
                     var chkdata = context.PatientChanges.Where(x => x.FK_Customer_ID == tmpCustomerID && x.Type == type && x.Is_Active == true).OrderByDescending(x => x.ID).FirstOrDefault()?.Count;
                     PatientChange PC = new PatientChange();
                     PC.DateChange = DateTime.Now;
-                    PC.NextDateChange = type == 1 ? DateTime.Now.AddMonths(1) : DateTime.Now.AddDays(15);
+                    //PC.NextDateChange = type == 1 ? DateTime.Now.AddMonths(1) : DateTime.Now.AddDays(15);                    
+                    PC.NextDateChange = DateTime.Now.AddDays(15);
                     PC.Type = type;
                     PC.Count = chkdata == null ? 1 : chkdata + 1;
                     PC.FK_Customer_ID = tmpCustomerID;

@@ -39,7 +39,7 @@
             <div class="card-body">
                 <div class="datatable">
                     <table class="table table-bordered table-hover" id="dataTable" cellspacing="0">
-                        <thead>
+                        @*<thead>
                             <tr>
                                 <th class="text-right align-middle" colspan="6">
                                     {{AttachFileName}}
@@ -53,10 +53,23 @@
                                     <button class="btn btn-success btn-sm" v-on:click="uploadfile()" v-if="AttachFileName != ''">&nbsp; Upload or Select</button>
                                 </th>
                             </tr>
-                        </thead>
+                        </thead>*@
                         <thead>
                             <tr>
-                                <th class="text-center align-middle" style="padding-left:50px;" colspan="2">Name</th>
+                                <th class="text-right align-middle" style="border: 0px" colspan="6">
+                                    {{AttachFileName}}
+                                    <button class="btn btn-indigo btn-sm" v-on:click="callfile()" v-if="AttachFileName == ''"><i class="fa fa-upload"></i>&nbsp; Upload file</button>
+                                    <input id="FormulaAttachFile"
+                                           accept="image/*"
+                                           type="file"
+                                           ref="ApplicantRegister"
+                                           style="display:none"
+                                           v-on:change="onFileFormulaChange($event)" capture>
+                                    <button class="btn btn-success btn-sm" v-on:click="uploadfile()" v-if="AttachFileName != ''">&nbsp; Upload or Select</button>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th class="text-center align-middle" style="padding-left:50px;">Name</th>
                                 <th class="text-center align-middle" style="">Detail</th>
                                 <th class="text-center align-middle" style="">Last Modified</th>
                                 <th class="text-center align-middle" style="">Preview</th>
@@ -65,7 +78,7 @@
                         </thead>
                         <tbody>
                             <tr :key="index" v-for="(items, index) in Attachfile" v-if="Attachfile.length > 0" class="rowHover">
-                                <td class="text-left align-middle" style="padding-left:50px;" colspan="2">
+                                <td class="text-left align-middle" style="padding-left:50px;">
                                     <p>
                                         <i class="fa fa-image"></i>
                                         {{items.FileName}}
