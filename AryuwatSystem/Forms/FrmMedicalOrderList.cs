@@ -427,9 +427,12 @@ private readonly bool tabletEnabled;
                 info.MedStatus_CodeNew = MedStatus_CodeNew;
                 info.MedStatus_CodePending = MedStatus_CodePending;
                 info.MedStatus_CodeClosed = MedStatus_CodeClosed;
-                info.MedStatus_Unpaid = checkBoxUnpaid.Checked ? "6" : null;
-                info.MedStatus_Deposit = checkBoxDeposit.Checked ? "7" : null;
-                info.MedStatus_Paid = checkBoxPaid.Checked ? "8" : null;
+                //info.MedStatus_Unpaid = checkBoxUnpaid.Checked ? "6" : null;
+                //info.MedStatus_Deposit = checkBoxDeposit.Checked ? "7" : null;
+                //info.MedStatus_Paid = checkBoxPaid.Checked ? "8" : null;
+                info.MedStatus_Unpaid = checkBoxNew.Checked ? "0" : null;
+                info.MedStatus_Deposit = checkBoxPending.Checked ? "1" : null;
+                info.MedStatus_Paid = checkBoxClose.Checked ? "2" : null;
                 info.BranchId = uBranch1.BranchId;
 
                 info.QueryType = "SEARCH";

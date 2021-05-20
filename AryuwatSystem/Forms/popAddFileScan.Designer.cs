@@ -59,7 +59,7 @@
             this.dgvFile.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvFile.Location = new System.Drawing.Point(0, 31);
             this.dgvFile.Name = "dgvFile";
-            this.dgvFile.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            //this.dgvFile.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dgvFile.RowTemplate.ReadOnly = true;
             this.dgvFile.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFile.Size = new System.Drawing.Size(839, 234);

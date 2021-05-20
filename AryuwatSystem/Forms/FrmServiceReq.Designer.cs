@@ -130,7 +130,7 @@
             this.dgvAestheticList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvAestheticList.Location = new System.Drawing.Point(0, 28);
             this.dgvAestheticList.Name = "dgvAestheticList";
-            this.dgvAestheticList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            //this.dgvAestheticList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dgvAestheticList.RowTemplate.ReadOnly = true;
             this.dgvAestheticList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAestheticList.Size = new System.Drawing.Size(1261, 150);
@@ -176,7 +176,7 @@
             this.dataGridViewSelectList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewSelectList.Location = new System.Drawing.Point(0, 22);
             this.dataGridViewSelectList.Name = "dataGridViewSelectList";
-            this.dataGridViewSelectList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            //this.dataGridViewSelectList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dataGridViewSelectList.RowTemplate.ReadOnly = true;
             this.dataGridViewSelectList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewSelectList.Size = new System.Drawing.Size(1261, 166);

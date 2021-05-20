@@ -275,7 +275,7 @@ namespace AryuwatSystem.Forms
             this.dgvAestheticList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvAestheticList.Location = new System.Drawing.Point(8, 34);
             this.dgvAestheticList.Name = "dgvAestheticList";
-            this.dgvAestheticList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            //this.dgvAestheticList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dgvAestheticList.RowTemplate.ReadOnly = true;
             this.dgvAestheticList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAestheticList.Size = new System.Drawing.Size(1251, 26);
@@ -315,7 +315,7 @@ namespace AryuwatSystem.Forms
             this.dgvSurgeryList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvSurgeryList.Location = new System.Drawing.Point(9, 34);
             this.dgvSurgeryList.Name = "dgvSurgeryList";
-            this.dgvSurgeryList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            //this.dgvSurgeryList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dgvSurgeryList.RowTemplate.ReadOnly = true;
             this.dgvSurgeryList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSurgeryList.Size = new System.Drawing.Size(1251, 32);
@@ -376,7 +376,7 @@ namespace AryuwatSystem.Forms
             this.dgvWellness_AntiagingList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvWellness_AntiagingList.Location = new System.Drawing.Point(9, 34);
             this.dgvWellness_AntiagingList.Name = "dgvWellness_AntiagingList";
-            this.dgvWellness_AntiagingList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            //this.dgvWellness_AntiagingList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dgvWellness_AntiagingList.RowTemplate.ReadOnly = true;
             this.dgvWellness_AntiagingList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvWellness_AntiagingList.Size = new System.Drawing.Size(1251, 32);
@@ -452,7 +452,7 @@ namespace AryuwatSystem.Forms
             this.dgvPromotionList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvPromotionList.Location = new System.Drawing.Point(8, 34);
             this.dgvPromotionList.Name = "dgvPromotionList";
-            this.dgvPromotionList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            //this.dgvPromotionList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dgvPromotionList.RowTemplate.ReadOnly = true;
             this.dgvPromotionList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPromotionList.Size = new System.Drawing.Size(1251, 32);
@@ -492,7 +492,7 @@ namespace AryuwatSystem.Forms
             this.dgvPharmacyList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvPharmacyList.Location = new System.Drawing.Point(9, 34);
             this.dgvPharmacyList.Name = "dgvPharmacyList";
-            this.dgvPharmacyList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            //this.dgvPharmacyList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dgvPharmacyList.RowTemplate.ReadOnly = true;
             this.dgvPharmacyList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPharmacyList.Size = new System.Drawing.Size(1251, 32);
@@ -540,7 +540,7 @@ namespace AryuwatSystem.Forms
             this.dgvFile.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvFile.Location = new System.Drawing.Point(0, 30);
             this.dgvFile.Name = "dgvFile";
-            this.dgvFile.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            //this.dgvFile.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dgvFile.RowTemplate.ReadOnly = true;
             this.dgvFile.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFile.Size = new System.Drawing.Size(1268, 32);

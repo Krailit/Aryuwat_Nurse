@@ -548,10 +548,14 @@ namespace AryuwatSystem.Forms
                 //ตรงนี้เฉพาะ Menu ที่เป็น Head
                 foreach (ToolStripMenuItem headMenu in menuBar1.menuStriptSystem.Items)
                 {
-                    //headMenu.Enabled = FindeStatusMenu(headMenu.Tag);
-                    headMenu.Visible = FindeStatusMenu(headMenu.Tag);
-                    //วนเข้าไปใน Submenu ของ Head
-                    SetStatusChildMenu(headMenu);
+                    if (headMenu.Text != "นัดหมาย")
+                    {
+                        //headMenu.Enabled = FindeStatusMenu(headMenu.Tag);
+                        headMenu.Visible = FindeStatusMenu(headMenu.Tag);
+
+                        //วนเข้าไปใน Submenu ของ Head
+                        SetStatusChildMenu(headMenu);
+                    }
                 }
                 List<string> lsTag = new List<string>();
                 Control.ControlCollection coll = this.Controls;
@@ -633,7 +637,7 @@ namespace AryuwatSystem.Forms
                         //}
                         if (((ToolStripMenuItem)childmenu).Tag + "" == "Menu4Sub1")
                         {
-                            btnAppointment.Visible = ((ToolStripMenuItem)childmenu).Enabled;
+                            //btnAppointment.Visible = ((ToolStripMenuItem)childmenu).Enabled;
                         }
                         //if (((ToolStripMenuItem)childmenu).Tag + "" == "Menu4Sub2")
                         //{
@@ -652,6 +656,26 @@ namespace AryuwatSystem.Forms
                             ((ToolStripMenuItem)childmenu).Visible = false;
                         }
                         if (((ToolStripMenuItem)childmenu).Tag + "" == "Menu5Sub5")
+                        {
+                            ((ToolStripMenuItem)childmenu).Visible = false;
+                        }
+                        if (((ToolStripMenuItem)childmenu).Tag + "" == "Menu3Sub7")
+                        {
+                            ((ToolStripMenuItem)childmenu).Visible = false;
+                        }
+                        if (((ToolStripMenuItem)childmenu).Tag + "" == "Menu3Sub10")
+                        {
+                            ((ToolStripMenuItem)childmenu).Visible = false;
+                        }
+                        if (((ToolStripMenuItem)childmenu).Tag + "" == "Menu3Sub11")
+                        {
+                            ((ToolStripMenuItem)childmenu).Visible = false;
+                        }
+                        if (((ToolStripMenuItem)childmenu).Tag + "" == "Menu3Sub12")
+                        {
+                            ((ToolStripMenuItem)childmenu).Visible = false;
+                        }
+                        if (((ToolStripMenuItem)childmenu).Tag + "" == "Menu3Sub13")
                         {
                             ((ToolStripMenuItem)childmenu).Visible = false;
                         }

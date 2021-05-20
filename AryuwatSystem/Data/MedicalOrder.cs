@@ -203,7 +203,7 @@ namespace AryuwatSystem.Data
                                                new SqlParameter("@OldKey", info.OldKey),
                                                new SqlParameter("@Product", info.Product),
                                                new SqlParameter("@StartDate",info.StartDate),
-                                               new SqlParameter("@EndDate",info.EndDate),
+                                               new SqlParameter("@EndDate",Convert.ToDateTime(info.EndDate).ToString("yyyy/MM/dd")),
                                                new SqlParameter("@RefMO",info.RefMO),
                                                new SqlParameter("@BranchId",info.BranchId)
                                                

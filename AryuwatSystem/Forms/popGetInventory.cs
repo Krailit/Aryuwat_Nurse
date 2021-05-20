@@ -468,27 +468,36 @@ namespace AryuwatSystem.Forms
                     {
                         DataGridViewCheckBoxCell ch1 = new DataGridViewCheckBoxCell();
                         ch1 = (DataGridViewCheckBoxCell)dgvData.Rows[item.Index].Cells[0];
-
+                        var chkdata = true;
+                        foreach (DataGridViewRow data in dataGridViewSelectList.Rows)
+                        {
+                            if (item.Cells[2].Value.ToString() == data.Cells[1].Value.ToString())
+                            {
+                                chkdata = false;
+                            }
+                        }
                         if (ch1.Value!=null && ch1.Value.ToString() == "True")
                         {
                             ms_code = item.Cells["รหัส"].Value + "";
                             //if (LsMS_Code.Contains(ms_code)) continue;
                             LsMS_Code.Add(ms_code);
                             object[] myItems = {
-                                             false,//chk
-                                           item.Cells["รหัส"].Value,
-                                           item.Cells["ชื่อ"].Value,
-                                           item.Cells["LocationID"].Value,
-                                           "0",//Quantity
-                                           "0",//Price
-                                           "0",//SumPrice
-                                           item.Cells["จำนวน"].Value,//Instock
-                                           item.Cells["จำนวน"].Value,//Instock
-                                           item.Cells["ราคาเฉลี่ย"].Value,//PriceAverage
-                                       };
+                                false,//chk
+                                item.Cells["รหัส"].Value,
+                                item.Cells["ชื่อ"].Value,
+                                item.Cells["LocationID"].Value,
+                                "0",//Quantity
+                                "0",//Price
+                                "0",//SumPrice
+                                item.Cells["จำนวน"].Value,//Instock
+                                item.Cells["จำนวน"].Value,//Instock
+                                item.Cells["ราคาเฉลี่ย"].Value,//PriceAverage
+                            };
                             //item.Cells[0].Value = false;
-
-                            dataGridViewSelectList.Rows.Add(myItems);
+                            if (chkdata)
+                            {
+                                dataGridViewSelectList.Rows.Add(myItems);
+                            }
                         }
                     }
                 dataGridViewSelectList.ClearSelection();

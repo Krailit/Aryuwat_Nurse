@@ -419,7 +419,7 @@ namespace AryuwatSystem.Data
        {
            try
            {
-               DataSet dataReader = SqlHelper.ExecuteDataset(trn, CommandType.Text, "SELECT * FROM [MedicalSection] order by Section_Name", null);
+               DataSet dataReader = SqlHelper.ExecuteDataset(trn, CommandType.Text, "SELECT * FROM [MedicalSection] where Section_Name = 'New PHARMACY' order by Section_Name", null);
                return dataReader;
            }
            catch (Exception ex)
@@ -443,7 +443,7 @@ namespace AryuwatSystem.Data
        {
            try
            {
-               DataSet dataReader = SqlHelper.ExecuteDataset(trn, CommandType.Text, "SELECT * FROM [MedicalSetting] where Setting_Type='O' order by Setting_Name", null);
+               DataSet dataReader = SqlHelper.ExecuteDataset(trn, CommandType.Text, "SELECT * FROM [MedicalSetting] where Setting_Type='Oๅๅๅ' order by Setting_Name", null);
                return dataReader;
            }
            catch (Exception ex)

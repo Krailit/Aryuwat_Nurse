@@ -72,6 +72,7 @@ namespace AryuwatSystem.Forms
             this.dgvFile = new System.Windows.Forms.DataGridView();
             this.panel8 = new System.Windows.Forms.Panel();
             this.txtFilePath = new System.Windows.Forms.TextBox();
+            this.btnAddFile = new AryuwatSystem.UserControls.ButtonAdd();
             this.txtFileName = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -88,6 +89,8 @@ namespace AryuwatSystem.Forms
             this.panel4 = new System.Windows.Forms.Panel();
             this.lbProCredit = new System.Windows.Forms.Label();
             this.lbPromotion = new System.Windows.Forms.Label();
+            this.buttonAddDown = new AryuwatSystem.UserControls.ButtonRigth();
+            this.buttonDeleteUp = new AryuwatSystem.UserControls.ButtonLeft();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBoxPstock = new System.Windows.Forms.PictureBox();
             this.btnRefund = new System.Windows.Forms.Button();
@@ -111,10 +114,14 @@ namespace AryuwatSystem.Forms
             this.txtAgenMemName = new System.Windows.Forms.TextBox();
             this.labelIDAgency = new System.Windows.Forms.Label();
             this.txtAgenMemID = new System.Windows.Forms.TextBox();
+            this.buttonSelectAgency1 = new AryuwatSystem.UserControls.ButtonSelectAgency();
+            this.buttonMerg1 = new AryuwatSystem.UserControls.ButtonMerg();
             this.txtPriceTotal = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panelName = new System.Windows.Forms.Panel();
+            this.txtNote = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.lblEndDate = new System.Windows.Forms.Label();
             this.comboBoxByDr = new System.Windows.Forms.ComboBox();
             this.lblStartDate = new System.Windows.Forms.Label();
@@ -146,17 +153,10 @@ namespace AryuwatSystem.Forms
             this.labelref1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.collapsibleSplitter1 = new AryuwatSystem.UserControls.CollapsibleSplitter();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtNote = new System.Windows.Forms.TextBox();
-            this.btnAddFile = new AryuwatSystem.UserControls.ButtonAdd();
-            this.buttonAddDown = new AryuwatSystem.UserControls.ButtonRigth();
-            this.buttonDeleteUp = new AryuwatSystem.UserControls.ButtonLeft();
-            this.buttonSelectAgency1 = new AryuwatSystem.UserControls.ButtonSelectAgency();
-            this.buttonMerg1 = new AryuwatSystem.UserControls.ButtonMerg();
-            this.collapsibleSplitter1 = new AryuwatSystem.UserControls.CollapsibleSplitter();
             this.FrmMedicalOrderSettingPro_Fill_Panel.SuspendLayout();
             this.panelList.SuspendLayout();
             this.panelProductList.SuspendLayout();
@@ -330,7 +330,7 @@ namespace AryuwatSystem.Forms
             this.dgvAestheticList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvAestheticList.Location = new System.Drawing.Point(8, 34);
             this.dgvAestheticList.Name = "dgvAestheticList";
-            this.dgvAestheticList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            //this.dgvAestheticList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dgvAestheticList.RowTemplate.ReadOnly = true;
             this.dgvAestheticList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAestheticList.Size = new System.Drawing.Size(1560, 26);
@@ -357,7 +357,7 @@ namespace AryuwatSystem.Forms
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(0, 0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1577, 65);
+            this.panel9.Size = new System.Drawing.Size(1577, 62);
             this.panel9.TabIndex = 151;
             // 
             // dgvSurgeryList
@@ -371,10 +371,10 @@ namespace AryuwatSystem.Forms
             this.dgvSurgeryList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvSurgeryList.Location = new System.Drawing.Point(9, 34);
             this.dgvSurgeryList.Name = "dgvSurgeryList";
-            this.dgvSurgeryList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            //this.dgvSurgeryList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dgvSurgeryList.RowTemplate.ReadOnly = true;
             this.dgvSurgeryList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSurgeryList.Size = new System.Drawing.Size(1560, 35);
+            this.dgvSurgeryList.Size = new System.Drawing.Size(1560, 32);
             this.dgvSurgeryList.TabIndex = 148;
             this.dgvSurgeryList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSurgeryList_CellContentClick);
             this.dgvSurgeryList.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvSurgeryList_RowPostPaint);
@@ -419,7 +419,7 @@ namespace AryuwatSystem.Forms
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1577, 65);
+            this.panel3.Size = new System.Drawing.Size(1577, 62);
             this.panel3.TabIndex = 151;
             // 
             // dgvWellness_AntiagingList
@@ -433,10 +433,10 @@ namespace AryuwatSystem.Forms
             this.dgvWellness_AntiagingList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvWellness_AntiagingList.Location = new System.Drawing.Point(9, 34);
             this.dgvWellness_AntiagingList.Name = "dgvWellness_AntiagingList";
-            this.dgvWellness_AntiagingList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            //this.dgvWellness_AntiagingList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dgvWellness_AntiagingList.RowTemplate.ReadOnly = true;
             this.dgvWellness_AntiagingList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvWellness_AntiagingList.Size = new System.Drawing.Size(1560, 35);
+            this.dgvWellness_AntiagingList.Size = new System.Drawing.Size(1560, 32);
             this.dgvWellness_AntiagingList.TabIndex = 148;
             this.dgvWellness_AntiagingList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWellness_AntiagingList_CellContentClick);
             this.dgvWellness_AntiagingList.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvWellness_AntiagingList_RowPostPaint);
@@ -477,7 +477,7 @@ namespace AryuwatSystem.Forms
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1577, 65);
+            this.panel2.Size = new System.Drawing.Size(1577, 62);
             this.panel2.TabIndex = 153;
             // 
             // txtFindPro
@@ -510,10 +510,9 @@ namespace AryuwatSystem.Forms
             this.dgvPromotionList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvPromotionList.Location = new System.Drawing.Point(8, 34);
             this.dgvPromotionList.Name = "dgvPromotionList";
-            this.dgvPromotionList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dgvPromotionList.RowTemplate.ReadOnly = true;
             this.dgvPromotionList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPromotionList.Size = new System.Drawing.Size(1560, 35);
+            this.dgvPromotionList.Size = new System.Drawing.Size(1560, 32);
             this.dgvPromotionList.TabIndex = 148;
             this.dgvPromotionList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPromotionList_CellContentClick);
             this.dgvPromotionList.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvPromotionList_RowPostPaint);
@@ -536,7 +535,7 @@ namespace AryuwatSystem.Forms
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1577, 65);
+            this.panel6.Size = new System.Drawing.Size(1577, 62);
             this.panel6.TabIndex = 151;
             // 
             // dgvPharmacyList
@@ -550,10 +549,9 @@ namespace AryuwatSystem.Forms
             this.dgvPharmacyList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvPharmacyList.Location = new System.Drawing.Point(9, 34);
             this.dgvPharmacyList.Name = "dgvPharmacyList";
-            this.dgvPharmacyList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dgvPharmacyList.RowTemplate.ReadOnly = true;
             this.dgvPharmacyList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPharmacyList.Size = new System.Drawing.Size(1560, 35);
+            this.dgvPharmacyList.Size = new System.Drawing.Size(1560, 32);
             this.dgvPharmacyList.TabIndex = 148;
             this.dgvPharmacyList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPharmacyList_CellContentClick);
             this.dgvPharmacyList.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvPharmacyList_RowPostPaint);
@@ -599,10 +597,10 @@ namespace AryuwatSystem.Forms
             this.dgvFile.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvFile.Location = new System.Drawing.Point(0, 30);
             this.dgvFile.Name = "dgvFile";
-            this.dgvFile.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            //this.dgvFile.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dgvFile.RowTemplate.ReadOnly = true;
             this.dgvFile.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFile.Size = new System.Drawing.Size(1577, 35);
+            this.dgvFile.Size = new System.Drawing.Size(1577, 32);
             this.dgvFile.TabIndex = 289;
             this.dgvFile.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFile_CellContentClick);
             // 
@@ -625,6 +623,17 @@ namespace AryuwatSystem.Forms
             this.txtFilePath.Name = "txtFilePath";
             this.txtFilePath.Size = new System.Drawing.Size(423, 23);
             this.txtFilePath.TabIndex = 284;
+            // 
+            // btnAddFile
+            // 
+            this.btnAddFile.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddFile.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddFile.Location = new System.Drawing.Point(822, 1);
+            this.btnAddFile.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAddFile.Name = "btnAddFile";
+            this.btnAddFile.Size = new System.Drawing.Size(26, 26);
+            this.btnAddFile.TabIndex = 286;
+            this.btnAddFile.BtnClick += new AryuwatSystem.UserControls.ButtonAdd.ButtonClick(this.btnAddFile_BtnClick);
             // 
             // txtFileName
             // 
@@ -671,7 +680,7 @@ namespace AryuwatSystem.Forms
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1577, 65);
+            this.panel5.Size = new System.Drawing.Size(1577, 62);
             this.panel5.TabIndex = 154;
             // 
             // txtSearchRoom
@@ -704,10 +713,10 @@ namespace AryuwatSystem.Forms
             this.gvRoom.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.gvRoom.Location = new System.Drawing.Point(8, 34);
             this.gvRoom.Name = "gvRoom";
-            this.gvRoom.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            //this.gvRoom.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.gvRoom.RowTemplate.ReadOnly = true;
             this.gvRoom.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gvRoom.Size = new System.Drawing.Size(1560, 35);
+            this.gvRoom.Size = new System.Drawing.Size(1560, 32);
             this.gvRoom.TabIndex = 148;
             this.gvRoom.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvRoomList_CellContentClick);
             // 
@@ -832,6 +841,24 @@ namespace AryuwatSystem.Forms
             this.lbPromotion.Size = new System.Drawing.Size(129, 16);
             this.lbPromotion.TabIndex = 148;
             this.lbPromotion.Text = "ชื่อลูกค้า/Customer";
+            // 
+            // buttonAddDown
+            // 
+            this.buttonAddDown.Location = new System.Drawing.Point(616, 1);
+            this.buttonAddDown.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.buttonAddDown.Name = "buttonAddDown";
+            this.buttonAddDown.Size = new System.Drawing.Size(30, 26);
+            this.buttonAddDown.TabIndex = 146;
+            this.buttonAddDown.BtnClick += new AryuwatSystem.UserControls.ButtonRigth.ButtonClick(this.buttonAddDown_BtnClick);
+            // 
+            // buttonDeleteUp
+            // 
+            this.buttonDeleteUp.Location = new System.Drawing.Point(582, 1);
+            this.buttonDeleteUp.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.buttonDeleteUp.Name = "buttonDeleteUp";
+            this.buttonDeleteUp.Size = new System.Drawing.Size(30, 26);
+            this.buttonDeleteUp.TabIndex = 147;
+            this.buttonDeleteUp.BtnClick += new AryuwatSystem.UserControls.ButtonLeft.ButtonClick(this.buttonDeleteUp_BtnClick);
             // 
             // panel1
             // 
@@ -1134,6 +1161,30 @@ namespace AryuwatSystem.Forms
             this.txtAgenMemID.Size = new System.Drawing.Size(102, 22);
             this.txtAgenMemID.TabIndex = 3066;
             // 
+            // buttonSelectAgency1
+            // 
+            this.buttonSelectAgency1.AutoSize = true;
+            this.buttonSelectAgency1.BackColor = System.Drawing.Color.Transparent;
+            this.buttonSelectAgency1.Location = new System.Drawing.Point(678, 34);
+            this.buttonSelectAgency1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonSelectAgency1.Name = "buttonSelectAgency1";
+            this.buttonSelectAgency1.Size = new System.Drawing.Size(44, 45);
+            this.buttonSelectAgency1.TabIndex = 273;
+            this.buttonSelectAgency1.Visible = false;
+            this.buttonSelectAgency1.BtnClick += new AryuwatSystem.UserControls.ButtonSelectAgency.ButtonClick(this.buttonSelectAgency1_BtnClick);
+            // 
+            // buttonMerg1
+            // 
+            this.buttonMerg1.AutoSize = true;
+            this.buttonMerg1.BackColor = System.Drawing.Color.Transparent;
+            this.buttonMerg1.Location = new System.Drawing.Point(650, 44);
+            this.buttonMerg1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonMerg1.Name = "buttonMerg1";
+            this.buttonMerg1.Size = new System.Drawing.Size(30, 30);
+            this.buttonMerg1.TabIndex = 272;
+            this.buttonMerg1.Visible = false;
+            this.buttonMerg1.BtnClick += new AryuwatSystem.UserControls.ButtonMerg.ButtonClick(this.buttonMerg1_BtnClick);
+            // 
             // txtPriceTotal
             // 
             this.txtPriceTotal.BackColor = System.Drawing.Color.Black;
@@ -1207,6 +1258,27 @@ namespace AryuwatSystem.Forms
             this.panelName.Size = new System.Drawing.Size(1585, 96);
             this.panelName.TabIndex = 145;
             this.panelName.Paint += new System.Windows.Forms.PaintEventHandler(this.panel8_Paint);
+            // 
+            // txtNote
+            // 
+            this.txtNote.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtNote.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtNote.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.txtNote.Location = new System.Drawing.Point(1391, 8);
+            this.txtNote.Multiline = true;
+            this.txtNote.Name = "txtNote";
+            this.txtNote.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtNote.Size = new System.Drawing.Size(181, 79);
+            this.txtNote.TabIndex = 3069;
+            // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(1340, 8);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(45, 22);
+            this.label2.TabIndex = 322;
+            this.label2.Text = "Note:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblEndDate
             // 
@@ -1561,93 +1633,6 @@ namespace AryuwatSystem.Forms
             this.label6.TabIndex = 142;
             this.label6.Text = "ชื่อลูกค้า/Customer";
             // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "CustomIcon.png");
-            this.imageList1.Images.SetKeyName(1, "TN_psd1084_Red.png");
-            this.imageList1.Images.SetKeyName(2, "remove_icon.png");
-            this.imageList1.Images.SetKeyName(3, "");
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // label2
-            // 
-            this.label2.Location = new System.Drawing.Point(1340, 8);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 22);
-            this.label2.TabIndex = 322;
-            this.label2.Text = "Note:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtNote
-            // 
-            this.txtNote.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.txtNote.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtNote.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.txtNote.Location = new System.Drawing.Point(1391, 8);
-            this.txtNote.Multiline = true;
-            this.txtNote.Name = "txtNote";
-            this.txtNote.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtNote.Size = new System.Drawing.Size(181, 79);
-            this.txtNote.TabIndex = 3069;
-            // 
-            // btnAddFile
-            // 
-            this.btnAddFile.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddFile.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddFile.Location = new System.Drawing.Point(822, 1);
-            this.btnAddFile.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnAddFile.Name = "btnAddFile";
-            this.btnAddFile.Size = new System.Drawing.Size(26, 26);
-            this.btnAddFile.TabIndex = 286;
-            this.btnAddFile.BtnClick += new AryuwatSystem.UserControls.ButtonAdd.ButtonClick(this.btnAddFile_BtnClick);
-            // 
-            // buttonAddDown
-            // 
-            this.buttonAddDown.Location = new System.Drawing.Point(616, 1);
-            this.buttonAddDown.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
-            this.buttonAddDown.Name = "buttonAddDown";
-            this.buttonAddDown.Size = new System.Drawing.Size(30, 26);
-            this.buttonAddDown.TabIndex = 146;
-            this.buttonAddDown.BtnClick += new AryuwatSystem.UserControls.ButtonRigth.ButtonClick(this.buttonAddDown_BtnClick);
-            // 
-            // buttonDeleteUp
-            // 
-            this.buttonDeleteUp.Location = new System.Drawing.Point(582, 1);
-            this.buttonDeleteUp.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
-            this.buttonDeleteUp.Name = "buttonDeleteUp";
-            this.buttonDeleteUp.Size = new System.Drawing.Size(30, 26);
-            this.buttonDeleteUp.TabIndex = 147;
-            this.buttonDeleteUp.BtnClick += new AryuwatSystem.UserControls.ButtonLeft.ButtonClick(this.buttonDeleteUp_BtnClick);
-            // 
-            // buttonSelectAgency1
-            // 
-            this.buttonSelectAgency1.AutoSize = true;
-            this.buttonSelectAgency1.BackColor = System.Drawing.Color.Transparent;
-            this.buttonSelectAgency1.Location = new System.Drawing.Point(678, 34);
-            this.buttonSelectAgency1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.buttonSelectAgency1.Name = "buttonSelectAgency1";
-            this.buttonSelectAgency1.Size = new System.Drawing.Size(44, 45);
-            this.buttonSelectAgency1.TabIndex = 273;
-            this.buttonSelectAgency1.Visible = false;
-            this.buttonSelectAgency1.BtnClick += new AryuwatSystem.UserControls.ButtonSelectAgency.ButtonClick(this.buttonSelectAgency1_BtnClick);
-            // 
-            // buttonMerg1
-            // 
-            this.buttonMerg1.AutoSize = true;
-            this.buttonMerg1.BackColor = System.Drawing.Color.Transparent;
-            this.buttonMerg1.Location = new System.Drawing.Point(650, 44);
-            this.buttonMerg1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.buttonMerg1.Name = "buttonMerg1";
-            this.buttonMerg1.Size = new System.Drawing.Size(30, 30);
-            this.buttonMerg1.TabIndex = 272;
-            this.buttonMerg1.Visible = false;
-            this.buttonMerg1.BtnClick += new AryuwatSystem.UserControls.ButtonMerg.ButtonClick(this.buttonMerg1_BtnClick);
-            // 
             // collapsibleSplitter1
             // 
             this.collapsibleSplitter1.AnimationDelay = 20;
@@ -1662,6 +1647,19 @@ namespace AryuwatSystem.Forms
             this.collapsibleSplitter1.UseAnimations = false;
             this.collapsibleSplitter1.Visible = false;
             this.collapsibleSplitter1.VisualStyle = AryuwatSystem.UserControls.VisualStyles.Mozilla;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "CustomIcon.png");
+            this.imageList1.Images.SetKeyName(1, "TN_psd1084_Red.png");
+            this.imageList1.Images.SetKeyName(2, "remove_icon.png");
+            this.imageList1.Images.SetKeyName(3, "");
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // FrmMedicalOrderSettingPro
             // 
