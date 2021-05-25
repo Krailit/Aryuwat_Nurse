@@ -143,6 +143,7 @@
             Attachfile: [],
             fileURL: '',
             File: "",
+            Detail: "",
             AttachFileName: "",
             showload: false,
         },
@@ -179,6 +180,8 @@
                 //}
                 this.File = files[0];
                 this.AttachFileName = this.File.name;
+
+                this.Detail = prompt("รายละเอียดของไฟล์นี้", "");
             },
             uploadfile: function () {
                 var that = this;
@@ -187,6 +190,7 @@
                     that.showload = true;
                     var formData = new FormData();
                     formData.append("CN", that.tmpCustomer.CN);
+                    formData.append("Detail", that.Detail);
                     formData.append("AttachFileData", that.File);
                     that.$http.post('@Url.Action("UploadFile", "Home")',formData).then(function(response)
                     {

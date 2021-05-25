@@ -52,70 +52,94 @@
         <div class="card mb-4">
             <div class="card-header">ตรวจวัดข้อมูลผู้ป่วย</div>
             <div class="card-body">
-                <div class="datatable">
-                    <div class="table-responsive">
-                        <table class="table table-bordered table-hover" id="dataTable" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th class="text-center align-middle">Date</th>
-                                    <th class="text-center align-middle">Time</th>
-                                    <th class="text-center align-middle">T</th>
-                                    <th class="text-center align-middle">BP</th>
-                                    <th class="text-center align-middle">R</th>
-                                    <th class="text-center align-middle">P</th>
-                                    <th class="text-center align-middle">O2</th>
-                                    <th class="text-center align-middle">IN Oral</th>
-                                    <th class="text-center align-middle">IN Parenteral</th>
-                                    <th class="text-center align-middle">OUT Stools</th>
-                                    <th class="text-center align-middle">OUT Urine</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr :key="index" v-for="(items, index) in PatientData" v-if="PatientData.length > 0" data-toggle="modal" data-target="#myModal" style="cursor: pointer;" v-on:click="openPopup(items)" class="rowHover">
-                                    <td class="text-center align-middle" style="border-bottom: 1px solid #ddd;border-right: 1px solid #ddd;">
-                                        {{ items.Date }}
-                                    </td>
-                                    <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
-                                        {{ items.Time }}
-                                    </td>
-                                    <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
-                                        {{ items.T }}
-                                    </td>
-                                    <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
-                                        {{ items.PulseSBP == null || items.PulseSBP == '' || items.PulseDBP == null || items.PulseDBP == '' ? '' : items.PulseSBP + ' / ' + items.PulseDBP }}
-                                    </td>
-                                    <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
-                                        {{ items.R }}
-                                    </td>
-                                    <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
-                                        {{ items.BP }}
-                                    </td>
-                                    <td class="text-center align-middle" style="border-bottom: 1px solid #ddd;">
-                                        {{ items.O2 }}
-                                    </td>
-                                    <td class="text-center align-middle" style="border-bottom: 1px solid #ddd;">
-                                        {{ items.In_Oral }}
-                                    </td>
-                                    <td class="text-center align-middle" style="border-bottom: 1px solid #ddd;">
-                                        {{ items.In_Parenteral }}
-                                    </td>
-                                    <td class="text-center align-middle" style="border-bottom: 1px solid #ddd;">
-                                        {{ items.Out_Stools }}
-                                    </td>
-                                    <td class="text-center align-middle" style="border-bottom: 1px solid #ddd;">
-                                        {{ items.Out_Urine }}
-                                    </td>
-                                </tr>
-                                <tr v-if="PatientData.length == 0">
-                                    <td class="text-left" colspan="6">
-                                        No data available in table
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                <div class="row">
+                    <div class="col-3">
+                        <p style="text-align:left">ตั้งแต่วันที่</p>
+                    </div>
+                    <div class="col-3">
+                        <p style="text-align:left">ถึง</p>
+                        <p style="text-align:left"></p>
                     </div>
                 </div>
+                <div class="row" style="padding-bottom:30px">
+                    <div class="col-3">
+                        <v-date-picker v-model='ToDateSearch' />
+                        @*<input type="date" id="birthdaytime" name="birthdaytime" v-model="ToDateSearch">*@
+                    </div>
+                    <div class="col-3">
+                        <v-date-picker v-model='EndDateSearch' />
+                        @*<input type="date" id="birthdaytime2" name="birthdaytime2" v-model="EndDateSearch">*@
+                    </div>
+                </div>
+        <div class="datatable">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover" id="dataTable" cellspacing="0">
+                    <thead>
+                        @*<tr>
+                            <th class="text-right align-middle" style="border: 0px" colspan="11">
+                                <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal" v-on:click="openPopupNew(items)"><i class="fa fa-plus"></i>&nbsp; Add Data</button>
+                            </th>
+                        </tr>*@
+                        <tr>
+                            <th class="text-center align-middle">Date</th>
+                            <th class="text-center align-middle">Time</th>
+                            <th class="text-center align-middle">T</th>
+                            <th class="text-center align-middle">BP</th>
+                            <th class="text-center align-middle">R</th>
+                            <th class="text-center align-middle">P</th>
+                            <th class="text-center align-middle">O2</th>
+                            <th class="text-center align-middle">IN Oral</th>
+                            <th class="text-center align-middle">IN Parenteral</th>
+                            <th class="text-center align-middle">OUT Stools</th>
+                            <th class="text-center align-middle">OUT Urine</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr :key="index" v-for="(items, index) in PatientData" v-if="PatientData.length > 0" data-toggle="modal" data-target="#myModal" style="cursor: pointer;" v-on:click="openPopup(items)" class="rowHover">
+                            <td class="text-center align-middle" style="border-bottom: 1px solid #ddd;border-right: 1px solid #ddd;">
+                                {{ items.Date }}
+                            </td>
+                            <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
+                                {{ items.Hour + ':' + items.Minute }}
+                            </td>
+                            <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
+                                {{ items.T }}
+                            </td>
+                            <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
+                                {{ items.PulseSBP == null || items.PulseSBP == '' || items.PulseDBP == null || items.PulseDBP == '' ? '' : items.PulseSBP + ' / ' + items.PulseDBP }}
+                            </td>
+                            <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
+                                {{ items.R }}
+                            </td>
+                            <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
+                                {{ items.BP }}
+                            </td>
+                            <td class="text-center align-middle" style="border-bottom: 1px solid #ddd;">
+                                {{ items.O2 }}
+                            </td>
+                            <td class="text-center align-middle" style="border-bottom: 1px solid #ddd;">
+                                {{ items.In_Oral }}
+                            </td>
+                            <td class="text-center align-middle" style="border-bottom: 1px solid #ddd;">
+                                {{ items.In_Parenteral }}
+                            </td>
+                            <td class="text-center align-middle" style="border-bottom: 1px solid #ddd;">
+                                {{ items.Out_Stools }}
+                            </td>
+                            <td class="text-center align-middle" style="border-bottom: 1px solid #ddd;">
+                                {{ items.Out_Urine }}
+                            </td>
+                        </tr>
+                        <tr v-if="PatientData.length == 0">
+                            <td class="text-left" colspan="11">
+                                No data available in table
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+        </div>
+                </div>
         </div>
     </div>
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true" style="font-size: 18px">
@@ -130,11 +154,23 @@
                 <div class="modal-body">
                     <div class="container-fluid">
                         <div class="row" style="padding: 10px">
-                            <div class="col-6" style="padding-bottom: 20px">
-                                <h4 class="modal-title" id="exampleModalScrollableTitle"> วันที่ : <u style="padding-left: 10%">{{ popPatientData.Date }} </u></h4>
+                            <div class="col-7">
+                                <p style="text-align:left">วันที่ :</p>
                             </div>
-                            <div class="col-6">
-                                <h4 class="modal-title" id="exampleModalScrollableTitle"> เวลา : <u style="padding-left: 10%">{{ popPatientData.Time }} </u></h4>
+                            <div class="col-5">
+                                <p style="text-align:left">เวลา :</p>
+                            </div>
+                            <div class="col-7" style="padding-bottom: 20px">
+                                <v-date-picker v-model='popPatientData.Date' />
+                            </div>
+                            <div class="col-2" style="padding-bottom: 20px">
+                                <input type="number" v-model="popPatientData.Hour" style="font-size: 16px;width: 100%" max="23" />
+                            </div>
+                            <div class="col-1" style="padding-bottom: 20px">
+                                <p style="text-align:center">:</p>
+                            </div>
+                            <div class="col-2" style="padding-bottom: 20px">
+                                <input type="number" v-model="popPatientData.Minute" style="font-size: 16px;width: 100%" max="59" />
                             </div>
                             <div class="col-3">
                                 <p style="text-align:right">T :</p>
@@ -217,6 +253,8 @@
 <script src="~/Scripts/vue.js"></script>
 <script src="~/Scripts/axios.js"></script>
 <script src="~/Scripts/moment.js"></script>
+<script src='https://unpkg.com/vue/dist/vue.js'></script>
+<script src='https://unpkg.com/v-calendar'></script>
 <script>
     var tempchart = @Html.Raw(Json.Encode(@Model.chart));
     var tempchart2 = @Html.Raw(Json.Encode(@Model.chart2));
@@ -233,16 +271,23 @@
             PatientData: [],
             popPatientData: [],
             fileURL: '',
+            firstLoad: false,
             showLoad: false,
+            testt: false,
             File: "",
             AttachFileName: "",
+            ToDateSearch: "",
+            EndDateSearch: "",
         },
         mounted: async function () {
             var that = this;
             that.showLoad = true;
             await that.asyncCall();
             await that.asyncCall2();
-
+            var dt = new Date(Date.now());
+            dt.setDate(dt.getDate() - 1);
+            that.ToDateSearch = that.parseJsonDate(Date.now());
+            that.EndDateSearch = that.parseJsonDate(Date.now());
             var chart1 = new Highcharts.Chart('chart', {
                 chart: {
                     type: 'line'
@@ -340,495 +385,515 @@
             if (that.tmpCustomer.CN == null) {
                 window.location.href = '@Url.Content("~/Home/Index")';
             }
-            //that.PatientData.push(
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '00:00',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '00:30',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '01:00',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '01:30',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '02:00',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '02:30',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '03:00',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '03:30',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '04:00',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '04:30',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '05:00',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '05:30',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '06:00',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '06:30',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '07:00',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '07:30',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '08:00',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '08:30',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '09:00',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '09:30',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '10:00',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '10:30',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '11:00',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '11:30',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '12:00',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '12:30',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '13:00',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '13:30',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '14:00',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '14:40',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '15:00',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '15:30',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '16:00',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '16:30',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '17:00',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '17:30',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '18:00',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '18:30',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '19:00',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '19:30',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '20:00',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '20:30',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '21:00',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '21:30',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '22:00',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '22:30',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '23:00',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
-            //    {
-            //        Date: that.parseJsonDate(Date.now()),
-            //        Time: '23:30',
-            //        T: '',
-            //        PulseSBP: '',
-            //        PulseDBP: '',
-            //        R: '',
-            //        BP: '',
-            //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
-            //    },
+            if (1 != 1) {
+                //that.PatientData.push(
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '00:00',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '00:30',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '01:00',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '01:30',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '02:00',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '02:30',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '03:00',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '03:30',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '04:00',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '04:30',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '05:00',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '05:30',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '06:00',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '06:30',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '07:00',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '07:30',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '08:00',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '08:30',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '09:00',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '09:30',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '10:00',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '10:30',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '11:00',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '11:30',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '12:00',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '12:30',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '13:00',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '13:30',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '14:00',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '14:40',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '15:00',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '15:30',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '16:00',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '16:30',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '17:00',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '17:30',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '18:00',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '18:30',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '19:00',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '19:30',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '20:00',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '20:30',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '21:00',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '21:30',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '22:00',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '22:30',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '23:00',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
+                //    {
+                //        Date: that.parseJsonDate(Date.now()),
+                //        Time: '23:30',
+                //        T: '',
+                //        PulseSBP: '',
+                //        PulseDBP: '',
+                //        R: '',
+                //        BP: '',
+                //        O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                //    },
 
-            //);
+                //);
+            }
             await that.GetPatientData();
             that.showLoad = false;
+            that.firstLoad = true;
         },
         watch: {
+            'ToDateSearch'() {
+                if(this.firstLoad)
+                this.GetPatientData();
+            },
+            'EndDateSearch'() {
+                if(this.firstLoad)
+                this.GetPatientData();
+            },
+            //'PatientData'(val) {
+            //    $('#dataTable').DataTable().destroy();
+            //    this.$nextTick(() => {
+            //        $('#dataTable').DataTable().draw();
+            //    })
+            //},
         },
         methods: {
+            drawDT() {
+                $("#dataTable").DataTable().draw();
+            },
             asyncCall: async function () {
                 for (var temp in tempchart) {
                     //console.log(temp, tempchart[temp]);
@@ -853,6 +918,20 @@
                 var that = this;
                 that.popPatientData = val;
             },
+            openPopupNew: function (val) {
+                var that = this;
+                that.popPatientData = {
+                    Date: that.parseJsonDate(Date.now()),
+                    Hour: '',
+                    Minute: '',
+                    T: '',
+                    PulseSBP: '',
+                    PulseDBP: '',
+                    R: '',
+                    BP: '',
+                    O2: '', In_Oral: '', In_Parenteral: '', Out_Stools: '', Out_Urine: ''
+                };
+            },
             BackCustomer:function(){
                 var that=this;
                 window.location.replace('@Url.Action("PatientDetail", "Home")?customerCN=' + that.tmpCustomer.CN)
@@ -860,37 +939,119 @@
             parseJsonDate: function (jsonDateString){
                 return moment(jsonDateString).format("MMM DD, YYYY").toUpperCase();
             },
-            GetPatientData:function(){
-                var that=this;
+            GetPatientData:async function(){
+                var that = this;
+                //$("#dataTable").DataTable().destroy();
+                that.showLoad = true;
+                that.PatientData = [];
+                var test = [];
                 that.$http.post('@Url.Action("GetPatientData", "Home")', {
-                    tmpCustomerID: that.tmpCustomer.ID
+                    tmpCustomerID: that.tmpCustomer.ID,
+                    ToDate: that.ToDateSearch,
+                    EndDate: that.EndDateSearch,
                 }).then(function (response) {
-
                     if (response.data.ContentEncoding == 200) {
-
                         for (var i = 0; i < response.data.data.length; i++)
                         {
-                            for (var a = 0; a < that.PatientData.length; a++) {
-                                lblChartData.push(that.PatientData[a].Time);
-                                if (that.PatientData[a].Date == that.parseJsonDate(response.data.data[i].Date) && that.PatientData[a].Time == response.data.data[i].Time)
-                                {
-                                    dataPSinChartData.push(response.data.data[i].PulseSBP);
-                                    dataPDinChartData.push(response.data.data[i].PulseDBP);
-                                    that.PatientData[a].T = response.data.data[i].T;
-                                    that.PatientData[a].PulseSBP = response.data.data[i].PulseSBP;
-                                    that.PatientData[a].PulseDBP = response.data.data[i].PulseDBP;
-                                    that.PatientData[a].R = response.data.data[i].R;
-                                    that.PatientData[a].BP = response.data.data[i].BP;
-                                    that.PatientData[a].O2 = response.data.data[i].O2;
-                                    that.PatientData[a].In_Oral = response.data.data[i].In_Oral;
-                                    that.PatientData[a].In_Parenteral = response.data.data[i].In_Parenteral;
-                                    that.PatientData[a].Out_Stools = response.data.data[i].Out_Stools;
-                                    that.PatientData[a].Out_Urine = response.data.data[i].Out_Urine;
-                                }
-                            }
+                            //for (var a = 0; a < that.PatientData.length; a++) {
+                                //lblChartData.push(that.PatientData[a].Time);
+                                //if (that.PatientData[a].Date == that.parseJsonDate(response.data.data[i].Date) && that.PatientData[a].Time == response.data.data[i].Time)
+                                //{
+                            dataPSinChartData.push(response.data.data[i].PulseSBP);
+                            dataPDinChartData.push(response.data.data[i].PulseDBP);
+                            //that.PatientData[a].T = response.data.data[i].T;
+                            //that.PatientData[a].PulseSBP = response.data.data[i].PulseSBP;
+                            //that.PatientData[a].PulseDBP = response.data.data[i].PulseDBP;
+                            //that.PatientData[a].R = response.data.data[i].R;
+                            //that.PatientData[a].BP = response.data.data[i].BP;
+                            //that.PatientData[a].O2 = response.data.data[i].O2;
+                            //that.PatientData[a].In_Oral = response.data.data[i].In_Oral;
+                            //that.PatientData[a].In_Parenteral = response.data.data[i].In_Parenteral;
+                            //that.PatientData[a].Out_Stools = response.data.data[i].Out_Stools;
+                            //that.PatientData[a].Out_Urine = response.data.data[i].Out_Urine;
+                            var Datas = [];
+                            Datas.Date = that.parseJsonDate(response.data.data[i].Date);
+                            Datas.Hour = response.data.data[i].Time != null && response.data.data[i].Time != "" ? response.data.data[i].Time.split(':')[0] : null;
+                            Datas.Minute = response.data.data[i].Time != null && response.data.data[i].Time != "" ? response.data.data[i].Time.split(':')[1] : null;
+                            Datas.T = response.data.data[i].T;
+                            Datas.PulseSBP = response.data.data[i].PulseSBP;
+                            Datas.PulseDBP = response.data.data[i].PulseDBP;
+                            Datas.R = response.data.data[i].R;
+                            Datas.BP = response.data.data[i].BP;
+                            Datas.O2 = response.data.data[i].O2;
+                            Datas.In_Oral = response.data.data[i].In_Oral;
+                            Datas.In_Parenteral = response.data.data[i].In_Parenteral;
+                            Datas.Out_Stools = response.data.data[i].Out_Stools;
+                            Datas.Out_Urine = response.data.data[i].Out_Urine;
+
+                            var test1 = [];
+                            test1.push(
+                                that.parseJsonDate(response.data.data[i].Date),
+                                response.data.data[i].Time,
+                                response.data.data[i].T,
+                                response.data.data[i].PulseSBP + '/' + response.data.data[i].PulseDBP,
+                                response.data.data[i].R,
+                                response.data.data[i].BP,
+                                response.data.data[i].O2,
+                                response.data.data[i].In_Oral,
+                                response.data.data[i].In_Parenteral,
+                                response.data.data[i].Out_Stools,
+                                response.data.data[i].Out_Urine);
+                            //test.push(Datas);
+                            test.push({
+                                "Date": that.parseJsonDate(response.data.data[i].Date),
+                                "Hour": response.data.data[i].Time != null && response.data.data[i].Time != "" ? response.data.data[i].Time.split(':')[0] : null,
+                                "Minute" : response.data.data[i].Time != null && response.data.data[i].Time != "" ? response.data.data[i].Time.split(':')[1] : null,
+                                "T" : response.data.data[i].T,
+                                "PulseSBP" : response.data.data[i].PulseSBP,
+                                "PulseDBP" : response.data.data[i].PulseDBP,
+                                "R" : response.data.data[i].R,
+                                "BP" : response.data.data[i].BP,
+                                "O2" : response.data.data[i].O2,
+                                "In_Oral" : response.data.data[i].In_Oral,
+                                "In_Parenteral" : response.data.data[i].In_Parenteral,
+                                "Out_Stools" : response.data.data[i].Out_Stools,
+                                "Out_Urine" : response.data.data[i].Out_Urine
+                            });
+                            that.PatientData.push(Datas);
+                                //}
+                            //}
                         }
+                        //$(document).ready(function () {
+                        //    $('#dataTable').DataTable({
+                        //        data: test,
+                        //        columns: [
+                        //            { title: "Date"},
+                        //            { title: "Time" },
+                        //            { title: "T" },
+                        //            { title: "BP" },
+                        //            { title: "R" },
+                        //            { title: "P" },
+                        //            { title: "O2" },
+                        //            { title: "IN Oral" },
+                        //            { title: "IN Parenteral" },
+                        //            { title: "OUT Stools" },
+                        //            { title: "OUT Urine" },
+                        //        ]
+                        //    });
+                        //});
+                        //if (that.testt) {
+                        //    var datatable = $('#dataTable').DataTable();
+                        //    //$('#dataTable').DataTable().fnClearTable();
+                        //    //$('#dataTable').DataTable().fnAddData(that.PatientData);
+                        //    //datatable.clear();
+                        //    datatable.destroy();
+                        //    //datatable.rows.add(test);
+                        //    datatable.draw();
+                        //}
+
+                        that.testt = true;
+                        that.showLoad = false;
                         //chart.update();
+                        //that.PatientData = response.data.data;
                     }
+                }).finally(function (response) {
+                    that.showLoad = false;
                 });
             },
             SaveDataPatient:function(){

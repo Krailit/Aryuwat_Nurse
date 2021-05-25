@@ -229,7 +229,7 @@ namespace AryuwatWebApplication.Controllers
         }
 
         [HttpPost, ActionName("UploadFile")]
-        public JsonResult UploadFile(string CN, HttpPostedFileBase AttachFileData)
+        public JsonResult UploadFile(string CN,string Detail, HttpPostedFileBase AttachFileData)
         {
             try
             {
@@ -248,7 +248,7 @@ namespace AryuwatWebApplication.Controllers
                         //AttachFileData.SaveAs(path);
                         FileOPD fopd = new FileOPD();
                         fopd.FileName = newFileName;
-                        fopd.Detail = AttachFileData.FileName;
+                        fopd.Detail = Detail;
                         fopd.DateScan = DateTime.Now;
                         fopd.CN = CN;
                         fopd.ENSave = username;
@@ -397,7 +397,7 @@ namespace AryuwatWebApplication.Controllers
         }
 
         [HttpPost, ActionName("GetPatientData")]
-        public JsonResult GetPatientData(int? tmpCustomerID)
+        public JsonResult GetPatientData(int? tmpCustomerID,string ToDate,string EndDate)
         {
             try
             {
@@ -405,7 +405,10 @@ namespace AryuwatWebApplication.Controllers
                 {
                     if (tmpCustomerID != 0)
                     {
-                        var result = context.PatientDatas.Where(x => x.FK_Customer_ID == tmpCustomerID && x.Is_Active == true).ToList();
+                        var test = context.PatientDatas.Where(x => x.FK_Customer_ID == tmpCustomerID && x.Is_Active == true).ToList();
+                        var ConToDate = Convert.ToDateTime(ToDate);
+                        var ConEndDate = Convert.ToDateTime(EndDate);
+                        var result = context.PatientDatas.Where(x => x.FK_Customer_ID == tmpCustomerID && x.Is_Active == true && (x.Date >= ConToDate && x.Date <= ConEndDate)).ToList();
                         return Json(new { ContentEncoding = 200, data = result });
                     }
                     return Json(new { ContentEncoding = 400 });
@@ -606,7 +609,8 @@ namespace AryuwatWebApplication.Controllers
                 string username = HttpContext.Request.Cookies.Get("OPD")["Username"];
                 dynamic jsonData = JsonConvert.DeserializeObject(tmpData);
                 string pDate = Convert.ToString(jsonData["Date"]);
-                string pTime = Convert.ToString(jsonData["Time"]);
+                string pHour = Convert.ToString(jsonData["Hour"]);
+                string pMinute = Convert.ToString(jsonData["Minute"]);
                 string pT = Convert.ToString(jsonData["T"]);
                 string pR = Convert.ToString(jsonData["R"]);
                 string pBP = Convert.ToString(jsonData["BP"]);
@@ -620,7 +624,7 @@ namespace AryuwatWebApplication.Controllers
                 using (var context = new OPD_SystemEntities())
                 {
                     DateTime dateparse = DateTime.ParseExact(pDate, "MMM dd, yyyy", cultureinfo);
-                    var chkdata = context.PatientDatas.Where(x => x.FK_Customer_ID == tmpCustomerID && x.Date == dateparse && x.Time == pTime && x.Is_Active == true).ToList();
+                    var chkdata = context.PatientDatas.Where(x => x.FK_Customer_ID == tmpCustomerID && x.Date == dateparse && x.Time == pHour+":"+pMinute && x.Is_Active == true).ToList();
                     foreach(var items in chkdata)
                     {
                         items.Is_Active = false;
@@ -631,7 +635,7 @@ namespace AryuwatWebApplication.Controllers
                     PatientData PD = new PatientData();
                     PD.FK_Customer_ID = tmpCustomerID;
                     PD.Date = dateparse;//Convert.ToDateTime(pDate);
-                    PD.Time = pTime;
+                    PD.Time = pHour+":"+ pMinute;
                     PD.T = String.IsNullOrEmpty(pT) ? null : pT;
                     PD.R = pR;
                     PD.BP = String.IsNullOrEmpty(pBP) ? null : pBP;
