@@ -405,7 +405,7 @@ namespace AryuwatWebApplication.Controllers
                 {
                     if (tmpCustomerID != 0)
                     {
-                        var test = context.PatientDatas.Where(x => x.FK_Customer_ID == tmpCustomerID && x.Is_Active == true).ToList();
+                        //var test = context.PatientDatas.Where(x => x.FK_Customer_ID == tmpCustomerID && x.Is_Active == true).ToList();
                         var ConToDate = Convert.ToDateTime(ToDate);
                         var ConEndDate = Convert.ToDateTime(EndDate);
                         var result = context.PatientDatas.Where(x => x.FK_Customer_ID == tmpCustomerID && x.Is_Active == true && (x.Date >= ConToDate && x.Date <= ConEndDate)).ToList();
@@ -2561,6 +2561,173 @@ namespace AryuwatWebApplication.Controllers
             catch (Exception ex)
             {
                 return View(result);
+            }
+        }
+
+        [AllowJsonGet]
+        [HttpGet, ActionName("GetDataPatient")]
+        public async Task<JsonResult> GetDataPatient(TableSearchReceive tempData)
+        {
+            using (var context = new OPD_SystemEntities())
+            {
+                try
+                {
+                    int tmpCustomerID = Convert.ToInt32(tempData.filter1);
+                    var ConToDate = Convert.ToDateTime(tempData.filter2);
+                    var ConEndDate = Convert.ToDateTime(tempData.filter3);
+                    string search = tempData.filter4;
+                    var res = new List<PatientData>();
+                    if (!String.IsNullOrEmpty(search))
+                    {
+                        res = (from a in context.PatientDatas
+                               where ((a.Time ?? "").Contains(search) || (a.BP ?? "").Contains(search) || (a.In_Oral ?? "").Contains(search) || (a.In_Parenteral ?? "").Contains(search) || (a.O2 ?? "").Contains(search) || (a.Out_Stools ?? "").Contains(search) || (a.Out_Urine ?? "").Contains(search) || (a.PulseDBP ?? "").Contains(search) || (a.PulseSBP ?? "").Contains(search) || (a.R ?? "").Contains(search) || (a.T ?? "").Contains(search))
+                               select a
+                                   ).Where(x => x.FK_Customer_ID == tmpCustomerID && x.Is_Active == true && (x.Date >= ConToDate && x.Date <= ConEndDate)).ToList();
+                    }
+                    else
+                    {
+                        res = context.PatientDatas.Where(x => x.FK_Customer_ID == tmpCustomerID && x.Is_Active == true && (x.Date >= ConToDate && x.Date <= ConEndDate)).ToList();
+                    }
+                    var result = new List<PatientData>();
+                    int? total = res.Count();
+                    if (total.HasValue ? total.Value > 0 : false)
+                    {
+                        int? last_page = (int)Math.Ceiling((double)total / (double)tempData.per_page);
+                        bool sortType = tempData.sort.Split('|')[1].Equals("asc");
+                        string sortName = tempData.sort.Split('|')[0];
+                        if (sortType)
+                        {
+                            if (sortName == "BP")
+                            {
+                                result = res.OrderBy(x => x.BP).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                            }
+                            else if (sortName == "Date")
+                            {
+                                result = res.OrderBy(x => x.Date).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                            }
+                            else if (sortName == "In_Oral")
+                            {
+                                result = res.OrderBy(x => x.In_Oral).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                            }
+                            else if (sortName == "In_Parenteral")
+                            {
+                                result = res.OrderBy(x => x.In_Parenteral).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                            }
+                            else if (sortName == "O2")
+                            {
+                                result = res.OrderBy(x => x.O2).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                            }
+                            else if (sortName == "Out_Stools")
+                            {
+                                result = res.OrderBy(x => x.Out_Stools).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                            }
+                            else if (sortName == "Out_Urine")
+                            {
+                                result = res.OrderBy(x => x.Out_Urine).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                            }
+                            else if (sortName == "PulseDBP")
+                            {
+                                result = res.OrderBy(x => x.PulseDBP).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                            }
+                            else if (sortName == "PulseSBP")
+                            {
+                                result = res.OrderBy(x => x.PulseSBP).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                            }
+                            else if (sortName == "R")
+                            {
+                                result = res.OrderBy(x => x.R).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                            }
+                            else if (sortName == "T")
+                            {
+                                result = res.OrderBy(x => x.T).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                            }
+                            else if (sortName == "Time")
+                            {
+                                result = res.OrderBy(x => x.Time).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                            }
+                            else
+                            {
+                                result = res.OrderBy(x => x.ID).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                            }
+                        }
+                        else
+                        {
+                            if (sortName == "BP")
+                            {
+                                result = res.OrderByDescending(x => x.BP).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                            }
+                            else if (sortName == "Date")
+                            {
+                                result = res.OrderByDescending(x => x.Date).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                            }
+                            else if (sortName == "In_Oral")
+                            {
+                                result = res.OrderByDescending(x => x.In_Oral).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                            }
+                            else if (sortName == "In_Parenteral")
+                            {
+                                result = res.OrderByDescending(x => x.In_Parenteral).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                            }
+                            else if (sortName == "O2")
+                            {
+                                result = res.OrderByDescending(x => x.O2).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                            }
+                            else if (sortName == "Out_Stools")
+                            {
+                                result = res.OrderByDescending(x => x.Out_Stools).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                            }
+                            else if (sortName == "Out_Urine")
+                            {
+                                result = res.OrderByDescending(x => x.Out_Urine).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                            }
+                            else if (sortName == "PulseDBP")
+                            {
+                                result = res.OrderByDescending(x => x.PulseDBP).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                            }
+                            else if (sortName == "PulseSBP")
+                            {
+                                result = res.OrderByDescending(x => x.PulseSBP).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                            }
+                            else if (sortName == "R")
+                            {
+                                result = res.OrderByDescending(x => x.R).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                            }
+                            else if (sortName == "T")
+                            {
+                                result = res.OrderByDescending(x => x.T).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                            }
+                            else if (sortName == "Time")
+                            {
+                                result = res.OrderByDescending(x => x.Time).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                            }
+                            else
+                            {
+                                result = res.OrderByDescending(x => x.ID).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                            }
+                        }
+                        TableSearchRespose temp = new TableSearchRespose
+                        {
+                            total = total,
+                            per_page = tempData.per_page,
+                            current_page = tempData.page,
+                            last_page = last_page,
+                            next_page_url = tempData.page < last_page ? string.Format("{0}?page={1}", BaseURL(), tempData.page + 1) : null,
+                            prev_page_url = tempData.page > 1 ? string.Format("{0}?page={1}", BaseURL(), tempData.page - 1) : null,
+                            from = tempData.page >= 1 ? ((tempData.per_page * (tempData.page - 1)) + 1) : null,
+                            to = tempData.page >= 1 ? ((tempData.page - 1) * tempData.per_page) + result.Count : null,
+                            data = result
+                        };
+                        return Json(temp);
+                    }
+                    else
+                    {
+                        return Json(null);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return Json(null);
+                }
             }
         }
     }

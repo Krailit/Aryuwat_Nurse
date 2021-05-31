@@ -5,6 +5,16 @@
 <script src="http://code.highcharts.com/highcharts.js"></script>
 <script src="http://code.highcharts.com/modules/exporting.js"></script>
 <script src="http://code.highcharts.com/themes/grid.js"></script>
+<style>
+    .vuetable th.sortable[data-v-5cc42bfc]:hover {
+        color: #b77147;
+        cursor: pointer;
+    }
+
+    .table thead th {
+        color: #b77147;
+    }
+</style>
 <div id="app" class="container-fluid">
     <header class="page-header page-header-dark bg-gradient-primary-to-secondary pb-10" style="background-color:#ffe480">
         <div class="container">
@@ -71,75 +81,64 @@
                         @*<input type="date" id="birthdaytime2" name="birthdaytime2" v-model="EndDateSearch">*@
                     </div>
                 </div>
-        <div class="datatable">
-            <div class="table-responsive">
-                <table class="table table-bordered table-hover" id="dataTable" cellspacing="0">
-                    <thead>
-                        @*<tr>
-                            <th class="text-right align-middle" style="border: 0px" colspan="11">
-                                <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal" v-on:click="openPopupNew(items)"><i class="fa fa-plus"></i>&nbsp; Add Data</button>
-                            </th>
-                        </tr>*@
-                        <tr>
-                            <th class="text-center align-middle">Date</th>
-                            <th class="text-center align-middle">Time</th>
-                            <th class="text-center align-middle">T</th>
-                            <th class="text-center align-middle">BP</th>
-                            <th class="text-center align-middle">R</th>
-                            <th class="text-center align-middle">P</th>
-                            <th class="text-center align-middle">O2</th>
-                            <th class="text-center align-middle">IN Oral</th>
-                            <th class="text-center align-middle">IN Parenteral</th>
-                            <th class="text-center align-middle">OUT Stools</th>
-                            <th class="text-center align-middle">OUT Urine</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr :key="index" v-for="(items, index) in PatientData" v-if="PatientData.length > 0" data-toggle="modal" data-target="#myModal" style="cursor: pointer;" v-on:click="openPopup(items)" class="rowHover">
-                            <td class="text-center align-middle" style="border-bottom: 1px solid #ddd;border-right: 1px solid #ddd;">
-                                {{ items.Date }}
-                            </td>
-                            <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
-                                {{ items.Hour + ':' + items.Minute }}
-                            </td>
-                            <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
-                                {{ items.T }}
-                            </td>
-                            <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
-                                {{ items.PulseSBP == null || items.PulseSBP == '' || items.PulseDBP == null || items.PulseDBP == '' ? '' : items.PulseSBP + ' / ' + items.PulseDBP }}
-                            </td>
-                            <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
-                                {{ items.R }}
-                            </td>
-                            <td class="text-center align-middle" style="border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;">
-                                {{ items.BP }}
-                            </td>
-                            <td class="text-center align-middle" style="border-bottom: 1px solid #ddd;">
-                                {{ items.O2 }}
-                            </td>
-                            <td class="text-center align-middle" style="border-bottom: 1px solid #ddd;">
-                                {{ items.In_Oral }}
-                            </td>
-                            <td class="text-center align-middle" style="border-bottom: 1px solid #ddd;">
-                                {{ items.In_Parenteral }}
-                            </td>
-                            <td class="text-center align-middle" style="border-bottom: 1px solid #ddd;">
-                                {{ items.Out_Stools }}
-                            </td>
-                            <td class="text-center align-middle" style="border-bottom: 1px solid #ddd;">
-                                {{ items.Out_Urine }}
-                            </td>
-                        </tr>
-                        <tr v-if="PatientData.length == 0">
-                            <td class="text-left" colspan="11">
-                                No data available in table
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+                <div class="row" style="padding:20px;">
+                    <div class="col-10">
+                    </div>
+                    <div class="col-2 text-right">
+                        <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal" v-on:click="openPopupNew(items)"><i class="fa fa-plus"></i>&nbsp; Add Data</button>
+                    </div>
                 </div>
+
+                <div class="row" style="padding-bottom: 10px">
+                    <div class="col-md-3 text-left">
+                        <div class="form-inline">
+                            <label>Show &nbsp; </label>
+                            <select :disabled="fetch" v-model="perPage" style="cursor:pointer;border-radius:5px;height: calc(1.1em + 1rem + 1px);padding: 0.2rem 1rem;" class="form-control selectpicker input-group">
+                                <option value="10">10</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                            </select>
+                            <label>&nbsp; entries</label>
+                        </div>
+                    </div>
+                    <div class="col-md-9 text-right">
+                        <label>Search: &nbsp; </label>
+                        <input v-model="Search" style="color: #687281; background-color: #fff; background-clip: padding-box; border: 1px solid #c5ccd6;font-weight: 400;height: calc(1.5em + 0.5rem + 2px);padding: 0.25rem 0.5rem;font-size: 0.875rem;line-height: 1.5;border-radius: 0.25rem;" />
+                    </div>
+                </div>
+                <div class="datatable">
+                    <div class="table-responsive">
+                        <vuetable ref="vuetable"
+                                  api-url="@Url.Action("GetDataPatient","Home")"
+                                  v-bind:fields="fields"
+                                  v-bind:sort-order="sortOrder"
+                                  v-bind:css="css.table"
+                                  v-on:vuetable:row-clicked="openPopup"
+                                  pagination-path=""
+                                  v-bind:append-params="appendParams"
+                                  v-bind:per-page="perPage"
+                                  v-on:vuetable:loading="onLoading"
+                                  v-on:vuetable:loaded="onLoaded"
+                                  v-on:vuetable:pagination-data="onPaginationData">
+                        </vuetable>
+                    </div>
+                    <div class="row" style="padding:20px;">
+                        <div class="vuetable-pagination ui basic grid col-lg-12 color-text table-responsive">
+                            <vuetable-pagination ref="pagination"
+                                                 v-bind:css="css.pagination"
+                                                 v-on:vuetable-pagination:change-page="onChangePage">
+                            </vuetable-pagination>
+                            <vuetable-pagination-info style="padding-top: 8px;"
+                                                      ref="paginationInfo"
+                                                      v-bind:css="css.paginationInfo"
+                                                      v-bind:noDataTemplate="paginationNoDataTemplate"
+                                                      v-bind:infoTemplate="paginationInfoTemplate">
+                            </vuetable-pagination-info>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true" style="font-size: 18px">
@@ -161,7 +160,7 @@
                                 <p style="text-align:left">เวลา :</p>
                             </div>
                             <div class="col-7" style="padding-bottom: 20px">
-                                <v-date-picker v-model='popPatientData.Date' />
+                                <v-date-picker v-model='popPatientData.Date' :value="popPatientData.Date" />
                             </div>
                             <div class="col-2" style="padding-bottom: 20px">
                                 <input type="number" v-model="popPatientData.Hour" style="font-size: 16px;width: 100%" max="23" />
@@ -253,6 +252,7 @@
 <script src="~/Scripts/vue.js"></script>
 <script src="~/Scripts/axios.js"></script>
 <script src="~/Scripts/moment.js"></script>
+<script src="~/Scripts/vuetable-2.js"></script>
 <script src='https://unpkg.com/vue/dist/vue.js'></script>
 <script src='https://unpkg.com/v-calendar'></script>
 <script>
@@ -261,6 +261,12 @@
     var lblChartData = [];
     var dataPSinChartData = [];
     var dataPDinChartData = [];
+
+    function jsparseJsonDate(val) {
+        return moment(val).format("MMM DD, YYYY").toUpperCase();
+    }
+
+    Vue.use(Vuetable);
     Vue.prototype.$http = axios;
     const app = new Vue({
         el: "#app",
@@ -274,10 +280,117 @@
             firstLoad: false,
             showLoad: false,
             testt: false,
+            Search: "",
             File: "",
             AttachFileName: "",
             ToDateSearch: "",
             EndDateSearch: "",
+            paginationInfoTemplate: 'แสดง {from} ถึง {to} จากทั้งหมด {total} รายการ',
+            paginationNoDataTemplate: 'ไม่มีข้อมูลที่เกี่ยวข้อง',
+            appendParams: {},
+            fields: [
+                {
+                    name: 'Date',
+                    title: 'Date',
+                    sortField: 'Date',
+                    titleClass: 'text-center align-middle header',
+                    dataClass: 'text-center align-middle',
+                    callback: "parseJsonDate"
+                }, {
+                    name: 'Time',
+                    title: 'Time',
+                    sortField: 'Time',
+                    titleClass: 'text-center align-middle header',
+                    dataClass: 'text-center align-middle'
+                }, {
+                    name: 'T',
+                    title: 'T',
+                    sortField: 'T',
+                    sortField: 'SearchProvince',
+                    titleClass: 'text-center align-middle header',
+                    dataClass: 'text-center align-middle'
+                }, {
+                    name: 'BP',
+                    title: 'BP',
+                    sortField: 'BP',
+                    titleClass: 'text-center align-middle header',
+                    dataClass: 'text-center align-middle'
+                }, {
+                    name: 'R',
+                    title: 'R',
+                    sortField: 'R',
+                    titleClass: 'text-center align-middle header',
+                    dataClass: 'text-center align-middle'
+                }, {
+                    name: 'P',
+                    title: 'P',
+                    sortField: 'P',
+                    titleClass: 'text-center align-middle header',
+                    dataClass: 'text-center align-middle'
+                }, {
+                    name: 'O2',
+                    title: 'O2',
+                    sortField: 'O2',
+                    titleClass: 'text-center align-middle header',
+                    dataClass: 'text-center align-middle'
+                }, {
+                    name: 'In_Oral',
+                    title: 'IN Oral',
+                    sortField: 'In_Oral',
+                    titleClass: 'text-center align-middle header',
+                    dataClass: 'text-center align-middle'
+                }, {
+                    name: 'In_Parenteral',
+                    title: 'IN Parenteral',
+                    sortField: 'In_Parenteral',
+                    titleClass: 'text-center align-middle header',
+                    dataClass: 'text-center align-middle'
+                }, {
+                    name: 'Out_Stools',
+                    title: 'OUT Stools',
+                    sortField: 'Out_Stools',
+                    titleClass: 'text-center align-middle header',
+                    dataClass: 'text-center align-middle'
+                }, {
+                    name: 'Out_Urine',
+                    title: 'OUT Urine',
+                    sortField: 'Out_Urine',
+                    titleClass: 'text-center align-middle header',
+                    dataClass: 'text-center align-middle'
+                }
+            ],
+            sortOrder: [{
+                field: 'ID',
+                direction: 'asc'
+            }],
+            css: {
+                table: {
+                    tableClass: 'table hb-table hb-table-dashboard ',
+                    loadingClass: 'fa fa-spinner fa-pulse fa-3x fa-fw',
+                    ascendingIcon: 'fa fa-chevron-circle-up fa-sm',
+                    descendingIcon: 'fa fa-chevron-circle-down fa-sm',
+                    handleIcon: 'fa fa-bars',
+                },
+                pagination: {
+                    infoClass: 'pull-left',
+                    wrapperClass: 'vuetable-pagination pull-right',
+                    activeClass: 'hb-btn-primary text-white',
+                    disabledClass: 'Enabled',
+                    pageClass: 'btn btn-pagination btn-border cursor-pointer',
+                    linkClass: 'btn btn-pagination btn-border cursor-pointer',
+                    icons: {
+                        first: 'fa fa-angle-double-left fa-lg',
+                        prev: 'fa fa-chevron-circle-left fa-lg',
+                        next: 'fa fa-chevron-circle-right fa-lg',
+                        last: 'fa fa-angle-double-right fa-lg',
+                    },
+                    paginationInfo: {
+
+                    },
+                }
+            },
+            fetch: false,
+            perPage: 10,
         },
         mounted: async function () {
             var that = this;
@@ -870,18 +983,23 @@
 
                 //);
             }
-            await that.GetPatientData();
+            //await that.GetPatientData();
+            //await that.onFilterSet();
             that.showLoad = false;
             that.firstLoad = true;
         },
         watch: {
+            'perPage'() {
+                this.onRefresh();
+            },
             'ToDateSearch'() {
-                if(this.firstLoad)
-                this.GetPatientData();
+                this.onFilterSet();
             },
             'EndDateSearch'() {
-                if(this.firstLoad)
-                this.GetPatientData();
+                this.onFilterSet();
+            },
+            'Search'() {
+                this.onFilterSet();
             },
             //'PatientData'(val) {
             //    $('#dataTable').DataTable().destroy();
@@ -891,6 +1009,39 @@
             //},
         },
         methods: {
+            onLoading: function () {
+                this.fetch = true;
+            },
+            onLoaded: function () {
+                this.fetch = false;
+            },
+            onPaginationData: function (paginationData) {
+                this.$refs.pagination.setPaginationData(paginationData)
+                this.$refs.paginationInfo.setPaginationData(paginationData)
+            },
+            onChangePage: function (page) {
+                this.$refs.vuetable.changePage(page)
+            },
+            onRefresh: function () {
+                var that = this;
+                Vue.nextTick(function () { that.$refs.vuetable.refresh() })
+            },
+            onFilterSet: async function () {
+                var that = this;
+                that.appendParams.filter1 = this.tmpCustomer.ID;
+                that.appendParams.filter2 = this.ToDateSearch;
+                that.appendParams.filter3 = this.EndDateSearch;
+                that.appendParams.filter4 = this.Search;
+                Vue.nextTick(function () { that.$refs.vuetable.refresh() })
+            },
+            onFilterReset: function () {
+                var that = this;
+                delete that.appendParams.filter1
+                delete that.appendParams.filter2
+                delete that.appendParams.filter3
+                delete that.appendParams.filter4
+                Vue.nextTick(function () { that.$refs.vuetable.refresh() })
+            },
             drawDT() {
                 $("#dataTable").DataTable().draw();
             },
@@ -914,9 +1065,25 @@
                     }
                 }
             },
-            openPopup: function (val) {
+            openPopup: function (dataItem) {
                 var that = this;
-                that.popPatientData = val;
+                //that.popPatientData = dataItem;
+                that.popPatientData = {
+                    Date: that.parseJsonDate(dataItem.Date),
+                    Hour: dataItem.Time.slice(0, 2),
+                    Minute: dataItem.Time.slice(3, 5),
+                    T: dataItem.T,
+                    PulseSBP: dataItem.PulseSBP,
+                    PulseDBP: dataItem.PulseDBP,
+                    R: dataItem.R,
+                    BP: dataItem.BP,
+                    O2: dataItem.O2,
+                    In_Oral: dataItem.In_Oral,
+                    In_Parenteral: dataItem.In_Parenteral,
+                    Out_Stools: dataItem.Out_Stools,
+                    Out_Urine: dataItem.Out_Urine
+                };
+                $("#myModal").modal()
             },
             openPopupNew: function (val) {
                 var that = this;
