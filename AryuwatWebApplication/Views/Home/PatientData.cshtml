@@ -14,6 +14,16 @@
     .table thead th {
         color: #b77147;
     }
+
+    .text-white {
+        color: #000000 !important;
+        font-size: 22px;
+    }
+
+    a:not([href]) {
+        color: #b77147;
+        text-decoration: none;
+    }
 </style>
 <div id="app" class="container-fluid">
     <header class="page-header page-header-dark bg-gradient-primary-to-secondary pb-10" style="background-color:#ffe480">
@@ -125,16 +135,20 @@
                     </div>
                     <div class="row" style="padding:20px;">
                         <div class="vuetable-pagination ui basic grid col-lg-12 color-text table-responsive">
-                            <vuetable-pagination ref="pagination"
-                                                 v-bind:css="css.pagination"
-                                                 v-on:vuetable-pagination:change-page="onChangePage">
-                            </vuetable-pagination>
-                            <vuetable-pagination-info style="padding-top: 8px;"
-                                                      ref="paginationInfo"
-                                                      v-bind:css="css.paginationInfo"
-                                                      v-bind:noDataTemplate="paginationNoDataTemplate"
-                                                      v-bind:infoTemplate="paginationInfoTemplate">
-                            </vuetable-pagination-info>
+                            <div class="col-12 text-right">
+                                <vuetable-pagination ref="pagination"
+                                                     v-bind:css="css.pagination"
+                                                     v-on:vuetable-pagination:change-page="onChangePage">
+                                </vuetable-pagination>
+                            </div>
+                            <div class="col-12 text-left">
+                                <vuetable-pagination-info style="padding-top: 8px;"
+                                                          ref="paginationInfo"
+                                                          v-bind:css="css.paginationInfo"
+                                                          v-bind:noDataTemplate="paginationNoDataTemplate"
+                                                          v-bind:infoTemplate="paginationInfoTemplate">
+                                </vuetable-pagination-info>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -160,7 +174,7 @@
                                 <p style="text-align:left">เวลา :</p>
                             </div>
                             <div class="col-7" style="padding-bottom: 20px">
-                                <v-date-picker v-model='popPatientData.Date' :value="popPatientData.Date" />
+                                <v-date-picker ref="calendar" v-model='popPatientData.Date' :value="popPatientData.Date" />
                             </div>
                             <div class="col-2" style="padding-bottom: 20px">
                                 <input type="number" v-model="popPatientData.Hour" style="font-size: 16px;width: 100%" max="23" />
@@ -1065,11 +1079,18 @@
                     }
                 }
             },
-            openPopup: function (dataItem) {
+            openPopup: async function (dataItem) {
                 var that = this;
                 //that.popPatientData = dataItem;
+                $("#myModal").modal()
+                const calendar = this.$refs.calendar
+                var dt = new Date(Date.now());
+                dt.setDate(dt.getDate() - 15);
+                await calendar.move(that.parseJsonDate(dataItem.Date))
+                //that.twoNextChange = that.parseJsonDate(dt);
                 that.popPatientData = {
                     Date: that.parseJsonDate(dataItem.Date),
+                    //Date: that.parseJsonDate(dt),
                     Hour: dataItem.Time.slice(0, 2),
                     Minute: dataItem.Time.slice(3, 5),
                     T: dataItem.T,
@@ -1083,7 +1104,6 @@
                     Out_Stools: dataItem.Out_Stools,
                     Out_Urine: dataItem.Out_Urine
                 };
-                $("#myModal").modal()
             },
             openPopupNew: function (val) {
                 var that = this;
