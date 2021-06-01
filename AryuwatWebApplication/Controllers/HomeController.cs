@@ -1,6 +1,8 @@
 ﻿using AryuwatWebApplication.Entity;
 using AryuwatWebApplication.Models;
 using Newtonsoft.Json;
+using OfficeOpenXml;
+using OfficeOpenXml.Style;
 using RestSharp;
 using System;
 using System.Collections.Generic;
@@ -833,1607 +835,8 @@ namespace AryuwatWebApplication.Controllers
                         query += "and CN = '" + customerCN + "'";
 
                         result.data = context.Database.SqlQuery<TempPatientData>(query).FirstOrDefault();
-
-                        List<object> TempT = new List<object>();
-                        var date8dayago = DateTime.Now.AddDays(-8);
-                        var date7dayago = DateTime.Now.AddDays(-7);
-                        var date6dayago = DateTime.Now.AddDays(-6);
-                        var date5dayago = DateTime.Now.AddDays(-5);
-                        var date4dayago = DateTime.Now.AddDays(-4);
-                        var date3dayago = DateTime.Now.AddDays(-3);
-                        var date2dayago = DateTime.Now.AddDays(-2);
-                        var date1dayago = DateTime.Now.AddDays(-1);
-                        var FetchData = context.PatientDatas.Where(x => x.Date >= date8dayago && x.Date <= DateTime.Now && x.FK_Customer_ID == result.data.ID && x.Is_Active == true).ToList();
-                        
-                        #region 7sbp
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(0)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "00:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(0.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "00:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(1)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "01:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(1.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "01:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(2)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "02:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(2.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "02:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(3)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "03:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(3.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "03:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(4)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "04:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(4.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "04:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(5)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "05:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(5.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "05:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(6)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "06:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(6.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "06:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(7)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "07:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(7.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "07:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(8)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "08:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(8.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "08:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(9)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "09:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(9.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "09:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(10)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "10:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(10.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "10:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(11)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "11:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(11.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "11:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(12)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "12:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(12.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "12:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(13)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "13:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(13.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "13:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(14)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "14:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(14.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "14:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(15)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "15:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(15.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "15:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(16)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "16:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(16.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "16:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(17)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "17:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(17.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "17:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(18)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "18:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(18.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "18:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(19)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "19:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(19.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "19:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(20)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "20:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(20.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "20:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(21)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "21:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(21.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "21:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(22)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "22:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(22.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "22:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(23)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "23:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(23.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "23:30").FirstOrDefault()?.T) });
-                        #endregion
-
-                        #region 6sbp
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(0)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "00:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(0.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "00:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(1)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "01:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(1.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "01:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(2)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "02:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(2.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "02:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(3)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "03:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(3.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "03:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(4)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "04:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(4.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "04:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(5)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "05:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(5.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "05:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(6)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "06:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(6.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "06:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(7)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "07:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(7.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "07:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(8)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "08:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(8.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "08:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(9)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "09:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(9.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "09:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(10)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "10:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(10.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "10:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(11)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "11:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(11.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "11:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(12)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "12:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(12.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "12:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(13)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "13:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(13.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "13:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(14)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "14:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(14.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "14:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(15)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "15:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(15.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "15:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(16)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "16:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(16.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "16:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(17)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "17:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(17.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "17:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(18)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "18:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(18.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "18:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(19)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "19:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(19.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "19:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(20)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "20:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(20.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "20:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(21)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "21:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(21.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "21:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(22)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "22:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(22.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "22:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(23)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "23:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(23.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "23:30").FirstOrDefault()?.T) });
-                        #endregion
-
-                        #region 5sbp
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(0)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "00:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(0.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "00:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(1)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "01:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(1.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "01:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(2)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "02:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(2.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "02:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(3)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "03:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(3.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "03:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(4)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "04:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(4.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "04:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(5)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "05:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(5.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "05:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(6)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "06:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(6.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "06:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(7)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "07:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(7.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "07:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(8)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "08:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(8.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "08:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(9)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "09:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(9.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "09:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(10)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "10:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(10.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "10:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(11)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "11:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(11.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "11:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(12)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "12:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(12.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "12:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(13)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "13:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(13.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "13:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(14)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "14:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(14.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "14:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(15)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "15:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(15.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "15:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(16)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "16:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(16.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "16:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(17)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "17:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(17.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "17:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(18)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "18:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(18.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "18:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(19)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "19:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(19.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "19:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(20)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "20:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(20.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "20:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(21)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "21:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(21.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "21:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(22)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "22:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(22.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "22:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(23)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "23:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(23.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "23:30").FirstOrDefault()?.T) });
-                        #endregion
-
-                        #region 4sbp
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(0)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "00:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(0.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "00:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(1)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "01:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(1.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "01:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(2)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "02:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(2.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "02:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(3)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "03:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(3.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "03:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(4)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "04:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(4.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "04:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(5)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "05:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(5.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "05:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(6)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "06:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(6.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "06:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(7)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "07:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(7.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "07:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(8)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "08:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(8.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "08:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(9)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "09:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(9.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "09:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(10)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "10:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(10.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "10:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(11)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "11:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(11.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "11:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(12)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "12:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(12.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "12:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(13)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "13:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(13.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "13:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(14)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "14:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(14.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "14:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(15)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "15:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(15.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "15:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(16)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "16:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(16.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "16:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(17)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "17:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(17.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "17:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(18)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "18:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(18.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "18:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(19)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "19:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(19.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "19:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(20)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "20:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(20.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "20:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(21)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "21:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(21.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "21:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(22)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "22:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(22.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "22:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(23)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "23:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(23.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "23:30").FirstOrDefault()?.T) });
-                        #endregion
-
-                        #region 3sbp
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(0)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "00:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(0.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "00:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(1)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "01:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(1.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "01:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(2)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "02:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(2.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "02:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(3)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "03:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(3.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "03:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(4)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "04:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(4.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "04:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(5)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "05:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(5.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "05:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(6)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "06:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(6.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "06:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(7)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "07:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(7.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "07:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(8)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "08:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(8.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "08:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(9)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "09:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(9.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "09:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(10)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "10:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(10.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "10:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(11)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "11:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(11.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "11:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(12)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "12:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(12.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "12:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(13)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "13:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(13.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "13:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(14)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "14:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(14.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "14:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(15)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "15:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(15.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "15:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(16)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "16:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(16.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "16:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(17)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "17:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(17.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "17:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(18)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "18:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(18.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "18:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(19)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "19:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(19.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "19:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(20)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "20:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(20.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "20:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(21)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "21:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(21.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "21:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(22)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "22:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(22.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "22:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(23)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "23:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(23.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "23:30").FirstOrDefault()?.T) });
-                        #endregion
-
-                        #region 2sbp
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(0)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "00:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(0.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "00:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(1)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "01:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(1.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "01:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(2)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "02:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(2.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "02:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(3)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "03:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(3.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "03:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(4)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "04:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(4.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "04:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(5)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "05:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(5.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "05:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(6)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "06:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(6.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "06:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(7)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "07:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(7.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "07:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(8)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "08:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(8.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "08:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(9)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "09:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(9.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "09:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(10)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "10:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(10.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "10:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(11)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "11:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(11.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "11:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(12)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "12:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(12.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "12:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(13)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "13:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(13.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "13:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(14)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "14:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(14.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "14:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(15)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "15:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(15.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "15:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(16)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "16:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(16.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "16:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(17)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "17:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(17.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "17:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(18)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "18:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(18.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "18:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(19)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "19:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(19.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "19:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(20)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "20:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(20.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "20:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(21)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "21:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(21.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "21:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(22)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "22:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(22.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "22:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(23)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "23:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(23.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "23:30").FirstOrDefault()?.T) });
-#endregion
-
-                        #region 1sbp
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(0)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "00:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(0.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "00:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(1)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "01:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(1.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "01:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(2)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "02:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(2.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "02:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(3)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "03:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(3.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "03:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(4)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "04:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(4.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "04:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(5)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "05:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(5.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "05:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(6)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "06:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(6.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "06:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(7)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "07:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(7.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "07:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(8)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "08:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(8.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "08:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(9)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "09:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(9.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "09:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(10)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "10:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(10.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "10:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(11)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "11:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(11.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "11:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(12)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "12:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(12.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "12:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(13)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "13:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(13.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "13:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(14)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "14:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(14.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "14:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(15)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "15:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(15.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "15:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(16)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "16:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(16.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "16:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(17)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "17:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(17.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "17:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(18)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "18:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(18.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "18:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(19)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "19:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(19.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "19:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(20)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "20:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(20.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "20:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(21)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "21:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(21.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "21:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(22)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "22:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(22.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "22:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(23)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "23:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(23.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "23:30").FirstOrDefault()?.T) });
-                        #endregion
-
-                        #region todaysbp
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(0)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "00:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(0.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "00:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(1)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "01:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(1.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "01:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(2)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "02:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(2.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "02:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(3)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "03:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(3.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "03:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(4)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "04:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(4.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "04:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(5)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "05:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(5.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "05:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(6)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "06:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(6.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "06:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(7)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "07:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(7.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "07:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(8)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "08:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(8.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "08:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(9)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "09:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(9.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "09:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(10)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "10:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(10.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "10:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(11)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "11:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(11.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "11:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(12)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "12:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(12.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "12:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(13)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "13:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(13.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "13:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(14)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "14:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(14.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "14:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(15)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "15:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(15.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "15:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(16)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "16:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(16.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "16:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(17)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "17:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(17.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "17:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(18)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "18:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(18.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "18:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(19)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "19:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(19.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "19:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(20)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "20:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(20.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "20:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(21)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "21:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(21.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "21:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(22)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "22:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(22.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "22:30").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(23)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "23:00").FirstOrDefault()?.T) });
-                        TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(23.50)),
-                            Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "23:30").FirstOrDefault()?.T) });
-                        #endregion
-
-                        List<object> TempBP = new List<object>();
-
-                        #region 7DBP
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(0)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "00:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(0.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "00:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(1)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "01:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(1.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "01:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(2)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "02:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(2.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "02:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(3)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "03:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(3.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "03:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(4)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "04:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(4.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "04:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(5)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "05:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(5.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "05:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(6)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "06:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(6.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "06:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(7)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "07:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(7.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "07:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(8)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "08:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(8.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "08:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(9)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "09:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(9.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "09:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(10)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "10:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(10.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "10:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(11)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "11:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(11.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "11:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(12)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "12:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(12.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "12:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(13)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "13:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(13.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "13:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(14)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "14:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(14.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "14:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(15)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "15:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(15.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "15:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(16)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "16:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(16.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "16:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(17)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "17:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(17.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "17:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(18)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "18:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(18.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "18:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(19)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "19:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(19.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "19:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(20)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "20:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(20.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "20:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(21)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "21:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(21.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "21:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(22)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "22:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(22.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "22:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(23)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "23:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(23.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "23:30").FirstOrDefault()?.BP) });
-                        #endregion
-
-                        #region 6DBP
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(0)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "00:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(0.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "00:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(1)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "01:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(1.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "01:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(2)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "02:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(2.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "02:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(3)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "03:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(3.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "03:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(4)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "04:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(4.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "04:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(5)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "05:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(5.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "05:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(6)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "06:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(6.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "06:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(7)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "07:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(7.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "07:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(8)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "08:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(8.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "08:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(9)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "09:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(9.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "09:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(10)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "10:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(10.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "10:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(11)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "11:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(11.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "11:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(12)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "12:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(12.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "12:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(13)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "13:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(13.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "13:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(14)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "14:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(14.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "14:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(15)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "15:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(15.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "15:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(16)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "16:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(16.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "16:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(17)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "17:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(17.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "17:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(18)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "18:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(18.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "18:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(19)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "19:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(19.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "19:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(20)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "20:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(20.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "20:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(21)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "21:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(21.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "21:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(22)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "22:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(22.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "22:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(23)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "23:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(23.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "23:30").FirstOrDefault()?.BP) });
-                        #endregion
-
-                        #region 5DBP
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(0)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "00:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(0.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "00:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(1)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "01:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(1.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "01:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(2)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "02:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(2.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "02:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(3)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "03:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(3.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "03:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(4)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "04:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(4.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "04:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(5)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "05:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(5.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "05:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(6)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "06:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(6.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "06:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(7)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "07:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(7.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "07:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(8)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "08:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(8.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "08:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(9)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "09:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(9.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "09:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(10)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "10:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(10.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "10:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(11)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "11:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(11.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "11:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(12)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "12:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(12.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "12:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(13)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "13:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(13.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "13:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(14)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "14:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(14.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "14:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(15)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "15:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(15.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "15:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(16)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "16:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(16.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "16:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(17)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "17:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(17.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "17:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(18)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "18:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(18.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "18:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(19)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "19:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(19.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "19:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(20)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "20:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(20.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "20:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(21)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "21:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(21.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "21:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(22)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "22:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(22.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "22:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(23)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "23:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(23.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "23:30").FirstOrDefault()?.BP) });
-                        #endregion
-
-                        #region 4DBP
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(0)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "00:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(0.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "00:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(1)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "01:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(1.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "01:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(2)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "02:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(2.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "02:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(3)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "03:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(3.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "03:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(4)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "04:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(4.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "04:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(5)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "05:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(5.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "05:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(6)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "06:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(6.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "06:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(7)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "07:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(7.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "07:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(8)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "08:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(8.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "08:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(9)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "09:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(9.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "09:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(10)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "10:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(10.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "10:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(11)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "11:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(11.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "11:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(12)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "12:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(12.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "12:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(13)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "13:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(13.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "13:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(14)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "14:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(14.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "14:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(15)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "15:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(15.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "15:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(16)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "16:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(16.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "16:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(17)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "17:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(17.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "17:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(18)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "18:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(18.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "18:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(19)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "19:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(19.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "19:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(20)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "20:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(20.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "20:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(21)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "21:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(21.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "21:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(22)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "22:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(22.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "22:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(23)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "23:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(23.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "23:30").FirstOrDefault()?.BP) });
-                        #endregion
-
-                        #region 3DBP
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(0)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "00:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(0.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "00:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(1)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "01:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(1.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "01:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(2)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "02:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(2.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "02:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(3)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "03:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(3.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "03:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(4)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "04:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(4.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "04:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(5)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "05:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(5.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "05:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(6)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "06:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(6.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "06:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(7)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "07:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(7.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "07:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(8)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "08:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(8.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "08:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(9)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "09:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(9.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "09:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(10)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "10:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(10.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "10:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(11)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "11:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(11.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "11:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(12)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "12:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(12.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "12:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(13)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "13:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(13.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "13:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(14)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "14:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(14.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "14:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(15)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "15:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(15.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "15:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(16)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "16:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(16.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "16:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(17)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "17:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(17.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "17:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(18)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "18:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(18.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "18:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(19)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "19:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(19.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "19:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(20)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "20:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(20.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "20:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(21)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "21:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(21.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "21:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(22)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "22:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(22.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "22:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(23)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "23:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(23.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "23:30").FirstOrDefault()?.BP) });
-                        #endregion
-
-                        #region 2DBP
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(0)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "00:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(0.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "00:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(1)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "01:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(1.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "01:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(2)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "02:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(2.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "02:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(3)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "03:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(3.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "03:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(4)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "04:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(4.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "04:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(5)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "05:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(5.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "05:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(6)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "06:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(6.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "06:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(7)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "07:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(7.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "07:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(8)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "08:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(8.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "08:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(9)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "09:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(9.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "09:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(10)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "10:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(10.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "10:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(11)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "11:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(11.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "11:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(12)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "12:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(12.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "12:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(13)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "13:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(13.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "13:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(14)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "14:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(14.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "14:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(15)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "15:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(15.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "15:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(16)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "16:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(16.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "16:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(17)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "17:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(17.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "17:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(18)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "18:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(18.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "18:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(19)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "19:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(19.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "19:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(20)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "20:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(20.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "20:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(21)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "21:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(21.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "21:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(22)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "22:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(22.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "22:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(23)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "23:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(23.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "23:30").FirstOrDefault()?.BP) });
-                        #endregion
-
-                        #region 1DBP
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(0)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "00:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(0.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "00:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(1)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "01:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(1.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "01:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(2)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "02:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(2.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "02:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(3)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "03:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(3.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "03:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(4)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "04:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(4.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "04:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(5)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "05:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(5.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "05:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(6)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "06:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(6.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "06:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(7)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "07:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(7.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "07:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(8)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "08:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(8.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "08:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(9)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "09:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(9.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "09:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(10)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "10:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(10.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "10:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(11)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "11:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(11.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "11:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(12)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "12:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(12.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "12:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(13)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "13:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(13.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "13:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(14)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "14:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(14.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "14:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(15)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "15:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(15.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "15:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(16)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "16:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(16.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "16:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(17)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "17:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(17.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "17:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(18)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "18:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(18.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "18:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(19)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "19:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(19.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "19:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(20)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "20:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(20.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "20:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(21)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "21:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(21.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "21:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(22)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "22:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(22.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "22:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(23)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "23:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(23.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "23:30").FirstOrDefault()?.BP) });
-                        #endregion
-
-                        #region todayDBP
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(0)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "00:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(0.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "00:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(1)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "01:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(1.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "01:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(2)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "02:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(2.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "02:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(3)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "03:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(3.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "03:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(4)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "04:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(4.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "04:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(5)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "05:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(5.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "05:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(6)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "06:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(6.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "06:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(7)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "07:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(7.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "07:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(8)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "08:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(8.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "08:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(9)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "09:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(9.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "09:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(10)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "10:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(10.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "10:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(11)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "11:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(11.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "11:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(12)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "12:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(12.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "12:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(13)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "13:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(13.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "13:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(14)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "14:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(14.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "14:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(15)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "15:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(15.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "15:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(16)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "16:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(16.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "16:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(17)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "17:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(17.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "17:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(18)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "18:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(18.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "18:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(19)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "19:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(19.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "19:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(20)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "20:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(20.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "20:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(21)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "21:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(21.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "21:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(22)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "22:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(22.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "22:30").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(23)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "23:00").FirstOrDefault()?.BP) });
-                        TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(23.50)),
-                            Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "23:30").FirstOrDefault()?.BP) });
-                        #endregion
-
-                        result.chart = TempT;
-                        result.chart2 = TempBP;
-
+                        result.chart = null;
+                        result.chart2 = null;
                         return View(result);
                     }
                 }
@@ -2445,6 +848,1685 @@ namespace AryuwatWebApplication.Controllers
             catch (Exception ex)
             {
                 return View(result);
+            }
+        }
+
+        #region bkPatientData 01/06/2021
+        //public ActionResult PatientData(string customerCN)
+        //{
+        //    var result = new ChartShow();
+        //    try
+        //    {
+        //        if (!String.IsNullOrEmpty(customerCN))
+        //        {
+        //            using (var context = new OPD_SystemEntities())
+        //            {
+        //                string query = TableCustomer();
+        //                query += "and CN = '" + customerCN + "'";
+
+        //                result.data = context.Database.SqlQuery<TempPatientData>(query).FirstOrDefault();
+
+        //                List<object> TempT = new List<object>();
+        //                var date8dayago = DateTime.Now.AddDays(-8);
+        //                var date7dayago = DateTime.Now.AddDays(-7);
+        //                var date6dayago = DateTime.Now.AddDays(-6);
+        //                var date5dayago = DateTime.Now.AddDays(-5);
+        //                var date4dayago = DateTime.Now.AddDays(-4);
+        //                var date3dayago = DateTime.Now.AddDays(-3);
+        //                var date2dayago = DateTime.Now.AddDays(-2);
+        //                var date1dayago = DateTime.Now.AddDays(-1);
+        //                var FetchData = context.PatientDatas.Where(x => x.Date >= date8dayago && x.Date <= DateTime.Now && x.FK_Customer_ID == result.data.ID && x.Is_Active == true).ToList();
+
+        //                #region 7sbp
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(0)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "00:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(0.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "00:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(1)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "01:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(1.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "01:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(2)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "02:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(2.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "02:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(3)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "03:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(3.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "03:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(4)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "04:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(4.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "04:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(5)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "05:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(5.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "05:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(6)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "06:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(6.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "06:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(7)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "07:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(7.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "07:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(8)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "08:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(8.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "08:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(9)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "09:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(9.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "09:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(10)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "10:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(10.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "10:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(11)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "11:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(11.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "11:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(12)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "12:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(12.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "12:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(13)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "13:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(13.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "13:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(14)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "14:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(14.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "14:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(15)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "15:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(15.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "15:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(16)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "16:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(16.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "16:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(17)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "17:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(17.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "17:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(18)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "18:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(18.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "18:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(19)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "19:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(19.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "19:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(20)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "20:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(20.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "20:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(21)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "21:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(21.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "21:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(22)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "22:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(22.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "22:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(23)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "23:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(23.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "23:30").FirstOrDefault()?.T) });
+        //                #endregion
+
+        //                #region 6sbp
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(0)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "00:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(0.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "00:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(1)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "01:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(1.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "01:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(2)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "02:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(2.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "02:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(3)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "03:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(3.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "03:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(4)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "04:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(4.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "04:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(5)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "05:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(5.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "05:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(6)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "06:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(6.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "06:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(7)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "07:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(7.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "07:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(8)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "08:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(8.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "08:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(9)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "09:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(9.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "09:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(10)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "10:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(10.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "10:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(11)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "11:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(11.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "11:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(12)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "12:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(12.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "12:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(13)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "13:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(13.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "13:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(14)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "14:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(14.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "14:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(15)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "15:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(15.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "15:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(16)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "16:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(16.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "16:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(17)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "17:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(17.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "17:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(18)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "18:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(18.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "18:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(19)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "19:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(19.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "19:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(20)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "20:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(20.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "20:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(21)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "21:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(21.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "21:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(22)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "22:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(22.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "22:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(23)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "23:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(23.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "23:30").FirstOrDefault()?.T) });
+        //                #endregion
+
+        //                #region 5sbp
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(0)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "00:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(0.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "00:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(1)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "01:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(1.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "01:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(2)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "02:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(2.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "02:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(3)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "03:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(3.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "03:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(4)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "04:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(4.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "04:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(5)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "05:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(5.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "05:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(6)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "06:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(6.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "06:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(7)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "07:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(7.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "07:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(8)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "08:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(8.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "08:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(9)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "09:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(9.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "09:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(10)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "10:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(10.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "10:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(11)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "11:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(11.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "11:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(12)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "12:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(12.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "12:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(13)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "13:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(13.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "13:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(14)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "14:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(14.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "14:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(15)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "15:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(15.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "15:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(16)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "16:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(16.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "16:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(17)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "17:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(17.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "17:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(18)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "18:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(18.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "18:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(19)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "19:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(19.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "19:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(20)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "20:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(20.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "20:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(21)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "21:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(21.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "21:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(22)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "22:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(22.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "22:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(23)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "23:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(23.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "23:30").FirstOrDefault()?.T) });
+        //                #endregion
+
+        //                #region 4sbp
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(0)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "00:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(0.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "00:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(1)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "01:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(1.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "01:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(2)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "02:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(2.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "02:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(3)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "03:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(3.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "03:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(4)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "04:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(4.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "04:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(5)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "05:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(5.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "05:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(6)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "06:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(6.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "06:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(7)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "07:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(7.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "07:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(8)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "08:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(8.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "08:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(9)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "09:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(9.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "09:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(10)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "10:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(10.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "10:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(11)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "11:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(11.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "11:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(12)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "12:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(12.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "12:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(13)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "13:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(13.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "13:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(14)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "14:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(14.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "14:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(15)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "15:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(15.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "15:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(16)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "16:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(16.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "16:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(17)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "17:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(17.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "17:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(18)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "18:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(18.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "18:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(19)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "19:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(19.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "19:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(20)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "20:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(20.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "20:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(21)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "21:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(21.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "21:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(22)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "22:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(22.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "22:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(23)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "23:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(23.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "23:30").FirstOrDefault()?.T) });
+        //                #endregion
+
+        //                #region 3sbp
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(0)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "00:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(0.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "00:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(1)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "01:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(1.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "01:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(2)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "02:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(2.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "02:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(3)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "03:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(3.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "03:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(4)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "04:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(4.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "04:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(5)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "05:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(5.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "05:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(6)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "06:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(6.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "06:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(7)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "07:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(7.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "07:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(8)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "08:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(8.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "08:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(9)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "09:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(9.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "09:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(10)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "10:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(10.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "10:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(11)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "11:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(11.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "11:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(12)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "12:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(12.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "12:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(13)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "13:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(13.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "13:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(14)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "14:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(14.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "14:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(15)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "15:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(15.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "15:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(16)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "16:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(16.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "16:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(17)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "17:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(17.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "17:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(18)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "18:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(18.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "18:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(19)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "19:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(19.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "19:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(20)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "20:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(20.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "20:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(21)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "21:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(21.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "21:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(22)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "22:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(22.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "22:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(23)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "23:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(23.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "23:30").FirstOrDefault()?.T) });
+        //                #endregion
+
+        //                #region 2sbp
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(0)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "00:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(0.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "00:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(1)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "01:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(1.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "01:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(2)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "02:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(2.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "02:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(3)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "03:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(3.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "03:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(4)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "04:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(4.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "04:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(5)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "05:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(5.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "05:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(6)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "06:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(6.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "06:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(7)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "07:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(7.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "07:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(8)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "08:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(8.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "08:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(9)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "09:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(9.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "09:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(10)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "10:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(10.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "10:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(11)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "11:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(11.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "11:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(12)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "12:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(12.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "12:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(13)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "13:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(13.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "13:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(14)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "14:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(14.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "14:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(15)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "15:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(15.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "15:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(16)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "16:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(16.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "16:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(17)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "17:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(17.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "17:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(18)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "18:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(18.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "18:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(19)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "19:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(19.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "19:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(20)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "20:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(20.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "20:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(21)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "21:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(21.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "21:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(22)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "22:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(22.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "22:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(23)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "23:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(23.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "23:30").FirstOrDefault()?.T) });
+        //                #endregion
+
+        //                #region 1sbp
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(0)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "00:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(0.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "00:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(1)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "01:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(1.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "01:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(2)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "02:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(2.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "02:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(3)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "03:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(3.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "03:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(4)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "04:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(4.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "04:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(5)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "05:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(5.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "05:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(6)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "06:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(6.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "06:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(7)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "07:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(7.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "07:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(8)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "08:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(8.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "08:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(9)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "09:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(9.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "09:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(10)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "10:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(10.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "10:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(11)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "11:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(11.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "11:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(12)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "12:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(12.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "12:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(13)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "13:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(13.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "13:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(14)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "14:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(14.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "14:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(15)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "15:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(15.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "15:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(16)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "16:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(16.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "16:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(17)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "17:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(17.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "17:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(18)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "18:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(18.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "18:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(19)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "19:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(19.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "19:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(20)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "20:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(20.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "20:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(21)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "21:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(21.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "21:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(22)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "22:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(22.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "22:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(23)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "23:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(23.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "23:30").FirstOrDefault()?.T) });
+        //                #endregion
+
+        //                #region todaysbp
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(0)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "00:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(0.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "00:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(1)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "01:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(1.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "01:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(2)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "02:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(2.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "02:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(3)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "03:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(3.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "03:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(4)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "04:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(4.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "04:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(5)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "05:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(5.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "05:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(6)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "06:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(6.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "06:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(7)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "07:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(7.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "07:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(8)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "08:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(8.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "08:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(9)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "09:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(9.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "09:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(10)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "10:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(10.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "10:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(11)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "11:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(11.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "11:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(12)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "12:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(12.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "12:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(13)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "13:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(13.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "13:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(14)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "14:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(14.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "14:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(15)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "15:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(15.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "15:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(16)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "16:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(16.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "16:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(17)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "17:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(17.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "17:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(18)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "18:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(18.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "18:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(19)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "19:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(19.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "19:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(20)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "20:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(20.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "20:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(21)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "21:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(21.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "21:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(22)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "22:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(22.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "22:30").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(23)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "23:00").FirstOrDefault()?.T) });
+        //                TempT.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(23.50)),
+        //                    Convert.ToDouble(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "23:30").FirstOrDefault()?.T) });
+        //                #endregion
+
+        //                List<object> TempBP = new List<object>();
+
+        //                #region 7DBP
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(0)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "00:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(0.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "00:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(1)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "01:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(1.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "01:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(2)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "02:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(2.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "02:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(3)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "03:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(3.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "03:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(4)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "04:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(4.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "04:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(5)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "05:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(5.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "05:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(6)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "06:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(6.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "06:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(7)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "07:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(7.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "07:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(8)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "08:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(8.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "08:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(9)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "09:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(9.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "09:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(10)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "10:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(10.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "10:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(11)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "11:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(11.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "11:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(12)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "12:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(12.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "12:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(13)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "13:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(13.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "13:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(14)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "14:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(14.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "14:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(15)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "15:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(15.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "15:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(16)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "16:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(16.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "16:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(17)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "17:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(17.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "17:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(18)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "18:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(18.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "18:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(19)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "19:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(19.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "19:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(20)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "20:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(20.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "20:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(21)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "21:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(21.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "21:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(22)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "22:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(22.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "22:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(23)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "23:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date7dayago.Date.AddHours(23.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date7dayago.Date && x.Time == "23:30").FirstOrDefault()?.BP) });
+        //                #endregion
+
+        //                #region 6DBP
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(0)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "00:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(0.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "00:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(1)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "01:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(1.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "01:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(2)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "02:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(2.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "02:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(3)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "03:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(3.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "03:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(4)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "04:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(4.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "04:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(5)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "05:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(5.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "05:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(6)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "06:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(6.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "06:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(7)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "07:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(7.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "07:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(8)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "08:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(8.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "08:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(9)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "09:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(9.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "09:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(10)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "10:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(10.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "10:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(11)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "11:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(11.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "11:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(12)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "12:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(12.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "12:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(13)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "13:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(13.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "13:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(14)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "14:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(14.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "14:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(15)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "15:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(15.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "15:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(16)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "16:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(16.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "16:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(17)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "17:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(17.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "17:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(18)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "18:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(18.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "18:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(19)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "19:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(19.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "19:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(20)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "20:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(20.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "20:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(21)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "21:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(21.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "21:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(22)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "22:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(22.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "22:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(23)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "23:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date6dayago.Date.AddHours(23.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date6dayago.Date && x.Time == "23:30").FirstOrDefault()?.BP) });
+        //                #endregion
+
+        //                #region 5DBP
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(0)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "00:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(0.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "00:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(1)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "01:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(1.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "01:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(2)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "02:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(2.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "02:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(3)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "03:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(3.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "03:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(4)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "04:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(4.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "04:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(5)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "05:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(5.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "05:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(6)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "06:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(6.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "06:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(7)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "07:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(7.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "07:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(8)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "08:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(8.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "08:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(9)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "09:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(9.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "09:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(10)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "10:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(10.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "10:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(11)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "11:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(11.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "11:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(12)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "12:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(12.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "12:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(13)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "13:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(13.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "13:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(14)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "14:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(14.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "14:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(15)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "15:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(15.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "15:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(16)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "16:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(16.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "16:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(17)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "17:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(17.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "17:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(18)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "18:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(18.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "18:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(19)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "19:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(19.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "19:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(20)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "20:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(20.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "20:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(21)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "21:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(21.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "21:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(22)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "22:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(22.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "22:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(23)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "23:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date5dayago.Date.AddHours(23.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date5dayago.Date && x.Time == "23:30").FirstOrDefault()?.BP) });
+        //                #endregion
+
+        //                #region 4DBP
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(0)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "00:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(0.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "00:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(1)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "01:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(1.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "01:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(2)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "02:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(2.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "02:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(3)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "03:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(3.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "03:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(4)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "04:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(4.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "04:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(5)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "05:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(5.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "05:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(6)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "06:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(6.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "06:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(7)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "07:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(7.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "07:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(8)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "08:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(8.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "08:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(9)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "09:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(9.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "09:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(10)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "10:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(10.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "10:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(11)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "11:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(11.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "11:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(12)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "12:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(12.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "12:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(13)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "13:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(13.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "13:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(14)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "14:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(14.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "14:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(15)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "15:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(15.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "15:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(16)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "16:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(16.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "16:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(17)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "17:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(17.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "17:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(18)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "18:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(18.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "18:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(19)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "19:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(19.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "19:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(20)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "20:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(20.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "20:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(21)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "21:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(21.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "21:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(22)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "22:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(22.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "22:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(23)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "23:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date4dayago.Date.AddHours(23.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date4dayago.Date && x.Time == "23:30").FirstOrDefault()?.BP) });
+        //                #endregion
+
+        //                #region 3DBP
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(0)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "00:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(0.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "00:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(1)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "01:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(1.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "01:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(2)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "02:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(2.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "02:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(3)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "03:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(3.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "03:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(4)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "04:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(4.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "04:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(5)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "05:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(5.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "05:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(6)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "06:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(6.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "06:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(7)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "07:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(7.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "07:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(8)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "08:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(8.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "08:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(9)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "09:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(9.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "09:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(10)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "10:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(10.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "10:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(11)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "11:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(11.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "11:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(12)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "12:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(12.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "12:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(13)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "13:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(13.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "13:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(14)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "14:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(14.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "14:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(15)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "15:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(15.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "15:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(16)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "16:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(16.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "16:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(17)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "17:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(17.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "17:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(18)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "18:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(18.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "18:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(19)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "19:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(19.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "19:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(20)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "20:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(20.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "20:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(21)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "21:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(21.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "21:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(22)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "22:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(22.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "22:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(23)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "23:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date3dayago.Date.AddHours(23.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date3dayago.Date && x.Time == "23:30").FirstOrDefault()?.BP) });
+        //                #endregion
+
+        //                #region 2DBP
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(0)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "00:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(0.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "00:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(1)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "01:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(1.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "01:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(2)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "02:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(2.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "02:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(3)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "03:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(3.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "03:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(4)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "04:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(4.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "04:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(5)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "05:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(5.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "05:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(6)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "06:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(6.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "06:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(7)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "07:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(7.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "07:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(8)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "08:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(8.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "08:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(9)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "09:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(9.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "09:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(10)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "10:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(10.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "10:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(11)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "11:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(11.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "11:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(12)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "12:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(12.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "12:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(13)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "13:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(13.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "13:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(14)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "14:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(14.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "14:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(15)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "15:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(15.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "15:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(16)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "16:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(16.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "16:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(17)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "17:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(17.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "17:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(18)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "18:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(18.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "18:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(19)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "19:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(19.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "19:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(20)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "20:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(20.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "20:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(21)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "21:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(21.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "21:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(22)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "22:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(22.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "22:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(23)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "23:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date2dayago.Date.AddHours(23.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date2dayago.Date && x.Time == "23:30").FirstOrDefault()?.BP) });
+        //                #endregion
+
+        //                #region 1DBP
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(0)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "00:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(0.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "00:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(1)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "01:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(1.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "01:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(2)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "02:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(2.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "02:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(3)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "03:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(3.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "03:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(4)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "04:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(4.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "04:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(5)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "05:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(5.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "05:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(6)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "06:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(6.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "06:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(7)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "07:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(7.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "07:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(8)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "08:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(8.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "08:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(9)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "09:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(9.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "09:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(10)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "10:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(10.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "10:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(11)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "11:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(11.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "11:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(12)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "12:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(12.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "12:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(13)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "13:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(13.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "13:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(14)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "14:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(14.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "14:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(15)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "15:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(15.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "15:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(16)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "16:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(16.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "16:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(17)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "17:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(17.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "17:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(18)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "18:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(18.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "18:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(19)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "19:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(19.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "19:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(20)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "20:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(20.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "20:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(21)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "21:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(21.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "21:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(22)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "22:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(22.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "22:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(23)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "23:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(date1dayago.Date.AddHours(23.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == date1dayago.Date && x.Time == "23:30").FirstOrDefault()?.BP) });
+        //                #endregion
+
+        //                #region todayDBP
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(0)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "00:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(0.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "00:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(1)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "01:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(1.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "01:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(2)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "02:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(2.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "02:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(3)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "03:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(3.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "03:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(4)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "04:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(4.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "04:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(5)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "05:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(5.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "05:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(6)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "06:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(6.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "06:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(7)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "07:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(7.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "07:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(8)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "08:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(8.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "08:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(9)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "09:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(9.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "09:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(10)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "10:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(10.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "10:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(11)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "11:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(11.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "11:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(12)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "12:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(12.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "12:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(13)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "13:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(13.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "13:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(14)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "14:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(14.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "14:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(15)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "15:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(15.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "15:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(16)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "16:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(16.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "16:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(17)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "17:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(17.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "17:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(18)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "18:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(18.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "18:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(19)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "19:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(19.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "19:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(20)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "20:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(20.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "20:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(21)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "21:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(21.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "21:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(22)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "22:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(22.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "22:30").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(23)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "23:00").FirstOrDefault()?.BP) });
+        //                TempBP.Add(new List<object> { Convert.ToDateTime(DateTime.Now.Date.AddHours(23.50)),
+        //                    Convert.ToInt32(FetchData.Where(x => x.Date == DateTime.Now.Date && x.Time == "23:30").FirstOrDefault()?.BP) });
+        //                #endregion
+
+        //                result.chart = TempT;
+        //                result.chart2 = TempBP;
+
+        //                return View(result);
+        //            }
+        //        }
+        //        else
+        //        {
+        //            return View(result);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return View(result);
+        //    }
+        //}
+
+        #endregion
+
+        [HttpPost, ActionName("PatientChartData")]
+        public JsonResult PatientChartData(string tempData)
+        {
+            var result = new ChartShow();
+            try
+            {
+                if (!String.IsNullOrEmpty(tempData))
+                {
+                    using (var context = new OPD_SystemEntities())
+                    {
+                        dynamic jsData = JsonConvert.DeserializeObject(tempData);
+                        int? tmpCustomerID = Convert.ToInt32(jsData.tmpCustomerID);
+                        DateTime ConToDate = Convert.ToDateTime(jsData.ToDateSearch);
+                        DateTime ConEndDate = Convert.ToDateTime(jsData.EndDateSearch);
+                        string search = jsData.Search;
+                        string PatientName = jsData.PatientName;
+                        string PatientRoom = jsData.PatientRoom;
+
+                        List<object> TempT = new List<object>();
+                        List<object> TempBP = new List<object>();
+                        var FetchData = context.PatientDatas.Where(x => x.Date >= ConToDate && x.Date <= ConEndDate && x.FK_Customer_ID == tmpCustomerID && x.Is_Active == true).OrderBy(x => x.Date).ThenBy(x => x.Time).ToList();
+
+                        foreach (var items in FetchData)
+                        {
+                            TempT.Add(new List<object> { Convert.ToDateTime(items.Date.ToString().Split(' ').ElementAt(0) + " " +  items.Time),
+                            Convert.ToDouble(items.T) });
+
+                            TempBP.Add(new List<object> { Convert.ToDateTime(items.Date.ToString().Split(' ').ElementAt(0) + " " +  items.Time),
+                            Convert.ToInt32(items.BP) });
+                        }
+
+                        result.chart = TempT;
+                        result.chart2 = TempBP;
+
+                        return Json(new { ContentEncoding = 200, data = result });
+                    }
+                }
+                else
+                {
+                    return Json(null);
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(null);
             }
         }
 
@@ -2730,5 +2812,100 @@ namespace AryuwatWebApplication.Controllers
                 }
             }
         }
+
+        public void ReportPatientDataEXCEL(string tempData)
+        {
+            using (var context = new OPD_SystemEntities())
+            {
+                try
+                {
+                    if (tempData != null)
+                    {
+                        dynamic jsData = JsonConvert.DeserializeObject(tempData);
+                        int? tmpCustomerID = Convert.ToInt32(jsData.tmpCustomerID);
+                        DateTime ConToDate = Convert.ToDateTime(jsData.ToDateSearch);
+                        DateTime ConEndDate = Convert.ToDateTime(jsData.EndDateSearch);
+                        string search = jsData.Search;
+                        string PatientName = jsData.PatientName;
+                        string PatientRoom = jsData.PatientRoom;
+                        var res = new List<PatientData>();
+                        if (!String.IsNullOrEmpty(search))
+                        {
+                            res = (from a in context.PatientDatas
+                                   where ((a.Time ?? "").Contains(search) || (a.BP ?? "").Contains(search) || (a.In_Oral ?? "").Contains(search) || (a.In_Parenteral ?? "").Contains(search) || (a.O2 ?? "").Contains(search) || (a.Out_Stools ?? "").Contains(search) || (a.Out_Urine ?? "").Contains(search) || (a.PulseDBP ?? "").Contains(search) || (a.PulseSBP ?? "").Contains(search) || (a.R ?? "").Contains(search) || (a.T ?? "").Contains(search))
+                                   select a
+                                       ).Where(x => x.FK_Customer_ID == tmpCustomerID && x.Is_Active == true && (x.Date >= ConToDate && x.Date <= ConEndDate)).ToList();
+                        }
+                        else
+                        {
+                            res = context.PatientDatas.Where(x => x.FK_Customer_ID == tmpCustomerID && x.Is_Active == true && (x.Date >= ConToDate && x.Date <= ConEndDate)).ToList();
+                        }
+
+
+                        ExcelPackage pck = new ExcelPackage();
+                        ExcelWorksheet ws = pck.Workbook.Worksheets.Add("Report");
+
+                        ws.Cells["A1"].Value = "ผลการตรวจวัดข้อมูล" + PatientName + " ห้องเลขที่: " + PatientRoom + " ตั้งแต่วันที่ " + ConToDate.ToString("dd/MM/yyyy") + " ถึง " + ConEndDate.ToString("dd/MM/yyyy");
+                        ws.Cells["A1:K1"].Merge = true;
+                        ws.Cells["A1"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                        ws.Cells["A1"].Style.Font.Size = 14;
+
+                        ws.Cells["A3"].Value = "Date";
+                        ws.Cells["B3"].Value = "Time";
+                        ws.Cells["C3"].Value = "T";
+                        ws.Cells["D3"].Value = "BP";
+                        ws.Cells["E3"].Value = "R";
+                        ws.Cells["F3"].Value = "P";
+                        ws.Cells["G3"].Value = "O2";
+                        ws.Cells["H3"].Value = "IN Oral";
+                        ws.Cells["I3"].Value = "IN Parenteral";
+                        ws.Cells["J3"].Value = "OUT Stools";
+                        ws.Cells["K3"].Value = "OUT Urine";
+
+                        ws.Cells["A1:K3"].Style.Font.Bold = true;
+
+                        if (res != null)
+                        {
+                            var index = 4;
+                            foreach (var item in res)
+                            {
+                                ws.Cells[string.Format("A{0}", index)].Value = Convert.ToDateTime(item.Date).ToString("MMM dd, yyyy");
+                                ws.Cells[string.Format("B{0}", index)].Value = item.Time;
+                                ws.Cells[string.Format("C{0}", index)].Value = item.T;
+                                ws.Cells[string.Format("D{0}", index)].Value = String.IsNullOrEmpty(item.PulseSBP) ? null : item.PulseSBP + "/" + item.PulseDBP;
+                                ws.Cells[string.Format("E{0}", index)].Value = item.R;
+                                ws.Cells[string.Format("F{0}", index)].Value = item.BP;
+                                ws.Cells[string.Format("G{0}", index)].Value = item.O2;
+                                ws.Cells[string.Format("H{0}", index)].Value = item.In_Oral;
+                                ws.Cells[string.Format("I{0}", index)].Value = item.In_Parenteral;
+                                ws.Cells[string.Format("J{0}", index)].Value = item.Out_Stools;
+                                ws.Cells[string.Format("K{0}", index)].Value = item.Out_Urine;
+                                index++;
+                            }
+                            ws.Cells[string.Format("A3:k{0}", index - 1)].Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                            ws.Cells[string.Format("A3:k{0}", index - 1)].Style.Border.Right.Style = ExcelBorderStyle.Thin;
+                            ws.Cells[string.Format("A3:k{0}", index - 1)].Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                            ws.Cells[string.Format("A3:k{0}", index - 1)].Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                        }
+
+                        ws.Cells["A:AZ"].AutoFitColumns();
+                        ws.PrinterSettings.PaperSize = ePaperSize.A4;
+                        ws.PrinterSettings.FitToPage = true;
+                        ws.PrinterSettings.Orientation = eOrientation.Landscape;
+                        ws.PrinterSettings.FitToHeight = 0;
+                        Response.Clear();
+                        Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+                        Response.AddHeader("content-disposition", "attachment; filename= " + "PatientDataReport" + ".xlsx");
+                        Response.BinaryWrite(pck.GetAsByteArray());
+                        Response.End();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+            }
+        }
+
     }
 }

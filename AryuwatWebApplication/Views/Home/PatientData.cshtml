@@ -70,90 +70,110 @@
     </div>
     <div class="container">
         <div class="card mb-4">
-            <div class="card-header">ตรวจวัดข้อมูลผู้ป่วย</div>
-            <div class="card-body">
+            <div class="card-header">
                 <div class="row">
-                    <div class="col-3">
-                        <p style="text-align:left">ตั้งแต่วันที่</p>
+                    <div class="col-2 text-left">
+                        ตรวจวัดข้อมูลผู้ป่วย
                     </div>
-                    <div class="col-3">
-                        <p style="text-align:left">ถึง</p>
-                        <p style="text-align:left"></p>
-                    </div>
-                </div>
-                <div class="row" style="padding-bottom:30px">
-                    <div class="col-3">
-                        <v-date-picker v-model='ToDateSearch' />
-                        @*<input type="date" id="birthdaytime" name="birthdaytime" v-model="ToDateSearch">*@
-                    </div>
-                    <div class="col-3">
-                        <v-date-picker v-model='EndDateSearch' />
-                        @*<input type="date" id="birthdaytime2" name="birthdaytime2" v-model="EndDateSearch">*@
+                    <div class="col-10 text-right">
+                        <button class="btn btn-indigo-soft btn-sm" v-on:click="ExportExcel()">
+                            <i class="fa fa-print"></i>&nbsp; Export Excel
+                        </button>
                     </div>
                 </div>
-                <div class="row" style="padding:20px;">
-                    <div class="col-10">
-                    </div>
-                    <div class="col-2 text-right">
-                        <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal" v-on:click="openPopupNew(items)"><i class="fa fa-plus"></i>&nbsp; Add Data</button>
-                    </div>
-                </div>
-
-                <div class="row" style="padding-bottom: 10px">
-                    <div class="col-md-3 text-left">
-                        <div class="form-inline">
-                            <label>Show &nbsp; </label>
-                            <select :disabled="fetch" v-model="perPage" style="cursor:pointer;border-radius:5px;height: calc(1.1em + 1rem + 1px);padding: 0.2rem 1rem;" class="form-control selectpicker input-group">
-                                <option value="10">10</option>
-                                <option value="25">25</option>
-                                <option value="50">50</option>
-                                <option value="100">100</option>
-                            </select>
-                            <label>&nbsp; entries</label>
+            </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-3">
+                            <p style="text-align:left">ตั้งแต่วันที่</p>
+                        </div>
+                        <div class="col-3">
+                            <p style="text-align:left">ถึง</p>
+                            <p style="text-align:left"></p>
                         </div>
                     </div>
-                    <div class="col-md-9 text-right">
-                        <label>Search: &nbsp; </label>
-                        <input v-model="Search" style="color: #687281; background-color: #fff; background-clip: padding-box; border: 1px solid #c5ccd6;font-weight: 400;height: calc(1.5em + 0.5rem + 2px);padding: 0.25rem 0.5rem;font-size: 0.875rem;line-height: 1.5;border-radius: 0.25rem;" />
-                    </div>
-                </div>
-                <div class="datatable">
-                    <div class="table-responsive">
-                        <vuetable ref="vuetable"
-                                  api-url="@Url.Action("GetDataPatient","Home")"
-                                  v-bind:fields="fields"
-                                  v-bind:sort-order="sortOrder"
-                                  v-bind:css="css.table"
-                                  v-on:vuetable:row-clicked="openPopup"
-                                  pagination-path=""
-                                  v-bind:append-params="appendParams"
-                                  v-bind:per-page="perPage"
-                                  v-on:vuetable:loading="onLoading"
-                                  v-on:vuetable:loaded="onLoaded"
-                                  v-on:vuetable:pagination-data="onPaginationData">
-                        </vuetable>
+                    <div class="row" style="padding-bottom:30px">
+                        <div class="col-3">
+                            <v-date-picker v-model='ToDateSearch' />
+                            @*<input type="date" id="birthdaytime" name="birthdaytime" v-model="ToDateSearch">*@
+                        </div>
+                        <div class="col-3">
+                            <v-date-picker v-model='EndDateSearch' />
+                            @*<input type="date" id="birthdaytime2" name="birthdaytime2" v-model="EndDateSearch">*@
+                        </div>
                     </div>
                     <div class="row" style="padding:20px;">
-                        <div class="vuetable-pagination ui basic grid col-lg-12 color-text table-responsive">
-                            <div class="col-12 text-right">
-                                <vuetable-pagination ref="pagination"
-                                                     v-bind:css="css.pagination"
-                                                     v-on:vuetable-pagination:change-page="onChangePage">
-                                </vuetable-pagination>
+                        <div class="col-10">
+                        </div>
+                        <div class="col-2 text-right">
+                        </div>
+                        <div class="col-10">
+                        </div>
+                        <div class="col-2 text-right">
+                            <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal" v-on:click="openPopupNew(items)"><i class="fa fa-plus"></i>&nbsp; Add Data</button>
+                        </div>
+                    </div>
+
+                    <div class="row" style="padding-bottom: 10px">
+                        <div class="col-md-3 text-left">
+                            <div class="form-inline">
+                                <label>Show &nbsp; </label>
+                                <select :disabled="fetch" v-model="perPage" style="cursor:pointer;border-radius:5px;height: calc(1.1em + 1rem + 1px);padding: 0.2rem 1rem;" class="form-control selectpicker input-group">
+                                    <option value="10">10</option>
+                                    <option value="25">25</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                </select>
+                                <label>&nbsp; entries</label>
                             </div>
-                            <div class="col-12 text-left">
-                                <vuetable-pagination-info style="padding-top: 8px;"
-                                                          ref="paginationInfo"
-                                                          v-bind:css="css.paginationInfo"
-                                                          v-bind:noDataTemplate="paginationNoDataTemplate"
-                                                          v-bind:infoTemplate="paginationInfoTemplate">
-                                </vuetable-pagination-info>
+                        </div>
+                        <div class="col-md-9 text-right">
+                            <label>Search: &nbsp; </label>
+                            <input v-model="Search" style="color: #687281; background-color: #fff; background-clip: padding-box; border: 1px solid #c5ccd6;font-weight: 400;height: calc(1.5em + 0.5rem + 2px);padding: 0.25rem 0.5rem;font-size: 0.875rem;line-height: 1.5;border-radius: 0.25rem;" />
+                        </div>
+                    </div>
+                    <div class="datatable">
+                        <div class="table-responsive">
+                            <vuetable ref="vuetable"
+                                      api-url="@Url.Action("GetDataPatient","Home")"
+                                      v-bind:fields="fields"
+                                      v-bind:sort-order="sortOrder"
+                                      v-bind:css="css.table"
+                                      v-on:vuetable:row-clicked="openPopup"
+                                      pagination-path=""
+                                      v-bind:append-params="appendParams"
+                                      v-bind:per-page="perPage"
+                                      v-on:vuetable:loading="onLoading"
+                                      v-on:vuetable:loaded="onLoaded"
+                                      v-on:vuetable:pagination-data="onPaginationData">
+                                <template slot="Pulse" scope="props">
+                                    <div class="table-button-container" id="Pulse">
+                                        {{props.rowData.PulseSBP == '' ? "" : (props.rowData.PulseSBP + "/" + props.rowData.PulseDBP)}}
+                                    </div>
+                                </template>
+                            </vuetable>
+                        </div>
+                        <div class="row" style="padding:20px;">
+                            <div class="vuetable-pagination ui basic grid col-lg-12 color-text table-responsive">
+                                <div class="col-12 text-right">
+                                    <vuetable-pagination ref="pagination"
+                                                         v-bind:css="css.pagination"
+                                                         v-on:vuetable-pagination:change-page="onChangePage">
+                                    </vuetable-pagination>
+                                </div>
+                                <div class="col-12 text-left">
+                                    <vuetable-pagination-info style="padding-top: 8px;"
+                                                              ref="paginationInfo"
+                                                              v-bind:css="css.paginationInfo"
+                                                              v-bind:noDataTemplate="paginationNoDataTemplate"
+                                                              v-bind:infoTemplate="paginationInfoTemplate">
+                                    </vuetable-pagination-info>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     </div>
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true" style="font-size: 18px">
         <div class="modal-dialog modal-dialog-scrollable" style="width: 1000px;" role="document">
@@ -270,15 +290,11 @@
 <script src='https://unpkg.com/vue/dist/vue.js'></script>
 <script src='https://unpkg.com/v-calendar'></script>
 <script>
-    var tempchart = @Html.Raw(Json.Encode(@Model.chart));
-    var tempchart2 = @Html.Raw(Json.Encode(@Model.chart2));
+    @*var tempchart = @Html.Raw(Json.Encode(@Model.chart));
+    var tempchart2 = @Html.Raw(Json.Encode(@Model.chart2));*@
     var lblChartData = [];
     var dataPSinChartData = [];
     var dataPDinChartData = [];
-
-    function jsparseJsonDate(val) {
-        return moment(val).format("MMM DD, YYYY").toUpperCase();
-    }
 
     Vue.use(Vuetable);
     Vue.prototype.$http = axios;
@@ -286,14 +302,14 @@
         el: "#app",
         data: {
             tmpCustomer : @Html.Raw(Json.Encode(@Model.data)),
+            tempchart: [],
+            tempchart2: [],
             datatemp: [],
             datatemp2: [],
             PatientData: [],
             popPatientData: [],
             fileURL: '',
-            firstLoad: false,
             showLoad: false,
-            testt: false,
             Search: "",
             File: "",
             AttachFileName: "",
@@ -323,10 +339,16 @@
                     sortField: 'SearchProvince',
                     titleClass: 'text-center align-middle header',
                     dataClass: 'text-center align-middle'
-                }, {
-                    name: 'BP',
+                //}, {
+                //    name: 'PulseSBP' + '/' + 'PulseDBP',
+                //    title: 'BP',
+                //    sortField: 'PulseSBP' + '/' + 'PulseDBP',
+                //    titleClass: 'text-center align-middle header',
+                //    dataClass: 'text-center align-middle'
+                },{
+                    name: '__slot:Pulse',
                     title: 'BP',
-                    sortField: 'BP',
+                    sortField: 'PulseSBP',
                     titleClass: 'text-center align-middle header',
                     dataClass: 'text-center align-middle'
                 }, {
@@ -336,9 +358,9 @@
                     titleClass: 'text-center align-middle header',
                     dataClass: 'text-center align-middle'
                 }, {
-                    name: 'P',
+                    name: 'BP',
                     title: 'P',
-                    sortField: 'P',
+                    sortField: 'BP',
                     titleClass: 'text-center align-middle header',
                     dataClass: 'text-center align-middle'
                 }, {
@@ -405,110 +427,16 @@
             },
             fetch: false,
             perPage: 10,
+            chart1: null,
         },
         mounted: async function () {
             var that = this;
             that.showLoad = true;
-            await that.asyncCall();
-            await that.asyncCall2();
             var dt = new Date(Date.now());
             dt.setDate(dt.getDate() - 1);
             that.ToDateSearch = that.parseJsonDate(Date.now());
             that.EndDateSearch = that.parseJsonDate(Date.now());
-            var chart1 = new Highcharts.Chart('chart', {
-                chart: {
-                    type: 'line'
-                },
-                title: {
-                    text: 'Temperature and Pulse'
-                },
-                xAxis: {
-                    type: 'datetime',
-                },
-                yAxis: [{
-                    gridLineWidth: 0,
-                    min: 35,
-                    max: 41,
-                    floor: 35,
-                    ceiling: 41,
-                    softMax: 41,
-                    softMin: 35,
-                    tickAmount: 7,
-                    plotLines: [{
-                        color: 'red',
-                        value: '37.5',
-                        width: '1'
-                    }],
-                    labels: {
-                        format: '{value}°C',
-                        style: {
-                            color: "#4286f5"
-                        }
-                    },
-                    title: {
-                        text: 'Temperature (&#8451;)',
-                        style: {
-                            color: "#4286f5"
-                        }
-                    },
-                    opposite: false
-                }, {
-                    gridLineWidth: 0,
-                    min: 45,
-                    max: 120,
-                    floor: 45,
-                    ceiling: 120,
-                    softMin: 45,
-                    softMax: 120,
-                    tickAmount: 10,
-                    labels: {
-                        format: '{value}',
-                        style: {
-                            color: "#f92222"
-                        }
-                    },
-                    title: {
-                        text: 'Pulse',
-                        style: {
-                            color: "#f92222"
-                        }
-                    },
-                    opposite: false
-                }],
-                tooltip: {
-                    shared: true
-                    //formatter: function () {
-                    //    var s = '<b>' + Highcharts.dateFormat('%b-%e', this.x) + ' ' + Highcharts.dateFormat('%H:%M', this.points[0].point.x) + '</b><br/>';
-                    //    s += 'Data: ' + this.points[0].point.y + '<br/>';
-                    //    return s;
-                    //},
-                    //crosshairs: true,
-                    //shared: true
-                },
-                series: [
-                    {
-                        name: 'Temp',
-                        type: 'spline',
-                        color: '#4286f5',
-                        yAxis: 0,
-                        data: that.datatemp,
-                        marker: {
-                            enabled: false
-                        },
-                        dashStyle: 'shortdot',
-                        tooltip: {
-                            valueSuffix: ' °C'
-                        }
-                    },
-                    {
-                        name: 'Pulse',
-                        color: '#f92222',
-                        yAxis: 1,
-                        data: that.datatemp2
-                    }
-                ]
-            });
-
+            await that.PatientChartData();
             if (that.tmpCustomer.CN == null) {
                 window.location.href = '@Url.Content("~/Home/Index")';
             }
@@ -1000,7 +928,6 @@
             //await that.GetPatientData();
             //await that.onFilterSet();
             that.showLoad = false;
-            that.firstLoad = true;
         },
         watch: {
             'perPage'() {
@@ -1008,9 +935,11 @@
             },
             'ToDateSearch'() {
                 this.onFilterSet();
+                this.PatientChartData();
             },
             'EndDateSearch'() {
                 this.onFilterSet();
+                this.PatientChartData();
             },
             'Search'() {
                 this.onFilterSet();
@@ -1060,22 +989,22 @@
                 $("#dataTable").DataTable().draw();
             },
             asyncCall: async function () {
-                for (var temp in tempchart) {
+                for (var temp in this.tempchart) {
                     //console.log(temp, tempchart[temp]);
-                    var datenum = parseInt(tempchart[temp][0].split('(')[1].split(')')[0]);
+                    var datenum = parseInt(this.tempchart[temp][0].split('(')[1].split(')')[0]);
                     var d = new Date(datenum);
-                    if (tempchart[temp][1] != 0) {
-                        await this.datatemp.push([Date.UTC(d.getFullYear(), d.getMonth(), d.getDate(), d.getHours(), d.getMinutes()), tempchart[temp][1] == 0 ? null : tempchart[temp][1]]);
+                    if (this.tempchart[temp][1] != 0) {
+                        await this.datatemp.push([Date.UTC(d.getFullYear(), d.getMonth(), d.getDate(), d.getHours(), d.getMinutes()), this.tempchart[temp][1] == 0 ? null : this.tempchart[temp][1]]);
                     }
                 }
             },
             asyncCall2: async function () {
-                for (var temp in tempchart2) {
+                for (var temp in this.tempchart2) {
                     //console.log(temp, tempchart2[temp]);
-                    var datenum = parseInt(tempchart2[temp][0].split('(')[1].split(')')[0]);
+                    var datenum = parseInt(this.tempchart2[temp][0].split('(')[1].split(')')[0]);
                     var d = new Date(datenum);
-                    if (tempchart2[temp][1] != 0) {
-                        await this.datatemp2.push([Date.UTC(d.getFullYear(), d.getMonth(), d.getDate(), d.getHours(), d.getMinutes()), tempchart2[temp][1] == 0 ? null : tempchart2[temp][1]]);
+                    if (this.tempchart2[temp][1] != 0) {
+                        await this.datatemp2.push([Date.UTC(d.getFullYear(), d.getMonth(), d.getDate(), d.getHours(), d.getMinutes()), this.tempchart2[temp][1] == 0 ? null : this.tempchart2[temp][1]]);
                     }
                 }
             },
@@ -1084,8 +1013,8 @@
                 //that.popPatientData = dataItem;
                 $("#myModal").modal()
                 const calendar = this.$refs.calendar
-                var dt = new Date(Date.now());
-                dt.setDate(dt.getDate() - 15);
+                //var dt = new Date(Date.now());
+                //dt.setDate(dt.getDate() - 15);
                 await calendar.move(that.parseJsonDate(dataItem.Date))
                 //that.twoNextChange = that.parseJsonDate(dt);
                 that.popPatientData = {
@@ -1125,6 +1054,29 @@
             },
             parseJsonDate: function (jsonDateString){
                 return moment(jsonDateString).format("MMM DD, YYYY").toUpperCase();
+            },
+            ExportExcel:async function(){
+                var that = this;
+                that.showLoad = true;
+                var temp = {
+                    tmpCustomerID : this.tmpCustomer.ID,
+                    ToDateSearch : this.ToDateSearch,
+                    EndDateSearch : this.EndDateSearch,
+                    Search: this.Search,
+                    PatientName: this.tmpCustomer.Patient_Name,
+                    PatientRoom: (this.tmpCustomer.Room == null ? '' : this.tmpCustomer.Room),
+                };
+                var tempData = JSON.stringify(temp)
+                window.location.replace('@Url.Action("ReportPatientDataEXCEL", "Home")?tempData=' + tempData);
+                that.showLoad = false;
+                //that.$http.post('@Url.Action("ReportPatientDataEXCEL", "Home")', {
+                //}).then(function (response) {
+                //    if (response.data.ContentEncoding == 200) {
+                //        alert('Export Success');
+                //    }
+                //}).finally(function (response) {
+                //    that.showLoad = false;
+                //});
             },
             GetPatientData:async function(){
                 var that = this;
@@ -1232,10 +1184,139 @@
                         //    datatable.draw();
                         //}
 
-                        that.testt = true;
                         that.showLoad = false;
                         //chart.update();
                         //that.PatientData = response.data.data;
+                    }
+                }).finally(function (response) {
+                    that.showLoad = false;
+                });
+            },
+            PatientChartData:async function(){
+                var that = this;
+                that.showLoad = true;
+                var temp = {
+                    tmpCustomerID: this.tmpCustomer.ID,
+                    ToDateSearch: this.ToDateSearch,
+                    EndDateSearch: this.EndDateSearch,
+                    Search: this.Search,
+                    PatientName: this.tmpCustomer.Patient_Name,
+                    PatientRoom: (this.tmpCustomer.Room == null ? '' : this.tmpCustomer.Room),
+                };
+                var tempData = JSON.stringify(temp)
+                that.$http.post('@Url.Action("PatientChartData", "Home")?tempData=' + tempData)
+                    .then(async function (response) {
+                    if (response.data.ContentEncoding == 200)
+                    {
+                        that.tempchart = response.data.data.chart;
+                        that.tempchart2 = response.data.data.chart2;
+                        await that.asyncCall();
+                        await that.asyncCall2();
+
+                        var chart1 = new Highcharts.Chart('chart', {
+                            chart: {
+                                type: 'line'
+                            },
+                            title: {
+                                text: 'Temperature and Pulse'
+                            },
+                            xAxis: {
+                                type: 'datetime',
+                            },
+                            yAxis: [{
+                                gridLineWidth: 0,
+                                min: 35,
+                                max: 41,
+                                floor: 35,
+                                ceiling: 41,
+                                softMax: 41,
+                                softMin: 35,
+                                tickAmount: 7,
+                                plotLines: [{
+                                    color: 'red',
+                                    value: '37.5',
+                                    width: '1'
+                                }],
+                                labels: {
+                                    format: '{value}°C',
+                                    style: {
+                                        color: "#4286f5"
+                                    }
+                                },
+                                title: {
+                                    text: 'Temperature (&#8451;)',
+                                    style: {
+                                        color: "#4286f5"
+                                    }
+                                },
+                                opposite: false
+                            }, {
+                                gridLineWidth: 0,
+                                min: 45,
+                                max: 120,
+                                floor: 45,
+                                ceiling: 120,
+                                softMin: 45,
+                                softMax: 120,
+                                tickAmount: 10,
+                                labels: {
+                                    format: '{value}',
+                                    style: {
+                                        color: "#f92222"
+                                    }
+                                },
+                                title: {
+                                    text: 'Pulse',
+                                    style: {
+                                        color: "#f92222"
+                                    }
+                                },
+                                opposite: false
+                            }],
+                            tooltip: {
+                                shared: true
+                                //formatter: function () {
+                                //    var s = '<b>' + Highcharts.dateFormat('%b-%e', this.x) + ' ' + Highcharts.dateFormat('%H:%M', this.points[0].point.x) + '</b><br/>';
+                                //    s += 'Data: ' + this.points[0].point.y + '<br/>';
+                                //    return s;
+                                //},
+                                //crosshairs: true,
+                                //shared: true
+                            },
+                            series: [
+                                {
+                                    name: 'Temp',
+                                    type: 'spline',
+                                    color: '#4286f5',
+                                    yAxis: 0,
+                                    data: that.datatemp,
+                                    marker: {
+                                        enabled: false
+                                    },
+                                    dashStyle: 'shortdot',
+                                    tooltip: {
+                                        valueSuffix: ' °C'
+                                    }
+                                },
+                                {
+                                    name: 'Pulse',
+                                    color: '#f92222',
+                                    yAxis: 1,
+                                    data: that.datatemp2
+                                }
+                            ]
+                        });
+
+                        chart1.update({
+                            series: [
+                                {
+                                    data: that.datatemp,
+                                },
+                                {
+                                    data: that.datatemp2
+                                }
+                            ]
+                        });
                     }
                 }).finally(function (response) {
                     that.showLoad = false;
