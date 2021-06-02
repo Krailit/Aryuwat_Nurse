@@ -72,107 +72,93 @@
         <div class="card mb-4">
             <div class="card-header">
                 <div class="row">
-                    <div class="col-2 text-left">
+                    <div class="col-6 text-left">
                         ตรวจวัดข้อมูลผู้ป่วย
                     </div>
-                    <div class="col-10 text-right">
+                    <div class="col-6 text-right">
                         <button class="btn btn-indigo-soft btn-sm" v-on:click="ExportExcel()">
                             <i class="fa fa-print"></i>&nbsp; Export Excel
                         </button>
                     </div>
                 </div>
             </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-3">
-                            <p style="text-align:left">ตั้งแต่วันที่</p>
-                        </div>
-                        <div class="col-3">
-                            <p style="text-align:left">ถึง</p>
-                            <p style="text-align:left"></p>
-                        </div>
-                    </div>
-                    <div class="row" style="padding-bottom:30px">
-                        <div class="col-3">
-                            <v-date-picker v-model='ToDateSearch' />
-                            @*<input type="date" id="birthdaytime" name="birthdaytime" v-model="ToDateSearch">*@
-                        </div>
-                        <div class="col-3">
-                            <v-date-picker v-model='EndDateSearch' />
-                            @*<input type="date" id="birthdaytime2" name="birthdaytime2" v-model="EndDateSearch">*@
-                        </div>
-                    </div>
-                    <div class="row" style="padding:20px;">
-                        <div class="col-10">
-                        </div>
-                        <div class="col-2 text-right">
-                        </div>
-                        <div class="col-10">
-                        </div>
-                        <div class="col-2 text-right">
-                            <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal" v-on:click="openPopupNew(items)"><i class="fa fa-plus"></i>&nbsp; Add Data</button>
-                        </div>
-                    </div>
-
-                    <div class="row" style="padding-bottom: 10px">
-                        <div class="col-md-3 text-left">
-                            <div class="form-inline">
-                                <label>Show &nbsp; </label>
-                                <select :disabled="fetch" v-model="perPage" style="cursor:pointer;border-radius:5px;height: calc(1.1em + 1rem + 1px);padding: 0.2rem 1rem;" class="form-control selectpicker input-group">
-                                    <option value="10">10</option>
-                                    <option value="25">25</option>
-                                    <option value="50">50</option>
-                                    <option value="100">100</option>
-                                </select>
-                                <label>&nbsp; entries</label>
+            <div class="card-body">
+                <div class="datatable">
+                    <div class="table-responsive">
+                        <div class="row">
+                            <div class="col-sm-6 col-lg-4 text-left">
+                                <p style="text-align:left">ตั้งแต่วันที่</p>
+                                <v-date-picker v-model='ToDateSearch' />
+                            </div>
+                            <div class="col-sm-6 col-lg-4 text-left">
+                                <p style="text-align:left">ถึง</p>
+                                <p style="text-align:left"></p>
+                                <v-date-picker v-model='EndDateSearch' />
                             </div>
                         </div>
-                        <div class="col-md-9 text-right">
-                            <label>Search: &nbsp; </label>
-                            <input v-model="Search" style="color: #687281; background-color: #fff; background-clip: padding-box; border: 1px solid #c5ccd6;font-weight: 400;height: calc(1.5em + 0.5rem + 2px);padding: 0.25rem 0.5rem;font-size: 0.875rem;line-height: 1.5;border-radius: 0.25rem;" />
-                        </div>
-                    </div>
-                    <div class="datatable">
-                        <div class="table-responsive">
-                            <vuetable ref="vuetable"
-                                      api-url="@Url.Action("GetDataPatient","Home")"
-                                      v-bind:fields="fields"
-                                      v-bind:sort-order="sortOrder"
-                                      v-bind:css="css.table"
-                                      v-on:vuetable:row-clicked="openPopup"
-                                      pagination-path=""
-                                      v-bind:append-params="appendParams"
-                                      v-bind:per-page="perPage"
-                                      v-on:vuetable:loading="onLoading"
-                                      v-on:vuetable:loaded="onLoaded"
-                                      v-on:vuetable:pagination-data="onPaginationData">
-                                <template slot="Pulse" scope="props">
-                                    <div class="table-button-container" id="Pulse">
-                                        {{props.rowData.PulseSBP == '' ? "" : (props.rowData.PulseSBP + "/" + props.rowData.PulseDBP)}}
-                                    </div>
-                                </template>
-                            </vuetable>
-                        </div>
                         <div class="row" style="padding:20px;">
-                            <div class="vuetable-pagination ui basic grid col-lg-12 color-text table-responsive">
-                                <div class="col-12 text-right">
-                                    <vuetable-pagination ref="pagination"
-                                                         v-bind:css="css.pagination"
-                                                         v-on:vuetable-pagination:change-page="onChangePage">
-                                    </vuetable-pagination>
+                            <div class="col-12 text-right">
+                                <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal" v-on:click="openPopupNew(items)"><i class="fa fa-plus"></i>&nbsp; Add Data</button>
+                            </div>
+                        </div>
+
+                        <div class="row" style="padding-bottom: 10px">
+                            <div class="col-md-6 text-left">
+                                <div class="form-inline">
+                                    <label>Show &nbsp; </label>
+                                    <select :disabled="fetch" v-model="perPage" style="cursor:pointer;border-radius:5px;height: calc(1.1em + 1rem + 1px);padding: 0.2rem 1rem;" class="form-control selectpicker input-group">
+                                        <option value="10">10</option>
+                                        <option value="25">25</option>
+                                        <option value="50">50</option>
+                                        <option value="100">100</option>
+                                    </select>
+                                    <label>&nbsp; entries</label>
                                 </div>
-                                <div class="col-12 text-left">
-                                    <vuetable-pagination-info style="padding-top: 8px;"
-                                                              ref="paginationInfo"
-                                                              v-bind:css="css.paginationInfo"
-                                                              v-bind:noDataTemplate="paginationNoDataTemplate"
-                                                              v-bind:infoTemplate="paginationInfoTemplate">
-                                    </vuetable-pagination-info>
+                            </div>
+                            <div class="col-md-6 text-right">
+                                <label>Search: &nbsp; </label>
+                                <input v-model="Search" style="color: #687281; background-color: #fff; background-clip: padding-box; border: 1px solid #c5ccd6;font-weight: 400;height: calc(1.5em + 0.5rem + 2px);padding: 0.25rem 0.5rem;font-size: 0.875rem;line-height: 1.5;border-radius: 0.25rem;" />
+                            </div>
+                        </div>
+                        <vuetable ref="vuetable"
+                                  api-url="@Url.Action("GetDataPatient","Home")"
+                                  v-bind:fields="fields"
+                                  v-bind:sort-order="sortOrder"
+                                  v-bind:css="css.table"
+                                  v-on:vuetable:row-clicked="openPopup"
+                                  pagination-path=""
+                                  v-bind:append-params="appendParams"
+                                  v-bind:per-page="perPage"
+                                  v-on:vuetable:loading="onLoading"
+                                  v-on:vuetable:loaded="onLoaded"
+                                  v-on:vuetable:pagination-data="onPaginationData">
+                            <template slot="Pulse" scope="props">
+                                <div class="table-button-container" id="Pulse">
+                                    {{props.rowData.PulseSBP == '' ? "" : (props.rowData.PulseSBP + "/" + props.rowData.PulseDBP)}}
                                 </div>
+                            </template>
+                        </vuetable>
+                    </div>
+                    <div class="row" style="padding:20px;">
+                        <div class="vuetable-pagination ui basic grid col-lg-12 color-text table-responsive">
+                            <div class="col-12 text-right">
+                                <vuetable-pagination ref="pagination"
+                                                     v-bind:css="css.pagination"
+                                                     v-on:vuetable-pagination:change-page="onChangePage">
+                                </vuetable-pagination>
+                            </div>
+                            <div class="col-12 text-left">
+                                <vuetable-pagination-info style="padding-top: 8px;"
+                                                          ref="paginationInfo"
+                                                          v-bind:css="css.paginationInfo"
+                                                          v-bind:noDataTemplate="paginationNoDataTemplate"
+                                                          v-bind:infoTemplate="paginationInfoTemplate">
+                                </vuetable-pagination-info>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
     </div>
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true" style="font-size: 18px">
@@ -187,85 +173,85 @@
                 <div class="modal-body">
                     <div class="container-fluid">
                         <div class="row" style="padding: 10px">
-                            <div class="col-7">
-                                <p style="text-align:left">วันที่ :</p>
-                            </div>
-                            <div class="col-5">
-                                <p style="text-align:left">เวลา :</p>
-                            </div>
-                            <div class="col-7" style="padding-bottom: 20px">
-                                <v-date-picker ref="calendar" v-model='popPatientData.Date' :value="popPatientData.Date" />
-                            </div>
-                            <div class="col-2" style="padding-bottom: 20px">
-                                <input type="number" v-model="popPatientData.Hour" style="font-size: 16px;width: 100%" max="23" />
-                            </div>
-                            <div class="col-1" style="padding-bottom: 20px">
-                                <p style="text-align:center">:</p>
-                            </div>
-                            <div class="col-2" style="padding-bottom: 20px">
-                                <input type="number" v-model="popPatientData.Minute" style="font-size: 16px;width: 100%" max="59" />
-                            </div>
-                            <div class="col-3">
-                                <p style="text-align:right">T :</p>
-                            </div>
-                            <div class="col-9">
-                                <input type="number" v-model="popPatientData.T" style="font-size: 16px;width: 5ch" />
-                            </div>
-                            <div class="col-3">
-                                <p style="text-align:right">BP (SBP) :</p>
-                            </div>
-                            <div class="col-3">
-                                <input type="number" v-model="popPatientData.PulseSBP" style="font-size: 16px;width: 5ch" />
-                            </div>
-                            <div class="col-3">
-                                <p style="text-align:right">BP (DBP) :</p>
-                            </div>
-                            <div class="col-3">
-                                <input type="number" v-model="popPatientData.PulseDBP" style="font-size: 16px;width: 5ch" />
-                            </div>
-                            <div class="col-3">
-                                <p style="text-align:right">R :</p>
-                            </div>
-                            <div class="col-3">
-                                <input type="number" v-model="popPatientData.R" style="font-size: 16px;width: 5ch" />
-                            </div>
-                            <div class="col-3">
-                                <p style="text-align:right">Pulse :</p>
-                            </div>
-                            <div class="col-3">
-                                <input type="number" v-model="popPatientData.BP" style="font-size: 16px;width: 5ch" />
-                            </div>
-                            <div class="col-3">
-                                <p style="text-align:right">O2 :</p>
-                            </div>
-                            <div class="col-7">
-                                <input type="number" v-model="popPatientData.O2" style="font-size: 16px;width: 5ch" />
-                            </div>
-                            <div class="col-4">
-                                <p style="text-align:right">IN ORAL :</p>
-                            </div>
-                            <div class="col-5">
-                                <input type="number" v-model="popPatientData.In_Oral" style="font-size: 16px;width: 7ch" />
-                            </div>
-                            <div class="col-4">
-                                <p style="text-align:right">IN Parenteral :</p>
-                            </div>
-                            <div class="col-5">
-                                <input type="number" v-model="popPatientData.In_Parenteral" style="font-size: 16px;width: 7ch" />
-                            </div>
-                            <div class="col-4">
-                                <p style="text-align:right">OUT Stools :</p>
-                            </div>
-                            <div class="col-5">
-                                <input type="number" v-model="popPatientData.Out_Stools" style="font-size: 16px;width: 7ch" />
-                            </div>
-                            <div class="col-4">
-                                <p style="text-align:right">OUT Urine :</p>
-                            </div>
-                            <div class="col-5">
-                                <input type="number" v-model="popPatientData.Out_Urine" style="font-size: 16px;width: 7ch" />
-                            </div>
-                        </div>
+                                    <div class="col-sm-7 col-lg-7" style="padding: 10px">
+                                        <p style="text-align:left">วันที่ :</p>
+                                        <v-date-picker ref="calendar" v-model='popPatientData.Date' :value="popPatientData.Date" />
+                                    </div>
+                                    <div class="col-sm-5 col-lg-5">
+                                        <p style="text-align:left">เวลา :</p>
+                                        <div class="row">
+                                            <div class="col-sm-4 col-lg-5">
+                                                <input type="number" v-model="popPatientData.Hour" style="font-size: 16px;width: 100%" max="23" />
+                                            </div>
+                                            <div class="col-sm-2 col-lg-1">
+                                                <p style="text-align:center">:</p>
+                                            </div>
+                                            <div class="col-sm-4 col-lg-5">
+                                                <input type="number" v-model="popPatientData.Minute" style="font-size: 16px;width: 100%" max="59" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <p style="text-align:right">T :</p>
+                                    </div>
+                                    <div class="col-9">
+                                        <input type="number" v-model="popPatientData.T" style="font-size: 16px;width: 5ch" />
+                                    </div>
+                                    <div class="col-3">
+                                        <p style="text-align:right">BP (SBP) :</p>
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="number" v-model="popPatientData.PulseSBP" style="font-size: 16px;width: 5ch" />
+                                    </div>
+                                    <div class="col-3">
+                                        <p style="text-align:right">BP (DBP) :</p>
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="number" v-model="popPatientData.PulseDBP" style="font-size: 16px;width: 5ch" />
+                                    </div>
+                                    <div class="col-3">
+                                        <p style="text-align:right">R :</p>
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="number" v-model="popPatientData.R" style="font-size: 16px;width: 5ch" />
+                                    </div>
+                                    <div class="col-3">
+                                        <p style="text-align:right">Pulse :</p>
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="number" v-model="popPatientData.BP" style="font-size: 16px;width: 5ch" />
+                                    </div>
+                                    <div class="col-3">
+                                        <p style="text-align:right">O2 :</p>
+                                    </div>
+                                    <div class="col-7">
+                                        <input type="number" v-model="popPatientData.O2" style="font-size: 16px;width: 5ch" />
+                                    </div>
+                                    <div class="col-4">
+                                        <p style="text-align:right">IN ORAL :</p>
+                                    </div>
+                                    <div class="col-5">
+                                        <input type="number" v-model="popPatientData.In_Oral" style="font-size: 16px;width: 7ch" />
+                                    </div>
+                                    <div class="col-4">
+                                        <p style="text-align:right">IN Parenteral :</p>
+                                    </div>
+                                    <div class="col-5">
+                                        <input type="number" v-model="popPatientData.In_Parenteral" style="font-size: 16px;width: 7ch" />
+                                    </div>
+                                    <div class="col-4">
+                                        <p style="text-align:right">OUT Stools :</p>
+                                    </div>
+                                    <div class="col-5">
+                                        <input type="number" v-model="popPatientData.Out_Stools" style="font-size: 16px;width: 7ch" />
+                                    </div>
+                                    <div class="col-4">
+                                        <p style="text-align:right">OUT Urine :</p>
+                                    </div>
+                                    <div class="col-5">
+                                        <input type="number" v-model="popPatientData.Out_Urine" style="font-size: 16px;width: 7ch" />
+                                    </div>
+                                </div>
                     </div>
                 </div>
                 <div class="modal-footer">
