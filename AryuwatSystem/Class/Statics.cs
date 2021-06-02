@@ -43,6 +43,7 @@ namespace AryuwatSystem.DerClass
         public static popRFDList poprfdList = null;
         public static PopDateTime popDateTime = null;
         public static FrmSOTList frmSOFList = null;
+        public static FrmSOTByPerson frmSOTByPerson = null;
 
         public static FrmSurgicalFee frmSurgicalFee = null;
         public static UcSurgicalFee ucSurgicalFee = null;

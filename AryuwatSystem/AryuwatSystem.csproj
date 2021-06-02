@@ -418,6 +418,12 @@
     <Compile Include="Forms\FrmRoomSetting.designer.cs">
       <DependentUpon>FrmRoomSetting.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmSOTByPerson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmSOTByPerson.Designer.cs">
+      <DependentUpon>FrmSOTByPerson.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\popSearchSelectPA.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -2641,6 +2647,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmRoomSetting.resx">
       <DependentUpon>FrmRoomSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmSOTByPerson.resx">
+      <DependentUpon>FrmSOTByPerson.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\popSearchSelectPA.resx">
       <DependentUpon>popSearchSelectPA.cs</DependentUpon>

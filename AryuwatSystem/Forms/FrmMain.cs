@@ -1681,15 +1681,25 @@ namespace AryuwatSystem.Forms
             //    MessageBox.Show("Not Permission");
             //    return;
             //}
-            if (Statics.frmSOFList == null)
+            //if (Statics.frmSOFList == null)
+            //{
+            //    Statics.frmSOFList = new FrmSOTList(); // These forms inherit from DockContent 
+            //    Statics.frmSOFList.BackColor = Color.FromArgb(255, 230, 217);
+            //    Statics.frmSOFList.Show(dockPanel1);
+            //}
+            //else
+            //{
+            //    Statics.frmSOFList.BringToFront();
+            //}
+            if (Statics.frmSOTByPerson == null)
             {
-                Statics.frmSOFList = new FrmSOTList(); // These forms inherit from DockContent 
-                Statics.frmSOFList.BackColor = Color.FromArgb(255, 230, 217);
-                Statics.frmSOFList.Show(dockPanel1);
+                Statics.frmSOTByPerson = new FrmSOTByPerson(); // These forms inherit from DockContent 
+                Statics.frmSOTByPerson.BackColor = Color.FromArgb(255, 230, 217);
+                Statics.frmSOTByPerson.Show(dockPanel1);
             }
             else
             {
-                Statics.frmSOFList.BringToFront();
+                Statics.frmSOTByPerson.BringToFront();
             }
         }
         private void btnSurgicalFee_Click(object sender, EventArgs e)
