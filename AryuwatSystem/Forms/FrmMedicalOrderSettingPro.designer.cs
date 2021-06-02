@@ -330,7 +330,6 @@ namespace AryuwatSystem.Forms
             this.dgvAestheticList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvAestheticList.Location = new System.Drawing.Point(8, 34);
             this.dgvAestheticList.Name = "dgvAestheticList";
-            //this.dgvAestheticList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dgvAestheticList.RowTemplate.ReadOnly = true;
             this.dgvAestheticList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAestheticList.Size = new System.Drawing.Size(1560, 26);
@@ -371,7 +370,6 @@ namespace AryuwatSystem.Forms
             this.dgvSurgeryList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvSurgeryList.Location = new System.Drawing.Point(9, 34);
             this.dgvSurgeryList.Name = "dgvSurgeryList";
-            //this.dgvSurgeryList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dgvSurgeryList.RowTemplate.ReadOnly = true;
             this.dgvSurgeryList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSurgeryList.Size = new System.Drawing.Size(1560, 32);
@@ -433,7 +431,6 @@ namespace AryuwatSystem.Forms
             this.dgvWellness_AntiagingList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvWellness_AntiagingList.Location = new System.Drawing.Point(9, 34);
             this.dgvWellness_AntiagingList.Name = "dgvWellness_AntiagingList";
-            //this.dgvWellness_AntiagingList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dgvWellness_AntiagingList.RowTemplate.ReadOnly = true;
             this.dgvWellness_AntiagingList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvWellness_AntiagingList.Size = new System.Drawing.Size(1560, 32);
@@ -597,7 +594,6 @@ namespace AryuwatSystem.Forms
             this.dgvFile.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvFile.Location = new System.Drawing.Point(0, 30);
             this.dgvFile.Name = "dgvFile";
-            //this.dgvFile.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dgvFile.RowTemplate.ReadOnly = true;
             this.dgvFile.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFile.Size = new System.Drawing.Size(1577, 32);
@@ -713,7 +709,6 @@ namespace AryuwatSystem.Forms
             this.gvRoom.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.gvRoom.Location = new System.Drawing.Point(8, 34);
             this.gvRoom.Name = "gvRoom";
-            //this.gvRoom.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.gvRoom.RowTemplate.ReadOnly = true;
             this.gvRoom.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gvRoom.Size = new System.Drawing.Size(1560, 32);
@@ -1390,9 +1385,9 @@ namespace AryuwatSystem.Forms
             this.radioPRO.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioPRO.Location = new System.Drawing.Point(268, 34);
             this.radioPRO.Name = "radioPRO";
-            this.radioPRO.Size = new System.Drawing.Size(120, 23);
+            this.radioPRO.Size = new System.Drawing.Size(200, 23);
             this.radioPRO.TabIndex = 315;
-            this.radioPRO.Text = "PRO && PHA";
+            this.radioPRO.Text = "PRO && PHA (หัตถการ)";
             this.radioPRO.UseVisualStyleBackColor = true;
             this.radioPRO.Click += new System.EventHandler(this.radioPRO_Click);
             // 
@@ -1434,9 +1429,9 @@ namespace AryuwatSystem.Forms
             this.radioAE.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioAE.Location = new System.Drawing.Point(268, 9);
             this.radioAE.Name = "radioAE";
-            this.radioAE.Size = new System.Drawing.Size(49, 23);
+            this.radioAE.Size = new System.Drawing.Size(182, 23);
             this.radioAE.TabIndex = 312;
-            this.radioAE.Text = "AE";
+            this.radioAE.Text = "AE (ยาและเวชภัณฑ์)";
             this.radioAE.UseVisualStyleBackColor = true;
             this.radioAE.CheckedChanged += new System.EventHandler(this.radioAE_CheckedChanged);
             this.radioAE.Click += new System.EventHandler(this.radioAE_Click);
