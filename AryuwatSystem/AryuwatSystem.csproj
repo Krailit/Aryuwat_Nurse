@@ -406,6 +406,12 @@
     <Compile Include="Entity\MedicalSupplies.cs" />
     <Compile Include="ExportEPPlus\Excel2007.cs" />
     <Compile Include="ExportEPPlus\ExcelHelper.cs" />
+    <Compile Include="Forms\FrmPaidSelectSOT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmPaidSelectSOT.Designer.cs">
+      <DependentUpon>FrmPaidSelectSOT.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmRoomList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -2642,6 +2648,9 @@
     <Compile Include="Validation\ValidateRuleStringMaxLength.cs" />
     <Compile Include="Validation\ValidateRuleStringRequired.cs" />
     <Compile Include="Validation\ValidationRules.cs" />
+    <EmbeddedResource Include="Forms\FrmPaidSelectSOT.resx">
+      <DependentUpon>FrmPaidSelectSOT.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmRoomList.resx">
       <DependentUpon>FrmRoomList.cs</DependentUpon>
     </EmbeddedResource>

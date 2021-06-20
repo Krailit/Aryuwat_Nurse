@@ -49,6 +49,7 @@ namespace AryuwatSystem.DerClass
         public static UcSurgicalFee ucSurgicalFee = null;
         public static FrmSumOfTreatment frmSumOfTreatment = null;
         public static FrmSurgicalFeeMain frmSurgicalFeeMain = null;
+        public static FrmPaidSelectSOT frmPaidSelectSOT = null;
 
         public static FrmBookingRoom bookingroom = null;
         public static FrmDoctorSchedule frmDoctorSchedule = null;

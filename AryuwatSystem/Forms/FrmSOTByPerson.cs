@@ -1082,6 +1082,7 @@ namespace AryuwatSystem.Forms
             try
             {
                 string msg = "";
+                List<string> itemselect = new List<string>();
                 bool first = true;
                 string firstCN = "";
                 foreach (DataGridViewRow roow in dgvData.Rows)
@@ -1102,11 +1103,25 @@ namespace AryuwatSystem.Forms
                             return;
                         }
 
-                        msg += "SO:" + roow.Cells["SO"].Value.ToString() + "" + "\r\n";
-                        msg += "MO:" + roow.Cells["VN"].Value.ToString() + "" + "\r\n\r\n";
+                        //msg += "SO:" + roow.Cells["SO"].Value.ToString() + "" + "\r\n";
+                        //msg += "MO:" + roow.Cells["VN"].Value.ToString() + "" + "\r\n\r\n";
+                        itemselect.Add(roow.Cells["SO"].Value.ToString() + ";" + roow.Cells["VN"].Value.ToString());
                     }
                 }
-                MessageBox.Show(msg);
+                //MessageBox.Show(msg);
+                //FrmPaidSelectSOT frmPaidSelectSOT1 = new FrmPaidSelectSOT();
+                //frmPaidSelectSOT1.itemselect = itemselect;
+
+                if (itemselect.Count <= 0)
+                {
+                    MessageBox.Show("กรุณาเลือกรายการ", "แจ้งเตือน"); 
+                    return;
+                }
+                Statics.frmPaidSelectSOT = new FrmPaidSelectSOT();
+                Statics.frmPaidSelectSOT.itemselect = itemselect;
+                Statics.frmPaidSelectSOT.BackColor = Color.FromArgb(255, 230, 217);
+                Statics.frmPaidSelectSOT.Show(Statics.frmMain.dockPanel1);
+
             }
             catch (Exception ex)
             {
