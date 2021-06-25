@@ -1105,6 +1105,7 @@ namespace AryuwatSystem.Forms
 
                         //msg += "SO:" + roow.Cells["SO"].Value.ToString() + "" + "\r\n";
                         //msg += "MO:" + roow.Cells["VN"].Value.ToString() + "" + "\r\n\r\n";
+                        //itemselect.Add(roow.Cells["SO"].Value.ToString() + ";" + roow.Cells["VN"].Value.ToString());
                         itemselect.Add(roow.Cells["SO"].Value.ToString() + ";" + roow.Cells["VN"].Value.ToString());
                     }
                 }

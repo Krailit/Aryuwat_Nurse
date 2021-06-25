@@ -430,6 +430,12 @@
     <Compile Include="Forms\FrmSOTByPerson.Designer.cs">
       <DependentUpon>FrmSOTByPerson.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\popRecieptSelectAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\popRecieptSelectAdd.Designer.cs">
+      <DependentUpon>popRecieptSelectAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\popSearchSelectPA.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1355,6 +1361,9 @@
     <Compile Include="m_DataSet\AgencyType.cs">
       <DependentUpon>OPDEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="m_DataSet\Alert_Detail.cs">
+      <DependentUpon>OPDEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="m_DataSet\Barter.cs">
       <DependentUpon>OPDEntities.tt</DependentUpon>
     </Compile>
@@ -1383,9 +1392,6 @@
       <DependentUpon>OPDEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="m_DataSet\ContactCustomer.cs">
-      <DependentUpon>OPDEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="m_DataSet\CosmeticSurgery.cs">
       <DependentUpon>OPDEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="m_DataSet\Country.cs">
@@ -1458,12 +1464,6 @@
       <DependentUpon>OPDEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="m_DataSet\GiftVoucher.cs">
-      <DependentUpon>OPDEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="m_DataSet\HairCenter.cs">
-      <DependentUpon>OPDEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="m_DataSet\HowYouhear.cs">
       <DependentUpon>OPDEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="m_DataSet\InvoiceTran.cs">
@@ -1551,6 +1551,12 @@
       <DependentUpon>OPDEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="m_DataSet\PALabel.cs">
+      <DependentUpon>OPDEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="m_DataSet\PatientChange.cs">
+      <DependentUpon>OPDEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="m_DataSet\PatientData.cs">
       <DependentUpon>OPDEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="m_DataSet\PayByItem.cs">
@@ -2659,6 +2665,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmSOTByPerson.resx">
       <DependentUpon>FrmSOTByPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\popRecieptSelectAdd.resx">
+      <DependentUpon>popRecieptSelectAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\popSearchSelectPA.resx">
       <DependentUpon>popSearchSelectPA.cs</DependentUpon>

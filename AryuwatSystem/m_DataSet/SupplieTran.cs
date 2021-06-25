@@ -14,6 +14,7 @@ namespace AryuwatSystem.m_DataSet
     
     public partial class SupplieTran
     {
+        public int ID { get; set; }
         public string VN { get; set; }
         public string MS_Code { get; set; }
         public Nullable<decimal> Amount { get; set; }

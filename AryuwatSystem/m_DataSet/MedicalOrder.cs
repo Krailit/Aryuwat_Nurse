@@ -43,5 +43,6 @@ namespace AryuwatSystem.m_DataSet
         public Nullable<System.DateTime> Start_Date { get; set; }
         public Nullable<System.DateTime> End_Date { get; set; }
         public Nullable<bool> Room_Status { get; set; }
+        public string Notes { get; set; }
     }
 }

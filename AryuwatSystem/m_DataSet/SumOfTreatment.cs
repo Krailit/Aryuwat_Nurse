@@ -17,6 +17,8 @@ namespace AryuwatSystem.m_DataSet
         public string SOT_Code { get; set; }
         public string CN { get; set; }
         public string VN { get; set; }
+        public string SO { get; set; }
+        public string SORefAccount { get; set; }
         public Nullable<System.DateTime> DateSave { get; set; }
         public Nullable<System.DateTime> DateUpdate { get; set; }
         public Nullable<decimal> SalePrice { get; set; }
@@ -30,10 +32,8 @@ namespace AryuwatSystem.m_DataSet
         public string EN_Save { get; set; }
         public Nullable<System.DateTime> updateDate { get; set; }
         public string ReceiptNo { get; set; }
-        public string SO { get; set; }
         public string InvNo { get; set; }
         public string BillTo { get; set; }
-        public string SORefAccount { get; set; }
         public string SOClose { get; set; }
     }
 }

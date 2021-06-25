@@ -12,6 +12,7 @@ using WeifenLuo.WinFormsUI.Docking;
 using TextBox = System.Windows.Forms.TextBox;
 using System.Diagnostics;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace AryuwatSystem.Forms
 {
@@ -79,6 +80,7 @@ namespace AryuwatSystem.Forms
         public List<string> itemselect { get; set; }
         public string VN { get; set; }
         public string SO { get; set; }
+        public string SOReceipt { get; set; }
         public string BranchID { get; set; }
         public string BranchName { get; set; }
 
@@ -444,13 +446,28 @@ namespace AryuwatSystem.Forms
                 //ReceiptBathCurrent = 0;
                 //ReceiptDateCurrent = DateTime.Now.Date;
                 //RCNoCurrent = "";
-                DataSet ds = new Business.SumOfTreatment().SelectSumOfTreatment("SelectReciept", SO, VN);
-                if (ds.Tables.Count <= 0) return;
-                dtSumOfTreatRcn = ds.Tables[0];
-                //listBoxReciept.DataSource = new BindingSource(dtSumOfTreatRcn, null);
-                //listBoxReciept.DisplayMember = "TextShow";
-                //listBoxReciept.ValueMember = "RCNo";
-                //listBoxReciept.SelectedIndex =- 1;
+                List<DataRow> lst = new List<DataRow>();
+                foreach (var items in itemselect)
+                {
+                    //itemsSOT[0] = SO, itemsSOT[1]= VN
+                    var itemsSOT = items.Split(';');
+                    //    var test = context.sp_SumOfTreatment("SELECT","", itemsSOT[1], null, null, null, itemsSOT[0], null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+                    //    test = test;
+                    DataSet ds = new Business.SumOfTreatment().SelectSumOfTreatment("SelectReciept", itemsSOT[0], itemsSOT[1]);
+                    //foreach (var roww in dsSumOfTreat.Tables[0].Rows)
+                    //{
+                    //    DataRow row = dsSumOfTreat.Tables[0].NewRow();
+                    //    dsSumOfTreat.Tables[0].Rows.Add(roww);
+                    //}   
+                    var empList = ds.Tables[0].AsEnumerable().ToList();
+                    foreach (var dataa in empList)
+                    {
+                        lst.Add(dataa);
+                    }
+                }
+                //DataSet ds = new Business.SumOfTreatment().SelectSumOfTreatment("SelectRecieptList", SO, VN);
+                //if (ds.Tables.Count <= 0) return;
+                //dtSumOfTreatRcn = ds.Tables[0];
 
                 if (dgvReciept.RowCount > 0) dgvReciept.Rows.Clear();
                 decimal Amount = 0;
@@ -462,10 +479,11 @@ namespace AryuwatSystem.Forms
                                               "",
                                           };
                 dgvReciept.Rows.Add(myItemsAll);
-                foreach (DataRowView item in dtSumOfTreatRcn.DefaultView)
+                foreach (var item in lst)
                 {
                     Amount = item["ReceiptBath"] + "" == "" ? 0 : Convert.ToDecimal(item["ReceiptBath"] + "");
                     object[] myItems = {
+                                          item["SONo"] + "",
                                           item["RCNo"] + "",
                                          String.Format("{0:yyyy/MM/dd}",item["ReceiptDate"] + ""==""? DateTime.Now:Convert.ToDateTime(item["ReceiptDate"] + "")),
                                           Amount.ToString("###,###,###.##")
@@ -490,9 +508,29 @@ namespace AryuwatSystem.Forms
                 //ReceiptBathCurrent = 0;
                 //ReceiptDateCurrent = DateTime.Now.Date;
                 //RCNoCurrent = "";
-                dsSumOfTreatCash_Credit = new Business.SumOfTreatment().SelectSumOfTreatment("SELECTCASHCREDIT", SO, VN);
+                List<DataRow> lst = new List<DataRow>();
+                foreach (var items in itemselect)
+                {
+                    //itemsSOT[0] = SO, itemsSOT[1]= VN
+                    var itemsSOT = items.Split(';');
+                    //    var test = context.sp_SumOfTreatment("SELECT","", itemsSOT[1], null, null, null, itemsSOT[0], null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+                    //    test = test;
+                    DataSet ds = new Business.SumOfTreatment().SelectSumOfTreatment("SELECTCASHCREDIT", itemsSOT[0], itemsSOT[1]);
+                    //foreach (var roww in dsSumOfTreat.Tables[0].Rows)
+                    //{
+                    //    DataRow row = dsSumOfTreat.Tables[0].NewRow();
+                    //    dsSumOfTreat.Tables[0].Rows.Add(roww);
+                    //}   
+                    var empList = ds.Tables[0].AsEnumerable().ToList();
+                    foreach (var dataa in empList)
+                    {
+                        lst.Add(dataa);
+                    }
+                }
+
+                //dsSumOfTreatCash_Credit = new Business.SumOfTreatment().SelectSumOfTreatment("SELECTCASHCREDIT", SO, VN);
                 if (dataGridViewCreditTransfer.Rows.Count > 0) dataGridViewCreditTransfer.Rows.Clear();
-                if (dsSumOfTreatCash_Credit == null || dsSumOfTreatCash_Credit.Tables.Count <= 0) return;
+                if (lst == null || lst.Count <= 0) return;
                 //foreach (DataRow dr in dsSumOfTreatCash_Credit.Tables[0].Rows.Cast<DataRow>().Where(dr => dr["NoBill"] + "".ToUpper() == "Y" || dr["NoBillPayin"] + "".ToUpper() == "Y"))
                 //{
                 //    NoBill = true;
@@ -501,11 +539,7 @@ namespace AryuwatSystem.Forms
                 //LsPayIn.Clear();
                 //LsCardType.Clear();
 
-                if (dsSumOfTreatCash_Credit.Tables[0].Rows.Count > 0)
-                {
-                    dtSumOfTreatPay = dsSumOfTreatCash_Credit.Tables[0];//.Select("CashTyp='CREDIT'").CopyToDataTable();
-
-                    foreach (DataRowView item in dtSumOfTreatPay.DefaultView)
+                foreach (var item in lst)
                     {
                         string nobill = "";
                         if (item["NoBill"] + "".ToUpper() == "Y" || item["NoBillPayin"] + "".ToUpper() == "Y") nobill = "Y";
@@ -534,9 +568,6 @@ namespace AryuwatSystem.Forms
                                           };
                         dataGridViewCreditTransfer.Rows.Add(myItems);
                     }
-
-                }
-
                 dataGridViewCreditTransfer.ClearSelection();
             }
             catch (Exception ex)
@@ -549,20 +580,31 @@ namespace AryuwatSystem.Forms
         {
             try
             {
-                using (var context = new OPD_SystemEntities())
+                using (var context = new m_DataSet.EntitiesOPD_System())
                 {
                     ClearVariable();
                     DataSet ds = new DataSet();
                     DataRow toInsert;
+                    List<DataRow> lst = new List<DataRow>();
                     foreach (var items in itemselect)
                     {
                         //itemsSOT[0] = SO, itemsSOT[1]= VN
                         var itemsSOT = items.Split(';');
-                        var test = context.sp_SumOfTreatment("SELECT","", itemsSOT[1], null, null, null, itemsSOT[0], null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null).ToList();
-                        test = test;
+                        //    var test = context.sp_SumOfTreatment("SELECT","", itemsSOT[1], null, null, null, itemsSOT[0], null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+                        //    test = test;
+                        dsSumOfTreat = new Business.SumOfTreatment().SelectSumOfTreatment("SELECT", itemsSOT[0], itemsSOT[1], ReceiptDateCurrent);
+                        //foreach (var roww in dsSumOfTreat.Tables[0].Rows)
+                        //{
+                        //    DataRow row = dsSumOfTreat.Tables[0].NewRow();
+                        //    dsSumOfTreat.Tables[0].Rows.Add(roww);
+                        //}   
+                        var empList = dsSumOfTreat.Tables[0].AsEnumerable().ToList();
+                        foreach (var dataa in empList)
+                        {
+                            lst.Add(dataa);
+                        }
                     }
-                    //dsSumOfTreat = new Business.SumOfTreatment().SelectSumOfTreatment("SELECT", itemsSOT[0], itemsSOT[1], ReceiptDateCurrent);
-                    dtSumOfTreat = dsSumOfTreat.Tables[0];
+                    //dtSumOfTreat = dsSumOfTreat.Tables[0];
                     dtSumOfTreatInvoice = dsSumOfTreat.Tables[1];
                     //dtSumOfTreatRcn = dsSumOfTreat.Tables[2];
 
@@ -584,7 +626,7 @@ namespace AryuwatSystem.Forms
                     double PriceCreditRef = 0;
                     double Sale = 0;
                     bool ReqStock = false;
-                    foreach (DataRowView item in dtSumOfTreat.DefaultView)
+                    foreach (var item in lst)
                     {
                         double s = Convert.ToDouble(string.IsNullOrEmpty(item["MS_Price"] + "") ? "0" : item["MS_Price"] + "".Replace(",", ""));
                         PriceCreditRef = Convert.ToDouble(string.IsNullOrEmpty(item["PriceCreditRef"] + "") ? "0" : item["PriceCreditRef"] + "".Replace(",", ""));
@@ -610,9 +652,6 @@ namespace AryuwatSystem.Forms
                         if ((item["MS_Code_Ref"] + "").Length > 3) ReqStock = true;
 
 
-                        //Complimentary   
-                        //    MarketingBudget
-                        //double PriceAfterDis = string.IsNullOrEmpty(item["PriceAfterDis"] + "") ? (s * Amount) : Convert.ToDouble(item["PriceAfterDis"]);
                         double DiscountBathByItem = Convert.ToDouble(string.IsNullOrEmpty(item["DiscountBathByItem"] + "") ? "0" : item["DiscountBathByItem"] + "".Replace(",", ""));
 
 
@@ -623,6 +662,7 @@ namespace AryuwatSystem.Forms
 
                         object[] myItems = {
                                           item["MS_Code"] + "",
+                                          item["SO"] + "",
                                           item["MS_Name"] + ""==""?item["PRO_Name"] + "":item["MS_Name"] + "",
                                           s.ToString("###,###,###.##"),
                                           Amount.ToString("###,###,###.##"),
@@ -649,41 +689,11 @@ namespace AryuwatSystem.Forms
                                            imageList1.Images[10],
 
                                       };
-                        //double chk = Convert.ToDouble(string.IsNullOrEmpty(item["SalePrice"] + "") ? "0" : item["SalePrice"] + "".Replace(",", ""));
-                        //if (chk == 0)
-                        //    LastSalePrice = SalePrice += PriceAfterDis;
-                        //else
-                        //{
-                        //    LastSalePrice = SalePrice = chk;
-                        //}
-                        //LastSalePrice = SalePrice += PriceAfterDis;//yai  25-4-2014
-                        SalePrice += Sale;//yai  25-4-2014
+
+                        SalePrice += Sale;
 
                         dgvData.Rows.Add(myItems);
 
-                        //if (item["Gift"] + "" == "Y" && item["Complimentary"] + "" == "N" && (item["MarketingBudget"] + "" == "N" || item["MarketingBudget"] + "" == "") && item["Subject"] + "" == "N")
-                        //    dgvData.Rows[index].Cells["DisBath"].ReadOnly = false;// giff  พิมพ์ลดได้
-                        //else if ((item["Gift"] + "" == "N" && item["Gift"] + "" != "") && item["Complimentary"] + "" == "N" && (item["MarketingBudget"] + "" == "N" || item["MarketingBudget"] + "" == "") && item["Subject"] + "" == "N")
-                        //    dgvData.Rows[index].Cells["DisBath"].ReadOnly = false;// ไม่กิฟ  พิมพ์ลดได้
-                        //else if ((item["Gift"] + "" != "N" && item["Gift"] + "" != "") && (item["Complimentary"] + "" == "Y" || (item["MarketingBudget"] + "" != "N" && item["MarketingBudget"] + "" != "") || item["Subject"] + "" == "N"))
-                        //{
-                        //    dgvData.Rows[index].Cells["DisBath"].ReadOnly = true;// อื่นๆ  พิมพ์ลดไม่ได้  *****Set 0******* Yai 25-4-2014
-                        //    // dgvData.Rows[index].Cells["money_dis"].Value = 0;
-                        //    // SalePrice = 0;
-                        //}
-
-                        //===========================2017-04-25==========================
-                        //Giff=1,2,3,""  MarketingBudget=1,2,3,""   Complimentary=Y,N  Subject =Y,N
-                        //if ((item["Gift"] + "" == "" ? 0 : Convert.ToDouble(item["Gift"] + "")) == 0 && item["Complimentary"] + "" == "N" && (item["MarketingBudget"] + "" == "N" || item["MarketingBudget"] + "" == "") && item["Subject"] + "" == "N")
-                        //    dgvData.Rows[index].Cells["DisBath"].ReadOnly = true;
-                        //else
-                        //    dgvData.Rows[index].Cells["DisBath"].ReadOnly = false;
-
-                        //if (item["Gift"] + "" == "" || Convert.ToDouble(item["Gift"] + "") > 0)//ใส่ส่วนลดได้
-                        //        if(item["Complimentary"] + "" == "N" && item["Subject"] + "" == "N" && item["MarketingBudget"] + "" == "")
-                        //            dgvData.Rows[index].Cells["DisBath"].ReadOnly =false;
-                        //else 
-                        //    dgvData.Rows[index].Cells["DisBath"].ReadOnly = true;
                         if ((item["Free"] + "").Trim() == "" || (item["Free"] + "").ToLower().Contains("gift") || (item["Free"] + "").ToLower().Contains("complementary"))
                             dgvData.Rows[index].Cells["DisBath"].ReadOnly = false;
                         else
@@ -697,7 +707,7 @@ namespace AryuwatSystem.Forms
 
                         lbDoctorCom.Text = item["DR_COM"] + "";
                         lbCN.Text = item["CN"] + "";
-                        lbSO.Text = item["SO"] + "";
+                        //lbSO.Text = item["SO"] + "";
                         lbNameT.Text = item["FullNameThai"] + "" != "" ? item["FullNameThai"] + "" : item["FullNameEng"] + "";
                         // lbNameE.Text = item["FullNameEng"] + "";
                         lbIR.Text = item["SOT_Code"] + "";
@@ -1300,7 +1310,7 @@ namespace AryuwatSystem.Forms
                         if (f.OpenCourse) info.QueryType = "SOOpen";
                         else info.QueryType = "SOClose";
 
-                        info.SO = lbSO.Text;
+                        //info.SO = lbSO.Text;
                         info.Refund = f.Refund;
                         info.RefundDate = f.RefundDate;
                         info.RefundType = f.RefundType;
@@ -1862,11 +1872,6 @@ namespace AryuwatSystem.Forms
         {
             try
             {
-                //PopEditOrUpdateSOT obj = new PopEditOrUpdateSOT();
-                //obj.StartPosition = FormStartPosition.CenterScreen;
-                //obj.BackColor = Color.FromArgb(255, 230, 217);
-                //obj.ShowDialog();
-                //if(SaveType=="")return;
                 SaveType = "SAVECREDITCARD";
                 SumOfTreatment info = new SumOfTreatment();
                 List<Entity.CreditCardSOT> listCredit = new List<CreditCardSOT>();
@@ -1876,24 +1881,16 @@ namespace AryuwatSystem.Forms
                 info.CN = lbCN.Text;
                 info.SORef = labelSORef.Text;
                 info.PRO_Code = PRO_Code;
-                //info.VN = lbSO.Text;
                 info.SO = SO;
                 info.EN_COMSDoctor = lbDoctorCom.Text;
                 string dateFormat = "yyyy/MM/dd";
                 string resultdt = dtpDateSave.Value.ToString(dateFormat);
-                info.DateSave = Convert.ToDateTime(resultdt);// dtpDateSave.Value; //new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day,);// Convert.ToDateTime(DateTime.Now);//Convert.ToDateTime(txtStartProcedure.Text);
+                info.DateSave = Convert.ToDateTime(resultdt);
                 info.DateUpdate = DateTime.Now;
-                //info.PettyCash=lstCashTranfer[0];
-                //info.Debtor=lstCashTranfer[1];
-                //info.DomesticMoney=lstCashTranfer[2];
-                //info.AbroadMoney=lstCashTranfer[3];
-                //info.ChecksMoney=lstCashTranfer[4];
-                //info.DebitMoney=lstCashTranfer[5];
-                info.SalePrice = txtBeforDiscount.Text == "" ? 0 : Convert.ToDouble(txtBeforDiscount.Text); //SalePrice;
-                //info.Discount = LastDiscount;
+                info.SalePrice = txtBeforDiscount.Text == "" ? 0 : Convert.ToDouble(txtBeforDiscount.Text);
                 info.NetAmount = LastSalePrice;
                 info.EarnestMoney = EarnestMoney;
-                info.Unpaid = Unpaid;//= Math.Round(Unpaid);
+                info.Unpaid = Unpaid;
                 int sts = 0;
                 if (Unpaid == 0)
                     sts = 2;
@@ -1909,12 +1906,7 @@ namespace AryuwatSystem.Forms
                 info.DiscountAllItemBath = Convert.ToDouble(string.IsNullOrEmpty(txtIntDiscountAllItemBath.Text) ? "0" : txtIntDiscountAllItemBath.Text.Replace(",", ""));
                 info.DiscountBath = Convert.ToDouble(string.IsNullOrEmpty(txtIntDiscountBath.Text) ? "0" : txtIntDiscountBath.Text.Replace(",", "")); ;
                 info.EN_Save = Entity.Userinfo.EN.Trim();
-                //if (string.IsNullOrEmpty(comboBoxCommission.SelectedValue + "") || comboBoxCommission.SelectedValue == Entity.Userinfo.EN)
-                //    info.EN_COMS = Entity.Userinfo.EN.Trim();
-                //else
-                //{
                 info.EN_COMS = (comboBoxCommission.SelectedValue + "").Trim();
-                //}
 
                 info.EN_COMS2 = (comboBoxCommission2.SelectedValue + "").Trim();
                 info.PriceAfterDis = EarnestMoney;
@@ -1937,7 +1929,7 @@ namespace AryuwatSystem.Forms
                     SupplieTranInfo.SONo = SO;
                     SupplieTranInfo.SORef = labelSORef.Text;
                     SupplieTranInfo.PRO_Code = PRO_Code;
-                    SupplieTranInfo.MS_Code = row.Cells["MS_Code"].Value + ""; //Entity.Userinfo.EN;
+                    SupplieTranInfo.MS_Code = row.Cells["MS_Code"].Value + "";
                     SupplieTranInfo.DiscountPercen = string.IsNullOrEmpty(row.Cells["discount"].Value + "") ? 0 : Convert.ToDecimal(row.Cells["discount"].Value + "");
                     SupplieTranInfo.DiscountBath = string.IsNullOrEmpty(row.Cells["DisBath"].Value + "") ? 0 : Convert.ToDecimal(row.Cells["DisBath"].Value + "");
                     SupplieTranInfo.PriceAfterDis = Convert.ToDecimal(string.IsNullOrEmpty(row.Cells["money_dis"].Value + "") ? "0" : row.Cells["money_dis"].Value + "".Replace(",", ""));
@@ -1950,55 +1942,6 @@ namespace AryuwatSystem.Forms
                     if (row.Cells["Vat"].Value + "" == "N" || (row.Cells["Vat"].Value + "").Trim() == "")
                         info.NonVat = "Y";
                 }
-                //For DiscountPercen===========================
-                //foreach (DataGridViewRow row in dataGridViewCreditTransfer.Rows)
-                //{
-                //    if (row.Cells["cash"].Value + ""=="") continue;
-                //    creditInfo = new CreditCardSOT();
-                //    creditInfo.QueryType = SaveType;
-                //    creditInfo.VN = VN;
-                //    creditInfo.SO = SO;
-                //    creditInfo.EN = Entity.Userinfo.EN;
-                //    creditInfo.CN = lbCN.Text;
-                //    creditInfo.CardNumber = row.Cells["number"].Value + "";//เลขที่บัตร
-                //    //creditInfo.BankName = row.Cells["name"].Value + "";//
-                //    creditInfo.CD_Code = row.Cells["CD_Code"].Value + "";//
-                //    creditInfo.Pay_Code = row.Cells["Pay_Code"].Value + "";
-                //    //creditInfo.StatusDel = row.Cells["statusdelcredit"].Value + "";
-                //    creditInfo.CardType = row.Cells["CardType"].Value + "";
-                //    creditInfo.DateUpdate = row.Cells["PayCreditDate"].Value + "" == "" ? DateTime.Now : Convert.ToDateTime(row.Cells["PayCreditDate"].Value + "");
-                //    //string[] s = (row.Cells["PayinCredit"].Value + "").Split(':');
-                //    creditInfo.PayInID = row.Cells["PayInCode"].Value + "" == "" ? 0 : Convert.ToInt16(row.Cells["PayInCode"].Value + "");
-                //    //if (row.Cells["cash"].Value + "" != "")
-                //    //{
-                //        creditInfo.CashMoney = decimal.Parse(row.Cells["cash"].Value + ""); //
-                //   // }
-
-                //    listCredit.Add(creditInfo);
-
-                //}
-                //foreach (DataGridViewRow row in dataGridViewCashTransfer.Rows)
-                //{
-                //    creditInfo = new CreditCardSOT();
-                //    creditInfo.QueryType = SaveType;
-                //    creditInfo.VN = VN;
-                //    creditInfo.SO = SO;
-                //    creditInfo.EN = Entity.Userinfo.EN;
-                //    creditInfo.CN = lbCN.Text;
-                //    //creditInfo.CardNumber = row.Cells["number"].Value + "";//เลขที่บัตร
-                //    //creditInfo.BankName = row.Cells["cashtyp"].Value + "";//
-                //    creditInfo.CD_Code = row.Cells["CD_CodeCash"].Value + "";//
-                //    creditInfo.Pay_Code = row.Cells["Pay_Code"].Value + "";//
-                //    creditInfo.StatusDel = row.Cells["statusdelcash"].Value + "";
-                //    creditInfo.DateUpdate = row.Cells["PayCashDate"].Value + "" == "" ? DateTime.Now : Convert.ToDateTime(row.Cells["PayCashDate"].Value + "");
-                //    string[] s = (row.Cells["PayinCash"].Value + "").Split(':');
-                //    creditInfo.PayInID = int.Parse(s[0].Replace(",", ""));
-                //    if (row.Cells["CashCurrent"].Value + "" != "")
-                //    {
-                //        creditInfo.CashMoney = decimal.Parse((row.Cells["CashCurrent"].Value + "").Replace(",", "")); //
-                //    }
-                //    listCredit.Add(creditInfo);
-                //}
                 listCredit = new List<CreditCardSOT>();
                 info.CreditCardSotInfo = listCredit.ToArray();
                 info.SupplieTranInfo = listSupplieTran.ToArray();
@@ -2009,66 +1952,6 @@ namespace AryuwatSystem.Forms
                 double dblCredteRcn = 0.00;
                 double dblCashRcn = 0.00;
                 Dictionary<string, double> lsdateRcn = new Dictionary<string, double>();
-                // Maxdate = Convert.ToDateTime("2000/01/01");// String.Format("{0:yyyy/MM/dd}", DateTime.Now);
-                //foreach (DataGridViewRow row in dataGridViewCreditTransfer.Rows)
-                //{
-
-                //    if (Convert.ToDateTime(row.Cells["PayCreditDate"].Value + "") > Maxdate)
-                //    {
-                //        Maxdate = Convert.ToDateTime(row.Cells["PayCreditDate"].Value + "");
-                //    }
-                //    //=========get all date reciept=============
-                //    if(lsdateRcn.ContainsKey(row.Cells["PayCreditDate"].Value + ""))continue;
-                //    else lsdateRcn.Add(row.Cells["PayCreditDate"].Value + "",0);
-                //}
-
-
-                //foreach (DataGridViewRow row in dataGridViewCashTransfer.Rows)
-                //{
-                //    if (Convert.ToDateTime(row.Cells["PayCashDate"].Value + "") > Maxdate)
-                //    {
-                //        Maxdate = Convert.ToDateTime(row.Cells["PayCashDate"].Value + "");
-                //    }
-                //    //=========get all date reciept=============
-                //    if (lsdateRcn.ContainsKey(row.Cells["PayCashDate"].Value + "")) continue;
-                //    else lsdateRcn.Add(row.Cells["PayCashDate"].Value + "",0);
-                //}
-                //if (dataGridViewCashTransfer.RowCount <= 0 && dataGridViewCreditTransfer.RowCount <= 0)
-                //    Maxdate = dtpDateSave.Value;
-
-                //foreach (DataGridViewRow row in dataGridViewCreditTransfer.Rows)
-                //{
-                //    if (row.Cells["cash"].Value + "" != "" && row.Cells["PayCreditDate"].Value + "" == String.Format("{0:yyyy/MM/dd}", Maxdate))
-                //    {
-                //        dblCredit += double.Parse((row.Cells["cash"].Value + "").Replace(",", "")); //
-                //    }
-                //  ////  =========get all bath reciept=============
-                //     //dblCredteRcn += double.Parse((row.Cells["cash"].Value + "").Replace(",", ""));
-                //     lsdateRcn[row.Cells["PayCreditDate"].Value + ""] = lsdateRcn[row.Cells["PayCreditDate"].Value + ""] + double.Parse((row.Cells["cash"].Value + "").Replace(",", ""));
-
-                //}
-
-                //foreach (DataGridViewRow row in dataGridViewCashTransfer.Rows)
-                //{
-                //    if (row.Cells["CashCurrent"].Value + "" != "" && row.Cells["PayCashDate"].Value + "" == String.Format("{0:yyyy/MM/dd}", Maxdate))
-                //    {
-                //        dblCash += double.Parse((row.Cells["CashCurrent"].Value + "").Replace(",", "")); //
-                //    }
-                //    lsdateRcn[row.Cells["PayCashDate"].Value + ""] = lsdateRcn[row.Cells["PayCashDate"].Value + ""] + double.Parse((row.Cells["CashCurrent"].Value + "").Replace(",", ""));
-                //}
-                //dblCredit += dblCash;
-                //info.ReceiptBath = dblCredit;
-                //info.ReceiptDate = Maxdate;
-                //string _DateNotIn="";
-                //foreach (KeyValuePair<string, double> pair in lsdateRcn)
-                //{
-                //    _DateNotIn += string.Format("'{0}',", pair.Key); 
-                //}
-                //if(_DateNotIn.Length>5)
-                //info.DateNotIn = _DateNotIn.Remove(_DateNotIn.Length-1);
-                //info.dicRCN = lsdateRcn;
-                //=========================================================================
-
 
                 intStatus = new Business.SumOfTreatment().UpdateSumOfTreatment(info);
 
@@ -2076,8 +1959,16 @@ namespace AryuwatSystem.Forms
                 {
                     if (saveclose)
                     {
-                        DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeInformation, Statics.SaveComplete);
-                        this.Close();
+
+                        //if (Convert.ToInt32(String.IsNullOrEmpty(txtUnpaid.Text) ? "0" : txtUnpaid.Text.Replace(",", "")) > 0)
+                        //{
+                        //    MessageBox.Show("กรุณาจ่ายเงินเต็มจำนวน", "แจ้งเตือน");
+                        //}
+                        //else
+                        //{
+                            DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeInformation, Statics.SaveComplete);
+                            this.Close();
+                        //}
                     }
                 }
                 else
@@ -2231,11 +2122,11 @@ namespace AryuwatSystem.Forms
                         txtPercen = "60 %.";
                     }
 
-                    if (lbSO.Text.ToLower().Contains("pro"))
-                    {
-                        Price50Per = Price80Per;
-                        txtPercen = "80%";
-                    }
+                    //if (lbSO.Text.ToLower().Contains("pro"))
+                    //{
+                    //    Price50Per = Price80Per;
+                    //    txtPercen = "80%";
+                    //}
                     if (customerType == "CNM" || customerType == "CNS")
                     {
                         Price50Per = Price95Per;
@@ -3120,7 +3011,8 @@ namespace AryuwatSystem.Forms
                 pp.ReceiptDate = ReceiptDateCurrent = Convert.ToDateTime(dgvReciept.Rows[dgvReciept.CurrentRow.Index].Cells["ReceiptDate"].Value);
                 ReceiptBathCurrent = dgvReciept.Rows[dgvReciept.CurrentRow.Index].Cells["ReceiptBath"].Value + "" == "" ? 0 : Convert.ToDecimal(dgvReciept.Rows[dgvReciept.CurrentRow.Index].Cells["ReceiptBath"].Value);
                 pp.RCNo = RCNoCurrent = dgvReciept.Rows[dgvReciept.CurrentRow.Index].Cells["RCNo"].Value + "";
-                pp.SO = SO;
+                //pp.SO = SO;
+                SOReceipt = dgvReciept.Rows[dgvReciept.CurrentRow.Index].Cells["dataSO"].Value + "";
                 DateTime oldDate = Convert.ToDateTime(dgvReciept.Rows[dgvReciept.CurrentRow.Index].Cells["ReceiptDate"].Value);
                 if (pp.ShowDialog() == DialogResult.OK)
                 {
@@ -3187,12 +3079,20 @@ namespace AryuwatSystem.Forms
                     return;
                 }
 
-                popRecieptAdd pp = new popRecieptAdd();
-                pp.ReceiptBath = ump;//ดึงจากราคาขาย หรือดึงจากยอดค้างชำระ
+                popRecieptSelectAdd pp = new popRecieptSelectAdd();
+                //pp.ReceiptBath = ump;//ดึงจากราคาขาย หรือดึงจากยอดค้างชำระ
                 pp.Lastdate = Lastdate;
                 pp.ReceiptDate = DateTime.Now.Date;
                 pp.RCNo = "";
-                pp.SO = SO;
+                //pp.SO = SO;
+                var itemsplit = new List<string>();
+                foreach(var itm in itemselect)
+                {
+                    var itemsSOT = itm.Split(';');
+
+                    itemsplit.Add(itemsSOT[0]);
+                }
+                pp.itemselect = itemsplit;
                 if (pp.ShowDialog() == DialogResult.OK)
                 {
                     //DateTime d = DateTime.MinValue;
@@ -3212,12 +3112,13 @@ namespace AryuwatSystem.Forms
                     ReceiptBathCurrent = pp.ReceiptBath;
                     string rc = "";//= pp.RCNo;
 
-                    DataSet ds = new Business.SumOfTreatment().SAVERCNo(rc, SO, pp.ReceiptDate, Entity.Userinfo.EN, pp.ReceiptBath);
+                    DataSet ds = new Business.SumOfTreatment().SAVERCNo(rc, pp.SO, pp.ReceiptDate, Entity.Userinfo.EN, pp.ReceiptBath);
                     rc = ds.Tables[0].Rows[0][0] + "";
                     RCNoCurrent = rc;
-
+                    SOReceipt = pp.SO;
                     object[] myItems = {
-                                          RCNoCurrent,
+                                         pp.SO,
+                                         RCNoCurrent,
                                          ReceiptDate,
                                          ReceiptBath
                                       };
@@ -3311,8 +3212,8 @@ namespace AryuwatSystem.Forms
                         creditInfo = new CreditCardSOT();
                         SaveType = "SAVECREDITCARD";
                         creditInfo.QueryType = SaveType;
-                        creditInfo.VN = VN;
-                        creditInfo.SO = SO;
+                        creditInfo.VN = String.IsNullOrEmpty(VN) ? "" : VN;
+                        creditInfo.SO = SOReceipt;//SO;
                         creditInfo.EN = Entity.Userinfo.EN;
                         creditInfo.CN = lbCN.Text;
                         creditInfo.CardNumber = row.Cells["number"].Value + "";//เลขที่บัตร
@@ -3714,7 +3615,7 @@ namespace AryuwatSystem.Forms
                     aa.UrgentFlag = "N";
                     aa.Fortype = "B";
                     aa.REQUnitCode = item.Cells["MS_UnitStk"].Value + "";
-                    aa.SOno = lbSO.Text;
+                    //aa.SOno = lbSO.Text;
                     //if (item.Cells["_ExpireDate"].Value + "" == "")
                     //{
                     //    MessageBox.Show("Input Expire Date", "Important Note", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
@@ -3789,6 +3690,5 @@ namespace AryuwatSystem.Forms
                 MessageBox.Show(ex.Message);
             }
         }
-
     }
 }

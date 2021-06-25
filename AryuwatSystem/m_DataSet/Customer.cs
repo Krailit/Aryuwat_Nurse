@@ -14,6 +14,7 @@ namespace AryuwatSystem.m_DataSet
     
     public partial class Customer
     {
+        public int ID { get; set; }
         public string CN { get; set; }
         public Nullable<System.DateTime> Dateregister { get; set; }
         public string PrefixCode { get; set; }
@@ -52,10 +53,6 @@ namespace AryuwatSystem.m_DataSet
         public string AllergyHistory { get; set; }
         public string UnderlyingDisease { get; set; }
         public string WhereGotTreatment { get; set; }
-        public string CreateBy { get; set; }
-        public Nullable<System.DateTime> CreateDate { get; set; }
-        public string UpdateBy { get; set; }
-        public Nullable<System.DateTime> UpdateDate { get; set; }
         public string Image { get; set; }
         public string CustomerType { get; set; }
         public string CN_old { get; set; }
@@ -71,5 +68,10 @@ namespace AryuwatSystem.m_DataSet
         public string BranchCust { get; set; }
         public string Celeb { get; set; }
         public string BranchAuth { get; set; }
+        public Nullable<bool> Is_Active { get; set; }
+        public string CreateBy { get; set; }
+        public Nullable<System.DateTime> CreateDate { get; set; }
+        public string UpdateBy { get; set; }
+        public Nullable<System.DateTime> UpdateDate { get; set; }
     }
 }

@@ -86,6 +86,7 @@ namespace AryuwatSystem.Forms
             this.lbPersenBath = new System.Windows.Forms.Label();
             this.dgvData = new System.Windows.Forms.DataGridView();
             this.MS_Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MS_SO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Detail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amountnumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -120,8 +121,6 @@ namespace AryuwatSystem.Forms
             this.lbIR = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lbSORef = new System.Windows.Forms.Label();
-            this.lbSO = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.lbNameT = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -158,6 +157,7 @@ namespace AryuwatSystem.Forms
             this.txtBillTo = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvReciept = new System.Windows.Forms.DataGridView();
+            this.dataSO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RCNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ReceiptDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ReceiptBath = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -354,6 +354,7 @@ namespace AryuwatSystem.Forms
             this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MS_Code,
+            this.MS_SO,
             this.Detail,
             this.price,
             this.amountnumber,
@@ -414,6 +415,12 @@ namespace AryuwatSystem.Forms
             this.MS_Code.Name = "MS_Code";
             this.MS_Code.Visible = false;
             this.MS_Code.Width = 86;
+            // 
+            // MS_SO
+            // 
+            this.MS_SO.HeaderText = "SO";
+            this.MS_SO.Name = "MS_SO";
+            this.MS_SO.Width = 49;
             // 
             // Detail
             // 
@@ -609,8 +616,6 @@ namespace AryuwatSystem.Forms
             this.panel9.Controls.Add(this.panel8);
             this.panel9.Controls.Add(this.label5);
             this.panel9.Controls.Add(this.lbSORef);
-            this.panel9.Controls.Add(this.lbSO);
-            this.panel9.Controls.Add(this.label4);
             this.panel9.Controls.Add(this.lbNameT);
             this.panel9.Controls.Add(this.label3);
             this.panel9.Controls.Add(this.label10);
@@ -626,7 +631,7 @@ namespace AryuwatSystem.Forms
             // 
             this.labelBranch.AutoSize = true;
             this.labelBranch.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.labelBranch.Location = new System.Drawing.Point(525, 34);
+            this.labelBranch.Location = new System.Drawing.Point(436, 34);
             this.labelBranch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelBranch.Name = "labelBranch";
             this.labelBranch.Size = new System.Drawing.Size(49, 17);
@@ -637,7 +642,7 @@ namespace AryuwatSystem.Forms
             // 
             this.labelSORef.AutoSize = true;
             this.labelSORef.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.labelSORef.Location = new System.Drawing.Point(579, 9);
+            this.labelSORef.Location = new System.Drawing.Point(490, 9);
             this.labelSORef.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelSORef.Name = "labelSORef";
             this.labelSORef.Size = new System.Drawing.Size(83, 17);
@@ -710,7 +715,7 @@ namespace AryuwatSystem.Forms
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label5.Location = new System.Drawing.Point(525, 9);
+            this.label5.Location = new System.Drawing.Point(436, 9);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(55, 17);
@@ -721,34 +726,12 @@ namespace AryuwatSystem.Forms
             // 
             this.lbSORef.AutoSize = true;
             this.lbSORef.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.lbSORef.Location = new System.Drawing.Point(424, 9);
+            this.lbSORef.Location = new System.Drawing.Point(335, 9);
             this.lbSORef.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbSORef.Name = "lbSORef";
             this.lbSORef.Size = new System.Drawing.Size(83, 17);
             this.lbSORef.TabIndex = 23;
             this.lbSORef.Text = "VN005285";
-            // 
-            // lbSO
-            // 
-            this.lbSO.AutoSize = true;
-            this.lbSO.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.lbSO.Location = new System.Drawing.Point(205, 9);
-            this.lbSO.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbSO.Name = "lbSO";
-            this.lbSO.Size = new System.Drawing.Size(83, 17);
-            this.lbSO.TabIndex = 20;
-            this.lbSO.Text = "VN005285";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label4.Location = new System.Drawing.Point(173, 9);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 17);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "SO :";
             // 
             // lbNameT
             // 
@@ -776,7 +759,7 @@ namespace AryuwatSystem.Forms
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label10.Location = new System.Drawing.Point(346, 9);
+            this.label10.Location = new System.Drawing.Point(257, 9);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(80, 17);
@@ -1128,6 +1111,7 @@ namespace AryuwatSystem.Forms
             this.dgvReciept.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dgvReciept.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReciept.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataSO,
             this.RCNo,
             this.ReceiptDate,
             this.ReceiptBath});
@@ -1148,6 +1132,12 @@ namespace AryuwatSystem.Forms
             this.dgvReciept.Size = new System.Drawing.Size(312, 276);
             this.dgvReciept.TabIndex = 285;
             this.dgvReciept.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvReciept_CellMouseClick);
+            // 
+            // dataSO
+            // 
+            this.dataSO.HeaderText = "SO";
+            this.dataSO.Name = "dataSO";
+            this.dataSO.ReadOnly = true;
             // 
             // RCNo
             // 
@@ -1495,6 +1485,7 @@ namespace AryuwatSystem.Forms
             this.txtIntDiscountBath.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.txtIntDiscountBath.Location = new System.Drawing.Point(33, 68);
             this.txtIntDiscountBath.Name = "txtIntDiscountBath";
+            this.txtIntDiscountBath.ReadOnly = true;
             this.txtIntDiscountBath.Size = new System.Drawing.Size(147, 29);
             this.txtIntDiscountBath.TabIndex = 308;
             this.txtIntDiscountBath.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -1600,6 +1591,7 @@ namespace AryuwatSystem.Forms
             this.btnCloseStatus.TabIndex = 301;
             this.btnCloseStatus.Text = "ปิดรายการ";
             this.btnCloseStatus.UseVisualStyleBackColor = true;
+            this.btnCloseStatus.Visible = false;
             this.btnCloseStatus.Click += new System.EventHandler(this.btnCloseStatus_Click);
             // 
             // checkBoxCommissionEdit
@@ -2383,7 +2375,7 @@ namespace AryuwatSystem.Forms
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmPaidSelectSOT";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Summary Of Treatment";
+            this.Text = "All Select Summary Of Treatment";
             this.Load += new System.EventHandler(this.FrmSumOfTreatment_Load);
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -2425,7 +2417,6 @@ namespace AryuwatSystem.Forms
 
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
@@ -2435,7 +2426,6 @@ namespace AryuwatSystem.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.Label lbNameT;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lbSO;
         private System.Windows.Forms.Label lbCN;
         private System.Windows.Forms.Label lbIR;
         private System.Windows.Forms.Label label6;
@@ -2484,7 +2474,6 @@ namespace AryuwatSystem.Forms
         private System.Windows.Forms.CheckBox checkBoxCommissionEdit;
         private System.Windows.Forms.ComboBox comboBoxCommission;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnCloseStatus;
         private System.Windows.Forms.Button btnPrintInv;
         private System.Windows.Forms.Button btnCancel;
         private TextboxFormatDouble txtUnpaid;
@@ -2566,9 +2555,6 @@ namespace AryuwatSystem.Forms
         private System.Windows.Forms.ComboBox listBoxCreditTyp;
         private ButtonRigth btnAddCredit;
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewComboBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RCNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ReceiptDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ReceiptBath;
         private System.Windows.Forms.PictureBox pictureBoxSaveRCNList;
         private System.Windows.Forms.Label lbMoneyError;
         private System.Windows.Forms.Panel panel11;
@@ -2586,7 +2572,10 @@ namespace AryuwatSystem.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn CardType;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusdelcredit;
         private System.Windows.Forms.Button btnREQStock;
+        private System.Windows.Forms.Button buttonTaxClinic;
+        private System.Windows.Forms.Button btnPrintInvClinic;
         private System.Windows.Forms.DataGridViewTextBoxColumn MS_Code;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MS_SO;
         private System.Windows.Forms.DataGridViewTextBoxColumn Detail;
         private System.Windows.Forms.DataGridViewTextBoxColumn price;
         private System.Windows.Forms.DataGridViewTextBoxColumn amountnumber;
@@ -2610,7 +2599,10 @@ namespace AryuwatSystem.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn MS_UnitStk;
         private System.Windows.Forms.DataGridViewTextBoxColumn Dept;
         private System.Windows.Forms.DataGridViewTextBoxColumn REQNo;
-        private System.Windows.Forms.Button buttonTaxClinic;
-        private System.Windows.Forms.Button btnPrintInvClinic;
+        private System.Windows.Forms.Button btnCloseStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataSO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RCNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReceiptDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReceiptBath;
     }
 }

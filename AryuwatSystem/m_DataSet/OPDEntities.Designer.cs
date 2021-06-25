@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\parinya\source\repos\OPD_Aryu\AryuwatSystem\m_DataSet\OPDEntities.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\BOOM\source\repos\Aryuwat_Nurse\AryuwatSystem\m_DataSet\OPDEntities.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

@@ -27,14 +27,20 @@ namespace AryuwatSystem.m_DataSet
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Alert_Detail> Alert_Detail { get; set; }
         public virtual DbSet<CommissionRate> CommissionRates { get; set; }
         public virtual DbSet<CourseDuration> CourseDurations { get; set; }
         public virtual DbSet<CreditCard> CreditCards { get; set; }
+        public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<FileOPD> FileOPDs { get; set; }
+        public virtual DbSet<Master_Room> Master_Room { get; set; }
         public virtual DbSet<MedicalOrder> MedicalOrders { get; set; }
         public virtual DbSet<MedicalSupply> MedicalSupplies { get; set; }
         public virtual DbSet<MedicalSuppliesStock> MedicalSuppliesStocks { get; set; }
         public virtual DbSet<MemberTran> MemberTrans { get; set; }
         public virtual DbSet<Menu> Menus { get; set; }
+        public virtual DbSet<PatientChange> PatientChanges { get; set; }
+        public virtual DbSet<PatientData> PatientDatas { get; set; }
         public virtual DbSet<PayInCome> PayInComes { get; set; }
         public virtual DbSet<PersonnelsCom_bak> PersonnelsCom_bak { get; set; }
         public virtual DbSet<PersonnelType> PersonnelTypes { get; set; }
@@ -43,6 +49,7 @@ namespace AryuwatSystem.m_DataSet
         public virtual DbSet<Room> Rooms { get; set; }
         public virtual DbSet<Room_Detail> Room_Detail { get; set; }
         public virtual DbSet<RoomBookDoctor> RoomBookDoctors { get; set; }
+        public virtual DbSet<SupplieTran> SupplieTrans { get; set; }
         public virtual DbSet<tblMessage> tblMessages { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<ActionLog> ActionLogs { get; set; }
@@ -60,18 +67,13 @@ namespace AryuwatSystem.m_DataSet
         public virtual DbSet<CashCreditCardSOT> CashCreditCardSOTs { get; set; }
         public virtual DbSet<Conf> Confs { get; set; }
         public virtual DbSet<ContactCustomer> ContactCustomers { get; set; }
-        public virtual DbSet<CosmeticSurgery1> CosmeticSurgeries { get; set; }
         public virtual DbSet<Country> Countries { get; set; }
         public virtual DbSet<CustomerConnect> CustomerConnects { get; set; }
         public virtual DbSet<CustomerProvider> CustomerProviders { get; set; }
         public virtual DbSet<CustomerProvider_bak> CustomerProvider_bak { get; set; }
-        public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<District> Districts { get; set; }
         public virtual DbSet<ExtraMoney> ExtraMoneys { get; set; }
-        public virtual DbSet<FileOPD> FileOPDs { get; set; }
         public virtual DbSet<GiftVoucher> GiftVouchers { get; set; }
-        public virtual DbSet<HairCenter1> HairCenters { get; set; }
-        public virtual DbSet<HowYouhear1> HowYouhears { get; set; }
         public virtual DbSet<InvoiceTran> InvoiceTrans { get; set; }
         public virtual DbSet<JobsAlert> JobsAlerts { get; set; }
         public virtual DbSet<MedicalOrder_18_03_2019> MedicalOrder_18_03_2019 { get; set; }
@@ -117,7 +119,6 @@ namespace AryuwatSystem.m_DataSet
         public virtual DbSet<Subdistrict> Subdistricts { get; set; }
         public virtual DbSet<SubListItem> SubListItems { get; set; }
         public virtual DbSet<SumOfTreatment> SumOfTreatments { get; set; }
-        public virtual DbSet<SupplieTran> SupplieTrans { get; set; }
         public virtual DbSet<SupplieTransRenewal> SupplieTransRenewals { get; set; }
         public virtual DbSet<SurgeryFee> SurgeryFees { get; set; }
         public virtual DbSet<TaxTran> TaxTrans { get; set; }
@@ -128,7 +129,6 @@ namespace AryuwatSystem.m_DataSet
         public virtual DbSet<V_Administrative> V_Administrative { get; set; }
         public virtual DbSet<View_Customer> View_Customer { get; set; }
         public virtual DbSet<vProductToSOMO> vProductToSOMOes { get; set; }
-        public virtual DbSet<Master_Room> Master_Room { get; set; }
     
         [DbFunction("EntitiesOPD_System", "SplitString")]
         public virtual IQueryable<SplitString_Result> SplitString(string str, string separator)
@@ -901,7 +901,7 @@ namespace AryuwatSystem.m_DataSet
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("sp_CosmeticSurgery", cNParameter, eyeParameter, noseParameter, chestParameter, otherParameter, createByParameter, createDateParameter, updateByParameter, updateDateParameter, queryTypeParameter);
         }
     
-        public virtual ObjectResult<string> sp_customer(string queryType, string eN, string eN_Save, string cN, Nullable<System.DateTime> dateregister, Nullable<System.DateTime> startDate, Nullable<System.DateTime> endDate, string prefixCode, string tname, string tsurName, string tNickname, string firstName, string middleName, string surname, string nickname, Nullable<System.DateTime> dateBirth, string dateBirthOther, Nullable<int> age, string gender, Nullable<int> height, Nullable<int> weights, string nationality, string race, string mobile1, string mobile2, string tel1, string tel2, string e_mail, string addressId, string building, string soi, string road, string sub_districtCode, string districtCode, string provinceCode, string postcode, string passportNo, string idCard, string vipFlag, string remark, string allergyHistory, string underlyingDisease, string whereGotTreatment, string createBy, Nullable<System.DateTime> createDate, string updateBy, Nullable<System.DateTime> updateDate, string image, string customerType, string branchId, Nullable<int> row_start, Nullable<int> row_end, string agenMemID, string bloodPressure, string providerTypID, Nullable<int> credit_Bath, Nullable<int> credit_Day, string country_ID, string saleConsult, string mainOfficeCust, string branchCust, string branchAuth, string cUSTNAME, string celeb, string memID, string contactName, string contactFrom, string contactFB_IN_LineID, string interest, Nullable<System.DateTime> dateConnect, Nullable<System.DateTime> dateBooking, Nullable<decimal> closeBal, string iD)
+        public virtual ObjectResult<string> sp_customer(string queryType, string eN, string eN_Save, string cN, Nullable<System.DateTime> dateregister, Nullable<System.DateTime> startDate, Nullable<System.DateTime> endDate, string prefixCode, string tname, string tsurName, string tNickname, string firstName, string middleName, string surname, string nickname, Nullable<System.DateTime> dateBirth, string dateBirthOther, Nullable<int> age, string gender, Nullable<int> height, Nullable<int> weights, string nationality, string race, string mobile1, string mobile2, string tel1, string tel2, string e_mail, string addressId, string building, string soi, string road, string sub_districtCode, string districtCode, string provinceCode, string postcode, string passportNo, string idCard, string vipFlag, string remark, string allergyHistory, string underlyingDisease, string whereGotTreatment, string createBy, Nullable<System.DateTime> createDate, string updateBy, Nullable<System.DateTime> updateDate, string image, string customerType, string branchId, Nullable<int> row_start, Nullable<int> row_end, string agenMemID, string bloodPressure, string providerTypID, Nullable<int> credit_Bath, Nullable<int> credit_Day, string country_ID, string saleConsult, string mainOfficeCust, string branchCust, string branchAuth, string cUSTNAME, string celeb, string memID, string contactName, string contactFrom, string contactFB_IN_LineID, string interest, Nullable<System.DateTime> dateConnect, Nullable<System.DateTime> dateBooking, Nullable<decimal> closeBal, string iD, Nullable<bool> active)
         {
             var queryTypeParameter = queryType != null ?
                 new ObjectParameter("QueryType", queryType) :
@@ -1195,7 +1195,11 @@ namespace AryuwatSystem.m_DataSet
                 new ObjectParameter("ID", iD) :
                 new ObjectParameter("ID", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("sp_customer", queryTypeParameter, eNParameter, eN_SaveParameter, cNParameter, dateregisterParameter, startDateParameter, endDateParameter, prefixCodeParameter, tnameParameter, tsurNameParameter, tNicknameParameter, firstNameParameter, middleNameParameter, surnameParameter, nicknameParameter, dateBirthParameter, dateBirthOtherParameter, ageParameter, genderParameter, heightParameter, weightsParameter, nationalityParameter, raceParameter, mobile1Parameter, mobile2Parameter, tel1Parameter, tel2Parameter, e_mailParameter, addressIdParameter, buildingParameter, soiParameter, roadParameter, sub_districtCodeParameter, districtCodeParameter, provinceCodeParameter, postcodeParameter, passportNoParameter, idCardParameter, vipFlagParameter, remarkParameter, allergyHistoryParameter, underlyingDiseaseParameter, whereGotTreatmentParameter, createByParameter, createDateParameter, updateByParameter, updateDateParameter, imageParameter, customerTypeParameter, branchIdParameter, row_startParameter, row_endParameter, agenMemIDParameter, bloodPressureParameter, providerTypIDParameter, credit_BathParameter, credit_DayParameter, country_IDParameter, saleConsultParameter, mainOfficeCustParameter, branchCustParameter, branchAuthParameter, cUSTNAMEParameter, celebParameter, memIDParameter, contactNameParameter, contactFromParameter, contactFB_IN_LineIDParameter, interestParameter, dateConnectParameter, dateBookingParameter, closeBalParameter, iDParameter);
+            var activeParameter = active.HasValue ?
+                new ObjectParameter("Active", active) :
+                new ObjectParameter("Active", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("sp_customer", queryTypeParameter, eNParameter, eN_SaveParameter, cNParameter, dateregisterParameter, startDateParameter, endDateParameter, prefixCodeParameter, tnameParameter, tsurNameParameter, tNicknameParameter, firstNameParameter, middleNameParameter, surnameParameter, nicknameParameter, dateBirthParameter, dateBirthOtherParameter, ageParameter, genderParameter, heightParameter, weightsParameter, nationalityParameter, raceParameter, mobile1Parameter, mobile2Parameter, tel1Parameter, tel2Parameter, e_mailParameter, addressIdParameter, buildingParameter, soiParameter, roadParameter, sub_districtCodeParameter, districtCodeParameter, provinceCodeParameter, postcodeParameter, passportNoParameter, idCardParameter, vipFlagParameter, remarkParameter, allergyHistoryParameter, underlyingDiseaseParameter, whereGotTreatmentParameter, createByParameter, createDateParameter, updateByParameter, updateDateParameter, imageParameter, customerTypeParameter, branchIdParameter, row_startParameter, row_endParameter, agenMemIDParameter, bloodPressureParameter, providerTypIDParameter, credit_BathParameter, credit_DayParameter, country_IDParameter, saleConsultParameter, mainOfficeCustParameter, branchCustParameter, branchAuthParameter, cUSTNAMEParameter, celebParameter, memIDParameter, contactNameParameter, contactFromParameter, contactFB_IN_LineIDParameter, interestParameter, dateConnectParameter, dateBookingParameter, closeBalParameter, iDParameter, activeParameter);
         }
     
         public virtual ObjectResult<string> sp_CustProvider(string typeCustomer, string queryType)
@@ -1702,7 +1706,7 @@ namespace AryuwatSystem.m_DataSet
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_Marketing_Result>("sp_Marketing", queryTypeParameter, creditCashQueryTypeParameter, vNParameter, eNParameter, sOT_CodeParameter, cNParameter, sOnoParameter, rCNoParameter, medStatus_CodeParameter, receiptBathParameter, iNVBathParameter, vatParameter, nonVatParameter, receiptDateParameter, dateSaveParameter, dateUpdateParameter, salePriceParameter, discountParameter, earnestMoneyParameter, netAmountParameter, unpaidParameter, discountPercenParameter, discountBathByItemParameter, discountBathParameter, remarkParameter, payByItemParameter, pay_CodeParameter, cD_CodeParameter, cardNumberParameter, cashMoneyParameter, priceAfterDisParameter, payInIDParameter, bankNameParameter, countParameter, mS_CodeParameter, sUR_IDParameter, eN_SaveParameter, eN_COMSParameter, eN_COMS2Parameter, com_BathParameter, com_Bath2Parameter, reCeiptNoParameter, invNoParameter, cardTypeParameter, billToParameter, listOrderParameter, sORefAccountParameter, birthMonthParameter, startDateParameter, endDateParameter);
         }
     
-        public virtual ObjectResult<string> sp_MedicalOrder(string vN, string vNClose, string sOClose, string sONew, string cN, string cO, string eN_Save, string remark, Nullable<System.DateTime> createDate, string createBy, Nullable<System.DateTime> updateDate, string updateBy, string queryType, Nullable<decimal> salePrice, Nullable<decimal> priceTotalRef, Nullable<decimal> priceCreditRef, Nullable<int> row_start, Nullable<int> row_end, string tName, string tSurname, string tab, string mS_Name, string mS_Code, string tabwhere, string medStatus_Code, string medStatus_CodeNew, string medStatus_CodePending, string medStatus_CodeClosed, string medStatus_CodeUnpaid, string medStatus_CodeDeposit, string medStatus_CodePaid, string moneyCheckComplete, string agenMemID, string sONo, string eN_COMS1, string eN_COMS2, string dR_COM, string note, string mOType, string pRO_Code, string sORef, string oldKey, string product, Nullable<System.DateTime> startDate, Nullable<System.DateTime> endDate, string refMO, string refVN, string branchId, Nullable<decimal> proCreditRemain)
+        public virtual ObjectResult<string> sp_MedicalOrder(string vN, string vNClose, string sOClose, string sONew, string cN, string cO, string eN_Save, string remark, Nullable<System.DateTime> createDate, string createBy, Nullable<System.DateTime> updateDate, string updateBy, string queryType, Nullable<decimal> salePrice, Nullable<decimal> priceTotalRef, Nullable<decimal> priceCreditRef, Nullable<int> row_start, Nullable<int> row_end, string tName, string tSurname, string tab, string mS_Name, string mS_Code, string tabwhere, string medStatus_Code, string medStatus_CodeNew, string medStatus_CodePending, string medStatus_CodeClosed, string medStatus_CodeUnpaid, string medStatus_CodeDeposit, string medStatus_CodePaid, string moneyCheckComplete, string agenMemID, string sONo, string eN_COMS1, string eN_COMS2, string dR_COM, string note, string mOType, string pRO_Code, string sORef, string oldKey, string product, Nullable<System.DateTime> startDate, Nullable<System.DateTime> endDate, string refMO, string refVN, string branchId, string notes, Nullable<decimal> proCreditRemain)
         {
             var vNParameter = vN != null ?
                 new ObjectParameter("VN", vN) :
@@ -1896,11 +1900,15 @@ namespace AryuwatSystem.m_DataSet
                 new ObjectParameter("BranchId", branchId) :
                 new ObjectParameter("BranchId", typeof(string));
     
+            var notesParameter = notes != null ?
+                new ObjectParameter("Notes", notes) :
+                new ObjectParameter("Notes", typeof(string));
+    
             var proCreditRemainParameter = proCreditRemain.HasValue ?
                 new ObjectParameter("ProCreditRemain", proCreditRemain) :
                 new ObjectParameter("ProCreditRemain", typeof(decimal));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("sp_MedicalOrder", vNParameter, vNCloseParameter, sOCloseParameter, sONewParameter, cNParameter, cOParameter, eN_SaveParameter, remarkParameter, createDateParameter, createByParameter, updateDateParameter, updateByParameter, queryTypeParameter, salePriceParameter, priceTotalRefParameter, priceCreditRefParameter, row_startParameter, row_endParameter, tNameParameter, tSurnameParameter, tabParameter, mS_NameParameter, mS_CodeParameter, tabwhereParameter, medStatus_CodeParameter, medStatus_CodeNewParameter, medStatus_CodePendingParameter, medStatus_CodeClosedParameter, medStatus_CodeUnpaidParameter, medStatus_CodeDepositParameter, medStatus_CodePaidParameter, moneyCheckCompleteParameter, agenMemIDParameter, sONoParameter, eN_COMS1Parameter, eN_COMS2Parameter, dR_COMParameter, noteParameter, mOTypeParameter, pRO_CodeParameter, sORefParameter, oldKeyParameter, productParameter, startDateParameter, endDateParameter, refMOParameter, refVNParameter, branchIdParameter, proCreditRemainParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("sp_MedicalOrder", vNParameter, vNCloseParameter, sOCloseParameter, sONewParameter, cNParameter, cOParameter, eN_SaveParameter, remarkParameter, createDateParameter, createByParameter, updateDateParameter, updateByParameter, queryTypeParameter, salePriceParameter, priceTotalRefParameter, priceCreditRefParameter, row_startParameter, row_endParameter, tNameParameter, tSurnameParameter, tabParameter, mS_NameParameter, mS_CodeParameter, tabwhereParameter, medStatus_CodeParameter, medStatus_CodeNewParameter, medStatus_CodePendingParameter, medStatus_CodeClosedParameter, medStatus_CodeUnpaidParameter, medStatus_CodeDepositParameter, medStatus_CodePaidParameter, moneyCheckCompleteParameter, agenMemIDParameter, sONoParameter, eN_COMS1Parameter, eN_COMS2Parameter, dR_COMParameter, noteParameter, mOTypeParameter, pRO_CodeParameter, sORefParameter, oldKeyParameter, productParameter, startDateParameter, endDateParameter, refMOParameter, refVNParameter, branchIdParameter, notesParameter, proCreditRemainParameter);
         }
     
         public virtual int sp_MedicalOrderDoc(string id, string vN, string sono, string fileName, string detail, string queryType, string useTransId, string cN, Nullable<System.DateTime> dateScan, string eNDoctor, string eNSave)
@@ -2232,7 +2240,7 @@ namespace AryuwatSystem.m_DataSet
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("sp_MedicalStuff", vNParameter, mS_CodeParameter, position_IDParameter, employeeIdParameter, queryTypeParameter, sectionStuffParameter, mergStatusParameter, useTransIdParameter, listOrderParameter, eNParameter);
         }
     
-        public virtual ObjectResult<sp_MedicalSupplies_Result> sp_MedicalSupplies(string queryType, Nullable<int> iD, string mS_Code, string mS_Code_Ref, string mS_Section, string mS_Name, string mS_Detail, string mS_Unit, string mS_CourseDuration, string mS_Type, Nullable<int> mS_CLPrice, Nullable<int> mS_CAPrice, Nullable<int> mS_CMPrice, Nullable<decimal> mS_Cost, Nullable<int> mS_Order, Nullable<int> mS_Instock, Nullable<int> row_start, Nullable<int> row_end, Nullable<decimal> feeRate, Nullable<decimal> feeRate2, Nullable<decimal> maxDiscount, string vat, string branchID, string operationID, string purchaseID, string active, string bOM, string sellToCN, Nullable<decimal> mS_Discount, Nullable<decimal> receive_Cost, Nullable<decimal> mS_CostAVG, Nullable<int> receiveQuantity, Nullable<int> quantity, Nullable<decimal> sell_Cost, Nullable<int> sellQuantity, string docNo, string activeType, string byID, Nullable<System.DateTime> saveDate, string eNSave, string remark, Nullable<System.DateTime> startDate, Nullable<System.DateTime> endDate, Nullable<System.DateTime> expireDate, string sono, string listOrder, Nullable<int> mS_Number_C, string locationID, string stock_Code, Nullable<decimal> usedAmount, Nullable<decimal> costPerUnit, string rEQNo, Nullable<System.DateTime> rEQDate, string eN_Req, string eN_ReqTo, string req_BranchId, string reqTo_BranchId, string fixSearch, Nullable<decimal> quantityReply, Nullable<decimal> quantityReceive, string remarkReply, string approved, string wHCode, string dept, Nullable<System.DateTime> replydate, string returnsFlag, string urgentFlag, string fortype, string mS_SubUnit, Nullable<decimal> anountPerMainUnit, string rEQUnitCode, string eatAmount, string eatPerday, string beforeMeals, string afterMeals, string morning, string lunch, string evening, string beforeBed, string eat, string coat, string coatArea, string everyhours, string vN)
+        public virtual ObjectResult<sp_MedicalSupplies_Result> sp_MedicalSupplies(string queryType, Nullable<int> iD, string mS_Code, string mS_Code_Ref, string mS_Section, string mS_Name, string mS_Detail, string mS_Unit, string mS_CourseDuration, string mS_Type, Nullable<int> mS_CLPrice, Nullable<int> mS_CAPrice, Nullable<int> mS_CMPrice, Nullable<decimal> mS_Cost, Nullable<int> mS_Order, Nullable<int> mS_Instock, Nullable<int> row_start, Nullable<int> row_end, Nullable<decimal> feeRate, Nullable<decimal> feeRate2, Nullable<decimal> maxDiscount, string vat, string branchID, string operationID, string purchaseID, string active, string bOM, Nullable<bool> type_Doctor, string sellToCN, Nullable<decimal> mS_Discount, Nullable<decimal> receive_Cost, Nullable<decimal> mS_CostAVG, Nullable<int> receiveQuantity, Nullable<int> quantity, Nullable<decimal> sell_Cost, Nullable<int> sellQuantity, string docNo, string activeType, string byID, Nullable<System.DateTime> saveDate, string eNSave, string remark, Nullable<System.DateTime> startDate, Nullable<System.DateTime> endDate, Nullable<System.DateTime> expireDate, string sono, string listOrder, Nullable<int> mS_Number_C, string locationID, string stock_Code, Nullable<decimal> usedAmount, Nullable<decimal> costPerUnit, string rEQNo, Nullable<System.DateTime> rEQDate, string eN_Req, string eN_ReqTo, string req_BranchId, string reqTo_BranchId, string fixSearch, Nullable<decimal> quantityReply, Nullable<decimal> quantityReceive, string remarkReply, string approved, string wHCode, string dept, Nullable<System.DateTime> replydate, string returnsFlag, string urgentFlag, string fortype, string mS_SubUnit, Nullable<decimal> anountPerMainUnit, string rEQUnitCode, string eatAmount, string eatPerday, string beforeMeals, string afterMeals, string morning, string lunch, string evening, string beforeBed, string eat, string coat, string coatArea, string everyhours, string vN)
         {
             var queryTypeParameter = queryType != null ?
                 new ObjectParameter("QueryType", queryType) :
@@ -2341,6 +2349,10 @@ namespace AryuwatSystem.m_DataSet
             var bOMParameter = bOM != null ?
                 new ObjectParameter("BOM", bOM) :
                 new ObjectParameter("BOM", typeof(string));
+    
+            var type_DoctorParameter = type_Doctor.HasValue ?
+                new ObjectParameter("Type_Doctor", type_Doctor) :
+                new ObjectParameter("Type_Doctor", typeof(bool));
     
             var sellToCNParameter = sellToCN != null ?
                 new ObjectParameter("SellToCN", sellToCN) :
@@ -2570,7 +2582,7 @@ namespace AryuwatSystem.m_DataSet
                 new ObjectParameter("VN", vN) :
                 new ObjectParameter("VN", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_MedicalSupplies_Result>("sp_MedicalSupplies", queryTypeParameter, iDParameter, mS_CodeParameter, mS_Code_RefParameter, mS_SectionParameter, mS_NameParameter, mS_DetailParameter, mS_UnitParameter, mS_CourseDurationParameter, mS_TypeParameter, mS_CLPriceParameter, mS_CAPriceParameter, mS_CMPriceParameter, mS_CostParameter, mS_OrderParameter, mS_InstockParameter, row_startParameter, row_endParameter, feeRateParameter, feeRate2Parameter, maxDiscountParameter, vatParameter, branchIDParameter, operationIDParameter, purchaseIDParameter, activeParameter, bOMParameter, sellToCNParameter, mS_DiscountParameter, receive_CostParameter, mS_CostAVGParameter, receiveQuantityParameter, quantityParameter, sell_CostParameter, sellQuantityParameter, docNoParameter, activeTypeParameter, byIDParameter, saveDateParameter, eNSaveParameter, remarkParameter, startDateParameter, endDateParameter, expireDateParameter, sonoParameter, listOrderParameter, mS_Number_CParameter, locationIDParameter, stock_CodeParameter, usedAmountParameter, costPerUnitParameter, rEQNoParameter, rEQDateParameter, eN_ReqParameter, eN_ReqToParameter, req_BranchIdParameter, reqTo_BranchIdParameter, fixSearchParameter, quantityReplyParameter, quantityReceiveParameter, remarkReplyParameter, approvedParameter, wHCodeParameter, deptParameter, replydateParameter, returnsFlagParameter, urgentFlagParameter, fortypeParameter, mS_SubUnitParameter, anountPerMainUnitParameter, rEQUnitCodeParameter, eatAmountParameter, eatPerdayParameter, beforeMealsParameter, afterMealsParameter, morningParameter, lunchParameter, eveningParameter, beforeBedParameter, eatParameter, coatParameter, coatAreaParameter, everyhoursParameter, vNParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_MedicalSupplies_Result>("sp_MedicalSupplies", queryTypeParameter, iDParameter, mS_CodeParameter, mS_Code_RefParameter, mS_SectionParameter, mS_NameParameter, mS_DetailParameter, mS_UnitParameter, mS_CourseDurationParameter, mS_TypeParameter, mS_CLPriceParameter, mS_CAPriceParameter, mS_CMPriceParameter, mS_CostParameter, mS_OrderParameter, mS_InstockParameter, row_startParameter, row_endParameter, feeRateParameter, feeRate2Parameter, maxDiscountParameter, vatParameter, branchIDParameter, operationIDParameter, purchaseIDParameter, activeParameter, bOMParameter, type_DoctorParameter, sellToCNParameter, mS_DiscountParameter, receive_CostParameter, mS_CostAVGParameter, receiveQuantityParameter, quantityParameter, sell_CostParameter, sellQuantityParameter, docNoParameter, activeTypeParameter, byIDParameter, saveDateParameter, eNSaveParameter, remarkParameter, startDateParameter, endDateParameter, expireDateParameter, sonoParameter, listOrderParameter, mS_Number_CParameter, locationIDParameter, stock_CodeParameter, usedAmountParameter, costPerUnitParameter, rEQNoParameter, rEQDateParameter, eN_ReqParameter, eN_ReqToParameter, req_BranchIdParameter, reqTo_BranchIdParameter, fixSearchParameter, quantityReplyParameter, quantityReceiveParameter, remarkReplyParameter, approvedParameter, wHCodeParameter, deptParameter, replydateParameter, returnsFlagParameter, urgentFlagParameter, fortypeParameter, mS_SubUnitParameter, anountPerMainUnitParameter, rEQUnitCodeParameter, eatAmountParameter, eatPerdayParameter, beforeMealsParameter, afterMealsParameter, morningParameter, lunchParameter, eveningParameter, beforeBedParameter, eatParameter, coatParameter, coatAreaParameter, everyhoursParameter, vNParameter);
         }
     
         public virtual ObjectResult<sp_MedicalSuppliesSilicone_Result> sp_MedicalSuppliesSilicone(string queryType, string mS_Code)

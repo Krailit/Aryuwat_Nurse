@@ -39,5 +39,6 @@ namespace AryuwatSystem.m_DataSet
         public string Active { get; set; }
         public Nullable<decimal> MS_Cost { get; set; }
         public string BOM { get; set; }
+        public Nullable<bool> Type_Doctor { get; set; }
     }
 }

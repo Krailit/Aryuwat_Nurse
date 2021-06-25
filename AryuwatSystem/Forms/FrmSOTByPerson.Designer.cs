@@ -438,6 +438,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(164, 24);
             this.txtName.TabIndex = 10;
+            this.txtName.Text = "ทดสอบ";
             this.txtName.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtName_MouseClick);
             this.txtName.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txtName_PreviewKeyDown);
             // 
