@@ -127,16 +127,25 @@ namespace AryuwatSystem.Forms
                         sumsup += item.PriceAfterDis;
                     }
 
-                    var dataSumOfTreatment = context.SumOfTreatments.Where(x => x.SO == cbbListItem.Text).FirstOrDefault();
+                    decimal? creditpay = 0;
 
-                    if (dataSumOfTreatment != null)
+                    //var dataSumOfTreatment = context.SumOfTreatments.Where(x => x.SO == cbbListItem.Text).FirstOrDefault();
+
+                    //if (dataSumOfTreatment != null)
+                    //{
+                    //    sumsup = sumsup - dataSumOfTreatment.EarnestMoney;
+                    //}
+
+                    var dataCashCreditCardSOTs = context.CashCreditCardSOTs.Where(x => x.SO == cbbListItem.Text).ToList();
+
+                    foreach (var item in dataCashCreditCardSOTs)
                     {
-                        sumsup = sumsup - dataSumOfTreatment.EarnestMoney;
+                        creditpay += item.CashMoney;
                     }
 
-                    MaxPay = sumsup;
+                    MaxPay = sumsup - creditpay;
 
-                    lblMax.Text = (sumsup ?? 0).ToString("###,###,###,###.##");
+                    lblMax.Text = (MaxPay ?? 0).ToString("###,###,###,###.##");
                 }
             }
             catch (Exception ex)

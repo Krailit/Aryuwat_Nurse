@@ -421,6 +421,12 @@ namespace AryuwatSystem.Forms
         {
             SalePrice = 0;
             dgvData.Rows.Clear();
+            //while (dgvData.Rows.Count > 0)
+            //{
+            //    dgvData.Rows.RemoveAt(0);
+            //}
+            //dgvData.DataSource = null;
+            //dgvData.Refresh();
         }
         List<string> LsPayIn = new List<string>();
         List<string> LsCardType = new List<string>();
@@ -661,33 +667,32 @@ namespace AryuwatSystem.Forms
                         Sale = Math.Round((s * Amount) + SpecialPrice, 2);
 
                         object[] myItems = {
-                                          item["MS_Code"] + "",
-                                          item["SO"] + "",
-                                          item["MS_Name"] + ""==""?item["PRO_Name"] + "":item["MS_Name"] + "",
-                                          s.ToString("###,###,###.##"),
-                                          Amount.ToString("###,###,###.##"),
-                                          item["MS_Unit"] + "",
-                                          numFreeAmount.ToString("###,###,###.##"),
-                                          DiscountBathByItem.ToString("###,###,###.##"),
-                                          item["DiscountPercen"] + "",
-                                          SpecialPrice.ToString("###,###,###.##"),
-                                          (Sale).ToString("###,###,###.##"),
-                                          PriceAfterDis.ToString("###,###,###.##"),
-                                           item["Complimentary"]+""== "Y"?true:false ,
-                                           item["MarketingBudget"]+""!= "N"&&item["MarketingBudget"]+""!=""?true:false,
-                                           item["Gift"]+""!= "N"&&item["Gift"]+""!=""?true:false,
-                                           item["Subject"]+""== "Y"?true:false,
-                                           PayByItem.ToString("###,###,###.##"),
-                                           item["Vat"]+"",
-                                           item["ListOrder"]+"",
-                                           item["Free"]+"",
-                                           item["ByDr"]+"",
-                                              item["MS_Code_Ref"]+"",
-                                              item["MS_UnitStk"]+"",
-                                              item["Dept"]+"",
-                                              item["REQNo"]+"",
-                                           imageList1.Images[10],
-
+                                          item["MS_Code"] + "", //1
+                                          item["SO"] + "", //2
+                                          item["MS_Name"] + ""==""?item["PRO_Name"] + "":item["MS_Name"] + "", //3
+                                          s.ToString("###,###,###.##"), //4
+                                          Amount.ToString("###,###,###.##"),//5
+                                          item["MS_Unit"] + "",//6
+                                          numFreeAmount.ToString("###,###,###.##"),//7
+                                          DiscountBathByItem.ToString("###,###,###.##"),//8
+                                          item["DiscountPercen"] + "",//9
+                                          SpecialPrice.ToString("###,###,###.##"),//10
+                                          (Sale).ToString("###,###,###.##"),//11
+                                          PriceAfterDis.ToString("###,###,###.##"),//12
+                                           item["Complimentary"]+""== "Y"?true:false ,//13
+                                           item["MarketingBudget"]+""!= "N"&&item["MarketingBudget"]+""!=""?true:false,//14
+                                           item["Gift"]+""!= "N"&&item["Gift"]+""!=""?true:false,//15
+                                           item["Subject"]+""== "Y"?true:false,//16
+                                           PayByItem.ToString("###,###,###.##"),//17
+                                           item["Vat"]+"",//18
+                                           item["ListOrder"]+"",//19
+                                           item["Free"]+"",//20
+                                           item["ByDr"]+"",//21
+                                              item["MS_Code_Ref"]+"",//22
+                                              item["MS_UnitStk"]+"",//23
+                                              item["Dept"]+"",//24
+                                              item["REQNo"]+"",//25
+                                           imageList1.Images[10],//26
                                       };
 
                         SalePrice += Sale;
@@ -3099,12 +3104,12 @@ namespace AryuwatSystem.Forms
                     foreach (DataGridViewRow item in dgvReciept.Rows)
                     {
                         d = item.Cells["ReceiptDate"].Value + "" == "" ? DateTime.MinValue.Date : Convert.ToDateTime(item.Cells["ReceiptDate"].Value + "").Date;
-                        if (d == pp.ReceiptDate)
-                        {
-                            MessageBox.Show("วันที่ ซ้ำ");
-                            dgvReciept.Rows[0].Selected = true;
-                            return;
-                        }
+                        //if (d == pp.ReceiptDate)
+                        //{
+                        //    MessageBox.Show("วันที่ ซ้ำ");
+                        //    dgvReciept.Rows[0].Selected = true;
+                        //    return;
+                        //}
                     }
                     string ReceiptBath = pp.ReceiptBath.ToString("###,###,###,###.##");
                     string ReceiptDate = pp.ReceiptDate.ToString("yyyy/MM/dd");
