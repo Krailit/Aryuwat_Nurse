@@ -34,8 +34,6 @@ namespace AryuwatSystem.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPaidSelectSOT));
@@ -72,7 +70,6 @@ namespace AryuwatSystem.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -80,6 +77,9 @@ namespace AryuwatSystem.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -105,23 +105,10 @@ namespace AryuwatSystem.Forms
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.dataGridViewCreditTransfer = new System.Windows.Forms.DataGridView();
-            this.Pay_Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BillType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RCNo_Cre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CD_Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cash = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PayCreditDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PayInCredit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PayInCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CardType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusdelcredit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelPayType = new System.Windows.Forms.Panel();
             this.pictureBoxSaveRCNList = new System.Windows.Forms.PictureBox();
             this.label15 = new System.Windows.Forms.Label();
             this.listBoxCreditTyp = new System.Windows.Forms.ComboBox();
-            this.btnAddCredit = new AryuwatSystem.UserControls.ButtonRigth();
             this.panel11 = new System.Windows.Forms.Panel();
             this.lbsumList = new System.Windows.Forms.Label();
             this.lbMoneyError = new System.Windows.Forms.Label();
@@ -132,10 +119,6 @@ namespace AryuwatSystem.Forms
             this.txtBillTo = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvReciept = new System.Windows.Forms.DataGridView();
-            this.dataSO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RCNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReceiptDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReceiptBath = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripNew = new System.Windows.Forms.ToolStripButton();
             this.toolStripPrint = new System.Windows.Forms.ToolStripButton();
@@ -146,7 +129,6 @@ namespace AryuwatSystem.Forms
             this.toolStripEdit = new System.Windows.Forms.ToolStripButton();
             this.panel5 = new System.Windows.Forms.Panel();
             this.pictureBoxPaid = new System.Windows.Forms.PictureBox();
-            this.textBoxPayByItem = new AryuwatSystem.UserControls.TextboxFormatDouble(this.components);
             this.label18 = new System.Windows.Forms.Label();
             this.lbPayItem = new System.Windows.Forms.Label();
             this.btnRefMedical = new System.Windows.Forms.Button();
@@ -157,15 +139,11 @@ namespace AryuwatSystem.Forms
             this.buttonTax = new System.Windows.Forms.Button();
             this.btnBill2 = new System.Windows.Forms.Button();
             this.label23 = new System.Windows.Forms.Label();
-            this.txtBeforDiscount = new AryuwatSystem.UserControls.TextboxFormatDouble(this.components);
             this.label22 = new System.Windows.Forms.Label();
             this.comboBoxCommission2 = new System.Windows.Forms.ComboBox();
-            this.txtIntDiscountBath = new AryuwatSystem.UserControls.TextboxFormatDouble(this.components);
             this.label12 = new System.Windows.Forms.Label();
-            this.txtIntNetTotal = new AryuwatSystem.UserControls.TextboxFormatDouble(this.components);
             this.label11 = new System.Windows.Forms.Label();
             this.checkBox3 = new System.Windows.Forms.Label();
-            this.txtIntDiscountAllItemBath = new AryuwatSystem.UserControls.TextboxFormatDouble(this.components);
             this.label28 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.Label();
             this.btnCloseStatus = new System.Windows.Forms.Button();
@@ -175,10 +153,8 @@ namespace AryuwatSystem.Forms
             this.btnPrintInvClinic = new System.Windows.Forms.Button();
             this.btnPrintInv = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.txtUnpaid = new AryuwatSystem.UserControls.TextboxFormatDouble(this.components);
             this.label8 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
-            this.txtearnestmoney = new AryuwatSystem.UserControls.TextboxFormatDouble(this.components);
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -209,11 +185,11 @@ namespace AryuwatSystem.Forms
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewCheckBoxColumn3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewCheckBoxColumn4 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -233,17 +209,12 @@ namespace AryuwatSystem.Forms
             this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewComboBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dataGridViewComboBoxColumn2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn35 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn36 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn38 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn39 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn40 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn41 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn37 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MS_Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MS_SO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Detail = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -269,6 +240,36 @@ namespace AryuwatSystem.Forms
             this.MS_UnitStk = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Dept = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.REQNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pay_Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BillType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RCNo_Cre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CD_Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cash = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PayCreditDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PayInCredit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PayInCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CardType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusdelcredit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnAddCredit = new AryuwatSystem.UserControls.ButtonRigth();
+            this.dataSO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RCNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReceiptDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReceiptBath = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBoxPayByItem = new AryuwatSystem.UserControls.TextboxFormatDouble(this.components);
+            this.txtBeforDiscount = new AryuwatSystem.UserControls.TextboxFormatDouble(this.components);
+            this.txtIntDiscountBath = new AryuwatSystem.UserControls.TextboxFormatDouble(this.components);
+            this.txtIntNetTotal = new AryuwatSystem.UserControls.TextboxFormatDouble(this.components);
+            this.txtIntDiscountAllItemBath = new AryuwatSystem.UserControls.TextboxFormatDouble(this.components);
+            this.txtUnpaid = new AryuwatSystem.UserControls.TextboxFormatDouble(this.components);
+            this.txtearnestmoney = new AryuwatSystem.UserControls.TextboxFormatDouble(this.components);
+            this.dataGridViewComboBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dataGridViewComboBoxColumn2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dataGridViewTextBoxColumn38 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn39 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn40 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn41 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -671,85 +672,6 @@ namespace AryuwatSystem.Forms
             this.dataGridViewCreditTransfer.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCreditTransfer_CellEndEdit);
             this.dataGridViewCreditTransfer.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewCredit_CellMouseClick);
             // 
-            // Pay_Code
-            // 
-            this.Pay_Code.HeaderText = "Pay_Code";
-            this.Pay_Code.Name = "Pay_Code";
-            this.Pay_Code.Visible = false;
-            // 
-            // BillType
-            // 
-            this.BillType.HeaderText = "BillType";
-            this.BillType.Name = "BillType";
-            this.BillType.Visible = false;
-            // 
-            // RCNo_Cre
-            // 
-            this.RCNo_Cre.HeaderText = "RCNo";
-            this.RCNo_Cre.Name = "RCNo_Cre";
-            this.RCNo_Cre.Visible = false;
-            // 
-            // CD_Code
-            // 
-            this.CD_Code.HeaderText = "CD_Code";
-            this.CD_Code.Name = "CD_Code";
-            this.CD_Code.ReadOnly = true;
-            this.CD_Code.Visible = false;
-            // 
-            // name
-            // 
-            this.name.HeaderText = "ประเภท/บัตรเครดิต";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            this.name.Width = 200;
-            // 
-            // cash
-            // 
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
-            this.cash.DefaultCellStyle = dataGridViewCellStyle12;
-            this.cash.HeaderText = "จ่าย";
-            this.cash.Name = "cash";
-            this.cash.Width = 80;
-            // 
-            // PayCreditDate
-            // 
-            this.PayCreditDate.HeaderText = "Date";
-            this.PayCreditDate.Name = "PayCreditDate";
-            this.PayCreditDate.ReadOnly = true;
-            // 
-            // number
-            // 
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle13.Format = "{0:0000 0000 0000 0000}";
-            dataGridViewCellStyle13.NullValue = null;
-            this.number.DefaultCellStyle = dataGridViewCellStyle13;
-            this.number.HeaderText = "เลขที่บัตร";
-            this.number.Name = "number";
-            // 
-            // PayInCredit
-            // 
-            this.PayInCredit.HeaderText = "PayIn";
-            this.PayInCredit.Name = "PayInCredit";
-            this.PayInCredit.Width = 150;
-            // 
-            // PayInCode
-            // 
-            this.PayInCode.HeaderText = "PayInCode";
-            this.PayInCode.Name = "PayInCode";
-            this.PayInCode.Visible = false;
-            // 
-            // CardType
-            // 
-            this.CardType.HeaderText = "CardType";
-            this.CardType.Name = "CardType";
-            this.CardType.Width = 110;
-            // 
-            // statusdelcredit
-            // 
-            this.statusdelcredit.HeaderText = "statusdelcredit";
-            this.statusdelcredit.Name = "statusdelcredit";
-            this.statusdelcredit.Visible = false;
-            // 
             // panelPayType
             // 
             this.panelPayType.Controls.Add(this.pictureBoxSaveRCNList);
@@ -794,15 +716,6 @@ namespace AryuwatSystem.Forms
             this.listBoxCreditTyp.Name = "listBoxCreditTyp";
             this.listBoxCreditTyp.Size = new System.Drawing.Size(213, 21);
             this.listBoxCreditTyp.TabIndex = 295;
-            // 
-            // btnAddCredit
-            // 
-            this.btnAddCredit.Location = new System.Drawing.Point(277, 2);
-            this.btnAddCredit.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
-            this.btnAddCredit.Name = "btnAddCredit";
-            this.btnAddCredit.Size = new System.Drawing.Size(25, 24);
-            this.btnAddCredit.TabIndex = 296;
-            this.btnAddCredit.BtnClick += new AryuwatSystem.UserControls.ButtonRigth.ButtonClick(this.btnAddCredit_BtnClick);
             // 
             // panel11
             // 
@@ -945,31 +858,6 @@ namespace AryuwatSystem.Forms
             this.dgvReciept.TabIndex = 285;
             this.dgvReciept.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvReciept_CellMouseClick);
             // 
-            // dataSO
-            // 
-            this.dataSO.HeaderText = "SO";
-            this.dataSO.Name = "dataSO";
-            this.dataSO.ReadOnly = true;
-            // 
-            // RCNo
-            // 
-            this.RCNo.HeaderText = "RCNo";
-            this.RCNo.Name = "RCNo";
-            this.RCNo.ReadOnly = true;
-            this.RCNo.Width = 130;
-            // 
-            // ReceiptDate
-            // 
-            this.ReceiptDate.HeaderText = "Date";
-            this.ReceiptDate.Name = "ReceiptDate";
-            this.ReceiptDate.ReadOnly = true;
-            // 
-            // ReceiptBath
-            // 
-            this.ReceiptBath.HeaderText = "Amount";
-            this.ReceiptBath.Name = "ReceiptBath";
-            this.ReceiptBath.ReadOnly = true;
-            // 
             // toolStrip1
             // 
             this.toolStrip1.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -1067,18 +955,6 @@ namespace AryuwatSystem.Forms
             this.pictureBoxPaid.TabIndex = 312;
             this.pictureBoxPaid.TabStop = false;
             this.pictureBoxPaid.Visible = false;
-            // 
-            // textBoxPayByItem
-            // 
-            this.textBoxPayByItem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxPayByItem.Enabled = false;
-            this.textBoxPayByItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.textBoxPayByItem.Location = new System.Drawing.Point(89, 3);
-            this.textBoxPayByItem.Name = "textBoxPayByItem";
-            this.textBoxPayByItem.Size = new System.Drawing.Size(147, 29);
-            this.textBoxPayByItem.TabIndex = 309;
-            this.textBoxPayByItem.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBoxPayByItem.Leave += new System.EventHandler(this.textBoxPayByItem_Leave);
             // 
             // label18
             // 
@@ -1251,19 +1127,6 @@ namespace AryuwatSystem.Forms
             this.label23.TabIndex = 317;
             this.label23.Text = "บาท";
             // 
-            // txtBeforDiscount
-            // 
-            this.txtBeforDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBeforDiscount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.txtBeforDiscount.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtBeforDiscount.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtBeforDiscount.Location = new System.Drawing.Point(33, 123);
-            this.txtBeforDiscount.Name = "txtBeforDiscount";
-            this.txtBeforDiscount.ReadOnly = true;
-            this.txtBeforDiscount.Size = new System.Drawing.Size(147, 33);
-            this.txtBeforDiscount.TabIndex = 319;
-            this.txtBeforDiscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // label22
             // 
             this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -1290,20 +1153,6 @@ namespace AryuwatSystem.Forms
             this.comboBoxCommission2.TabIndex = 315;
             this.comboBoxCommission2.Visible = false;
             // 
-            // txtIntDiscountBath
-            // 
-            this.txtIntDiscountBath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtIntDiscountBath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtIntDiscountBath.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtIntDiscountBath.Location = new System.Drawing.Point(33, 68);
-            this.txtIntDiscountBath.Name = "txtIntDiscountBath";
-            this.txtIntDiscountBath.ReadOnly = true;
-            this.txtIntDiscountBath.Size = new System.Drawing.Size(147, 29);
-            this.txtIntDiscountBath.TabIndex = 308;
-            this.txtIntDiscountBath.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtIntDiscountBath.TextChanged += new System.EventHandler(this.txtIntDiscountBath_TextChanged_1);
-            this.txtIntDiscountBath.Leave += new System.EventHandler(this.txtIntDiscountBath_Leave_1);
-            // 
             // label12
             // 
             this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1315,19 +1164,6 @@ namespace AryuwatSystem.Forms
             this.label12.Size = new System.Drawing.Size(50, 26);
             this.label12.TabIndex = 280;
             this.label12.Text = "บาท";
-            // 
-            // txtIntNetTotal
-            // 
-            this.txtIntNetTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtIntNetTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.txtIntNetTotal.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtIntNetTotal.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtIntNetTotal.Location = new System.Drawing.Point(33, 179);
-            this.txtIntNetTotal.Name = "txtIntNetTotal";
-            this.txtIntNetTotal.ReadOnly = true;
-            this.txtIntNetTotal.Size = new System.Drawing.Size(147, 33);
-            this.txtIntNetTotal.TabIndex = 313;
-            this.txtIntNetTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label11
             // 
@@ -1351,21 +1187,6 @@ namespace AryuwatSystem.Forms
             this.checkBox3.Size = new System.Drawing.Size(77, 20);
             this.checkBox3.TabIndex = 310;
             this.checkBox3.Text = "วงเงินโอน";
-            // 
-            // txtIntDiscountAllItemBath
-            // 
-            this.txtIntDiscountAllItemBath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtIntDiscountAllItemBath.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.txtIntDiscountAllItemBath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtIntDiscountAllItemBath.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtIntDiscountAllItemBath.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtIntDiscountAllItemBath.Location = new System.Drawing.Point(33, 18);
-            this.txtIntDiscountAllItemBath.Name = "txtIntDiscountAllItemBath";
-            this.txtIntDiscountAllItemBath.ReadOnly = true;
-            this.txtIntDiscountAllItemBath.Size = new System.Drawing.Size(147, 29);
-            this.txtIntDiscountAllItemBath.TabIndex = 307;
-            this.txtIntDiscountAllItemBath.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtIntDiscountAllItemBath.TextChanged += new System.EventHandler(this.txtIntDiscountAllItemBath_TextChanged);
             // 
             // label28
             // 
@@ -1491,19 +1312,6 @@ namespace AryuwatSystem.Forms
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // txtUnpaid
-            // 
-            this.txtUnpaid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtUnpaid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.txtUnpaid.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtUnpaid.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtUnpaid.Location = new System.Drawing.Point(33, 303);
-            this.txtUnpaid.Name = "txtUnpaid";
-            this.txtUnpaid.ReadOnly = true;
-            this.txtUnpaid.Size = new System.Drawing.Size(147, 33);
-            this.txtUnpaid.TabIndex = 299;
-            this.txtUnpaid.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // label8
             // 
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1530,19 +1338,6 @@ namespace AryuwatSystem.Forms
             this.btnSave.Text = "บันทึก";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // txtearnestmoney
-            // 
-            this.txtearnestmoney.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtearnestmoney.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.txtearnestmoney.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtearnestmoney.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtearnestmoney.Location = new System.Drawing.Point(33, 241);
-            this.txtearnestmoney.Name = "txtearnestmoney";
-            this.txtearnestmoney.ReadOnly = true;
-            this.txtearnestmoney.Size = new System.Drawing.Size(147, 33);
-            this.txtearnestmoney.TabIndex = 298;
-            this.txtearnestmoney.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label21
             // 
@@ -1834,6 +1629,17 @@ namespace AryuwatSystem.Forms
             this.dataGridViewTextBoxColumn11.Visible = false;
             this.dataGridViewTextBoxColumn11.Width = 105;
             // 
+            // dataGridViewTextBoxColumn12
+            // 
+            dataGridViewCellStyle26.Format = "{0:0000 0000 0000 0000}";
+            dataGridViewCellStyle26.NullValue = null;
+            this.dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle26;
+            this.dataGridViewTextBoxColumn12.HeaderText = "เลขที่บัญชี";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            this.dataGridViewTextBoxColumn12.Visible = false;
+            this.dataGridViewTextBoxColumn12.Width = 79;
+            // 
             // dataGridViewCheckBoxColumn1
             // 
             this.dataGridViewCheckBoxColumn1.HeaderText = "Complimentary";
@@ -1873,17 +1679,6 @@ namespace AryuwatSystem.Forms
             this.dataGridViewCheckBoxColumn4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dataGridViewCheckBoxColumn4.Visible = false;
             this.dataGridViewCheckBoxColumn4.Width = 48;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            dataGridViewCellStyle26.Format = "{0:0000 0000 0000 0000}";
-            dataGridViewCellStyle26.NullValue = null;
-            this.dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle26;
-            this.dataGridViewTextBoxColumn12.HeaderText = "เลขที่บัญชี";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.ReadOnly = true;
-            this.dataGridViewTextBoxColumn12.Visible = false;
-            this.dataGridViewTextBoxColumn12.Width = 79;
             // 
             // dataGridViewTextBoxColumn13
             // 
@@ -2091,25 +1886,11 @@ namespace AryuwatSystem.Forms
             this.dataGridViewTextBoxColumn31.Visible = false;
             this.dataGridViewTextBoxColumn31.Width = 128;
             // 
-            // dataGridViewComboBoxColumn1
-            // 
-            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
-            this.dataGridViewComboBoxColumn1.DefaultCellStyle = dataGridViewCellStyle46;
-            this.dataGridViewComboBoxColumn1.HeaderText = "จ่าย";
-            this.dataGridViewComboBoxColumn1.Name = "dataGridViewComboBoxColumn1";
-            this.dataGridViewComboBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewComboBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // dataGridViewComboBoxColumn2
-            // 
-            this.dataGridViewComboBoxColumn2.HeaderText = "CardType";
-            this.dataGridViewComboBoxColumn2.Name = "dataGridViewComboBoxColumn2";
-            // 
             // dataGridViewTextBoxColumn32
             // 
-            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle47.Format = "N2";
-            this.dataGridViewTextBoxColumn32.DefaultCellStyle = dataGridViewCellStyle47;
+            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle46.Format = "N2";
+            this.dataGridViewTextBoxColumn32.DefaultCellStyle = dataGridViewCellStyle46;
             this.dataGridViewTextBoxColumn32.HeaderText = "PayByItem";
             this.dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
             this.dataGridViewTextBoxColumn32.ReadOnly = true;
@@ -2118,9 +1899,9 @@ namespace AryuwatSystem.Forms
             // 
             // dataGridViewTextBoxColumn33
             // 
-            dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle48.Format = "N2";
-            this.dataGridViewTextBoxColumn33.DefaultCellStyle = dataGridViewCellStyle48;
+            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle47.Format = "N2";
+            this.dataGridViewTextBoxColumn33.DefaultCellStyle = dataGridViewCellStyle47;
             this.dataGridViewTextBoxColumn33.HeaderText = "Vat";
             this.dataGridViewTextBoxColumn33.Name = "dataGridViewTextBoxColumn33";
             this.dataGridViewTextBoxColumn33.ReadOnly = true;
@@ -2129,9 +1910,9 @@ namespace AryuwatSystem.Forms
             // 
             // dataGridViewTextBoxColumn34
             // 
-            dataGridViewCellStyle49.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle49.Format = "N2";
-            this.dataGridViewTextBoxColumn34.DefaultCellStyle = dataGridViewCellStyle49;
+            dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle48.Format = "N2";
+            this.dataGridViewTextBoxColumn34.DefaultCellStyle = dataGridViewCellStyle48;
             this.dataGridViewTextBoxColumn34.HeaderText = "ListOrder";
             this.dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
             this.dataGridViewTextBoxColumn34.ReadOnly = true;
@@ -2144,6 +1925,7 @@ namespace AryuwatSystem.Forms
             this.dataGridViewTextBoxColumn35.Name = "dataGridViewTextBoxColumn35";
             this.dataGridViewTextBoxColumn35.ReadOnly = true;
             this.dataGridViewTextBoxColumn35.Visible = false;
+            this.dataGridViewTextBoxColumn35.Width = 130;
             // 
             // dataGridViewTextBoxColumn36
             // 
@@ -2152,31 +1934,11 @@ namespace AryuwatSystem.Forms
             this.dataGridViewTextBoxColumn36.ReadOnly = true;
             this.dataGridViewTextBoxColumn36.Visible = false;
             // 
-            // dataGridViewTextBoxColumn38
+            // dataGridViewTextBoxColumn37
             // 
-            this.dataGridViewTextBoxColumn38.HeaderText = "Date";
-            this.dataGridViewTextBoxColumn38.Name = "dataGridViewTextBoxColumn38";
-            this.dataGridViewTextBoxColumn38.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn39
-            // 
-            this.dataGridViewTextBoxColumn39.HeaderText = "Amount";
-            this.dataGridViewTextBoxColumn39.Name = "dataGridViewTextBoxColumn39";
-            this.dataGridViewTextBoxColumn39.ReadOnly = true;
-            this.dataGridViewTextBoxColumn39.Visible = false;
-            this.dataGridViewTextBoxColumn39.Width = 130;
-            // 
-            // dataGridViewTextBoxColumn40
-            // 
-            this.dataGridViewTextBoxColumn40.HeaderText = "Date";
-            this.dataGridViewTextBoxColumn40.Name = "dataGridViewTextBoxColumn40";
-            this.dataGridViewTextBoxColumn40.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn41
-            // 
-            this.dataGridViewTextBoxColumn41.HeaderText = "Amount";
-            this.dataGridViewTextBoxColumn41.Name = "dataGridViewTextBoxColumn41";
-            this.dataGridViewTextBoxColumn41.ReadOnly = true;
+            this.dataGridViewTextBoxColumn37.HeaderText = "Amount";
+            this.dataGridViewTextBoxColumn37.Name = "dataGridViewTextBoxColumn37";
+            this.dataGridViewTextBoxColumn37.ReadOnly = true;
             // 
             // MS_Code
             // 
@@ -2366,6 +2128,252 @@ namespace AryuwatSystem.Forms
             this.REQNo.HeaderText = "REQNo";
             this.REQNo.Name = "REQNo";
             this.REQNo.Width = 74;
+            // 
+            // Pay_Code
+            // 
+            this.Pay_Code.HeaderText = "Pay_Code";
+            this.Pay_Code.Name = "Pay_Code";
+            this.Pay_Code.Visible = false;
+            // 
+            // BillType
+            // 
+            this.BillType.HeaderText = "BillType";
+            this.BillType.Name = "BillType";
+            this.BillType.Visible = false;
+            // 
+            // RCNo_Cre
+            // 
+            this.RCNo_Cre.HeaderText = "RCNo";
+            this.RCNo_Cre.Name = "RCNo_Cre";
+            this.RCNo_Cre.Visible = false;
+            // 
+            // CD_Code
+            // 
+            this.CD_Code.HeaderText = "CD_Code";
+            this.CD_Code.Name = "CD_Code";
+            this.CD_Code.ReadOnly = true;
+            this.CD_Code.Visible = false;
+            // 
+            // name
+            // 
+            this.name.HeaderText = "ประเภท/บัตรเครดิต";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            this.name.Width = 200;
+            // 
+            // cash
+            // 
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
+            this.cash.DefaultCellStyle = dataGridViewCellStyle12;
+            this.cash.HeaderText = "จ่าย";
+            this.cash.Name = "cash";
+            this.cash.Width = 80;
+            // 
+            // PayCreditDate
+            // 
+            this.PayCreditDate.HeaderText = "Date";
+            this.PayCreditDate.Name = "PayCreditDate";
+            this.PayCreditDate.ReadOnly = true;
+            // 
+            // number
+            // 
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle13.Format = "{0:0000 0000 0000 0000}";
+            dataGridViewCellStyle13.NullValue = null;
+            this.number.DefaultCellStyle = dataGridViewCellStyle13;
+            this.number.HeaderText = "เลขที่บัตร";
+            this.number.Name = "number";
+            // 
+            // PayInCredit
+            // 
+            this.PayInCredit.HeaderText = "PayIn";
+            this.PayInCredit.Name = "PayInCredit";
+            this.PayInCredit.Width = 150;
+            // 
+            // PayInCode
+            // 
+            this.PayInCode.HeaderText = "PayInCode";
+            this.PayInCode.Name = "PayInCode";
+            this.PayInCode.Visible = false;
+            // 
+            // CardType
+            // 
+            this.CardType.HeaderText = "CardType";
+            this.CardType.Name = "CardType";
+            this.CardType.Width = 110;
+            // 
+            // statusdelcredit
+            // 
+            this.statusdelcredit.HeaderText = "statusdelcredit";
+            this.statusdelcredit.Name = "statusdelcredit";
+            this.statusdelcredit.Visible = false;
+            // 
+            // btnAddCredit
+            // 
+            this.btnAddCredit.Location = new System.Drawing.Point(277, 2);
+            this.btnAddCredit.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.btnAddCredit.Name = "btnAddCredit";
+            this.btnAddCredit.Size = new System.Drawing.Size(25, 24);
+            this.btnAddCredit.TabIndex = 296;
+            this.btnAddCredit.BtnClick += new AryuwatSystem.UserControls.ButtonRigth.ButtonClick(this.btnAddCredit_BtnClick);
+            // 
+            // dataSO
+            // 
+            this.dataSO.HeaderText = "SO";
+            this.dataSO.Name = "dataSO";
+            this.dataSO.ReadOnly = true;
+            // 
+            // RCNo
+            // 
+            this.RCNo.HeaderText = "RCNo";
+            this.RCNo.Name = "RCNo";
+            this.RCNo.ReadOnly = true;
+            this.RCNo.Width = 130;
+            // 
+            // ReceiptDate
+            // 
+            this.ReceiptDate.HeaderText = "Date";
+            this.ReceiptDate.Name = "ReceiptDate";
+            this.ReceiptDate.ReadOnly = true;
+            // 
+            // ReceiptBath
+            // 
+            this.ReceiptBath.HeaderText = "Amount";
+            this.ReceiptBath.Name = "ReceiptBath";
+            this.ReceiptBath.ReadOnly = true;
+            // 
+            // textBoxPayByItem
+            // 
+            this.textBoxPayByItem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxPayByItem.Enabled = false;
+            this.textBoxPayByItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.textBoxPayByItem.Location = new System.Drawing.Point(89, 3);
+            this.textBoxPayByItem.Name = "textBoxPayByItem";
+            this.textBoxPayByItem.Size = new System.Drawing.Size(147, 29);
+            this.textBoxPayByItem.TabIndex = 309;
+            this.textBoxPayByItem.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxPayByItem.Leave += new System.EventHandler(this.textBoxPayByItem_Leave);
+            // 
+            // txtBeforDiscount
+            // 
+            this.txtBeforDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBeforDiscount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.txtBeforDiscount.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtBeforDiscount.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtBeforDiscount.Location = new System.Drawing.Point(33, 123);
+            this.txtBeforDiscount.Name = "txtBeforDiscount";
+            this.txtBeforDiscount.ReadOnly = true;
+            this.txtBeforDiscount.Size = new System.Drawing.Size(147, 33);
+            this.txtBeforDiscount.TabIndex = 319;
+            this.txtBeforDiscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtIntDiscountBath
+            // 
+            this.txtIntDiscountBath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtIntDiscountBath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtIntDiscountBath.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtIntDiscountBath.Location = new System.Drawing.Point(33, 68);
+            this.txtIntDiscountBath.Name = "txtIntDiscountBath";
+            this.txtIntDiscountBath.ReadOnly = true;
+            this.txtIntDiscountBath.Size = new System.Drawing.Size(147, 29);
+            this.txtIntDiscountBath.TabIndex = 308;
+            this.txtIntDiscountBath.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtIntDiscountBath.TextChanged += new System.EventHandler(this.txtIntDiscountBath_TextChanged_1);
+            this.txtIntDiscountBath.Leave += new System.EventHandler(this.txtIntDiscountBath_Leave_1);
+            // 
+            // txtIntNetTotal
+            // 
+            this.txtIntNetTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtIntNetTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.txtIntNetTotal.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtIntNetTotal.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtIntNetTotal.Location = new System.Drawing.Point(33, 179);
+            this.txtIntNetTotal.Name = "txtIntNetTotal";
+            this.txtIntNetTotal.ReadOnly = true;
+            this.txtIntNetTotal.Size = new System.Drawing.Size(147, 33);
+            this.txtIntNetTotal.TabIndex = 313;
+            this.txtIntNetTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtIntDiscountAllItemBath
+            // 
+            this.txtIntDiscountAllItemBath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtIntDiscountAllItemBath.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.txtIntDiscountAllItemBath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtIntDiscountAllItemBath.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtIntDiscountAllItemBath.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtIntDiscountAllItemBath.Location = new System.Drawing.Point(33, 18);
+            this.txtIntDiscountAllItemBath.Name = "txtIntDiscountAllItemBath";
+            this.txtIntDiscountAllItemBath.ReadOnly = true;
+            this.txtIntDiscountAllItemBath.Size = new System.Drawing.Size(147, 29);
+            this.txtIntDiscountAllItemBath.TabIndex = 307;
+            this.txtIntDiscountAllItemBath.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtIntDiscountAllItemBath.TextChanged += new System.EventHandler(this.txtIntDiscountAllItemBath_TextChanged);
+            // 
+            // txtUnpaid
+            // 
+            this.txtUnpaid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtUnpaid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.txtUnpaid.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtUnpaid.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtUnpaid.Location = new System.Drawing.Point(33, 303);
+            this.txtUnpaid.Name = "txtUnpaid";
+            this.txtUnpaid.ReadOnly = true;
+            this.txtUnpaid.Size = new System.Drawing.Size(147, 33);
+            this.txtUnpaid.TabIndex = 299;
+            this.txtUnpaid.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtearnestmoney
+            // 
+            this.txtearnestmoney.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtearnestmoney.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.txtearnestmoney.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtearnestmoney.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtearnestmoney.Location = new System.Drawing.Point(33, 241);
+            this.txtearnestmoney.Name = "txtearnestmoney";
+            this.txtearnestmoney.ReadOnly = true;
+            this.txtearnestmoney.Size = new System.Drawing.Size(147, 33);
+            this.txtearnestmoney.TabIndex = 298;
+            this.txtearnestmoney.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // dataGridViewComboBoxColumn1
+            // 
+            dataGridViewCellStyle49.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight;
+            this.dataGridViewComboBoxColumn1.DefaultCellStyle = dataGridViewCellStyle49;
+            this.dataGridViewComboBoxColumn1.HeaderText = "จ่าย";
+            this.dataGridViewComboBoxColumn1.Name = "dataGridViewComboBoxColumn1";
+            this.dataGridViewComboBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewComboBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // dataGridViewComboBoxColumn2
+            // 
+            this.dataGridViewComboBoxColumn2.HeaderText = "CardType";
+            this.dataGridViewComboBoxColumn2.Name = "dataGridViewComboBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn38
+            // 
+            this.dataGridViewTextBoxColumn38.HeaderText = "Date";
+            this.dataGridViewTextBoxColumn38.Name = "dataGridViewTextBoxColumn38";
+            this.dataGridViewTextBoxColumn38.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn39
+            // 
+            this.dataGridViewTextBoxColumn39.HeaderText = "Amount";
+            this.dataGridViewTextBoxColumn39.Name = "dataGridViewTextBoxColumn39";
+            this.dataGridViewTextBoxColumn39.ReadOnly = true;
+            this.dataGridViewTextBoxColumn39.Visible = false;
+            this.dataGridViewTextBoxColumn39.Width = 130;
+            // 
+            // dataGridViewTextBoxColumn40
+            // 
+            this.dataGridViewTextBoxColumn40.HeaderText = "Date";
+            this.dataGridViewTextBoxColumn40.Name = "dataGridViewTextBoxColumn40";
+            this.dataGridViewTextBoxColumn40.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn41
+            // 
+            this.dataGridViewTextBoxColumn41.HeaderText = "Amount";
+            this.dataGridViewTextBoxColumn41.Name = "dataGridViewTextBoxColumn41";
+            this.dataGridViewTextBoxColumn41.ReadOnly = true;
             // 
             // FrmPaidSelectSOT
             // 
@@ -2605,5 +2613,6 @@ namespace AryuwatSystem.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn MS_UnitStk;
         private System.Windows.Forms.DataGridViewTextBoxColumn Dept;
         private System.Windows.Forms.DataGridViewTextBoxColumn REQNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn37;
     }
 }

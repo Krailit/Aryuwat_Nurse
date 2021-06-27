@@ -80,6 +80,7 @@ namespace AryuwatSystem.Forms
         public List<string> itemselect { get; set; }
         public string VN { get; set; }
         public string SO { get; set; }
+        public string SOReceiptPrint { get; set; }
         public string SOReceipt { get; set; }
         public string BranchID { get; set; }
         public string BranchName { get; set; }
@@ -3100,16 +3101,17 @@ namespace AryuwatSystem.Forms
                 pp.itemselect = itemsplit;
                 if (pp.ShowDialog() == DialogResult.OK)
                 {
+                    SOReceipt = pp.SO;
                     //DateTime d = DateTime.MinValue;
                     foreach (DataGridViewRow item in dgvReciept.Rows)
                     {
                         d = item.Cells["ReceiptDate"].Value + "" == "" ? DateTime.MinValue.Date : Convert.ToDateTime(item.Cells["ReceiptDate"].Value + "").Date;
-                        //if (d == pp.ReceiptDate)
-                        //{
-                        //    MessageBox.Show("วันที่ ซ้ำ");
-                        //    dgvReciept.Rows[0].Selected = true;
-                        //    return;
-                        //}
+                        if (d == pp.ReceiptDate && item.Cells["dataSO"].Value + "" == SOReceipt)
+                        {
+                            MessageBox.Show("SO:" + item.Cells["dataSO"].Value + " วันที่เพิ่มใบเสร็จซ้ำ กรุณาแก้ไขข้อมูล", "แจ้งเตือน");
+                            dgvReciept.Rows[0].Selected = true;
+                            return;
+                        }
                     }
                     string ReceiptBath = pp.ReceiptBath.ToString("###,###,###,###.##");
                     string ReceiptDate = pp.ReceiptDate.ToString("yyyy/MM/dd");
@@ -3120,7 +3122,6 @@ namespace AryuwatSystem.Forms
                     DataSet ds = new Business.SumOfTreatment().SAVERCNo(rc, pp.SO, pp.ReceiptDate, Entity.Userinfo.EN, pp.ReceiptBath);
                     rc = ds.Tables[0].Rows[0][0] + "";
                     RCNoCurrent = rc;
-                    SOReceipt = pp.SO;
                     object[] myItems = {
                                          pp.SO,
                                          RCNoCurrent,
@@ -3274,7 +3275,7 @@ namespace AryuwatSystem.Forms
                 string ReceiptBath = Convert.ToDecimal(dgvReciept.Rows[dgvReciept.CurrentRow.Index].Cells["ReceiptBath"].Value).ToString("###,###,###,###.##");
                 DateTime ReceiptDate = Convert.ToDateTime(dgvReciept.Rows[dgvReciept.CurrentRow.Index].Cells["ReceiptDate"].Value);
                 string rc = dgvReciept.Rows[dgvReciept.CurrentRow.Index].Cells["RCNo"].Value + "";
-
+                SOReceiptPrint = dgvReciept.Rows[dgvReciept.CurrentRow.Index].Cells["dataSO"].Value + "";
                 double SumRCN = 0;
                 foreach (DataGridViewRow row in dataGridViewCreditTransfer.Rows)
                 {
@@ -3331,7 +3332,9 @@ namespace AryuwatSystem.Forms
                 //    dtTmp = dtSumOfTreat.Select(sql).CopyToDataTable();
                 //else
                 //    return;
-
+                List<DataRow> lst = new List<DataRow>();
+                dsSumOfTreat = new Business.SumOfTreatment().SelectSumOfTreatment("SELECT", SOReceiptPrint, "", ReceiptDateCurrent);
+                dtSumOfTreat = dsSumOfTreat.Tables[0];
                 dtTmp = dtSumOfTreat;
 
                 string strTypeofPay = "";
