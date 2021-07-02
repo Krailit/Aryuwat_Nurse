@@ -51,6 +51,7 @@
             this.checkBoxClose = new System.Windows.Forms.CheckBox();
             this.checkBoxPending = new System.Windows.Forms.CheckBox();
             this.checkBoxNew = new System.Windows.Forms.CheckBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtVN = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -70,7 +71,6 @@
             this.ToolStripMenuItemUse = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemChangeCouse = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label6 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.gb.SuspendLayout();
@@ -360,6 +360,17 @@
             this.checkBoxNew.UseVisualStyleBackColor = true;
             this.checkBoxNew.CheckedChanged += new System.EventHandler(this.checkBoxNew_CheckedChanged);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.label6.Location = new System.Drawing.Point(802, 83);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(74, 17);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "จ่ายทั้งหมด";
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -445,7 +456,6 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(164, 24);
             this.txtName.TabIndex = 10;
-            this.txtName.Text = "ทดสอบ";
             this.txtName.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtName_MouseClick);
             this.txtName.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txtName_PreviewKeyDown);
             // 
@@ -546,17 +556,6 @@
             this.timer1.Enabled = true;
             this.timer1.Interval = 300000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label6.Location = new System.Drawing.Point(802, 83);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(74, 17);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "จ่ายทั้งหมด";
             // 
             // FrmSOTByPerson
             // 
