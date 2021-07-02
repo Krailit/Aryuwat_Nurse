@@ -29,6 +29,8 @@ namespace AryuwatSystem.Forms
         public string PrintType = "ORG";
         public bool HasDiscount { get; set; }
         public DataTable dt { get; set; }
+        public int? typesource { get; set; }
+        public List<DataRow> listrow { get; set; }
 
         public string Cn { get; set; }
         public string AddressDer { get; set; }
@@ -493,9 +495,9 @@ namespace AryuwatSystem.Forms
             RptSOFInvNoVatDiscount rpt = new RptSOFInvNoVatDiscount();
 
             rpt.Load();
-            rpt.SetDataSource(dt);
             object sumObject;
-            sumObject = dt.Compute("Sum(PriceAfterDis)", "");
+            rpt.SetDataSource(dt);
+            sumObject = dt.Compute("Sum(PriceAfterDis)", ""); //ราคาหลังคิดส่วนลด
             //object sumDis;
             //sumDis = dt.Compute("Sum(DiscountBath)", "");//Unpaid
             //sumDis = dt.Rows[0]["Unpaid"];//Unpaid

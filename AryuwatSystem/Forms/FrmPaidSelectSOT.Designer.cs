@@ -1074,7 +1074,7 @@ namespace AryuwatSystem.Forms
             this.buttonTaxClinic.Font = new System.Drawing.Font("Tahoma", 9F);
             this.buttonTaxClinic.ForeColor = System.Drawing.Color.Black;
             this.buttonTaxClinic.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonTaxClinic.Location = new System.Drawing.Point(124, 427);
+            this.buttonTaxClinic.Location = new System.Drawing.Point(124, 376);
             this.buttonTaxClinic.Margin = new System.Windows.Forms.Padding(2);
             this.buttonTaxClinic.Name = "buttonTaxClinic";
             this.buttonTaxClinic.Size = new System.Drawing.Size(122, 39);
@@ -1089,7 +1089,7 @@ namespace AryuwatSystem.Forms
             this.buttonTax.Font = new System.Drawing.Font("Tahoma", 12F);
             this.buttonTax.ForeColor = System.Drawing.Color.Black;
             this.buttonTax.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonTax.Location = new System.Drawing.Point(124, 385);
+            this.buttonTax.Location = new System.Drawing.Point(124, 334);
             this.buttonTax.Margin = new System.Windows.Forms.Padding(2);
             this.buttonTax.Name = "buttonTax";
             this.buttonTax.Size = new System.Drawing.Size(122, 38);
@@ -1120,7 +1120,7 @@ namespace AryuwatSystem.Forms
             this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
-            this.label23.Location = new System.Drawing.Point(182, 130);
+            this.label23.Location = new System.Drawing.Point(182, 79);
             this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(50, 26);
@@ -1158,7 +1158,7 @@ namespace AryuwatSystem.Forms
             this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
-            this.label12.Location = new System.Drawing.Point(183, 186);
+            this.label12.Location = new System.Drawing.Point(183, 135);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(50, 26);
@@ -1182,23 +1182,25 @@ namespace AryuwatSystem.Forms
             this.checkBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox3.AutoSize = true;
             this.checkBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox3.Location = new System.Drawing.Point(33, 49);
+            this.checkBox3.Location = new System.Drawing.Point(28, 686);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(77, 20);
             this.checkBox3.TabIndex = 310;
             this.checkBox3.Text = "วงเงินโอน";
+            this.checkBox3.Visible = false;
             // 
             // label28
             // 
             this.label28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label28.Location = new System.Drawing.Point(182, 72);
+            this.label28.Location = new System.Drawing.Point(177, 709);
             this.label28.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(41, 24);
             this.label28.TabIndex = 311;
             this.label28.Text = "บาท";
+            this.label28.Visible = false;
             // 
             // checkBox1
             // 
@@ -1217,7 +1219,7 @@ namespace AryuwatSystem.Forms
             this.btnCloseStatus.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.btnCloseStatus.ForeColor = System.Drawing.Color.Black;
             this.btnCloseStatus.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCloseStatus.Location = new System.Drawing.Point(5, 469);
+            this.btnCloseStatus.Location = new System.Drawing.Point(5, 418);
             this.btnCloseStatus.Margin = new System.Windows.Forms.Padding(2);
             this.btnCloseStatus.Name = "btnCloseStatus";
             this.btnCloseStatus.Size = new System.Drawing.Size(115, 38);
@@ -1271,7 +1273,7 @@ namespace AryuwatSystem.Forms
             this.btnPrintInvClinic.Font = new System.Drawing.Font("Tahoma", 9F);
             this.btnPrintInvClinic.ForeColor = System.Drawing.Color.Black;
             this.btnPrintInvClinic.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPrintInvClinic.Location = new System.Drawing.Point(5, 427);
+            this.btnPrintInvClinic.Location = new System.Drawing.Point(5, 376);
             this.btnPrintInvClinic.Margin = new System.Windows.Forms.Padding(2);
             this.btnPrintInvClinic.Name = "btnPrintInvClinic";
             this.btnPrintInvClinic.Size = new System.Drawing.Size(115, 38);
@@ -1287,7 +1289,7 @@ namespace AryuwatSystem.Forms
             this.btnPrintInv.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.btnPrintInv.ForeColor = System.Drawing.Color.Black;
             this.btnPrintInv.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPrintInv.Location = new System.Drawing.Point(5, 385);
+            this.btnPrintInv.Location = new System.Drawing.Point(5, 334);
             this.btnPrintInv.Margin = new System.Windows.Forms.Padding(2);
             this.btnPrintInv.Name = "btnPrintInv";
             this.btnPrintInv.Size = new System.Drawing.Size(115, 38);
@@ -1303,7 +1305,7 @@ namespace AryuwatSystem.Forms
             this.btnCancel.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnCancel.ForeColor = System.Drawing.Color.Green;
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(124, 343);
+            this.btnCancel.Location = new System.Drawing.Point(124, 292);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(122, 38);
@@ -1317,7 +1319,7 @@ namespace AryuwatSystem.Forms
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
-            this.label8.Location = new System.Drawing.Point(183, 245);
+            this.label8.Location = new System.Drawing.Point(183, 194);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(50, 26);
@@ -1330,7 +1332,7 @@ namespace AryuwatSystem.Forms
             this.btnSave.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnSave.ForeColor = System.Drawing.Color.Black;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(5, 343);
+            this.btnSave.Location = new System.Drawing.Point(5, 292);
             this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(115, 38);
@@ -1344,7 +1346,7 @@ namespace AryuwatSystem.Forms
             this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
-            this.label21.Location = new System.Drawing.Point(183, 307);
+            this.label21.Location = new System.Drawing.Point(183, 256);
             this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(50, 26);
@@ -1356,7 +1358,7 @@ namespace AryuwatSystem.Forms
             this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
-            this.label20.Location = new System.Drawing.Point(33, 278);
+            this.label20.Location = new System.Drawing.Point(33, 227);
             this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(127, 24);
@@ -1368,7 +1370,7 @@ namespace AryuwatSystem.Forms
             this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
-            this.label19.Location = new System.Drawing.Point(33, 217);
+            this.label19.Location = new System.Drawing.Point(33, 166);
             this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(81, 24);
@@ -1380,7 +1382,7 @@ namespace AryuwatSystem.Forms
             this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
-            this.label14.Location = new System.Drawing.Point(33, 158);
+            this.label14.Location = new System.Drawing.Point(33, 107);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(120, 24);
@@ -1392,7 +1394,7 @@ namespace AryuwatSystem.Forms
             this.label25.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
-            this.label25.Location = new System.Drawing.Point(32, 101);
+            this.label25.Location = new System.Drawing.Point(32, 50);
             this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(124, 24);
@@ -2260,7 +2262,7 @@ namespace AryuwatSystem.Forms
             this.txtBeforDiscount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.txtBeforDiscount.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.txtBeforDiscount.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtBeforDiscount.Location = new System.Drawing.Point(33, 123);
+            this.txtBeforDiscount.Location = new System.Drawing.Point(33, 72);
             this.txtBeforDiscount.Name = "txtBeforDiscount";
             this.txtBeforDiscount.ReadOnly = true;
             this.txtBeforDiscount.Size = new System.Drawing.Size(147, 33);
@@ -2272,12 +2274,13 @@ namespace AryuwatSystem.Forms
             this.txtIntDiscountBath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtIntDiscountBath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtIntDiscountBath.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtIntDiscountBath.Location = new System.Drawing.Point(33, 68);
+            this.txtIntDiscountBath.Location = new System.Drawing.Point(28, 705);
             this.txtIntDiscountBath.Name = "txtIntDiscountBath";
             this.txtIntDiscountBath.ReadOnly = true;
             this.txtIntDiscountBath.Size = new System.Drawing.Size(147, 29);
             this.txtIntDiscountBath.TabIndex = 308;
             this.txtIntDiscountBath.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtIntDiscountBath.Visible = false;
             this.txtIntDiscountBath.TextChanged += new System.EventHandler(this.txtIntDiscountBath_TextChanged_1);
             this.txtIntDiscountBath.Leave += new System.EventHandler(this.txtIntDiscountBath_Leave_1);
             // 
@@ -2287,7 +2290,7 @@ namespace AryuwatSystem.Forms
             this.txtIntNetTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.txtIntNetTotal.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.txtIntNetTotal.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtIntNetTotal.Location = new System.Drawing.Point(33, 179);
+            this.txtIntNetTotal.Location = new System.Drawing.Point(33, 128);
             this.txtIntNetTotal.Name = "txtIntNetTotal";
             this.txtIntNetTotal.ReadOnly = true;
             this.txtIntNetTotal.Size = new System.Drawing.Size(147, 33);
@@ -2315,7 +2318,7 @@ namespace AryuwatSystem.Forms
             this.txtUnpaid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.txtUnpaid.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.txtUnpaid.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtUnpaid.Location = new System.Drawing.Point(33, 303);
+            this.txtUnpaid.Location = new System.Drawing.Point(33, 252);
             this.txtUnpaid.Name = "txtUnpaid";
             this.txtUnpaid.ReadOnly = true;
             this.txtUnpaid.Size = new System.Drawing.Size(147, 33);
@@ -2328,7 +2331,7 @@ namespace AryuwatSystem.Forms
             this.txtearnestmoney.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.txtearnestmoney.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.txtearnestmoney.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtearnestmoney.Location = new System.Drawing.Point(33, 241);
+            this.txtearnestmoney.Location = new System.Drawing.Point(33, 190);
             this.txtearnestmoney.Name = "txtearnestmoney";
             this.txtearnestmoney.ReadOnly = true;
             this.txtearnestmoney.Size = new System.Drawing.Size(147, 33);

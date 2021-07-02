@@ -70,6 +70,7 @@
             this.ToolStripMenuItemUse = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemChangeCouse = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label6 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.gb.SuspendLayout();
@@ -130,6 +131,7 @@
             this.gb.Controls.Add(this.checkBoxClose);
             this.gb.Controls.Add(this.checkBoxPending);
             this.gb.Controls.Add(this.checkBoxNew);
+            this.gb.Controls.Add(this.label6);
             this.gb.Controls.Add(this.label3);
             this.gb.Controls.Add(this.txtVN);
             this.gb.Controls.Add(this.label2);
@@ -152,12 +154,17 @@
             // 
             // btnPaidAll
             // 
-            this.btnPaidAll.Location = new System.Drawing.Point(805, 24);
+            this.btnPaidAll.BackColor = System.Drawing.Color.Transparent;
+            this.btnPaidAll.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPaidAll.BackgroundImage")));
+            this.btnPaidAll.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnPaidAll.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPaidAll.FlatAppearance.BorderSize = 0;
+            this.btnPaidAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPaidAll.Location = new System.Drawing.Point(808, 23);
             this.btnPaidAll.Name = "btnPaidAll";
-            this.btnPaidAll.Size = new System.Drawing.Size(66, 48);
+            this.btnPaidAll.Size = new System.Drawing.Size(60, 56);
             this.btnPaidAll.TabIndex = 133;
-            this.btnPaidAll.Text = "จ่ายทั้งหมด";
-            this.btnPaidAll.UseVisualStyleBackColor = true;
+            this.btnPaidAll.UseVisualStyleBackColor = false;
             this.btnPaidAll.Click += new System.EventHandler(this.btnPaidAll_Click);
             // 
             // txtCardID
@@ -183,7 +190,7 @@
             // cboCheckMoney
             // 
             this.cboCheckMoney.AutoSize = true;
-            this.cboCheckMoney.Location = new System.Drawing.Point(979, 43);
+            this.cboCheckMoney.Location = new System.Drawing.Point(979, 63);
             this.cboCheckMoney.Name = "cboCheckMoney";
             this.cboCheckMoney.Size = new System.Drawing.Size(188, 20);
             this.cboCheckMoney.TabIndex = 130;
@@ -216,7 +223,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label10.Location = new System.Drawing.Point(887, 26);
+            this.label10.Location = new System.Drawing.Point(906, 26);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(73, 17);
@@ -227,7 +234,7 @@
             // txtSurName
             // 
             this.txtSurName.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.txtSurName.Location = new System.Drawing.Point(890, 43);
+            this.txtSurName.Location = new System.Drawing.Point(909, 43);
             this.txtSurName.Margin = new System.Windows.Forms.Padding(4);
             this.txtSurName.Name = "txtSurName";
             this.txtSurName.Size = new System.Drawing.Size(82, 24);
@@ -306,7 +313,7 @@
             // checkBox4
             // 
             this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(890, 80);
+            this.checkBox4.Location = new System.Drawing.Point(909, 80);
             this.checkBox4.Name = "checkBox4";
             this.checkBox4.Size = new System.Drawing.Size(86, 20);
             this.checkBox4.TabIndex = 24;
@@ -540,6 +547,17 @@
             this.timer1.Interval = 300000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.label6.Location = new System.Drawing.Point(802, 83);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(74, 17);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "จ่ายทั้งหมด";
+            // 
             // FrmSOTByPerson
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -603,5 +621,6 @@
         private System.Windows.Forms.TextBox txtCardID;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnPaidAll;
+        private System.Windows.Forms.Label label6;
     }
 }

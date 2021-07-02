@@ -1444,98 +1444,76 @@ namespace AryuwatSystem.Forms
         {
             try
             {
-                FrmPreviewRpt2Page obj = new FrmPreviewRpt2Page();
-                DataRow dr;
-                //obj.PrintType = Type;
-                DataTable dtTmp;
-                string InvNo = "";
-                dtTmp = dtSumOfTreat;
-                //string sql = string.Format("Vat<>'{0}'", "Y");
-                //if (dtTmp.Select(sql).Any())
-                //{
-                //    dtTmp = dtTmp.Select(sql).CopyToDataTable();
-                //InvNo = dtTmp.Select(sql).CopyToDataTable().Rows[0]["INVNo"] + "";
-                //}
-                //else
-                //    return;
-
-
-                string strTypeofPay = "";
-                if (type == 1)
+                foreach (var items in itemselect)
                 {
-                    obj.FormName = "RptSOFInvNoVatDiscount";
-                }
-                else
-                {
-                    obj.FormName = "RptSOFInvNoVatDiscountClinic";
-                }
-                if (Convert.ToInt32(dtTmp.Compute("Sum(DiscountBathByItem)", "")) > 0 || (txtIntDiscountBath.Text != "" && txtIntDiscountBath.Text != "0.00"))
-                    obj.HasDiscount = true;
+                    var itemsSOT = items.Split(';');
+                    dsSumOfTreat = new Business.SumOfTreatment().SelectSumOfTreatment("SELECT", itemsSOT[0], itemsSOT[1], ReceiptDateCurrent);
 
-                double dblCredit = 0.00;
-                double dblCash = 0.00;
-                string strBankName = "";
-                //var MaxID = dataGridViewCreditTransfer.Rows.Cast<DataGridViewRow>().Max(r =>Convert.ToDateTime(r.Cells["PayCreditDate"].Value));
+                    FrmPreviewRpt2Page obj = new FrmPreviewRpt2Page();
+                    DataRow dr;
+                    DataTable dtTmp;
+                    string InvNo = "";
 
-                //DateTime Maxdate = Convert.ToDateTime("2000/01/01");// String.Format("{0:yyyy/MM/dd}", DateTime.Now);
-                //foreach (DataGridViewRow row in dataGridViewCreditTransfer.Rows)
-                //{
-                //    if (Convert.ToDateTime(row.Cells["PayCreditDate"].Value + "") > Maxdate)
-                //    {
-                //        Maxdate = Convert.ToDateTime(row.Cells["PayCreditDate"].Value + "");
-                //    }
-                //}
+                    dtTmp = dsSumOfTreat.Tables[0];
 
-                //foreach (DataGridViewRow row in dataGridViewCashTransfer.Rows)
-                //{
-                //    if (Convert.ToDateTime(row.Cells["PayCashDate"].Value + "") > Maxdate)
-                //    {
-                //        Maxdate = Convert.ToDateTime(row.Cells["PayCashDate"].Value + "");
-                //    }
-                //}
-
-                foreach (DataGridViewRow row in dataGridViewCreditTransfer.Rows)
-                {
-
-                    if (row.Cells["cash"].Value + "" != "")
+                    string strTypeofPay = "";
+                    if (type == 1)
                     {
-                        if (row.Cells["BillType"].Value + "" == "PayCredit")
+                        obj.FormName = "RptSOFInvNoVatDiscount";
+                    }
+                    else
+                    {
+                        obj.FormName = "RptSOFInvNoVatDiscountClinic";
+                    }
+                    if (txtIntDiscountBath.Text != "" && txtIntDiscountBath.Text != "0.00")
+                        obj.HasDiscount = true;
+
+                    double dblCredit = 0.00;
+                    double dblCash = 0.00;
+                    string strBankName = "";
+
+                    foreach (DataGridViewRow row in dataGridViewCreditTransfer.Rows)
+                    {
+
+                        if (row.Cells["cash"].Value + "" != "")
                         {
-                            dblCredit += double.Parse(row.Cells["cash"].Value + ""); //
-                            if (strBankName != "") strBankName += ",";
-                            strBankName += row.Cells["name"].Value + "";
-                        }
-                        else if (row.Cells["BillType"].Value + "" == "PayCash")
-                        {
-                            dblCash += double.Parse(row.Cells["cash"].Value + ""); //
+                            if (row.Cells["BillType"].Value + "" == "PayCredit")
+                            {
+                                dblCredit += double.Parse(row.Cells["cash"].Value + ""); 
+                                if (strBankName != "") strBankName += ",";
+                                strBankName += row.Cells["name"].Value + "";
+                            }
+                            else if (row.Cells["BillType"].Value + "" == "PayCash")
+                            {
+                                dblCash += double.Parse(row.Cells["cash"].Value + ""); 
+                            }
                         }
                     }
+                    if (dblCredit > 0)
+                    {
+                        strTypeofPay = " บัตรเครดิต/Credit Card :" + dblCredit.ToString("###,###,##0.00") + " บาท ";
+                    }
+                    if (dblCash > 0)
+                    {
+                        if (strTypeofPay.Length > 0) strTypeofPay += "/";
+                        strTypeofPay += " เงินสด/Cash :" + dblCash.ToString("###,###,##0.00") + " บาท";
+                    }
+                    obj.DiscountBath = string.IsNullOrEmpty(txtIntDiscountBath.Text.Trim())
+                                           ? 0.00
+                                           : double.Parse(txtIntDiscountBath.Text.Trim());
+                    dblCredit += dblCash;
+                    obj.TypeOfPayment = strTypeofPay;
+                    obj.PayToday = dblCredit.ToString("###,###,##0.00");
+                    obj.PayTodayDouble = dblCredit;
+                    obj.SumUnpaid = dtTmp.Rows[0]["Unpaid"] + "" == "" ? 0 : Convert.ToDouble(dtTmp.Rows[0]["Unpaid"]);
+                    obj.SumPriceAfterDis = Convert.ToDouble(dtTmp.Compute("Sum(PriceAfterDis)", ""));
+                    obj.INVNo = InvNo;
+                    obj.dt = dtTmp;
+                    obj.MaximizeBox = true;
+                    obj.TopMost = true;
+                    obj.Show();
+                    obj.Dispose();
                 }
-                if (dblCredit > 0)
-                {
-                    //strTypeofPay = " บัตรเครดิต " + strBankName + " " + dblCredit.ToString("###,##0.00") + " บาท ";
-                    strTypeofPay = " บัตรเครดิต/Credit Card :" + dblCredit.ToString("###,###,##0.00") + " บาท ";
-                }
-                if (dblCash > 0)
-                {
-                    if (strTypeofPay.Length > 0) strTypeofPay += "/";
-                    strTypeofPay += " เงินสด/Cash :" + dblCash.ToString("###,###,##0.00") + " บาท";
-                }
-                obj.DiscountBath = string.IsNullOrEmpty(txtIntDiscountBath.Text.Trim())
-                                       ? 0.00
-                                       : double.Parse(txtIntDiscountBath.Text.Trim());
-                dblCredit += dblCash;
-                obj.TypeOfPayment = strTypeofPay;
-                obj.PayToday = dblCredit.ToString("###,###,##0.00");
-                obj.PayTodayDouble = dblCredit;
-                obj.SumUnpaid = dtTmp.Rows[0]["Unpaid"] + "" == "" ? 0 : Convert.ToDouble(dtTmp.Rows[0]["Unpaid"]);//.Compute("Sum(Unpaid)", ""));
-                obj.SumPriceAfterDis = Convert.ToDouble(dtTmp.Compute("Sum(PriceAfterDis)", ""));
-                obj.INVNo = InvNo;
-                obj.dt = dtTmp;
-                obj.MaximizeBox = true;
-                obj.TopMost = true;
-                obj.Show();
-                obj.Dispose();
             }
             catch (Exception ex)
             {
@@ -1653,73 +1631,81 @@ namespace AryuwatSystem.Forms
         {
             try
             {
-                FrmPreviewRpt2Page obj = new FrmPreviewRpt2Page();
-                DataRow dr;
-
-                DataTable dtTmp;
-                //dtSumOfTreatPay
-                string sql = string.Format("Vat='{0}'", "Y");
-                if (dtSumOfTreat.Select(sql).Any())
-                    dtTmp = dtSumOfTreat.Select(sql).CopyToDataTable();
-                else
-                    return;
-
-                string strTypeofPay = "";
-                if (type == 1)
+                foreach (var items in itemselect)
                 {
-                    obj.FormName = "RptSOFTaxVat";
-                }
-                else
-                {
-                    obj.FormName = "RptSOFTaxVatClinic";
-                }
-                double dblCredit = 0.00;
-                double dblCash = 0.00;
-                string strBankName = "";
+                    var itemsSOT = items.Split(';');
+                    dsSumOfTreat = new Business.SumOfTreatment().SelectSumOfTreatment("SELECT", itemsSOT[0], itemsSOT[1], ReceiptDateCurrent);
 
-                foreach (DataGridViewRow row in dataGridViewCreditTransfer.Rows)
-                {
-                    if (row.Cells["cash"].Value + "" != "" && row.Cells["cash"].Value + "" == String.Format("{0:yyyy/MM/dd}", DateTime.Now))
+                    FrmPreviewRpt2Page obj = new FrmPreviewRpt2Page();
+                    DataRow dr;
+                    DataTable dtTmp;
+                    string InvNo = "";
+
+                    dtTmp = dsSumOfTreat.Tables[0];
+
+                    string sql = string.Format("Vat='{0}'", "Y");
+                    if (dsSumOfTreat.Tables[0].Select(sql).Any())
+                        dtTmp = dsSumOfTreat.Tables[0];
+                    else
+                        return;
+
+                    string strTypeofPay = "";
+                    if (type == 1)
                     {
-                        if (row.Cells["BillType"].Value + "" == "PayCredit")
+                        obj.FormName = "RptSOFTaxVat";
+                    }
+                    else
+                    {
+                        obj.FormName = "RptSOFTaxVatClinic";
+                    }
+                    double dblCredit = 0.00;
+                    double dblCash = 0.00;
+                    string strBankName = "";
+
+                    foreach (DataGridViewRow row in dataGridViewCreditTransfer.Rows)
+                    {
+                        if (row.Cells["cash"].Value + "" != "" && row.Cells["cash"].Value + "" == String.Format("{0:yyyy/MM/dd}", DateTime.Now))
                         {
-                            dblCredit += double.Parse(row.Cells["cash"].Value + ""); //
-                            if (strBankName != "") strBankName += ",";
-                            strBankName += row.Cells["name"].Value + "";
-                        }
-                        else if (row.Cells["BillType"].Value + "" == "PayCash")
-                        {
-                            dblCash += double.Parse(row.Cells["cash"].Value + ""); //
+                            if (row.Cells["BillType"].Value + "" == "PayCredit")
+                            {
+                                dblCredit += double.Parse(row.Cells["cash"].Value + ""); //
+                                if (strBankName != "") strBankName += ",";
+                                strBankName += row.Cells["name"].Value + "";
+                            }
+                            else if (row.Cells["BillType"].Value + "" == "PayCash")
+                            {
+                                dblCash += double.Parse(row.Cells["cash"].Value + ""); //
+                            }
                         }
                     }
+                    //foreach (DataGridViewRow row in dataGridViewCashTransfer.Rows)
+                    //{
+                    //    if (row.Cells["CashCurrent"].Value + "" != "" && row.Cells["PayCashDate"].Value + "" == String.Format("{0:yyyy/MM/dd}", DateTime.Now))
+                    //    {
+                    //        dblCash += double.Parse(row.Cells["CashCurrent"].Value + ""); //
+                    //    }
+                    //}
+                    if (dblCredit > 0)
+                    {
+                        //strTypeofPay = " บัตรเครดิต " + strBankName + " " + dblCredit.ToString("###,##0.00") + " บาท ";
+                        strTypeofPay = " บัตรเครดิต/Credit Card : " + dblCredit.ToString("###,###,##0.00") + " บาท ";
+                    }
+                    if (dblCash > 0)
+                    {
+                        if (strTypeofPay.Length > 0) strTypeofPay += "/";
+                        strTypeofPay += " เงินสด//Cash :" + dblCash.ToString("###,###,##0.00") + " บาท";
+                    }
+                    obj.DiscountBath = string.IsNullOrEmpty(txtIntDiscountBath.Text.Trim())
+                                           ? 0.00
+                                           : double.Parse(txtIntDiscountBath.Text.Trim());
+                    dblCredit += dblCash;
+                    obj.TypeOfPayment = strTypeofPay;
+                    obj.PayToday = dblCredit.ToString("###,###,##0.00");
+                    obj.dt = dtTmp;
+                    obj.MaximizeBox = true;
+                    obj.TopMost = true;
+                    obj.Show();
                 }
-                //foreach (DataGridViewRow row in dataGridViewCashTransfer.Rows)
-                //{
-                //    if (row.Cells["CashCurrent"].Value + "" != "" && row.Cells["PayCashDate"].Value + "" == String.Format("{0:yyyy/MM/dd}", DateTime.Now))
-                //    {
-                //        dblCash += double.Parse(row.Cells["CashCurrent"].Value + ""); //
-                //    }
-                //}
-                if (dblCredit > 0)
-                {
-                    //strTypeofPay = " บัตรเครดิต " + strBankName + " " + dblCredit.ToString("###,##0.00") + " บาท ";
-                    strTypeofPay = " บัตรเครดิต/Credit Card : " + dblCredit.ToString("###,###,##0.00") + " บาท ";
-                }
-                if (dblCash > 0)
-                {
-                    if (strTypeofPay.Length > 0) strTypeofPay += "/";
-                    strTypeofPay += " เงินสด//Cash :" + dblCash.ToString("###,###,##0.00") + " บาท";
-                }
-                obj.DiscountBath = string.IsNullOrEmpty(txtIntDiscountBath.Text.Trim())
-                                       ? 0.00
-                                       : double.Parse(txtIntDiscountBath.Text.Trim());
-                dblCredit += dblCash;
-                obj.TypeOfPayment = strTypeofPay;
-                obj.PayToday = dblCredit.ToString("###,###,##0.00");
-                obj.dt = dtTmp;
-                obj.MaximizeBox = true;
-                obj.TopMost = true;
-                obj.Show();
             }
             catch (Exception ex)
             {
@@ -1874,112 +1860,162 @@ namespace AryuwatSystem.Forms
                 MessageBox.Show(ex.Message);
             }
         }
+
+        public class gvdata_model
+        {
+            public string MS_SO { get; set; }
+            public string money_dis { get; set; }
+            public string DisBath { get; set; }
+            public string Money { get; set; }
+        }
         private void SaveSOF(bool saveclose)
         {
             try
             {
-                SaveType = "SAVECREDITCARD";
-                SumOfTreatment info = new SumOfTreatment();
-                List<Entity.CreditCardSOT> listCredit = new List<CreditCardSOT>();
-                Entity.CreditCardSOT creditInfo;
-                info.QueryType = "UPDATE";
-                info.SOT_Code = lbIR.Text;
-                info.CN = lbCN.Text;
-                info.SORef = labelSORef.Text;
-                info.PRO_Code = PRO_Code;
-                info.SO = SO;
-                info.EN_COMSDoctor = lbDoctorCom.Text;
-                string dateFormat = "yyyy/MM/dd";
-                string resultdt = dtpDateSave.Value.ToString(dateFormat);
-                info.DateSave = Convert.ToDateTime(resultdt);
-                info.DateUpdate = DateTime.Now;
-                info.SalePrice = txtBeforDiscount.Text == "" ? 0 : Convert.ToDouble(txtBeforDiscount.Text);
-                info.NetAmount = LastSalePrice;
-                info.EarnestMoney = EarnestMoney;
-                info.Unpaid = Unpaid;
-                int sts = 0;
-                if (Unpaid == 0)
-                    sts = 2;
-                else if (Unpaid != 0 && LastSalePrice != Unpaid)
-                    sts = 1;
-                else if (LastSalePrice == Unpaid)
-                    sts = 0;
-
-                info.MedStatus_Code = sts;
-                info.Remark = txtRemark.Text;
-                info.BillTo = txtBillTo.Text;
-
-                info.DiscountAllItemBath = Convert.ToDouble(string.IsNullOrEmpty(txtIntDiscountAllItemBath.Text) ? "0" : txtIntDiscountAllItemBath.Text.Replace(",", ""));
-                info.DiscountBath = Convert.ToDouble(string.IsNullOrEmpty(txtIntDiscountBath.Text) ? "0" : txtIntDiscountBath.Text.Replace(",", "")); ;
-                info.EN_Save = Entity.Userinfo.EN.Trim();
-                info.EN_COMS = (comboBoxCommission.SelectedValue + "").Trim();
-
-                info.EN_COMS2 = (comboBoxCommission2.SelectedValue + "").Trim();
-                info.PriceAfterDis = EarnestMoney;
-                if (info.EN_COMS2 != "")
-                    info.Com_Bath = info.Com_Bath2 = EarnestMoney / 2;
-                else
-                    info.Com_Bath = EarnestMoney;
-
-
-                //For DiscountPercen===========================
-                List<Entity.SupplieTrans> listSupplieTran = new List<SupplieTrans>();
-                Entity.SupplieTrans SupplieTranInfo;
-                info.Vat = "N";
-                info.NonVat = "N";
-                foreach (DataGridViewRow row in dgvData.Rows)
+                using (var context = new m_DataSet.EntitiesOPD_System())
                 {
-                    SupplieTranInfo = new SupplieTrans();
-                    SupplieTranInfo.QueryType = "UPDATESUPPLIETRANS";
-                    SupplieTranInfo.VN = VN;
-                    SupplieTranInfo.SONo = SO;
-                    SupplieTranInfo.SORef = labelSORef.Text;
-                    SupplieTranInfo.PRO_Code = PRO_Code;
-                    SupplieTranInfo.MS_Code = row.Cells["MS_Code"].Value + "";
-                    SupplieTranInfo.DiscountPercen = string.IsNullOrEmpty(row.Cells["discount"].Value + "") ? 0 : Convert.ToDecimal(row.Cells["discount"].Value + "");
-                    SupplieTranInfo.DiscountBath = string.IsNullOrEmpty(row.Cells["DisBath"].Value + "") ? 0 : Convert.ToDecimal(row.Cells["DisBath"].Value + "");
-                    SupplieTranInfo.PriceAfterDis = Convert.ToDecimal(string.IsNullOrEmpty(row.Cells["money_dis"].Value + "") ? "0" : row.Cells["money_dis"].Value + "".Replace(",", ""));
-                    SupplieTranInfo.PayByItem = Convert.ToDecimal(string.IsNullOrEmpty(row.Cells["PayByItem"].Value + "") ? "0" : row.Cells["PayByItem"].Value + "");
-                    SupplieTranInfo.ListOrder = row.Cells["ListOrder"].Value + "";
-                    SupplieTranInfo.ByDr = row.Cells["ByDr"].Value + "";
-                    listSupplieTran.Add(SupplieTranInfo);
-                    if (row.Cells["Vat"].Value + "" == "Y")
-                        info.Vat = "Y";
-                    if (row.Cells["Vat"].Value + "" == "N" || (row.Cells["Vat"].Value + "").Trim() == "")
-                        info.NonVat = "Y";
-                }
-                listCredit = new List<CreditCardSOT>();
-                info.CreditCardSotInfo = listCredit.ToArray();
-                info.SupplieTranInfo = listSupplieTran.ToArray();
-
-                //==================================get last  pay==========================
-                double dblCredit = 0.00;
-                double dblCash = 0.00;
-                double dblCredteRcn = 0.00;
-                double dblCashRcn = 0.00;
-                Dictionary<string, double> lsdateRcn = new Dictionary<string, double>();
-
-                intStatus = new Business.SumOfTreatment().UpdateSumOfTreatment(info);
-
-                if (intStatus > 0)
-                {
-                    if (saveclose)
+                    SaveType = "SAVECREDITCARD";
+                    List<gvdata_model> gvList = new List<gvdata_model>();
+                    foreach (DataGridViewRow dr in dgvData.Rows) // list รายการ ใน gridview
                     {
+                        gvdata_model gvdata = new gvdata_model();
+                        gvdata.MS_SO = dr.Cells["MS_SO"].Value + "";
+                        gvdata.money_dis = dr.Cells["money_dis"].Value + "";
+                        gvdata.DisBath = dr.Cells["DisBath"].Value + "";
+                        gvdata.Money = dr.Cells["Money"].Value + "";
 
-                        //if (Convert.ToInt32(String.IsNullOrEmpty(txtUnpaid.Text) ? "0" : txtUnpaid.Text.Replace(",", "")) > 0)
-                        //{
-                        //    MessageBox.Show("กรุณาจ่ายเงินเต็มจำนวน", "แจ้งเตือน");
-                        //}
-                        //else
-                        //{
+                        gvList.Add(gvdata);
+                    }
+                    string dateFormat = "yyyy/MM/dd";
+                    string resultdt = dtpDateSave.Value.ToString(dateFormat);
+                    foreach (var items in itemselect) // list SO ที่เลือก
+                    {
+                        SumOfTreatment info = new SumOfTreatment();
+                        List<Entity.CreditCardSOT> listCredit = new List<CreditCardSOT>();
+                        Entity.CreditCardSOT creditInfo;
+
+                        var itemsSOT = items.Split(';');
+                        SO = itemsSOT[0];
+                        double saleprice = 0.00;
+                        double lastprice = 0.00;
+                        double sumdiscount = 0.00;
+                        decimal? cashcreditcardSOT = 0;
+
+
+                        var rowdata = gvList.Where(x => x.MS_SO == SO).ToList();
+                        foreach (var val in rowdata) //หาข้อมูลในราคารวมหลังหักส่วนลด ใน gridview
+                        {
+                            saleprice += double.Parse(String.IsNullOrEmpty(val.Money) ? "0" : val.Money.Replace(",", ""));
+                            sumdiscount += double.Parse(String.IsNullOrEmpty(val.DisBath) ? "0" : val.DisBath.Replace(",", ""));
+                            lastprice += double.Parse(String.IsNullOrEmpty(val.money_dis) ? "0" : val.money_dis.Replace(",", ""));
+                        }
+
+                        var dataCashCreditCardSOT = context.CashCreditCardSOTs.Where(x => x.SO == SO).ToList();
+                        foreach (var val in dataCashCreditCardSOT) //หาข้อมูลในราคารวมหลังหักส่วนลด ใน gridview
+                        {
+                            cashcreditcardSOT += val.CashMoney;
+                        }
+                        Unpaid = lastprice - Convert.ToDouble(cashcreditcardSOT);
+                        EarnestMoney = Convert.ToDouble(cashcreditcardSOT);
+
+                        info.QueryType = "UPDATE";
+                        info.SOT_Code = lbIR.Text;
+                        info.CN = lbCN.Text;
+                        info.SORef = labelSORef.Text;
+                        //info.PRO_Code = PRO_Code;
+                        info.SO = SO;
+                        //info.EN_COMSDoctor = lbDoctorCom.Text;
+                        info.DateSave = Convert.ToDateTime(resultdt);
+                        info.DateUpdate = DateTime.Now;
+                        info.SalePrice = saleprice;
+                        info.NetAmount = lastprice;
+                        info.EarnestMoney = EarnestMoney; //ราคาที่มาจากใบเสร็จ
+                        info.Unpaid = Unpaid;
+                        int sts = 0;
+                        if (Unpaid == 0)
+                            sts = 2;
+                        else if (Unpaid != 0 && lastprice != Unpaid)
+                            sts = 1;
+                        else if (lastprice == Unpaid)
+                            sts = 0;
+
+                        info.MedStatus_Code = sts;
+                        info.Remark = txtRemark.Text;
+                        info.BillTo = txtBillTo.Text;
+
+                        info.DiscountAllItemBath = sumdiscount; //ส่วนลดทั้งหมดใน so
+                        info.DiscountBath = Convert.ToDouble(string.IsNullOrEmpty(txtIntDiscountBath.Text) ? "0" : txtIntDiscountBath.Text.Replace(",", "")); ;
+                        info.EN_Save = Entity.Userinfo.EN.Trim();
+                        info.EN_COMS = (comboBoxCommission.SelectedValue + "").Trim();
+
+                        info.EN_COMS2 = (comboBoxCommission2.SelectedValue + "").Trim();
+                        info.PriceAfterDis = EarnestMoney;
+                        if (info.EN_COMS2 != "")
+                            info.Com_Bath = info.Com_Bath2 = EarnestMoney / 2;
+                        else
+                            info.Com_Bath = EarnestMoney;
+
+
+                        //For DiscountPercen===========================
+                        List<Entity.SupplieTrans> listSupplieTran = new List<SupplieTrans>();
+                        Entity.SupplieTrans SupplieTranInfo;
+                        info.Vat = "N";
+                        info.NonVat = "N";
+                        foreach (DataGridViewRow row in dgvData.Rows)
+                        {
+                            SupplieTranInfo = new SupplieTrans();
+                            SupplieTranInfo.QueryType = "UPDATESUPPLIETRANS";
+                            SupplieTranInfo.VN = VN;
+                            SupplieTranInfo.SONo = SO;
+                            SupplieTranInfo.SORef = labelSORef.Text;
+                            SupplieTranInfo.PRO_Code = PRO_Code;
+                            SupplieTranInfo.MS_Code = row.Cells["MS_Code"].Value + "";
+                            SupplieTranInfo.DiscountPercen = string.IsNullOrEmpty(row.Cells["discount"].Value + "") ? 0 : Convert.ToDecimal(row.Cells["discount"].Value + "");
+                            SupplieTranInfo.DiscountBath = string.IsNullOrEmpty(row.Cells["DisBath"].Value + "") ? 0 : Convert.ToDecimal(row.Cells["DisBath"].Value + "");
+                            SupplieTranInfo.PriceAfterDis = Convert.ToDecimal(string.IsNullOrEmpty(row.Cells["money_dis"].Value + "") ? "0" : row.Cells["money_dis"].Value + "".Replace(",", ""));
+                            SupplieTranInfo.PayByItem = Convert.ToDecimal(string.IsNullOrEmpty(row.Cells["PayByItem"].Value + "") ? "0" : row.Cells["PayByItem"].Value + "");
+                            SupplieTranInfo.ListOrder = row.Cells["ListOrder"].Value + "";
+                            SupplieTranInfo.ByDr = row.Cells["ByDr"].Value + "";
+                            listSupplieTran.Add(SupplieTranInfo);
+                            if (row.Cells["Vat"].Value + "" == "Y")
+                                info.Vat = "Y";
+                            if (row.Cells["Vat"].Value + "" == "N" || (row.Cells["Vat"].Value + "").Trim() == "")
+                                info.NonVat = "Y";
+                        }
+                        listCredit = new List<CreditCardSOT>();
+                        info.CreditCardSotInfo = listCredit.ToArray();
+                        info.SupplieTranInfo = listSupplieTran.ToArray();
+
+                        //==================================get last  pay==========================
+                        double dblCredit = 0.00;
+                        double dblCash = 0.00;
+                        double dblCredteRcn = 0.00;
+                        double dblCashRcn = 0.00;
+                        Dictionary<string, double> lsdateRcn = new Dictionary<string, double>();
+
+                        intStatus = new Business.SumOfTreatment().UpdateSumOfTreatment(info);
+                    }
+
+                    if (intStatus > 0)
+                    {
+                        if (saveclose)
+                        {
+
+                            //if (Convert.ToInt32(String.IsNullOrEmpty(txtUnpaid.Text) ? "0" : txtUnpaid.Text.Replace(",", "")) > 0)
+                            //{
+                            //    MessageBox.Show("กรุณาจ่ายเงินเต็มจำนวน", "แจ้งเตือน");
+                            //}
+                            //else
+                            //{
                             DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeInformation, Statics.SaveComplete);
                             this.Close();
-                        //}
+                            //}
+                        }
                     }
-                }
-                else
-                {
-                    MessageBox.Show("ขัดข้อง \"Save error\"");
+                    else
+                    {
+                        MessageBox.Show("ขัดข้อง \"Save error\"");
+                    }
                 }
             }
             catch (Exception ex)
