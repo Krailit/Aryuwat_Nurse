@@ -3391,9 +3391,20 @@ namespace AryuwatSystem.Forms
                 decimal PayDeposit = dtTmp.Rows[0]["PayDeposit"] + "" == "" ? 0 : Convert.ToDecimal(dtTmp.Rows[0]["PayDeposit"]);
                 decimal NetAmount = dtTmp.Rows[0]["NetAmount"] + "" == "" ? 0 : Convert.ToDecimal(dtTmp.Rows[0]["NetAmount"]);
 
-                decimal total3 = dataGridViewCreditTransfer.Rows.Cast<DataGridViewRow>()
-                 .Where(r => r.Cells["cash"].Value + "" != "" && r.Visible)
-                 .Sum(t => Convert.ToDecimal(t.Cells["cash"].Value));
+                //decimal total3 = dataGridViewCreditTransfer.Rows.Cast<DataGridViewRow>()
+                //.Where(r => r.Cells["cash"].Value + "" != "" && r.Visible)
+                //.Sum(t => Convert.ToDecimal(t.Cells["cash"].Value));
+
+
+                decimal? total3 = 0;
+                using (var context = new m_DataSet.EntitiesOPD_System())
+                {
+                    var dataCashCreditCardSOT = context.CashCreditCardSOTs.Where(x => x.SO == SO).ToList();
+                    foreach (var val in dataCashCreditCardSOT) //หาข้อมูลในราคารวมหลังหักส่วนลด ใน gridview
+                    {
+                        total3 += val.CashMoney;
+                    }
+                }
                 //PayDeposit + 
                 if (total3 != NetAmount)
                 {

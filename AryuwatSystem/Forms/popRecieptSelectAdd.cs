@@ -118,7 +118,7 @@ namespace AryuwatSystem.Forms
             {
                 using (var context = new m_DataSet.EntitiesOPD_System())
                 {
-                    var dataSupplieTrans = context.SupplieTrans.Where(x => x.SONo == cbbListItem.Text).ToList();
+                    var dataSupplieTrans = context.SupplieTrans.Where(x => x.SONo == cbbListItem.Text && x.VN == "").ToList();
 
                     decimal? sumsup = 0;
 
