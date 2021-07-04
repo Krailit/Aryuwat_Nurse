@@ -626,7 +626,7 @@ namespace AryuwatSystem.Forms
             // 
             this.labelBranch.AutoSize = true;
             this.labelBranch.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.labelBranch.Location = new System.Drawing.Point(525, 34);
+            this.labelBranch.Location = new System.Drawing.Point(588, 36);
             this.labelBranch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelBranch.Name = "labelBranch";
             this.labelBranch.Size = new System.Drawing.Size(49, 17);
@@ -637,7 +637,7 @@ namespace AryuwatSystem.Forms
             // 
             this.labelSORef.AutoSize = true;
             this.labelSORef.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.labelSORef.Location = new System.Drawing.Point(579, 9);
+            this.labelSORef.Location = new System.Drawing.Point(642, 11);
             this.labelSORef.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelSORef.Name = "labelSORef";
             this.labelSORef.Size = new System.Drawing.Size(83, 17);
@@ -710,7 +710,7 @@ namespace AryuwatSystem.Forms
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label5.Location = new System.Drawing.Point(525, 9);
+            this.label5.Location = new System.Drawing.Point(588, 11);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(55, 17);
@@ -721,7 +721,7 @@ namespace AryuwatSystem.Forms
             // 
             this.lbSORef.AutoSize = true;
             this.lbSORef.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.lbSORef.Location = new System.Drawing.Point(424, 9);
+            this.lbSORef.Location = new System.Drawing.Point(450, 9);
             this.lbSORef.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbSORef.Name = "lbSORef";
             this.lbSORef.Size = new System.Drawing.Size(83, 17);
@@ -776,7 +776,7 @@ namespace AryuwatSystem.Forms
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label10.Location = new System.Drawing.Point(346, 9);
+            this.label10.Location = new System.Drawing.Point(372, 9);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(80, 17);
