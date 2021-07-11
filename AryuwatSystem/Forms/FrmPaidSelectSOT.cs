@@ -1444,33 +1444,33 @@ namespace AryuwatSystem.Forms
         {
             try
             {
+                FrmPreviewRpt2Page obj = new FrmPreviewRpt2Page();
+                DataRow dr;
+                DataTable dtTmp = new DataTable();
+                DataTable dtClone = new DataTable();
+                List<DataTable> tables = new List<DataTable>();
+                string InvNo = "";
+                double dblCredit = 0.00;
+                double dblCash = 0.00;
+                double SumUnpaid = 0.00;
+                string strTypeofPay = "";
+                string strBankName = "";
+
                 foreach (var items in itemselect)
                 {
                     var itemsSOT = items.Split(';');
                     dsSumOfTreat = new Business.SumOfTreatment().SelectSumOfTreatment("SELECT", itemsSOT[0], itemsSOT[1], ReceiptDateCurrent);
 
-                    FrmPreviewRpt2Page obj = new FrmPreviewRpt2Page();
-                    DataRow dr;
-                    DataTable dtTmp;
-                    string InvNo = "";
+                    dtClone = dsSumOfTreat.Tables[0];
+                    tables.Add(dtClone);
 
-                    dtTmp = dsSumOfTreat.Tables[0];
+                    SumUnpaid += dtClone.Rows[0]["Unpaid"] + "" == "" ? 0 : Convert.ToDouble(dtClone.Rows[0]["Unpaid"]);
 
-                    string strTypeofPay = "";
-                    if (type == 1)
-                    {
-                        obj.FormName = "RptSOFInvNoVatDiscount";
-                    }
-                    else
-                    {
-                        obj.FormName = "RptSOFInvNoVatDiscountClinic";
-                    }
+                    obj.FormName = "RptSOFInvNoVatDiscountAll";
+
                     if (txtIntDiscountBath.Text != "" && txtIntDiscountBath.Text != "0.00")
                         obj.HasDiscount = true;
 
-                    double dblCredit = 0.00;
-                    double dblCash = 0.00;
-                    string strBankName = "";
 
                     foreach (DataGridViewRow row in dataGridViewCreditTransfer.Rows)
                     {
@@ -1489,31 +1489,38 @@ namespace AryuwatSystem.Forms
                             }
                         }
                     }
-                    if (dblCredit > 0)
-                    {
-                        strTypeofPay = " บัตรเครดิต/Credit Card :" + dblCredit.ToString("###,###,##0.00") + " บาท ";
-                    }
-                    if (dblCash > 0)
-                    {
-                        if (strTypeofPay.Length > 0) strTypeofPay += "/";
-                        strTypeofPay += " เงินสด/Cash :" + dblCash.ToString("###,###,##0.00") + " บาท";
-                    }
-                    obj.DiscountBath = string.IsNullOrEmpty(txtIntDiscountBath.Text.Trim())
-                                           ? 0.00
-                                           : double.Parse(txtIntDiscountBath.Text.Trim());
-                    dblCredit += dblCash;
-                    obj.TypeOfPayment = strTypeofPay;
-                    obj.PayToday = dblCredit.ToString("###,###,##0.00");
-                    obj.PayTodayDouble = dblCredit;
-                    obj.SumUnpaid = dtTmp.Rows[0]["Unpaid"] + "" == "" ? 0 : Convert.ToDouble(dtTmp.Rows[0]["Unpaid"]);
-                    obj.SumPriceAfterDis = Convert.ToDouble(dtTmp.Compute("Sum(PriceAfterDis)", ""));
-                    obj.INVNo = InvNo;
-                    obj.dt = dtTmp;
-                    obj.MaximizeBox = true;
-                    obj.TopMost = true;
-                    obj.Show();
-                    obj.Dispose();
                 }
+                dtTmp = tables.SelectMany(dt => dt.AsEnumerable()).CopyToDataTable();
+                foreach(DataRow tmp in dtTmp.Rows)
+                {
+                    tmp["Unpaid"] = SumUnpaid + "";
+                }
+                //dtTmp.Rows[0]["Unpaid"] = SumUnpaid + "";
+                if (dblCredit > 0)
+                {
+                    strTypeofPay = " บัตรเครดิต/Credit Card :" + dblCredit.ToString("###,###,##0.00") + " บาท ";
+                }
+                if (dblCash > 0)
+                {
+                    if (strTypeofPay.Length > 0) strTypeofPay += "/";
+                    strTypeofPay += " เงินสด/Cash :" + dblCash.ToString("###,###,##0.00") + " บาท";
+                }
+                obj.DiscountBath = string.IsNullOrEmpty(txtIntDiscountBath.Text.Trim())
+                                       ? 0.00
+                                       : double.Parse(txtIntDiscountBath.Text.Trim());
+                dblCredit += dblCash;
+                obj.TypeOfPayment = strTypeofPay;
+                obj.PayToday = dblCredit.ToString("###,###,##0.00");
+                obj.PayTodayDouble = dblCredit;                
+                obj.SumUnpaid = dtTmp.Rows[0]["Unpaid"] + "" == "" ? 0 : Convert.ToDouble(dtTmp.Rows[0]["Unpaid"]);
+                obj.SumPriceAfterDis = Convert.ToDouble(dtTmp.Compute("Sum(PriceAfterDis)", ""));
+                obj.INVNo = InvNo;
+                obj.dt = dtTmp;
+                obj.MaximizeBox = true;
+                obj.TopMost = true;
+                obj.Show();
+                obj.Dispose();
+
             }
             catch (Exception ex)
             {

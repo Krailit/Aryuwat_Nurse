@@ -198,6 +198,7 @@ namespace AryuwatSystem.Forms
             this.comboBoxCommission = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnPrintInvClinic = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnPrintInv = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.txtUnpaid = new AryuwatSystem.UserControls.TextboxFormatDouble(this.components);
@@ -1335,6 +1336,7 @@ namespace AryuwatSystem.Forms
             this.panel6.Controls.Add(this.comboBoxCommission);
             this.panel6.Controls.Add(this.label2);
             this.panel6.Controls.Add(this.btnPrintInvClinic);
+            this.panel6.Controls.Add(this.button1);
             this.panel6.Controls.Add(this.btnPrintInv);
             this.panel6.Controls.Add(this.btnCancel);
             this.panel6.Controls.Add(this.txtUnpaid);
@@ -1388,13 +1390,14 @@ namespace AryuwatSystem.Forms
             this.buttonTaxClinic.Font = new System.Drawing.Font("Tahoma", 9F);
             this.buttonTaxClinic.ForeColor = System.Drawing.Color.Black;
             this.buttonTaxClinic.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonTaxClinic.Location = new System.Drawing.Point(124, 376);
+            this.buttonTaxClinic.Location = new System.Drawing.Point(124, 432);
             this.buttonTaxClinic.Margin = new System.Windows.Forms.Padding(2);
             this.buttonTaxClinic.Name = "buttonTaxClinic";
             this.buttonTaxClinic.Size = new System.Drawing.Size(122, 39);
             this.buttonTaxClinic.TabIndex = 321;
             this.buttonTaxClinic.Text = "ใบกำกับภาษี (คลินิค)";
             this.buttonTaxClinic.UseVisualStyleBackColor = true;
+            this.buttonTaxClinic.Visible = false;
             this.buttonTaxClinic.Click += new System.EventHandler(this.buttonTaxClinic_Click);
             // 
             // buttonTax
@@ -1403,13 +1406,14 @@ namespace AryuwatSystem.Forms
             this.buttonTax.Font = new System.Drawing.Font("Tahoma", 12F);
             this.buttonTax.ForeColor = System.Drawing.Color.Black;
             this.buttonTax.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonTax.Location = new System.Drawing.Point(124, 334);
+            this.buttonTax.Location = new System.Drawing.Point(124, 390);
             this.buttonTax.Margin = new System.Windows.Forms.Padding(2);
             this.buttonTax.Name = "buttonTax";
             this.buttonTax.Size = new System.Drawing.Size(122, 38);
             this.buttonTax.TabIndex = 321;
             this.buttonTax.Text = "ใบกำกับภาษี";
             this.buttonTax.UseVisualStyleBackColor = true;
+            this.buttonTax.Visible = false;
             this.buttonTax.Click += new System.EventHandler(this.buttonTax_Click);
             // 
             // btnBill2
@@ -1589,7 +1593,7 @@ namespace AryuwatSystem.Forms
             this.btnCloseStatus.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.btnCloseStatus.ForeColor = System.Drawing.Color.Black;
             this.btnCloseStatus.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCloseStatus.Location = new System.Drawing.Point(5, 418);
+            this.btnCloseStatus.Location = new System.Drawing.Point(5, 474);
             this.btnCloseStatus.Margin = new System.Windows.Forms.Padding(2);
             this.btnCloseStatus.Name = "btnCloseStatus";
             this.btnCloseStatus.Size = new System.Drawing.Size(115, 38);
@@ -1643,15 +1647,32 @@ namespace AryuwatSystem.Forms
             this.btnPrintInvClinic.Font = new System.Drawing.Font("Tahoma", 9F);
             this.btnPrintInvClinic.ForeColor = System.Drawing.Color.Black;
             this.btnPrintInvClinic.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPrintInvClinic.Location = new System.Drawing.Point(5, 376);
+            this.btnPrintInvClinic.Location = new System.Drawing.Point(5, 432);
             this.btnPrintInvClinic.Margin = new System.Windows.Forms.Padding(2);
             this.btnPrintInvClinic.Name = "btnPrintInvClinic";
             this.btnPrintInvClinic.Size = new System.Drawing.Size(115, 38);
             this.btnPrintInvClinic.TabIndex = 300;
             this.btnPrintInvClinic.Text = "ใบแจ้งหนี้ (คลินิค)";
             this.btnPrintInvClinic.UseVisualStyleBackColor = true;
+            this.btnPrintInvClinic.Visible = false;
             this.btnPrintInvClinic.Click += new System.EventHandler(this.btnPrintInvClinic_Click);
             this.btnPrintInvClinic.MouseEnter += new System.EventHandler(this.btnPrintInv_MouseEnter);
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(4, 334);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(242, 38);
+            this.button1.TabIndex = 300;
+            this.button1.Text = "ใบวางบิล / ใบเสร็จ";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btnPrintInv_Click);
+            this.button1.MouseEnter += new System.EventHandler(this.btnPrintInv_MouseEnter);
             // 
             // btnPrintInv
             // 
@@ -1659,13 +1680,14 @@ namespace AryuwatSystem.Forms
             this.btnPrintInv.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.btnPrintInv.ForeColor = System.Drawing.Color.Black;
             this.btnPrintInv.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPrintInv.Location = new System.Drawing.Point(5, 334);
+            this.btnPrintInv.Location = new System.Drawing.Point(5, 390);
             this.btnPrintInv.Margin = new System.Windows.Forms.Padding(2);
             this.btnPrintInv.Name = "btnPrintInv";
             this.btnPrintInv.Size = new System.Drawing.Size(115, 38);
             this.btnPrintInv.TabIndex = 300;
             this.btnPrintInv.Text = "ใบแจ้งหนี้";
             this.btnPrintInv.UseVisualStyleBackColor = true;
+            this.btnPrintInv.Visible = false;
             this.btnPrintInv.Click += new System.EventHandler(this.btnPrintInv_Click);
             this.btnPrintInv.MouseEnter += new System.EventHandler(this.btnPrintInv_MouseEnter);
             // 
@@ -2617,5 +2639,6 @@ namespace AryuwatSystem.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn Dept;
         private System.Windows.Forms.DataGridViewTextBoxColumn REQNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn37;
+        private System.Windows.Forms.Button button1;
     }
 }

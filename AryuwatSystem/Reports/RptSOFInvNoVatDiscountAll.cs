@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DermasterSystem.Reports {
+namespace AryuwatSystem.Reports {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -16,14 +16,14 @@ namespace DermasterSystem.Reports {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class RptHRSurgicalFeeType2 : ReportClass {
+    public class RptSOFInvNoVatDiscountAll : ReportClass {
         
-        public RptHRSurgicalFeeType2() {
+        public RptSOFInvNoVatDiscountAll() {
         }
         
         public override string ResourceName {
             get {
-                return "RptHRSurgicalFeeType2.rpt";
+                return "RptSOFInvNoVatDiscountAll.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace DermasterSystem.Reports {
         
         public override string FullResourceName {
             get {
-                return "DermasterSystem.Reports.RptHRSurgicalFeeType2.rpt";
+                return "AryuwatSystem.Reports.RptSOFInvNoVatDiscountAll.rpt";
             }
             set {
                 // Do nothing
@@ -66,7 +66,7 @@ namespace DermasterSystem.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
+        public CrystalDecisions.CrystalReports.Engine.Section GroupHeaderSection1 {
             get {
                 return this.ReportDefinition.Sections[2];
             }
@@ -74,7 +74,7 @@ namespace DermasterSystem.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
             get {
                 return this.ReportDefinition.Sections[3];
             }
@@ -82,7 +82,7 @@ namespace DermasterSystem.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
+        public CrystalDecisions.CrystalReports.Engine.Section GroupFooterSection1 {
             get {
                 return this.ReportDefinition.Sections[4];
             }
@@ -90,7 +90,23 @@ namespace DermasterSystem.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_ReportFor {
+        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
+            get {
+                return this.ReportDefinition.Sections[5];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
+            get {
+                return this.ReportDefinition.Sections[6];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_BathThai {
             get {
                 return this.DataDefinition.ParameterFields[0];
             }
@@ -98,7 +114,7 @@ namespace DermasterSystem.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_ForDate {
+        public CrystalDecisions.Shared.IParameterField Parameter_EmpName {
             get {
                 return this.DataDefinition.ParameterFields[1];
             }
@@ -106,17 +122,49 @@ namespace DermasterSystem.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_ENPrint {
+        public CrystalDecisions.Shared.IParameterField Parameter_Dis {
             get {
                 return this.DataDefinition.ParameterFields[2];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_TypeOfPayment {
+            get {
+                return this.DataDefinition.ParameterFields[3];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_PayToday {
+            get {
+                return this.DataDefinition.ParameterFields[4];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_TypeCopyReport {
+            get {
+                return this.DataDefinition.ParameterFields[5];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_INVNo {
+            get {
+                return this.DataDefinition.ParameterFields[6];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedRptHRSurgicalFeeType2 : Component, ICachedReport {
+    public class CachedRptSOFInvNoVatDiscountAll : Component, ICachedReport {
         
-        public CachedRptHRSurgicalFeeType2() {
+        public CachedRptSOFInvNoVatDiscountAll() {
         }
         
         [Browsable(false)]
@@ -153,7 +201,7 @@ namespace DermasterSystem.Reports {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            RptHRSurgicalFeeType2 rpt = new RptHRSurgicalFeeType2();
+            RptSOFInvNoVatDiscountAll rpt = new RptSOFInvNoVatDiscountAll();
             rpt.Site = this.Site;
             return rpt;
         }

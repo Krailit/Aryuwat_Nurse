@@ -107,6 +107,7 @@
             this.txtMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.txtMoney.Location = new System.Drawing.Point(415, 35);
             this.txtMoney.Name = "txtMoney";
+            this.txtMoney.ReadOnly = true;
             this.txtMoney.Size = new System.Drawing.Size(143, 32);
             this.txtMoney.TabIndex = 4;
             this.txtMoney.TextChanged += new System.EventHandler(this.txtMoney_TextChanged);
@@ -165,6 +166,7 @@
             this.label4.Size = new System.Drawing.Size(53, 16);
             this.label4.TabIndex = 60;
             this.label4.Text = "คงเหลือ : ";
+            this.label4.Visible = false;
             // 
             // lblMax
             // 
@@ -175,6 +177,7 @@
             this.lblMax.Name = "lblMax";
             this.lblMax.Size = new System.Drawing.Size(0, 18);
             this.lblMax.TabIndex = 60;
+            this.lblMax.Visible = false;
             // 
             // popRecieptSelectAdd
             // 

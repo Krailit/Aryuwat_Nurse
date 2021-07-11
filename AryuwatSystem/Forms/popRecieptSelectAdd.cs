@@ -23,6 +23,7 @@ namespace AryuwatSystem.Forms
         public string RCNo { get; set; }
         public string SO { get; set; }
         public List<string> itemselect { get; set; }
+        
 
         public popRecieptSelectAdd()
         {
@@ -83,7 +84,47 @@ namespace AryuwatSystem.Forms
         {
             try
             {
-                cbbListItem.DataSource = itemselect;
+                List<string> itemfilter = new List<string>();
+
+                using (var context = new m_DataSet.EntitiesOPD_System())
+                {
+                    foreach (var items in itemselect)
+                    {
+                        var dataSupplieTrans = context.SupplieTrans.Where(x => x.SONo == items && x.VN == "").ToList();
+
+                        decimal? sumsup = 0;
+
+                        foreach (var item in dataSupplieTrans)
+                        {
+                            sumsup += item.PriceAfterDis;
+                        }
+
+                        decimal? creditpay = 0;
+
+                        //var dataSumOfTreatment = context.SumOfTreatments.Where(x => x.SO == cbbListItem.Text).FirstOrDefault();
+
+                        //if (dataSumOfTreatment != null)
+                        //{
+                        //    sumsup = sumsup - dataSumOfTreatment.EarnestMoney;
+                        //}
+
+                        var dataCashCreditCardSOTs = context.CashCreditCardSOTs.Where(x => x.SO == items).ToList();
+
+                        foreach (var item in dataCashCreditCardSOTs)
+                        {
+                            creditpay += item.CashMoney;
+                        }
+
+                        MaxPay = sumsup - creditpay;
+
+                        if(MaxPay > 0)
+                        {
+                            itemfilter.Add(items.ToString());
+                        }
+                    }
+                }
+
+                cbbListItem.DataSource = itemfilter;
                 //txtMoney.Text = ReceiptBath.ToString("###,###,###,###.##"); ;
                 txtStartdate.Text = ReceiptDate.ToString("dd/MM/yyyy");
                 this.Text += " " + RCNo;
@@ -146,6 +187,7 @@ namespace AryuwatSystem.Forms
                     MaxPay = sumsup - creditpay;
 
                     lblMax.Text = (MaxPay ?? 0).ToString("###,###,###,###.##");
+                    txtMoney.Text = (MaxPay ?? 0).ToString("###,###,###,###.##");
                 }
             }
             catch (Exception ex)

@@ -100,6 +100,9 @@ namespace AryuwatSystem.Forms
                     case "RptSOFInvNoVatDiscount"://ใบแจ้งหนี Non Vat
                         DisplayRptSOFINVNonVatDiscount();
                         break;
+                    case "RptSOFInvNoVatDiscountAll":
+                        DisplayRptSOFINVNonVatDiscountAll();
+                        break;
                     case "RptSOFInvNoVatDiscountClinic"://ใบแจ้งหนีคลินิค Non Vat
                         DisplayRptSOFINVNonVatDiscountClinic();
                         break;
@@ -493,6 +496,116 @@ namespace AryuwatSystem.Forms
         {
             //RptSOFBill2NoVat rpt = new RptSOFBill2NoVat();
             RptSOFInvNoVatDiscount rpt = new RptSOFInvNoVatDiscount();
+
+            rpt.Load();
+            object sumObject;
+            rpt.SetDataSource(dt);
+            sumObject = dt.Compute("Sum(PriceAfterDis)", ""); //ราคาหลังคิดส่วนลด
+            //object sumDis;
+            //sumDis = dt.Compute("Sum(DiscountBath)", "");//Unpaid
+            //sumDis = dt.Rows[0]["Unpaid"];//Unpaid
+            //string strMoney = MoneyExt.NumberToThaiWord(double.Parse(sumObject.ToString()) - double.Parse(DiscountBath.ToString()));
+            //string strMoney = MoneyExt.NumberToThaiWord(Convert.ToDouble(sumObject+""));
+            string strMoney = MoneyExt.NumberToThaiWord(Convert.ToDouble(SumUnpaid + ""));
+            ParameterFieldDefinitions crParameterFieldDefinitions;
+            ParameterFieldDefinition crParameterFieldDefinition;
+            ParameterValues crParameterValues = new ParameterValues();
+            ParameterDiscreteValue crParameterDiscreteValue = new ParameterDiscreteValue();
+
+            crParameterDiscreteValue.Value = INVNo;
+            crParameterFieldDefinitions = rpt.DataDefinition.ParameterFields;
+            crParameterFieldDefinition = crParameterFieldDefinitions["INVNo"];
+            crParameterValues = crParameterFieldDefinition.CurrentValues;
+
+            crParameterValues.Add(crParameterDiscreteValue);
+            crParameterFieldDefinition.ApplyCurrentValues(crParameterValues);
+
+            crParameterDiscreteValue.Value = PrintType;
+            crParameterFieldDefinitions = rpt.DataDefinition.ParameterFields;
+            crParameterFieldDefinition = crParameterFieldDefinitions["TypeCopyReport"];
+            crParameterValues = crParameterFieldDefinition.CurrentValues;
+
+            crParameterValues.Add(crParameterDiscreteValue);
+            crParameterFieldDefinition.ApplyCurrentValues(crParameterValues);
+
+            crParameterDiscreteValue.Value = strMoney;
+            crParameterFieldDefinitions = rpt.DataDefinition.ParameterFields;
+            crParameterFieldDefinition = crParameterFieldDefinitions["BathThai"];
+            crParameterValues = crParameterFieldDefinition.CurrentValues;
+
+            crParameterValues.Add(crParameterDiscreteValue);
+            crParameterFieldDefinition.ApplyCurrentValues(crParameterValues);
+
+            ParameterFieldDefinitions crParameterFieldDefinitionsEmp;
+            ParameterFieldDefinition crParameterFieldDefinitionEmp;
+            ParameterValues crParameterValuesEmp = new ParameterValues();
+            ParameterDiscreteValue crParameterDiscreteValueEmp = new ParameterDiscreteValue();
+            crParameterDiscreteValueEmp.Value = "( " + Statics.StrFullName + " )";
+            crParameterFieldDefinitionsEmp = rpt.DataDefinition.ParameterFields;
+            crParameterFieldDefinitionEmp = crParameterFieldDefinitionsEmp["EmpName"];
+            crParameterValuesEmp = crParameterFieldDefinition.CurrentValues;
+
+            ParameterFieldDefinitions crParameterFieldDefinitionsDis;
+            ParameterFieldDefinition crParameterFieldDefinitionDis;
+            ParameterValues crParameterValuesDis = new ParameterValues();
+            ParameterDiscreteValue crParameterDiscreteValueDis = new ParameterDiscreteValue();
+            crParameterDiscreteValueDis.Value = DiscountBath;
+            crParameterFieldDefinitionsDis = rpt.DataDefinition.ParameterFields;
+            crParameterFieldDefinitionDis = crParameterFieldDefinitionsDis["Dis"];
+            crParameterValuesDis = crParameterFieldDefinition.CurrentValues;
+
+            ParameterFieldDefinitions crParameterFieldDefinitionsTypeOfPayment;
+            ParameterFieldDefinition crParameterFieldDefinitionTypeOfPayment;
+            ParameterValues crParameterValuesTypeOfPayment = new ParameterValues();
+            ParameterDiscreteValue crParameterDiscreteValueTypeOfPayment = new ParameterDiscreteValue();
+            crParameterDiscreteValueTypeOfPayment.Value = TypeOfPayment;
+            crParameterFieldDefinitionsTypeOfPayment = rpt.DataDefinition.ParameterFields;
+            crParameterFieldDefinitionTypeOfPayment = crParameterFieldDefinitionsTypeOfPayment["TypeOfPayment"];
+            crParameterValuesTypeOfPayment = crParameterFieldDefinition.CurrentValues;
+
+            ParameterFieldDefinitions crParameterFieldDefinitionsPayToday;
+            ParameterFieldDefinition crParameterFieldDefinitionPayToday;
+            ParameterValues crParameterValuesPayToday = new ParameterValues();
+            ParameterDiscreteValue crParameterDiscreteValuePayToday = new ParameterDiscreteValue();
+            crParameterDiscreteValuePayToday.Value = PayToday;
+            crParameterFieldDefinitionsPayToday = rpt.DataDefinition.ParameterFields;
+            crParameterFieldDefinitionPayToday = crParameterFieldDefinitionsPayToday["PayToday"];
+            crParameterValuesPayToday = crParameterFieldDefinition.CurrentValues;
+
+            //crParameterValues.Clear();
+
+            //crParameterValues.Add(crParameterDiscreteValue);
+            //crParameterFieldDefinition.ApplyCurrentValues(crParameterValues);
+
+            crParameterValuesEmp.Add(crParameterDiscreteValueEmp);
+            crParameterFieldDefinitionEmp.ApplyCurrentValues(crParameterValuesEmp);
+
+            crParameterValuesDis.Add(crParameterDiscreteValueDis);
+            crParameterFieldDefinitionDis.ApplyCurrentValues(crParameterValuesDis);
+
+            crParameterValuesTypeOfPayment.Add(crParameterDiscreteValueTypeOfPayment);
+            crParameterFieldDefinitionTypeOfPayment.ApplyCurrentValues(crParameterValuesTypeOfPayment);
+
+            crParameterValuesPayToday.Add(crParameterDiscreteValuePayToday);
+            crParameterFieldDefinitionPayToday.ApplyCurrentValues(crParameterValuesPayToday);
+
+            //reportViewer.ReportSource = rpt;
+            //reportViewer.Refresh();
+
+            string fpath = string.Format(@"{0}\TempPDF\{1}.{2}", Application.StartupPath, DateTime.Now.Ticks + "", "pdf");
+            string pathTemp = string.Format(@"{0}\TempPDF\", Application.StartupPath);
+            if (!Directory.Exists(pathTemp)) Directory.CreateDirectory(pathTemp);
+
+            rpt.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, fpath);
+            string fpath90 = string.Format(@"{0}\TempPDF\{1}.{2}", Application.StartupPath, DateTime.Now.Ticks + "", "pdf");
+            //ExtractPages(fpath, fpath90, 1, 1);
+            FileInfo f = new FileInfo(fpath);
+            if (f.Exists) Process.Start(fpath);
+        }
+        private void DisplayRptSOFINVNonVatDiscountAll()
+        {
+            //RptSOFBill2NoVat rpt = new RptSOFBill2NoVat();
+            RptSOFInvNoVatDiscountAll rpt = new RptSOFInvNoVatDiscountAll();
 
             rpt.Load();
             object sumObject;

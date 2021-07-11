@@ -1770,6 +1770,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Reports\RptSOFInvNoVatDiscountAll.cs">
+      <DependentUpon>RptSOFInvNoVatDiscountAll.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Reports\RptSOFInvNoVatDiscountClinic.cs">
       <DependentUpon>RptSOFInvNoVatDiscountClinic.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -3114,6 +3121,11 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RptSOFInvNoVatDiscountAll.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptSOFInvNoVatDiscountAll.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\RptSOFInvNoVatDiscountClinic.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
