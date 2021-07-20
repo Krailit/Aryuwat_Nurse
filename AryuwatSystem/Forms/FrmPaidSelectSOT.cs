@@ -2218,14 +2218,14 @@ namespace AryuwatSystem.Forms
                 //  MessageBox.Show(ex.Message);
             }
         }
-        private void AddPayToGrid(System.Windows.Forms.ComboBox ls)
+        private void AddPayToGrid(/*System.Windows.Forms.ComboBox ls, */double price)
         {
             try
             {
-                if (ls.SelectedIndex != -1)
-                {
-                    string[] value = ls.SelectedValue.ToString().Split(':');
-                    string text = ls.Text;
+                //if (ls.SelectedIndex != -1)
+                //{
+                    string[] value = "PettyCash:CASH:N".Split(':');//ls.SelectedValue.ToString().Split(':');//PettyCash:CASH:N
+                    string text = "เงินสด";//ls.Text;
                     string CD_Code = value[0] + "";
                     string BillType = value[1] + "";
                     //string RCNo = dgvReciept.Rows[dgvReciept.CurrentRow.Index].Cells["RCNo"].Value + "";
@@ -2270,7 +2270,7 @@ namespace AryuwatSystem.Forms
                                              RCNoCurrent,
                                              CD_Code,
                                              text,
-                                               isVoucher?VP.ToString("###,###.##"):"0.00",//จ่าย
+                                               price.ToString("###,###.##"),//จ่าย
                                             String.Format("{0:yyyy/MM/dd}", ReceiptDateCurrent),//date
                                              isVoucher?VS:"",//เลขที่บัตร
                                              "",//PayIn
@@ -2284,7 +2284,7 @@ namespace AryuwatSystem.Forms
                     dataGridViewCreditTransfer["PayInCredit", dataGridViewCreditTransfer.Rows.Count - 1].Value = "ไม่ระบุ";
                     // }
                     summoney();
-                }
+                //}
             }
             catch (Exception ex)
             {
@@ -2306,7 +2306,7 @@ namespace AryuwatSystem.Forms
 
         private void btnAddCredit_BtnClick()
         {
-            AddPayToGrid(listBoxCreditTyp);
+            //AddPayToGrid(listBoxCreditTyp);
         }
         //private void dataGridViewCashTransfer_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         //{
@@ -3176,7 +3176,14 @@ namespace AryuwatSystem.Forms
                     dgvReciept.Rows[dgvReciept.Rows.Count - 1].Selected = true;
                     panelPayType.Visible = true;
 
+                    double dbReceiptBath = Convert.ToDouble(ReceiptBath);
                     // string r = dgvReciept.Rows[dgvReciept.Rows.Count - 1].Cells["RCNo"].Value + "";
+                    AddPayToGrid(dbReceiptBath);
+                    SaveRCNoSUBList();
+                    SaveSOF(false);
+                    BindFrmSumOfTreatment();
+                    BindReciept();
+                    FilterCash_Credit("All");
                     FilterCash_Credit(RCNoCurrent);
                     summoneyDiscount();
                     summoney();
@@ -3228,8 +3235,8 @@ namespace AryuwatSystem.Forms
                 //string rc = dgvReciept.Rows[dgvReciept.CurrentRow.Index].Cells["RCNo"].Value + "";
 
                 //if (DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeConfirmYesNo, "บันทึกรายการรับเงิน" + Environment.NewLine + rc + Environment.NewLine + ReceiptDate + Environment.NewLine + ReceiptBath) == DialogResult.Yes)
-                if (DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeConfirmYesNo, "บันทึกรายการรับเงิน") == DialogResult.Yes)
-                {
+                //if (DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeConfirmYesNo, "บันทึกรายการรับเงิน") == DialogResult.Yes)
+                //{
                     //foreach (DataGridViewRow row in dataGridViewCreditTransfer.Rows)
                     //{
                     //    if (row.Cells["cash"].Value + "" == "" || row.Visible==false) continue;
@@ -3282,7 +3289,7 @@ namespace AryuwatSystem.Forms
                     intStatus = new Business.SumOfTreatment().SaveRCNoSUBList(info);
 
                     if (dgvReciept.RowCount > 0) dgvReciept.Rows.Clear();
-                }
+                //}
                 panelPayType.Visible = false;
             }
             catch (Exception ex)
