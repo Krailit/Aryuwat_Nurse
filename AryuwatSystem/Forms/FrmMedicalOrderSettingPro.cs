@@ -6240,7 +6240,7 @@ namespace AryuwatSystem.Forms
                 PROCredit = "";
                 switch (rd.Text.ToUpper())
                 {
-                    case "AE":
+                    case "AE (ยาและเวชภัณฑ์)":
                         MoSubType = "AE";
                         DisableTab(tabAesthetic);
                         //tabControl.SelectedTab = tabAesthetic;
@@ -6265,7 +6265,7 @@ namespace AryuwatSystem.Forms
                         splitContainer1.Panel1.Hide();
                         DisableTab(tabWellness_Antiaging);
                         break;
-                    case "PRO && PHA":
+                    case "PRO && PHA (หัตถการ)":
                         MoSubType = "PRO";
                         DisableTab(tabPromotion);
                         //dataGridViewSelectListPro.Visible = true;
