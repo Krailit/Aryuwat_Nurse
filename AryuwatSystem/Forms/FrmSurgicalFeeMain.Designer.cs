@@ -53,7 +53,6 @@
             this.dockPanel1.ActiveAutoHideContent = null;
             this.dockPanel1.AutoScroll = true;
             this.dockPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.dockPanel1.BackgroundImage = global::AryuwatSystem.Properties.Resources.DerMasterLogo1;
             this.dockPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.dockPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dockPanel1.DockBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(232)))), ((int)(((byte)(229)))));

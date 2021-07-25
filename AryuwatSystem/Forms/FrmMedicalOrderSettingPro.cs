@@ -6978,14 +6978,14 @@ namespace AryuwatSystem.Forms
                                     //}
                                     double dbNumPerC = dataGridViewSelectList.Rows[row2.Index].Cells["No./Course"].Value + "" == "" ? 0 : double.Parse(dataGridViewSelectList.Rows[row2.Index].Cells["No./Course"].Value + "");
                                     double itemAmount = dataGridViewSelectList.Rows[row2.Index].Cells["AmountPro"].Value + "" == "" ? 0 : double.Parse(dataGridViewSelectList.Rows[row2.Index].Cells["AmountPro"].Value + "");
-                                    double PricePerPro = dataGridViewSelectList.Rows[row2.Index].Cells["PricePerPro"].Value + "" == "" ? 0 : double.Parse(dataGridViewSelectList.Rows[row2.Index].Cells["PricePerPro"].Value + "");
+                                    //double PricePerPro = dataGridViewSelectList.Rows[row2.Index].Cells["PricePerPro"].Value + "" == "" ? 0 : double.Parse(dataGridViewSelectList.Rows[row2.Index].Cells["PricePerPro"].Value + "");
                                     double PriceTotal = dataGridViewSelectList.Rows[row2.Index].Cells["PriceTotal"].Value + "" == "" ? 0 : double.Parse(dataGridViewSelectList.Rows[row2.Index].Cells["PriceTotal"].Value + "");
                                     dataGridViewSelectList.Rows[row2.Index].Cells["Amount"].Value = (itemAmount * ProAmount).ToString("###,###,###");
                                     dataGridViewSelectList.Rows[row2.Index].Cells["Total"].Value = MSAmount * dbNumPerC * ProAmount; //จำนวนทั้งหมด
                                                                                                                                      //dataGridViewSelectList.Rows[row2.Index].Cells["SpecialPrice"].Value = (SpecialPrice * ProAmount).ToString("###,###,###");
                                     double pU = row2.Cells["Price/Unit"].Value + "" == "" ? 0 : double.Parse(row2.Cells["Price/Unit"].Value + "");
                                     //dataGridViewSelectList.Rows[row2.Index].Cells["PriceTotal"].Value = ((MSAmount * dbNumPerC * ProAmount * pU) + (SpecialPrice * ProAmount)).ToString("###,###,###");
-                                    double priTotal = itemAmount * ProAmount * PricePerPro;
+                                    double priTotal = itemAmount * ProAmount/* * PricePerPro*/;
                                     dataGridViewSelectList.Rows[row2.Index].Cells["PriceTotal"].Value = priTotal.ToString("###,###,###,###");
                                     double SpecialTotal = priTotal - (pU * itemAmount * ProAmount);
                                     dataGridViewSelectList.Rows[row2.Index].Cells["SpecialPrice"].Value = SpecialTotal.ToString("###,###,###,###");
