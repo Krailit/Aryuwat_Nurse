@@ -2681,7 +2681,7 @@ namespace AryuwatWebApplication.Controllers
                         {
                             if (sortName == "BP")
                             {
-                                result = res.OrderBy(x => x.BP).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                                result = res.OrderBy(x => string.IsNullOrEmpty(x.BP) ? int.Parse("0") : int.Parse(x.BP)).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
                             }
                             else if (sortName == "Date")
                             {
@@ -2689,43 +2689,43 @@ namespace AryuwatWebApplication.Controllers
                             }
                             else if (sortName == "In_Oral")
                             {
-                                result = res.OrderBy(x => x.In_Oral).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                                result = res.OrderBy(x => string.IsNullOrEmpty(x.In_Oral) ? int.Parse("0") : int.Parse(x.In_Oral)).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
                             }
                             else if (sortName == "In_Parenteral")
                             {
-                                result = res.OrderBy(x => x.In_Parenteral).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                                result = res.OrderBy(x => string.IsNullOrEmpty(x.In_Parenteral) ? int.Parse("0") : int.Parse(x.In_Parenteral)).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
                             }
                             else if (sortName == "O2")
                             {
-                                result = res.OrderBy(x => x.O2).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                                result = res.OrderBy(x => string.IsNullOrEmpty(x.O2) ? int.Parse("0") : int.Parse(x.O2)).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
                             }
                             else if (sortName == "Out_Stools")
                             {
-                                result = res.OrderBy(x => x.Out_Stools).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                                result = res.OrderBy(x => string.IsNullOrEmpty(x.Out_Stools) ? int.Parse("0") : int.Parse(x.Out_Stools)).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
                             }
                             else if (sortName == "Out_Urine")
                             {
-                                result = res.OrderBy(x => x.Out_Urine).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                                result = res.OrderBy(x => string.IsNullOrEmpty(x.Out_Urine) ? int.Parse("0") : int.Parse(x.Out_Urine)).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
                             }
                             else if (sortName == "PulseDBP")
                             {
-                                result = res.OrderBy(x => x.PulseDBP).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                                result = res.OrderBy(x => string.IsNullOrEmpty(x.PulseDBP) ? int.Parse("0") : int.Parse(x.PulseDBP)).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
                             }
                             else if (sortName == "PulseSBP")
                             {
-                                result = res.OrderBy(x => x.PulseSBP).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                                result = res.OrderBy(x => string.IsNullOrEmpty(x.PulseSBP) ? int.Parse("0") : int.Parse(x.PulseSBP)).ThenBy(x => string.IsNullOrEmpty(x.PulseDBP) ? int.Parse("0") : int.Parse(x.PulseDBP)).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
                             }
                             else if (sortName == "R")
                             {
-                                result = res.OrderBy(x => x.R).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                                result = res.OrderBy(x => string.IsNullOrEmpty(x.R) ? int.Parse("0") : int.Parse(x.R)).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
                             }
                             else if (sortName == "T")
                             {
-                                result = res.OrderBy(x => x.T).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                                result = res.OrderBy(x => string.IsNullOrEmpty(x.T) ? double.Parse("0") : double.Parse(x.T)).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
                             }
                             else if (sortName == "Time")
                             {
-                                result = res.OrderBy(x => x.Time).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                                result = res.OrderBy(x => string.IsNullOrEmpty(x.Time) ? int.Parse("0") : int.Parse(x.Time.Replace(":", ""))).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
                             }
                             else
                             {
@@ -2736,7 +2736,7 @@ namespace AryuwatWebApplication.Controllers
                         {
                             if (sortName == "BP")
                             {
-                                result = res.OrderByDescending(x => x.BP).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                                result = res.OrderByDescending(x => string.IsNullOrEmpty(x.BP) ? int.Parse("0") : int.Parse(x.BP)).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
                             }
                             else if (sortName == "Date")
                             {
@@ -2744,43 +2744,43 @@ namespace AryuwatWebApplication.Controllers
                             }
                             else if (sortName == "In_Oral")
                             {
-                                result = res.OrderByDescending(x => x.In_Oral).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                                result = res.OrderByDescending(x => string.IsNullOrEmpty(x.In_Oral) ? int.Parse("0") : int.Parse(x.In_Oral)).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
                             }
                             else if (sortName == "In_Parenteral")
                             {
-                                result = res.OrderByDescending(x => x.In_Parenteral).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                                result = res.OrderByDescending(x => string.IsNullOrEmpty(x.In_Parenteral) ? int.Parse("0") : int.Parse(x.In_Parenteral)).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
                             }
                             else if (sortName == "O2")
                             {
-                                result = res.OrderByDescending(x => x.O2).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                                result = res.OrderByDescending(x => string.IsNullOrEmpty(x.O2) ? int.Parse("0") : int.Parse(x.O2)).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
                             }
                             else if (sortName == "Out_Stools")
                             {
-                                result = res.OrderByDescending(x => x.Out_Stools).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                                result = res.OrderByDescending(x => string.IsNullOrEmpty(x.Out_Stools) ? int.Parse("0") : int.Parse(x.Out_Stools)).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
                             }
                             else if (sortName == "Out_Urine")
                             {
-                                result = res.OrderByDescending(x => x.Out_Urine).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                                result = res.OrderByDescending(x => string.IsNullOrEmpty(x.Out_Urine) ? int.Parse("0") : int.Parse(x.Out_Urine)).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
                             }
                             else if (sortName == "PulseDBP")
                             {
-                                result = res.OrderByDescending(x => x.PulseDBP).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                                result = res.OrderByDescending(x => string.IsNullOrEmpty(x.PulseDBP) ? int.Parse("0") : int.Parse(x.PulseDBP)).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
                             }
                             else if (sortName == "PulseSBP")
                             {
-                                result = res.OrderByDescending(x => x.PulseSBP).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                                result = res.OrderByDescending(x => string.IsNullOrEmpty(x.PulseSBP) ? int.Parse("0") : int.Parse(x.PulseSBP)).ThenByDescending(x => string.IsNullOrEmpty(x.PulseDBP) ? int.Parse("0") : int.Parse(x.PulseDBP)).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
                             }
                             else if (sortName == "R")
                             {
-                                result = res.OrderByDescending(x => x.R).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                                result = res.OrderByDescending(x => string.IsNullOrEmpty(x.R) ? int.Parse("0") : int.Parse(x.R)).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
                             }
                             else if (sortName == "T")
                             {
-                                result = res.OrderByDescending(x => x.T).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                                result = res.OrderByDescending(x => string.IsNullOrEmpty(x.T) ? double.Parse("0") : double.Parse(x.T)).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
                             }
                             else if (sortName == "Time")
                             {
-                                result = res.OrderByDescending(x => x.Time).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
+                                result = res.OrderByDescending(x => string.IsNullOrEmpty(x.Time) ? int.Parse("0") : int.Parse(x.Time.Replace(":",""))).Skip(((int)tempData.page - 1) * (int)tempData.per_page).Take(Convert.ToInt32(tempData.per_page)).ToList();
                             }
                             else
                             {
