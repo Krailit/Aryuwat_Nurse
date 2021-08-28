@@ -68,6 +68,7 @@ namespace AryuwatWebApplication.Controllers
 	                                    cus.PrefixCode + cus.Tname + ' ' + cus.TsurName Patient_Name,
 	                                    cus.ID,
 	                                    cus.CN,
+	                                    cus.BranchID,
 	                                    MR.Room_Name Room,
                                         RD.Start_Date Start,
                                         case 
@@ -118,6 +119,22 @@ namespace AryuwatWebApplication.Controllers
                 {
                     string query = TableCustomer();
                     query += "and Patient_Name like '%" + searchtxt + "%'";
+                    string BranchAuth = Request.Cookies["OPD"]["BranchAuth"];
+                    var splitBranch = BranchAuth.Split(',');
+                    bool firstflag = true;
+                    foreach(var items in splitBranch)
+                    {
+                        if (firstflag)
+                        {
+                            query += " and";
+                            firstflag = !firstflag;
+                        }
+                        else
+                        {
+                            query += " or";
+                        }
+                        query += " BranchID like '%" + items + "%'";
+                    }
 
                     var resultquery = context.Database.SqlQuery<TempPatientData>(query).ToList();
                     //var result = (from cus in context.Customers
