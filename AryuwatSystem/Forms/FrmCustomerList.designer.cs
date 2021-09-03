@@ -55,9 +55,9 @@
             this.menuEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.menuDel = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
-            this.labelยาToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printLabelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printLabelForSaleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelยาToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuPreview = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.beforAfterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,6 +68,7 @@
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.opdScanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ngbMain = new AryuwatSystem.UserControls.NavigatoBar();
+            this.uBranch1 = new AryuwatSystem.UserControls.UBranch();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxReadCard)).BeginInit();
@@ -80,19 +81,20 @@
             this.dgvData.BackgroundColor = System.Drawing.Color.White;
             this.dgvData.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvData.Location = new System.Drawing.Point(0, 92);
+            this.dgvData.Location = new System.Drawing.Point(0, 102);
             this.dgvData.MultiSelect = false;
             this.dgvData.Name = "dgvData";
             this.dgvData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToFirstHeader;
             this.dgvData.RowTemplate.ReadOnly = true;
             this.dgvData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvData.Size = new System.Drawing.Size(1147, 481);
+            this.dgvData.Size = new System.Drawing.Size(1147, 471);
             this.dgvData.TabIndex = 122;
             this.dgvData.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellDoubleClick);
             this.dgvData.Sorted += new System.EventHandler(this.dgvData_Sorted);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.uBranch1);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtMemID);
             this.groupBox1.Controls.Add(this.label6);
@@ -118,7 +120,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(1147, 92);
+            this.groupBox1.Size = new System.Drawing.Size(1147, 102);
             this.groupBox1.TabIndex = 123;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ค้นหา";
@@ -148,7 +150,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label6.Location = new System.Drawing.Point(642, 65);
+            this.label6.Location = new System.Drawing.Point(582, 70);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(60, 17);
@@ -158,7 +160,7 @@
             // txtIDCard
             // 
             this.txtIDCard.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.txtIDCard.Location = new System.Drawing.Point(702, 60);
+            this.txtIDCard.Location = new System.Drawing.Point(642, 65);
             this.txtIDCard.Margin = new System.Windows.Forms.Padding(4);
             this.txtIDCard.Name = "txtIDCard";
             this.txtIDCard.Size = new System.Drawing.Size(152, 24);
@@ -168,7 +170,7 @@
             // 
             this.label120.AutoSize = true;
             this.label120.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label120.Location = new System.Drawing.Point(915, 63);
+            this.label120.Location = new System.Drawing.Point(1016, 29);
             this.label120.Name = "label120";
             this.label120.Size = new System.Drawing.Size(95, 20);
             this.label120.TabIndex = 3100;
@@ -238,7 +240,7 @@
             this.buttonFind.AutoSize = true;
             this.buttonFind.BackColor = System.Drawing.Color.Transparent;
             this.buttonFind.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonFind.Location = new System.Drawing.Point(872, 13);
+            this.buttonFind.Location = new System.Drawing.Point(871, 10);
             this.buttonFind.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonFind.Name = "buttonFind";
             this.buttonFind.Size = new System.Drawing.Size(55, 57);
@@ -270,7 +272,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label2.Location = new System.Drawing.Point(327, 62);
+            this.label2.Location = new System.Drawing.Point(329, 69);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 17);
@@ -292,7 +294,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label1.Location = new System.Drawing.Point(77, 62);
+            this.label1.Location = new System.Drawing.Point(79, 69);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 17);
@@ -302,7 +304,7 @@
             // txtSurname
             // 
             this.txtSurname.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.txtSurname.Location = new System.Drawing.Point(401, 58);
+            this.txtSurname.Location = new System.Drawing.Point(403, 65);
             this.txtSurname.Margin = new System.Windows.Forms.Padding(4);
             this.txtSurname.Name = "txtSurname";
             this.txtSurname.Size = new System.Drawing.Size(161, 24);
@@ -324,7 +326,7 @@
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.txtName.Location = new System.Drawing.Point(136, 58);
+            this.txtName.Location = new System.Drawing.Point(138, 65);
             this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(180, 24);
@@ -350,13 +352,13 @@
             this.checkCourseToolStripMenuItem,
             this.memberCardToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(271, 324);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(271, 302);
             // 
             // menuEdit
             // 
             this.menuEdit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.menuEdit.Name = "menuEdit";
-            this.menuEdit.Size = new System.Drawing.Size(264, 28);
+            this.menuEdit.Size = new System.Drawing.Size(270, 28);
             this.menuEdit.Text = "แก้ไขข้อมูล/Edit";
             // 
             // menuDel
@@ -364,21 +366,13 @@
             this.menuDel.Font = new System.Drawing.Font("Tahoma", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuDel.ForeColor = System.Drawing.Color.Red;
             this.menuDel.Name = "menuDel";
-            this.menuDel.Size = new System.Drawing.Size(264, 28);
+            this.menuDel.Size = new System.Drawing.Size(270, 28);
             this.menuDel.Text = "ลบข้อมูล/Delete";
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(261, 6);
-            // 
-            // labelยาToolStripMenuItem
-            // 
-            this.labelยาToolStripMenuItem.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelยาToolStripMenuItem.Name = "labelยาToolStripMenuItem";
-            this.labelยาToolStripMenuItem.Size = new System.Drawing.Size(264, 28);
-            this.labelยาToolStripMenuItem.Text = "Print Label ยา";
-            this.labelยาToolStripMenuItem.Click += new System.EventHandler(this.labelยาToolStripMenuItem_Click);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(267, 6);
             // 
             // printLabelToolStripMenuItem
             // 
@@ -392,41 +386,49 @@
             // 
             this.printLabelForSaleToolStripMenuItem.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold);
             this.printLabelForSaleToolStripMenuItem.Name = "printLabelForSaleToolStripMenuItem";
-            this.printLabelForSaleToolStripMenuItem.Size = new System.Drawing.Size(264, 28);
+            this.printLabelForSaleToolStripMenuItem.Size = new System.Drawing.Size(270, 28);
             this.printLabelForSaleToolStripMenuItem.Text = "Print Label For Sale";
             this.printLabelForSaleToolStripMenuItem.Click += new System.EventHandler(this.printLabelForSaleToolStripMenuItem_Click);
+            // 
+            // labelยาToolStripMenuItem
+            // 
+            this.labelยาToolStripMenuItem.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelยาToolStripMenuItem.Name = "labelยาToolStripMenuItem";
+            this.labelยาToolStripMenuItem.Size = new System.Drawing.Size(270, 28);
+            this.labelยาToolStripMenuItem.Text = "Print Label ยา";
+            this.labelยาToolStripMenuItem.Click += new System.EventHandler(this.labelยาToolStripMenuItem_Click);
             // 
             // menuPreview
             // 
             this.menuPreview.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.menuPreview.Name = "menuPreview";
-            this.menuPreview.Size = new System.Drawing.Size(264, 28);
+            this.menuPreview.Size = new System.Drawing.Size(270, 28);
             this.menuPreview.Text = "ดูรายการข้อมูล";
             this.menuPreview.Visible = false;
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(261, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(267, 6);
             // 
             // beforAfterToolStripMenuItem
             // 
             this.beforAfterToolStripMenuItem.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.beforAfterToolStripMenuItem.Name = "beforAfterToolStripMenuItem";
-            this.beforAfterToolStripMenuItem.Size = new System.Drawing.Size(264, 28);
+            this.beforAfterToolStripMenuItem.Size = new System.Drawing.Size(270, 28);
             this.beforAfterToolStripMenuItem.Text = "Before&&After";
             this.beforAfterToolStripMenuItem.Click += new System.EventHandler(this.beforAfterToolStripMenuItem_Click);
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(261, 6);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(267, 6);
             // 
             // oPDScanToolStripMenuItem1
             // 
             this.oPDScanToolStripMenuItem1.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.oPDScanToolStripMenuItem1.Name = "oPDScanToolStripMenuItem1";
-            this.oPDScanToolStripMenuItem1.Size = new System.Drawing.Size(264, 28);
+            this.oPDScanToolStripMenuItem1.Size = new System.Drawing.Size(270, 28);
             this.oPDScanToolStripMenuItem1.Text = "OPD Scan";
             this.oPDScanToolStripMenuItem1.Click += new System.EventHandler(this.oPDScanToolStripMenuItem1_Click);
             // 
@@ -434,7 +436,7 @@
             // 
             this.checkCourseToolStripMenuItem.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold);
             this.checkCourseToolStripMenuItem.Name = "checkCourseToolStripMenuItem";
-            this.checkCourseToolStripMenuItem.Size = new System.Drawing.Size(264, 28);
+            this.checkCourseToolStripMenuItem.Size = new System.Drawing.Size(270, 28);
             this.checkCourseToolStripMenuItem.Text = "Check Course";
             this.checkCourseToolStripMenuItem.Click += new System.EventHandler(this.checkCourseToolStripMenuItem_Click);
             // 
@@ -442,7 +444,7 @@
             // 
             this.memberCardToolStripMenuItem.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold);
             this.memberCardToolStripMenuItem.Name = "memberCardToolStripMenuItem";
-            this.memberCardToolStripMenuItem.Size = new System.Drawing.Size(264, 28);
+            this.memberCardToolStripMenuItem.Size = new System.Drawing.Size(270, 28);
             this.memberCardToolStripMenuItem.Text = "Member Card";
             this.memberCardToolStripMenuItem.Click += new System.EventHandler(this.memberCardToolStripMenuItem_Click);
             // 
@@ -479,6 +481,16 @@
             this.ngbMain.TabIndex = 124;
             this.ngbMain.TotalPage = ((long)(0));
             this.ngbMain.TotalRecord = ((long)(0));
+            // 
+            // uBranch1
+            // 
+            this.uBranch1.BranchId = "";
+            this.uBranch1.BranchName = "";
+            this.uBranch1.Location = new System.Drawing.Point(801, 67);
+            this.uBranch1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.uBranch1.Name = "uBranch1";
+            this.uBranch1.Size = new System.Drawing.Size(280, 29);
+            this.uBranch1.TabIndex = 3105;
             // 
             // FrmCustomerList
             // 
@@ -546,7 +558,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtMemID;
         private System.Windows.Forms.ToolStripMenuItem printLabelForSaleToolStripMenuItem;
-
-
+        private UserControls.UBranch uBranch1;
     }
 }

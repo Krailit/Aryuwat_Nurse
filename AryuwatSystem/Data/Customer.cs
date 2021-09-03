@@ -415,6 +415,8 @@ namespace AryuwatSystem.Data
                                                new SqlParameter("@Mobile1",info.Mobile1),
                                                //new SqlParameter("@IdCard",info.IdCard),
                                                new SqlParameter("@MemID",info.MemID),
+
+                                               new SqlParameter("@BranchId",info.BranchId),
                                                
                                                new SqlParameter("@row_start", iRowStart),
                                                new SqlParameter("@row_end", iRowEnd)

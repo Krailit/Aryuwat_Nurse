@@ -328,6 +328,9 @@ namespace AryuwatSystem.Forms
                     info.DateBirthOther = AryuwatSystem.DerClass.DerUtility.ToFormatDateyyyyMMdd(txtBirthDate.Text) ;
                     
                 }
+
+                info.BranchId = uBranch1.BranchId;
+
                 dtCn = new Business.Customer().SelectCustomerPaging(info).Tables[0];
 
                 long lngTotalPage = 0;
@@ -1033,6 +1036,5 @@ namespace AryuwatSystem.Forms
                 MessageBox.Show(ex.Message);
             }
         }
-
     }
 }

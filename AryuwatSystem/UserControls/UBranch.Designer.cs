@@ -34,7 +34,6 @@
             // 
             // cboBranch
             // 
-            this.cboBranch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboBranch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboBranch.FormattingEnabled = true;
             this.cboBranch.Location = new System.Drawing.Point(60, 0);
@@ -46,9 +45,8 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Dock = System.Windows.Forms.DockStyle.Left;
             this.label18.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label18.Location = new System.Drawing.Point(0, 0);
+            this.label18.Location = new System.Drawing.Point(2, 1);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(60, 17);
