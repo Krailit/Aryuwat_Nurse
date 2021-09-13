@@ -1422,17 +1422,25 @@ namespace AryuwatSystem.Forms
                 //obj.PrintType = Type;
                 DataTable dtTmp;
                 string InvNo = "";
-                dtTmp = dtSumOfTreat;
                 //string sql = string.Format("Vat<>'{0}'", "Y");
                 //if (dtTmp.Select(sql).Any())
                 //{
                 //    dtTmp = dtTmp.Select(sql).CopyToDataTable();
-                   //InvNo = dtTmp.Select(sql).CopyToDataTable().Rows[0]["INVNo"] + "";
+                //InvNo = dtTmp.Select(sql).CopyToDataTable().Rows[0]["INVNo"] + "";
                 //}
                 //else
                 //    return;
+                if (!SO.Contains("PRO"))
+                {
+                    dsSumOfTreat = new Business.SumOfTreatment().SelectSumOfTreatment("SELECT", SO, VN, ReceiptDateCurrent);
+                }
+                else
+                {
+                    dsSumOfTreat = new Business.SumOfTreatment().SelectSumOfTreatment("SELECTBYPRO", SO, VN, ReceiptDateCurrent);
+                }
 
-                
+                dtSumOfTreat = dsSumOfTreat.Tables[0];
+                dtTmp = dtSumOfTreat;
                 string strTypeofPay = "";
                 if(type == 1)
                 {

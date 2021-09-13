@@ -27,7 +27,7 @@ namespace AryuwatSystem.Forms
         public FrmPromotionSetting(ref Entity.Customer info)
         {
             InitializeComponent();
-           
+
         }
 
         #region IForm Members
@@ -79,21 +79,21 @@ namespace AryuwatSystem.Forms
         public string customerType { get; set; }
         public string PriceRef { get; set; }
         public decimal SalePriceNew { get; set; }
-          
+
         private string vn = "";
         private string so = "";
         private string Pro_Code;
 
         List<string> LsSelectMS_Code = new List<string>();
         private string docFilePath;
-        List<DataGridViewRow> rowsToDelete=new List<DataGridViewRow>();
+        List<DataGridViewRow> rowsToDelete = new List<DataGridViewRow>();
         //DataGridView dataGridToDelete=new DataGridView();
         public List<Entity.MedicalStuff> MedicalStuffs { get; set; }
-        public List<Entity.MedicalOrderUseTrans> MedicalOrderUseTranss{ get; set; }
+        public List<Entity.MedicalOrderUseTrans> MedicalOrderUseTranss { get; set; }
         public DerUtility.AccessType FormType { get; set; }
         public string RefVN { get; set; }
-        private Dictionary<string,List<Entity.MembersTrans>> dicMemberTran = new Dictionary<string,List<Entity.MembersTrans>> ();
-        public string MS_Code="";
+        private Dictionary<string, List<Entity.MembersTrans>> dicMemberTran = new Dictionary<string, List<Entity.MembersTrans>>();
+        public string MS_Code = "";
         public string PRO_Code
         {
             get { return Pro_Code; }
@@ -126,111 +126,111 @@ namespace AryuwatSystem.Forms
             tabAttachFile = 7,
         }
         #endregion
-              List<string> lsUnit = new List<string>();
-              List<string> MKTBudget = new List<string>();
-              List<string> GiftVoucher = new List<string>();
-              Dictionary<string, string> dicMKTBudget = new Dictionary<string, string>();
-              Dictionary<string, string> dicGiftVoucher = new Dictionary<string, string>();
-              decimal Unpaid = 0;
-              decimal NetAmount = 0;
-             public string MedStatus_Code = "0";
-              string tabTyp = "AESTHETIC";
-              string tabTypShortName = "AE";
-              string moso = "PRO-";
-              string MOType = "";
-             public string MO = "";
-             string MoSubType = "";
-              string idMax = "";
-          
+        List<string> lsUnit = new List<string>();
+        List<string> MKTBudget = new List<string>();
+        List<string> GiftVoucher = new List<string>();
+        Dictionary<string, string> dicMKTBudget = new Dictionary<string, string>();
+        Dictionary<string, string> dicGiftVoucher = new Dictionary<string, string>();
+        decimal Unpaid = 0;
+        decimal NetAmount = 0;
+        public string MedStatus_Code = "0";
+        string tabTyp = "AESTHETIC";
+        string tabTypShortName = "AE";
+        string moso = "PRO-";
+        string MOType = "";
+        public string MO = "";
+        string MoSubType = "";
+        string idMax = "";
 
-              private void DisableTab(TabPage enableTab)
-              {
-                  try
-                  {
-                      if (enableTab == null)
-                      {
-                          tabControl.TabPages.Remove(tabAesthetic);
-                          tabControl.TabPages.Remove(tabSurgery);
-                          tabControl.TabPages.Remove(tabWellness_Antiaging);
-                      }
-                      else
-                      {
-                          tabControl.TabPages.Remove(tabAesthetic);
-                          tabControl.TabPages.Remove(tabSurgery);
-                          tabControl.TabPages.Remove(tabWellness_Antiaging);
-                          tabControl.TabPages.Insert(0, enableTab);
-                          tabControl.SelectedTab = enableTab;
-                      }
-                      
-                  }
-                  catch (Exception)
-                  {
-                      
-                      throw;
-                  }
-              }
-              private void FrmPromotionSetting_Load(object sender, EventArgs e)
-              {
-                  try
-                  {
-                      this.toolTip1.SetToolTip(this.pictureBoxRefreshProduct, "Update Product");
-                      this.dataGridViewSelectList.CellEndEdit += new DataGridViewCellEventHandler(this.dataGridViewSelectList_CellEndEdit);
-                      this.dataGridViewSelectList.CellMouseUp += new DataGridViewCellMouseEventHandler(this.dataGridViewSelectList_CellMouseUp);
-                      this.dataGridViewSelectList.CellContentClick += new DataGridViewCellEventHandler(this.dataGridViewSelectList_CellContentClick);
-                      this.dataGridViewSelectList.EditingControlShowing += new DataGridViewEditingControlShowingEventHandler(this.dataGridViewSelectList_EditingControlShowing);
-                      this.dataGridViewSelectList.RowPostPaint += new DataGridViewRowPostPaintEventHandler(this.dataGridViewSelectList_RowPostPaint);
-                      this.btnSave.Click += new EventHandler(this.btnSave_Click);
-                      this.btnCancel.Click += new EventHandler(this.btnCancel_Click);
-                      foreach (DataRow row in Userinfo.UnitName.Rows)
-                      {
-                          this.lsUnit.Add(row["UnitName"]+"");
-                      }
-                      this.SetColumnsDgv();
-                   
-                      this.MedicalStuffs = new List<Entity.MedicalStuff>();
-                      this.MedicalOrderUseTranss = new List<Entity.MedicalOrderUseTrans>();
-                      this.dateTimePickerEnd.Value = DateTime.Now;
-                      this.BindDataAesList();
-                      this.BindDataSurgeryList();
-                      this.BindDataWellness_antiAgentList();
-                      this.BindDataPharmacyList();
-                      BindSurgicalFeeType();
-                     // this.BindDataPromotionList();
-                      if (FormType == DerUtility.AccessType.Update)
-                      {
-                   
-                          this.BindData();
-                      }
-                      else 
-                      {
-                          this.idMax = UtilityBackEnd.GenMaxSeqnoValues(moso);
-                          this.txtPro_Code.Text = this.idMax;
-//                          this.idMax = this.idMax.Replace(moso, "").Replace("PRO", "");
-                        
-                          //this.BindDataAesList();
-                          //this.BindDataSurgeryList();
-                          //this.BindDataWellness_antiAgentList();
-                          //this.BindDataPharmacyList();
 
-                          //tabControl.TabPages.Remove(tabSurgery);
+        private void DisableTab(TabPage enableTab)
+        {
+            try
+            {
+                if (enableTab == null)
+                {
+                    tabControl.TabPages.Remove(tabAesthetic);
+                    tabControl.TabPages.Remove(tabSurgery);
+                    tabControl.TabPages.Remove(tabWellness_Antiaging);
+                }
+                else
+                {
+                    tabControl.TabPages.Remove(tabAesthetic);
+                    tabControl.TabPages.Remove(tabSurgery);
+                    tabControl.TabPages.Remove(tabWellness_Antiaging);
+                    tabControl.TabPages.Insert(0, enableTab);
+                    tabControl.SelectedTab = enableTab;
+                }
 
-                          //tabControl.TabPages.Remove(tabWellness_Antiaging);
-                        
-                      }
-                        tabControl.TabPages.Remove(tabAesthetic);
-                        tabControl.TabPages.Remove(tabSurgery);
-                        tabControl.TabPages.Remove(tabWellness_Antiaging);
-                        tabControl.TabPages.Remove(tabAttachFile);
+            }
+            catch (Exception)
+            {
 
-                     
-                  }
-                  catch (Exception exception)
-                  {
-                      MessageBox.Show(exception.Message);
-                  }
-              }
+                throw;
+            }
+        }
+        private void FrmPromotionSetting_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                this.toolTip1.SetToolTip(this.pictureBoxRefreshProduct, "Update Product");
+                this.dataGridViewSelectList.CellEndEdit += new DataGridViewCellEventHandler(this.dataGridViewSelectList_CellEndEdit);
+                this.dataGridViewSelectList.CellMouseUp += new DataGridViewCellMouseEventHandler(this.dataGridViewSelectList_CellMouseUp);
+                this.dataGridViewSelectList.CellContentClick += new DataGridViewCellEventHandler(this.dataGridViewSelectList_CellContentClick);
+                this.dataGridViewSelectList.EditingControlShowing += new DataGridViewEditingControlShowingEventHandler(this.dataGridViewSelectList_EditingControlShowing);
+                this.dataGridViewSelectList.RowPostPaint += new DataGridViewRowPostPaintEventHandler(this.dataGridViewSelectList_RowPostPaint);
+                this.btnSave.Click += new EventHandler(this.btnSave_Click);
+                this.btnCancel.Click += new EventHandler(this.btnCancel_Click);
+                foreach (DataRow row in Userinfo.UnitName.Rows)
+                {
+                    this.lsUnit.Add(row["UnitName"] + "");
+                }
+                this.SetColumnsDgv();
 
- 
+                this.MedicalStuffs = new List<Entity.MedicalStuff>();
+                this.MedicalOrderUseTranss = new List<Entity.MedicalOrderUseTrans>();
+                this.dateTimePickerEnd.Value = DateTime.Now;
+                this.BindDataAesList();
+                this.BindDataSurgeryList();
+                this.BindDataWellness_antiAgentList();
+                this.BindDataPharmacyList();
+                BindSurgicalFeeType();
+                // this.BindDataPromotionList();
+                if (FormType == DerUtility.AccessType.Update)
+                {
+
+                    this.BindData();
+                }
+                else
+                {
+                    this.idMax = UtilityBackEnd.GenMaxSeqnoValues(moso);
+                    this.txtPro_Code.Text = this.idMax;
+                    //                          this.idMax = this.idMax.Replace(moso, "").Replace("PRO", "");
+
+                    //this.BindDataAesList();
+                    //this.BindDataSurgeryList();
+                    //this.BindDataWellness_antiAgentList();
+                    //this.BindDataPharmacyList();
+
+                    //tabControl.TabPages.Remove(tabSurgery);
+
+                    //tabControl.TabPages.Remove(tabWellness_Antiaging);
+
+                }
+                tabControl.TabPages.Remove(tabAesthetic);
+                tabControl.TabPages.Remove(tabSurgery);
+                tabControl.TabPages.Remove(tabWellness_Antiaging);
+                tabControl.TabPages.Remove(tabAttachFile);
+
+
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+        }
+
+
 
         private T StringToEnum<T>(string name)
         {
@@ -244,7 +244,7 @@ namespace AryuwatSystem.Forms
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
             string tabname = tabControl.SelectedTab.Name;
-            tabPageActive = StringToEnum<TabPageActive>(tabname); 
+            tabPageActive = StringToEnum<TabPageActive>(tabname);
         }
         private void dgvFile_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
@@ -264,31 +264,31 @@ namespace AryuwatSystem.Forms
         {
             try
             {
-            Entity.Promotion info=new Entity.Promotion() ;
-            info.QueryType = "SEARCHBYID";
-            info.PRO_Code = PRO_Code;
-            DataTable dt = new Business.Promotion().SelectPromotionPaging(info).Tables[0];
-            if (dt == null || dt.Rows.Count <= 0) return;
-            txtPro_Code.Text = dt.Rows[0]["PRO_Code"] + "";
-            //txtPro_Code.ReadOnly = true;
-            txtPro_Name.Text = dt.Rows[0]["PRO_Name"] + "";
-            dateTimePickerStart.Value = dt.Rows[0]["DateStart"] + "" == "" ? DateTime.Now : Convert.ToDateTime(dt.Rows[0]["DateStart"] + "");
-            dateTimePickerEnd.Value = dt.Rows[0]["DateEnd"] + "" == "" ? DateTime.Now : Convert.ToDateTime(dt.Rows[0]["DateEnd"] + "");
-            checkBoxActive.Checked = dt.Rows[0]["PRO_Active"] + ""=="Y";
-            txtRemark.Text = dt.Rows[0]["Remark"] + "";
-            cboSurgicalFeeTyp.Text = dt.Rows[0]["PRO_Dept"] + "" == "" ? "ALL" : dt.Rows[0]["PRO_Dept"] + "";
-            AddDownToGrid("AESTHETIC", dt);
-            AddDownToGrid("SURGERY", dt);
-            AddDownToGrid("WELLNESS", dt);
-            AddDownToGrid("PHARMACY", dt);
+                Entity.Promotion info = new Entity.Promotion();
+                info.QueryType = "SEARCHBYID";
+                info.PRO_Code = PRO_Code;
+                DataTable dt = new Business.Promotion().SelectPromotionPaging(info).Tables[0];
+                if (dt == null || dt.Rows.Count <= 0) return;
+                txtPro_Code.Text = dt.Rows[0]["PRO_Code"] + "";
+                //txtPro_Code.ReadOnly = true;
+                txtPro_Name.Text = dt.Rows[0]["PRO_Name"] + "";
+                dateTimePickerStart.Value = dt.Rows[0]["DateStart"] + "" == "" ? DateTime.Now : Convert.ToDateTime(dt.Rows[0]["DateStart"] + "");
+                dateTimePickerEnd.Value = dt.Rows[0]["DateEnd"] + "" == "" ? DateTime.Now : Convert.ToDateTime(dt.Rows[0]["DateEnd"] + "");
+                checkBoxActive.Checked = dt.Rows[0]["PRO_Active"] + "" == "Y";
+                txtRemark.Text = dt.Rows[0]["Remark"] + "";
+                cboSurgicalFeeTyp.Text = dt.Rows[0]["PRO_Dept"] + "" == "" ? "ALL" : dt.Rows[0]["PRO_Dept"] + "";
+                //AddDownToGrid("AESTHETIC", dt);
+                //AddDownToGrid("SURGERY", dt);
+                //AddDownToGrid("WELLNESS", dt);
+                AddDownToGrid("PHARMACY", dt);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
-      
-        private void AddDownToGrid(string tabPageActive,DataTable dt)
+
+        private void AddDownToGrid(string tabPageActive, DataTable dt)
         {
             try
             {
@@ -317,20 +317,20 @@ namespace AryuwatSystem.Forms
                 decimal Amount = 0;
                 foreach (DataRow ms in dt.Rows)
                 {
-               
+
                     foreach (DataGridViewRow item in dv.Rows)
                     {
-                        if(item.Cells["Code"].Value.ToString().ToUpper().Equals(ms["MS_Code"].ToString().ToUpper()))
+                        if (item.Cells["Code"].Value.ToString().ToUpper().Equals(ms["MS_Code"].ToString().ToUpper()))
                         {
                             //if (LsSelectMS_Code.Contains(ms["MS_Code"].ToString())) continue;
                             //else 
-                                LsSelectMS_Code.Add(ms["MS_Code"].ToString());
+                            LsSelectMS_Code.Add(ms["MS_Code"].ToString());
                             MS_CLPrice = item.Cells["MS_CLPrice"].Value + "" == "" ? 0 : decimal.Parse(item.Cells["MS_CLPrice"].Value + "");
                             MS_CAPrice = item.Cells["MS_CAPrice"].Value + "" == "" ? 0 : decimal.Parse(item.Cells["MS_CAPrice"].Value + "");
                             MS_PriceTotal = ms["MS_ProPrice"] + "" == "" ? 0 : decimal.Parse(ms["MS_ProPrice"] + "");
                             Amount = ms["Amount"] + "" == "" ? 1 : decimal.Parse(ms["Amount"] + "");
                             MS_Price = MS_CLPrice.ToString("###,###,###.##");// Entity.Userinfo.PriceNormal.Contains(customerType) ? MS_CLPrice.ToString("###,###.##") : MS_CAPrice.ToString("###,###.##");
-                            MS_PriceSpacial = MS_PriceTotal-(MS_CLPrice * Amount) ;
+                            MS_PriceSpacial = MS_PriceTotal - (MS_CLPrice * Amount);
                             object[] myItems = {
                                              false,//chk
                                            item.Cells["Code"].Value,
@@ -394,9 +394,9 @@ namespace AryuwatSystem.Forms
             }
             catch (Exception ex)
             {
-             
+
             }
-          
+
         }
         private void SetColumnsDgv()
         {
@@ -413,9 +413,9 @@ namespace AryuwatSystem.Forms
 
         private void SetColumnDgvFile()
         {
-            dgvFile.RowPostPaint+=new DataGridViewRowPostPaintEventHandler(dgvFile_RowPostPaint);
+            dgvFile.RowPostPaint += new DataGridViewRowPostPaintEventHandler(dgvFile_RowPostPaint);
             DerUtility.SetPropertyDgv(dgvFile);
-          
+
             dgvFile.Columns.Add("FilePath", "FilePath");
             dgvFile.Columns.Add("FileName", "ชื่อไฟล์");
             dgvFile.Columns.Add("Detail", "รายละเอียด");
@@ -432,8 +432,8 @@ namespace AryuwatSystem.Forms
                     DataGridViewAutoSizeColumnMode.DisplayedCells;
                 colDown.CellTemplate = new DataGridViewImageCell();
             }
-            
-            dgvFile.Columns.Add(colDown); 
+
+            dgvFile.Columns.Add(colDown);
             dgvFile.Columns.Add("NewRow", "NewRow");
             dgvFile.Columns.Add("Id", "Id");
 
@@ -446,11 +446,11 @@ namespace AryuwatSystem.Forms
 
         private void SetColDtTmpHair()
         {
-            dtTmpHairSelect.Columns.Add("MS_Section", typeof (string));
-            dtTmpHairSelect.Columns.Add("Code", typeof (string));
-            dtTmpHairSelect.Columns.Add("Name", typeof (string));
+            dtTmpHairSelect.Columns.Add("MS_Section", typeof(string));
+            dtTmpHairSelect.Columns.Add("Code", typeof(string));
+            dtTmpHairSelect.Columns.Add("Name", typeof(string));
             dtTmpHairSelect.Columns.Add("MS_CLPrice", typeof(string));
-            dtTmpHairSelect.Columns.Add("MS_CAPrice", typeof (string));
+            dtTmpHairSelect.Columns.Add("MS_CAPrice", typeof(string));
             dtTmpHairSelect.Columns.Add("UnitName", typeof(string));
         }
         //private void SetColumnsDgvPromotion()
@@ -499,16 +499,16 @@ namespace AryuwatSystem.Forms
                 column.CellTemplate.Style.BackColor = Color.Beige;
             }
             dgvAestheticList.Columns.Add(column);
-            dgvAestheticList.Columns.Add("MS_Section","Section");
+            dgvAestheticList.Columns.Add("MS_Section", "Section");
             dgvAestheticList.Columns.Add("Code", "Code");
             dgvAestheticList.Columns.Add("Name", "Name");
-            
+
             dgvAestheticList.Columns.Add("MS_CLPrice", "Local Price");
             dgvAestheticList.Columns.Add("MS_CAPrice", "Agency Price");
             //dgvAestheticList.Columns.Add("MS_CMPrice", "MS_CMPrice");
             dgvAestheticList.Columns.Add("MS_Type", "MS_Type");
             dgvAestheticList.Columns.Add("MS_Number_C", "Number/Course");
-            dgvAestheticList.Columns.Add("UnitName","Unit");
+            dgvAestheticList.Columns.Add("UnitName", "Unit");
             dgvAestheticList.Columns.Add("Tab", "Tab");
             dgvAestheticList.Columns.Add("FeeRate", "Fee Rate");
             dgvAestheticList.Columns.Add("FeeRate2", "Fee Rate 2");
@@ -516,10 +516,10 @@ namespace AryuwatSystem.Forms
             dgvAestheticList.Columns["Tab"].Visible = false;
             dgvAestheticList.Columns["FeeRate"].Visible = false;
             dgvAestheticList.Columns["FeeRate2"].Visible = false;
-            
+
             //dgvAestheticList.Columns["MS_CAPrice"].Visible = false;
             //dgvAestheticList.Columns["MS_CMPrice"].Visible = false;
-           // dgvAestheticList.Columns["MS_Type"].Visible = false;
+            // dgvAestheticList.Columns["MS_Type"].Visible = false;
             //dgvAestheticList.Columns["MS_Number_C"].Visible = false;
 
             dgvAestheticList.Columns["Code"].Width = 100;
@@ -652,7 +652,7 @@ namespace AryuwatSystem.Forms
             dgvPharmacyList.Columns["MS_Detail"].Width = 200;
         }
 
-       
+
 
 
         private void SetColumnDgvSelectList()
@@ -678,7 +678,7 @@ namespace AryuwatSystem.Forms
 
             dataGridViewSelectList.Columns.Add("Name", "Name");//2
             dataGridViewSelectList.Columns["Name"].ReadOnly = true;
-            dataGridViewSelectList.Columns["Name"].Width =300;
+            dataGridViewSelectList.Columns["Name"].Width = 300;
 
             dataGridViewSelectList.Columns.Add("No./Course", "No./Course");//3
             dataGridViewSelectList.Columns["No./Course"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -754,7 +754,7 @@ namespace AryuwatSystem.Forms
             dataGridViewSelectList.Columns["PriceTotal"].ReadOnly = true;
             dataGridViewSelectList.Columns["PriceTotal"].Width = 100;
 
-      
+
             //DataGridViewImageColumn ColUse = new DataGridViewImageColumn();
             //{
             //    ColUse.AutoSizeMode =
@@ -802,93 +802,93 @@ namespace AryuwatSystem.Forms
             dataGridViewSelectList.Columns.Add(colChkSub);
             dataGridViewSelectList.Columns["ChkSub"].Visible = false;
             //Entity.Userinfo.MoConfig
-                DataTable dtmb = Entity.Userinfo.MoConfig.Select("[key]='MKTBudget'").CopyToDataTable();
-                MKTBudget.Add("");
-             
-                foreach (DataRow item in dtmb.Rows)
-                {
-                    MKTBudget.Add(item["values"]+"");
-                    dicMKTBudget.Add(item["values"] + "", item["Code"] + "");
-                }
-                DataGridViewComboBoxColumn comboBoxColumn2;
-                comboBoxColumn2 = new DataGridViewComboBoxColumn();
+            DataTable dtmb = Entity.Userinfo.MoConfig.Select("[key]='MKTBudget'").CopyToDataTable();
+            MKTBudget.Add("");
 
-                comboBoxColumn2.DataSource = dtmb;
-                comboBoxColumn2.ValueMember = "Code";
-                comboBoxColumn2.DisplayMember = "values";
-                comboBoxColumn2.HeaderText = "MKT Budget";
-                comboBoxColumn2.Name = "MKTBudget";
-                comboBoxColumn2.DisplayStyle = DataGridViewComboBoxDisplayStyle.ComboBox;
-                comboBoxColumn2.Width = 150;
-                dataGridViewSelectList.Columns.Add(comboBoxColumn2);
-                dataGridViewSelectList.Columns["MKTBudget"].Visible = false;
+            foreach (DataRow item in dtmb.Rows)
+            {
+                MKTBudget.Add(item["values"] + "");
+                dicMKTBudget.Add(item["values"] + "", item["Code"] + "");
+            }
+            DataGridViewComboBoxColumn comboBoxColumn2;
+            comboBoxColumn2 = new DataGridViewComboBoxColumn();
 
-                dtmb = Entity.Userinfo.MoConfig.Select("[key]='GiftVoucher'").CopyToDataTable();
-                GiftVoucher.Add("");
-               
-                foreach (DataRow item in dtmb.Rows)
-                {
-                    GiftVoucher.Add(item["values"] + "");
-                    dicGiftVoucher.Add(item["values"] + "", item["Code"] + "");
-                }
-                
-                comboBoxColumn2 = new DataGridViewComboBoxColumn();
+            comboBoxColumn2.DataSource = dtmb;
+            comboBoxColumn2.ValueMember = "Code";
+            comboBoxColumn2.DisplayMember = "values";
+            comboBoxColumn2.HeaderText = "MKT Budget";
+            comboBoxColumn2.Name = "MKTBudget";
+            comboBoxColumn2.DisplayStyle = DataGridViewComboBoxDisplayStyle.ComboBox;
+            comboBoxColumn2.Width = 150;
+            dataGridViewSelectList.Columns.Add(comboBoxColumn2);
+            dataGridViewSelectList.Columns["MKTBudget"].Visible = false;
 
-                comboBoxColumn2.DataSource = dtmb;
-                comboBoxColumn2.ValueMember = "Code";
-                comboBoxColumn2.DisplayMember = "values";
-                comboBoxColumn2.HeaderText = "GiftVoucher";
-                comboBoxColumn2.Name = "GiftVoucher";
-                comboBoxColumn2.DisplayStyle = DataGridViewComboBoxDisplayStyle.ComboBox;
-                comboBoxColumn2.Width = 150;
-                dataGridViewSelectList.Columns.Add(comboBoxColumn2);
-                dataGridViewSelectList.Columns["GiftVoucher"].Visible = false;
+            dtmb = Entity.Userinfo.MoConfig.Select("[key]='GiftVoucher'").CopyToDataTable();
+            GiftVoucher.Add("");
 
-                dataGridViewSelectList.Columns.Add("GiftNumber", "GiftNumber");
-                dataGridViewSelectList.Columns["GiftNumber"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                dataGridViewSelectList.Columns["GiftNumber"].DefaultCellStyle.BackColor = Color.LemonChiffon;
-                dataGridViewSelectList.Columns["GiftNumber"].Visible = true;
-                dataGridViewSelectList.Columns["GiftNumber"].Width = 30;
+            foreach (DataRow item in dtmb.Rows)
+            {
+                GiftVoucher.Add(item["values"] + "");
+                dicGiftVoucher.Add(item["values"] + "", item["Code"] + "");
+            }
 
-                dataGridViewSelectList.Columns["GiftNumber"].Visible = false;
+            comboBoxColumn2 = new DataGridViewComboBoxColumn();
 
-                DataGridViewCheckBoxColumn ChkBeforeAfter = new DataGridViewCheckBoxColumn();
-                {
-                    ChkBeforeAfter.AutoSizeMode =
-                        DataGridViewAutoSizeColumnMode.DisplayedCells;
-                    ChkBeforeAfter.FlatStyle = FlatStyle.Standard;
-                    ChkBeforeAfter.ThreeState = false;
-                    ChkBeforeAfter.Name = "ChkBeforeAfter";
-                    ChkBeforeAfter.HeaderText = "Before After";
-                    ChkBeforeAfter.CellTemplate = new DataGridViewCheckBoxCell();
-                }
-                dataGridViewSelectList.Columns.Add(ChkBeforeAfter);
-                dataGridViewSelectList.Columns["ChkBeforeAfter"].Visible = false;
+            comboBoxColumn2.DataSource = dtmb;
+            comboBoxColumn2.ValueMember = "Code";
+            comboBoxColumn2.DisplayMember = "values";
+            comboBoxColumn2.HeaderText = "GiftVoucher";
+            comboBoxColumn2.Name = "GiftVoucher";
+            comboBoxColumn2.DisplayStyle = DataGridViewComboBoxDisplayStyle.ComboBox;
+            comboBoxColumn2.Width = 150;
+            dataGridViewSelectList.Columns.Add(comboBoxColumn2);
+            dataGridViewSelectList.Columns["GiftVoucher"].Visible = false;
 
-                DataGridViewCheckBoxColumn ChkExtras_sale = new DataGridViewCheckBoxColumn();
-                {
-                    ChkExtras_sale.AutoSizeMode =
-                        DataGridViewAutoSizeColumnMode.DisplayedCells;
-                    ChkExtras_sale.FlatStyle = FlatStyle.Standard;
-                    ChkExtras_sale.ThreeState = false;
-                    ChkExtras_sale.Name = "ChkExtras_sale";
-                    ChkExtras_sale.HeaderText = "ของแถม(ขาย)";
-                    ChkExtras_sale.CellTemplate = new DataGridViewCheckBoxCell();
-                }
-                dataGridViewSelectList.Columns.Add(ChkExtras_sale);
-                dataGridViewSelectList.Columns["ChkExtras_sale"].Visible = false;
-                DataGridViewCheckBoxColumn ChkVIP = new DataGridViewCheckBoxColumn();
-                {
-                    ChkVIP.AutoSizeMode =
-                        DataGridViewAutoSizeColumnMode.DisplayedCells;
-                    ChkVIP.FlatStyle = FlatStyle.Standard;
-                    ChkVIP.ThreeState = false;
-                    ChkVIP.Name = "ChkVIP";
-                    ChkVIP.HeaderText = "VIP(ฝ่ายบริหาร)";
-                    ChkVIP.CellTemplate = new DataGridViewCheckBoxCell();
-                }
-                dataGridViewSelectList.Columns.Add(ChkVIP);
-                dataGridViewSelectList.Columns["ChkVIP"].Visible = false;
+            dataGridViewSelectList.Columns.Add("GiftNumber", "GiftNumber");
+            dataGridViewSelectList.Columns["GiftNumber"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewSelectList.Columns["GiftNumber"].DefaultCellStyle.BackColor = Color.LemonChiffon;
+            dataGridViewSelectList.Columns["GiftNumber"].Visible = true;
+            dataGridViewSelectList.Columns["GiftNumber"].Width = 30;
+
+            dataGridViewSelectList.Columns["GiftNumber"].Visible = false;
+
+            DataGridViewCheckBoxColumn ChkBeforeAfter = new DataGridViewCheckBoxColumn();
+            {
+                ChkBeforeAfter.AutoSizeMode =
+                    DataGridViewAutoSizeColumnMode.DisplayedCells;
+                ChkBeforeAfter.FlatStyle = FlatStyle.Standard;
+                ChkBeforeAfter.ThreeState = false;
+                ChkBeforeAfter.Name = "ChkBeforeAfter";
+                ChkBeforeAfter.HeaderText = "Before After";
+                ChkBeforeAfter.CellTemplate = new DataGridViewCheckBoxCell();
+            }
+            dataGridViewSelectList.Columns.Add(ChkBeforeAfter);
+            dataGridViewSelectList.Columns["ChkBeforeAfter"].Visible = false;
+
+            DataGridViewCheckBoxColumn ChkExtras_sale = new DataGridViewCheckBoxColumn();
+            {
+                ChkExtras_sale.AutoSizeMode =
+                    DataGridViewAutoSizeColumnMode.DisplayedCells;
+                ChkExtras_sale.FlatStyle = FlatStyle.Standard;
+                ChkExtras_sale.ThreeState = false;
+                ChkExtras_sale.Name = "ChkExtras_sale";
+                ChkExtras_sale.HeaderText = "ของแถม(ขาย)";
+                ChkExtras_sale.CellTemplate = new DataGridViewCheckBoxCell();
+            }
+            dataGridViewSelectList.Columns.Add(ChkExtras_sale);
+            dataGridViewSelectList.Columns["ChkExtras_sale"].Visible = false;
+            DataGridViewCheckBoxColumn ChkVIP = new DataGridViewCheckBoxColumn();
+            {
+                ChkVIP.AutoSizeMode =
+                    DataGridViewAutoSizeColumnMode.DisplayedCells;
+                ChkVIP.FlatStyle = FlatStyle.Standard;
+                ChkVIP.ThreeState = false;
+                ChkVIP.Name = "ChkVIP";
+                ChkVIP.HeaderText = "VIP(ฝ่ายบริหาร)";
+                ChkVIP.CellTemplate = new DataGridViewCheckBoxCell();
+            }
+            dataGridViewSelectList.Columns.Add(ChkVIP);
+            dataGridViewSelectList.Columns["ChkVIP"].Visible = false;
 
             dataGridViewSelectList.Columns.Add("Tab", "Tab");
             dataGridViewSelectList.Columns["Tab"].Visible = false;
@@ -916,10 +916,10 @@ namespace AryuwatSystem.Forms
 
         void txtExpireDate_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+
         }
 
-       
+
         //private void BindDataPromotionList()
         //{
         //    try
@@ -1090,7 +1090,7 @@ namespace AryuwatSystem.Forms
                                           item["MS_Type"] + "",
                                           (item["MS_Number_C"] + "" =="")?"0":(item["MS_Number_C"] + "")
                                             , item["UnitName"] + ""
-                                        
+
                                           ,item["FeeRate"] + ""
                                           ,item["FeeRate2"] + ""
                                             ,info.Tab,
@@ -1142,7 +1142,7 @@ namespace AryuwatSystem.Forms
                                            , item["UnitName"] + ""
                                           ,info.Tab,
                                           item["MS_Detail"] + ""
-                                         
+
                                        };
                     dgvWellness_AntiagingList.Rows.Add(myItems);
                 }
@@ -1190,7 +1190,7 @@ namespace AryuwatSystem.Forms
                                           ,item["UnitName"] + ""
                                           ,info.Tab,
                                           item["MS_Detail"] + ""
-                                         
+
                                        };
                     dgvPharmacyList.Rows.Add(myItems);
                 }
@@ -1204,7 +1204,7 @@ namespace AryuwatSystem.Forms
                 return;
             }
         }
-        
+
 
 
         //private void buttonRigth6_BtnClick()
@@ -1234,7 +1234,7 @@ namespace AryuwatSystem.Forms
         //                                   imageList1.Images[4],"",false,false,false,false,
         //                                   "HAIR"
         //                               };
-                    
+
         //            item.Cells[0].Value = false;
 
         //            dataGridViewSelectList.Rows.Add(myItems);
@@ -1266,7 +1266,7 @@ namespace AryuwatSystem.Forms
             }
             catch (Exception ex)
             {
-               
+
             }
 
 
@@ -1274,10 +1274,10 @@ namespace AryuwatSystem.Forms
 
         private void itemID_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) )
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
-                if(e.KeyChar!='-')
-                e.Handled = true;
+                if (e.KeyChar != '-')
+                    e.Handled = true;
             }
         }
 
@@ -1291,9 +1291,9 @@ namespace AryuwatSystem.Forms
             }
             catch (Exception ex)
             {
-                
+
             }
-           
+
         }
 
         private void buttonLeft6_BtnClick()
@@ -1321,39 +1321,39 @@ namespace AryuwatSystem.Forms
 
             //if (statusDel == 1)
             //{
-                foreach (DataGridViewRow row in rowsToDelete)
-                    dataGridViewSelectList.Rows.Remove(row);
+            foreach (DataGridViewRow row in rowsToDelete)
+                dataGridViewSelectList.Rows.Remove(row);
 
-                SumPriceMedicalOrder();
+            SumPriceMedicalOrder();
             //}
         }
 
 
         private void dgvAestheticList_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
-            var b = new SolidBrush(((DataGridView) sender).RowHeadersDefaultCellStyle.ForeColor);
-            e.Graphics.DrawString(Convert.ToString(e.RowIndex + 1), ((DataGridView) sender).DefaultCellStyle.Font, b,
+            var b = new SolidBrush(((DataGridView)sender).RowHeadersDefaultCellStyle.ForeColor);
+            e.Graphics.DrawString(Convert.ToString(e.RowIndex + 1), ((DataGridView)sender).DefaultCellStyle.Font, b,
                                   e.RowBounds.Location.X + 20, e.RowBounds.Location.Y + 4);
         }
 
         private void dgvTreatmentList_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
-            var b = new SolidBrush(((DataGridView) sender).RowHeadersDefaultCellStyle.ForeColor);
-            e.Graphics.DrawString(Convert.ToString(e.RowIndex + 1), ((DataGridView) sender).DefaultCellStyle.Font, b,
+            var b = new SolidBrush(((DataGridView)sender).RowHeadersDefaultCellStyle.ForeColor);
+            e.Graphics.DrawString(Convert.ToString(e.RowIndex + 1), ((DataGridView)sender).DefaultCellStyle.Font, b,
                                   e.RowBounds.Location.X + 20, e.RowBounds.Location.Y + 4);
         }
 
         private void dgvSurgeryList_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
-            var b = new SolidBrush(((DataGridView) sender).RowHeadersDefaultCellStyle.ForeColor);
-            e.Graphics.DrawString(Convert.ToString(e.RowIndex + 1), ((DataGridView) sender).DefaultCellStyle.Font, b,
+            var b = new SolidBrush(((DataGridView)sender).RowHeadersDefaultCellStyle.ForeColor);
+            e.Graphics.DrawString(Convert.ToString(e.RowIndex + 1), ((DataGridView)sender).DefaultCellStyle.Font, b,
                                   e.RowBounds.Location.X + 20, e.RowBounds.Location.Y + 4);
         }
 
         private void dgvPharmacyList_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
-            var b = new SolidBrush(((DataGridView) sender).RowHeadersDefaultCellStyle.ForeColor);
-            e.Graphics.DrawString(Convert.ToString(e.RowIndex + 1), ((DataGridView) sender).DefaultCellStyle.Font, b,
+            var b = new SolidBrush(((DataGridView)sender).RowHeadersDefaultCellStyle.ForeColor);
+            e.Graphics.DrawString(Convert.ToString(e.RowIndex + 1), ((DataGridView)sender).DefaultCellStyle.Font, b,
                                   e.RowBounds.Location.X + 20, e.RowBounds.Location.Y + 4);
         }
 
@@ -1361,7 +1361,7 @@ namespace AryuwatSystem.Forms
         {
             if (dgvAestheticList.Rows.Count < 0 || dgvAestheticList.CurrentRow == null) return;
             DataGridViewCheckBoxCell ch1 = new DataGridViewCheckBoxCell();
-            ch1 = (DataGridViewCheckBoxCell) dgvAestheticList.Rows[dgvAestheticList.CurrentRow.Index].Cells[0];
+            ch1 = (DataGridViewCheckBoxCell)dgvAestheticList.Rows[dgvAestheticList.CurrentRow.Index].Cells[0];
             if (dgvAestheticList.CurrentCell.ColumnIndex != 0) return;
             if (ch1.Value == null)
                 ch1.Value = false;
@@ -1381,7 +1381,7 @@ namespace AryuwatSystem.Forms
         {
             if (dgvSurgeryList.Rows.Count < 0 || dgvSurgeryList.CurrentRow == null) return;
             DataGridViewCheckBoxCell ch1 = new DataGridViewCheckBoxCell();
-            ch1 = (DataGridViewCheckBoxCell) dgvSurgeryList.Rows[dgvSurgeryList.CurrentRow.Index].Cells[0];
+            ch1 = (DataGridViewCheckBoxCell)dgvSurgeryList.Rows[dgvSurgeryList.CurrentRow.Index].Cells[0];
             if (dgvSurgeryList.CurrentCell.ColumnIndex != 0) return;
             if (ch1.Value == null)
                 ch1.Value = false;
@@ -1400,7 +1400,7 @@ namespace AryuwatSystem.Forms
         {
             if (dgvPharmacyList.Rows.Count < 0 || dgvPharmacyList.CurrentRow == null) return;
             DataGridViewCheckBoxCell ch1 = new DataGridViewCheckBoxCell();
-            ch1 = (DataGridViewCheckBoxCell) dgvPharmacyList.Rows[dgvPharmacyList.CurrentRow.Index].Cells[0];
+            ch1 = (DataGridViewCheckBoxCell)dgvPharmacyList.Rows[dgvPharmacyList.CurrentRow.Index].Cells[0];
             if (dgvPharmacyList.CurrentCell.ColumnIndex != 0) return;
             if (ch1.Value == null)
                 ch1.Value = false;
@@ -1420,78 +1420,78 @@ namespace AryuwatSystem.Forms
             try
             {
 
-          
-               DataGridViewCheckBoxCell chCom = new DataGridViewCheckBoxCell();
-               chCom = (DataGridViewCheckBoxCell)dataGridViewSelectList.Rows[dataGridViewSelectList.CurrentRow.Index].Cells["ChkCom"];
-               //DataGridViewCheckBoxCell chMar = new DataGridViewCheckBoxCell();
-               //chMar = (DataGridViewCheckBoxCell)dataGridViewSelectList.Rows[dataGridViewSelectList.CurrentRow.Index].Cells["ChkMar"];
-               //DataGridViewCheckBoxCell chGif = new DataGridViewCheckBoxCell();
-               //chGif = (DataGridViewCheckBoxCell)dataGridViewSelectList.Rows[dataGridViewSelectList.CurrentRow.Index].Cells["ChkGiftv"];
-               DataGridViewCheckBoxCell chSub = new DataGridViewCheckBoxCell();
-               chSub = (DataGridViewCheckBoxCell)dataGridViewSelectList.Rows[dataGridViewSelectList.CurrentRow.Index].Cells["ChkSub"];
 
-            if (e.ColumnIndex == chCom.ColumnIndex)
-            {
-                chCom.Value = true;
-                //chMar.Value = false;
-               // chGif.Value = false;
-                chSub.Value = false;
-            }
-       
-            //if (e.ColumnIndex == chGif.ColumnIndex)
-            //{
-            //    chCom.Value = false;
-            //    //chMar.Value = false;
-            //    //chGif.Value = true;
-            //    chSub.Value = false;
-            //}
-            if (e.ColumnIndex == chSub.ColumnIndex)
-            {
-                chCom.Value = false;
-                //chMar.Value = false;
-                //chGif.Value = false;
-                chSub.Value = true;
-            }
-            if (e.ColumnIndex == dataGridViewSelectList.Columns["BtnMember"].Index)
-            {
-                popMemberGroup frm = popMemberGroup.GetInstance();
-                frm.CN = Pro_Code;
-                frm.dicMemberTran = dicMemberTran;
-                frm.MS_Code =MS_Code= dataGridViewSelectList.Rows[e.RowIndex].Cells["Code"].Value + "";
-                frm.ShowDialog();
-                Thread.Sleep(100);
+                DataGridViewCheckBoxCell chCom = new DataGridViewCheckBoxCell();
+                chCom = (DataGridViewCheckBoxCell)dataGridViewSelectList.Rows[dataGridViewSelectList.CurrentRow.Index].Cells["ChkCom"];
+                //DataGridViewCheckBoxCell chMar = new DataGridViewCheckBoxCell();
+                //chMar = (DataGridViewCheckBoxCell)dataGridViewSelectList.Rows[dataGridViewSelectList.CurrentRow.Index].Cells["ChkMar"];
+                //DataGridViewCheckBoxCell chGif = new DataGridViewCheckBoxCell();
+                //chGif = (DataGridViewCheckBoxCell)dataGridViewSelectList.Rows[dataGridViewSelectList.CurrentRow.Index].Cells["ChkGiftv"];
+                DataGridViewCheckBoxCell chSub = new DataGridViewCheckBoxCell();
+                chSub = (DataGridViewCheckBoxCell)dataGridViewSelectList.Rows[dataGridViewSelectList.CurrentRow.Index].Cells["ChkSub"];
 
-                if (frm.DialogResult == DialogResult.OK)
+                if (e.ColumnIndex == chCom.ColumnIndex)
                 {
-                    if (!dicMemberTran.ContainsKey(MS_Code)) 
-                         dicMemberTran.Add(MS_Code, frm.member);
-                    else
-                    {
-                        dicMemberTran[MS_Code] = frm.member;
-                    }
+                    chCom.Value = true;
+                    //chMar.Value = false;
+                    // chGif.Value = false;
+                    chSub.Value = false;
                 }
-                //PopMedicalUsed obj = new PopMedicalUsed();
-                //obj.StartPosition = FormStartPosition.CenterScreen;
-                //obj.WindowState = FormWindowState.Normal;
-                //obj.BackColor = Color.FromArgb(255, 230, 217);
-                //obj.CN = cn;
-                //obj.VN = vn;
-                //obj.MS_Code = dataGridViewSelectList.Rows[e.RowIndex].Cells["Code"].Value + "";
-                //obj.SupplieName = dataGridViewSelectList.Rows[e.RowIndex].Cells["Name"].Value + "";
-                //obj.AmountTotal = dataGridViewSelectList.Rows[e.RowIndex].Cells["Total"].Value + "";
-                //obj.AmountUsed = dataGridViewSelectList.Rows[e.RowIndex].Cells["Used"].Value + "";
-                //obj.AmountBalance = dataGridViewSelectList.Rows[e.RowIndex].Cells["Balance"].Value + "";
-                //obj.TabName = dataGridViewSelectList.CurrentRow.Cells["Tab"].Value + "";
-                //obj.CustomerName = txtCustomerName.Text;
-        
-                //obj.ShowDialog();
 
-                //if (obj.MedicalOrderUseTranss != null)
+                //if (e.ColumnIndex == chGif.ColumnIndex)
                 //{
-                //    MedicalOrderUseTranss.AddRange(obj.MedicalOrderUseTranss);
+                //    chCom.Value = false;
+                //    //chMar.Value = false;
+                //    //chGif.Value = true;
+                //    chSub.Value = false;
                 //}
-                //MedicalStuffs = obj.MedicalStuffs;
-            }
+                if (e.ColumnIndex == chSub.ColumnIndex)
+                {
+                    chCom.Value = false;
+                    //chMar.Value = false;
+                    //chGif.Value = false;
+                    chSub.Value = true;
+                }
+                if (e.ColumnIndex == dataGridViewSelectList.Columns["BtnMember"].Index)
+                {
+                    popMemberGroup frm = popMemberGroup.GetInstance();
+                    frm.CN = Pro_Code;
+                    frm.dicMemberTran = dicMemberTran;
+                    frm.MS_Code = MS_Code = dataGridViewSelectList.Rows[e.RowIndex].Cells["Code"].Value + "";
+                    frm.ShowDialog();
+                    Thread.Sleep(100);
+
+                    if (frm.DialogResult == DialogResult.OK)
+                    {
+                        if (!dicMemberTran.ContainsKey(MS_Code))
+                            dicMemberTran.Add(MS_Code, frm.member);
+                        else
+                        {
+                            dicMemberTran[MS_Code] = frm.member;
+                        }
+                    }
+                    //PopMedicalUsed obj = new PopMedicalUsed();
+                    //obj.StartPosition = FormStartPosition.CenterScreen;
+                    //obj.WindowState = FormWindowState.Normal;
+                    //obj.BackColor = Color.FromArgb(255, 230, 217);
+                    //obj.CN = cn;
+                    //obj.VN = vn;
+                    //obj.MS_Code = dataGridViewSelectList.Rows[e.RowIndex].Cells["Code"].Value + "";
+                    //obj.SupplieName = dataGridViewSelectList.Rows[e.RowIndex].Cells["Name"].Value + "";
+                    //obj.AmountTotal = dataGridViewSelectList.Rows[e.RowIndex].Cells["Total"].Value + "";
+                    //obj.AmountUsed = dataGridViewSelectList.Rows[e.RowIndex].Cells["Used"].Value + "";
+                    //obj.AmountBalance = dataGridViewSelectList.Rows[e.RowIndex].Cells["Balance"].Value + "";
+                    //obj.TabName = dataGridViewSelectList.CurrentRow.Cells["Tab"].Value + "";
+                    //obj.CustomerName = txtCustomerName.Text;
+
+                    //obj.ShowDialog();
+
+                    //if (obj.MedicalOrderUseTranss != null)
+                    //{
+                    //    MedicalOrderUseTranss.AddRange(obj.MedicalOrderUseTranss);
+                    //}
+                    //MedicalStuffs = obj.MedicalStuffs;
+                }
             }
             catch (Exception ex)
             {
@@ -1501,82 +1501,82 @@ namespace AryuwatSystem.Forms
 
         private void buttonAddDown_BtnClick()
         {
-        try
-        {
-            //if (string.IsNullOrEmpty(customerType))
-            //{
-            //    Utility.PopMsg(Utility.EnuMsgType.MsgTypeInformation, "กรุณาเลือก \"ลูกค้า\" ก่อน");
-            //    return;
-            //}
-
-            DataGridView dv = new DataGridView();
-          
-            switch (tabPageActive)
+            try
             {
-                case TabPageActive.tabAesthetic:
-                    dv = dgvAestheticList;
-                    tabTyp = "AESTHETIC";
-                    MoSubType = "AE";
-                    break;
-          
-                case TabPageActive.tabSurgery:
-                    dv = dgvSurgeryList;
-                    tabTyp = "SURGERY";
-                    MoSubType = "SU";
-                    break;
-         
-                case TabPageActive.tabWellness_Antiaging:
-                    dv = dgvWellness_AntiagingList;
-                    tabTyp = "WELLNESS";
-                    MoSubType = "WE";
-                    break;
-                case TabPageActive.tabPharmacy:
-                    dv = dgvPharmacyList;
-                    tabTyp = "PHARMACY";
-                    MoSubType = tabTypShortName;
-                    break;
-                case TabPageActive.tabAttachFile:
-                    //tabPageActive = TabPageActive.tabAesthetic;
-                    break;
-            }
-           // txtMO.Text = MO = string.Format("MO-{0}{1}", tabTypShortName, idMax);
-          //  if (dataGridViewSelectList.RowCount>0 && MoSubType != tabTypShortName) return;
+                //if (string.IsNullOrEmpty(customerType))
+                //{
+                //    Utility.PopMsg(Utility.EnuMsgType.MsgTypeInformation, "กรุณาเลือก \"ลูกค้า\" ก่อน");
+                //    return;
+                //}
 
-            if (FormType != DerUtility.AccessType.Update)
-            {
-                //if (radioButtonMO.Checked)
-                //    txtMO.Text = txtMO.Text.Replace("-", string.Format("-{0}-", MoSubType));
-                //else
-                //    txtSONo.Text = txtSONo.Text.Replace("-", string.Format("-{0}-", MoSubType));
-                this.idMax = UtilityBackEnd.GenMaxSeqnoValues(moso + MoSubType + "-");
-            }
-          
+                DataGridView dv = new DataGridView();
 
-            tabTypShortName = MoSubType;
-         
-            double MS_CLPrice = 0;
-            double MS_CAPrice = 0;
-            string MS_Price = "0";
-            foreach (DataGridViewRow item in dv.Rows)
-            {
-                if ((bool) item.Cells[0].Value == true)
+                switch (tabPageActive)
                 {
+                    case TabPageActive.tabAesthetic:
+                        dv = dgvAestheticList;
+                        tabTyp = "AESTHETIC";
+                        MoSubType = "AE";
+                        break;
+
+                    case TabPageActive.tabSurgery:
+                        dv = dgvSurgeryList;
+                        tabTyp = "SURGERY";
+                        MoSubType = "SU";
+                        break;
+
+                    case TabPageActive.tabWellness_Antiaging:
+                        dv = dgvWellness_AntiagingList;
+                        tabTyp = "WELLNESS";
+                        MoSubType = "WE";
+                        break;
+                    case TabPageActive.tabPharmacy:
+                        dv = dgvPharmacyList;
+                        tabTyp = "PHARMACY";
+                        MoSubType = tabTypShortName;
+                        break;
+                    case TabPageActive.tabAttachFile:
+                        //tabPageActive = TabPageActive.tabAesthetic;
+                        break;
+                }
+                // txtMO.Text = MO = string.Format("MO-{0}{1}", tabTypShortName, idMax);
+                //  if (dataGridViewSelectList.RowCount>0 && MoSubType != tabTypShortName) return;
+
+                if (FormType != DerUtility.AccessType.Update)
+                {
+                    //if (radioButtonMO.Checked)
+                    //    txtMO.Text = txtMO.Text.Replace("-", string.Format("-{0}-", MoSubType));
+                    //else
+                    //    txtSONo.Text = txtSONo.Text.Replace("-", string.Format("-{0}-", MoSubType));
+                    this.idMax = UtilityBackEnd.GenMaxSeqnoValues(moso + MoSubType + "-");
+                }
+
+
+                tabTypShortName = MoSubType;
+
+                double MS_CLPrice = 0;
+                double MS_CAPrice = 0;
+                string MS_Price = "0";
+                foreach (DataGridViewRow item in dv.Rows)
+                {
+                    if ((bool)item.Cells[0].Value == true)
+                    {
                         var chkdata = true;
                         foreach (DataGridViewRow data in dataGridViewSelectList.Rows)
                         {
-                            if(item.Cells["Code"].Value.ToString() == data.Cells["Code"].Value.ToString())
+                            if (item.Cells["Code"].Value.ToString() == data.Cells["Code"].Value.ToString())
                             {
                                 chkdata = false;
                                 data.Cells["Amount"].Value = Convert.ToInt32(data.Cells["Amount"].Value) + 1;
                             }
                         }
-                    //if (LsSelectMS_Code.Contains(item.Cells["Code"].Value.ToString())) continue;
-                    //else 
+                        //if (LsSelectMS_Code.Contains(item.Cells["Code"].Value.ToString())) continue;
+                        //else 
                         LsSelectMS_Code.Add(item.Cells["Code"].Value.ToString());
-                    MS_CLPrice = item.Cells["MS_CLPrice"].Value + ""==""?0:double.Parse(item.Cells["MS_CLPrice"].Value + "");
-                    MS_CAPrice = item.Cells["MS_CAPrice"].Value + "" == "" ? 0 : double.Parse(item.Cells["MS_CAPrice"].Value + "");
-                    MS_Price = MS_CLPrice.ToString("###,###,###.##");// Entity.Userinfo.PriceNormal.Contains(customerType) ? MS_CLPrice.ToString("###,###.##") : MS_CAPrice.ToString("###,###.##");
-                    object[] myItems = {
+                        MS_CLPrice = item.Cells["MS_CLPrice"].Value + "" == "" ? 0 : double.Parse(item.Cells["MS_CLPrice"].Value + "");
+                        MS_CAPrice = item.Cells["MS_CAPrice"].Value + "" == "" ? 0 : double.Parse(item.Cells["MS_CAPrice"].Value + "");
+                        MS_Price = MS_CLPrice.ToString("###,###,###.##");// Entity.Userinfo.PriceNormal.Contains(customerType) ? MS_CLPrice.ToString("###,###.##") : MS_CAPrice.ToString("###,###.##");
+                        object[] myItems = {
                                              false,//chk
                                            item.Cells["Code"].Value,
                                            item.Cells["Name"].Value,
@@ -1608,88 +1608,88 @@ namespace AryuwatSystem.Forms
                                            "",
                                            imageList1.Images[0]
                                        };
-                    item.Cells[0].Value = false;
+                        item.Cells[0].Value = false;
 
-                    if(chkdata)
-                    {
-                        dataGridViewSelectList.Rows.Add(myItems);
-                    }
+                        if (chkdata)
+                        {
+                            dataGridViewSelectList.Rows.Add(myItems);
+                        }
                         //dataGridViewSelectList["Unit", dataGridViewSelectList.Rows.Count - 1].Value = "0";
                         //DisplayPayInComboColumn(MKTBudget, dataGridViewSelectList, "MKTBudget");
                         //DisplayPayInComboColumn(GiftVoucher, dataGridViewSelectList, "GiftVoucher");
-                    SumPriceMedicalOrder();
+                        SumPriceMedicalOrder();
+                    }
                 }
             }
-        }
-        catch (Exception ex)
-        {
-            MessageBox.Show(ex.Message);
-        }
-        }
-    private void buttonDeleteUp_BtnClick()
-    {
-        try
-        {
-
-     
-        List<Entity.SupplieTrans> listSup = new List<Entity.SupplieTrans>();
-        List<DataGridViewRow> rowsToDelete = new List<DataGridViewRow>();
-        foreach (DataGridViewRow row in dataGridViewSelectList.Rows)
-        {
-            DataGridViewCheckBoxCell chk = row.Cells[0] as DataGridViewCheckBoxCell;
-            if (Convert.ToBoolean(chk.Value) == true)
+            catch (Exception ex)
             {
-                rowsToDelete.Add(row);
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void buttonDeleteUp_BtnClick()
+        {
+            try
+            {
 
-                if (FormType == DerUtility.AccessType.Update)
+
+                List<Entity.SupplieTrans> listSup = new List<Entity.SupplieTrans>();
+                List<DataGridViewRow> rowsToDelete = new List<DataGridViewRow>();
+                foreach (DataGridViewRow row in dataGridViewSelectList.Rows)
                 {
-                    Entity.SupplieTrans supplieInfo = new Entity.SupplieTrans();
-                    supplieInfo.VN = vn;
-                    supplieInfo.SONo =txtPro_Code.Text;
-                    supplieInfo.MS_Code = row.Cells["Code"].Value + "";
-                    listSup.Add(supplieInfo);
+                    DataGridViewCheckBoxCell chk = row.Cells[0] as DataGridViewCheckBoxCell;
+                    if (Convert.ToBoolean(chk.Value) == true)
+                    {
+                        rowsToDelete.Add(row);
+
+                        if (FormType == DerUtility.AccessType.Update)
+                        {
+                            Entity.SupplieTrans supplieInfo = new Entity.SupplieTrans();
+                            supplieInfo.VN = vn;
+                            supplieInfo.SONo = txtPro_Code.Text;
+                            supplieInfo.MS_Code = row.Cells["Code"].Value + "";
+                            listSup.Add(supplieInfo);
+                        }
+                    }
+                }
+
+                int? statusDel = new Business.MedicalSupplies().DeleteSupplies(listSup.ToArray());
+
+                //if (statusDel == 1)
+                //{
+                foreach (DataGridViewRow row in rowsToDelete)
+                {
+                    dataGridViewSelectList.Rows.Remove(row);
+                    LsSelectMS_Code.Remove(row.Cells[1].Value + "");
+                }
+
+                SumPriceMedicalOrder();
+                if (dataGridViewSelectList.RowCount == 0)
+                {
+                    if (FormType == DerUtility.AccessType.Update)
+                    {
+
+                    }
+                    else
+                    {
+                        tabTypShortName = MoSubType = "";
+                        if (txtPro_Code.Text.Length > 0) txtPro_Code.Text = txtPro_Code.Text.Remove(2, 3);
+                    }
+
+
                 }
             }
-        }
-
-        int? statusDel = new Business.MedicalSupplies().DeleteSupplies(listSup.ToArray());
-
-        //if (statusDel == 1)
-        //{
-        foreach (DataGridViewRow row in rowsToDelete)
-        {
-            dataGridViewSelectList.Rows.Remove(row);
-            LsSelectMS_Code.Remove(row.Cells[1].Value + "");
-        }
-
-        SumPriceMedicalOrder();
-        if (dataGridViewSelectList.RowCount == 0)
-        {
-            if (FormType == DerUtility.AccessType.Update)
-            { 
-
-            }
-            else
+            catch (Exception ex)
             {
-                tabTypShortName = MoSubType = "";
-                if (txtPro_Code.Text.Length > 0) txtPro_Code.Text = txtPro_Code.Text.Remove(2, 3);
+                MessageBox.Show(ex.Message);
             }
-   
-            
         }
-        }
-        catch (Exception ex)
-        {
-            MessageBox.Show(ex.Message);
-        }
-    }
-       
+
         private void txtFindHair_Enter(object sender, EventArgs e)
         {
 
         }
 
-    
+
 
         private void txtFindAes_KeyUp(object sender, KeyEventArgs e)
         {
@@ -1699,7 +1699,7 @@ namespace AryuwatSystem.Forms
             }
         }
 
-      
+
 
         private void txtFindSurgery_KeyUp(object sender, KeyEventArgs e)
         {
@@ -1730,7 +1730,7 @@ namespace AryuwatSystem.Forms
 
         private void btnBrowse_Click(object sender, EventArgs e)
         {
-            if(!string.IsNullOrEmpty(Pro_Code))
+            if (!string.IsNullOrEmpty(Pro_Code))
             {
                 if (DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeConfirmYesNo, "หากคุณเปลี่ยนแปลง \"ชื่อลูกค้า \" รายการที่เลือกจะถูกยกเลิก \n\rคุณต้องการเปลี่ยนใช่หรือไม่?") == DialogResult.Yes)
                 {
@@ -1748,7 +1748,7 @@ namespace AryuwatSystem.Forms
             if (obj.CN != "")
             {
                 Pro_Code = obj.CN;
-        
+
                 customerType = obj.CustomerType;
 
             }
@@ -1759,7 +1759,7 @@ namespace AryuwatSystem.Forms
             List<DataGridViewRow> rowsToDelete = new List<DataGridViewRow>();
             foreach (DataGridViewRow row in dataGridView.Rows)
             {
-                    rowsToDelete.Add(row);
+                rowsToDelete.Add(row);
             }
             //loop through the list to delete rows added to list<T>:
             foreach (DataGridViewRow row in rowsToDelete)
@@ -1771,24 +1771,24 @@ namespace AryuwatSystem.Forms
             try
             {
                 if (e.RowIndex < 0) return;
-                double dblAmount=0;
+                double dblAmount = 0;
                 double dbNumPerC = 0;
                 double dbPricePerU = 0;
-                 double dblTotal = 0;
-                 double SPPrice = 0;
-                 string[] AmountaArr = (dataGridViewSelectList.Rows[e.RowIndex].Cells["Price/Unit"].Value + "").Split(':');
+                double dblTotal = 0;
+                double SPPrice = 0;
+                string[] AmountaArr = (dataGridViewSelectList.Rows[e.RowIndex].Cells["Price/Unit"].Value + "").Split(':');
                 if (AmountaArr.Length > 1)
                 {
-                   
+
                     foreach (var s in AmountaArr)
                     {
                         //dblAmount = s == "" ? 0 : double.Parse(s);
                         //dbNumPerC = dataGridViewSelectList.Rows[e.RowIndex].Cells["No./Course"].Value + "" == "" ? 0 : double.Parse(dataGridViewSelectList.Rows[e.RowIndex].Cells["No./Course"].Value + "");
                         //dbPricePerU = dataGridViewSelectList.Rows[e.RowIndex].Cells["Price/Unit"].Value + "" == "" ? 0 : double.Parse(dataGridViewSelectList.Rows[e.RowIndex].Cells["Price/Unit"].Value + "");
                         //string[] dblTotalArr = (dataGridViewSelectList.Rows[e.RowIndex].Cells["PriceTotal"].Value + "").Split(':');
-                        dblTotal += (s=="" ? 0 : double.Parse(s));
+                        dblTotal += (s == "" ? 0 : double.Parse(s));
                     }
-                  
+
                 }
                 else
                 {
@@ -1796,28 +1796,28 @@ namespace AryuwatSystem.Forms
                     dbNumPerC = dataGridViewSelectList.Rows[e.RowIndex].Cells["No./Course"].Value + "" == "" ? 0 : double.Parse(dataGridViewSelectList.Rows[e.RowIndex].Cells["No./Course"].Value + "");
                     dbPricePerU = dataGridViewSelectList.Rows[e.RowIndex].Cells["Price/Unit"].Value + "" == "" ? 0 : double.Parse(dataGridViewSelectList.Rows[e.RowIndex].Cells["Price/Unit"].Value + "");
                     SPPrice = dataGridViewSelectList.Rows[e.RowIndex].Cells["SpecialPrice"].Value + "" == "" ? 0 : double.Parse((dataGridViewSelectList.Rows[e.RowIndex].Cells["SpecialPrice"].Value + "").Replace("--", "-").Replace("--", "-").Replace("--", "-"));
-                    
+
                     dataGridViewSelectList.Rows[e.RowIndex].Cells["Total"].Value = dblAmount * dbNumPerC; //จำนวนทั้งหมด
                     double pritotal = (dblAmount * dbPricePerU) + SPPrice;
-                    dataGridViewSelectList.Rows[e.RowIndex].Cells["PriceTotal"].Value =pritotal==0?"0": pritotal.ToString("###,###.##"); //ราคารวม
+                    dataGridViewSelectList.Rows[e.RowIndex].Cells["PriceTotal"].Value = pritotal == 0 ? "0" : pritotal.ToString("###,###.##"); //ราคารวม
 
                     //Set Format 
-                    dataGridViewSelectList.Rows[e.RowIndex].Cells["Amount"].Value =dblAmount==0?"0":dblAmount.ToString("###,###");
+                    dataGridViewSelectList.Rows[e.RowIndex].Cells["Amount"].Value = dblAmount == 0 ? "0" : dblAmount.ToString("###,###");
 
                     string strOther = dataGridViewSelectList.Rows[e.RowIndex].Cells["Other"].Value + "";
-                    if(!string.IsNullOrEmpty(strOther))
+                    if (!string.IsNullOrEmpty(strOther))
                     {
-                        dataGridViewSelectList.Rows[e.RowIndex].Cells["Other"].Value =  double.Parse(strOther).ToString("###,###.##");
+                        dataGridViewSelectList.Rows[e.RowIndex].Cells["Other"].Value = double.Parse(strOther).ToString("###,###.##");
                     }
 
                 }
-               // string dateExpire = dataGridViewSelectList.Rows[e.RowIndex].Cells["ExpireDate"].Value+"";
-               //if(dateExpire.Length>0) dataGridViewSelectList.Rows[e.RowIndex].Cells["ExpireDate"].Value =ToMaskedExpireString(dataGridViewSelectList.Rows[e.RowIndex].Cells["ExpireDate"].Value.ToString());
+                // string dateExpire = dataGridViewSelectList.Rows[e.RowIndex].Cells["ExpireDate"].Value+"";
+                //if(dateExpire.Length>0) dataGridViewSelectList.Rows[e.RowIndex].Cells["ExpireDate"].Value =ToMaskedExpireString(dataGridViewSelectList.Rows[e.RowIndex].Cells["ExpireDate"].Value.ToString());
 
                 SumPriceMedicalOrder();
 
                 DataGridViewComboBoxColumn chCom = new DataGridViewComboBoxColumn();
-               //string  cboMKT = dataGridViewSelectList.Rows[e.RowIndex].Cells["MKTBudget"].Value+"";
+                //string  cboMKT = dataGridViewSelectList.Rows[e.RowIndex].Cells["MKTBudget"].Value+"";
             }
             catch (Exception ex)
             {
@@ -1843,7 +1843,7 @@ namespace AryuwatSystem.Forms
                         txtExpire = string.Format("{0}/{1}/{2}", txt[0], txt[1], txt[2]);
                     }
                 }
-                 
+
             }
             catch (Exception ex)
             {
@@ -1853,11 +1853,11 @@ namespace AryuwatSystem.Forms
         }
         private void SumPriceMedicalOrder()
         {
-            SalePriceNew = dataGridViewSelectList.Rows.Cast<DataGridViewRow>().Sum(row => row.Cells["PriceTotal"].Value + ""==""?0:decimal.Parse(row.Cells["PriceTotal"].Value + ""));
-            txtProPrice.Text =SalePriceNew==0?"0": SalePriceNew.ToString("###,###.##");
-            decimal ProPrice = dataGridViewSelectList.Rows.Cast<DataGridViewRow>().Sum(row => row.Cells["Price/Unit"].Value + "" == "" ? 0 : decimal.Parse(row.Cells["Price/Unit"].Value + "") * (row.Cells["Amount"].Value + ""==""?1:decimal.Parse(row.Cells["Amount"].Value + "")));
+            SalePriceNew = dataGridViewSelectList.Rows.Cast<DataGridViewRow>().Sum(row => row.Cells["PriceTotal"].Value + "" == "" ? 0 : decimal.Parse(row.Cells["PriceTotal"].Value + ""));
+            txtProPrice.Text = SalePriceNew == 0 ? "0" : SalePriceNew.ToString("###,###.##");
+            decimal ProPrice = dataGridViewSelectList.Rows.Cast<DataGridViewRow>().Sum(row => row.Cells["Price/Unit"].Value + "" == "" ? 0 : decimal.Parse(row.Cells["Price/Unit"].Value + "") * (row.Cells["Amount"].Value + "" == "" ? 1 : decimal.Parse(row.Cells["Amount"].Value + "")));
             txtTotalPrice.Text = ProPrice == 0 ? "0" : ProPrice.ToString("###,###.##");
-            
+
         }
 
 
@@ -1865,68 +1865,68 @@ namespace AryuwatSystem.Forms
         {
             int? intStatus = 0;
             Entity.Promotion info;
-            if (DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeConfirm, "ยืนยันการบันทึกข้อมูล") != DialogResult.OK)return;
-             
-            if (string.IsNullOrEmpty(txtPro_Code.Text)||string.IsNullOrEmpty(txtPro_Name.Text) )
-                {
-                    DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeInformation, "กรุณาระบุ รหัสโปรโมชันและชื่อโปรโมชัน\n Please specify Promotion Codes and Promotion name.");
-                    return;
-                }
-                try
-                {
-     
-     
-                    info = new Entity.Promotion();
-                    info.PRO_Code = txtPro_Code.Text.Trim();
-                    info.PRO_Name=txtPro_Name.Text.Trim();
-                    info.DateStart = dateTimePickerStart.Value;
-                    info.DateEnd = dateTimePickerEnd.Value;
-                    info.CreateDate = DateTime.Now;
-                    info.CreateBy = Userinfo.EN;
-                    info.UpdateDate = DateTime.Now;
-                    info.UpdateBy = Userinfo.EN;
-                    info.ProPrice = txtProPrice.Text == "" ? 0 : Convert.ToDecimal(txtProPrice.Text);
-                    info.PRO_Active = checkBoxActive.Checked ? "Y" : "N";
-                    info.Remark = txtRemark.Text;
-                    info.PRO_Type = "";
-                    info.PRO_Dept = cboSurgicalFeeTyp.Text;
-                    info.ProSupplieInfo = new List<Entity.MedicalSupplies>();
-                    
-                    
-                    foreach (DataGridViewRow item in dataGridViewSelectList.Rows)
-                    {
-                        Entity.MedicalSupplies supplieInfo = new Entity.MedicalSupplies();
-                        supplieInfo.MS_Code = item.Cells["Code"].Value + "";
-                        supplieInfo.Amount =item.Cells["Amount"].Value + ""==""?0:decimal.Parse(item.Cells["Amount"].Value + "");
-                        supplieInfo.MS_PROPrice = item.Cells["PriceTotal"].Value + "" == "" ? 0 : double.Parse(item.Cells["PriceTotal"].Value + "");
-                        info.ProSupplieInfo.Add(supplieInfo);
-                    }
-                    DataTable dt = new Business.MedicalSupplies().CheckProCode(info.PRO_Code).Tables[0];
-                      if (dt.Rows.Count > 0)
-                      {
-                          //MessageBox.Show("Code นี้ถูกใช้ไปแล้ว");
-                          if (DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeConfirm, "Code นี้ถูกใช้ไปแล้ว คุณต้องการจะอัปเดทหรือไม่") == DialogResult.OK)
-                          {
-                              intStatus = new Business.Promotion().InsertPromotion(info);
-                          }
-                          else return;
+            if (DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeConfirm, "ยืนยันการบันทึกข้อมูล") != DialogResult.OK) return;
 
-                      }
-                      else
-                      {
-                          intStatus = new Business.Promotion().InsertPromotion(info);
-                      }
-                    if (intStatus > 0)
-                    {
-                        DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeInformation, Statics.SaveComplete);
-                        //Statics.frmMedicalOrderList.BindDataMedicalOrder(1);
-                        this.Close();
-                    }
-                }
-                catch (Exception ex)
+            if (string.IsNullOrEmpty(txtPro_Code.Text) || string.IsNullOrEmpty(txtPro_Name.Text))
+            {
+                DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeInformation, "กรุณาระบุ รหัสโปรโมชันและชื่อโปรโมชัน\n Please specify Promotion Codes and Promotion name.");
+                return;
+            }
+            try
+            {
+
+
+                info = new Entity.Promotion();
+                info.PRO_Code = txtPro_Code.Text.Trim();
+                info.PRO_Name = txtPro_Name.Text.Trim();
+                info.DateStart = dateTimePickerStart.Value;
+                info.DateEnd = dateTimePickerEnd.Value;
+                info.CreateDate = DateTime.Now;
+                info.CreateBy = Userinfo.EN;
+                info.UpdateDate = DateTime.Now;
+                info.UpdateBy = Userinfo.EN;
+                info.ProPrice = txtProPrice.Text == "" ? 0 : Convert.ToDecimal(txtProPrice.Text);
+                info.PRO_Active = checkBoxActive.Checked ? "Y" : "N";
+                info.Remark = txtRemark.Text;
+                info.PRO_Type = "";
+                info.PRO_Dept = cboSurgicalFeeTyp.Text;
+                info.ProSupplieInfo = new List<Entity.MedicalSupplies>();
+
+
+                foreach (DataGridViewRow item in dataGridViewSelectList.Rows)
                 {
-                    DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeError, ex.Message);
+                    Entity.MedicalSupplies supplieInfo = new Entity.MedicalSupplies();
+                    supplieInfo.MS_Code = item.Cells["Code"].Value + "";
+                    supplieInfo.Amount = item.Cells["Amount"].Value + "" == "" ? 0 : decimal.Parse(item.Cells["Amount"].Value + "");
+                    supplieInfo.MS_PROPrice = item.Cells["PriceTotal"].Value + "" == "" ? 0 : double.Parse(item.Cells["PriceTotal"].Value + "");
+                    info.ProSupplieInfo.Add(supplieInfo);
                 }
+                DataTable dt = new Business.MedicalSupplies().CheckProCode(info.PRO_Code).Tables[0];
+                if (dt.Rows.Count > 0)
+                {
+                    //MessageBox.Show("Code นี้ถูกใช้ไปแล้ว");
+                    if (DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeConfirm, "Code นี้ถูกใช้ไปแล้ว คุณต้องการจะอัปเดทหรือไม่") == DialogResult.OK)
+                    {
+                        intStatus = new Business.Promotion().InsertPromotion(info);
+                    }
+                    else return;
+
+                }
+                else
+                {
+                    intStatus = new Business.Promotion().InsertPromotion(info);
+                }
+                if (intStatus > 0)
+                {
+                    DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeInformation, Statics.SaveComplete);
+                    //Statics.frmMedicalOrderList.BindDataMedicalOrder(1);
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeError, ex.Message);
+            }
         }
 
         private void btnDocument_Click(object sender, EventArgs e)
@@ -1954,7 +1954,7 @@ namespace AryuwatSystem.Forms
         private void btnAddFile_BtnClick()
         {
             //info.Image = (_Changimage ? Path.GetFileName(_imageCustPath) : null);
-           
+
             if (txtFilePath.Text != "")
             {
                 if (txtFileName.Text == "")
@@ -1990,7 +1990,7 @@ namespace AryuwatSystem.Forms
                         string fnameFullFath = Properties.Settings.Default.ImagePathServer + "\\MEDICALDOC\\" +
                                                dgvFile.Rows[e.RowIndex].Cells["FileName"].Value + "";
                         //BrowseFile.Deletefile(fnameFullFath);
-                        var intStatus = new Business.MedicalOrder().DeleteFileName(Id,"");
+                        var intStatus = new Business.MedicalOrder().DeleteFileName(Id, "");
                         dgvFile.Rows.RemoveAt(e.RowIndex);
                     }
                 }
@@ -2004,7 +2004,7 @@ namespace AryuwatSystem.Forms
             }
             catch (Exception ex)
             {
-             
+
             }
         }
 
@@ -2033,7 +2033,7 @@ namespace AryuwatSystem.Forms
                 {
                     PopDateTime pp = new PopDateTime();
                     DateTime d;
-                    pp.SelecttDate =DateTime.TryParse(dataGridViewSelectList.Rows[e.RowIndex].Cells["ExpireDate"].Value+"",out d)?d:DateTime.Now;
+                    pp.SelecttDate = DateTime.TryParse(dataGridViewSelectList.Rows[e.RowIndex].Cells["ExpireDate"].Value + "", out d) ? d : DateTime.Now;
                     //pp.SelecttDate =Convert.ToDateTime(pp.SelecttDate.ToString("dd/MM/yyyy"));
                     if (pp.ShowDialog() == DialogResult.OK)
                     {
@@ -2052,13 +2052,13 @@ namespace AryuwatSystem.Forms
                 {
                     dataGridViewSelectList.EndEdit();
                 }
-               
+
             }
             catch (Exception ex)
             {
-               
+
             }
-           
+
         }
         private void MergItemLoad(DataGridViewRow item)
         {
@@ -2080,58 +2080,58 @@ namespace AryuwatSystem.Forms
 
                 List<Entity.SupplieTrans> listSup = new List<Entity.SupplieTrans>();
                 rowsToDelete = new List<DataGridViewRow>();
-             
-                        rowsToDelete.Add(item);
 
-                        if (msCode != "") msCode += ":";
-                        msCode += item.Cells["Code"].Value + "";
+                rowsToDelete.Add(item);
 
-                        if (msName != "") msName += ":";
-                        msName += item.Cells["Name"].Value + "";
+                if (msCode != "") msCode += ":";
+                msCode += item.Cells["Code"].Value + "";
 
-                        if (strAmount != "") strAmount += ":";
-                        strAmount += item.Cells["Amount"].Value + "";
+                if (msName != "") msName += ":";
+                msName += item.Cells["Name"].Value + "";
 
-                        if (strNumCouse != "") strNumCouse += ":";
-                        strNumCouse += item.Cells["No./Course"].Value + "";
+                if (strAmount != "") strAmount += ":";
+                strAmount += item.Cells["Amount"].Value + "";
 
-                        if (strTotal != "") strTotal += ":";
-                        strTotal += item.Cells["Total"].Value + "";
+                if (strNumCouse != "") strNumCouse += ":";
+                strNumCouse += item.Cells["No./Course"].Value + "";
 
-                        if (strUsed != "") strUsed += ":";
-                        strUsed += item.Cells["Used"].Value + "";
+                if (strTotal != "") strTotal += ":";
+                strTotal += item.Cells["Total"].Value + "";
 
-                        if (strBalance != "") strBalance += ":";
-                        strBalance += item.Cells["Balance"].Value + "";
+                if (strUsed != "") strUsed += ":";
+                strUsed += item.Cells["Used"].Value + "";
 
-                        if (strPriceUnit != "") strPriceUnit += ":";
-                        strPriceUnit += item.Cells["Price/Unit"].Value + "";
+                if (strBalance != "") strBalance += ":";
+                strBalance += item.Cells["Balance"].Value + "";
 
-                        if (strPriceTotal != "") strPriceTotal += ":";
-                        strPriceTotal += item.Cells["PriceTotal"].Value + "";
+                if (strPriceUnit != "") strPriceUnit += ":";
+                strPriceUnit += item.Cells["Price/Unit"].Value + "";
 
-                        //if (strTab != "") strTab += ":";
+                if (strPriceTotal != "") strPriceTotal += ":";
+                strPriceTotal += item.Cells["PriceTotal"].Value + "";
 
-                        if (strTab != "" && strTab != item.Cells["Tab"].Value + "")
-                        {
-                            DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeInformation, "ไม่สามารถรวมรายการได้ เนื่องจาก \"รายการไม่ใช่หมวดเดียวกัน\"");
-                            return;
-                        }
-                        else
-                        {
-                            strTab = item.Cells["Tab"].Value + "";
-                        }
-                        doubleAmount = Convert.ToDouble(item.Cells["Amount"].Value + "");
-                        doublePriceUnit = Convert.ToDouble(item.Cells["Price/Unit"].Value + "");
-                        doublePriceTotal += doubleAmount * doublePriceUnit;
+                //if (strTab != "") strTab += ":";
 
-                        if (!string.IsNullOrEmpty(vn))
-                        {
-                            Entity.SupplieTrans supplieInfo = new Entity.SupplieTrans();
-                            supplieInfo.VN = vn;
-                            supplieInfo.MS_Code = item.Cells["Code"].Value + "";
-                            listSup.Add(supplieInfo);
-                        }
+                if (strTab != "" && strTab != item.Cells["Tab"].Value + "")
+                {
+                    DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeInformation, "ไม่สามารถรวมรายการได้ เนื่องจาก \"รายการไม่ใช่หมวดเดียวกัน\"");
+                    return;
+                }
+                else
+                {
+                    strTab = item.Cells["Tab"].Value + "";
+                }
+                doubleAmount = Convert.ToDouble(item.Cells["Amount"].Value + "");
+                doublePriceUnit = Convert.ToDouble(item.Cells["Price/Unit"].Value + "");
+                doublePriceTotal += doubleAmount * doublePriceUnit;
+
+                if (!string.IsNullOrEmpty(vn))
+                {
+                    Entity.SupplieTrans supplieInfo = new Entity.SupplieTrans();
+                    supplieInfo.VN = vn;
+                    supplieInfo.MS_Code = item.Cells["Code"].Value + "";
+                    listSup.Add(supplieInfo);
+                }
 
                 //foreach (DataGridViewRow row in rowsToDelete)
                 //{
@@ -2225,12 +2225,12 @@ namespace AryuwatSystem.Forms
                                            "ไม่สามารถรวมรายการได้ เนื่องจาก \"ไม่ใช่หมวด SURGERY\"");
                             return;
                         }
-                       else if (strTab != "" && strTab != item.Cells["Tab"].Value + "")
+                        else if (strTab != "" && strTab != item.Cells["Tab"].Value + "")
                         {
                             DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeInformation, "ไม่สามารถรวมรายการได้ เนื่องจาก \"รายการไม่ใช่หมวดเดียวกัน\"");
                             return;
                         }
-                      
+
                         else
                         {
                             strTab = item.Cells["Tab"].Value + "";
@@ -2277,7 +2277,7 @@ namespace AryuwatSystem.Forms
                                           strTab
                                };
                 dataGridViewSelectList.Rows.Add(myItems);
-            
+
             }
             catch (Exception ex)
             {
@@ -2327,7 +2327,7 @@ namespace AryuwatSystem.Forms
                 obj.multiSelect = false;
                 obj.ShowDialog();
 
-             
+
             }
             catch (Exception ex)
             {
@@ -2337,16 +2337,16 @@ namespace AryuwatSystem.Forms
 
         private void pictureBoxRefreshProduct_MouseHover(object sender, EventArgs e)
         {
-            toolTip1.Show("Update Product",pictureBoxRefreshProduct);
+            toolTip1.Show("Update Product", pictureBoxRefreshProduct);
         }
 
         private void pictureBoxRefreshProduct_Click(object sender, EventArgs e)
         {
             try
             {
-        
+
                 BindDataAesList();
-          
+
                 BindDataSurgeryList();
                 BindDataWellness_antiAgentList();
                 BindDataPharmacyList();
@@ -2360,7 +2360,7 @@ namespace AryuwatSystem.Forms
         private void btnRunning_Click(object sender, EventArgs e)
         {
             var idMax = AryuwatSystem.Data.UtilityBackEnd.GenMaxSeqnoValues("MO");
-       }
+        }
 
         private void dataGridViewSelectList_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
@@ -2373,14 +2373,14 @@ namespace AryuwatSystem.Forms
             }
         }
 
-     
 
-    
-        private void ControlTab(RadioButton rd,bool chk)
+
+
+        private void ControlTab(RadioButton rd, bool chk)
         {
-            try 
-	        {
-              
+            try
+            {
+
                 rd.Checked = chk;
                 switch (rd.Text.ToUpper())
                 {
@@ -2399,15 +2399,15 @@ namespace AryuwatSystem.Forms
                 }
                 dataGridViewSelectList.Rows.Clear();
 
-             
+
 
 
                 tabTypShortName = MoSubType;
-	        }
-	        catch (Exception ex)
-	        {
+            }
+            catch (Exception ex)
+            {
                 MessageBox.Show(ex.Message);
-	        }
+            }
         }
         private void radioAE_CheckedChanged(object sender, EventArgs e)
         {
@@ -2451,23 +2451,23 @@ namespace AryuwatSystem.Forms
         {
             if (e.KeyCode == Keys.Enter)
             {
-              //  BindDataPromotionList();
+                //  BindDataPromotionList();
             }
         }
 
         private void dataGridViewSelectList_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
-            
+
 
         }
 
 
-    
 
-      
 
-     
-         
+
+
+
+
 
     }
 }

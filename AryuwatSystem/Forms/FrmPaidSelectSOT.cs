@@ -1459,8 +1459,15 @@ namespace AryuwatSystem.Forms
                 foreach (var items in itemselect)
                 {
                     var itemsSOT = items.Split(';');
-                    dsSumOfTreat = new Business.SumOfTreatment().SelectSumOfTreatment("SELECT", itemsSOT[0], itemsSOT[1], ReceiptDateCurrent);
 
+                    if (!items.Contains("PRO"))
+                    {
+                        dsSumOfTreat = new Business.SumOfTreatment().SelectSumOfTreatment("SELECT", itemsSOT[0], itemsSOT[1], ReceiptDateCurrent);
+                    }
+                    else
+                    {
+                        dsSumOfTreat = new Business.SumOfTreatment().SelectSumOfTreatment("SELECTBYPRO", itemsSOT[0], itemsSOT[1], ReceiptDateCurrent);
+                    }
                     dtClone = dsSumOfTreat.Tables[0];
                     tables.Add(dtClone);
 
