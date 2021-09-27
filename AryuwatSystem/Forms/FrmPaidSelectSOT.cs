@@ -1977,24 +1977,27 @@ namespace AryuwatSystem.Forms
                         info.NonVat = "N";
                         foreach (DataGridViewRow row in dgvData.Rows)
                         {
-                            SupplieTranInfo = new SupplieTrans();
-                            SupplieTranInfo.QueryType = "UPDATESUPPLIETRANS";
-                            SupplieTranInfo.VN = VN;
-                            SupplieTranInfo.SONo = SO;
-                            SupplieTranInfo.SORef = labelSORef.Text;
-                            SupplieTranInfo.PRO_Code = PRO_Code;
-                            SupplieTranInfo.MS_Code = row.Cells["MS_Code"].Value + "";
-                            SupplieTranInfo.DiscountPercen = string.IsNullOrEmpty(row.Cells["discount"].Value + "") ? 0 : Convert.ToDecimal(row.Cells["discount"].Value + "");
-                            SupplieTranInfo.DiscountBath = string.IsNullOrEmpty(row.Cells["DisBath"].Value + "") ? 0 : Convert.ToDecimal(row.Cells["DisBath"].Value + "");
-                            SupplieTranInfo.PriceAfterDis = Convert.ToDecimal(string.IsNullOrEmpty(row.Cells["money_dis"].Value + "") ? "0" : row.Cells["money_dis"].Value + "".Replace(",", ""));
-                            SupplieTranInfo.PayByItem = Convert.ToDecimal(string.IsNullOrEmpty(row.Cells["PayByItem"].Value + "") ? "0" : row.Cells["PayByItem"].Value + "");
-                            SupplieTranInfo.ListOrder = row.Cells["ListOrder"].Value + "";
-                            SupplieTranInfo.ByDr = row.Cells["ByDr"].Value + "";
-                            listSupplieTran.Add(SupplieTranInfo);
-                            if (row.Cells["Vat"].Value + "" == "Y")
-                                info.Vat = "Y";
-                            if (row.Cells["Vat"].Value + "" == "N" || (row.Cells["Vat"].Value + "").Trim() == "")
-                                info.NonVat = "Y";
+                            if (row.Cells["MS_SO"].Value + "" == SO)
+                            {
+                                SupplieTranInfo = new SupplieTrans();
+                                SupplieTranInfo.QueryType = "UPDATESUPPLIETRANS";
+                                SupplieTranInfo.VN = VN;
+                                SupplieTranInfo.SONo = SO;
+                                SupplieTranInfo.SORef = labelSORef.Text;
+                                SupplieTranInfo.PRO_Code = PRO_Code;
+                                SupplieTranInfo.MS_Code = row.Cells["MS_Code"].Value + "";
+                                SupplieTranInfo.DiscountPercen = string.IsNullOrEmpty(row.Cells["discount"].Value + "") ? 0 : Convert.ToDecimal(row.Cells["discount"].Value + "");
+                                SupplieTranInfo.DiscountBath = string.IsNullOrEmpty(row.Cells["DisBath"].Value + "") ? 0 : Convert.ToDecimal(row.Cells["DisBath"].Value + "");
+                                SupplieTranInfo.PriceAfterDis = Convert.ToDecimal(string.IsNullOrEmpty(row.Cells["money_dis"].Value + "") ? "0" : row.Cells["money_dis"].Value + "".Replace(",", ""));
+                                SupplieTranInfo.PayByItem = Convert.ToDecimal(string.IsNullOrEmpty(row.Cells["PayByItem"].Value + "") ? "0" : row.Cells["PayByItem"].Value + "");
+                                SupplieTranInfo.ListOrder = row.Cells["ListOrder"].Value + "";
+                                SupplieTranInfo.ByDr = row.Cells["ByDr"].Value + "";
+                                listSupplieTran.Add(SupplieTranInfo);
+                                if (row.Cells["Vat"].Value + "" == "Y")
+                                    info.Vat = "Y";
+                                if (row.Cells["Vat"].Value + "" == "N" || (row.Cells["Vat"].Value + "").Trim() == "")
+                                    info.NonVat = "Y";
+                            }
                         }
                         listCredit = new List<CreditCardSOT>();
                         info.CreditCardSotInfo = listCredit.ToArray();
@@ -3583,7 +3586,7 @@ namespace AryuwatSystem.Forms
                     if (ReceiptBathCurrent > 0)
                     {
                         div = (ReceiptBathCurrent - totalCreditTransfer).ToString("###,###,###,###.##");
-                        lbMoneyError.Visible = true;// MessageBox.Show("ใส่จำนวนเงินไม่ถูกต้อง");
+                        //lbMoneyError.Visible = true;// MessageBox.Show("ใส่จำนวนเงินไม่ถูกต้อง");
                     }
                     else
                     {
@@ -3593,10 +3596,10 @@ namespace AryuwatSystem.Forms
                 }
                 else
                 {
-                    lbMoneyError.Visible = false;
+                    //lbMoneyError.Visible = false;
                 }
                 lbsumList.Text = string.Format("{0} รายการ {1}", row, totalCreditTransfer.ToString("###,###,###,###.##"));
-                lbMoneyError.Text = "จำนวนเงินไม่ถูกต้อง " + div;
+                //lbMoneyError.Text = "จำนวนเงินไม่ถูกต้อง " + div;
                 if (AllCreditTransfer == totaldgvReciept)//==netAmount
                     if (netAmount == AllCreditTransfer)
                         Perfect = true;
