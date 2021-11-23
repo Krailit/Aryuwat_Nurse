@@ -512,6 +512,7 @@ namespace AryuwatSystem.Forms
                 txtDetail.Text = "";
                 txtCLPrice.Text = "";
                 txtInstock.Text = "";
+                txtMinStock.Text = "";
                 //txtCMPrice.Text = "";
                 cboMainUnit.SelectedIndex = 0;
                 //cboEXpire.SelectedIndex =0;
@@ -540,6 +541,7 @@ namespace AryuwatSystem.Forms
                 info.MS_Detail = txtDetail.Text;
                 info.MS_CLPrice = txtCLPrice.Text=="" ? 0 : Convert.ToDouble(txtCLPrice.Text);
                 info.MS_Instock = txtInstock.Text == "" ? 0 : Convert.ToDouble(txtInstock.Text);
+                info.MS_MinimumStock = txtMinStock.Text == "" ? 0 : Convert.ToDouble(txtMinStock.Text);
                 //info.MS_CMPrice = txtCMPrice.Text == "" ? 0 : Convert.ToDouble(txtCMPrice.Text);
                 info.MS_Unit = cboMainUnit.SelectedValue+"";
                 info.MS_SubUnit = cboSubUnit.SelectedValue + "";
@@ -717,6 +719,7 @@ namespace AryuwatSystem.Forms
 
                 txtCLPrice.Text = string.IsNullOrEmpty(dataRow[0]["ราคาเฉลี่ย"] + "") ? "0" : Convert.ToDouble(dataRow[0]["ราคาเฉลี่ย"] + "").ToString("###,###.##");
                 txtInstock.Text = string.IsNullOrEmpty(dataRow[0]["จำนวน"] + "") ? "0" : Convert.ToDouble(dataRow[0]["จำนวน"] + "").ToString("###,###.##");
+                txtMinStock.Text = string.IsNullOrEmpty(dataRow[0]["จำนวนขั้นต่ำ"] + "") ? "0" : Convert.ToDouble(dataRow[0]["จำนวนขั้นต่ำ"] + "").ToString("###,###.##");
                 txtAnountPerMainUnit.Text = string.IsNullOrEmpty(dataRow[0]["AnountPerMainUnit"] + "") ? "0" : Convert.ToDouble(dataRow[0]["AnountPerMainUnit"] + "").ToString("###,###.##");
                 
                 dtpExpDate.Value = string.IsNullOrEmpty(dataRow[0]["วันหมดอายุ"] + "") ? DateTime.Now : Convert.ToDateTime(dataRow[0]["วันหมดอายุ"] + "");
@@ -800,6 +803,7 @@ namespace AryuwatSystem.Forms
                 txtDetail.Text = "";
                 txtCLPrice.Text = "";
                 txtInstock.Text = "";
+                txtMinStock.Text = "";
                 txtAnountPerMainUnit.Text = "";
                 //txtCMPrice.Text = "";
                 cboMainUnit.SelectedIndex = 0;
@@ -987,6 +991,26 @@ namespace AryuwatSystem.Forms
 
         private void FrmMedicalSuppliesStock_Load(object sender, EventArgs e)
         {
+            if (Entity.Userinfo.notiminimum)
+            {
+                //CHECKMINSTOCK
+                var ds = new Business.MedicalSupplies().CheckMinStock();
+                int countcheckminstock = 0;
+                try
+                {
+                    countcheckminstock = Convert.ToInt32(ds.Tables[0].Rows[0][0]);
+                }
+                catch
+                {
+
+                }
+                if (countcheckminstock > 0)
+                {
+                    PopAlertMedicalSuppliesStock popAlertMedicalSuppliesStock = new PopAlertMedicalSuppliesStock();
+                    popAlertMedicalSuppliesStock.ShowDialog();
+                }
+            }
+
             BindMedicalSupplies(1);
         }
 
@@ -1021,9 +1045,5 @@ namespace AryuwatSystem.Forms
                 MessageBox.Show(ex.Message);
             }
         }
-      
-
-        
-
     }
 }

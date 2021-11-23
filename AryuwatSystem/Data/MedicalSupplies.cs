@@ -160,6 +160,7 @@ namespace AryuwatSystem.Data
                                                 new SqlParameter("@MS_CMPrice",info.MS_CMPrice),
                                                 new SqlParameter("@MS_Order",info.MS_Order),
                                                 new SqlParameter("@MS_Instock",info.MS_Instock),
+                                                new SqlParameter("@MS_MinimumStock",info.MS_MinimumStock),
                                                 new SqlParameter("@row_end",info.PageNumber),
                                                 new SqlParameter("@MS_Section",info.MS_Section),
                                                 new SqlParameter("@MS_Number_C",info.Number_C),
@@ -188,7 +189,7 @@ namespace AryuwatSystem.Data
            //var test = JsonConvert.SerializeObject(msSqlParameter);
            return intStatus;
        }
-          public static int? InsertMedicalPA(List<Entity.MedicalSupplies> info, SqlTransaction trn)
+        public static int? InsertMedicalPA(List<Entity.MedicalSupplies> info, SqlTransaction trn)
           {
               int? intStatus=0;
               foreach (Entity.MedicalSupplies c in info)
@@ -319,7 +320,7 @@ namespace AryuwatSystem.Data
                 throw new Exception("An error occurred while executing the Data.SelectMedicalSuppliesBySection", ex);
             }
         }
-       public static DataSet SearchPersonnel(ref Entity.Personnel info, SqlTransaction trn)
+        public static DataSet SearchPersonnel(ref Entity.Personnel info, SqlTransaction trn)
        {
            try
            {
@@ -347,7 +348,7 @@ namespace AryuwatSystem.Data
         /// <param name="info"></param>
         /// <param name="trn"></param>
         /// <returns></returns>
-       public static DataSet GetMedicalSuppliesByMsCodeRef(string msCode, SqlTransaction trn)
+        public static DataSet GetMedicalSuppliesByMsCodeRef(string msCode, SqlTransaction trn)
        {
            try
            {
@@ -365,7 +366,7 @@ namespace AryuwatSystem.Data
            }
        }
 
-       public static DataSet GetPersonnelByUserName( Entity.Personnel info, SqlTransaction trn)
+        public static DataSet GetPersonnelByUserName( Entity.Personnel info, SqlTransaction trn)
        {
            try
            {
@@ -384,9 +385,9 @@ namespace AryuwatSystem.Data
            }
        }
 
-       
+        
 
-       public static DataSet SearchPersonnelByID(ref Entity.Personnel info, SqlTransaction trn)
+        public static DataSet SearchPersonnelByID(ref Entity.Personnel info, SqlTransaction trn)
        {
            try
            {
@@ -403,7 +404,7 @@ namespace AryuwatSystem.Data
                throw new Exception("An error occurred while executing the Data.SearchPersonnel", ex);
            }
        }
-       public static DataSet SelectPersonnelGroup(SqlTransaction trn)
+        public static DataSet SelectPersonnelGroup(SqlTransaction trn)
        {
            try
            {
@@ -415,7 +416,7 @@ namespace AryuwatSystem.Data
                throw new Exception("An error occurred while executing the Data.SelectPersonnelGroup", ex);
            }
        }
-       public static DataSet SelectMedicalSection(SqlTransaction trn)
+        public static DataSet SelectMedicalSection(SqlTransaction trn)
        {
            try
            {
@@ -427,7 +428,7 @@ namespace AryuwatSystem.Data
                throw new Exception("An error occurred while executing the Data.SelectCustomerAll", ex);
            }
        }
-       public static DataSet SelectMedicalSectionStock(SqlTransaction trn)
+        public static DataSet SelectMedicalSectionStock(SqlTransaction trn)
        {
            try
            {
@@ -439,7 +440,7 @@ namespace AryuwatSystem.Data
                throw new Exception("An error occurred while executing the Data.SelectCustomerAll", ex);
            }
        }
-       public static DataSet SelectOperation(SqlTransaction trn)
+        public static DataSet SelectOperation(SqlTransaction trn)
        {
            try
            {
@@ -451,7 +452,7 @@ namespace AryuwatSystem.Data
                throw new Exception("An error occurred while executing the Data.SelectCustomerAll", ex);
            }
        }
-       public static DataSet SelectPurChase(SqlTransaction trn)
+        public static DataSet SelectPurChase(SqlTransaction trn)
        {
            try
            {
@@ -463,7 +464,7 @@ namespace AryuwatSystem.Data
                throw new Exception("An error occurred while executing the Data.SelectCustomerAll", ex);
            }
        }
-       public static DataSet SelectCourseDuration(SqlTransaction trn)
+        public static DataSet SelectCourseDuration(SqlTransaction trn)
        {
            try
            {
@@ -475,7 +476,7 @@ namespace AryuwatSystem.Data
                throw new Exception("An error occurred while executing the Data.SelectCustomerAll", ex);
            }
        }
-       public static DataSet SelectUnit(SqlTransaction trn)
+        public static DataSet SelectUnit(SqlTransaction trn)
        {
            try
            {
@@ -487,7 +488,7 @@ namespace AryuwatSystem.Data
                throw new Exception("An error occurred while executing the Data.SelectCustomerAll", ex);
            }
        }
-       public static int? DeleteSupplies(string code, SqlTransaction trn)
+        public static int? DeleteSupplies(string code, SqlTransaction trn)
        {
            StringBuilder sb = new StringBuilder();
            sb.Append(" delete from [MedicalSupplies] where MS_Code = @MS_Code \n");
@@ -506,7 +507,7 @@ namespace AryuwatSystem.Data
                throw ex;
            }
        }
-       public static int? DeleteSuppliesStock(string code, SqlTransaction trn)
+        public static int? DeleteSuppliesStock(string code, SqlTransaction trn)
        {
            StringBuilder sb = new StringBuilder();
            sb.Append(" delete from [MedicalSuppliesStock] where id = @id \n");
@@ -525,8 +526,8 @@ namespace AryuwatSystem.Data
                throw ex;
            }
        }
-        //=============BOM=====================
-       public static int? DELETEBOMMaterial(string code,string BranchID, SqlTransaction trn)
+         //=============BOM=====================
+        public static int? DELETEBOMMaterial(string code,string BranchID, SqlTransaction trn)
        {
          
            try
@@ -547,8 +548,8 @@ namespace AryuwatSystem.Data
            }
        }
 
-     //=======================BOM=====================
-       public static DataSet CheckCode(string code, SqlTransaction trn)
+     // =======================BOM=====================
+        public static DataSet CheckCode(string code, SqlTransaction trn)
        {
            StringBuilder sb = new StringBuilder();
            sb.Append(" select [MS_Code] FROM [MedicalSupplies] where MS_Code = @code \n");
@@ -566,7 +567,7 @@ namespace AryuwatSystem.Data
                throw ex;
            }
        }
-       public static DataSet CheckCodeStock(string code, string BranchID, SqlTransaction trn)
+        public static DataSet CheckCodeStock(string code, string BranchID, SqlTransaction trn)
        {
            StringBuilder sb = new StringBuilder();
            //sb.Append(" select [MS_Code] FROM [MedicalSuppliesStock] where MS_Code = @code and BranchID=@BranchID \n");
@@ -587,7 +588,7 @@ namespace AryuwatSystem.Data
            }
 
        }
-       public static DataSet CheckProCode(string code, SqlTransaction trn)
+        public static DataSet CheckProCode(string code, SqlTransaction trn)
        {
            StringBuilder sb = new StringBuilder();
            sb.Append(" select Pro_Code FROM [Promotion] where Pro_Code = @code \n");
@@ -605,7 +606,7 @@ namespace AryuwatSystem.Data
                throw ex;
            }
        }
-       public static DataSet CheckMOCode(string code,bool checkMO, SqlTransaction trn)
+        public static DataSet CheckMOCode(string code,bool checkMO, SqlTransaction trn)
        {
            StringBuilder sb = new StringBuilder();
            if (checkMO)
@@ -630,8 +631,8 @@ namespace AryuwatSystem.Data
                throw ex;
            }
        }
-
-       internal static int? InsertBOMMaterial(ref Entity.MedicalSupplies info, SqlTransaction trn)
+         
+        internal static int? InsertBOMMaterial(ref Entity.MedicalSupplies info, SqlTransaction trn)
        {
            try
            {
@@ -659,7 +660,39 @@ namespace AryuwatSystem.Data
                throw ex;
            }
        }
+
+        public static DataSet CheckMinStock(Entity.MedicalSupplies info, SqlTransaction trn)
+        {
+           try
+           {
+               SqlParameter[] msSqlParameter = {
+                                                new SqlParameter("@QueryType", "CHECKMINSTOCK"),
+                                                new SqlParameter("@BranchID", info.BranchID)
+               };
+               DataSet ds = SqlHelper.ExecuteDataset(trn, CommandType.StoredProcedure, "sp_MedicalSupplies", msSqlParameter);
+               return ds;
+           }
+           catch (Exception ex)
+           {
+               throw new Exception("An error occurred while executing the Data.sp_MedicalSupplies.CheckMinStock", ex);
+           }
+        }
+
+        public static DataSet SelectMinStock(Entity.MedicalSupplies info, SqlTransaction trn)
+        {
+           try
+           {
+               SqlParameter[] msSqlParameter = {
+                                                new SqlParameter("@QueryType", "SELECTMINSTOCK"),
+                                                new SqlParameter("@BranchID", info.BranchID)
+               };
+                DataSet ds = SqlHelper.ExecuteDataset(trn, CommandType.StoredProcedure, "sp_MedicalSupplies", msSqlParameter);
+               return ds;
+           }
+           catch (Exception ex)
+           {
+               throw new Exception("An error occurred while executing the Data.sp_MedicalSupplies.CheckMinStock", ex);
+           }
+        }
     }
-
-
 }

@@ -1442,13 +1442,13 @@ namespace AryuwatSystem.Forms
         }
         private void PrintBillNoVatINV(int type)
         {
+            List<DataTable> tables = new List<DataTable>();
             try
             {
                 FrmPreviewRpt2Page obj = new FrmPreviewRpt2Page();
                 DataRow dr;
                 DataTable dtTmp = new DataTable();
                 DataTable dtClone = new DataTable();
-                List<DataTable> tables = new List<DataTable>();
                 string InvNo = "";
                 double dblCredit = 0.00;
                 double dblCash = 0.00;

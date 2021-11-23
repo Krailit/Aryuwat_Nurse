@@ -14,7 +14,6 @@
         <EntityTypeShape EntityType="ModelOPD_System.Master_Room" Width="1.5" PointX="0.75" PointY="6.75" />
         <EntityTypeShape EntityType="ModelOPD_System.MedicalOrder" Width="1.5" PointX="6.75" PointY="4.75" />
         <EntityTypeShape EntityType="ModelOPD_System.MedicalSupply" Width="1.5" PointX="8.75" PointY="0.75" />
-        <EntityTypeShape EntityType="ModelOPD_System.MedicalSuppliesStock" Width="1.5" PointX="8.75" PointY="7.75" />
         <EntityTypeShape EntityType="ModelOPD_System.MemberTran" Width="1.5" PointX="10.75" PointY="0.75" />
         <EntityTypeShape EntityType="ModelOPD_System.Menu" Width="1.5" PointX="10.75" PointY="3.75" />
         <EntityTypeShape EntityType="ModelOPD_System.PatientChange" Width="1.5" PointX="10.75" PointY="6.75" />
@@ -54,7 +53,7 @@
         <EntityTypeShape EntityType="ModelOPD_System.GiftVoucher" Width="1.5" PointX="18.75" PointY="21.75" />
         <EntityTypeShape EntityType="ModelOPD_System.InvoiceTran" Width="1.5" PointX="0.75" PointY="22.75" />
         <EntityTypeShape EntityType="ModelOPD_System.JobsAlert" Width="1.5" PointX="22.75" PointY="5.75" />
-        <EntityTypeShape EntityType="ModelOPD_System.MedicalOrder_18_03_2019" Width="1.5" PointX="22.75" PointY="10.75" />
+        <EntityTypeShape EntityType="ModelOPD_System.MedicalOrder_18_03_2019" Width="1.25" PointX="22.75" PointY="10.875" />
         <EntityTypeShape EntityType="ModelOPD_System.MedicalOrderDoc" Width="1.5" PointX="12.75" PointY="22.75" />
         <EntityTypeShape EntityType="ModelOPD_System.MedicalOrderFileScanCustomer" Width="1.5" PointX="22.75" PointY="17.75" />
         <EntityTypeShape EntityType="ModelOPD_System.MedicalOrderFileScanDoctor" Width="1.5" PointX="22.75" PointY="21.75" />
@@ -107,6 +106,7 @@
         <EntityTypeShape EntityType="ModelOPD_System.V_Administrative" Width="1.5" PointX="32.75" PointY="0.75" />
         <EntityTypeShape EntityType="ModelOPD_System.View_Customer" Width="1.5" PointX="32.75" PointY="4.75" />
         <EntityTypeShape EntityType="ModelOPD_System.vProductToSOMO" Width="1.5" PointX="8.75" PointY="32.75" />
+        <EntityTypeShape EntityType="ModelOPD_System.MedicalSuppliesStock" Width="1.5" PointX="11.375" PointY="32.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -31,6 +31,7 @@ namespace Entity
         public double? MS_PROPrice { get; set; }
         public int? MS_Order { get; set; }
         public double? MS_Instock { get; set; }
+        public double? MS_MinimumStock { get; set; }
         public int PageNumber { get; set; }
         public string MS_Code_Ref { get; set; }
         public double? FeeRate { get; set; }

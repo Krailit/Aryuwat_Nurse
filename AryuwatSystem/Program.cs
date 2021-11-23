@@ -87,44 +87,45 @@ namespace AryuwatSystem
 
             try
             {
-                 //UrlCheckUpdateVersion= ConfigurationManager.AppSettings["UrlCheckUpdateVersion"];
-                 //UrlDownLoadUpdateVersion = ConfigurationManager.AppSettings["UrlDownLoadUpdateVersion"];
+                //UrlCheckUpdateVersion= ConfigurationManager.AppSettings["UrlCheckUpdateVersion"];
+                //UrlDownLoadUpdateVersion = ConfigurationManager.AppSettings["UrlDownLoadUpdateVersion"];
 
-               // if (CheckUpdateVersion())
-               ////if (false)
-               // {
-               //     try
-               //     {
-               //         SetPermissions(Application.StartupPath);
-               //     }
-               //     catch (Exception ex)
-               //     {
-               //     }
-               //     string tbUNCPath = Properties.Settings.Default.ImagePathServer;
-               //     tbUNCPath = EncryptDecrypText.decryptPassword(tbUNCPath);
-               //     string tbUserName = Properties.Settings.Default.UserImagePathServer;
-               //     tbUserName = EncryptDecrypText.decryptPassword(tbUserName);
-               //     //string tbDomain = "";// Properties.Settings.Default.PassImagePathServer;
-               //     string tbPassword = Properties.Settings.Default.PassImagePathServer;
-               //     tbPassword = EncryptDecrypText.decryptPassword(tbPassword);
-               //     //string EncrytptbtbUNCPath = EncryptDecrypText.encryptPassword(tbUNCPath);
-               //     //string EncrytptbUserName = EncryptDecrypText.encryptPassword(tbUserName);
-               //     //string EncrytptbPassword = EncryptDecrypText.encryptPassword(tbPassword);
-               //     //Entity.Userinfo.Server = tbUNCPath;
-               //     //Entity.Userinfo.ServerUser = tbUserName;
-               //     //Entity.Userinfo.ServerPass = tbPassword;
+                // if (CheckUpdateVersion())
+                ////if (false)
+                // {
+                //     try
+                //     {
+                //         SetPermissions(Application.StartupPath);
+                //     }
+                //     catch (Exception ex)
+                //     {
+                //     }
+                //     string tbUNCPath = Properties.Settings.Default.ImagePathServer;
+                //     tbUNCPath = EncryptDecrypText.decryptPassword(tbUNCPath);
+                //     string tbUserName = Properties.Settings.Default.UserImagePathServer;
+                //     tbUserName = EncryptDecrypText.decryptPassword(tbUserName);
+                //     //string tbDomain = "";// Properties.Settings.Default.PassImagePathServer;
+                //     string tbPassword = Properties.Settings.Default.PassImagePathServer;
+                //     tbPassword = EncryptDecrypText.decryptPassword(tbPassword);
+                //     //string EncrytptbtbUNCPath = EncryptDecrypText.encryptPassword(tbUNCPath);
+                //     //string EncrytptbUserName = EncryptDecrypText.encryptPassword(tbUserName);
+                //     //string EncrytptbPassword = EncryptDecrypText.encryptPassword(tbPassword);
+                //     //Entity.Userinfo.Server = tbUNCPath;
+                //     //Entity.Userinfo.ServerUser = tbUserName;
+                //     //Entity.Userinfo.ServerPass = tbPassword;
 
-               //     string FtpServer = tbUNCPath;// Entity.Userinfo.Server;//Properties.Settings.Default.ImagePathServer;
-               //     string FtpUser = tbUserName;// Entity.Userinfo.ServerUser;// Properties.Settings.Default.UserImagePathServer;
-               //     string FtpPass = tbPassword;// Entity.Userinfo.ServerPass;//Properties.Settings.Default.PassImagePathServer;
+                //     string FtpServer = tbUNCPath;// Entity.Userinfo.Server;//Properties.Settings.Default.ImagePathServer;
+                //     string FtpUser = tbUserName;// Entity.Userinfo.ServerUser;// Properties.Settings.Default.UserImagePathServer;
+                //     string FtpPass = tbPassword;// Entity.Userinfo.ServerPass;//Properties.Settings.Default.PassImagePathServer;
 
-               //     Process.Start(Application.StartupPath + @"\Clients.AutoUpdate.exe", string.Format("{0}|{1}|{2}", FtpServer, FtpUser, FtpPass));
-               //     Application.Exit();
-               //     //Statics.frmMain = new FrmMain();
-               //     //Application.Run(Statics.frmMain); 
-               // }
-               // else
-               // {
+                //     Process.Start(Application.StartupPath + @"\Clients.AutoUpdate.exe", string.Format("{0}|{1}|{2}", FtpServer, FtpUser, FtpPass));
+                //     Application.Exit();
+                //     //Statics.frmMain = new FrmMain();
+                //     //Application.Run(Statics.frmMain); 
+                // }
+                // else
+                // {
+                    Entity.Userinfo.notiminimum = true;
                     Statics.frmMain = new FrmMain();
                     Application.Run(Statics.frmMain); 
                 //}

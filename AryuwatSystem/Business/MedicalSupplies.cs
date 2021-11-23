@@ -894,5 +894,57 @@ namespace AryuwatSystem.Business
                    "An error occurred while executing the Bussiness.SupplieTrans.DeleteSupplies", ex);
            }
        }
+
+        public DataSet CheckMinStock()
+        {
+            var conn = new SqlConnection(DataObject.ConnectionString);
+            conn.Open();
+            var trn = conn.BeginTransaction();
+            try
+            {
+                Entity.MedicalSupplies info = new Entity.MedicalSupplies();
+                if(Entity.Userinfo.UserGroup != "1")
+                    info.BranchID = Entity.Userinfo.BranchAuth.Substring(0, Entity.Userinfo.BranchAuth.Length - 1);
+                DataSet ds = Data.MedicalSupplies.CheckMinStock(info ,trn);
+                trn.Commit();
+                conn.Close();
+                return ds;
+            }
+            catch (AppException)
+            {
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw new AppException(
+                    "An error occurred while executing the Bussiness.SelectMedicalSuppliesBySection", ex);
+            }
+        }
+
+        public DataSet SelectMinStock()
+        {
+            var conn = new SqlConnection(DataObject.ConnectionString);
+            conn.Open();
+            var trn = conn.BeginTransaction();
+            try
+            {
+                Entity.MedicalSupplies info = new Entity.MedicalSupplies();
+                if(Entity.Userinfo.UserGroup != "1")
+                    info.BranchID = Entity.Userinfo.BranchAuth.Substring(0, Entity.Userinfo.BranchAuth.Length - 1);
+                DataSet ds = Data.MedicalSupplies.SelectMinStock(info, trn);
+                trn.Commit();
+                conn.Close();
+                return ds;
+            }
+            catch (AppException)
+            {
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw new AppException(
+                    "An error occurred while executing the Bussiness.SelectMedicalSuppliesBySection", ex);
+            }
+        }
     }
 }

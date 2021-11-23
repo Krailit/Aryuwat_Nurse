@@ -160,5 +160,6 @@ namespace Entity
        public static string Server { get; set; }
        public static string ServerUser { get; set; }
        public static string ServerPass { get; set; }
-   }
+       public static bool notiminimum { get; set; }
+    }
 }

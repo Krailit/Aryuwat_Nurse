@@ -19,9 +19,8 @@ namespace AryuwatSystem.Forms
         public FrmLogin()
         {
             InitializeComponent();
-            txtUsername.Text = "admin";
-            txtPassWord.Text = "1234";
-
+            //txtUsername.Text = "admin";
+            //txtPassWord.Text = "1234";
         }
 
         private void cmdLogin_MouseLeave(object sender, EventArgs e)
@@ -117,8 +116,6 @@ namespace AryuwatSystem.Forms
                         Entity.Userinfo.FIX_VOUCHEROK = (dr["values"] + "").ToUpper();
                     if (dr["ConFName"] + "".ToUpper() == "IS_ADMIN_EDIT")
                         Entity.Userinfo.IS_ADMIN_EDIT = (dr["values"] + "").ToUpper();
-                    
-                    
                 }
             }
             catch (Exception ex)
@@ -179,13 +176,31 @@ namespace AryuwatSystem.Forms
                         Entity.Userinfo.BranchId = dr["BranchId"].ToString().Trim();
                         Entity.Userinfo.BranchAuth = dr["BranchAuth"].ToString();
                         Entity.Userinfo.PersonnelType = dr["PersonnelType"].ToString();
-                       
                     }
                     getConfig();
                     getUnit();
                     getMoConfig();
                     Entity.Userinfo.Login = true;
                     //GetLocalIPAddress();
+                    if (Entity.Userinfo.notiminimum)
+                    {
+                        //CHECKMINSTOCK
+                        var ds = new Business.MedicalSupplies().CheckMinStock();
+                        int countcheckminstock = 0;
+                        try
+                        {
+                            countcheckminstock = Convert.ToInt32(ds.Tables[0].Rows[0][0]);
+                        }
+                        catch
+                        {
+
+                        }
+                        if (countcheckminstock > 0)
+                        {
+                            PopAlertMedicalSuppliesStock popAlertMedicalSuppliesStock = new PopAlertMedicalSuppliesStock();
+                            popAlertMedicalSuppliesStock.ShowDialog();
+                        }
+                    }
                     Close();
 
                 }
