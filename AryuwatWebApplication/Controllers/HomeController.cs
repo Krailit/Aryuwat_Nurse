@@ -628,6 +628,7 @@ namespace AryuwatWebApplication.Controllers
                 string username = HttpContext.Request.Cookies.Get("OPD")["Username"];
                 dynamic jsonData = JsonConvert.DeserializeObject(tmpData);
                 string pDate = Convert.ToString(jsonData["Date"]);
+                var pDatetxt = jsonData["Datetxt"];
                 string pHour = Convert.ToString(jsonData["Hour"]);
                 string pMinute = Convert.ToString(jsonData["Minute"]);
                 string pT = Convert.ToString(jsonData["T"]);
@@ -642,7 +643,8 @@ namespace AryuwatWebApplication.Controllers
                 string pOut_Urine = Convert.ToString(jsonData["Out_Urine"]);
                 using (var context = new OPD_SystemEntities())
                 {
-                    DateTime dateparse = DateTime.ParseExact(pDate, "MMM dd, yyyy", cultureinfo);
+                    DateTime dateparse = Convert.ToDateTime(pDatetxt);
+                    //DateTime dateparse = DateTime.ParseExact(pDate, "MMM dd, yyyy", cultureinfo);
                     var chkdata = context.PatientDatas.Where(x => x.FK_Customer_ID == tmpCustomerID && x.Date == dateparse && x.Time == pHour+":"+pMinute && x.Is_Active == true).ToList();
                     foreach(var items in chkdata)
                     {

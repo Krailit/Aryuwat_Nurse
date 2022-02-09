@@ -1311,6 +1311,7 @@
                 var that = this;
                 var conf = confirm("ยืนยันการบันทึก [ใช่หรือไม่]");
                 if (conf === true) {
+                    that.popPatientData.Datetxt = that.popPatientData.Date.getFullYear() + '/' + (that.popPatientData.Date.getMonth() + 1) + '/' + that.popPatientData.Date.getDate();
                     that.$http.post('@Url.Action("UpdateDataPatient", "Home")', {
                         tmpData: JSON.stringify(that.popPatientData),
                         tmpCustomerID: that.tmpCustomer.ID
