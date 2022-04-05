@@ -1335,30 +1335,30 @@
                         await that.asyncCall();
                         await that.asyncCall2();
 
-                    //    chart1.update({
-                    //        series: [
-                    //            {
-                    //                name: 'Temp',
-                    //                type: 'spline',
-                    //                color: '#4286f5',
-                    //                yAxis: 0,
-                    //                marker: {
-                    //                    enabled: false
-                    //                },
-                    //                dashStyle: 'shortdot',
-                    //                tooltip: {
-                    //                    valueSuffix: ' °C'
-                    //                },
-                    //                data: that.datatemp,
-                    //            },
-                    //            {
-                    //                name: 'Pulse',
-                    //                color: '#f92222',
-                    //                yAxis: 1,
-                    //                data: that.datatemp2
-                    //            }
-                    //        ]
-                    //    });
+                        chart1.update({
+                            series: [
+                                {
+                                    name: 'Temp',
+                                    type: 'spline',
+                                    color: '#4286f5',
+                                    yAxis: 0,
+                                    marker: {
+                                        enabled: false
+                                    },
+                                    dashStyle: 'shortdot',
+                                    tooltip: {
+                                        valueSuffix: ' °C'
+                                    },
+                                    data: that.datatemp,
+                                },
+                                {
+                                    name: 'Pulse',
+                                    color: '#f92222',
+                                    yAxis: 1,
+                                    data: that.datatemp2
+                                }
+                            ]
+                        });
 
                         that.templatechart.series[0] = {
                             name: 'Temp',
