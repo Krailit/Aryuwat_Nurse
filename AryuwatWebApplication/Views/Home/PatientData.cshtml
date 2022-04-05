@@ -287,7 +287,100 @@
     const app = new Vue({
         el: "#app",
         data: {
-            tmpCustomer : @Html.Raw(Json.Encode(@Model.data)),
+            tmpCustomer: @Html.Raw(Json.Encode(@Model.data)),
+            templatechart: {
+                chart: {
+                    type: 'line'
+                },
+                title: {
+                    text: 'Temperature and Pulse'
+                },
+                xAxis: {
+                    type: 'datetime',
+                },
+                yAxis: [{
+                    gridLineWidth: 0,
+                    min: 35,
+                    max: 41,
+                    floor: 35,
+                    ceiling: 41,
+                    softMax: 41,
+                    softMin: 35,
+                    tickAmount: 7,
+                    plotLines: [{
+                        color: 'red',
+                        value: '37.5',
+                        width: '1'
+                    }],
+                    labels: {
+                        format: '{value}°C',
+                        style: {
+                            color: "#4286f5"
+                        }
+                    },
+                    title: {
+                        text: 'Temperature (&#8451;)',
+                        style: {
+                            color: "#4286f5"
+                        }
+                    },
+                    opposite: false
+                }, {
+                    gridLineWidth: 0,
+                    min: 45,
+                    max: 120,
+                    floor: 45,
+                    ceiling: 120,
+                    softMin: 45,
+                    softMax: 120,
+                    tickAmount: 10,
+                    labels: {
+                        format: '{value}',
+                        style: {
+                            color: "#f92222"
+                        }
+                    },
+                    title: {
+                        text: 'Pulse',
+                        style: {
+                            color: "#f92222"
+                        }
+                    },
+                    opposite: false
+                }],
+                tooltip: {
+                    shared: true
+                    //formatter: function () {
+                    //    var s = '<b>' + Highcharts.dateFormat('%b-%e', this.x) + ' ' + Highcharts.dateFormat('%H:%M', this.points[0].point.x) + '</b><br/>';
+                    //    s += 'Data: ' + this.points[0].point.y + '<br/>';
+                    //    return s;
+                    //},
+                    //crosshairs: true,
+                    //shared: true
+                },
+                series: [
+                    {
+                        name: 'Temp',
+                        type: 'spline',
+                        color: '#4286f5',
+                        yAxis: 0,
+                        data: [],
+                        marker: {
+                            enabled: false
+                        },
+                        dashStyle: 'shortdot',
+                        tooltip: {
+                            valueSuffix: ' °C'
+                        }
+                    },
+                    {
+                        name: 'Pulse',
+                        color: '#f92222',
+                        yAxis: 1,
+                        data: []
+                    }
+                ]
+            },
             tempchart: [],
             tempchart2: [],
             datatemp: [],
@@ -919,10 +1012,12 @@
                 this.onRefresh();
             },
             'ToDateSearch'() {
+                console.log(this.ToDateSearch);
                 this.onFilterSet();
                 this.PatientChartData();
             },
             'EndDateSearch'() {
+                console.log(this.EndDateSearch);
                 this.onFilterSet();
                 this.PatientChartData();
             },
@@ -957,8 +1052,8 @@
             onFilterSet: async function () {
                 var that = this;
                 that.appendParams.filter1 = this.tmpCustomer.ID;
-                that.appendParams.filter2 = this.ToDateSearch;
-                that.appendParams.filter3 = this.EndDateSearch;
+                that.appendParams.filter2 = !this.ToDateSearch ? null : typeof this.ToDateSearch == 'string' ? this.ToDateSearch : this.ToDateSearch.getFullYear() + "/" + (this.ToDateSearch.getMonth() + 1) + "/" + this.ToDateSearch.getDate();
+                that.appendParams.filter3 = !this.EndDateSearch ? null : typeof this.EndDateSearch == 'string' ? this.EndDateSearch : this.EndDateSearch.getFullYear() + "/" + (this.EndDateSearch.getMonth() + 1) + "/" + this.EndDateSearch.getDate();
                 that.appendParams.filter4 = this.Search;
                 Vue.nextTick(function () { that.$refs.vuetable.refresh() })
             },
@@ -981,6 +1076,24 @@
                     if (this.tempchart[temp][1] != 0) {
                         await this.datatemp.push([Date.UTC(d.getFullYear(), d.getMonth(), d.getDate(), d.getHours(), d.getMinutes()), this.tempchart[temp][1] == 0 ? null : this.tempchart[temp][1]]);
                     }
+
+                    //this.datatemp.push([null, null]);
+                //    await this.datatemp.push([Date.UTC(2022,2,1, 12, 0), 34.5]);
+                //    await this.datatemp.push([Date.UTC(2022,4,2, 12, 0), 37.5]);
+                //    await this.datatemp.push([Date.UTC(2022,4,3, 12, 0), 34.5]);
+                //    await this.datatemp.push([Date.UTC(2022,4,4, 12, 0), 37.5]);
+                //    await this.datatemp.push([Date.UTC(2022,4,5, 12, 0), 34.5]);
+
+                //'[[1649138400000,36.6],[1649138400000,36.6],[1649138400000,36.6],[1649138400000,36.6],[1649152800000,37],[1649152800000,37],[1649152800000,37],[1649152800000,37],[1649052000000,36.7]]'
+                //    await this.datatemp.push([1649138400000, 36.6]);
+                //    await this.datatemp.push([1649138400000, 36.6]);
+                //    await this.datatemp.push([1649138400000, 36.6]);
+                //    await this.datatemp.push([1649138400000, 36.6]);
+                //    await this.datatemp.push([1649152800000, 37]);
+                //    await this.datatemp.push([1649152800000, 37]);
+                //    await this.datatemp.push([1649152800000, 37]);
+                //    await this.datatemp.push([1649152800000, 37]);
+                //    await this.datatemp.push([1649052000000, 36.7]);
                 }
             },
             asyncCall2: async function () {
@@ -991,6 +1104,23 @@
                     if (this.tempchart2[temp][1] != 0) {
                         await this.datatemp2.push([Date.UTC(d.getFullYear(), d.getMonth(), d.getDate(), d.getHours(), d.getMinutes()), this.tempchart2[temp][1] == 0 ? null : this.tempchart2[temp][1]]);
                     }
+                    //this.datatemp2.push([null, null]);
+                    //await this.datatemp2.push([Date.UTC(2022, 2, 1, 12, 0), 70]);
+                    //await this.datatemp2.push([Date.UTC(2022, 4, 2, 12, 0), 80]);
+                    //await this.datatemp2.push([Date.UTC(2022, 4, 3, 12, 0), 70]);
+                    //await this.datatemp2.push([Date.UTC(2022, 4, 4, 12, 0), 90]);
+                    //await this.datatemp2.push([Date.UTC(2022, 4, 5, 12, 0), 80]);
+
+                    //'[[1649138400000,70],[1649138400000,70],[1649138400000,70],[1649138400000,70],[1649152800000,96],[1649152800000,96],[1649152800000,96],[1649152800000,96],[1649052000000,76]]'
+                //    await this.datatemp2.push([1649138400000, 70]);
+                //    await this.datatemp2.push([1649138400000, 70]);
+                //    await this.datatemp2.push([1649138400000, 70]);
+                //    await this.datatemp2.push([1649138400000, 70]);
+                //    await this.datatemp2.push([1649152800000, 96]);
+                //    await this.datatemp2.push([1649152800000, 96]);
+                //    await this.datatemp2.push([1649152800000, 96]);
+                //    await this.datatemp2.push([1649152800000, 96]);
+                //    await this.datatemp2.push([1649052000000, 76]);
                 }
             },
             openPopup: async function (dataItem) {
@@ -1045,8 +1175,8 @@
                 that.showLoad = true;
                 var temp = {
                     tmpCustomerID : this.tmpCustomer.ID,
-                    ToDateSearch : this.ToDateSearch,
-                    EndDateSearch : this.EndDateSearch,
+                    ToDateSearch: !this.ToDateSearch ? null : typeof this.ToDateSearch == 'string' ? this.ToDateSearch : this.ToDateSearch.getFullYear() + "/" + (this.ToDateSearch.getMonth() + 1) + "/" + this.ToDateSearch.getDate(),
+                    EndDateSearch: !this.EndDateSearch ? null : typeof this.EndDateSearch == 'string' ? this.EndDateSearch : this.EndDateSearch.getFullYear() + "/" + (this.EndDateSearch.getMonth() + 1) + "/" + this.EndDateSearch.getDate(),
                     Search: this.Search,
                     PatientName: this.tmpCustomer.Patient_Name,
                     PatientRoom: (this.tmpCustomer.Room == null ? '' : this.tmpCustomer.Room),
@@ -1182,8 +1312,8 @@
                 that.showLoad = true;
                 var temp = {
                     tmpCustomerID: this.tmpCustomer.ID,
-                    ToDateSearch: this.ToDateSearch,
-                    EndDateSearch: this.EndDateSearch,
+                    ToDateSearch: !this.ToDateSearch ? null : typeof this.ToDateSearch == 'string' ? this.ToDateSearch : this.ToDateSearch.getFullYear() + "/" + (this.ToDateSearch.getMonth() + 1) + "/" + this.ToDateSearch.getDate(),
+                    EndDateSearch: !this.EndDateSearch ? null : typeof this.EndDateSearch == 'string' ? this.EndDateSearch : this.EndDateSearch.getFullYear() + "/" + (this.EndDateSearch.getMonth() + 1) + "/" + this.EndDateSearch.getDate(),
                     Search: this.Search,
                     PatientName: this.tmpCustomer.Patient_Name,
                     PatientRoom: (this.tmpCustomer.Room == null ? '' : this.tmpCustomer.Room),
@@ -1193,115 +1323,64 @@
                     .then(async function (response) {
                     if (response.data.ContentEncoding == 200)
                     {
+                        that.datatemp = [];
+                        that.datatemp2 = [];
+                        var chart1 = new Highcharts.Chart('chart', that.templatechart);
+
+                        for (var i = 0; i < that.templatechart.series.length; i++) {
+                            that.templatechart.series[i] = null;
+                        }
                         that.tempchart = response.data.data.chart;
                         that.tempchart2 = response.data.data.chart2;
                         await that.asyncCall();
                         await that.asyncCall2();
 
-                        var chart1 = new Highcharts.Chart('chart', {
-                            chart: {
-                                type: 'line'
-                            },
-                            title: {
-                                text: 'Temperature and Pulse'
-                            },
-                            xAxis: {
-                                type: 'datetime',
-                            },
-                            yAxis: [{
-                                gridLineWidth: 0,
-                                min: 35,
-                                max: 41,
-                                floor: 35,
-                                ceiling: 41,
-                                softMax: 41,
-                                softMin: 35,
-                                tickAmount: 7,
-                                plotLines: [{
-                                    color: 'red',
-                                    value: '37.5',
-                                    width: '1'
-                                }],
-                                labels: {
-                                    format: '{value}°C',
-                                    style: {
-                                        color: "#4286f5"
-                                    }
-                                },
-                                title: {
-                                    text: 'Temperature (&#8451;)',
-                                    style: {
-                                        color: "#4286f5"
-                                    }
-                                },
-                                opposite: false
-                            }, {
-                                gridLineWidth: 0,
-                                min: 45,
-                                max: 120,
-                                floor: 45,
-                                ceiling: 120,
-                                softMin: 45,
-                                softMax: 120,
-                                tickAmount: 10,
-                                labels: {
-                                    format: '{value}',
-                                    style: {
-                                        color: "#f92222"
-                                    }
-                                },
-                                title: {
-                                    text: 'Pulse',
-                                    style: {
-                                        color: "#f92222"
-                                    }
-                                },
-                                opposite: false
-                            }],
-                            tooltip: {
-                                shared: true
-                                //formatter: function () {
-                                //    var s = '<b>' + Highcharts.dateFormat('%b-%e', this.x) + ' ' + Highcharts.dateFormat('%H:%M', this.points[0].point.x) + '</b><br/>';
-                                //    s += 'Data: ' + this.points[0].point.y + '<br/>';
-                                //    return s;
-                                //},
-                                //crosshairs: true,
-                                //shared: true
-                            },
-                            series: [
-                                {
-                                    name: 'Temp',
-                                    type: 'spline',
-                                    color: '#4286f5',
-                                    yAxis: 0,
-                                    data: that.datatemp,
-                                    marker: {
-                                        enabled: false
-                                    },
-                                    dashStyle: 'shortdot',
-                                    tooltip: {
-                                        valueSuffix: ' °C'
-                                    }
-                                },
-                                {
-                                    name: 'Pulse',
-                                    color: '#f92222',
-                                    yAxis: 1,
-                                    data: that.datatemp2
-                                }
-                            ]
-                        });
+                    //    chart1.update({
+                    //        series: [
+                    //            {
+                    //                name: 'Temp',
+                    //                type: 'spline',
+                    //                color: '#4286f5',
+                    //                yAxis: 0,
+                    //                marker: {
+                    //                    enabled: false
+                    //                },
+                    //                dashStyle: 'shortdot',
+                    //                tooltip: {
+                    //                    valueSuffix: ' °C'
+                    //                },
+                    //                data: that.datatemp,
+                    //            },
+                    //            {
+                    //                name: 'Pulse',
+                    //                color: '#f92222',
+                    //                yAxis: 1,
+                    //                data: that.datatemp2
+                    //            }
+                    //        ]
+                    //    });
 
-                        chart1.update({
-                            series: [
-                                {
-                                    data: that.datatemp,
-                                },
-                                {
-                                    data: that.datatemp2
-                                }
-                            ]
-                        });
+                        that.templatechart.series[0] = {
+                            name: 'Temp',
+                            type: 'spline',
+                            color: '#4286f5',
+                            yAxis: 0,
+                            marker: {
+                                enabled: false
+                            },
+                            dashStyle: 'shortdot',
+                            tooltip: {
+                                valueSuffix: ' °C'
+                            },
+                            data: that.datatemp
+                        };
+
+                        that.templatechart.series[1] = {
+                            name: 'Pulse',
+                            color: '#f92222',
+                            yAxis: 1,
+                            data: that.datatemp2
+                        };
                     }
                 }).finally(function (response) {
                     that.showLoad = false;

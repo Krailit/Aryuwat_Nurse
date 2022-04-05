@@ -427,7 +427,7 @@ namespace AryuwatWebApplication.Controllers
                         //var test = context.PatientDatas.Where(x => x.FK_Customer_ID == tmpCustomerID && x.Is_Active == true).ToList();
                         var ConToDate = Convert.ToDateTime(ToDate);
                         var ConEndDate = Convert.ToDateTime(EndDate);
-                        var result = context.PatientDatas.Where(x => x.FK_Customer_ID == tmpCustomerID && x.Is_Active == true && (x.Date >= ConToDate && x.Date <= ConEndDate)).ToList();
+                        var result = context.PatientDatas.Where(x => x.FK_Customer_ID == tmpCustomerID && x.Is_Active == true && (x.Date >= ConToDate.Date && x.Date <= ConEndDate.Date)).ToList();
                         return Json(new { ContentEncoding = 200, data = result });
                     }
                     return Json(new { ContentEncoding = 400 });
@@ -2521,7 +2521,7 @@ namespace AryuwatWebApplication.Controllers
 
                         List<object> TempT = new List<object>();
                         List<object> TempBP = new List<object>();
-                        var FetchData = context.PatientDatas.Where(x => x.Date >= ConToDate && x.Date <= ConEndDate && x.FK_Customer_ID == tmpCustomerID && x.Is_Active == true).OrderBy(x => x.Date).ThenBy(x => x.Time).ToList();
+                        var FetchData = context.PatientDatas.Where(x => x.Date >= ConToDate.Date && x.Date <= ConEndDate.Date && x.FK_Customer_ID == tmpCustomerID && x.Is_Active == true).OrderBy(x => x.Date).ThenBy(x => x.Time).ToList();
 
                         foreach (var items in FetchData)
                         {
@@ -2683,11 +2683,11 @@ namespace AryuwatWebApplication.Controllers
                         res = (from a in context.PatientDatas
                                where ((a.Time ?? "").Contains(search) || (a.BP ?? "").Contains(search) || (a.In_Oral ?? "").Contains(search) || (a.In_Parenteral ?? "").Contains(search) || (a.O2 ?? "").Contains(search) || (a.Out_Stools ?? "").Contains(search) || (a.Out_Urine ?? "").Contains(search) || (a.PulseDBP ?? "").Contains(search) || (a.PulseSBP ?? "").Contains(search) || (a.R ?? "").Contains(search) || (a.T ?? "").Contains(search))
                                select a
-                                   ).Where(x => x.FK_Customer_ID == tmpCustomerID && x.Is_Active == true && (x.Date >= ConToDate && x.Date <= ConEndDate)).ToList();
+                                   ).Where(x => x.FK_Customer_ID == tmpCustomerID && x.Is_Active == true && (x.Date >= ConToDate.Date && x.Date <= ConEndDate.Date)).ToList();
                     }
                     else
                     {
-                        res = context.PatientDatas.Where(x => x.FK_Customer_ID == tmpCustomerID && x.Is_Active == true && (x.Date >= ConToDate && x.Date <= ConEndDate)).ToList();
+                        res = context.PatientDatas.Where(x => x.FK_Customer_ID == tmpCustomerID && x.Is_Active == true && (x.Date >= ConToDate.Date && x.Date <= ConEndDate.Date)).ToList();
                     }
                     var result = new List<PatientData>();
                     int? total = res.Count();
@@ -2853,11 +2853,11 @@ namespace AryuwatWebApplication.Controllers
                             res = (from a in context.PatientDatas
                                    where ((a.Time ?? "").Contains(search) || (a.BP ?? "").Contains(search) || (a.In_Oral ?? "").Contains(search) || (a.In_Parenteral ?? "").Contains(search) || (a.O2 ?? "").Contains(search) || (a.Out_Stools ?? "").Contains(search) || (a.Out_Urine ?? "").Contains(search) || (a.PulseDBP ?? "").Contains(search) || (a.PulseSBP ?? "").Contains(search) || (a.R ?? "").Contains(search) || (a.T ?? "").Contains(search))
                                    select a
-                                       ).Where(x => x.FK_Customer_ID == tmpCustomerID && x.Is_Active == true && (x.Date >= ConToDate && x.Date <= ConEndDate)).ToList();
+                                       ).Where(x => x.FK_Customer_ID == tmpCustomerID && x.Is_Active == true && (x.Date >= ConToDate.Date && x.Date <= ConEndDate.Date)).ToList();
                         }
                         else
                         {
-                            res = context.PatientDatas.Where(x => x.FK_Customer_ID == tmpCustomerID && x.Is_Active == true && (x.Date >= ConToDate && x.Date <= ConEndDate)).ToList();
+                            res = context.PatientDatas.Where(x => x.FK_Customer_ID == tmpCustomerID && x.Is_Active == true && (x.Date >= ConToDate.Date && x.Date <= ConEndDate.Date)).ToList();
                         }
 
 
