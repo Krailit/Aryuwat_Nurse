@@ -43,5 +43,6 @@ namespace AryuwatWebApplication.Entity
         public Nullable<System.DateTime> ExpireDate { get; set; }
         public string MS_SubUnit { get; set; }
         public Nullable<decimal> AnountPerMainUnit { get; set; }
+        public Nullable<decimal> MS_MinimumStock { get; set; }
     }
 }

@@ -508,11 +508,11 @@ warning 6002: The table/view 'OPD_System.dbo.ExtraMoney' does not have a primary
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FileName" Type="varchar" MaxLength="200" />
-          <Property Name="Detail" Type="varchar" MaxLength="200" />
+          <Property Name="FileName" Type="varchar" MaxLength="500" />
+          <Property Name="Detail" Type="varchar" MaxLength="500" />
           <Property Name="DateScan" Type="datetime" />
-          <Property Name="CN" Type="varchar" MaxLength="20" />
-          <Property Name="ENSave" Type="varchar" MaxLength="20" />
+          <Property Name="CN" Type="varchar" MaxLength="500" />
+          <Property Name="ENSave" Type="varchar" MaxLength="500" />
           <Property Name="DateSave" Type="datetime" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -662,6 +662,7 @@ warning 6002: The table/view 'OPD_System.dbo.JobsAlert' does not have a primary 
           <Property Name="Start_Date" Type="datetime" />
           <Property Name="End_Date" Type="datetime" />
           <Property Name="Room_Status" Type="bit" />
+          <Property Name="Notes" Type="varchar(max)" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'OPD_System.dbo.MedicalOrder_18-03-2019' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -938,6 +939,7 @@ warning 6002: The table/view 'OPD_System.dbo.MedicalStuff' does not have a prima
           <Property Name="ExpireDate" Type="datetime" />
           <Property Name="MS_SubUnit" Type="varchar" MaxLength="10" />
           <Property Name="AnountPerMainUnit" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="MS_MinimumStock" Type="decimal" Precision="18" Scale="0" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'OPD_System.dbo.MedicalSuppliesStock_Edit' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1150,6 +1152,8 @@ warning 6002: The table/view 'OPD_System.dbo.Personnels' does not have a primary
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="50" />
+          <Property Name="Passwords" Type="varchar" MaxLength="20" />
           <Property Name="AddressId" Type="varchar" MaxLength="20" />
           <Property Name="Building" Type="varchar" MaxLength="100" />
           <Property Name="CreateBy" Type="varchar" MaxLength="50" />
@@ -1172,7 +1176,6 @@ warning 6002: The table/view 'OPD_System.dbo.Personnels' does not have a primary
           <Property Name="Mobile2" Type="varchar" MaxLength="11" />
           <Property Name="Nationality" Type="varchar" MaxLength="50" />
           <Property Name="PassportId" Type="varchar" MaxLength="20" />
-          <Property Name="Passwords" Type="varchar" MaxLength="20" />
           <Property Name="PersonnelType" Type="varchar" MaxLength="5" />
           <Property Name="PostCode" Type="varchar" MaxLength="10" />
           <Property Name="ProvinceCode" Type="varchar" MaxLength="10" />
@@ -1188,7 +1191,6 @@ warning 6002: The table/view 'OPD_System.dbo.Personnels' does not have a primary
           <Property Name="UpdateBy" Type="varchar" MaxLength="50" />
           <Property Name="UserGroup" Type="varchar" MaxLength="10" />
           <Property Name="Weights" Type="int" />
-          <Property Name="Username" Type="varchar" MaxLength="50" />
           <Property Name="PrefixCode" Type="varchar" MaxLength="50" />
           <Property Name="ImageFilename" Type="nchar" MaxLength="20" />
           <Property Name="BranchID" Type="nchar" MaxLength="15" />
@@ -2428,6 +2430,7 @@ warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a pri
           <Parameter Name="RefMO" Type="varchar" Mode="In" />
           <Parameter Name="RefVN" Type="varchar" Mode="In" />
           <Parameter Name="BranchId" Type="varchar" Mode="In" />
+          <Parameter Name="Notes" Type="varchar(max)" Mode="In" />
           <Parameter Name="ProCreditRemain" Type="decimal" Mode="In" />
         </Function>
         <Function Name="sp_MedicalOrderDoc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -2533,6 +2536,7 @@ warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a pri
           <Parameter Name="MS_Cost" Type="decimal" Mode="In" />
           <Parameter Name="MS_Order" Type="int" Mode="In" />
           <Parameter Name="MS_Instock" Type="int" Mode="In" />
+          <Parameter Name="MS_MinimumStock" Type="int" Mode="In" />
           <Parameter Name="row_start" Type="int" Mode="In" />
           <Parameter Name="row_end" Type="int" Mode="In" />
           <Parameter Name="FeeRate" Type="decimal" Mode="In" />
@@ -2940,7 +2944,7 @@ warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a pri
           <Parameter Name="EN" Type="varchar" Mode="In" />
           <Parameter Name="SOT_Code" Type="varchar" Mode="In" />
           <Parameter Name="CN" Type="varchar" Mode="In" />
-          <Parameter Name="SO" Type="varchar" Mode="In" />
+          <Parameter Name="SO" Type="varchar(max)" Mode="In" />
           <Parameter Name="SORef" Type="varchar" Mode="In" />
           <Parameter Name="PRO_Code" Type="varchar" Mode="In" />
           <Parameter Name="RCNo" Type="varchar" Mode="In" />
@@ -3800,6 +3804,8 @@ warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a pri
           <EntitySet Name="Personnels" EntityType="Self.Personnels" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [Personnels].[ID] AS [ID], 
+    [Personnels].[Username] AS [Username], 
+    [Personnels].[Passwords] AS [Passwords], 
     [Personnels].[AddressId] AS [AddressId], 
     [Personnels].[Building] AS [Building], 
     [Personnels].[CreateBy] AS [CreateBy], 
@@ -3822,7 +3828,6 @@ warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a pri
     [Personnels].[Mobile2] AS [Mobile2], 
     [Personnels].[Nationality] AS [Nationality], 
     [Personnels].[PassportId] AS [PassportId], 
-    [Personnels].[Passwords] AS [Passwords], 
     [Personnels].[PersonnelType] AS [PersonnelType], 
     [Personnels].[PostCode] AS [PostCode], 
     [Personnels].[ProvinceCode] AS [ProvinceCode], 
@@ -3838,7 +3843,6 @@ warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a pri
     [Personnels].[UpdateBy] AS [UpdateBy], 
     [Personnels].[UserGroup] AS [UserGroup], 
     [Personnels].[Weights] AS [Weights], 
-    [Personnels].[Username] AS [Username], 
     [Personnels].[PrefixCode] AS [PrefixCode], 
     [Personnels].[ImageFilename] AS [ImageFilename], 
     [Personnels].[BranchID] AS [BranchID], 
@@ -4801,6 +4805,7 @@ warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a pri
             <Parameter Name="RefMO" Mode="In" Type="String" />
             <Parameter Name="RefVN" Mode="In" Type="String" />
             <Parameter Name="BranchId" Mode="In" Type="String" />
+            <Parameter Name="Notes" Mode="In" Type="String" />
             <Parameter Name="ProCreditRemain" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="sp_MedicalOrderDoc">
@@ -4906,6 +4911,7 @@ warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a pri
             <Parameter Name="MS_Cost" Mode="In" Type="Decimal" />
             <Parameter Name="MS_Order" Mode="In" Type="Int32" />
             <Parameter Name="MS_Instock" Mode="In" Type="Int32" />
+            <Parameter Name="MS_MinimumStock" Mode="In" Type="Int32" />
             <Parameter Name="row_start" Mode="In" Type="Int32" />
             <Parameter Name="row_end" Mode="In" Type="Int32" />
             <Parameter Name="FeeRate" Mode="In" Type="Decimal" />
@@ -5480,7 +5486,6 @@ warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a pri
           <EntitySet Name="CommissionRates" EntityType="OPD_SystemModel.CommissionRate" />
           <EntitySet Name="CourseDurations" EntityType="OPD_SystemModel.CourseDuration" />
           <EntitySet Name="CreditCards" EntityType="OPD_SystemModel.CreditCard" />
-          <EntitySet Name="FileOPDs" EntityType="OPD_SystemModel.FileOPD" />
           <EntitySet Name="Master_Room" EntityType="OPD_SystemModel.Master_Room" />
           <EntitySet Name="MedicalOrders" EntityType="OPD_SystemModel.MedicalOrder" />
           <EntitySet Name="MedicalSupplies" EntityType="OPD_SystemModel.MedicalSupply" />
@@ -5582,6 +5587,7 @@ warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a pri
           <EntitySet Name="PatientChanges" EntityType="OPD_SystemModel.PatientChange" />
           <EntitySet Name="Alert_Detail" EntityType="OPD_SystemModel.Alert_Detail" />
           <EntitySet Name="PatientDatas" EntityType="OPD_SystemModel.PatientData" />
+          <EntitySet Name="FileOPDs" EntityType="OPD_SystemModel.FileOPD" />
         </EntityContainer>
         <ComplexType Name="sp_Account_Result">
           <Property Type="String" Name="RefundID" Nullable="false" MaxLength="2" />
@@ -5863,18 +5869,6 @@ warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a pri
           <Property Name="BillType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Showed" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
         </EntityType>
-        <EntityType Name="FileOPD">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FileName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="Detail" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="DateScan" Type="DateTime" Precision="3" />
-          <Property Name="CN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="ENSave" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="DateSave" Type="DateTime" Precision="3" />
-        </EntityType>
         <EntityType Name="Master_Room">
           <Key>
             <PropertyRef Name="ID" />
@@ -5925,6 +5919,7 @@ warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a pri
           <Property Name="Start_Date" Type="DateTime" Precision="3" />
           <Property Name="End_Date" Type="DateTime" Precision="3" />
           <Property Name="Room_Status" Type="Boolean" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="MedicalSupply">
           <Key>
@@ -5990,6 +5985,7 @@ warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a pri
           <Property Name="ExpireDate" Type="DateTime" Precision="3" />
           <Property Name="MS_SubUnit" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="AnountPerMainUnit" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="MS_MinimumStock" Type="Decimal" Precision="18" Scale="0" />
         </EntityType>
         <EntityType Name="MemberTran">
           <Key>
@@ -7611,6 +7607,18 @@ warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a pri
           <Property Name="Update_By" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Update_Date" Type="DateTime" Precision="3" />
         </EntityType>
+        <EntityType Name="FileOPD">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FileName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Detail" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="DateScan" Type="DateTime" Precision="3" />
+          <Property Name="CN" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ENSave" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="DateSave" Type="DateTime" Precision="3" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -8016,19 +8024,6 @@ warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a pri
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="FileOPDs">
-            <EntityTypeMapping TypeName="OPD_SystemModel.FileOPD">
-              <MappingFragment StoreEntitySet="FileOPD">
-                <ScalarProperty Name="DateSave" ColumnName="DateSave" />
-                <ScalarProperty Name="ENSave" ColumnName="ENSave" />
-                <ScalarProperty Name="CN" ColumnName="CN" />
-                <ScalarProperty Name="DateScan" ColumnName="DateScan" />
-                <ScalarProperty Name="Detail" ColumnName="Detail" />
-                <ScalarProperty Name="FileName" ColumnName="FileName" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Master_Room">
             <EntityTypeMapping TypeName="OPD_SystemModel.Master_Room">
               <MappingFragment StoreEntitySet="Master_Room">
@@ -8050,6 +8045,7 @@ warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a pri
           <EntitySetMapping Name="MedicalOrders">
             <EntityTypeMapping TypeName="OPD_SystemModel.MedicalOrder">
               <MappingFragment StoreEntitySet="MedicalOrder">
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
                 <ScalarProperty Name="Room_Status" ColumnName="Room_Status" />
                 <ScalarProperty Name="End_Date" ColumnName="End_Date" />
                 <ScalarProperty Name="Start_Date" ColumnName="Start_Date" />
@@ -8117,6 +8113,7 @@ warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a pri
           <EntitySetMapping Name="MedicalSuppliesStocks">
             <EntityTypeMapping TypeName="OPD_SystemModel.MedicalSuppliesStock">
               <MappingFragment StoreEntitySet="MedicalSuppliesStock">
+                <ScalarProperty Name="MS_MinimumStock" ColumnName="MS_MinimumStock" />
                 <ScalarProperty Name="AnountPerMainUnit" ColumnName="AnountPerMainUnit" />
                 <ScalarProperty Name="MS_SubUnit" ColumnName="MS_SubUnit" />
                 <ScalarProperty Name="ExpireDate" ColumnName="ExpireDate" />
@@ -9821,6 +9818,19 @@ warning 6002: The table/view 'OPD_System.dbo.vProductToSOMO' does not have a pri
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="FK_Customer_ID" ColumnName="FK_Customer_ID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FileOPDs">
+            <EntityTypeMapping TypeName="OPD_SystemModel.FileOPD">
+              <MappingFragment StoreEntitySet="FileOPD">
+                <ScalarProperty Name="DateSave" ColumnName="DateSave" />
+                <ScalarProperty Name="ENSave" ColumnName="ENSave" />
+                <ScalarProperty Name="CN" ColumnName="CN" />
+                <ScalarProperty Name="DateScan" ColumnName="DateScan" />
+                <ScalarProperty Name="Detail" ColumnName="Detail" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
