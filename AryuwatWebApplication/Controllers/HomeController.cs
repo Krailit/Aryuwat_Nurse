@@ -8,7 +8,6 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.Entity;
-using System.Data.Entity.Core.Objects;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -16,7 +15,6 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Runtime.Remoting.Messaging;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -308,7 +306,7 @@ namespace AryuwatWebApplication.Controllers
                     foreach(var items in TempData)
                     {
                         var client = new RestClient("https://notify-api.line.me/api/notify");
-                        var request = new RestRequest(Method.POST);
+                        var request = new RestRequest("", Method.Post);
                         request.AddHeader("Authorization", "Bearer " + Convert.ToString(lineToken).Trim());
                         request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
                         msg = "\r\n*Meeting*";
