@@ -61,7 +61,7 @@ namespace AryuwatWebApplication.Controllers
 
         public string TableCustomer ()
         {
-            string query = @"SELECT * from (					
+            string query = @"SELECT TOP 10 * from (					
                                     select
 	                                    cus.PrefixCode + cus.Tname + ' ' + cus.TsurName Patient_Name,
 	                                    cus.ID,
