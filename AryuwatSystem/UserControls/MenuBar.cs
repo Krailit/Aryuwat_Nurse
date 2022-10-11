@@ -19,7 +19,7 @@ namespace AryuwatSystem.UserControls
         private void MenuBar_Load(object sender, EventArgs e)
         {
             //plControlBox.BackColor = Color.FromArgb(53, 177, 170);
-            //menuStriptSystem.BackColor = Color.FromArgb(53, 177, 170);
+            //a.BackColor = Color.FromArgb(53, 177, 170);
            
         }
 

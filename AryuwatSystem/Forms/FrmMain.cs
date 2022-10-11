@@ -547,7 +547,7 @@ namespace AryuwatSystem.Forms
                 _dtFunction = new Business.MenuPermission().GetMenuPermissiongByGroupId(int.Parse(String.IsNullOrEmpty(Statics.StrGroupId) ? "0" : Statics.StrGroupId)).Tables[0];
                 //listUserAccess = new List<UserAccessInfo>(Statics.service.GetUserAccessMenu(Statics.groupID));
                 //ตรงนี้เฉพาะ Menu ที่เป็น Head
-                foreach (ToolStripMenuItem headMenu in menuBar1.menuStriptSystem.Items)
+                foreach (ToolStripMenuItem headMenu in menuBar1.a.Items)
                 {
                     if (headMenu.Text != "นัดหมาย")
                     {

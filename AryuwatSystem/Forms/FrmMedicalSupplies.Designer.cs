@@ -94,9 +94,9 @@
             this.menuEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.menuDel = new System.Windows.Forms.ToolStripMenuItem();
             this.menuPreview = new System.Windows.Forms.ToolStripMenuItem();
-            this.stockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.receiveStockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sellStockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.q = new System.Windows.Forms.ToolStripMenuItem();
+            this.s = new System.Windows.Forms.ToolStripMenuItem();
+            this.t = new System.Windows.Forms.ToolStripMenuItem();
             this.viewHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.chkTypeDoctor = new System.Windows.Forms.CheckBox();
@@ -812,7 +812,7 @@
             this.menuEdit,
             this.menuDel,
             this.menuPreview,
-            this.stockToolStripMenuItem});
+            this.q});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(162, 92);
             // 
@@ -837,29 +837,29 @@
             this.menuPreview.Size = new System.Drawing.Size(161, 22);
             this.menuPreview.Text = "ดูรายการข้อมูล";
             // 
-            // stockToolStripMenuItem
+            // q
             // 
-            this.stockToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.receiveStockToolStripMenuItem,
-            this.sellStockToolStripMenuItem,
+            this.q.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.s,
+            this.t,
             this.viewHistoryToolStripMenuItem});
-            this.stockToolStripMenuItem.Name = "stockToolStripMenuItem";
-            this.stockToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-            this.stockToolStripMenuItem.Text = "Stock";
+            this.q.Name = "q";
+            this.q.Size = new System.Drawing.Size(161, 22);
+            this.q.Text = "Stock";
             // 
-            // receiveStockToolStripMenuItem
+            // s
             // 
-            this.receiveStockToolStripMenuItem.Name = "receiveStockToolStripMenuItem";
-            this.receiveStockToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
-            this.receiveStockToolStripMenuItem.Text = "Receive Stock";
-            this.receiveStockToolStripMenuItem.Click += new System.EventHandler(this.menuGet_Click);
+            this.s.Name = "s";
+            this.s.Size = new System.Drawing.Size(162, 22);
+            this.s.Text = "Receive Stock";
+            this.s.Click += new System.EventHandler(this.menuGet_Click);
             // 
-            // sellStockToolStripMenuItem
+            // t
             // 
-            this.sellStockToolStripMenuItem.Name = "sellStockToolStripMenuItem";
-            this.sellStockToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
-            this.sellStockToolStripMenuItem.Text = "Sell Stock";
-            this.sellStockToolStripMenuItem.Click += new System.EventHandler(this.menuCutStock_Click);
+            this.t.Name = "t";
+            this.t.Size = new System.Drawing.Size(162, 22);
+            this.t.Text = "Sell Stock";
+            this.t.Click += new System.EventHandler(this.menuCutStock_Click);
             // 
             // viewHistoryToolStripMenuItem
             // 
@@ -965,9 +965,9 @@
         private System.Windows.Forms.RadioButton radioButtonS;
         private System.Windows.Forms.RadioButton radioButtonC;
         private System.Windows.Forms.CheckBox checkBoxActive;
-        private System.Windows.Forms.ToolStripMenuItem stockToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem receiveStockToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sellStockToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem q;
+        private System.Windows.Forms.ToolStripMenuItem s;
+        private System.Windows.Forms.ToolStripMenuItem t;
         private System.Windows.Forms.ToolStripMenuItem viewHistoryToolStripMenuItem;
         private System.Windows.Forms.Panel panel3;
         private UserControls.UBranch uBranch1;
