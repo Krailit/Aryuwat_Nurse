@@ -1,5 +1,6 @@
 ﻿using AryuwatWebApplication.Entity;
 using AryuwatWebApplication.Models;
+using Azure.Storage.Blobs;
 using Newtonsoft.Json;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
@@ -19,6 +20,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
+using static System.Net.WebRequestMethods;
 
 namespace AryuwatWebApplication.Controllers
 {
@@ -256,15 +258,32 @@ namespace AryuwatWebApplication.Controllers
                 {
                     if (AttachFileData != null && AttachFileData.ContentLength > 0)
                     {
-                        int ScaleIMG = Convert.ToInt32(ConfigurationManager.AppSettings["ScaleIMG"]);
+                        //int ScaleIMG = Convert.ToInt32(ConfigurationManager.AppSettings["ScaleIMG"]);
                         var hpf = AttachFileData as HttpPostedFileBase;
-                        var fileName = Path.GetFileName(AttachFileData.FileName);
-                        var newFileName = "OPD_" + CN + "_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + "." + AttachFileData.FileName.Split('.').ElementAt(1);
-                        ResizeStream(ScaleIMG, hpf.InputStream, Path.Combine(Server.MapPath("~/AttachFile_Aryuwat"), newFileName));
+                        //var fileName = Path.GetFileName(AttachFileData.FileName);
+                        //ResizeStream(ScaleIMG, hpf.InputStream, Path.Combine(Server.MapPath("~/AttachFile_Aryuwat"), newFileName));
                         //var path = Path.Combine(Server.MapPath("~/AttachFile_Aryuwat"), newFileName);
                         //AttachFileData.SaveAs(path);
+
+                        byte[] thePictureAsBytes = new byte[AttachFileData.ContentLength];
+                        using (BinaryReader theReader = new BinaryReader(AttachFileData.InputStream))
+                        {
+                            thePictureAsBytes = theReader.ReadBytes(AttachFileData.ContentLength);
+                        }
+
+                        string thePictureDataAsString = Convert.ToBase64String(thePictureAsBytes);
+                        string blobPreview = ConfigurationManager.AppSettings["BlobStorage"];
+                        string connectionString = ConfigurationManager.AppSettings["BlobConnect"];
+                        string containerName = ConfigurationManager.AppSettings["BlobContainers"];
+                        string FileName = "OPD_" + CN + "_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + "." + AttachFileData.FileName.Split('.').ElementAt(1);
+                        BlobContainerClient container = new BlobContainerClient(connectionString, containerName);
+                        byte[] fileContents = thePictureAsBytes;
+                        var contents = new MemoryStream(fileContents);
+                        BlobClient blob = container.GetBlobClient(FileName);
+                        // Upload local file
+                        blob.Upload(contents);
                         FileOPD fopd = new FileOPD();
-                        fopd.FileName = newFileName;
+                        fopd.FileName = FileName;
                         fopd.Detail = Detail;
                         fopd.DateScan = DateTime.Now;
                         fopd.CN = CN;
@@ -306,7 +325,8 @@ namespace AryuwatWebApplication.Controllers
                     foreach(var items in TempData)
                     {
                         var client = new RestClient("https://notify-api.line.me/api/notify");
-                        var request = new RestRequest("", Method.Post);
+                        var request = new RestRequest(Method.POST);
+                        ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                         request.AddHeader("Authorization", "Bearer " + Convert.ToString(lineToken).Trim());
                         request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
                         msg = "\r\n*Meeting*";
