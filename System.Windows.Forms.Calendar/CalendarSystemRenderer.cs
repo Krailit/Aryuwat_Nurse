@@ -95,7 +95,7 @@ namespace System.Windows.Forms.Calendar
             bool today = e.Day.Date.Date.Equals(DateTime.Today.Date);
 
             //using (Pen p = new Pen(today ? ColorTable.TodayBorder : ColorTable.DayBorder, today ? 2 : 1))
-            using (Pen p = new Pen(ColorTable.DayBorder,  1))//mark  สีขอบ วันที่คลิกเลือก
+            using (Pen p = new Pen(ColorTable.DayBorder,  1))//mark  ๏ฟฝีขอบ ๏ฟฝัน๏ฟฝ๏ฟฝ๏ฟฝเน€เธเธดเธ๏ฟฝ๏ฟฝ๏ฟฝอก
             {
                 if (e.Calendar.DaysMode == CalendarDaysMode.Short)
                 {
@@ -118,12 +118,12 @@ namespace System.Windows.Forms.Calendar
         {
             bool s = e.Day.DayTop.Selected;
 
-            using (Brush b = new SolidBrush( s ? ColorTable.DayTopSelectedBackground : ColorTable.DayTopBackground))//สีใต้ header
+            using (Brush b = new SolidBrush( s ? ColorTable.DayTopSelectedBackground : ColorTable.DayTopBackground))//๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ header
             {
                 e.Graphics.FillRectangle(b, e.Day.DayTop.Bounds);
             }
 
-            using (Pen p = new Pen(s ? ColorTable.DayTopSelectedBorder : ColorTable.DayTopBorder))// สีขอบใต้ header
+            using (Pen p = new Pen(s ? ColorTable.DayTopSelectedBorder : ColorTable.DayTopBorder))// ๏ฟฝีขอบ๏ฟฝ๏ฟฝ header
             {
                 e.Graphics.DrawRectangle(p, e.Day.DayTop.Bounds);
             }
@@ -164,22 +164,22 @@ namespace System.Windows.Forms.Calendar
         {
             base.OnDrawDayTimeUnit(e);
 
-            using (SolidBrush b = new SolidBrush(ColorTable.TimeUnitBackground))//สีพื้นของตาราง นอกเวลาทำงาน
+            using (SolidBrush b = new SolidBrush(ColorTable.TimeUnitBackground))//๏ฟฝีพ๏ฟฝ้นของ๏ฟฝ๏ฟฝ๏ฟฝาง ๏ฟฝอก๏ฟฝ๏ฟฝ๏ฟฝาทำงาน
             {
                 if (e.Unit.Selected)
                 {
-                    b.Color = ColorTable.TimeUnitSelectedBackground;// สีพื้นในตารางที่คลิก
+                    b.Color = ColorTable.TimeUnitSelectedBackground;// ๏ฟฝีพ๏ฟฝ๏ฟฝในต๏ฟฝ๏ฟฝาง๏ฟฝ๏ฟฝ๏ฟฝเน€เธเธดเธ
                 }
                 else if (e.Unit.Highlighted)
                 {
-                    //b.Color = ColorTable.TimeUnitHighlightedBackground;//สีพื้นของตารางในเวลาทำงาน เช่น 8-16.00
-                    b.Color = ColorTable.TimeUnitBackground;//สีพื้นของตารางในเวลาทำงาน เช่น 8-16.00
+                    //b.Color = ColorTable.TimeUnitHighlightedBackground;//๏ฟฝีพ๏ฟฝ้นของ๏ฟฝ๏ฟฝ๏ฟฝาง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝาทำงาน ๏ฟฝ๏ฟฝ 8-16.00
+                    b.Color = ColorTable.TimeUnitBackground;//๏ฟฝีพ๏ฟฝ้นของ๏ฟฝ๏ฟฝ๏ฟฝาง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝาทำงาน ๏ฟฝ๏ฟฝ 8-16.00
                 }
 
                 e.Graphics.FillRectangle(b, e.Unit.Bounds);
             }
             
-            using (Pen p = new Pen(e.Unit.Minutes == 0 ? ColorTable.TimeUnitBorderDark : ColorTable.TimeUnitBorderLight))//สีเส้น ตารางเวลา
+            using (Pen p = new Pen(e.Unit.Minutes == 0 ? ColorTable.TimeUnitBorderDark : ColorTable.TimeUnitBorderLight))//๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ ๏ฟฝ๏ฟฝ๏ฟฝาง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ
             {
                 e.Graphics.DrawLine(p, e.Unit.Bounds.Location, new Point(e.Unit.Bounds.Right, e.Unit.Bounds.Top)); 
             }
@@ -195,7 +195,7 @@ namespace System.Windows.Forms.Calendar
             int shortX1 = TimeScaleBounds.Left + TimeScaleBounds.Width / 2;
             int shortX2 = largeX2;
             int top = 0;
-            Pen p = new Pen(ColorTable.TimeScaleLine);//สีเส้น timescale
+            Pen p = new Pen(ColorTable.TimeScaleLine);//๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ timescale
 
             for (int i = 0; i < e.Calendar.Days[0].TimeUnits.Length; i++)
             {
@@ -235,13 +235,13 @@ namespace System.Windows.Forms.Calendar
 
         public override void OnDrawTimeScaleHour(CalendarRendererBoxEventArgs e)
         {
-            e.TextColor = ColorTable.TimeScaleHours;//สีตัวเลข ชม
+            e.TextColor = ColorTable.TimeScaleHours;//๏ฟฝีต๏ฟฝ๏ฟฝ๏ฟฝลข ๏ฟฝ๏ฟฝ
             base.OnDrawTimeScaleHour(e);
         }
 
         public override void OnDrawTimeScaleMinutes(CalendarRendererBoxEventArgs e)
         {
-            e.TextColor = ColorTable.TimeScaleMinutes;//สีตัวเลขนาที
+            e.TextColor = ColorTable.TimeScaleMinutes;//๏ฟฝีต๏ฟฝ๏ฟฝ๏ฟฝลข๏ฟฝาท๏ฟฝ
             base.OnDrawTimeScaleMinutes(e);
         }
 
@@ -261,7 +261,7 @@ namespace System.Windows.Forms.Calendar
             }
 
             Color color1 = Color.White;
-            Color color2 = e.Item.Selected ? ColorTable.ItemSelectedBackground : ColorTable.ItemBackground;//สี object ที่สร้างขึ้น
+            Color color2 = e.Item.Selected ? ColorTable.ItemSelectedBackground : ColorTable.ItemBackground;//๏ฟฝ๏ฟฝ object ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝาง๏ฟฝ๏ฟฝ๏ฟฝ
 
             if (!e.Item.BackgroundColorLighter.IsEmpty)
             {
@@ -291,7 +291,7 @@ namespace System.Windows.Forms.Calendar
 
             using (SolidBrush b = new SolidBrush(ColorTable.ItemShadow))
             {
-                ItemFill(e, r, ColorTable.ItemShadow, ColorTable.ItemShadow);//เงา
+                ItemFill(e, r, ColorTable.ItemShadow, ColorTable.ItemShadow);//๏ฟฝ๏ฟฝ
             }
         }
 

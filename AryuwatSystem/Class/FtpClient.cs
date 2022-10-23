@@ -440,8 +440,8 @@ namespace AryuwatSystem.DerClass
 
 
         /// <summary>
-        /// Upload ขึ้น Server โดยส่ง path และ ชื่อ file ใหม่ที่ต้องการบันทึก
-        /// เพิ่มโดย tu_cs
+        /// Upload ๏ฟฝ๏ฟฝ๏ฟฝ Server ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ path ๏ฟฝ๏ฟฝ๏ฟฝ ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ file ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง๏ฟฝ๏ฟฝรบัน๏ฟฝึก
+        /// ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ tu_cs
         /// </summary>
         /// <param name="fileName"></param>
         /// <param name="nameNew"></param>

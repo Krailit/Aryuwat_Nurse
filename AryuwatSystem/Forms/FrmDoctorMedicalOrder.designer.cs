@@ -922,7 +922,7 @@ namespace AryuwatSystem.Forms
             this.cboBranch.Font = new System.Drawing.Font("Tahoma", 12F);
             this.cboBranch.FormattingEnabled = true;
             this.cboBranch.Items.AddRange(new object[] {
-            "===โปรดระบุ ===",
+            "=== โปรดระบุ ===",
             "ผู้บริหาร",
             "Dermatologist  (หมอผิวพรรณและความงาม)",
             "Surgeon (หมอผ่าตัด)",

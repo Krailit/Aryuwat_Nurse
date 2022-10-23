@@ -10,10 +10,10 @@ namespace AryuwatSystem.Data
     public class UtilityBackEnd : DataObject
     {
         /// <summary>
-        /// รับ Query เพื่อนำมาสร้างตัวเลขลำดับใหม่ในรูปแบบตัวเลขล้วน
+        /// ๏ฟฝับ Query ๏ฟฝ๏ฟฝ๏ฟฝอน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝาง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝลข๏ฟฝำดับ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝูปแบบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝลข๏ฟฝ๏ฟฝวน
         /// </summary>
-        /// <param name="strSQL">Query ค่าสูงสุดเช่น Select Max(ID) from MyTable</param>
-        /// <returns>String เลขลำดับใหม่</returns>
+        /// <param name="strSQL">Query ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝูง๏ฟฝุด๏ฟฝ๏ฟฝ Select Max(ID) from MyTable</param>
+        /// <returns>String ๏ฟฝลข๏ฟฝำดับ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ</returns>
         public static string GenNewID(string queryMaxID, Int16 lengthColumn)
         {
             DataSet ds;
@@ -44,9 +44,9 @@ namespace AryuwatSystem.Data
             return strNewID;
         }
         /// <summary>
-        /// Method นี้ทำหน้าที่ในการ Gen Id ที่เป็น Interger
+        /// Method ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝหน๏ฟฝาท๏ฟฝ๏ฟฝในก๏ฟฝ๏ฟฝ Gen Id ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ Interger
         /// </summary>
-        /// <param name="strSql">Query ที่ต้องการ เช่น Select Max(...) From ... </param>
+        /// <param name="strSql">Query ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง๏ฟฝ๏ฟฝ๏ฟฝ ๏ฟฝ๏ฟฝ Select Max(...) From ... </param>
         /// <returns>Integer</returns>
         public static int GenNewIdTypeInteger(string strSql)
         {

@@ -158,7 +158,7 @@ namespace AryuwatSystem.UserControls
             this.b.Name = "b";
             this.b.Size = new System.Drawing.Size(116, 22);
             this.b.Tag = "Menu1";
-            this.b.Text = "°“√®—¥°“√∑—Ë«‰ª";
+            this.b.Text = "‡∏Å‡∏≤‡∏£‡∏à‡∏±‡∏î‡∏Å‡∏≤‡∏£‡∏ó‡∏±‡πà‡∏ß‡πÑ‡∏õ";
             this.b.ToolTipText = "General Management";
             // 
             // c
@@ -167,7 +167,7 @@ namespace AryuwatSystem.UserControls
             this.c.Name = "c";
             this.c.Size = new System.Drawing.Size(244, 22);
             this.c.Tag = "Menu1Sub1";
-            this.c.Text = "‡¢È“„™Èß“π√–∫∫(Login)";
+            this.c.Text = "‡πÄ‡∏Ç‡πâ‡∏≤‡πÉ‡∏ä‡πâ‡∏á‡∏≤‡∏ô‡∏£‡∏∞‡∏ö‡∏ö(Login)";
             // 
             // d
             // 
@@ -175,7 +175,7 @@ namespace AryuwatSystem.UserControls
             this.d.Name = "d";
             this.d.Size = new System.Drawing.Size(244, 22);
             this.d.Tag = "Menu1Sub2";
-            this.d.Text = "ÕÕ°®“°°“√„™Èß“π(Logout)";
+            this.d.Text = "‡∏≠‡∏≠‡∏Å‡∏à‡∏≤‡∏Å‡∏Å‡∏≤‡∏£‡πÉ‡∏ä‡πâ‡∏á‡∏≤‡∏ô(Logout)";
             // 
             // e
             // 
@@ -183,7 +183,7 @@ namespace AryuwatSystem.UserControls
             this.e.Name = "e";
             this.e.Size = new System.Drawing.Size(244, 22);
             this.e.Tag = "Menu1Sub3";
-            this.e.Text = "ÕÕ°®“°√–∫∫(Exit)";
+            this.e.Text = "‡∏≠‡∏≠‡∏Å‡∏à‡∏≤‡∏Å‡∏£‡∏∞‡∏ö‡∏ö(Exit)";
             // 
             // f
             // 
@@ -196,7 +196,7 @@ namespace AryuwatSystem.UserControls
             this.f.Name = "f";
             this.f.Size = new System.Drawing.Size(137, 22);
             this.f.Tag = "Menu2";
-            this.f.Text = "°“√®—¥°“√ºŸÈ„™È√–∫∫";
+            this.f.Text = "‡∏Å‡∏≤‡∏£‡∏à‡∏±‡∏î‡∏Å‡∏≤‡∏£‡∏ú‡∏π‡πâ‡πÉ‡∏ä‡πâ‡∏£‡∏∞‡∏ö‡∏ö";
             this.f.ToolTipText = "User Management";
             // 
             // g
@@ -205,7 +205,7 @@ namespace AryuwatSystem.UserControls
             this.g.Name = "g";
             this.g.Size = new System.Drawing.Size(312, 22);
             this.g.Tag = "Menu2Sub1";
-            this.g.Text = "°≈ÿË¡ºŸÈ„™Èß“π√–∫∫";
+            this.g.Text = "‡∏Å‡∏•‡∏∏‡πà‡∏°‡∏ú‡∏π‡πâ‡πÉ‡∏ä‡πâ‡∏á‡∏≤‡∏ô‡∏£‡∏∞‡∏ö‡∏ö";
             // 
             // h
             // 
@@ -213,7 +213,7 @@ namespace AryuwatSystem.UserControls
             this.h.Name = "h";
             this.h.Size = new System.Drawing.Size(312, 22);
             this.h.Tag = "Menu2Sub2";
-            this.h.Text = "°≈ÿË¡ºŸÈ„™È ·≈–°”Àπ¥ ‘∑∏‘Ï°“√‡¢È“„™Èß“π";
+            this.h.Text = "‡∏Å‡∏•‡∏∏‡πà‡∏°‡∏ú‡∏π‡πâ‡πÉ‡∏ä‡πâ ‡πÅ‡∏•‡∏∞‡∏Å‡∏≥‡∏´‡∏ô‡∏î‡∏™‡∏¥‡∏ó‡∏ò‡∏¥‡πå‡∏Å‡∏≤‡∏£‡πÄ‡∏Ç‡πâ‡∏≤‡πÉ‡∏ä‡πâ‡∏á‡∏≤‡∏ô";
             // 
             // i
             // 
@@ -221,7 +221,7 @@ namespace AryuwatSystem.UserControls
             this.i.Name = "i";
             this.i.Size = new System.Drawing.Size(312, 22);
             this.i.Tag = "Menu2Sub3";
-            this.i.Text = "‡ª≈’Ë¬π√À— ºË“π";
+            this.i.Text = "‡πÄ‡∏õ‡∏•‡∏µ‡πà‡∏¢‡∏ô‡∏£‡∏´‡∏±‡∏™‡∏ú‡πà‡∏≤‡∏ô";
             // 
             // j
             // 
@@ -257,7 +257,7 @@ namespace AryuwatSystem.UserControls
             this.l.Name = "l";
             this.l.Size = new System.Drawing.Size(80, 22);
             this.l.Tag = "Menu3";
-            this.l.Text = "∞“π¢ÈÕ¡Ÿ≈";
+            this.l.Text = "‡∏ê‡∏≤‡∏ô‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•";
             this.l.ToolTipText = "Database";
             // 
             // m
@@ -265,28 +265,28 @@ namespace AryuwatSystem.UserControls
             this.m.Name = "m";
             this.m.Size = new System.Drawing.Size(215, 22);
             this.m.Tag = "Menu3Sub1";
-            this.m.Text = "¢ÈÕ¡Ÿ≈≈Ÿ°§È“";
+            this.m.Text = "‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏•‡∏π‡∏Å‡∏Ñ‡πâ‡∏≤";
             // 
             // n
             // 
             this.n.Name = "n";
             this.n.Size = new System.Drawing.Size(215, 22);
             this.n.Tag = "Menu3Sub2";
-            this.n.Text = "¢ÈÕ¡Ÿ≈æπ—°ß“π";
+            this.n.Text = "‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏û‡∏ô‡∏±‡∏Å‡∏á‡∏≤‡∏ô";
             // 
             // o
             // 
             this.o.Name = "o";
             this.o.Size = new System.Drawing.Size(215, 22);
             this.o.Tag = "Menu3Sub3";
-            this.o.Text = "¢ÈÕ¡Ÿ≈µ”·ÀπËßæπ—°ß“π";
+            this.o.Text = "‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á‡∏û‡∏ô‡∏±‡∏Å‡∏á‡∏≤‡∏ô";
             // 
             // p
             // 
             this.p.Name = "p";
             this.p.Size = new System.Drawing.Size(215, 22);
             this.p.Tag = "Menu3Sub4";
-            this.p.Text = "¢ÈÕ¡Ÿ≈ ‘π§È“/‡«™¿—≥±Ï";
+            this.p.Text = "‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤/‡πÄ‡∏ß‡∏ä‡∏†‡∏±‡∏ì‡∏ë‡πå";
             // 
             // q
             // 
@@ -302,7 +302,7 @@ namespace AryuwatSystem.UserControls
             this.q.Name = "q";
             this.q.Size = new System.Drawing.Size(215, 22);
             this.q.Tag = "Menu3Sub9";
-            this.q.Text = "¢ÈÕ¡Ÿ≈ ‘π§È“ Stock";
+            this.q.Text = "‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤ Stock";
             // 
             // r
             // 
@@ -340,21 +340,21 @@ namespace AryuwatSystem.UserControls
             this.v.Name = "v";
             this.v.Size = new System.Drawing.Size(181, 22);
             this.v.Tag = "Menu3Sub9I9";
-            this.v.Text = "‡∫‘° “¢“";
+            this.v.Text = "‡πÄ‡∏ö‡∏¥‡∏Å‡∏™‡∏≤‡∏Ç‡∏≤";
             // 
             // w
             // 
             this.w.Name = "w";
-            this.w.Size = new System.Drawing.Size(148, 22);
+            this.w.Size = new System.Drawing.Size(180, 22);
             this.w.Tag = "Menu3Sub9I5";
-            this.w.Text = "REQ  “¢“";
+            this.w.Text = "REQ ‡∏™‡∏≤‡∏Ç‡∏≤";
             // 
             // x
             // 
             this.x.Name = "x";
-            this.x.Size = new System.Drawing.Size(148, 22);
+            this.x.Size = new System.Drawing.Size(180, 22);
             this.x.Tag = "Menu3Sub9I6";
-            this.x.Text = "Reply  “¢“";
+            this.x.Text = "Reply ‡∏™‡∏≤‡∏Ç‡∏≤";
             // 
             // y
             // 
@@ -364,21 +364,21 @@ namespace AryuwatSystem.UserControls
             this.y.Name = "y";
             this.y.Size = new System.Drawing.Size(181, 22);
             this.y.Tag = "Menu3Sub9I10";
-            this.y.Text = "‡∫‘°‡‡ºπ°";
+            this.y.Text = "‡πÄ‡∏ö‡∏¥‡∏Å‡πÅ‡∏ú‡∏ô‡∏Å";
             // 
             // z
             // 
             this.z.Name = "z";
-            this.z.Size = new System.Drawing.Size(152, 22);
+            this.z.Size = new System.Drawing.Size(180, 22);
             this.z.Tag = "Menu3Sub9I7";
-            this.z.Text = "REQ ·ºπ°";
+            this.z.Text = "REQ ‡πÅ‡∏ú‡∏ô‡∏Å";
             // 
             // aa
             // 
             this.aa.Name = "aa";
-            this.aa.Size = new System.Drawing.Size(152, 22);
+            this.aa.Size = new System.Drawing.Size(180, 22);
             this.aa.Tag = "Menu3Sub9I8";
-            this.aa.Text = "Reply ·ºπ°";
+            this.aa.Text = "Reply ‡πÅ‡∏ú‡∏ô‡∏Å";
             // 
             // bb
             // 
@@ -388,21 +388,21 @@ namespace AryuwatSystem.UserControls
             this.bb.Name = "bb";
             this.bb.Size = new System.Drawing.Size(181, 22);
             this.bb.Tag = "Menu3Sub9I11";
-            this.bb.Text = "‡∫‘°«— ¥ÿ ‘Èπ‡ª≈◊Õß";
+            this.bb.Text = "‡πÄ‡∏ö‡∏¥‡∏Å‡∏ß‡∏±‡∏™‡∏î‡∏∏‡∏™‡∏¥‡πâ‡∏ô‡πÄ‡∏õ‡∏•‡∏∑‡∏≠‡∏á";
             // 
             // cc
             // 
             this.cc.Name = "cc";
-            this.cc.Size = new System.Drawing.Size(147, 22);
+            this.cc.Size = new System.Drawing.Size(180, 22);
             this.cc.Tag = "Menu3Sub9I12";
-            this.cc.Text = "REQ(‡∫‘°)";
+            this.cc.Text = "REQ(‡πÄ‡∏ö‡∏¥‡∏Å)";
             // 
             // dd
             // 
             this.dd.Name = "dd";
-            this.dd.Size = new System.Drawing.Size(147, 22);
+            this.dd.Size = new System.Drawing.Size(180, 22);
             this.dd.Tag = "Menu3Sub9I13";
-            this.dd.Text = "Reply(®Ë“¬)";
+            this.dd.Text = "Reply(‡∏à‡πà‡∏≤‡∏¢)";
             // 
             // ee
             // 
@@ -427,7 +427,7 @@ namespace AryuwatSystem.UserControls
             this.gg.Name = "gg";
             this.gg.Size = new System.Drawing.Size(215, 22);
             this.gg.Tag = "Menu3Sub5";
-            this.gg.Text = "µ√«® Õ∫√“¬‰¥È";
+            this.gg.Text = "‡∏ï‡∏£‡∏ß‡∏à‡∏™‡∏≠‡∏ö‡∏£‡∏≤‡∏¢‡πÑ‡∏î‡πâ";
             // 
             // hh
             // 
@@ -522,7 +522,7 @@ namespace AryuwatSystem.UserControls
             this.ss.Name = "ss";
             this.ss.Size = new System.Drawing.Size(73, 22);
             this.ss.Tag = "Menu4";
-            this.ss.Text = "π—¥À¡“¬";
+            this.ss.Text = "‡∏ô‡∏±‡∏î‡∏´‡∏°‡∏≤‡∏¢";
             this.ss.ToolTipText = "Appoinment";
             this.ss.Visible = false;
             // 
@@ -560,7 +560,7 @@ namespace AryuwatSystem.UserControls
             this.yy.Name = "yy";
             this.yy.Size = new System.Drawing.Size(65, 22);
             this.yy.Tag = "Menu5";
-            this.yy.Text = "√“¬ß“π";
+            this.yy.Text = "‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô";
             this.yy.ToolTipText = "Report";
             // 
             // zz
@@ -579,7 +579,7 @@ namespace AryuwatSystem.UserControls
             this.zz.Name = "zz";
             this.zz.Size = new System.Drawing.Size(214, 22);
             this.zz.Tag = "Menu5Sub1";
-            this.zz.Text = "√“¬ß“πΩË“¬ Sale";
+            this.zz.Text = "‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô‡∏ù‡πà‡∏≤‡∏¢ Sale";
             // 
             // aaa
             // 
@@ -640,7 +640,7 @@ namespace AryuwatSystem.UserControls
             this.iii.Name = "iii";
             this.iii.Size = new System.Drawing.Size(221, 22);
             this.iii.Tag = "Menu5Sub1I9";
-            this.iii.Text = "Follow √“¬«—π";
+            this.iii.Text = "Follow Customer";
             // 
             // jjj
             // 
@@ -658,29 +658,29 @@ namespace AryuwatSystem.UserControls
             this.kkk.Name = "kkk";
             this.kkk.Size = new System.Drawing.Size(214, 22);
             this.kkk.Tag = "Menu5Sub2";
-            this.kkk.Text = "√“¬ß“πΩË“¬ Marketing";
+            this.kkk.Text = "‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô‡∏ù‡πà‡∏≤‡∏¢ Marketing";
             this.kkk.Visible = false;
             // 
             // lll
             // 
             this.lll.Name = "lll";
-            this.lll.Size = new System.Drawing.Size(270, 22);
+            this.lll.Size = new System.Drawing.Size(418, 22);
             this.lll.Tag = "Menu5Sub2I1";
-            this.lll.Text = "«‘‡§√“–ÀÏ√“¬‰¥È";
+            this.lll.Text = "ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ";
             // 
             // mmm
             // 
             this.mmm.Name = "mmm";
-            this.mmm.Size = new System.Drawing.Size(270, 22);
+            this.mmm.Size = new System.Drawing.Size(418, 22);
             this.mmm.Tag = "Menu5Sub2I2";
-            this.mmm.Text = "®”π«π≈Ÿ°§È“„π·µË≈–«—π";
+            this.mmm.Text = "ÔøΩ”π«πÔøΩŸ°ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ—π";
             // 
             // nnn
             // 
             this.nnn.Name = "nnn";
-            this.nnn.Size = new System.Drawing.Size(270, 22);
+            this.nnn.Size = new System.Drawing.Size(418, 22);
             this.nnn.Tag = "Menu5Sub2I3";
-            this.nnn.Text = "· ¥ß¬Õ¥´◊ÈÕ°≈ÿË¡≈Ÿ°§È“‡°Ë“/„À¡Ë";
+            this.nnn.Text = "ÔøΩ ¥ÔøΩÔøΩÕ¥ÔøΩÔøΩÔøΩÕ°ÔøΩÔøΩÔøΩÔøΩÔøΩŸ°ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ/ÔøΩÔøΩÔøΩÔøΩ";
             // 
             // ooo
             // 
@@ -693,44 +693,44 @@ namespace AryuwatSystem.UserControls
             this.ooo.Name = "ooo";
             this.ooo.Size = new System.Drawing.Size(214, 22);
             this.ooo.Tag = "Menu5Sub3";
-            this.ooo.Text = "√“¬ß“πΩË“¬ Therapist";
+            this.ooo.Text = "‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô‡∏ù‡πà‡∏≤‡∏¢ Therapist";
             this.ooo.Visible = false;
             // 
             // ppp
             // 
             this.ppp.Name = "ppp";
-            this.ppp.Size = new System.Drawing.Size(317, 22);
+            this.ppp.Size = new System.Drawing.Size(394, 22);
             this.ppp.Tag = "Menu5Sub3I1";
-            this.ppp.Text = " √ÿª¬Õ¥°“√ªØ‘∫—µ‘ß“π·ºπ° Body";
+            this.ppp.Text = "ÔøΩÔøΩÿªÔøΩÕ¥ÔøΩÔøΩ√ªÔøΩ‘∫—µ‘ß“π‡πÅ‡∏ú‡∏ô‡∏Å Body";
             // 
             // qqq
             // 
             this.qqq.Name = "qqq";
-            this.qqq.Size = new System.Drawing.Size(317, 22);
+            this.qqq.Size = new System.Drawing.Size(394, 22);
             this.qqq.Tag = "Menu5Sub3I2";
-            this.qqq.Text = " √ÿª¬Õ¥°“√ªØ‘∫—µ‘ß“π·ºπ°√“¬ª’";
+            this.qqq.Text = "ÔøΩÔøΩÿªÔøΩÕ¥ÔøΩÔøΩ√ªÔøΩ‘∫—µ‘ß“π‡πÅ‡∏ú‡∏ô‡∏ÅÔøΩÔøΩ¬ªÔøΩ";
             // 
             // rrr
             // 
             this.rrr.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.rrr.Name = "rrr";
-            this.rrr.Size = new System.Drawing.Size(317, 22);
+            this.rrr.Size = new System.Drawing.Size(394, 22);
             this.rrr.Tag = "Menu5Sub3I3";
             this.rrr.Text = "AE Report Month";
             // 
             // sss
             // 
             this.sss.Name = "sss";
-            this.sss.Size = new System.Drawing.Size(317, 22);
+            this.sss.Size = new System.Drawing.Size(394, 22);
             this.sss.Tag = "Menu5Sub3I4";
-            this.sss.Text = "«‘‡§√“–ÀÏ°“√Ø‘∫—µ‘°“√·ºπ° THERAPIST";
+            this.sss.Text = "ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ√Ø‘∫—µ‘°ÔøΩÔøΩ‡πÅ‡∏ú‡∏ô‡∏Å THERAPIST";
             // 
             // ttt
             // 
             this.ttt.Name = "ttt";
-            this.ttt.Size = new System.Drawing.Size(317, 22);
+            this.ttt.Size = new System.Drawing.Size(394, 22);
             this.ttt.Tag = "Menu5Sub3I5";
-            this.ttt.Text = "µ—Èß§Ë“√“¬ß“π";
+            this.ttt.Text = "ÔøΩÔøΩÈß§ÔøΩÔøΩÔøΩÔøΩ¬ß“π";
             // 
             // uuu
             // 
@@ -741,29 +741,29 @@ namespace AryuwatSystem.UserControls
             this.uuu.Name = "uuu";
             this.uuu.Size = new System.Drawing.Size(214, 22);
             this.uuu.Tag = "Menu5Sub4";
-            this.uuu.Text = "√“¬ß“πΩË“¬ WellNess";
+            this.uuu.Text = "‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô‡∏ù‡πà‡∏≤‡∏¢ WellNess";
             this.uuu.Visible = false;
             // 
             // vvv
             // 
             this.vvv.Name = "vvv";
-            this.vvv.Size = new System.Drawing.Size(297, 22);
+            this.vvv.Size = new System.Drawing.Size(374, 22);
             this.vvv.Tag = "Menu5Sub4I1";
             this.vvv.Text = "WE Report Month";
             // 
             // www
             // 
             this.www.Name = "www";
-            this.www.Size = new System.Drawing.Size(297, 22);
+            this.www.Size = new System.Drawing.Size(374, 22);
             this.www.Tag = "Menu5Sub4I2";
-            this.www.Text = "«‘‡§√“–ÀÏ°“√Ø‘∫—µ‘°“√·ºπ° WellNess";
+            this.www.Text = "ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ√Ø‘∫—µ‘°ÔøΩÔøΩ‡πÅ‡∏ú‡∏ô‡∏Å WellNess";
             // 
             // xxx
             // 
             this.xxx.Name = "xxx";
-            this.xxx.Size = new System.Drawing.Size(297, 22);
+            this.xxx.Size = new System.Drawing.Size(374, 22);
             this.xxx.Tag = "Menu5Sub4I3";
-            this.xxx.Text = " √ÿª√“¬√—∫ ·¬°µ“¡∫—µ√‡§√¥‘µ";
+            this.xxx.Text = "ÔøΩÔøΩÿªÔøΩÔøΩÔøΩÔøΩ—∫ ÔøΩ¬°ÔøΩÔøΩÔøΩÔøΩ—µÔøΩÔøΩ√¥‘µ";
             this.xxx.Visible = false;
             // 
             // yyy
@@ -774,22 +774,22 @@ namespace AryuwatSystem.UserControls
             this.yyy.Name = "yyy";
             this.yyy.Size = new System.Drawing.Size(214, 22);
             this.yyy.Tag = "Menu5Sub5";
-            this.yyy.Text = "√“¬ß“πΩË“¬ OR";
+            this.yyy.Text = "‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô‡∏ù‡πà‡∏≤‡∏¢ OR";
             this.yyy.Visible = false;
             // 
             // zzz
             // 
             this.zzz.Name = "zzz";
-            this.zzz.Size = new System.Drawing.Size(259, 22);
+            this.zzz.Size = new System.Drawing.Size(336, 22);
             this.zzz.Tag = "Menu5Sub5I1";
             this.zzz.Text = "Report Month";
             // 
             // aaaa
             // 
             this.aaaa.Name = "aaaa";
-            this.aaaa.Size = new System.Drawing.Size(259, 22);
+            this.aaaa.Size = new System.Drawing.Size(336, 22);
             this.aaaa.Tag = "Menu5Sub5I2";
-            this.aaaa.Text = "«‘‡§√“–ÀÏ°“√Ø‘∫—µ‘°“√·ºπ° OR";
+            this.aaaa.Text = "ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ√Ø‘∫—µ‘°ÔøΩÔøΩ‡πÅ‡∏ú‡∏ô‡∏Å OR";
             // 
             // bbbb
             // 
@@ -800,7 +800,7 @@ namespace AryuwatSystem.UserControls
             this.bbbb.Name = "bbbb";
             this.bbbb.Size = new System.Drawing.Size(214, 22);
             this.bbbb.Tag = "Menu5Sub6";
-            this.bbbb.Text = "√“¬ß“πΩË“¬ Account";
+            this.bbbb.Text = "‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô‡∏ù‡πà‡∏≤‡∏¢ Account";
             // 
             // cccc
             // 
@@ -815,7 +815,7 @@ namespace AryuwatSystem.UserControls
             this.dddd.Name = "dddd";
             this.dddd.Size = new System.Drawing.Size(186, 22);
             this.dddd.Tag = "Menu5Sub6I2";
-            this.dddd.Text = "√“¬ß“¬∑—Ë«‰ª∫—≠™’";
+            this.dddd.Text = "‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô‡∏ó‡∏±‡πà‡∏ß‡πÑ‡∏õ‡∏ö‡∏±‡∏ç‡∏ä‡∏µ";
             // 
             // eeee
             // 
@@ -832,21 +832,21 @@ namespace AryuwatSystem.UserControls
             this.ffff.Name = "ffff";
             this.ffff.Size = new System.Drawing.Size(214, 22);
             this.ffff.Tag = "Menu5Sub7";
-            this.ffff.Text = "√“¬ß“πΩË“¬ HR";
+            this.ffff.Text = "‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô‡∏ù‡πà‡∏≤‡∏¢ HR";
             // 
             // gggg
             // 
             this.gggg.Name = "gggg";
-            this.gggg.Size = new System.Drawing.Size(278, 22);
+            this.gggg.Size = new System.Drawing.Size(210, 22);
             this.gggg.Tag = "Menu5Sub7I1";
-            this.gggg.Text = " √ÿª§Ë“¡◊Õ√“¬ª’";
+            this.gggg.Text = "‡∏™‡∏£‡∏∏‡∏õ‡∏Ñ‡πà‡∏≤‡∏°‡∏∑‡∏≠‡∏£‡∏≤‡∏¢‡∏õ‡∏µ";
             // 
             // hhhh
             // 
             this.hhhh.Name = "hhhh";
-            this.hhhh.Size = new System.Drawing.Size(278, 22);
+            this.hhhh.Size = new System.Drawing.Size(210, 22);
             this.hhhh.Tag = "Menu5Sub7I2";
-            this.hhhh.Text = " √ÿª§Ë“¡◊Õ‡ªÁπ™Ë«ß‡«≈“(„∫ª–ÀπÈ“)";
+            this.hhhh.Text = "‡∏™‡∏£‡∏∏‡∏õ‡∏Ñ‡πà‡∏≤‡∏°‡∏∑‡∏≠‡∏ï‡∏≤‡∏°‡∏ä‡πà‡∏ß‡∏á‡πÄ‡∏ß‡∏•‡∏≤";
             // 
             // iiii
             // 
@@ -855,9 +855,9 @@ namespace AryuwatSystem.UserControls
             this.surgicalFeeToolStripMenuItem,
             this.refundToolStripMenuItem});
             this.iiii.Name = "iiii";
-            this.iiii.Size = new System.Drawing.Size(63, 22);
+            this.iiii.Size = new System.Drawing.Size(67, 22);
             this.iiii.Tag = "Menu6";
-            this.iiii.Text = "°“√‡ß‘π";
+            this.iiii.Text = "Cashier";
             this.iiii.Visible = false;
             // 
             // sOFToolStripMenuItem

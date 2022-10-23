@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cmdExit = new System.Windows.Forms.PictureBox();
             this.cmdLogin = new System.Windows.Forms.PictureBox();
@@ -37,12 +38,11 @@
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.PictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.PictureBox3 = new System.Windows.Forms.PictureBox();
             this.Label6 = new System.Windows.Forms.Label();
             this.Label5 = new System.Windows.Forms.Label();
             this.PictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmdExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdLogin)).BeginInit();
@@ -69,6 +69,17 @@
             this.groupBox1.Size = new System.Drawing.Size(615, 310);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Angsana New", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label2.ForeColor = System.Drawing.Color.DimGray;
+            this.label2.Location = new System.Drawing.Point(206, 206);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(86, 37);
+            this.label2.TabIndex = 92;
+            this.label2.Text = "รหัสผ่าน :";
             // 
             // panel1
             // 
@@ -115,6 +126,7 @@
             this.txtPassWord.PasswordChar = '~';
             this.txtPassWord.Size = new System.Drawing.Size(215, 29);
             this.txtPassWord.TabIndex = 1;
+            this.txtPassWord.Text = "admin";
             // 
             // txtUsername
             // 
@@ -124,6 +136,7 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(215, 29);
             this.txtUsername.TabIndex = 0;
+            this.txtUsername.Text = "admin";
             // 
             // PictureBox1
             // 
@@ -143,6 +156,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(108, 36);
             this.panel2.TabIndex = 74;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Angsana New", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label1.ForeColor = System.Drawing.Color.DimGray;
+            this.label1.Location = new System.Drawing.Point(-2, 2);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(108, 37);
+            this.label1.TabIndex = 91;
+            this.label1.Text = "รหัสผู้ใช้งาน :";
             // 
             // PictureBox3
             // 
@@ -186,28 +210,6 @@
             this.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PictureBox2.TabIndex = 89;
             this.PictureBox2.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Angsana New", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(-2, 2);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 37);
-            this.label1.TabIndex = 91;
-            this.label1.Text = "รหัสผู้ใช้งาน :";
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Angsana New", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label2.ForeColor = System.Drawing.Color.DimGray;
-            this.label2.Location = new System.Drawing.Point(206, 206);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 37);
-            this.label2.TabIndex = 92;
-            this.label2.Text = "รหัสผ่าน :";
             // 
             // FrmLogin
             // 

@@ -44,7 +44,7 @@ namespace AryuwatSystem.UserControls
             this.picTmp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picTmp.TabIndex = 0;
             this.picTmp.TabStop = false;
-            this.toolTip1.SetToolTip(this.picTmp, "¼Ùéá¹Ð¹Ó");
+            this.toolTip1.SetToolTip(this.picTmp, "ï¿½ï¿½ï¿½ï¿½Ð¹ï¿½");
             this.picTmp.Click += new System.EventHandler(this.picTmp_Click);
             this.picTmp.MouseLeave += new System.EventHandler(this.picTmp_MouseLeave);
             this.picTmp.MouseHover += new System.EventHandler(this.picTmp_MouseHover);

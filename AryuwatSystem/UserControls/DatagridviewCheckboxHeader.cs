@@ -21,7 +21,7 @@ namespace DatagridviewUsercontrol
             container.Add(this);
             //InitializeComponent();
 
-            //à¾ÔèÁ CheckboxHeader Column tu_cs
+            //ï¿½ï¿½ï¿½ï¿½ CheckboxHeader Column tu_cs
             DataGridViewCheckBoxColumn colCB = new DataGridViewCheckBoxColumn();
             CheckboxHeader = new DatagridViewCheckBoxHeaderCell();
             colCB.HeaderCell = CheckboxHeader;
@@ -92,7 +92,7 @@ namespace DatagridviewUsercontrol
 
     }
     /// <summary>
-    /// class äÇéÊÓËÃÑº ÊÃéÒ§ º¹ CheckboxHeaderCell
+    /// class ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñº ï¿½ï¿½ï¿½Ò§ ï¿½ï¿½ CheckboxHeaderCell
     /// </summary>
     /// <param name="state"></param>
     #region CheckboxHeaderCell
@@ -189,7 +189,7 @@ namespace DatagridviewUsercontrol
 
     #region TextAndImage
     /// <summary>
-    /// Class ÊÃéÒ§ TextAndImageColumn
+    /// Class ï¿½ï¿½ï¿½Ò§ TextAndImageColumn
     /// </summary>
     public class TextAndImageColumn : DataGridViewTextBoxColumn
     {
@@ -240,7 +240,7 @@ namespace DatagridviewUsercontrol
     }
 
     /// <summary>
-    /// Class ÊÃéÒ§ TextAndImageCell
+    /// Class ï¿½ï¿½ï¿½Ò§ TextAndImageCell
     /// </summary>
     class TextAndImageCell : DataGridViewTextBoxCell
     {

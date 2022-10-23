@@ -214,7 +214,7 @@ namespace AryuwatSystem.UserControls
         }
         private void SetPage()
         {
-            lblTxtRecord.Text = Convert.ToString(mLngCurrentPage) + "/" + Convert.ToString(mLngTotalPage) + " ®”π«π¢ÈÕ¡Ÿ≈∑—ÈßÀ¡¥ : " + Convert.ToString(mLngTotalRecord) + " Record";
+            lblTxtRecord.Text = Convert.ToString(mLngCurrentPage) + "/" + Convert.ToString(mLngTotalPage) + " ‡∏´‡∏ô‡πâ‡∏≤ ‡∏à‡∏≤‡∏Å‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î : " + Convert.ToString(mLngTotalRecord) + " Record";
         }
 
 

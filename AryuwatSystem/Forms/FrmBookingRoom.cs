@@ -418,12 +418,12 @@ namespace AryuwatSystem.Forms
                                 for (int i = 0; i < rowArray.Length; i++)
                                 {
                                     if (oldDrID != "" && oldDrID == Statics.popbookingAdd.DrID) continue;
-                                    if (Convert.ToDateTime(rowArray[i]["DateShowStart"] + "").TimeOfDay == e.Item.StartDate.TimeOfDay )// ¶éÒËÁÍäÁèà»ÅÕèÂ¹¤¹ ¡çäÁèµéÍ§àªç¤
+                                    if (Convert.ToDateTime(rowArray[i]["DateShowStart"] + "").TimeOfDay == e.Item.StartDate.TimeOfDay )// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¹ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í§ï¿½ï¿½
                                     {
                                         Statics.popbookingAdd.DrID = strArray[num]+""!=""?Statics.popbookingAdd.DrID.Replace(strArray[num]+"", "").Replace(",,", ","):Statics.popbookingAdd.DrID.Replace(",,", ",");
                                         Statics.popbookingAdd.DrName = strArray2[num] != "" ? Statics.popbookingAdd.DrName.Replace(strArray2[num], "").Replace(",,", ",") : Statics.popbookingAdd.DrName.Replace(",,", ",");
                                         object[] args = new object[] { strArray2[num], rowArray[i]["RoomName"] + "", Convert.ToDateTime(rowArray[i]["DateShowStart"] + "").ToString("hh:mm tt") ?? "", "\n\r", text };
-                                        text = string.Format("{0} ¶Ù¡¨Í§äÇéáÅéÇ,ËéÍ§ {1},àÇÅÒ {2}{3}{4}{5}{6}", args[0], args[1], args[2], args[3], args[4], Environment.NewLine, "¡ÃØ³Ò àÅ×Í¡ãËÁèÍÕ¡¤ÃÑé§");
+                                        text = string.Format("{0} ï¿½Ù¡ï¿½Í§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½Í§ {1},ï¿½ï¿½ï¿½ï¿½ {2}{3}{4}{5}{6}", args[0], args[1], args[2], args[3], args[4], Environment.NewLine, "ï¿½ï¿½Ø³ï¿½ ï¿½ï¿½ï¿½Í¡ï¿½ï¿½ï¿½ï¿½ï¿½Õ¡ï¿½ï¿½ï¿½ï¿½");
                                     }
                                 }
                             }
@@ -1406,10 +1406,10 @@ namespace AryuwatSystem.Forms
 
                 if (dtData.Rows.Count > 0)
                 {
-                    foreach (DataRow item in dtData.Rows)//¢éÍÁÙÅ book
+                    foreach (DataRow item in dtData.Rows)//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ book
                     {
                         string EndDate = item["DateShowEnd"].ToString().Trim().ToLower();
-                        foreach (DataRow drOK in dtok.Rows)//µÒÃÒ§àÇÅÒ
+                        foreach (DataRow drOK in dtok.Rows)//ï¿½ï¿½ï¿½Ò§ï¿½ï¿½ï¿½ï¿½
                         {
                             string r = item["RoomName"].ToString();
                             

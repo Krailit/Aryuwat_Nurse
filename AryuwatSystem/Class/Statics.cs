@@ -170,13 +170,13 @@ namespace AryuwatSystem.DerClass
         public static string EN  = "";
         #region  Toolbar Displaying
         /// <summary>
-        /// กำหนดการใช้งานปุ่มต่างๆ ให้ Enable เป็น true, false
+        /// ๏ฟฝ๏ฟฝหน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝาง๏ฟฝ ๏ฟฝ๏ฟฝ๏ฟฝ Enable ๏ฟฝ๏ฟฝ true, false
         /// </summary>
-        /// <param name="btnNew">ปุ่ม New</param>
-        /// <param name="btnEdit">ปุ่ม Edit</param>
-        /// <param name="btnDelete">ปุ่ม Delete</param>
-        /// <param name="btnPrint">ปุ่ม Print</param>
-        /// <param name="btnRefresh">ปุ่ม Refresh</param>
+        /// <param name="btnNew">๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ New</param>
+        /// <param name="btnEdit">๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ Edit</param>
+        /// <param name="btnDelete">๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ Delete</param>
+        /// <param name="btnPrint">๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ Print</param>
+        /// <param name="btnRefresh">๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ Refresh</param>
         ///  
         public static void SetToolbar(bool blNew, bool blEdit, bool blDelete, bool blPrint, bool blRefresh)
         {
@@ -198,27 +198,27 @@ namespace AryuwatSystem.DerClass
 
         #endregion
 
-        public const string StrNewRow = "=== แสดงทั้งหมด ===";
-        public const string StrValidate = "===โปรดระบุ ===";
-        //public const string StrPlease = "===โปรดระบุ===";
-        public const string StrEmpty = "===ไม่ระบุ===";
-        public const string StrPleaseOk = "===ระบุ===";
-        public const string StrShowRow = "===แสดงข้อมูลทั้งหมด===";
-        public const string StrMsgInsertComplete = "บันทึกข้อมูลเรียบร้อยแล้ว \"Saved\"";
-        public const string StrMsgUpdateComplete = "แก้ไขข้อมูลเรียบร้อยแล้ว \"Saved\"";
-        public const string StrMsgDeleteComplete = "ลบข้อมูลเรียบร้อยแล้ว \"Deleted.\"";
-        public const string StrConfirmDelete = "ยืนยันการลบข้อมูล \"Confirm Delete ?\"";
-        public const string StrConfirm = "ยืนยันการบันทึกข้อมูล \"Confirm Save ?\"";
-        public const string StrMsgDeleteError = "เกิดข้อผิดพลาดในการลบข้อมูล เนื่องจาก \"Delete Error\"";
-        public const string StrMsgCannotSave = "ไม่สามารถบันทึกข้อมูลได้ เนื่องจาก \"Cannot Save\"";
-        //public const string StrMsgConnotInsert = "เกิดข้อผิดพลาดในการบันทึกข้อมูล ";
-        public const string StrMsgInput = "กรุณาระบุ  ";
-        public const string StrMsgPleaseSelect = "---กรุณาเลือก---";
-        public const string StrMsgOther = "=== อื่น ๆ===";
-        public const string StrEdit = "สถานะ [แก้ไข]";
-        public const string StrAdd = "สถานะ [เพิ่ม]";
-        public const string StrPreview = "สถานะ [แสดงข้อมูล]";
-        public const string strConfirmCloseForm = "ยังไม่มีการบันทึกข้อมูล ต้องการกลับไปบันทึกข้อมูลหรือไม่ ? \"No record\"";
+        public const string StrNewRow = "=== ๏ฟฝสด๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ ===";
+        public const string StrValidate = "=== เนเธเธฃเธ”เธฃเธฐเธเธธ ===";
+        //public const string StrPlease = "=== เนเธเธฃเธ”เธฃเธฐเธเธธ===";
+        public const string StrEmpty = "===๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝะบ๏ฟฝ===";
+        public const string StrPleaseOk = "===๏ฟฝะบ๏ฟฝ===";
+        public const string StrShowRow = "===๏ฟฝสด๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝลท๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ===";
+        public const string StrMsgInsertComplete = "๏ฟฝัน๏ฟฝึก๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ \"Saved\"";
+        public const string StrMsgUpdateComplete = "๏ฟฝ๏ฟฝไขข๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ \"Saved\"";
+        public const string StrMsgDeleteComplete = "ลบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ \"Deleted.\"";
+        public const string StrConfirmDelete = "๏ฟฝืน๏ฟฝัน๏ฟฝ๏ฟฝ๏ฟฝลบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ \"Confirm Delete ?\"";
+        public const string StrConfirm = "๏ฟฝืน๏ฟฝัน๏ฟฝ๏ฟฝรบัน๏ฟฝึก๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ \"Confirm Save ?\"";
+        public const string StrMsgDeleteError = "๏ฟฝิด๏ฟฝ๏ฟฝอผิด๏ฟฝ๏ฟฝาดในก๏ฟฝ๏ฟฝลบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ ๏ฟฝ๏ฟฝ๏ฟฝอง๏ฟฝาก \"Delete Error\"";
+        public const string StrMsgCannotSave = "๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝรถ๏ฟฝัน๏ฟฝึก๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ ๏ฟฝ๏ฟฝ๏ฟฝอง๏ฟฝาก \"Cannot Save\"";
+        //public const string StrMsgConnotInsert = "๏ฟฝิด๏ฟฝ๏ฟฝอผิด๏ฟฝ๏ฟฝาดในก๏ฟฝรบัน๏ฟฝึก๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ ";
+        public const string StrMsgInput = "๏ฟฝ๏ฟฝุณ๏ฟฝ๏ฟฝะบ๏ฟฝ  ";
+        public const string StrMsgPleaseSelect = "---๏ฟฝ๏ฟฝุณ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอก---";
+        public const string StrMsgOther = "=== ๏ฟฝ๏ฟฝ๏ฟฝ ๏ฟฝ===";
+        public const string StrEdit = " [เนเธเนเนเธ]";
+        public const string StrAdd = " [เน€เธเธดเนเธก]";
+        public const string StrPreview = "สถาน๏ฟฝ [๏ฟฝสด๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ]";
+        public const string strConfirmCloseForm = "๏ฟฝัง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝีก๏ฟฝรบัน๏ฟฝึก๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ ๏ฟฝ๏ฟฝอง๏ฟฝ๏ฟฝรก๏ฟฝับไปบัน๏ฟฝึก๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ ? \"No record\"";
         //public const string StrEmployeeID="";
         public static string StrEmployeeID = "";
         public static string StrGroupId = "";
@@ -230,8 +230,8 @@ namespace AryuwatSystem.DerClass
         public static string StrFullName = "";
         public static string EncryptDecrypt_key = "&%#@?,:*";//EncryptText//DecryptText
         //public static Entity.TBLCMPConfig InfoConfig;
-        public static string SaveComplete= "บันทึกข้อมูลเรียบร้อยแล้ว\nSave Complete";
-        public static string OverProCredit = "เกินวงเงินโปรโมชั่น ต้องการเลือกรายการนี้หรือไม่\nOver Credit,Confirm Add.";
+        public static string SaveComplete= "๏ฟฝัน๏ฟฝึก๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ\nSave Complete";
+        public static string OverProCredit = "๏ฟฝินวง๏ฟฝิน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ ๏ฟฝ๏ฟฝอง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอก๏ฟฝ๏ฟฝยก๏ฟฝรน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ\nOver Credit,Confirm Add.";
         public static void Application_AcquireRequestState()
         {
 

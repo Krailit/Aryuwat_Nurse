@@ -10,7 +10,7 @@ using System.Text;
             string result;
             if (InputNumber == 0)
             {
-                result = "";//"ÈÙ¹ÂìºÒ·¶éÇ¹";
+                result = "";//"ï¿½Ù¹ï¿½ï¿½Ò·ï¿½ï¿½Ç¹";
                 return result;
             }
 
@@ -47,7 +47,7 @@ using System.Text;
 
                 if (CNumber == 0 && i == 7)
                 {
-                    strPosition = "ÅéÒ¹";
+                    strPosition = "ï¿½ï¿½Ò¹";
                 }
                 else if (CNumber == 0)
                 {
@@ -58,28 +58,28 @@ using System.Text;
                     strPosition = PositionToText(i);
                 }
 
-                if (CNumber == 2 && strPosition == "ÊÔº")
+                if (CNumber == 2 && strPosition == "ï¿½Ôº")
                 {
-                    strNumber = "ÂÕè";
+                    strNumber = "ï¿½ï¿½ï¿½";
                 }
-                else if (CNumber == 1 && strPosition == "ÊÔº")
+                else if (CNumber == 1 && strPosition == "ï¿½Ôº")
                 {
                     strNumber = "";
                 }
-                else if (CNumber == 1 && strPosition == "ÅéÒ¹" && nLength >= 8)
+                else if (CNumber == 1 && strPosition == "ï¿½ï¿½Ò¹" && nLength >= 8)
                 {
                     if (CNumberBak == 0)
                     {
-                        strNumber = "Ë¹Öè§";
+                        strNumber = "Ë¹ï¿½ï¿½";
                     }
                     else
                     {
-                        strNumber = "àÍç´";
+                        strNumber = "ï¿½ï¿½ï¿½";
                     }
                 }
                 else if (CNumber == 1 && strPosition == "" && nLength > 1)
                 {
-                    strNumber = "àÍç´";
+                    strNumber = "ï¿½ï¿½ï¿½";
                 }
                 else
                 {
@@ -104,7 +104,7 @@ using System.Text;
                     CNumber = Convert.ToInt32(LastNumber.Substring(CountPos, 1));
                     if (CNumber == 1 && i == 2)
                     {
-                        strPosition = "ÊÔº";
+                        strPosition = "ï¿½Ôº";
                     }
                     else if (CNumber == 0)
                     {
@@ -115,9 +115,9 @@ using System.Text;
                         strPosition = PositionToText(i);
                     }
 
-                    if (CNumber == 2 && strPosition == "ÊÔº")
+                    if (CNumber == 2 && strPosition == "ï¿½Ôº")
                     {
-                        Stang = "ÂÕè";
+                        Stang = "ï¿½ï¿½ï¿½";
                     }
                     else if (CNumber == 1 && i == 2)
                     {
@@ -127,11 +127,11 @@ using System.Text;
                     {
                         if (CNumberBak == 0)
                         {
-                            Stang = "Ë¹Öè§";
+                            Stang = "Ë¹ï¿½ï¿½";
                         }
                         else
                         {
-                            Stang = "àÍç´";
+                            Stang = "ï¿½ï¿½ï¿½";
                         }
                     }
                     else
@@ -143,7 +143,7 @@ using System.Text;
                     FinalStang = FinalStang + Stang + strPosition;
                 }
 
-                FinalStang = FinalStang + "ÊµÒ§¤ì";
+                FinalStang = FinalStang + "ÊµÒ§ï¿½ï¿½";
             }
             else
             {
@@ -153,13 +153,13 @@ using System.Text;
             string SubUnit;
             if (FinalStang == "")
             {
-                SubUnit = "ºÒ·¶éÇ¹";
+                SubUnit = "ï¿½Ò·ï¿½ï¿½Ç¹";
             }
             else
             {
                 if (Convert.ToDouble(FirstNumber) != 0)
                 {
-                    SubUnit = "ºÒ·";
+                    SubUnit = "ï¿½Ò·";
                 }
                 else
                 {
@@ -179,23 +179,23 @@ using System.Text;
             {
                 case 0: _nText = "";
                     break;
-                case 1: _nText = "Ë¹Öè§";
+                case 1: _nText = "Ë¹ï¿½ï¿½";
                     break;
-                case 2: _nText = "ÊÍ§";
+                case 2: _nText = "ï¿½Í§";
                     break;
-                case 3: _nText = "ÊÒÁ";
+                case 3: _nText = "ï¿½ï¿½ï¿½";
                     break;
-                case 4: _nText = "ÊÕè";
+                case 4: _nText = "ï¿½ï¿½ï¿½";
                     break;
-                case 5: _nText = "ËéÒ";
+                case 5: _nText = "ï¿½ï¿½ï¿½";
                     break;
                 case 6: _nText = "Ë¡";
                     break;
-                case 7: _nText = "à¨ç´";
+                case 7: _nText = "ï¿½ï¿½";
                     break;
                 case 8: _nText = "á»´";
                     break;
-                case 9: _nText = "à¡éÒ";
+                case 9: _nText = "ï¿½ï¿½ï¿½";
                     break;
             }
 
@@ -212,29 +212,29 @@ using System.Text;
                     break;
                 case 1: _nPos = "";
                     break;
-                case 2: _nPos = "ÊÔº";
+                case 2: _nPos = "ï¿½Ôº";
                     break;
-                case 3: _nPos = "ÃéÍÂ";
+                case 3: _nPos = "ï¿½ï¿½ï¿½ï¿½";
                     break;
-                case 4: _nPos = "¾Ñ¹";
+                case 4: _nPos = "ï¿½Ñ¹";
                     break;
-                case 5: _nPos = "ËÁ×è¹";
+                case 5: _nPos = "ï¿½ï¿½ï¿½ï¿½";
                     break;
-                case 6: _nPos = "áÊ¹";
+                case 6: _nPos = "ï¿½Ê¹";
                     break;
-                case 7: _nPos = "ÅéÒ¹";
+                case 7: _nPos = "ï¿½ï¿½Ò¹";
                     break;
-                case 8: _nPos = "ÊÔº";
+                case 8: _nPos = "ï¿½Ôº";
                     break;
-                case 9: _nPos = "ÃéÍÂ";
+                case 9: _nPos = "ï¿½ï¿½ï¿½ï¿½";
                     break;
-                case 10: _nPos = "¾Ñ¹";
+                case 10: _nPos = "ï¿½Ñ¹";
                     break;
-                case 11: _nPos = "ËÁ×è¹";
+                case 11: _nPos = "ï¿½ï¿½ï¿½ï¿½";
                     break;
-                case 12: _nPos = "áÊ¹";
+                case 12: _nPos = "ï¿½Ê¹";
                     break;
-                case 13: _nPos = "ÅéÒ¹";
+                case 13: _nPos = "ï¿½ï¿½Ò¹";
                     break;
             }
 

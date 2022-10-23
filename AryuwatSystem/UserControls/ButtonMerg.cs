@@ -48,7 +48,7 @@ namespace AryuwatSystem.UserControls
             //{
             //    BtnTooltip();
             //}
-            toolTip1.SetToolTip(this.picTmp, "รวมรายการที่เลือก");
+            toolTip1.SetToolTip(this.picTmp, "๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยก๏ฟฝรท๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอก");
         }
     }
 }

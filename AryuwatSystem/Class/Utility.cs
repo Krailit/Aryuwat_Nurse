@@ -29,26 +29,26 @@ namespace AryuwatSystem.DerClass
         #region AccessType enum
 
         /// <summary>
-        /// ãªéÊÓËÃÑºµÃÇ¨ÊÍº¡ÒÃá¡éä¢¢éÍÁÙÅ 
+        /// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñºï¿½ï¿½Ç¨ï¿½Íºï¿½ï¿½ï¿½ï¿½ï¿½ä¢¢ï¿½ï¿½ï¿½ï¿½ï¿½ 
         /// </summary>
         public enum AccessType
         {
-            [StringValue("à¾ÔèÁ¢éÍÁÙÅ")]
+            [StringValue("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
             Insert,
-            [StringValue("á¡éä¢¢éÍÁÙÅ")]
+            [StringValue("ï¿½ï¿½ä¢¢ï¿½ï¿½ï¿½ï¿½ï¿½")]
             Update,
-            [StringValue("áÊ´§¢éÍÁÙÅÍÂèÒ§à´ÕÂÇ")]
+            [StringValue("ï¿½Ê´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò§ï¿½ï¿½ï¿½ï¿½")]
             DisplayOnly
         }
         public enum StockTyp
         {
-            [StringValue("àºÔ¡ÊÒ¢Ò")]
+            [StringValue("à¹€à¸šà¸´à¸à¸ªà¸²à¸‚à¸²")]
             REQBranch,
-            [StringValue("µÍº¡ÅÑºÊÒ¢Ò")]
+            [StringValue("ï¿½Íºï¿½ï¿½Ñºà¸ªà¸²à¸‚à¸²")]
             ReplyBranch,
-            [StringValue("àºÔ¡á¼¹¡")]
+            [StringValue("à¹€à¸šà¸´à¸à¹à¸œà¸™à¸")]
             REQDept,
-            [StringValue("µÍº¡ÅÑºá¼¹¡")]
+            [StringValue("ï¿½Íºï¿½ï¿½Ñºà¹à¸œà¸™à¸")]
             ReplyDept,
 
         }
@@ -118,7 +118,7 @@ namespace AryuwatSystem.DerClass
         #endregion
 
         /// <summary>
-        /// µÃÇ¨ÊÍº¡ÒÃ¡´ Enter à¾×èÍ·Õè¨ĞãËéàÅ×èÍ¹ TabIndex
+        /// ï¿½ï¿½Ç¨ï¿½Íºï¿½ï¿½Ã¡ï¿½ Enter ï¿½ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¹ TabIndex
         /// </summary>
         /// <param name="CurrentChar">e  KeyPress</param>
         public static void SendKey(char keys)
@@ -131,7 +131,7 @@ namespace AryuwatSystem.DerClass
 
 
         /// <summary>
-        /// µÃÇ¨áÅĞSet keyBorad Auto
+        /// ï¿½ï¿½Ç¨ï¿½ï¿½ï¿½Set keyBorad Auto
         /// </summary>
 
         public static void GetSetInputKeyBorad(string langName)
@@ -147,7 +147,7 @@ namespace AryuwatSystem.DerClass
 
 
         /// <summary>
-        /// µÃÇ¨ÃÙ»áººÇÑ¹·Õè
+        /// ï¿½ï¿½Ç¨ï¿½Ù»áººï¿½Ñ¹ï¿½ï¿½ï¿½
         /// </summary>
         /// <param name="CurrentChar">DD/MM/YYYY</param>
         public static bool CheckDate(string pStrDate)
@@ -195,7 +195,7 @@ namespace AryuwatSystem.DerClass
         }
 
         /// <summary>
-        /// µÃÇ¨¤èÒÇèÒ§
+        /// ï¿½ï¿½Ç¨ï¿½ï¿½ï¿½ï¿½ï¿½Ò§
         /// </summary>
         /// <param name="CurrentChar"></param>
         public static bool IsBlank(string pStr)
@@ -254,18 +254,18 @@ namespace AryuwatSystem.DerClass
         public static string IsMonthNameThai(int mon)
         {
             string monthname = "";
-            if(mon==1)monthname="Á¡ÃÒ¤Á";
-            else if(mon==2)monthname="¡ØÁÀÒ¾Ñ¹¸ì";
-            else if(mon==3)monthname="ÁÕ¹Ò¤Á";
-            else if(mon==4)monthname="àÁÉÒÂ¹";
-            else if(mon==5)monthname="¾ÄÉÀÒ¤Á";
-            else if(mon==6)monthname="ÁÔ¶Ø¹ÒÂ¹";
-            else if(mon==7)monthname="¡Ã¡®Ò¤Á";
-            else if(mon==8)monthname="ÊÔ§ËÒ¤Á";
-            else if(mon==9)monthname="¡Ñ¹ÂÒÂ¹";
-            else if(mon==10)monthname="µØÅÒ¤Á";
-            else if(mon==11)monthname="¾ÄÈ¨Ô¡ÒÂ¹";
-            else if(mon==12)monthname="¸Ñ¹ÇÒ¤Á";
+            if(mon==1)monthname="ï¿½ï¿½ï¿½Ò¤ï¿½";
+            else if(mon==2)monthname="ï¿½ï¿½ï¿½ï¿½Ò¾Ñ¹ï¿½ï¿½";
+            else if(mon==3)monthname="ï¿½Õ¹Ò¤ï¿½";
+            else if(mon==4)monthname="ï¿½ï¿½ï¿½ï¿½Â¹";
+            else if(mon==5)monthname="ï¿½ï¿½ï¿½ï¿½Ò¤ï¿½";
+            else if(mon==6)monthname="ï¿½Ô¶Ø¹ï¿½Â¹";
+            else if(mon==7)monthname="ï¿½Ã¡ï¿½Ò¤ï¿½";
+            else if(mon==8)monthname="ï¿½Ô§ï¿½Ò¤ï¿½";
+            else if(mon==9)monthname="ï¿½Ñ¹ï¿½ï¿½Â¹";
+            else if(mon==10)monthname="ï¿½ï¿½ï¿½Ò¤ï¿½";
+            else if(mon==11)monthname="ï¿½ï¿½È¨Ô¡ï¿½Â¹";
+            else if(mon==12)monthname="ï¿½Ñ¹ï¿½Ò¤ï¿½";
 
             return monthname;
         }
@@ -689,12 +689,12 @@ namespace AryuwatSystem.DerClass
             string strDateStyle = "dd/MM/yyyy";
 
             dtfInfo = DateTimeFormatInfo.CurrentInfo;
-            dtfInfo = DateTimeFormatInfo.InvariantInfo; //¡ÓË¹´ÃÙ»áºº¨Ñ´ÇÑ¹·Õèà»ç¹áººÊÒ¡Å
+            dtfInfo = DateTimeFormatInfo.InvariantInfo; //ï¿½ï¿½Ë¹ï¿½ï¿½Ù»áººï¿½Ñ´ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½áººï¿½Ò¡ï¿½
 
             //DateTimeFormatInfo myDTFI = new CultureInfo("en-US", false).DateTimeFormat;
             m_strDateTime = dtmInput.ToString(strDateStyle, dtfInfo);
 
-            ////m_strDateTime = string.Format(strDateTime.ToString("yyyyMMdd")); áºº¹Õé¡çãªéä´é
+            ////m_strDateTime = string.Format(strDateTime.ToString("yyyyMMdd")); áººï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             //m_strDateTime = string.Format("{0:yyyyMMdd}", strDateTime);
             return m_strDateTime;
         }
@@ -715,7 +715,7 @@ namespace AryuwatSystem.DerClass
 
             catch (Exception exception)
             {
-                PopMsg(EnuMsgType.MsgTypeError, "äÁè¾ºä¿ÅìÃÙ»ÀÒ¾");
+                PopMsg(EnuMsgType.MsgTypeError, "ï¿½ï¿½è¾ºï¿½ï¿½ï¿½ï¿½Ù»ï¿½Ò¾");
             }
         }
 
@@ -725,25 +725,25 @@ namespace AryuwatSystem.DerClass
             switch (strWeekly)
             {
                 case "Monday":
-                    strWeeklyName = "¨Ñ¹·Ãì";
+                    strWeeklyName = "ï¿½Ñ¹ï¿½ï¿½ï¿½";
                     break;
                 case "Tuesday":
-                    strWeeklyName = "ÍÑ§¤ÒÃ";
+                    strWeeklyName = "ï¿½Ñ§ï¿½ï¿½ï¿½";
                     break;
                 case "Wednesday":
-                    strWeeklyName = "¾Ø·¸";
+                    strWeeklyName = "ï¿½Ø·ï¿½";
                     break;
                 case "Thursday":
-                    strWeeklyName = "¾ÄËÑÊº´Õ";
+                    strWeeklyName = "ï¿½ï¿½ï¿½ï¿½Êºï¿½ï¿½";
                     break;
                 case "Friday":
-                    strWeeklyName = "ÈØ¡Ãì";
+                    strWeeklyName = "ï¿½Ø¡ï¿½ï¿½";
                     break;
                 case "Saturday":
-                    strWeeklyName = "àÊÒÃì";
+                    strWeeklyName = "ï¿½ï¿½ï¿½ï¿½ï¿½";
                     break;
                 case "Sunday":
-                    strWeeklyName = "ÍÒ·ÔµÂì";
+                    strWeeklyName = "ï¿½Ò·Ôµï¿½ï¿½";
                     break;
             }
             return strWeeklyName;
@@ -1244,14 +1244,14 @@ namespace AryuwatSystem.DerClass
                {
                     // You could potentially name the column based on the DGV column name (beware of dupes)
                     // or assign a type based on the data type of the data bound to this DGV column.
-                   //if (column.Name.ToLower().Contains("bath") || column.Name.ToLower().Contains("fee") || column.Name.ToLower().Contains("price") || column.Name.ToLower().Contains("ÃÒ¤Ò") || column.Name.ToLower().Contains("cash") || column.Name.ToLower().Contains("credit") || column.Name.ToLower().Contains("net") || column.Name.ToLower().Contains("total") || column.Name.ToLower().Contains("amount") || column.Name.ToLower().Contains("ÁÙÅ¤èÒ"))
-                   if (column.Name.ToLower().Contains("¨èÒÂ") || column.Name.ToLower().Contains("Å´") || column.Name.ToLower().Contains("pay") || column.Name.ToLower().Contains("bath") || column.Name.ToLower().Contains("fee") || column.Name.ToLower().Contains("price")
-                              || column.Name.ToLower().Contains("ÃÒ¤Ò") || column.Name.ToLower().Contains("cash") || column.Name.ToLower().Contains("ÃÑº") || column.Name.ToLower().Contains("credit") || column.Name.ToLower().Contains("net") || column.Name.ToLower().Contains("total")
-                              || column.Name.ToLower().Contains("¤èÒ") || column.Name.ToLower().Contains("amount") || column.Name.ToLower().Contains("ÁÙÅ¤èÒ") || column.Name.ToLower().Contains("à§Ô¹") || column.Name.ToLower().Contains("ÅÓ´Ñº"))
+                   //if (column.Name.ToLower().Contains("bath") || column.Name.ToLower().Contains("fee") || column.Name.ToLower().Contains("price") || column.Name.ToLower().Contains("ï¿½Ò¤ï¿½") || column.Name.ToLower().Contains("cash") || column.Name.ToLower().Contains("credit") || column.Name.ToLower().Contains("net") || column.Name.ToLower().Contains("total") || column.Name.ToLower().Contains("amount") || column.Name.ToLower().Contains("ï¿½ï¿½Å¤ï¿½ï¿½"))
+                   if (column.Name.ToLower().Contains("ï¿½ï¿½ï¿½ï¿½") || column.Name.ToLower().Contains("Å´") || column.Name.ToLower().Contains("pay") || column.Name.ToLower().Contains("bath") || column.Name.ToLower().Contains("fee") || column.Name.ToLower().Contains("price")
+                              || column.Name.ToLower().Contains("ï¿½Ò¤ï¿½") || column.Name.ToLower().Contains("cash") || column.Name.ToLower().Contains("ï¿½Ñº") || column.Name.ToLower().Contains("credit") || column.Name.ToLower().Contains("net") || column.Name.ToLower().Contains("total")
+                              || column.Name.ToLower().Contains("ï¿½ï¿½ï¿½") || column.Name.ToLower().Contains("amount") || column.Name.ToLower().Contains("ï¿½ï¿½Å¤ï¿½ï¿½") || column.Name.ToLower().Contains("ï¿½Ô¹") || column.Name.ToLower().Contains("ï¿½Ó´Ñº"))
                    {
                        dt.Columns.Add(column.HeaderText, typeof(double));
                    }
-                   //else if (column.Name.ToLower().Contains("date") || column.Name.ToLower().Contains("ÇÑ¹"))
+                   //else if (column.Name.ToLower().Contains("date") || column.Name.ToLower().Contains("ï¿½Ñ¹"))
                    //    dt.Columns.Add(column.HeaderText, typeof(DateTime));
                    else
                        dt.Columns.Add(column.HeaderText, typeof(string));
@@ -1267,12 +1267,12 @@ namespace AryuwatSystem.DerClass
                 {
                     //if (dgv.Columns[c.ColumnName].Visible && (dt.Columns.Count - 1) >= i)
 //                    {
-                        if (dgv.Columns[c.ColumnName].Name.ToLower().Contains("bath") | dgv.Columns[c.ColumnName].Name.ToLower().Contains("fee") | dgv.Columns[c.ColumnName].Name.ToLower().Contains("price") | dgv.Columns[c.ColumnName].Name.ToLower().Contains("ÃÒ¤Ò") | dgv.Columns[c.ColumnName].Name.ToLower().Contains("cash") 
+                        if (dgv.Columns[c.ColumnName].Name.ToLower().Contains("bath") | dgv.Columns[c.ColumnName].Name.ToLower().Contains("fee") | dgv.Columns[c.ColumnName].Name.ToLower().Contains("price") | dgv.Columns[c.ColumnName].Name.ToLower().Contains("ï¿½Ò¤ï¿½") | dgv.Columns[c.ColumnName].Name.ToLower().Contains("cash") 
                             | dgv.Columns[c.ColumnName].Name.ToLower().Contains("net") | dgv.Columns[c.ColumnName].Name.ToLower().Contains("total") | dgv.Columns[c.ColumnName].Name.ToLower().Contains("credit")
-                            | dgv.Columns[c.ColumnName].Name.ToLower().Contains("amount") | dgv.Columns[c.ColumnName].Name.ToLower().Contains("ÁÙÅ¤èÒ")|
-                            dgv.Columns[c.ColumnName].Name.ToLower().Contains("¨èÒÂ") || dgv.Columns[c.ColumnName].Name.ToLower().Contains("Å´") || dgv.Columns[c.ColumnName].Name.ToLower().Contains("pay") || dgv.Columns[c.ColumnName].Name.ToLower().Contains("bath") || dgv.Columns[c.ColumnName].Name.ToLower().Contains("fee") || dgv.Columns[c.ColumnName].Name.ToLower().Contains("price")
-                                || dgv.Columns[c.ColumnName].Name.ToLower().Contains("ÃÒ¤Ò") || dgv.Columns[c.ColumnName].Name.ToLower().Contains("cash") || dgv.Columns[c.ColumnName].Name.ToLower().Contains("ÃÑº") || dgv.Columns[c.ColumnName].Name.ToLower().Contains("credit") || dgv.Columns[c.ColumnName].Name.ToLower().Contains("net") || dgv.Columns[c.ColumnName].Name.ToLower().Contains("total")
-                                || dgv.Columns[c.ColumnName].Name.ToLower().Contains("¤èÒ") || dgv.Columns[c.ColumnName].Name.ToLower().Contains("amount") || dgv.Columns[c.ColumnName].Name.ToLower().Contains("ÁÙÅ¤èÒ") || dgv.Columns[c.ColumnName].Name.ToLower().Contains("à§Ô¹") || dgv.Columns[c.ColumnName].Name.ToLower().Contains("ÅÓ´Ñº"))
+                            | dgv.Columns[c.ColumnName].Name.ToLower().Contains("amount") | dgv.Columns[c.ColumnName].Name.ToLower().Contains("ï¿½ï¿½Å¤ï¿½ï¿½")|
+                            dgv.Columns[c.ColumnName].Name.ToLower().Contains("ï¿½ï¿½ï¿½ï¿½") || dgv.Columns[c.ColumnName].Name.ToLower().Contains("Å´") || dgv.Columns[c.ColumnName].Name.ToLower().Contains("pay") || dgv.Columns[c.ColumnName].Name.ToLower().Contains("bath") || dgv.Columns[c.ColumnName].Name.ToLower().Contains("fee") || dgv.Columns[c.ColumnName].Name.ToLower().Contains("price")
+                                || dgv.Columns[c.ColumnName].Name.ToLower().Contains("ï¿½Ò¤ï¿½") || dgv.Columns[c.ColumnName].Name.ToLower().Contains("cash") || dgv.Columns[c.ColumnName].Name.ToLower().Contains("ï¿½Ñº") || dgv.Columns[c.ColumnName].Name.ToLower().Contains("credit") || dgv.Columns[c.ColumnName].Name.ToLower().Contains("net") || dgv.Columns[c.ColumnName].Name.ToLower().Contains("total")
+                                || dgv.Columns[c.ColumnName].Name.ToLower().Contains("ï¿½ï¿½ï¿½") || dgv.Columns[c.ColumnName].Name.ToLower().Contains("amount") || dgv.Columns[c.ColumnName].Name.ToLower().Contains("ï¿½ï¿½Å¤ï¿½ï¿½") || dgv.Columns[c.ColumnName].Name.ToLower().Contains("ï¿½Ô¹") || dgv.Columns[c.ColumnName].Name.ToLower().Contains("ï¿½Ó´Ñº"))
                             try 
 	                        {
                                 dr[c.ColumnName] = (row.Cells[c.ColumnName].Value + "" == "" || row.Cells[c.ColumnName].Value + "" == "0" || row.Cells[c.ColumnName].Value + "" == "0.00") ? "0" : Convert.ToDecimal(row.Cells[c.ColumnName].Value).ToString("###,###,###,###.##");//row.Cells[i].Value+""==""?"0":
@@ -1282,7 +1282,7 @@ namespace AryuwatSystem.DerClass
                                 dr[c.ColumnName] = row.Cells[c.ColumnName].Value + "";
 	                        }
                             
-                        //else if (dgv.Columns[c.ColumnName].Name.ToLower().Contains("date") || dgv.Columns[c.ColumnName].Name.ToLower().Contains("ÇÑ¹"))
+                        //else if (dgv.Columns[c.ColumnName].Name.ToLower().Contains("date") || dgv.Columns[c.ColumnName].Name.ToLower().Contains("ï¿½Ñ¹"))
                         //    dr[c.ColumnName] = Convert.ToDateTime(row.Cells[c.ColumnName].Value + "");
                         else
                             dr[c.ColumnName] = row.Cells[c.ColumnName].Value + "";
@@ -1349,10 +1349,10 @@ namespace AryuwatSystem.DerClass
                     {
                         if (column.Visible)
                         {
-                            if (column.Name.ToLower().Contains("¨èÒÂ") || column.Name.ToLower().Contains("Å´") || column.Name.ToLower().Contains("pay") || column.Name.ToLower().Contains("bath") || column.Name.ToLower().Contains("fee") || column.Name.ToLower().Contains("price") 
-                                || column.Name.ToLower().Contains("ÃÒ¤Ò") || column.Name.ToLower().Contains("cash")|| column.Name.ToLower().Contains("ÃÑº") || column.Name.ToLower().Contains("credit") || column.Name.ToLower().Contains("net") || column.Name.ToLower().Contains("total")
-                                || column.Name.ToLower().Contains("ËÑ¡") || column.Name.ToLower().Contains("¤èÒ") || column.Name.ToLower().Contains("amount") || column.Name.ToLower().Contains("ÁÙÅ¤èÒ") || column.Name.ToLower().Contains("à§Ô¹") || column.Name.ToLower().Contains("ÂÍ´")
-                                || column.Name.ToLower().Contains("ªÓÃĞ") || column.Name.ToLower().Contains("¨Ó¹Ç¹"))
+                            if (column.Name.ToLower().Contains("ï¿½ï¿½ï¿½ï¿½") || column.Name.ToLower().Contains("Å´") || column.Name.ToLower().Contains("pay") || column.Name.ToLower().Contains("bath") || column.Name.ToLower().Contains("fee") || column.Name.ToLower().Contains("price") 
+                                || column.Name.ToLower().Contains("ï¿½Ò¤ï¿½") || column.Name.ToLower().Contains("cash")|| column.Name.ToLower().Contains("ï¿½Ñº") || column.Name.ToLower().Contains("credit") || column.Name.ToLower().Contains("net") || column.Name.ToLower().Contains("total")
+                                || column.Name.ToLower().Contains("ï¿½Ñ¡") || column.Name.ToLower().Contains("ï¿½ï¿½ï¿½") || column.Name.ToLower().Contains("amount") || column.Name.ToLower().Contains("ï¿½ï¿½Å¤ï¿½ï¿½") || column.Name.ToLower().Contains("ï¿½Ô¹") || column.Name.ToLower().Contains("ï¿½Í´")
+                                || column.Name.ToLower().Contains("ï¿½ï¿½ï¿½ï¿½") || column.Name.ToLower().Contains("ï¿½Ó¹Ç¹"))
                             {
                                 TotalRow(column.Index, dgvData, excVat);
                                 if (columnTotalText < 0)
