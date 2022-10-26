@@ -207,10 +207,10 @@ namespace AryuwatSystem.DerClass
         public const string StrMsgInsertComplete = "บันทึกข้อมูลเสร็จสิ้น \"Saved\"";
         public const string StrMsgUpdateComplete = "แก้ไขข้อมูลเสร็จสิ้น \"Saved\"";
         public const string StrMsgDeleteComplete = "ลบข้อมูลเสร็จสิ้น \"Deleted.\"";
-        public const string StrConfirmDelete = "�׹�ѹ���ź������ \"Confirm Delete ?\"";
+        public const string StrConfirmDelete = "ยืนยันการลบข้อมูล \"Confirm Delete ?\"";
         public const string StrConfirm = "ยืนยันการบันทึกข้อมูล \"Confirm Save ?\"";
-        public const string StrMsgDeleteError = "�Դ��ͼԴ��Ҵ㹡��ź������ ���ͧ�ҡ \"Delete Error\"";
-        public const string StrMsgCannotSave = "�������ö�ѹ�֡�������� ���ͧ�ҡ \"Cannot Save\"";
+        public const string StrMsgDeleteError = "ไม่สามารถลบข้อมูลได้ \"Delete Error\"";
+        public const string StrMsgCannotSave = "ไม่สามารถบันทึกข้อมูลได้ \"Cannot Save\"";
         //public const string StrMsgConnotInsert = "�Դ��ͼԴ��Ҵ㹡�úѹ�֡������ ";
         public const string StrMsgInput = "��س��к�  ";
         public const string StrMsgPleaseSelect = "---��س����͡---";

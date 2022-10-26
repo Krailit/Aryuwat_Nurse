@@ -764,12 +764,13 @@ namespace AryuwatSystem.Forms
                 DataTable dtPro = ds.Tables[7];
                 DataTable dtHow = ds.Tables[8];
                 DataTable dtFreeTrans = ds.Tables[10];
+                DataTable dtRoom = ds.Tables[11];
 
                 using (var context = new EntitiesOPD_System())
                 {
                     if (!String.IsNullOrEmpty(vn))
                     {
-                        var getdate = context.MedicalOrders.Where(x => x.SONo == SO).FirstOrDefault();
+                        var getdate = context.MedicalOrders.Where(x => x.VN == vn).FirstOrDefault();
                         if (getdate != null)
                         {
                             dateTimePickerCreate.Value = getdate.Start_Date == null ? DateTime.Now : getdate.Start_Date.Value;
@@ -778,7 +779,7 @@ namespace AryuwatSystem.Forms
                     }
                     else
                     {
-                        var getdate = context.MedicalOrders.Where(x => x.VN == vn).FirstOrDefault();
+                        var getdate = context.MedicalOrders.Where(x => x.SONo == SO).FirstOrDefault();
                         if (getdate != null)
                         {
                             dateTimePickerCreate.Value = getdate.Start_Date == null ? DateTime.Now : getdate.Start_Date.Value;
@@ -804,29 +805,49 @@ namespace AryuwatSystem.Forms
                     f.Remark = item["Remark"] + "";
                     dicFreeTrans.Add(dickey, f);
                 }
-                //===================Promotion Grid==============
-                foreach (DataRow dr in dtPro.Rows)
-                {
-                    object[] myItems = {
-                                             false,//chk
-                                             dr["Pro_Code"] + "",
-                                             dr["Pro_Name"] + "",
-                                             dr["Amount"] + "",
-                                             dr["Pro_Price"] + "",
-                                             "",
-                                             dr["ListOrder"] + "",
-                                             dr["ListMS_Code"] + ""
 
-                                       };
-                    dataGridViewSelectListPro.Rows.Add(myItems);
-                }
-                if (dtPro.Rows.Count > 0)
+                if(SO.Contains("ROOM"))
                 {
-                    dataGridViewSelectListPro.Visible = true;
-                    splitContainer1.Panel1Collapsed = false;
-                    splitContainer1.Panel1.Show();
-                    dataGridViewSelectList.Columns["Amount"].ReadOnly = true;
+                    foreach (DataRow dr in dtRoom.Rows)
+                    {
+                        object[] myItems = {
+                                            false,//chk
+                                            dr["Room_Code"] + "",
+                                            dr["Room_Name"] + "",
+                                            1,
+                                            dr["Room_Price"] + "",
+                                            ""
+                                    };
+                        dataGridViewSelectListPro.Rows.Add(myItems);
+                    }
                 }
+                else
+                {
+                    foreach (DataRow dr in dtPro.Rows)
+                    {
+                        object[] myItems = {
+                                            false,//chk
+                                            dr["Pro_Code"] + "",
+                                            dr["Pro_Name"] + "",
+                                            dr["Amount"] + "",
+                                            dr["Pro_Price"] + "",
+                                            "",
+                                            dr["ListOrder"] + "",
+                                            dr["ListMS_Code"] + ""
+
+                                    };
+                        dataGridViewSelectListPro.Rows.Add(myItems);
+                    }
+                    if (dtPro.Rows.Count > 0)
+                    {
+                        dataGridViewSelectListPro.Visible = true;
+                        splitContainer1.Panel1Collapsed = false;
+                        splitContainer1.Panel1.Show();
+                        dataGridViewSelectList.Columns["Amount"].ReadOnly = true;
+                    }
+                }
+
+
                 //===================Promotion Grid==============
 
                 int rowCount = 0;
@@ -857,7 +878,14 @@ namespace AryuwatSystem.Forms
                 }
 
                 lbPromotion.Text = "";
-                lbPromotion.Text = string.Format("Promotion:{0}:{1}", PRO_Code, PRO_Name);
+                if(SO.Contains("ROOM"))
+                {
+                    lbPromotion.Text = "Room";
+                }
+                else
+                {
+                    lbPromotion.Text = string.Format("Promotion:{0}:{1}", PRO_Code, PRO_Name);
+                }
                 lbPromotion.Visible = PRO_Code != "xxx";
                 CN = dtMed.Rows[0]["CN"] + "";
                 radioButtonMO.Checked = dtMed.Rows[0]["MOType"] + "" == "Y";
