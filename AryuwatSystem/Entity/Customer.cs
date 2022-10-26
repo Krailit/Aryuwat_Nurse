@@ -97,14 +97,14 @@ namespace Entity
         public DateTime? StartDate { get; set; }
         public DateTime? EndDate { get; set; }
         // Customer Connect
-          public string ContactName { get; set; }
-          public string ContactFrom { get; set; }
-          public string ContactFB_IN_LineID { get; set; }
-          public string Interest { get; set; }
-          public DateTime? DateConnect { get; set; }
-          public DateTime? DateBooking { get; set; }
-          public bool? Is_Active { get; set; }
-            public decimal CloseBal { get; set; }
+        public string ContactName { get; set; }
+        public string ContactFrom { get; set; }
+        public string ContactFB_IN_LineID { get; set; }
+        public string Interest { get; set; }
+        public DateTime? DateConnect { get; set; }
+        public DateTime? DateBooking { get; set; }
+        public bool? Is_Active { get; set; }
+        public decimal CloseBal { get; set; }
      
                  
     }

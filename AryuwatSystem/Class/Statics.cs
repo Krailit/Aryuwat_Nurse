@@ -204,11 +204,11 @@ namespace AryuwatSystem.DerClass
         public const string StrEmpty = "===����к�===";
         public const string StrPleaseOk = "===�к�===";
         public const string StrShowRow = "===�ʴ������ŷ�����===";
-        public const string StrMsgInsertComplete = "�ѹ�֡���������º�������� \"Saved\"";
-        public const string StrMsgUpdateComplete = "��䢢��������º�������� \"Saved\"";
-        public const string StrMsgDeleteComplete = "ź���������º�������� \"Deleted.\"";
+        public const string StrMsgInsertComplete = "บันทึกข้อมูลเสร็จสิ้น \"Saved\"";
+        public const string StrMsgUpdateComplete = "แก้ไขข้อมูลเสร็จสิ้น \"Saved\"";
+        public const string StrMsgDeleteComplete = "ลบข้อมูลเสร็จสิ้น \"Deleted.\"";
         public const string StrConfirmDelete = "�׹�ѹ���ź������ \"Confirm Delete ?\"";
-        public const string StrConfirm = "�׹�ѹ��úѹ�֡������ \"Confirm Save ?\"";
+        public const string StrConfirm = "ยืนยันการบันทึกข้อมูล \"Confirm Save ?\"";
         public const string StrMsgDeleteError = "�Դ��ͼԴ��Ҵ㹡��ź������ ���ͧ�ҡ \"Delete Error\"";
         public const string StrMsgCannotSave = "�������ö�ѹ�֡�������� ���ͧ�ҡ \"Cannot Save\"";
         //public const string StrMsgConnotInsert = "�Դ��ͼԴ��Ҵ㹡�úѹ�֡������ ";
@@ -230,7 +230,7 @@ namespace AryuwatSystem.DerClass
         public static string StrFullName = "";
         public static string EncryptDecrypt_key = "&%#@?,:*";//EncryptText//DecryptText
         //public static Entity.TBLCMPConfig InfoConfig;
-        public static string SaveComplete= "�ѹ�֡���������º��������\nSave Complete";
+        public static string SaveComplete= "บันทึกข้อมูลเสร็จสิ้น\nSave Complete";
         public static string OverProCredit = "�Թǧ�Թ������� ��ͧ������͡��¡�ù���������\nOver Credit,Confirm Add.";
         public static void Application_AcquireRequestState()
         {

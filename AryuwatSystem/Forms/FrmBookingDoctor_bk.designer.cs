@@ -392,7 +392,7 @@ namespace AryuwatSystem.Forms
             this.calendar1.ContextMenuStrip = this.contextMenuStrip1;
             this.calendar1.Controls.Add(this.panelTootip);
             this.calendar1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.calendar1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.calendar1.Font = new System.Drawing.Font("Leelawadee UI", 9F);
             calendarHighlightRange1.DayOfWeek = System.DayOfWeek.Monday;
             calendarHighlightRange1.EndTime = System.TimeSpan.Parse("17:00:00");
             calendarHighlightRange1.StartTime = System.TimeSpan.Parse("08:00:00");

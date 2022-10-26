@@ -27,6 +27,10 @@ using HairCenter = Entity.HairCenter;
 using CosmeticSurgery = Entity.CosmeticSurgery;
 using ContactCustomer = Entity.ContactCustomer;
 using HowYouhear = Entity.HowYouhear;
+using System.Web;
+using System.Configuration;
+using System.Net;
+using Azure.Storage.Blobs;
 
 namespace AryuwatSystem.Forms
 {
@@ -40,6 +44,7 @@ namespace AryuwatSystem.Forms
         private Dictionary<string, string> dicSubDistrict = new Dictionary<string, string>();
         private DataTable dtPrefix = new DataTable();
         private DataTable dtPrefixCont = new DataTable();
+        private string ImgProfile = "";
         private string _imagePaht = "";
         private string _imagePahtSmartCard = "";
         private int intYear;
@@ -772,7 +777,7 @@ namespace AryuwatSystem.Forms
             GetDataCustomer(out customerInfo);
             //if (!SendImageToServer()) return;
             if (customerInfo == null) return;
-            SaveImage();
+            //SaveImage();
             SaveFileScan();
             try
             {
@@ -880,7 +885,6 @@ namespace AryuwatSystem.Forms
             info.Middlename = txtMiddleName.Text.Trim();
             info.Surname = txtSurName.Text.Trim();
             info.SaleConsult = txtEN.Text.Trim();
-
             //info.NickName = txtNickName.Text.Trim();
             //if (dtpBirtDate.Checked)
             //    info.DateBirth = dtpBirtDate.Value.Date;
@@ -1092,8 +1096,7 @@ namespace AryuwatSystem.Forms
             }
             info.HowYouhearInfo = howInfo;
 
-            info.Image = (_Changimage ? Path.GetFileName(_imageCustPath) : null);
-            info.ImagePath = (_Changimage ? _imageCustPath : null);
+            info.Image = ImgProfile;
 
             customerInfo = info;
             info.CreateBy = Entity.Userinfo.EN;
@@ -1464,28 +1467,28 @@ namespace AryuwatSystem.Forms
 
         private void DownLoadImage()
         {
-            try
-            {
-                string Remote_imagetPath = string.Format(@"\Customers\{0}\{1}.jpg", cn, cn);
-                string remoteMainFolder = string.Format(@"Customers\{0}\", cn);
-                _imagePaht = string.Format(@"{0}\Customers\{1}\{2}.jpg", Application.StartupPath, cn, cn);
-                // ftp.upload(Remote_imagetPath,imagepath);
-                /* Create Object Instance */
-                DermasterFtp ftpClient = new DermasterFtp(Entity.Userinfo.Server, Entity.Userinfo.ServerUser, Entity.Userinfo.ServerPass);
-                if (ftpClient.directoryListSimple(remoteMainFolder).Length <= 1)
-                    ftpClient.createDirectory(remoteMainFolder);
-                /* Upload a File */
-                //FileInfo f = new FileInfo(_imagetPath);
-                //if (!f.Exists)
-                /* Download a File */
-                ftpClient.download(Remote_imagetPath, _imagePaht);
+            //try
+            //{
+            //    string Remote_imagetPath = string.Format(@"\Customers\{0}\{1}.jpg", cn, cn);
+            //    string remoteMainFolder = string.Format(@"Customers\{0}\", cn);
+            //    _imagePaht = string.Format(@"{0}\Customers\{1}\{2}.jpg", Application.StartupPath, cn, cn);
+            //    // ftp.upload(Remote_imagetPath,imagepath);
+            //    /* Create Object Instance */
+            //    DermasterFtp ftpClient = new DermasterFtp(Entity.Userinfo.Server, Entity.Userinfo.ServerUser, Entity.Userinfo.ServerPass);
+            //    if (ftpClient.directoryListSimple(remoteMainFolder).Length <= 1)
+            //        ftpClient.createDirectory(remoteMainFolder);
+            //    /* Upload a File */
+            //    //FileInfo f = new FileInfo(_imagetPath);
+            //    //if (!f.Exists)
+            //    /* Download a File */
+            //    ftpClient.download(Remote_imagetPath, _imagePaht);
 
-                ftpClient = null;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            //    ftpClient = null;
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
         }
         private void SaveImage()
         {
@@ -1587,23 +1590,25 @@ namespace AryuwatSystem.Forms
 
                 if (dtCust.Rows[0]["BranchId"] + ""!="") cboBranch.SelectedValue = dtCust.Rows[0]["BranchId"] + "";
                 if (dtCust.Rows[0]["ProviderTypID"] + "" != "") comboBoxCustProvider.SelectedValue = dtCust.Rows[0]["ProviderTypID"] + "";
-                //Bind IMage
-                //if (!string.IsNullOrEmpty(Convert.ToString(dtCust.Rows[0]["Image"])))
-                //{
-                    try
-                    {
-                        //_imagePaht = Application.StartupPath + @"\Customers\" + txtCnPrefix.Text + txtCN.Text + ".jpg";
-                        DownLoadImage();  
-                        var callback = new Image.GetThumbnailImageAbort(ThumbnailCallback);
-                        picCustImage.SizeMode = PictureBoxSizeMode.StretchImage;
-                        picCustImage.Image =
-                            Image.FromFile(_imagePaht).GetThumbnailImage(200, 300, callback, IntPtr.Zero);
+                ImgProfile = dtCust.Rows[0]["Image"] + "";
+
+                try
+                {
+                    string containerName = ConfigurationManager.AppSettings["ProfileStorage"];
+                    var callback = new Image.GetThumbnailImageAbort(ThumbnailCallback);
+                    WebClient wc = new WebClient();
+                    byte[] bytes = wc.DownloadData(containerName + '/' + ImgProfile);
+                    MemoryStream ms = new MemoryStream(bytes);
+                    System.Drawing.Image img = System.Drawing.Image.FromStream(ms);
+
+                    picCustImage.SizeMode = PictureBoxSizeMode.StretchImage;
+                    picCustImage.Image = Image.FromStream(ms);
                         
-                    }
-                    catch (Exception exI)
-                    {
-                        picCustImage.Image = Properties.Resources.images;
-                    }
+                }
+                catch (Exception exI)
+                {
+                    picCustImage.Image = Properties.Resources.images;
+                }
 
                 //}
                 if (dtCust.Rows[0]["Dateregister"] + "" != "")
@@ -3044,9 +3049,22 @@ namespace AryuwatSystem.Forms
             {
                 picCustImage.ImageLocation = _imagePaht = imgPath;
                 _Changimage = true;
+
+                string connectionString = ConfigurationManager.AppSettings["BlobConnect"];
+                string containerName = ConfigurationManager.AppSettings["ProfileContainers"];
+                string FileName = "OPD_" + CN + "_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + "." + Path.GetFileName(imgPath).Split('.').ElementAt(1);
+                ImgProfile = FileName;
+                using (FileStream file = new FileStream(imgPath, FileMode.Open, FileAccess.Read))
+                {
+                    byte[] bytes = new byte[file.Length];
+                    file.Read(bytes, 0, (int)file.Length);
+                    BlobContainerClient container = new BlobContainerClient(connectionString, containerName);
+                    MemoryStream ms = new MemoryStream(bytes);
+                    BlobClient blob = container.GetBlobClient(FileName);
+                    blob.Upload(ms);
+                    ms.Close();
+                }
             }
-
-
             //FrmWebCapture webCapture = new FrmWebCapture(txtEN.Text.Trim());
             //if (webCapture.ShowDialog() == DialogResult.OK)
             //{
@@ -3420,7 +3438,7 @@ namespace AryuwatSystem.Forms
                         string filename = dgvFile.Rows[e.RowIndex].Cells["FileName"].Value + "";
                         //string fnameFullFath = Properties.Settings.Default.ImagePathServer + "\\MEDICALDOC\\" +
                         //                       dgvFile.Rows[e.RowIndex].Cells["FileName"].Value + "";
-                        DeleteFileFTP(filename);
+                        //DeleteFileFTP(filename);
                         //BrowseFile.Deletefile(fnameFullFath);
                         var intStatus = new Business.MedicalOrder().DeleteFileName(Id, "DELETEFileOPD");
                         dgvFile.Rows.RemoveAt(e.RowIndex);
@@ -3456,53 +3474,57 @@ namespace AryuwatSystem.Forms
         {
             try
             {
-                string _imagetPath = string.Format(@"{0}\{1}\{2}\{3}\{4}", Application.StartupPath, "MEDICALDOC", CN,"FILEOPD", filenameWithExt);
-                //string Remote_imagetPath = string.Format(@"\MEDICALDOC\{0}\{1}\{2}", CN, "FILEOPD", filenameWithExt);
-                string Remote_imagetPath = string.Format(@"\{0}", filenameWithExt);
-                /* Create Object Instance */
-                string Remote_Folder = string.Format(@"{0}\MEDICALDOC\{1}\{2}", Application.StartupPath, CN, "FILEOPD");
-                DirectoryInfo df = new DirectoryInfo(Remote_Folder);
-                if (!df.Exists)
-                    df.Create();
+                #region OLD FTP
+                //string _imagetPath = string.Format(@"{0}\{1}\{2}\{3}\{4}", Application.StartupPath, "MEDICALDOC", CN,"FILEOPD", filenameWithExt);
+                ////string Remote_imagetPath = string.Format(@"\MEDICALDOC\{0}\{1}\{2}", CN, "FILEOPD", filenameWithExt);
+                //string Remote_imagetPath = string.Format(@"\{0}", filenameWithExt);
+                ///* Create Object Instance */
+                //string Remote_Folder = string.Format(@"{0}\MEDICALDOC\{1}\{2}", Application.StartupPath, CN, "FILEOPD");
+                //DirectoryInfo df = new DirectoryInfo(Remote_Folder);
+                //if (!df.Exists)
+                //    df.Create();
 
-                DermasterFtp ftpClient = new DermasterFtp(Entity.Userinfo.Server, Entity.Userinfo.ServerUser, Entity.Userinfo.ServerPass);
-                //if (ftpClient.directoryListSimple(Remote_Folder).Length <= 1)
-                //    ftpClient.createDirectory(Remote_Folder);
-                /* Upload a File */
-                //FileInfo f = new FileInfo(_imagetPath);
-                //if (!f.Exists)
-                /* Download a File */
-                ftpClient.download(Remote_imagetPath, _imagetPath);
+                //DermasterFtp ftpClient = new DermasterFtp(Entity.Userinfo.Server, Entity.Userinfo.ServerUser, Entity.Userinfo.ServerPass);
+                ////if (ftpClient.directoryListSimple(Remote_Folder).Length <= 1)
+                ////    ftpClient.createDirectory(Remote_Folder);
+                ///* Upload a File */
+                ////FileInfo f = new FileInfo(_imagetPath);
+                ////if (!f.Exists)
+                ///* Download a File */
+                //ftpClient.download(Remote_imagetPath, _imagetPath);
 
-                /* Delete a File */
-                //  ftpClient.delete("etc/test.txt");
+                ///* Delete a File */
+                ////  ftpClient.delete("etc/test.txt");
 
-                /* Rename a File */
-                //  ftpClient.rename("etc/test.txt", "test2.txt");
+                ///* Rename a File */
+                ////  ftpClient.rename("etc/test.txt", "test2.txt");
 
-                /* Create a New Directory */
-                // ftpClient.createDirectory("etc/test");
+                ///* Create a New Directory */
+                //// ftpClient.createDirectory("etc/test");
 
-                ///* Get the Date/Time a File was Created */
-                //string fileDateTime = ftpClient.getFileCreatedDateTime("etc/test.txt");
-                //Console.WriteLine(fileDateTime);
+                /////* Get the Date/Time a File was Created */
+                ////string fileDateTime = ftpClient.getFileCreatedDateTime("etc/test.txt");
+                ////Console.WriteLine(fileDateTime);
 
-                ///* Get the Size of a File */
-                //string fileSize = ftpClient.getFileSize("etc/test.txt");
-                //Console.WriteLine(fileSize);
+                /////* Get the Size of a File */
+                ////string fileSize = ftpClient.getFileSize("etc/test.txt");
+                ////Console.WriteLine(fileSize);
 
-                ///* Get Contents of a Directory (Names Only) */
-                //string[] simpleDirectoryListing = ftpClient.directoryListDetailed("/etc");
-                //for (int i = 0; i < simpleDirectoryListing.C; i++) { Console.WriteLine(simpleDirectoryListing[i]); }
+                /////* Get Contents of a Directory (Names Only) */
+                ////string[] simpleDirectoryListing = ftpClient.directoryListDetailed("/etc");
+                ////for (int i = 0; i < simpleDirectoryListing.C; i++) { Console.WriteLine(simpleDirectoryListing[i]); }
 
-                ///* Get Contents of a Directory with Detailed File/Directory Info */
-                //string[] detailDirectoryListing = ftpClient.directoryListDetailed("/etc");
-                //for (int i = 0; i < detailDirectoryListing.Count(); i++) { Console.WriteLine(detailDirectoryListing[i]); }
-                /* Release Resources */
-                ftpClient = null;
-                if (File.Exists(_imagetPath))
-                    Process.Start(_imagetPath);
-                else MessageBox.Show("File not found.");
+                /////* Get Contents of a Directory with Detailed File/Directory Info */
+                ////string[] detailDirectoryListing = ftpClient.directoryListDetailed("/etc");
+                ////for (int i = 0; i < detailDirectoryListing.Count(); i++) { Console.WriteLine(detailDirectoryListing[i]); }
+                ///* Release Resources */
+                //ftpClient = null;
+                //if (File.Exists(_imagetPath))
+                //    Process.Start(_imagetPath);
+                //else MessageBox.Show("File not found.");
+                #endregion
+                string blobPreview = ConfigurationManager.AppSettings["BlobStorage"];
+                Process.Start(blobPreview + '/' + filenameWithExt);
             }
             catch (Exception ex)
             {
@@ -3626,10 +3648,27 @@ namespace AryuwatSystem.Forms
                         DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeInformation, "กรุณาระบุชื่อไฟล์ \"Filename is empty\"");
                         return;
                     }
+
+                    string blobPreview = ConfigurationManager.AppSettings["BlobStorage"];
+                    string connectionString = ConfigurationManager.AppSettings["BlobConnect"];
+                    string containerName = ConfigurationManager.AppSettings["BlobContainers"];
+                    string FileName = "OPD_" + CN + "_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + "." + Path.GetFileName(txtFilePath.Text).Split('.').ElementAt(1);
+                    //using (FileStream file = new FileStream(txtFilePath.Text, FileMode.Create, FileAccess.Write))
+                    using (FileStream file = new FileStream(txtFilePath.Text, FileMode.Open, FileAccess.Read))
+                    {
+                        byte[] bytes = new byte[file.Length];
+                        file.Read(bytes, 0, (int)file.Length);
+                        BlobContainerClient container = new BlobContainerClient(connectionString, containerName);
+                        MemoryStream ms = new MemoryStream(bytes, writable: false);
+                        BlobClient blob = container.GetBlobClient(FileName);
+                        blob.Upload(ms);
+                        ms.Close();
+                    }
+                    // Upload local file
                     object[] myItems = {
                                        DateTime.Now.ToString("yyyy/MM/dd_hhmmssfff"),
                                            txtFilePath.Text,
-                                       Path.GetFileName(txtFilePath.Text),
+                                       FileName,
                                        txtFileDetail.Text,
                                        imageList1.Images[2],
                                        imageList1.Images[1],
@@ -3677,10 +3716,10 @@ namespace AryuwatSystem.Forms
                     {
                         medDocInfo = new Entity.MedicalOrderDoc();
                         medDocInfo.FileName = item.Cells["FileName"].Value + "";
-                        FileInfo fn = new FileInfo(item.Cells["FilePath"].Value + "");
-                        string KeyFileName = "";
-                        KeyFileName = string.Format("OPD_{0}_{1}_{2}{3}", CN, (item.Cells["DateScan"].Value + "").Replace("/", ""), (item.Index+1), fn.Extension);
-                        medDocInfo.FileName = KeyFileName;// +"_" + DateTime.Now.ToString("yyyyMMddHH");
+                        //FileInfo fn = new FileInfo(item.Cells["FilePath"].Value + "");
+                        //string KeyFileName = "";
+                        //KeyFileName = string.Format("OPD_{0}_{1}_{2}{3}", CN, (item.Cells["DateScan"].Value + "").Replace("/", ""), (item.Index+1), fn.Extension);
+                        //medDocInfo.FileName = KeyFileName;// +"_" + DateTime.Now.ToString("yyyyMMddHH");
 
                         medDocInfo.QueryType = "INSERTFileOPD";
                         medDocInfo.CN = CN;
@@ -3694,11 +3733,11 @@ namespace AryuwatSystem.Forms
 
                 int? intStatus = new Business.MedicalOrder().InsertFileScan(listMedicalOrderDoc);
 
-                foreach (Entity.MedicalOrderDoc medicalOrderDoc in listMedicalOrderDoc)
-                {
-                    SaveImage(medicalOrderDoc.FileName, medicalOrderDoc.FilePath);
+                //foreach (Entity.MedicalOrderDoc medicalOrderDoc in listMedicalOrderDoc)
+                //{
+                //    SaveImage(medicalOrderDoc.FileName, medicalOrderDoc.FilePath);
 
-                }
+                //}
                 //DerUtility.PopMsg(DerUtility.EnuMsgType.MsgTypeInformation, "บันทึกข้อมูลเรียบร้อยแล้ว");
                 //this.Close();
             }
