@@ -198,27 +198,26 @@ namespace AryuwatSystem.DerClass
 
         #endregion
 
-        public const string StrNewRow = "=== �ʴ������� ===";
+        public const string StrNewRow = "=== แสดงทั้งหมด ===";
         public const string StrValidate = "=== โปรดระบุ ===";
         //public const string StrPlease = "=== โปรดระบุ===";
-        public const string StrEmpty = "===����к�===";
-        public const string StrPleaseOk = "===�к�===";
-        public const string StrShowRow = "===�ʴ������ŷ�����===";
-        public const string StrMsgInsertComplete = "บันทึกข้อมูลเสร็จสิ้น \"Saved\"";
-        public const string StrMsgUpdateComplete = "แก้ไขข้อมูลเสร็จสิ้น \"Saved\"";
-        public const string StrMsgDeleteComplete = "ลบข้อมูลเสร็จสิ้น \"Deleted.\"";
+        public const string StrEmpty = "=== ไม่ระบุ ===";
+        public const string StrPleaseOk = "=== ระบุ ===";
+        public const string StrShowRow = "=== แสดงข้อมูลทั้งหมด ===";
+        public const string StrMsgInsertComplete = "บันทึกข้อมูลเรียบร้อยแล้ว \"Saved\"";
+        public const string StrMsgUpdateComplete = "แก้ไขข้อมูลเรียบร้อยแล้ว \"Saved\"";
+        public const string StrMsgDeleteComplete = "ลบข้อมูลเรียบร้อยแล้ว \"Deleted.\"";
         public const string StrConfirmDelete = "ยืนยันการลบข้อมูล \"Confirm Delete ?\"";
         public const string StrConfirm = "ยืนยันการบันทึกข้อมูล \"Confirm Save ?\"";
-        public const string StrMsgDeleteError = "ไม่สามารถลบข้อมูลได้ \"Delete Error\"";
-        public const string StrMsgCannotSave = "ไม่สามารถบันทึกข้อมูลได้ \"Cannot Save\"";
-        //public const string StrMsgConnotInsert = "�Դ��ͼԴ��Ҵ㹡�úѹ�֡������ ";
-        public const string StrMsgInput = "��س��к�  ";
-        public const string StrMsgPleaseSelect = "---��س����͡---";
-        public const string StrMsgOther = "=== ��� �===";
-        public const string StrEdit = " [แก้ไข]";
-        public const string StrAdd = " [เพิ่ม]";
-        public const string StrPreview = "ʶҹ� [�ʴ�������]";
-        public const string strConfirmCloseForm = "�ѧ����ա�úѹ�֡������ ��ͧ��á�Ѻ仺ѹ�֡������������� ? \"No record\"";
+        public const string StrMsgDeleteError = "เกิดข้อผิดพลาดในการลบข้อมูลเนื่องจาก \"Delete Error\"";
+        public const string StrMsgCannotSave = "ไม่สามารถบันทึกข้อมูลได้เนื่องจาก \"Cannot Save\"";
+        public const string StrMsgInput = "กรุณาระบุ ";
+        public const string StrMsgPleaseSelect = "--- กรุณาเลือก ---";
+        public const string StrMsgOther = "=== อื่นๆ ===";
+        public const string StrEdit = "สถานะ [แก้ไข]";
+        public const string StrAdd = "สถานะ [เพิ่ม]";
+        public const string StrPreview = "สถานะ [แสดงข้อมูล]";
+        public const string strConfirmCloseForm = "ยังไม่มีการบันทึกข้อมูลต้องการกลับไปบันทึกข้อมูลหรือไม่ ? \"No record\"";
         //public const string StrEmployeeID="";
         public static string StrEmployeeID = "";
         public static string StrGroupId = "";
@@ -230,8 +229,8 @@ namespace AryuwatSystem.DerClass
         public static string StrFullName = "";
         public static string EncryptDecrypt_key = "&%#@?,:*";//EncryptText//DecryptText
         //public static Entity.TBLCMPConfig InfoConfig;
-        public static string SaveComplete= "บันทึกข้อมูลเสร็จสิ้น\nSave Complete";
-        public static string OverProCredit = "�Թǧ�Թ������� ��ͧ������͡��¡�ù���������\nOver Credit,Confirm Add.";
+        public static string SaveComplete= "บันทึกข้อมูลเรียบร้อยแล้ว\nSave Complete";
+        public static string OverProCredit = "เกินวงเงินโปรโมชั่นต้องการเลือกรายนี้หรือไม่\nOver Credit,Confirm Add.";
         public static void Application_AcquireRequestState()
         {
 

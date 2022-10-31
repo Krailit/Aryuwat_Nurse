@@ -10,7 +10,7 @@ using System.Text;
             string result;
             if (InputNumber == 0)
             {
-                result = "";//"�ٹ��ҷ��ǹ";
+                result = "";//"ศูนย์บาทถ้วน";
                 return result;
             }
 
@@ -47,7 +47,7 @@ using System.Text;
 
                 if (CNumber == 0 && i == 7)
                 {
-                    strPosition = "��ҹ";
+                    strPosition = "ล้าน";
                 }
                 else if (CNumber == 0)
                 {
@@ -58,28 +58,28 @@ using System.Text;
                     strPosition = PositionToText(i);
                 }
 
-                if (CNumber == 2 && strPosition == "�Ժ")
+                if (CNumber == 2 && strPosition == "สิบ")
                 {
-                    strNumber = "���";
+                    strNumber = "ยี่";
                 }
-                else if (CNumber == 1 && strPosition == "�Ժ")
+                else if (CNumber == 1 && strPosition == "สิบ")
                 {
                     strNumber = "";
                 }
-                else if (CNumber == 1 && strPosition == "��ҹ" && nLength >= 8)
+                else if (CNumber == 1 && strPosition == "ล้าน" && nLength >= 8)
                 {
                     if (CNumberBak == 0)
                     {
-                        strNumber = "˹��";
+                        strNumber = "หนึ่ง";
                     }
                     else
                     {
-                        strNumber = "���";
+                        strNumber = "เอ็ด";
                     }
                 }
                 else if (CNumber == 1 && strPosition == "" && nLength > 1)
                 {
-                    strNumber = "���";
+                    strNumber = "เอ็ด";
                 }
                 else
                 {
@@ -104,7 +104,7 @@ using System.Text;
                     CNumber = Convert.ToInt32(LastNumber.Substring(CountPos, 1));
                     if (CNumber == 1 && i == 2)
                     {
-                        strPosition = "�Ժ";
+                        strPosition = "สิบ";
                     }
                     else if (CNumber == 0)
                     {
@@ -115,9 +115,9 @@ using System.Text;
                         strPosition = PositionToText(i);
                     }
 
-                    if (CNumber == 2 && strPosition == "�Ժ")
+                    if (CNumber == 2 && strPosition == "สิบ")
                     {
-                        Stang = "���";
+                        Stang = "ยี่";
                     }
                     else if (CNumber == 1 && i == 2)
                     {
@@ -127,11 +127,11 @@ using System.Text;
                     {
                         if (CNumberBak == 0)
                         {
-                            Stang = "˹��";
+                            Stang = "หนึ่ง";
                         }
                         else
                         {
-                            Stang = "���";
+                            Stang = "เอ็ด";
                         }
                     }
                     else
@@ -143,7 +143,7 @@ using System.Text;
                     FinalStang = FinalStang + Stang + strPosition;
                 }
 
-                FinalStang = FinalStang + "ʵҧ��";
+                FinalStang = FinalStang + "สตางค์";
             }
             else
             {
@@ -153,13 +153,13 @@ using System.Text;
             string SubUnit;
             if (FinalStang == "")
             {
-                SubUnit = "�ҷ��ǹ";
+                SubUnit = "บาทถ้วน";
             }
             else
             {
                 if (Convert.ToDouble(FirstNumber) != 0)
                 {
-                    SubUnit = "�ҷ";
+                    SubUnit = "บาท";
                 }
                 else
                 {
@@ -179,23 +179,23 @@ using System.Text;
             {
                 case 0: _nText = "";
                     break;
-                case 1: _nText = "˹��";
+                case 1: _nText = "หนึ่ง";
                     break;
-                case 2: _nText = "�ͧ";
+                case 2: _nText = "สอง";
                     break;
-                case 3: _nText = "���";
+                case 3: _nText = "สาม";
                     break;
-                case 4: _nText = "���";
+                case 4: _nText = "สี่";
                     break;
-                case 5: _nText = "���";
+                case 5: _nText = "ห้า";
                     break;
-                case 6: _nText = "ˡ";
+                case 6: _nText = "หก";
                     break;
-                case 7: _nText = "��";
+                case 7: _nText = "เจ็ด";
                     break;
-                case 8: _nText = "Ỵ";
+                case 8: _nText = "แปด";
                     break;
-                case 9: _nText = "���";
+                case 9: _nText = "เก้า";
                     break;
             }
 
@@ -212,29 +212,29 @@ using System.Text;
                     break;
                 case 1: _nPos = "";
                     break;
-                case 2: _nPos = "�Ժ";
+                case 2: _nPos = "สิบ";
                     break;
-                case 3: _nPos = "����";
+                case 3: _nPos = "ร้อย";
                     break;
-                case 4: _nPos = "�ѹ";
+                case 4: _nPos = "พัน";
                     break;
-                case 5: _nPos = "����";
+                case 5: _nPos = "หมื่น";
                     break;
-                case 6: _nPos = "�ʹ";
+                case 6: _nPos = "แสน";
                     break;
-                case 7: _nPos = "��ҹ";
+                case 7: _nPos = "ล้าน";
                     break;
-                case 8: _nPos = "�Ժ";
+                case 8: _nPos = "สิบ";
                     break;
-                case 9: _nPos = "����";
+                case 9: _nPos = "ร้อย";
                     break;
-                case 10: _nPos = "�ѹ";
+                case 10: _nPos = "พัน";
                     break;
-                case 11: _nPos = "����";
+                case 11: _nPos = "หมื่น";
                     break;
-                case 12: _nPos = "�ʹ";
+                case 12: _nPos = "แสน";
                     break;
-                case 13: _nPos = "��ҹ";
+                case 13: _nPos = "ล้าน";
                     break;
             }
 
