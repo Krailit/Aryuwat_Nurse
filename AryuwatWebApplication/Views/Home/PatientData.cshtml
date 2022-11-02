@@ -181,13 +181,13 @@
                                         <p style="text-align:left">เวลา :</p>
                                         <div class="row">
                                             <div class="col-sm-4 col-lg-5">
-                                                <input type="number" v-model="popPatientData.Hour" style="font-size: 16px;width: 100%" max="23" />
+                                                <input type="number" v-model="popPatientData.Hour" style="font-size: 16px;width: 100%" maxlength="2"/>
                                             </div>
                                             <div class="col-sm-2 col-lg-1">
                                                 <p style="text-align:center">:</p>
                                             </div>
                                             <div class="col-sm-4 col-lg-5">
-                                                <input type="number" v-model="popPatientData.Minute" style="font-size: 16px;width: 100%" max="59" />
+                                                <input type="number" v-model="popPatientData.Minute" style="font-size: 16px;width: 100%" maxlength="2"/>
                                             </div>
                                         </div>
                                     </div>
@@ -1023,6 +1023,20 @@
             },
             'Search'() {
                 this.onFilterSet();
+            },
+            'popPatientData.Hour'(newVal, oldVal) {
+                if (newVal.length > 2) {
+                    this.popPatientData.Hour = oldVal;
+                }
+                //console.log("new", newVal);
+                //console.log("old", oldVal);
+            },
+            'popPatientData.Minute'(newVal, oldVal) {
+                if (newVal.length > 2) {
+                    this.popPatientData.Minute = oldVal;
+                }
+                //console.log("new", newVal);
+                //console.log("old", oldVal);
             },
             //'PatientData'(val) {
             //    $('#dataTable').DataTable().destroy();
