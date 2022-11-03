@@ -90,13 +90,14 @@ namespace AryuwatSystem.Forms
                 {
                     foreach (var items in itemselect)
                     {
-                        var dataSupplieTrans = context.SupplieTrans.Where(x => x.SONo == items && x.VN == "").ToList();
+                        var dataSupplieTrans = context.SupplieTrans.Where(x => x.SONo == items).ToList();
 
                         decimal? sumsup = 0;
 
                         foreach (var item in dataSupplieTrans)
                         {
-                            sumsup += item.PriceAfterDis;
+                            //sumsup += item.PriceAfterDis;
+                            sumsup += item.MS_Price * item.Amount;
                         }
 
                         decimal? creditpay = 0;
@@ -159,13 +160,13 @@ namespace AryuwatSystem.Forms
             {
                 using (var context = new m_DataSet.EntitiesOPD_System())
                 {
-                    var dataSupplieTrans = context.SupplieTrans.Where(x => x.SONo == cbbListItem.Text && x.VN == "").ToList();
+                    var dataSupplieTrans = context.SupplieTrans.Where(x => x.SONo == cbbListItem.Text).ToList();
 
                     decimal? sumsup = 0;
 
                     foreach (var item in dataSupplieTrans)
                     {
-                        sumsup += item.PriceAfterDis;
+                        sumsup += item.MS_Price * item.Amount;
                     }
 
                     decimal? creditpay = 0;
