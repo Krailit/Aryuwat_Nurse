@@ -126,7 +126,6 @@
             this.txtPassWord.PasswordChar = '~';
             this.txtPassWord.Size = new System.Drawing.Size(215, 29);
             this.txtPassWord.TabIndex = 1;
-            this.txtPassWord.Text = "admin";
             // 
             // txtUsername
             // 
@@ -136,7 +135,6 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(215, 29);
             this.txtUsername.TabIndex = 0;
-            this.txtUsername.Text = "admin";
             // 
             // PictureBox1
             // 
